@@ -31,6 +31,8 @@ For a baseline `(x0, y0)` and scale factor `k`:
 
 A single-axis touch control may use that axis as the driver while still applying the derived factor to the other axis when ratio lock is enabled.
 
+When the domain has minimum/maximum scale bounds, clamp the **shared factor** against the feasible interval of both axes before applying it. Clamping X and Y independently after scaling can break the ratio at the boundary.
+
 `X == Y` is a separate “square/equal axes” operation and must not be silently substituted for ratio lock.
 
 ## Fix and regression evidence
@@ -39,6 +41,7 @@ PR #73:
 - extracted `TouchScalePolicy`;
 - XY, X-driven, and Y-driven locked paths preserve the existing ratio;
 - added unit tests using a 120:80 non-square baseline;
+- added a boundary regression proving that a 900:100 baseline remains 9:1 when the driven axis reaches the 1000% ceiling;
 - explicit X / Y / XY touch axis presentation remains separate from the ratio-lock constraint.
 
 ## Scope
