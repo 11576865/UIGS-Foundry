@@ -72,6 +72,18 @@
         "preview and inspector coexist",
         "inspector becomes static/stacked or alternate presentation",
         "progressive disclosure"
+      ],
+      "production_realizations": [
+        {
+          "id": "REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH",
+          "platform": "web",
+          "project": "HSR-Voice-Archive-Builder",
+          "repository": "11576865/HSR-Voice-Archive-Builder",
+          "revision": "8777851bf8996c9a6fd8821f9ec8170e1d511922",
+          "role": "primary",
+          "verification_status": "source-verified",
+          "path": "domains/interface-grammar/realizations/manifests/REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH.json"
+        }
       ]
     },
     {
@@ -140,6 +152,18 @@
         "advanced groups are explicitly disclosed rather than permanently occupying equal hierarchy",
         "control IDs and domain semantics remain stable when regrouped",
         "grouping survives tablet/mobile reflow without duplicating controls"
+      ],
+      "production_realizations": [
+        {
+          "id": "REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH",
+          "platform": "web",
+          "project": "HSR-Voice-Archive-Builder",
+          "repository": "11576865/HSR-Voice-Archive-Builder",
+          "revision": "8777851bf8996c9a6fd8821f9ec8170e1d511922",
+          "role": "primary",
+          "verification_status": "source-verified",
+          "path": "domains/interface-grammar/realizations/manifests/REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH.json"
+        }
       ]
     },
     {
@@ -211,6 +235,18 @@
         "changing Focus and opening a pinned edit target are separate actions",
         "preview discovery never overrides renderer authority",
         "overlay/proxy state is transient interaction state, not canonical document state"
+      ],
+      "production_realizations": [
+        {
+          "id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+          "platform": "android-compose",
+          "project": "ASS-Workbench-Android",
+          "repository": "11576865/ASS-Workbench-Android",
+          "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+          "role": "primary",
+          "verification_status": "source-verified",
+          "path": "domains/interface-grammar/realizations/manifests/REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL.json"
+        }
       ]
     },
     {
@@ -274,6 +310,18 @@
         "two-level grouping is preferred over a flat strip of many equal-priority entries",
         "catalog resolves to existing tool capability",
         "must preserve persisted stable keys"
+      ],
+      "production_realizations": [
+        {
+          "id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+          "platform": "android-compose",
+          "project": "ASS-Workbench-Android",
+          "repository": "11576865/ASS-Workbench-Android",
+          "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+          "role": "primary",
+          "verification_status": "source-verified",
+          "path": "domains/interface-grammar/realizations/manifests/REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL.json"
+        }
       ]
     },
     {
@@ -339,6 +387,18 @@
         "removes presentation, not domain data",
         "missing pinned target remains UNRESOLVED instead of silently falling back to Focus",
         "convenience context only; not canonical target ownership"
+      ],
+      "production_realizations": [
+        {
+          "id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+          "platform": "android-compose",
+          "project": "ASS-Workbench-Android",
+          "repository": "11576865/ASS-Workbench-Android",
+          "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+          "role": "primary",
+          "verification_status": "source-verified",
+          "path": "domains/interface-grammar/realizations/manifests/REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL.json"
+        }
       ]
     },
     {
@@ -409,6 +469,18 @@
         "retain former pinned identity and expose affected count 0 instead of silently falling back",
         "fixed and floating/Canvas hosts consume the same resolver",
         "banner never becomes a mutation target or second owner"
+      ],
+      "production_realizations": [
+        {
+          "id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+          "platform": "android-compose",
+          "project": "ASS-Workbench-Android",
+          "repository": "11576865/ASS-Workbench-Android",
+          "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+          "role": "primary",
+          "verification_status": "source-verified",
+          "path": "domains/interface-grammar/realizations/manifests/REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL.json"
+        }
       ]
     },
     {
@@ -486,6 +558,18 @@
         "allowed only when pane exceeds available viewport height",
         "pane bounds only",
         "must fall back to non-sticky stacked or alternate presentation"
+      ],
+      "production_realizations": [
+        {
+          "id": "REALIZATION.WEB.MKV_FAST_MUXER.ADAPTIVE_OUTPUT_HUB",
+          "platform": "web",
+          "project": "MKV-Fast-Muxer",
+          "repository": "11576865/MKV-Fast-Muxer",
+          "revision": "e625c2b04de052c37b740a363a1930e6477da317",
+          "role": "conditional",
+          "verification_status": "source-verified",
+          "path": "domains/interface-grammar/realizations/manifests/REALIZATION.WEB.MKV_FAST_MUXER.ADAPTIVE_OUTPUT_HUB.json"
+        }
       ]
     },
     {
@@ -556,6 +640,18 @@
         "projection/clamp is temporary and does not overwrite larger saved geometry",
         "only committed geometry is serialized",
         "layout lock affects presentation movement, not the tool's domain binding or editability"
+      ],
+      "production_realizations": [
+        {
+          "id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+          "platform": "android-compose",
+          "project": "ASS-Workbench-Android",
+          "repository": "11576865/ASS-Workbench-Android",
+          "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+          "role": "primary",
+          "verification_status": "source-verified",
+          "path": "domains/interface-grammar/realizations/manifests/REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL.json"
+        }
       ]
     }
   ]
