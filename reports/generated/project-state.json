@@ -240,22 +240,22 @@
       "project": "UIGS-Foundry",
       "repository": "11576865/UIGS-Foundry",
       "default_branch": "main",
-      "head_sha": "8de9d51690b292bb03a2a57e52e09fc40198964a",
-      "head_commit_date": "2026-10-02T08:27:43Z",
+      "head_sha": "4c4c59fb45b3883fc55a9cde9c616bd47c1f1a31",
+      "head_commit_date": "2026-10-02T08:29:39Z",
       "tracked_workflows": [
         {
           "name": "Validate Foundry",
           "found": true,
           "status": "completed",
           "conclusion": "failure",
-          "head_sha": "627bcce9638dc5cf28c9569dd8e27933eb91fb6b",
-          "head_matches_main": false,
-          "run_id": 36984145276,
-          "run_number": 24,
+          "head_sha": "4c4c59fb45b3883fc55a9cde9c616bd47c1f1a31",
+          "head_matches_main": true,
+          "run_id": 36984338870,
+          "run_number": 25,
           "event": "push",
-          "created_at": "2026-10-02T08:27:38Z",
-          "updated_at": "2026-10-02T08:27:47Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36984145276"
+          "created_at": "2026-10-02T08:29:43Z",
+          "updated_at": "2026-10-02T08:29:54Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36984338870"
         },
         {
           "name": "Collect UIGS Outboxes",
@@ -290,21 +290,21 @@
           "found": true,
           "status": "in_progress",
           "conclusion": "",
-          "head_sha": "627bcce9638dc5cf28c9569dd8e27933eb91fb6b",
-          "head_matches_main": false,
-          "run_id": 36984145238,
-          "run_number": 6,
+          "head_sha": "4c4c59fb45b3883fc55a9cde9c616bd47c1f1a31",
+          "head_matches_main": true,
+          "run_id": 36984338899,
+          "run_number": 7,
           "event": "push",
-          "created_at": "2026-10-02T08:27:38Z",
-          "updated_at": "2026-10-02T08:27:42Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36984145238"
+          "created_at": "2026-10-02T08:29:43Z",
+          "updated_at": "2026-10-02T08:29:46Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36984338899"
         }
       ],
       "pending_intake": 0,
       "triage_records": 0,
-      "knowledge_records": 8,
-      "source_updated_at": "2026-10-02T08:27:47Z"
+      "knowledge_records": 9,
+      "source_updated_at": "2026-10-02T08:29:54Z"
     }
   ],
-  "source_max_updated_at": "2026-10-02T08:27:47Z"
+  "source_max_updated_at": "2026-10-02T08:29:54Z"
 }
