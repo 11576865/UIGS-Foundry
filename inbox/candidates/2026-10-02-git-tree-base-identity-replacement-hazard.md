@@ -15,6 +15,14 @@ The error was detected immediately by verifying the branch tree and compare resu
 5. force-moving the feature ref to the corrected commit;
 6. verifying `behind = 0` and the expected changed-file set.
 
+## Follow-up incident
+
+A second branch-sync incident showed a related but distinct hazard: even with a valid feature base tree and a correct two-parent merge commit, reconstructing the merge tree by overlaying only the *latest* main-side delta can still silently omit files introduced by an earlier main merge that never existed in the feature tree.
+
+The candidate merge correctly reported `behind = 0`, yet the full compare against the target main head showed an unexpected deletion of `docs/UI-EXPERIMENT-240-LEDGER.md`. The branch ref was corrected immediately by restoring the missing main file and re-verifying that the full changed-file set contained only intended feature changes.
+
+This demonstrates that ancestry correctness (`behind = 0`) is necessary but not sufficient. The full compare must also be inspected for unexpected removals or modifications before or immediately after moving the ref.
+
 ## Reusable rule
 
 Before any Git Data API operation that can move a public branch ref:
@@ -23,6 +31,7 @@ Before any Git Data API operation that can move a public branch ref:
 - assert the resolved tree SHA is non-empty and belongs to the expected parent commit;
 - construct the candidate commit before moving the branch ref;
 - inspect the resulting tree/diff or compare result;
+- reject any candidate whose full compare against the target base contains unexpected removals/modifications, even when `behind = 0`;
 - only then update the ref;
 - after the ref move, re-read the branch head and compare against its base.
 
@@ -30,7 +39,7 @@ An omitted `base_tree_sha` is not a benign default when the intent is an increme
 
 ## Stronger safe sequence
 
-`resolve parent commit -> verify parent tree -> create tree -> create commit -> inspect/compare commit -> update ref -> re-read/compare branch`
+`resolve parent commit -> verify parent tree -> create tree -> create commit -> full compare against exact target base -> validate changed-file allowlist -> update ref -> re-read/compare branch`
 
 Where possible, prefer a native merge/update-branch API over manual Git Data composition.
 
