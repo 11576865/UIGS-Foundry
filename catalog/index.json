@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "1.6",
+  "version": "1.7",
   "domains": [
     {
       "id": "interface-grammar",
@@ -306,6 +306,16 @@
       "id": "BUG.UIGS.GITHUB_TOKEN_PUSH_CHAIN_BREAK",
       "status": "validated",
       "path": "domains/reliability/bug-museum/BUG.UIGS.GITHUB_TOKEN_PUSH_CHAIN_BREAK.json"
+    },
+    {
+      "id": "OPS.GHA.OPTIMISTIC_REBASE_RETRY_WRITER",
+      "status": "experimental",
+      "path": "domains/operations/patterns/OPS.GHA.OPTIMISTIC_REBASE_RETRY_WRITER.json"
+    },
+    {
+      "id": "BUG.UIGS.CONCURRENT_BOT_WRITER_REF_RACE",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.UIGS.CONCURRENT_BOT_WRITER_REF_RACE.json"
     }
   ],
   "projects": [

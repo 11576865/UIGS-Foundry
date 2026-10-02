@@ -68,8 +68,7 @@ jobs:
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
           git add -A outbox reports/outbox-status.md reports/red-reason-status.md reports/promotion-status.md
           git commit -m "chore(intake): collect, triage, and propose durable intake"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          bash tools/push_with_rebase_retry.sh main 5
 
       - name: Surface collector failures
         if: steps.collect.outcome == 'failure'

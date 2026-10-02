@@ -12,3 +12,7 @@ Therefore, dependent transformations are executed in the **same workflow run** w
 Separate workflows remain useful for direct human/repository pushes, scheduled entry points, and manual repair runs, but they are not used as an implicit bot-commit event bus.
 
 If a future design intentionally requires cross-workflow triggering, it must use an explicit supported trigger/token design and document the privilege boundary.
+
+## Writer concurrency
+
+Foundry has several workflows that may write to `main`. They do not rely on a single pre-push `pull --rebase`. All writers use `tools/push_with_rebase_retry.sh`: fetch current main, rebase, attempt push, and retry boundedly if a disjoint writer wins the race. A true rebase conflict remains an explicit failure.

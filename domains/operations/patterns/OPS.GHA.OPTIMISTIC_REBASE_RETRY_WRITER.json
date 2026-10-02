@@ -1,0 +1,29 @@
+{
+  "id": "OPS.GHA.OPTIMISTIC_REBASE_RETRY_WRITER",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "多个 GitHub Actions 写入同一分支时采用 fetch/rebase/push 重试，而不是单次 pull 后假设远端不再移动",
+  "summary": "多个独立自动化会同时生成报告、索引、Intake 或视觉基线。即使每个 workflow 在 push 前执行一次 pull --rebase，远端仍可能在 rebase 与 push 之间前进。写入器应把‘远端移动’视为可重试的乐观并发冲突：重新 fetch/rebase 后再 push；真正的内容冲突则失败并显式暴露。",
+  "principles": [
+    "A successful pre-push rebase does not lock the remote ref.",
+    "Non-fast-forward caused by an intervening disjoint writer is retryable.",
+    "Content/rebase conflicts are not silently auto-resolved.",
+    "Repository writers share one tested retry helper instead of copy-pasted ad-hoc shell.",
+    "Do not serialize every writer with a global concurrency group when dropping/replacing pending work would be unacceptable."
+  ],
+  "provenance": [
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture UI Reference Baselines run 36985008317",
+      "revision": "a6c6372d3fb587c1090d94d9e32b0866e6620e82",
+      "evidence_level": "observed remote ref race after successful pull --rebase"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry:tools/push_with_rebase_retry.sh",
+      "revision": "implementation 2026-10-02",
+      "evidence_level": "implemented writer guard"
+    }
+  ],
+  "created": "2026-10-02"
+}

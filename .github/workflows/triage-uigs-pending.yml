@@ -59,5 +59,4 @@ jobs:
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
           git add -A outbox/triage outbox/proposals reports/red-reason-status.md reports/promotion-status.md
           git commit -m "chore(triage): classify and propose pending intake"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          bash tools/push_with_rebase_retry.sh main 5
