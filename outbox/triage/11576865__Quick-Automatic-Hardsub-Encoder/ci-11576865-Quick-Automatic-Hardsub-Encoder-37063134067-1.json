@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37063134067-1",
+  "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+  "packet_sha256": "73aa0d524fb135936a5a39874da16bde39dbae6525ac27d00d21f32cc908e880",
+  "triage_status": "needs-review",
+  "record_type": "ci_failure",
+  "routing_hints": [
+    "architecture",
+    "interface-grammar",
+    "operations",
+    "red-reason",
+    "reliability"
+  ],
+  "red_reason": {
+    "category": "unknown",
+    "confidence": 0.0,
+    "needs_review": true,
+    "signals": [],
+    "matched_rules": []
+  },
+  "related_records": [],
+  "created_at": "2026-10-02T20:50:46+00:00",
+  "triaged_at": "2026-10-02T22:15:00+00:00"
+}

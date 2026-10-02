@@ -2,7 +2,7 @@
 
 Proposals total/open: 4/3
 Reviews: 1
-Typed intake records: 1
+Typed intake records: 2
 
 ## Review decisions
 - accept: 1
