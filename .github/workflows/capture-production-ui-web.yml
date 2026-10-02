@@ -1,4 +1,5 @@
 name: Capture Production UI Web
+# source checkout intentionally follows current MKV main
 
 on:
   push:
@@ -20,9 +21,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  mkv-output-hub:
+  mkv:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
@@ -45,74 +46,38 @@ jobs:
         run: |
           set -euo pipefail
           nohup npm run dev -- --host 127.0.0.1 --port 4173 > "$RUNNER_TEMP/mkv-vite.log" 2>&1 &
-          echo $! > "$RUNNER_TEMP/mkv-vite.pid"
           for i in {1..60}; do
             if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
             sleep 1
           done
           cat "$RUNNER_TEMP/mkv-vite.log"
           exit 1
-      - name: Capture declared MKV production state
+      - name: Capture all declared MKV production states
         shell: bash
         run: |
           set -euo pipefail
-          OUT="$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png"
-          META="$RUNNER_TEMP/mkv-capture.json"
-          mkdir -p "$(dirname "$OUT")"
-          node .capture/mkv/.uigs/capture-ui.mjs \
-            --capture MKV.OUTPUT_HUB.DESKTOP_DARK \
-            --base-url http://127.0.0.1:4173 \
-            --output "$OUT" \
-            --metadata-output "$META"
+          mkdir -p domains/interface-grammar/visual-evidence/images/MKV
           SHA="$(git -C .capture/mkv rev-parse HEAD)"
-          python tools/register_visual_evidence.py \
-            --contract .capture/mkv/.uigs/ui-visual-capture.json \
-            --capture-id MKV.OUTPUT_HUB.DESKTOP_DARK \
-            --source-repository 11576865/MKV-Fast-Muxer \
-            --source-revision "$SHA" \
-            --image "$OUT" \
-            --metadata "$META" \
-            --output-manifest domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json
-      - name: Persist source visual evidence first
+          mapfile -t IDS < <(python -c 'import json; print("\n".join(x["id"] for x in json.load(open(".capture/mkv/.uigs/ui-visual-capture.json",encoding="utf-8"))["captures"]))')
+          for ID in "${IDS[@]}"; do
+            OUT="domains/interface-grammar/visual-evidence/images/MKV/${ID}.png"
+            META="$RUNNER_TEMP/${ID}.json"
+            node .capture/mkv/.uigs/capture-ui.mjs --capture "$ID" --base-url http://127.0.0.1:4173 --output "$OUT" --metadata-output "$META"
+            python tools/register_visual_evidence.py --contract .capture/mkv/.uigs/ui-visual-capture.json --capture-id "$ID" --source-repository 11576865/MKV-Fast-Muxer --source-revision "$SHA" --image "$OUT" --metadata "$META" --output-manifest "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.${ID}.json"
+          done
+      - name: Persist evidence and indexes
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "uigs-foundry-bot"
-          git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          SOURCE_PATHS=(
-            domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png
-            domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json
-          )
-          if [[ -n "$(git status --porcelain -- "${SOURCE_PATHS[@]}")" ]]; then
-            git add -A "${SOURCE_PATHS[@]}"
-            git commit -m "chore(uigs): capture MKV production UI evidence"
-            bash tools/push_with_rebase_retry.sh main 5
-          else
-            git fetch origin main
-            git rebase origin/main
-          fi
-      - name: Rebuild visual evidence indexes from latest source state
-        run: |
           python tools/build_visual_evidence_index.py
           python tools/generate_ui_knowledge_report.py
           python tools/test_register_visual_evidence.py
           python tools/test_ui_evidence_resolver.py
-      - name: Persist derived visual indexes
-        shell: bash
-        run: |
-          set -euo pipefail
-          DERIVED_PATHS=(
-            domains/interface-grammar/visual-evidence/index.json
-            domains/interface-grammar/visual-evidence/coverage.json
-            reports/generated/ui-knowledge-coverage.json
-            reports/generated/ui-knowledge-coverage.md
-          )
-          if [[ -z "$(git status --porcelain -- "${DERIVED_PATHS[@]}")" ]]; then
-            echo "Derived Web visual indexes unchanged."
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)" ]]; then
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add -A "${DERIVED_PATHS[@]}"
-          git commit -m "chore(uigs): refresh production visual evidence index"
+          git add -A domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md
+          git commit -m "chore(uigs): capture MKV production UI evidence"
           bash tools/push_with_rebase_retry.sh main 5
