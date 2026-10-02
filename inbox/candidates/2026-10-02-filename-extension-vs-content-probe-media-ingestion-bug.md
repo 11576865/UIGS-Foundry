@@ -97,3 +97,20 @@ content identity says ASS
 The fix makes preview eligibility, cue loading and preview rendering consume the already-detected subtitle track format rather than re-deriving format from the filename. This strengthens the reusable rule: once a semantic/content identity has been established, downstream capability gates must consume that identity consistently instead of independently re-classifying the resource from weaker hints.
 
 This is additional evidence for the existing Bug candidate, not a new Canonical rule.
+
+
+## Additional evidence — font identity and derived output metadata
+
+MKV-Fast-Muxer PR #58 extends the content-authority rule to fonts. The old single and batch paths filtered TTF / OTF / TTC / OTC by filename suffix even though the application already had an internal font parser capable of reading actual SFNT faces and tables.
+
+The revised path accepts verified font content with unknown or misleading suffixes and rejects supported-looking filenames whose internal structure cannot be parsed. More importantly, the content identity is propagated beyond the initial acceptance gate:
+
+- libass preview uses a virtual suffix derived from verified font structure;
+- HarfBuzz subsetting decides whether a resource is a subsettable single font from verified identity rather than the original suffix;
+- Matroska attachment MIME is derived from verified identity;
+- when the source suffix conflicts with verified font structure, the generated attachment filename receives a structure-consistent `.ttf` / `.otf` / `.ttc` / `.otc` suffix, so the original naming error is not exported into downstream playback;
+- collision handling operates on that normalized attachment name.
+
+This adds a reusable refinement to the existing Bug candidate: correcting the ingestion gate is insufficient if downstream temporary names, conversion/subset decisions, MIME assignment or exported filenames independently fall back to weaker filename hints.
+
+This remains Bug / Candidate-level evidence, not Canonical.
