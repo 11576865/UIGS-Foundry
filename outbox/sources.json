@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "repository": "11576865/ASS-Workbench-Android",
+      "branch": "uigs-outbox",
+      "path_prefix": "packets/"
+    },
+    {
+      "repository": "11576865/Character-Voice-Service",
+      "branch": "uigs-outbox",
+      "path_prefix": "packets/"
+    },
+    {
+      "repository": "11576865/MKV-Fast-Muxer",
+      "branch": "uigs-outbox",
+      "path_prefix": "packets/"
+    },
+    {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "branch": "uigs-outbox",
+      "path_prefix": "packets/"
+    },
+    {
+      "repository": "11576865/HSR-Voice-Archive-Builder",
+      "branch": "uigs-outbox",
+      "path_prefix": "packets/"
+    }
+  ]
+}

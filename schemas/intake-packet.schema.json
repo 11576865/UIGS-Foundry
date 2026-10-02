@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/intake-packet.schema.json",
+  "title": "UIGS Intake Packet",
+  "type": "object",
+  "required": [
+    "packet_version",
+    "packet_id",
+    "status",
+    "record_type",
+    "title",
+    "summary",
+    "source_repository",
+    "source_event",
+    "created_at",
+    "dedupe_key"
+  ],
+  "properties": {
+    "packet_version": {
+      "const": 1
+    },
+    "packet_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+$",
+      "minLength": 3,
+      "maxLength": 180
+    },
+    "status": {
+      "const": "pending"
+    },
+    "record_type": {
+      "enum": [
+        "observation",
+        "candidate",
+        "bug",
+        "case",
+        "test",
+        "lesson",
+        "ci_failure"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8000
+    },
+    "source_repository": {
+      "type": "string",
+      "pattern": "^[^/]+/[^/]+$"
+    },
+    "source_event": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_ref": {
+      "type": "string"
+    },
+    "source_sha": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "dedupe_key": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 500
+    },
+    "routing_hints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}
