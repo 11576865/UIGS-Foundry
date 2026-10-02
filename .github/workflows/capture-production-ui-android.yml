@@ -23,7 +23,7 @@ concurrency:
 jobs:
   ass-android:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
         with:
@@ -93,8 +93,10 @@ jobs:
               if capture["id"]=="ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE":
                   meta["state_source"]="MainActivity default launch"
               else:
-                  meta["state_source"]="EditorRegressionHostActivity deterministic fixture"
+                  meta["state_source"]=capture.get("activity") or capture.get("fixture",{}).get("source") or "instrumentation fixture"
                   meta["instrumentation_test"]=capture.get("build",{}).get("test_class")
+                  meta["fixture_kind"]=capture.get("fixture",{}).get("kind")
+                  meta["fixture_source"]=capture.get("fixture",{}).get("source")
                   meta["fixture_state"]=capture.get("fixture",{}).get("state")
               root.joinpath(capture["id"]+".json").write_text(json.dumps(meta,indent=2)+"\n",encoding="utf-8")
           PY
