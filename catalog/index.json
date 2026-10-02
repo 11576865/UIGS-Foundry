@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "1.5",
+  "version": "1.6",
   "domains": [
     {
       "id": "interface-grammar",
@@ -296,6 +296,16 @@
       "id": "BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY",
       "status": "validated",
       "path": "domains/reliability/bug-museum/BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.json"
+    },
+    {
+      "id": "OPS.GHA.NON_RECURSIVE_BOT_PIPELINE",
+      "status": "experimental",
+      "path": "domains/operations/patterns/OPS.GHA.NON_RECURSIVE_BOT_PIPELINE.json"
+    },
+    {
+      "id": "BUG.UIGS.GITHUB_TOKEN_PUSH_CHAIN_BREAK",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.UIGS.GITHUB_TOKEN_PUSH_CHAIN_BREAK.json"
     }
   ],
   "projects": [

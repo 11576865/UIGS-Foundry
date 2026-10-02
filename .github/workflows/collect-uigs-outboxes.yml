@@ -38,24 +38,36 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: python tools/collect_outboxes.py
 
-      - name: Validate Foundry after intake
+      - name: Test and triage newly collected Pending
+        run: |
+          python tools/test_triage_pending.py
+          python tools/triage_pending.py
+          python tools/generate_red_reason_report.py
+
+      - name: Generate reviewable proposals in the same run
+        run: |
+          python tools/test_propose_promotions.py
+          python tools/propose_promotions.py
+          python tools/generate_promotion_report.py
+
+      - name: Validate Foundry after intake pipeline
         run: python tools/validate_foundry.py
 
       - name: Report generator smoke
         run: python tools/generate_reports.py
 
-      - name: Commit imported pending packets
+      - name: Commit intake pipeline outputs
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- outbox reports/outbox-status.md; then
-            echo "No new outbox packets."
+          if [[ -z "$(git status --porcelain -- outbox reports/outbox-status.md reports/red-reason-status.md reports/promotion-status.md)" ]]; then
+            echo "No new intake pipeline outputs."
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add -A outbox reports/outbox-status.md
-          git commit -m "chore(intake): collect durable project outboxes"
+          git add -A outbox reports/outbox-status.md reports/red-reason-status.md reports/promotion-status.md
+          git commit -m "chore(intake): collect, triage, and propose durable intake"
           git pull --rebase origin main
           git push origin HEAD:main
 

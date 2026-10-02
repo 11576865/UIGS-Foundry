@@ -25,21 +25,30 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Capture declared baselines with hosted Chrome
         run: python tools/capture_reference_baselines.py
+
       - name: Validate showcase manifests and hashes
         run: python tools/test_ui_showcases.py
-      - name: Commit changed baselines
+
+      - name: Rebuild dependent search/coverage in the same run
+        run: |
+          python tools/build_ui_search_index.py
+          python tools/test_ui_pattern_query.py
+          python tools/test_ui_composition.py
+
+      - name: Commit changed baselines and derived indexes
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$(git status --porcelain -- domains/interface-grammar/showcases/baselines domains/interface-grammar/showcases/manifests)" ]]; then
-            echo "Reference baselines unchanged."
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/showcases domains/interface-grammar/search/index.json)" ]]; then
+            echo "Reference baselines and derived indexes unchanged."
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add -A domains/interface-grammar/showcases/baselines domains/interface-grammar/showcases/manifests
-          git commit -m "chore(uigs): refresh reference visual baselines"
+          git add -A domains/interface-grammar/showcases domains/interface-grammar/search/index.json
+          git commit -m "chore(uigs): refresh reference baselines and derived index"
           git pull --rebase origin main
           git push origin HEAD:main

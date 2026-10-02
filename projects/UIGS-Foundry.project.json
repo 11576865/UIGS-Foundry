@@ -35,6 +35,10 @@
     "Validate Foundry",
     "Collect UIGS Outboxes",
     "Triage UIGS Pending",
-    "Generate UIGS Project State"
+    "Generate UIGS Project State",
+    "Capture UI Reference Baselines",
+    "Refresh UI Search Index",
+    "Propose UIGS Promotions",
+    "Review UIGS Promotion"
   ]
 }

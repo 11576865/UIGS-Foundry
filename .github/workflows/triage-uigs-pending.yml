@@ -7,7 +7,9 @@ on:
       - 'outbox/pending/**'
       - 'triage/**'
       - 'tools/triage_pending.py'
+      - 'tools/propose_promotions.py'
       - 'tools/generate_red_reason_report.py'
+      - 'tools/generate_promotion_report.py'
       - '.github/workflows/triage-uigs-pending.yml'
   workflow_dispatch:
 
@@ -26,25 +28,36 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Test triage logic
         run: python tools/test_triage_pending.py
+
       - name: Triage pending packets
         run: python tools/triage_pending.py
+
       - name: Generate Red Reason report
         run: python tools/generate_red_reason_report.py
+
+      - name: Propose typed records in the same run
+        run: |
+          python tools/test_propose_promotions.py
+          python tools/propose_promotions.py
+          python tools/generate_promotion_report.py
+
       - name: Validate Foundry
         run: python tools/validate_foundry.py
-      - name: Commit triage outputs
+
+      - name: Commit triage and proposal outputs
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$(git status --porcelain -- outbox/triage reports/red-reason-status.md)" ]]; then
-            echo "No triage changes."
+          if [[ -z "$(git status --porcelain -- outbox/triage outbox/proposals reports/red-reason-status.md reports/promotion-status.md)" ]]; then
+            echo "No triage/proposal changes."
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add -A outbox/triage reports/red-reason-status.md
-          git commit -m "chore(triage): classify pending intake"
+          git add -A outbox/triage outbox/proposals reports/red-reason-status.md reports/promotion-status.md
+          git commit -m "chore(triage): classify and propose pending intake"
           git pull --rebase origin main
           git push origin HEAD:main

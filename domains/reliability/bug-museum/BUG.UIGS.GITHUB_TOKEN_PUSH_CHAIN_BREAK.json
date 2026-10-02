@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.UIGS.GITHUB_TOKEN_PUSH_CHAIN_BREAK",
+  "type": "bug",
+  "status": "validated",
+  "title": "GITHUB_TOKEN 写回的 bot commit 不会继续触发依赖 push workflow，导致自动化链静默断开",
+  "symptom": "Capture UI Reference Baselines 成功写回 baseline manifests/PNGs 后，没有触发按 showcase manifests 监听的 Refresh UI Search Index。相同机制也会威胁 Collector -> Triage -> Proposal 这类依赖 bot commit 串联的链路。",
+  "root_cause": "GitHub Actions 对仓库 GITHUB_TOKEN 触发的事件实施递归保护；除受支持的显式例外外，GITHUB_TOKEN 产生的事件不会创建新的 workflow run。因此把一个 workflow 的 bot commit 当作下一个 push workflow 的触发器是不成立的。",
+  "resolution": [
+    "Baseline workflow 在捕获 PNG 后同一 run 内重建 search index/showcase coverage。",
+    "Collect Outboxes workflow 在同一 run 内继续执行 Triage、Red Reason、Promotion Proposal 与状态报告。",
+    "Triage workflow 在同一 run 内生成 Promotion Proposal。",
+    "Review workflow 在同一 run 内重建 Promotion Status。",
+    "修复 Collector 的首次 untracked output 检测，统一使用 git status --porcelain。"
+  ],
+  "regression_guard": [
+    "automation/README.md 明确禁止把 GITHUB_TOKEN bot commit 当作隐式事件总线。",
+    "Collect、Triage、Baseline、Review workflow 均包含其必要的下游派生步骤。",
+    "关键链路仍保留可手工运行的独立 workflow 作为 repair entry point。"
+  ],
+  "reusable_lesson": "CI/CD 编排的持久化边界和触发边界必须分开建模：commit 成功并不等于下游自动化会被事件系统调度。",
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "813215e1c8a76d90577391cdc6848b9e4f218bcf",
+      "evidence_level": "observed no downstream workflow run after bot baseline commit"
+    },
+    {
+      "source_type": "web",
+      "source": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow",
+      "evidence_level": "GitHub official documentation"
+    }
+  ]
+}

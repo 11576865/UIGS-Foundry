@@ -1,0 +1,28 @@
+{
+  "id": "OPS.GHA.NON_RECURSIVE_BOT_PIPELINE",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "GitHub Actions 派生自动化应在同一运行内完成，而不是依赖 GITHUB_TOKEN bot commit 串联 push workflow",
+  "summary": "当一个 workflow 使用仓库 GITHUB_TOKEN 写回 commit 时，该 commit 的普通 push 事件不会继续触发新的 workflow run。需要顺序完成的收集、分诊、提案、派生索引和报告应在同一 workflow run 内显式执行，或使用明确的 workflow_dispatch/repository_dispatch/更高权限 token 方案；不得把 bot commit 当作隐式事件总线。",
+  "principles": [
+    "A producer workflow owns dependent deterministic transformations needed for a complete transaction.",
+    "Bot commits are persistence outputs, not assumed workflow triggers.",
+    "Separate workflows may provide human-push/manual repair entry points without being required for pipeline continuity.",
+    "Avoid introducing a broad PAT solely to recover implicit push chaining when same-run orchestration is sufficient.",
+    "Pipeline reports and derived indexes are committed atomically with their source transformation when practical."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "813215e1c8a76d90577391cdc6848b9e4f218bcf",
+      "evidence_level": "observed baseline bot commit produced no downstream push workflow run"
+    },
+    {
+      "source_type": "web",
+      "source": "https://docs.github.com/en/actions/concepts/security/github_token",
+      "evidence_level": "GitHub official documented trigger behavior"
+    }
+  ],
+  "created": "2026-10-02"
+}
