@@ -12,11 +12,11 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
-  "source_revision": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
-  "sha256": "c5f43aee3b1d971f3ff648fd9d382161fab8618e1f0dddc52bce56f86ddc96a3",
+  "source_revision": "fe8c6184405a9056e213d10818ac5e225c63f065",
+  "sha256": "593604181132e7ed84e5f343ebb9e5196ba2e1fec58f0ed2e2460eb02432d3fd",
   "image": {
-    "width": 1000,
-    "height": 1600
+    "width": 1600,
+    "height": 1000
   },
   "environment": {
     "schema_version": 1,
@@ -33,7 +33,9 @@
     },
     "density": 240,
     "font_scale": 1.0,
-    "capture_surface": "android-compositor"
+    "capture_surface": "android-compositor",
+    "orientation_lock": "natural-0 + wide wm size",
+    "declared_orientation": "landscape"
   },
   "capture_contract": {
     "adapter": "android-emulator-screencap",
@@ -52,14 +54,15 @@
       },
       "density": 240,
       "locale": "zh-CN",
-      "font_scale": 1
+      "font_scale": 1,
+      "orientation": "landscape"
     },
     "ready": {
       "settle_ms": 3500
     }
   },
-  "change_status": "new",
-  "previous_sha256": null,
+  "change_status": "changed",
+  "previous_sha256": "c5f43aee3b1d971f3ff648fd9d382161fab8618e1f0dddc52bce56f86ddc96a3",
   "limitations": [
     "This initial state captures the full running APK but does not load a video or ASS fixture.",
     "Renderer-backed subtitle/video states require a later fixture-backed capture."
@@ -68,13 +71,13 @@
     {
       "source_type": "repository",
       "source": "11576865/ASS-Workbench-Android",
-      "revision": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
+      "revision": "fe8c6184405a9056e213d10818ac5e225c63f065",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/ASS-Workbench-Android:ui-visual-capture.json",
-      "revision": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
+      "revision": "fe8c6184405a9056e213d10818ac5e225c63f065",
       "evidence_level": "source-owned capture declaration"
     }
   ]
