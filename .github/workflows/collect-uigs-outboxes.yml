@@ -1,6 +1,13 @@
 name: Collect UIGS Outboxes
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'outbox/sources.json'
+      - 'tools/collect_outboxes.py'
+      - 'tools/test_collect_outboxes.py'
+      - '.github/workflows/collect-uigs-outboxes.yml'
   schedule:
     - cron: '17 */6 * * *'
   workflow_dispatch:

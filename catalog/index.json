@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "0.6",
+  "version": "0.7",
   "domains": [
     {
       "id": "interface-grammar",
@@ -265,6 +265,8 @@
     "schemas/knowledge-record.schema.json",
     "schemas/ui-pattern.schema.json",
     "schemas/project-manifest.schema.json",
-    "schemas/bug-record.schema.json"
+    "schemas/bug-record.schema.json",
+    "schemas/intake-packet.schema.json",
+    "schemas/project-adapter.schema.json"
   ]
 }
