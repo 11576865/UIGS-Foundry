@@ -59,3 +59,22 @@ Full browser E2E exposed two useful test-contract consequences:
 This strengthens the existing rule that asynchronous preflight changes both orchestration and test contracts. Tests should synchronize on the workflow's semantic ready/invalid state, not on the fact that an input-change event has fired.
 
 This remains Bug / Candidate-level evidence and is not promoted to Canonical.
+
+
+## Additional test evidence — asynchronous batch-plan derivation
+
+While stabilizing PR #59 / #60, Browser E2E scenario 28 exposed the same readiness-contract failure at a different layer. After assigning batch video and subtitle inputs, the test immediately read `#batchPlan` and sometimes observed the temporary state:
+
+```text
+正在读取实际视频容器与字幕格式…
+```
+
+instead of the derived two-job plan.
+
+The product was behaving correctly: batch identity and pairing are asynchronous. The test incorrectly treated input assignment as equivalent to completed derived state.
+
+PR #60 updates the scenario to wait until the expected jobs and subtitle summaries are present and `batchStartBtn` is enabled before asserting or executing.
+
+Reusable refinement: semantic readiness applies not only to command execution but also to **derived read models** such as plans, summaries, previews, validation panels and computed metadata. Tests must await the derived state they intend to inspect.
+
+This is additional evidence for the existing Bug candidate and is not promoted to Canonical.
