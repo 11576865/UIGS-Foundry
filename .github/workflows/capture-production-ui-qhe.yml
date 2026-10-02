@@ -1,4 +1,5 @@
 name: Capture Production UI QHE
+# source checkout intentionally follows current QHE main
 
 on:
   push:
