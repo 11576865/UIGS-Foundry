@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/capture-production-ui-android.yml'
       - 'tools/register_visual_evidence.py'
+      - 'tools/capture_ass_android.sh'
       - 'tools/build_visual_evidence_index.py'
       - 'schemas/ui-production-visual-evidence.schema.json'
   schedule:
@@ -49,7 +50,7 @@ jobs:
       - name: Build real debug APK and Android test APK
         working-directory: .capture/ass
         run: gradle :app:assembleDebug :app:assembleDebugAndroidTest
-      - name: Capture real APK and all deterministic fixed-tool states
+      - name: Capture real APK, deterministic UI states, and runtime-backed renderer states
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35
