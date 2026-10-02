@@ -1,0 +1,43 @@
+{
+  "$schema": "../../../../../schemas/ui-showcase.schema.json",
+  "id": "SHOWCASE.SCOPED_EDITING.WEB_REFERENCE",
+  "type": "reference-demo",
+  "status": "experimental",
+  "platform": "web",
+  "patterns": [
+    "UIGS.INTERACTION.DISCOVERY_OVERLAY",
+    "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+    "UIGS.WORKSPACE.SCOPE_TRANSPARENCY"
+  ],
+  "entrypoint": "domains/interface-grammar/showcases/reference-demos/scoped-editing/index.html",
+  "states": [
+    "focus only",
+    "pinned tool target",
+    "derived anchor",
+    "unresolved pinned target",
+    "shared style affects multiple events"
+  ],
+  "expected_effects": [
+    "Preview click changes Focus without silently retargeting an already pinned tool instance.",
+    "Pin target action creates an explicit binding separate from global Focus.",
+    "Scope banner exposes WHO, WHERE and HOW MANY before mutation.",
+    "Discovery confidence distinguishes explicit, derived and unresolved semantics."
+  ],
+  "limitations": [
+    "Reference state/interaction model only; it does not perform renderer-backed glyph hit testing.",
+    "Does not claim exact ASS-Workbench-Android pixels."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "reference demo 2026-10-02",
+      "evidence_level": "reference implementation"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/ASS-Workbench-Android",
+      "evidence_level": "production interaction/binding provenance"
+    }
+  ]
+}

@@ -32,6 +32,8 @@ jobs:
         run: python tools/test_ui_pattern_query.py
       - name: Unit-test UI showcase manifests
         run: python tools/test_ui_showcases.py
+      - name: Unit-test UI composition planning
+        run: python tools/test_ui_composition.py
       - name: Unit-test intake review state
         run: python tools/test_intake_state.py
       - name: Validate registry and manifests

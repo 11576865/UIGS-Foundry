@@ -55,5 +55,8 @@
       "revision": "eac7b951273ba96382de02891b51cb165857f2b8",
       "evidence_level": "implemented model/controller + connected regression"
     }
+  ],
+  "showcases": [
+    "domains/interface-grammar/showcases/manifests/SHOWCASE.TOOL_CANVAS.WEB_REFERENCE.json"
   ]
 }

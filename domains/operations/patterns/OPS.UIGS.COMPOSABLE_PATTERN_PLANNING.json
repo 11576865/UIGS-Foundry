@@ -1,0 +1,23 @@
+{
+  "id": "OPS.UIGS.COMPOSABLE_PATTERN_PLANNING",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "自然语言 UI 请求应解析为可组合 Pattern Plan，而不是强迫单一 Pattern 胜出",
+  "summary": "复杂 UI 请求通常同时包含布局、控制层级、作用域、绑定、发现等多个语义。Foundry 的检索层应返回一组有证据的 Pattern，并用显式 Composition Recipe/Relation 描述它们能否组合、各自角色、实现与证据缺口。",
+  "principles": [
+    "One user request may resolve to multiple orthogonal Patterns.",
+    "Pattern selection and composition compatibility are separate decisions.",
+    "Composition Recipes declare required/recommended/optional members and invariants.",
+    "A plan must surface missing realization/showcase/validation evidence.",
+    "Composition never changes member Pattern maturity."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "composition planner implementation 2026-10-02",
+      "evidence_level": "implemented retrieval architecture"
+    }
+  ],
+  "created": "2026-10-02"
+}

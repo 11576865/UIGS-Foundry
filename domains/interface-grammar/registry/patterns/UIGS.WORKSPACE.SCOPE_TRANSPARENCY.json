@@ -61,5 +61,8 @@
       "revision": "d98b018efff87186fdddbda8a745456c7bfdab28",
       "evidence_level": "production implementation"
     }
+  ],
+  "showcases": [
+    "domains/interface-grammar/showcases/manifests/SHOWCASE.SCOPED_EDITING.WEB_REFERENCE.json"
   ]
 }

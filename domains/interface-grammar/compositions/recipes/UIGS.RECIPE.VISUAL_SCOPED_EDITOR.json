@@ -1,0 +1,78 @@
+{
+  "$schema": "../../../../schemas/ui-composition.schema.json",
+  "id": "UIGS.RECIPE.VISUAL_SCOPED_EDITOR",
+  "type": "composition",
+  "status": "experimental",
+  "name": {
+    "zh": "可视化作用域编辑工作台",
+    "en": "Visual Scoped Editor"
+  },
+  "aliases": [
+    "大预览右侧检查器作用域提示",
+    "preview inspector scoped editor",
+    "字幕样式工作台",
+    "visual editing workspace"
+  ],
+  "intent": "为需要持续视觉验证、对象发现、明确写入目标和参数密集控制的专业编辑器组合一组互补 Pattern。",
+  "patterns": [
+    {
+      "id": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+      "role": "required",
+      "purpose": "保持预览为主表面并提供有界检查器"
+    },
+    {
+      "id": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+      "role": "recommended",
+      "purpose": "避免高级参数形成同级参数墙"
+    },
+    {
+      "id": "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+      "role": "required",
+      "purpose": "在修改前暴露 who/where/how-many"
+    },
+    {
+      "id": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+      "role": "recommended",
+      "purpose": "允许固定/多实例工具拥有独立写入目标"
+    },
+    {
+      "id": "UIGS.INTERACTION.DISCOVERY_OVERLAY",
+      "role": "optional",
+      "purpose": "在预览中发现并定位编辑对象"
+    }
+  ],
+  "composition_contract": [
+    "Preview remains visual authority; discovery overlays do not become a second renderer.",
+    "Inspector regrouping does not duplicate control/domain state.",
+    "Scope explanation is derived from canonical document state plus tool binding.",
+    "Focus and pinned target are different concepts and must not silently collapse.",
+    "Narrow viewport may change presentation but not semantic ownership."
+  ],
+  "platform_realizations": {
+    "web": "compose from referenced Pattern realizations/reference demos",
+    "android_compose": "production evidence currently comes from ASS-Workbench-Android; no generic Compose reference package yet"
+  },
+  "showcases": [
+    "domains/interface-grammar/showcases/manifests/SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE.json",
+    "domains/interface-grammar/showcases/manifests/SHOWCASE.SCOPED_EDITING.WEB_REFERENCE.json"
+  ],
+  "validation": [],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/ASS-Workbench-Android",
+      "evidence_level": "production workspace semantics"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/HSR-Voice-Archive-Builder",
+      "evidence_level": "production preview-inspector workbench"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "composition implementation 2026-10-02",
+      "evidence_level": "cross-project composition"
+    }
+  ]
+}

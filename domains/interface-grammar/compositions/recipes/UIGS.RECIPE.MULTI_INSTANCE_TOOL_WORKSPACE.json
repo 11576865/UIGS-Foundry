@@ -1,0 +1,66 @@
+{
+  "$schema": "../../../../schemas/ui-composition.schema.json",
+  "id": "UIGS.RECIPE.MULTI_INSTANCE_TOOL_WORKSPACE",
+  "type": "composition",
+  "status": "experimental",
+  "name": {
+    "zh": "多实例工具工作区",
+    "en": "Multi-instance Tool Workspace"
+  },
+  "aliases": [
+    "工具目录自由工作区",
+    "多窗口工具固定对象",
+    "tool catalog canvas",
+    "multi instance workspace"
+  ],
+  "intent": "当专业工作台工具数量增长且同一工具可多实例/固定到不同对象时，组合稳定能力目录、显式绑定和可恢复表面几何。",
+  "patterns": [
+    {
+      "id": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
+      "role": "required",
+      "purpose": "用稳定 tool key 作为发现与实例化入口"
+    },
+    {
+      "id": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+      "role": "required",
+      "purpose": "实例拥有独立领域目标"
+    },
+    {
+      "id": "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
+      "role": "required",
+      "purpose": "拖动缩放瞬态与可恢复布局分离"
+    },
+    {
+      "id": "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+      "role": "recommended",
+      "purpose": "让绑定实例的修改范围可见"
+    }
+  ],
+  "composition_contract": [
+    "Tool metadata identity, ToolInstance identity, Binding identity and surface geometry are separate.",
+    "Dragging or resizing a surface never retargets its bound domain object.",
+    "Viewport clamp is presentation-only and does not overwrite committed geometry.",
+    "Catalog activation creates/resolves an existing capability rather than duplicating business logic."
+  ],
+  "platform_realizations": {
+    "android_compose": "ASS-Workbench-Android is current production provenance",
+    "web": "reference demo demonstrates catalog + transient/committed geometry mechanism"
+  },
+  "showcases": [
+    "domains/interface-grammar/showcases/manifests/SHOWCASE.TOOL_CANVAS.WEB_REFERENCE.json"
+  ],
+  "validation": [],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/ASS-Workbench-Android",
+      "evidence_level": "production model/controller and tool catalog"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "composition implementation 2026-10-02",
+      "evidence_level": "cross-project composition"
+    }
+  ]
+}

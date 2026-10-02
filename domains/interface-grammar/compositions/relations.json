@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "relations": [
+    {
+      "a": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+      "b": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+      "relation": "supports",
+      "rationale": "Inspector-heavy visual editors commonly need hierarchy inside the bounded inspector."
+    },
+    {
+      "a": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+      "b": "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+      "relation": "supports",
+      "rationale": "When a tool has an explicit target binding, the UI should expose who/where/how-many before mutation."
+    },
+    {
+      "a": "UIGS.INTERACTION.DISCOVERY_OVERLAY",
+      "b": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+      "relation": "supports",
+      "rationale": "Discovery can select/focus an object while a separate action pins a tool instance to that object."
+    },
+    {
+      "a": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
+      "b": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+      "relation": "supports",
+      "rationale": "A catalog resolves stable tool identity; instantiated tools can then carry independent bindings."
+    },
+    {
+      "a": "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
+      "b": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+      "relation": "orthogonal",
+      "rationale": "Surface geometry lifecycle and domain target binding are independent state dimensions."
+    },
+    {
+      "a": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+      "b": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+      "relation": "conditional",
+      "rationale": "The inspector may be sticky on wide layouts, but sticky behavior is not required by the split composition."
+    }
+  ]
+}

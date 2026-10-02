@@ -55,5 +55,8 @@
       "revision": "1ab3e2c98225f3c3bfab303a268574ecb4179698",
       "evidence_level": "unit contract"
     }
+  ],
+  "showcases": [
+    "domains/interface-grammar/showcases/manifests/SHOWCASE.SCOPED_EDITING.WEB_REFERENCE.json"
   ]
 }

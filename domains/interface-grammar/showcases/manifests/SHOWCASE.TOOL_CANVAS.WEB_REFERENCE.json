@@ -1,0 +1,43 @@
+{
+  "$schema": "../../../../../schemas/ui-showcase.schema.json",
+  "id": "SHOWCASE.TOOL_CANVAS.WEB_REFERENCE",
+  "type": "reference-demo",
+  "status": "experimental",
+  "platform": "web",
+  "patterns": [
+    "UIGS.NAVIGATION.CAPABILITY_CATALOG",
+    "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY"
+  ],
+  "entrypoint": "domains/interface-grammar/showcases/reference-demos/tool-canvas/index.html",
+  "states": [
+    "tool catalog",
+    "spawn surface",
+    "transient drag",
+    "commit geometry",
+    "cancel geometry",
+    "viewport clamp"
+  ],
+  "expected_effects": [
+    "Catalog item identity remains stable regardless of spawned surface count.",
+    "Dragging updates transient candidate geometry before explicit commit.",
+    "Cancel restores committed geometry.",
+    "Viewport projection/clamp does not rewrite committed geometry."
+  ],
+  "limitations": [
+    "Reference mechanism demo; no persistent storage backend.",
+    "Does not reproduce ASS-Workbench-Android Canvas visuals."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "reference demo 2026-10-02",
+      "evidence_level": "reference implementation"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/ASS-Workbench-Android",
+      "evidence_level": "production workspace provenance"
+    }
+  ]
+}

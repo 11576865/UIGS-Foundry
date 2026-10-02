@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UIGS Scoped Editing Reference</title><style>
+:root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color-scheme:light dark}*{box-sizing:border-box}body{margin:0;background:Canvas;color:CanvasText}
+.shell{max-width:1120px;margin:auto;padding:18px}.grid{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px}
+.preview,.panel{border:1px solid color-mix(in srgb,CanvasText 14%,transparent);border-radius:16px;background:color-mix(in srgb,Canvas 96%,CanvasText 4%);padding:16px}
+.stage{aspect-ratio:16/9;background:#15171a;border-radius:12px;position:relative;color:white;overflow:hidden}
+.obj{position:absolute;padding:7px 10px;border:1px solid #ffffff70;border-radius:7px;background:#0008;cursor:pointer}.obj[data-id=a]{left:18%;bottom:22%}.obj[data-id=b]{right:12%;top:24%}
+.obj.focus{outline:3px solid white}.obj.pinned{box-shadow:0 0 0 3px #888}
+.scope{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.scope div{padding:10px;border-radius:10px;background:color-mix(in srgb,CanvasText 7%,transparent)}
+.actions{display:flex;gap:8px;flex-wrap:wrap}button,select{font:inherit;padding:8px 10px;border-radius:9px;border:1px solid color-mix(in srgb,CanvasText 18%,transparent);background:Canvas}
+.conf{margin-top:10px;padding:10px;border:1px dashed color-mix(in srgb,CanvasText 25%,transparent);border-radius:10px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+</style></head><body><main class="shell"><h1>Scoped Editing Reference</h1><p>Click preview objects to change Focus. Pinning is a separate action.</p>
+<div class="grid"><section class="preview"><div class="stage">
+<button class="obj" data-id="a" data-count="12">Subtitle Style: Dialogue</button><button class="obj" data-id="b" data-count="1">Event #42 Override</button>
+</div><div class="conf" id="discovery">Discovery: UNRESOLVED — select an object.</div></section>
+<aside class="panel"><h2>Tool instance</h2><p>Focus: <strong id="focus">none</strong><br>Pinned: <strong id="pinned">none</strong></p>
+<div class="actions"><button id="pin">Pin current Focus</button><button id="unpin">Unpin</button><button id="unresolve">Simulate missing pinned target</button></div>
+<div class="scope"><div><small>WHO</small><br><strong id="who">none</strong></div><div><small>WHERE</small><br><strong id="where">—</strong></div><div><small>HOW MANY</small><br><strong id="count">0</strong></div></div>
+<label>Write layer <select id="layer"><option value="Style">Shared Style</option><option value="Event override">Event override</option></select></label>
+<p><small>The banner is derived explanation; it does not own the document state.</small></p></aside></div></main>
+<script>
+let focus=null,pinned=null,missing=false;const objects=[...document.querySelectorAll('.obj')];
+const $=s=>document.querySelector(s);
+function render(){
+ objects.forEach(x=>{x.classList.toggle('focus',x.dataset.id===focus);x.classList.toggle('pinned',x.dataset.id===pinned&&!missing)});
+ $('#focus').textContent=focus||'none';$('#pinned').textContent=missing&&pinned?pinned+' (UNRESOLVED)':(pinned||'none');
+ const target=missing?null:(pinned||focus);const el=objects.find(x=>x.dataset.id===target);
+ $('#who').textContent=target||'none';$('#where').textContent=target?$('#layer').value:'—';$('#count').textContent=el?(target==='a'?el.dataset.count:'1'):'0';
+ $('#discovery').textContent=focus?('Discovery: '+(focus==='a'?'DERIVED anchor':'EXPLICIT anchor')+' → '+focus):'Discovery: UNRESOLVED — select an object.';
+}
+objects.forEach(x=>x.onclick=()=>{focus=x.dataset.id;render()});$('#pin').onclick=()=>{if(focus){pinned=focus;missing=false;render()}};$('#unpin').onclick=()=>{pinned=null;missing=false;render()};
+$('#unresolve').onclick=()=>{if(pinned){missing=true;render()}};$('#layer').onchange=render;render();
+</script></body></html>
