@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "repository": "11576865/ASS-Workbench-Android",
+      "categories": [
+        "packaging",
+        "release-publication"
+      ],
+      "records": [
+        "BUG.ASS.RELEASE_PATH_ASYMMETRY",
+        "REL.RELEASE_PATH_PARITY"
+      ]
+    },
+    {
+      "repository": "11576865/ASS-Workbench-Android",
+      "categories": [
+        "runtime-smoke"
+      ],
+      "records": [
+        "REL.CAPABILITY_PROVEN_BY_OUTPUT",
+        "TEST.RENDERED_EFFECT_DIFFERENTIAL"
+      ]
+    },
+    {
+      "repository": "11576865/MKV-Fast-Muxer",
+      "categories": [
+        "e2e",
+        "integration-test"
+      ],
+      "records": [
+        "TEST.CONTAINER_SEMANTIC_AUDIT",
+        "TEST.FAIL_CANCEL_RESTART_RECOVERY",
+        "TEST.ENCODING_FIXTURE_MATRIX"
+      ]
+    },
+    {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "categories": [
+        "packaging"
+      ],
+      "records": [
+        "TEST.ANDROID.NATIVE_PAGE_ALIGNMENT",
+        "OPS.RELEASE.NATIVE_BUILD_PROVENANCE"
+      ]
+    },
+    {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "categories": [
+        "runtime-smoke"
+      ],
+      "records": [
+        "REL.CAPABILITY_PROVEN_BY_OUTPUT",
+        "ARCH.STRUCTURED_NATIVE_BRIDGE"
+      ]
+    },
+    {
+      "repository": "11576865/HSR-Voice-Archive-Builder",
+      "categories": [
+        "resource-budget"
+      ],
+      "records": [
+        "OPS.PAID_API.PREEXECUTION_BUDGET_GUARD"
+      ]
+    },
+    {
+      "repository": "11576865/Character-Voice-Service",
+      "categories": [
+        "runtime-smoke",
+        "integration-test"
+      ],
+      "records": [
+        "ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
+        "ARCH.DECLARED_DISCOVERED_RECONCILIATION"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+name: Triage UIGS Pending
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'outbox/pending/**'
+      - 'triage/**'
+      - 'tools/triage_pending.py'
+      - 'tools/generate_red_reason_report.py'
+      - '.github/workflows/triage-uigs-pending.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-pending-triage
+  cancel-in-progress: false
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Test triage logic
+        run: python tools/test_triage_pending.py
+      - name: Triage pending packets
+        run: python tools/triage_pending.py
+      - name: Generate Red Reason report
+        run: python tools/generate_red_reason_report.py
+      - name: Validate Foundry
+        run: python tools/validate_foundry.py
+      - name: Commit triage outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- outbox/triage reports/red-reason-status.md; then
+            echo "No triage changes."
+            exit 0
+          fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add -A outbox/triage reports/red-reason-status.md
+          git commit -m "chore(triage): classify pending intake"
+          git pull --rebase origin main
+          git push origin HEAD:main

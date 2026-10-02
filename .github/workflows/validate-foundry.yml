@@ -20,7 +20,13 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+      - name: Unit-test intake collector
+        run: python tools/test_collect_outboxes.py
+      - name: Unit-test pending triage
+        run: python tools/test_triage_pending.py
       - name: Validate registry and manifests
         run: python tools/validate_foundry.py
       - name: Generate inventory report
         run: python tools/generate_reports.py
+      - name: Generate Red Reason report
+        run: python tools/generate_red_reason_report.py

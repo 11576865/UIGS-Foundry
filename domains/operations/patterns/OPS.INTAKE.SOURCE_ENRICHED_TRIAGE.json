@@ -1,0 +1,28 @@
+{
+  "id": "OPS.INTAKE.SOURCE_ENRICHED_TRIAGE",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "在源仓库先捕获低层证据，再由中央知识层分类",
+  "summary": "跨仓库 Intake 不应只上传‘CI failed’。源仓库最接近运行现场，应先捕获 workflow/job/step 等低层证据；Foundry 再做确定性分类、关联历史知识和人工复核，从而避免中央系统依赖跨仓库日志权限或凭 workflow 名猜测根因。",
+  "principles": [
+    "Capture evidence at the source where repository-scoped credentials already exist.",
+    "Transfer structured summaries rather than broad cross-repository credentials.",
+    "Central triage remains conservative and can return unknown.",
+    "Related-record suggestions are not incident identity claims.",
+    "Automatic evidence capture never implies automatic Canonical promotion."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "pending in same implementation change",
+      "evidence_level": "implemented control-plane architecture"
+    },
+    {
+      "source_type": "manual_decision",
+      "source": "UIGS operationalization discussion 2026-10-02",
+      "evidence_level": "explicit implementation authorization"
+    }
+  ],
+  "created": "2026-10-02"
+}

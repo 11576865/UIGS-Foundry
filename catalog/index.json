@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "0.7",
+  "version": "0.8",
   "domains": [
     {
       "id": "interface-grammar",
@@ -251,6 +251,11 @@
       "id": "REL.BOUNDED_SESSION_OBSERVABILITY",
       "status": "candidate",
       "path": "domains/reliability/patterns/REL.BOUNDED_SESSION_OBSERVABILITY.json"
+    },
+    {
+      "id": "OPS.INTAKE.SOURCE_ENRICHED_TRIAGE",
+      "status": "experimental",
+      "path": "domains/operations/patterns/OPS.INTAKE.SOURCE_ENRICHED_TRIAGE.json"
     }
   ],
   "projects": [
@@ -267,6 +272,7 @@
     "schemas/project-manifest.schema.json",
     "schemas/bug-record.schema.json",
     "schemas/intake-packet.schema.json",
-    "schemas/project-adapter.schema.json"
+    "schemas/project-adapter.schema.json",
+    "schemas/triage-record.schema.json"
   ]
 }

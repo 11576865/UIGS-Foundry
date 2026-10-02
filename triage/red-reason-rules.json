@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "timeout-conclusion",
+      "category": "resource-budget",
+      "fields": [
+        "conclusion"
+      ],
+      "pattern": "^(timed_out|startup_failure)$"
+    },
+    {
+      "id": "policy",
+      "category": "policy",
+      "fields": [
+        "step",
+        "job",
+        "workflow"
+      ],
+      "pattern": "policy|governance|license check|artifact policy"
+    },
+    {
+      "id": "unit",
+      "category": "unit-test",
+      "fields": [
+        "step",
+        "job"
+      ],
+      "pattern": "unit tests?|unittest|pytest|test unit"
+    },
+    {
+      "id": "integration",
+      "category": "integration-test",
+      "fields": [
+        "step",
+        "job"
+      ],
+      "pattern": "integration"
+    },
+    {
+      "id": "e2e",
+      "category": "e2e",
+      "fields": [
+        "step",
+        "job",
+        "workflow"
+      ],
+      "pattern": "\\be2e\\b|end[- ]to[- ]end|browser mux|playwright"
+    },
+    {
+      "id": "runtime-smoke",
+      "category": "runtime-smoke",
+      "fields": [
+        "step",
+        "job",
+        "workflow"
+      ],
+      "pattern": "smoke|probe|startup|import web server|runtime check"
+    },
+    {
+      "id": "environment",
+      "category": "environment",
+      "fields": [
+        "step",
+        "job"
+      ],
+      "pattern": "setup (python|java|node)|install depend|toolchain|restore cache|download pinned|dependency"
+    },
+    {
+      "id": "packaging",
+      "category": "packaging",
+      "fields": [
+        "step",
+        "job"
+      ],
+      "pattern": "package|packaging|assemble|apk|bundle|zipalign|elf load|jnilibs|jni libs"
+    },
+    {
+      "id": "release",
+      "category": "release-publication",
+      "fields": [
+        "step",
+        "job",
+        "workflow"
+      ],
+      "pattern": "deploy|publish|publication|release|github pages|pages"
+    },
+    {
+      "id": "budget",
+      "category": "resource-budget",
+      "fields": [
+        "step",
+        "job",
+        "text"
+      ],
+      "pattern": "quota|storage|no space|enospc|token budget|cost budget|timeout|retention|artifact limit|memory"
+    },
+    {
+      "id": "device",
+      "category": "device-only",
+      "fields": [
+        "step",
+        "job"
+      ],
+      "pattern": "physical device|real device|device-only"
+    },
+    {
+      "id": "infra",
+      "category": "infra-flaky",
+      "fields": [
+        "step",
+        "job",
+        "text"
+      ],
+      "pattern": "runner|github api|network|connection reset|temporary failure|service unavailable"
+    }
+  ]
+}
