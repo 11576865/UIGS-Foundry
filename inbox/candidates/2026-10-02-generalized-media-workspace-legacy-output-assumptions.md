@@ -27,14 +27,17 @@ When a single-purpose processing tool acquires multiple operation modes:
 
 ## Evidence
 
-Quick-Automatic-Hardsub-Encoder currently supports three task operations in the shared compiler: `hardsub`, `transcode`, and `copy`, while command preview, native bridge, browser engine, Android native output, save dialogs and output naming remain hard-wired to Matroska/`.mkv`.
+Quick-Automatic-Hardsub-Encoder supports three task operations in the shared compiler: `hardsub`, `transcode`, and `copy`. The historical fixed-Matroska assumption was subsequently removed in PR #33 and promoted into task schema v3 as an explicit output-container policy.
 
-The UI already calls the area “视频处理工作区” in navigation semantics and exposes “硬字幕压制 / 纯视频转码 / 无损快速剪切”, demonstrating that the product model has generalized beyond its historical hard-sub-only origin.
+The merged implementation provides `Auto`, preserve-source-container, MKV and MP4 choices; resolves compatibility through a conservative matrix; carries the resolved format/extension/MIME through Web, Windows Native and Android Native; and rejects incompatible combinations rather than silently transcoding audio. Stream-copy trim in `Auto` prefers the source container when the combination is known compatible.
+
+PR #33 was merged to `main` at `54854594a7232fd86317e21b85abca20bfa19b4c`. Frontend tests including real FFmpeg integration and Playwright UI smoke, Windows local smoke, Android media-task compilation, and the Android/Web build-and-deploy workflow completed successfully.
 
 ## Provenance
 
 - source project: `11576865/Quick-Automatic-Hardsub-Encoder`
-- evidence level: current repository implementation + product evolution observation
-- status rationale: reusable architectural lesson, not yet cross-project canonical
+- implementation: PR #33, merged main `54854594a7232fd86317e21b85abca20bfa19b4c`
+- evidence level: merged cross-platform implementation + automated compatibility/regression evidence + product evolution observation
+- status rationale: reusable architectural lesson with one implemented product case; not yet cross-project canonical
 
 This is a Candidate only. It is not Canonical.
