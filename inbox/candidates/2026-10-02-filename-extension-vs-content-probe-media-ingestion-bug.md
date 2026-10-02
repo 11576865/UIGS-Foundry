@@ -72,3 +72,10 @@ Regression coverage was added at helper, integration, and browser E2E levels. Br
 During full-suite validation, the new asynchronous header preflight exposed a separate batch-orchestration readiness race. That failure is tracked independently as `2026-10-02-batch-execution-async-preflight-readiness-race.md`; the fix makes batch execution await media-identity preflight before triggering mux.
 
 This remains Bug / candidate-level evidence and is not Canonical.
+
+
+## Additional implementation evidence — MKV-Fast-Muxer PR #54
+
+PR #54 extended the same rule from the single-file path into batch discovery and pairing. Batch selection now reads candidate file headers before deciding which files are videos, accepts supported MP4/MOV/M4V/Matroska/WebM content even when the suffix is unknown or misleading, excludes supported-looking filenames whose actual content is not recognized, and drives Matroska preserve-all behavior from detected content identity. Browser E2E verifies a renamed MP4 and a Matroska file renamed to `.mp4` in the same batch, including preservation of original Matroska attachments. PR #54 merged as `25fe3f0956ccb22837dc0d0693ca8e8f281a5df5` after unit, build, and browser E2E success.
+
+This strengthens the Candidate with a second workflow surface in the same project, but does not promote it to Canonical.
