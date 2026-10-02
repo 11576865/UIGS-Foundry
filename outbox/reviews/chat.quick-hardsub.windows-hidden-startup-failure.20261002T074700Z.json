@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "packet_id": "chat.quick-hardsub.windows-hidden-startup-failure.20261002T074700Z",
+  "proposal_path": "outbox/proposals/11576865__Quick-Automatic-Hardsub-Encoder/chat.quick-hardsub.windows-hidden-startup-failure.20261002T074700Z.json",
+  "decision": "accept",
+  "reason": "Reviewed against merged fix commit d62dd49637fe4660ca6c0acdb3d78b3bbf606a96: native tool resolver was changed to explicit branch returns and Windows smoke gained direct resolver assertions. Accepted only as an observed Bug intake record; no Experimental/Validated/Canonical promotion.",
+  "record_path": "intake/records/bug/BUG.QUICK_HARDSUB.WINDOWS_NATIVE_TOOL_RESOLVER_STARTUP_FAILURE.json",
+  "record_id": "BUG.QUICK_HARDSUB.WINDOWS_NATIVE_TOOL_RESOLVER_STARTUP_FAILURE",
+  "status": "observed",
+  "reviewed_at": "2026-10-02"
+}

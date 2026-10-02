@@ -1,0 +1,50 @@
+{
+  "$schema": "../../../schemas/knowledge-record.schema.json",
+  "id": "BUG.QUICK_HARDSUB.WINDOWS_NATIVE_TOOL_RESOLVER_STARTUP_FAILURE",
+  "type": "bug",
+  "status": "observed",
+  "title": "Windows Native Tool Resolver 启动失败与隐藏启动器的可观测性问题",
+  "summary": "Quick-Automatic-Hardsub-Encoder 的 Windows native backend 中 Find-NativeTool 使用了不安全的 PowerShell `return if(...)` 写法，导致 Bridge 在 listener/browser 建立前即可能启动失败；修复提交改为显式条件 return，并在 Windows smoke CI 中直接执行 ffmpeg/ffprobe resolver 作为回归保护。正常启动器仍隐藏 Bridge 进程，因此启动失败可见性是独立的后续 hardening 议题。",
+  "domains": [
+    "reliability",
+    "operations"
+  ],
+  "tags": [
+    "windows",
+    "startup",
+    "diagnostics",
+    "failure-visibility",
+    "powershell",
+    "native-bridge"
+  ],
+  "root_cause": "windows/native-backend.ps1 的 Find-NativeTool 在 ffmpeg/ffprobe 分支使用 `return if(...)`，启动阶段解析/执行失败会在 native-bridge 建立监听器之前终止。",
+  "resolution": [
+    "使用显式 if 分支返回 Ffmpeg/Ffprobe 路径。",
+    "Windows local smoke 直接调用 Find-NativeTool 'ffmpeg' 与 'ffprobe'，要求两者返回解析后的工具链路径。"
+  ],
+  "regression_guard": [
+    "Merged fix commit d62dd49637fe4660ca6c0acdb3d78b3bbf606a96.",
+    "Windows local smoke contains direct native tool resolver assertions."
+  ],
+  "remaining_risk": "正常 launcher 以隐藏 PowerShell Bridge 进程启动，因此其他顶层启动异常仍可能表现为窗口短暂出现后退出；可观测性需单独治理。",
+  "provenance": [
+    {
+      "source_type": "commit",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "revision": "d62dd49637fe4660ca6c0acdb3d78b3bbf606a96",
+      "evidence_level": "merged fix + regression assertion"
+    },
+    {
+      "source_type": "conversation",
+      "source": "chat.quick-hardsub.windows-hidden-startup-failure.20261002T074700Z",
+      "revision": "2026-10-02",
+      "evidence_level": "durable intake packet"
+    }
+  ],
+  "links": [
+    "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/28",
+    "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36981285780"
+  ],
+  "review_source": "outbox/proposals/11576865__Quick-Automatic-Hardsub-Encoder/chat.quick-hardsub.windows-hidden-startup-failure.20261002T074700Z.json",
+  "created": "2026-10-02"
+}

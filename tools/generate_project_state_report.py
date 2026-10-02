@@ -3,6 +3,9 @@ from __future__ import annotations
 import json, os, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 from typing import Any
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import intake_state
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT_DIR=ROOT/"reports"/"generated"
@@ -57,18 +60,17 @@ def latest_by_name(runs: list[dict[str,Any]], names: list[str]) -> list[dict[str
     return result
 
 def count_local(repo: str) -> tuple[int,int]:
-    pending=0; triage=0
-    for base,kind in ((ROOT/"outbox"/"pending","pending"),(ROOT/"outbox"/"triage","triage")):
-        if not base.exists():
-            continue
+    pending=sum(1 for _,item in intake_state.pending_packets(ROOT, open_only=True) if str(item.get("source_repository",""))==repo)
+    triage=0
+    base=ROOT/"outbox"/"triage"
+    if base.exists():
         for path in base.rglob("*.json"):
             try:
                 item=load(path)
             except Exception:
                 continue
             if str(item.get("source_repository",""))==repo:
-                if kind=="pending": pending+=1
-                else: triage+=1
+                triage+=1
     return pending,triage
 
 def knowledge_count(repo: str) -> int:

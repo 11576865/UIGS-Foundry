@@ -32,9 +32,13 @@ jobs:
         run: python tools/test_ui_pattern_query.py
       - name: Unit-test UI showcase manifests
         run: python tools/test_ui_showcases.py
+      - name: Unit-test intake review state
+        run: python tools/test_intake_state.py
       - name: Validate registry and manifests
         run: python tools/validate_foundry.py
       - name: Generate inventory report
         run: python tools/generate_reports.py
       - name: Generate Red Reason report
         run: python tools/generate_red_reason_report.py
+      - name: Generate promotion status report
+        run: python tools/generate_promotion_report.py

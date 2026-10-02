@@ -6,6 +6,8 @@ on:
     paths:
       - 'outbox/pending/**'
       - 'outbox/triage/**'
+      - 'outbox/reviews/**'
+      - 'intake/records/**'
       - 'catalog/**'
       - 'tools/propose_promotions.py'
       - 'tools/test_propose_promotions.py'
@@ -31,19 +33,21 @@ jobs:
         run: python tools/test_propose_promotions.py
       - name: Generate reviewable proposals
         run: python tools/propose_promotions.py
+      - name: Generate promotion status report
+        run: python tools/generate_promotion_report.py
       - name: Validate Foundry
         run: python tools/validate_foundry.py
       - name: Commit changed proposals
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$(git status --porcelain -- outbox/proposals)" ]]; then
+          if [[ -z "$(git status --porcelain -- outbox/proposals reports/promotion-status.md)" ]]; then
             echo "No proposal changes."
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add -A outbox/proposals
+          git add -A outbox/proposals reports/promotion-status.md
           git commit -m "chore(intake): generate reviewable promotion proposals"
           git pull --rebase origin main
           git push origin HEAD:main
