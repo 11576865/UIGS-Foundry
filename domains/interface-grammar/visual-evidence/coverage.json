@@ -1,7 +1,7 @@
 {
   "version": 1,
   "total_surfaces": 63,
-  "with_production_visual_evidence": 15,
+  "with_production_visual_evidence": 31,
   "missing_production_visual_evidence": [
     "ASS.PREVIEW.VIDEO",
     "ASS.TOOL.BATCH",
@@ -34,23 +34,7 @@
     "MKV.PREVIEW.SUBTITLE",
     "MKV.STAGE.ADJUST",
     "MKV.STAGE.BATCH",
-    "MKV.STAGE.INPUT",
-    "QHE.DIAGNOSTICS.ENVIRONMENT",
-    "QHE.ENCODE.ACTION_CARD",
-    "QHE.HELP.RUNTIME",
-    "QHE.INPUT.MATERIALS",
-    "QHE.LOG.TECHNICAL",
-    "QHE.MEDIA.ACTION_DOCK",
-    "QHE.MEDIA.ADVANCED_DISCLOSURE",
-    "QHE.MEDIA.MODE_SWITCHER",
-    "QHE.MEDIA.WORKSPACE",
-    "QHE.NAV.MOBILE_STAGE",
-    "QHE.PLAN.ENCODE",
-    "QHE.PREFLIGHT.MEDIA_SUBTITLE",
-    "QHE.PREVIEW.REAL_LIBASS",
-    "QHE.PREVIEW.SAMPLE_RAIL",
-    "QHE.SHELL.WORKFLOW_HEADER",
-    "QHE.STATUS.TASK_OVERVIEW"
+    "MKV.STAGE.INPUT"
   ],
-  "evidence_records": 8
+  "evidence_records": 12
 }
