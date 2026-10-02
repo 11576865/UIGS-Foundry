@@ -1,0 +1,46 @@
+name: Refresh UI Search Index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'domains/interface-grammar/registry/patterns/**'
+      - 'tools/build_ui_search_index.py'
+      - 'tools/query_ui_patterns.py'
+      - 'tools/test_ui_pattern_query.py'
+      - '.github/workflows/refresh-ui-search-index.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-ui-search-index
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Rebuild index and showcase coverage
+        run: python tools/build_ui_search_index.py
+      - name: Test natural-language retrieval
+        run: python tools/test_ui_pattern_query.py
+      - name: Commit changed generated indexes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/search/index.json domains/interface-grammar/showcases/coverage.json)" ]]; then
+            echo "UI search index unchanged."
+            exit 0
+          fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add domains/interface-grammar/search/index.json domains/interface-grammar/showcases/coverage.json
+          git commit -m "chore(uigs): refresh UI pattern search index"
+          git pull --rebase origin main
+          git push origin HEAD:main

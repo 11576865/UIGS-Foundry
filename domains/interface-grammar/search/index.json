@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "pattern_count": 8,
+  "patterns": [
+    {
+      "id": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+      "status": "experimental",
+      "name": {
+        "zh": "预览—检查器分栏",
+        "en": "Preview–Inspector Split"
+      },
+      "aliases": [
+        "大预览右检查器",
+        "preview inspector",
+        "split-pane editor",
+        "右侧参数检查器"
+      ],
+      "intent": "视觉结果是主任务时，将大预览保持为主表面，把参数、诊断和次级控制压缩到右侧检查器，并在窄屏降级为单列。",
+      "use_when": [
+        "编辑结果需要持续视觉验证",
+        "参数数量多但不应挤占主画布",
+        "宽屏/平板可提供并排空间"
+      ],
+      "do_not_use_when": [
+        "主任务不是视觉结果",
+        "参数本身才是主要内容",
+        "窄屏没有可靠堆叠/切换降级"
+      ],
+      "anatomy": [
+        "primary preview",
+        "compact inspector",
+        "grouped parameter sections",
+        "top actions",
+        "advanced disclosure"
+      ],
+      "realizations": {
+        "web": "domains/interface-grammar/realizations/web/UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.md"
+      },
+      "validation": [],
+      "showcases": [],
+      "showcase_status": "missing",
+      "source_path": "domains/interface-grammar/registry/patterns/UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.json",
+      "search_terms": [
+        "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+        "预览—检查器分栏",
+        "Preview–Inspector Split",
+        "大预览右检查器",
+        "preview inspector",
+        "split-pane editor",
+        "右侧参数检查器",
+        "视觉结果是主任务时，将大预览保持为主表面，把参数、诊断和次级控制压缩到右侧检查器，并在窄屏降级为单列。",
+        "编辑结果需要持续视觉验证",
+        "参数数量多但不应挤占主画布",
+        "宽屏/平板可提供并排空间",
+        "primary preview",
+        "compact inspector",
+        "grouped parameter sections",
+        "top actions",
+        "advanced disclosure",
+        "minmax(0,1fr) + bounded inspector",
+        "compact; may be sticky",
+        "dominant primary surface",
+        "preview and inspector coexist",
+        "inspector becomes static/stacked or alternate presentation",
+        "progressive disclosure"
+      ]
+    },
+    {
+      "id": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+      "status": "experimental",
+      "name": {
+        "zh": "检查器渐进式控制披露",
+        "en": "Progressive Inspector Control Disclosure"
+      },
+      "aliases": [
+        "基础/高级参数分组",
+        "高级折叠",
+        "长参数栈",
+        "inspector progressive disclosure"
+      ],
+      "intent": "在参数密集的 Inspector 中保持主要动作和高频基础参数可见，将低频高级参数按语义组折叠/分区，避免一条无限增长的同级参数墙。",
+      "use_when": [
+        "参数数量持续增长",
+        "主预览或主对象应保持视觉主导",
+        "高级能力重要但低频"
+      ],
+      "do_not_use_when": [
+        "全部参数同等高频且数量很少",
+        "折叠会隐藏完成当前任务所必需的关键状态"
+      ],
+      "anatomy": [
+        "primary actions",
+        "basic semantic groups",
+        "advanced disclosure sections",
+        "stable control identity",
+        "compact scrollable inspector"
+      ],
+      "realizations": {},
+      "validation": [],
+      "showcases": [],
+      "showcase_status": "missing",
+      "source_path": "domains/interface-grammar/registry/patterns/UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.json",
+      "search_terms": [
+        "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+        "检查器渐进式控制披露",
+        "Progressive Inspector Control Disclosure",
+        "基础/高级参数分组",
+        "高级折叠",
+        "长参数栈",
+        "inspector progressive disclosure",
+        "在参数密集的 Inspector 中保持主要动作和高频基础参数可见，将低频高级参数按语义组折叠/分区，避免一条无限增长的同级参数墙。",
+        "参数数量持续增长",
+        "主预览或主对象应保持视觉主导",
+        "高级能力重要但低频",
+        "primary actions",
+        "basic semantic groups",
+        "advanced disclosure sections",
+        "stable control identity",
+        "compact scrollable inspector",
+        "primary actions > basic groups > advanced groups",
+        "inspector may be sticky while its internal content scrolls",
+        "single-column flow restores normal document reachability",
+        "remain before/above the long parameter stack",
+        "advanced groups are explicitly disclosed rather than permanently occupying equal hierarchy",
+        "control IDs and domain semantics remain stable when regrouped",
+        "grouping survives tablet/mobile reflow without duplicating controls"
+      ]
+    },
+    {
+      "id": "UIGS.INTERACTION.DISCOVERY_OVERLAY",
+      "status": "experimental",
+      "name": {
+        "zh": "交互发现覆盖层",
+        "en": "Interaction Discovery Overlay"
+      },
+      "aliases": [
+        "预览长按选对象",
+        "preview picker",
+        "interaction overlay",
+        "锚点发现层"
+      ],
+      "intent": "在视觉预览上提供对象发现、定位和直接操作入口，同时明确该覆盖层只是交互/发现层，不冒充最终渲染器或字形命中权威。",
+      "use_when": [
+        "主预览需要直接选取/定位编辑对象",
+        "存在近似几何或语义锚点但最终视觉由独立 renderer 决定",
+        "固定布局与浮动/Canvas presentation 需要共享同一交互能力"
+      ],
+      "do_not_use_when": [
+        "发现算法会被误解为精确 renderer glyph/bbox hit testing",
+        "覆盖层自身需要持有第二份领域对象状态"
+      ],
+      "anatomy": [
+        "shared interaction registry",
+        "discovery proxy/anchor",
+        "candidate list",
+        "confidence label",
+        "focus action",
+        "open-pinned-target action"
+      ],
+      "realizations": {},
+      "validation": [],
+      "showcases": [],
+      "showcase_status": "missing",
+      "source_path": "domains/interface-grammar/registry/patterns/UIGS.INTERACTION.DISCOVERY_OVERLAY.json",
+      "search_terms": [
+        "UIGS.INTERACTION.DISCOVERY_OVERLAY",
+        "交互发现覆盖层",
+        "Interaction Discovery Overlay",
+        "预览长按选对象",
+        "preview picker",
+        "interaction overlay",
+        "锚点发现层",
+        "在视觉预览上提供对象发现、定位和直接操作入口，同时明确该覆盖层只是交互/发现层，不冒充最终渲染器或字形命中权威。",
+        "主预览需要直接选取/定位编辑对象",
+        "存在近似几何或语义锚点但最终视觉由独立 renderer 决定",
+        "固定布局与浮动/Canvas presentation 需要共享同一交互能力",
+        "shared interaction registry",
+        "discovery proxy/anchor",
+        "candidate list",
+        "confidence label",
+        "focus action",
+        "open-pinned-target action",
+        "approximate discovery is labeled as approximate",
+        "must not obscure the primary preview beyond the active interaction",
+        "fixed and Canvas hosts present the same semantic interaction",
+        "multiple presentation hosts consume one InteractionOverlayRegistry",
+        "candidate confidence distinguishes explicit anchor, derived anchor and unresolved semantics",
+        "changing Focus and opening a pinned edit target are separate actions",
+        "preview discovery never overrides renderer authority",
+        "overlay/proxy state is transient interaction state, not canonical document state"
+      ]
+    },
+    {
+      "id": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
+      "status": "experimental",
+      "name": {
+        "zh": "能力目录导航",
+        "en": "Capability Catalog Navigation"
+      },
+      "aliases": [
+        "工具目录",
+        "能力目录",
+        "tool catalog",
+        "跨区域工具检索"
+      ],
+      "intent": "使用一份机器可读工具元数据作为固定布局、自由 Canvas、搜索和导航的共同目录；目录是检索入口，不复制业务能力。",
+      "use_when": [
+        "专业工作台工具数量持续增长",
+        "同一能力需要在多个 presentation host 中被发现"
+      ],
+      "do_not_use_when": [
+        "只有少量固定功能且不存在跨区域检索需求"
+      ],
+      "anatomy": [
+        "stable tool key",
+        "group",
+        "description",
+        "initial density/geometry",
+        "binding capability",
+        "duplication capability"
+      ],
+      "realizations": {},
+      "validation": [],
+      "showcases": [],
+      "showcase_status": "missing",
+      "source_path": "domains/interface-grammar/registry/patterns/UIGS.NAVIGATION.CAPABILITY_CATALOG.json",
+      "search_terms": [
+        "UIGS.NAVIGATION.CAPABILITY_CATALOG",
+        "能力目录导航",
+        "Capability Catalog Navigation",
+        "工具目录",
+        "能力目录",
+        "tool catalog",
+        "跨区域工具检索",
+        "使用一份机器可读工具元数据作为固定布局、自由 Canvas、搜索和导航的共同目录；目录是检索入口，不复制业务能力。",
+        "专业工作台工具数量持续增长",
+        "同一能力需要在多个 presentation host 中被发现",
+        "stable tool key",
+        "group",
+        "description",
+        "initial density/geometry",
+        "binding capability",
+        "duplication capability",
+        "two-level grouping is preferred over a flat strip of many equal-priority entries",
+        "catalog resolves to existing tool capability",
+        "must preserve persisted stable keys"
+      ]
+    },
+    {
+      "id": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+      "status": "experimental",
+      "name": {
+        "zh": "显式工具实例绑定",
+        "en": "Explicit Tool Instance Binding"
+      },
+      "aliases": [
+        "工具固定目标",
+        "独立工具实例",
+        "pinned target",
+        "tool binding"
+      ],
+      "intent": "让同一种工具可以存在多个实例，每个实例明确绑定到自己的领域对象，而不是通过修改全局 Focus 间接决定写入目标。",
+      "use_when": [
+        "同一工具需要多实例",
+        "工具可固定到对象",
+        "全局 Focus 只是浏览上下文而不是唯一写入目标"
+      ],
+      "do_not_use_when": [
+        "工具是纯全局单例且没有对象级写入语义"
+      ],
+      "anatomy": [
+        "ToolInstance.id",
+        "Binding",
+        "resolved target",
+        "presentation surface",
+        "scope explanation"
+      ],
+      "realizations": {},
+      "validation": [],
+      "showcases": [],
+      "showcase_status": "missing",
+      "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.json",
+      "search_terms": [
+        "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+        "显式工具实例绑定",
+        "Explicit Tool Instance Binding",
+        "工具固定目标",
+        "独立工具实例",
+        "pinned target",
+        "tool binding",
+        "让同一种工具可以存在多个实例，每个实例明确绑定到自己的领域对象，而不是通过修改全局 Focus 间接决定写入目标。",
+        "同一工具需要多实例",
+        "工具可固定到对象",
+        "全局 Focus 只是浏览上下文而不是唯一写入目标",
+        "ToolInstance.id",
+        "Binding",
+        "resolved target",
+        "presentation surface",
+        "scope explanation",
+        "surface should expose who/where/how-many when mutation scope is non-obvious",
+        "creates a new ToolInstance rather than retargeting an existing pinned instance",
+        "removes presentation, not domain data",
+        "missing pinned target remains UNRESOLVED instead of silently falling back to Focus",
+        "convenience context only; not canonical target ownership"
+      ]
+    },
+    {
+      "id": "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+      "status": "experimental",
+      "name": {
+        "zh": "编辑作用域透明化",
+        "en": "Edit Scope Transparency"
+      },
+      "aliases": [
+        "WHO WHERE HOW MANY",
+        "作用域提示",
+        "当前修改谁",
+        "影响多少条",
+        "scope banner"
+      ],
+      "intent": "在专业编辑器中，让用户在执行修改前能看见当前写入对象、写入层级以及可能影响的对象数量，而不把这层解释 UI 变成新的状态所有者。",
+      "use_when": [
+        "同一参数可能写入共享 Style 或单 Event override",
+        "工具可绑定 Focus/Selection/Pinned target 等不同对象",
+        "一次操作可能影响多个对象"
+      ],
+      "do_not_use_when": [
+        "操作目标天然唯一且无共享/批量语义",
+        "提示本身会复制并拥有可编辑领域状态"
+      ],
+      "anatomy": [
+        "who/target identity",
+        "where/write layer",
+        "how many/affected count",
+        "binding/source explanation",
+        "unresolved state"
+      ],
+      "realizations": {},
+      "validation": [],
+      "showcases": [],
+      "showcase_status": "missing",
+      "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.SCOPE_TRANSPARENCY.json",
+      "search_terms": [
+        "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+        "编辑作用域透明化",
+        "Edit Scope Transparency",
+        "WHO WHERE HOW MANY",
+        "作用域提示",
+        "当前修改谁",
+        "影响多少条",
+        "scope banner",
+        "在专业编辑器中，让用户在执行修改前能看见当前写入对象、写入层级以及可能影响的对象数量，而不把这层解释 UI 变成新的状态所有者。",
+        "同一参数可能写入共享 Style 或单 Event override",
+        "工具可绑定 Focus/Selection/Pinned target 等不同对象",
+        "一次操作可能影响多个对象",
+        "who/target identity",
+        "where/write layer",
+        "how many/affected count",
+        "binding/source explanation",
+        "unresolved state",
+        "visible near mutating controls without competing with primary content",
+        "unresolved state is explicit rather than hidden",
+        "affected-count changes are visible before destructive/shared edits",
+        "scope explanation is computed from canonical document plus tool binding",
+        "retain former pinned identity and expose affected count 0 instead of silently falling back",
+        "fixed and floating/Canvas hosts consume the same resolver",
+        "banner never becomes a mutation target or second owner"
+      ]
+    },
+    {
+      "id": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+      "status": "experimental",
+      "name": {
+        "zh": "粘性辅助工作区",
+        "en": "Sticky Supporting Pane"
+      },
+      "aliases": [
+        "固定右栏",
+        "sticky 右栏",
+        "常驻输出区",
+        "右边停住左边滚",
+        "sticky supporting pane"
+      ],
+      "intent": "在主工作区继续滚动时，让次要但持续相关的状态、检查或操作保持可见。",
+      "use_when": [
+        "辅助信息需要跨越主内容滚动持续可见",
+        "辅助区域有明确次级任务身份",
+        "宽屏或横屏存在足够空间维持双区布局"
+      ],
+      "do_not_use_when": [
+        "辅助内容会遮挡主要操作",
+        "窄屏无法为两个区域保留可用尺寸",
+        "任务实际上要求模态阻断"
+      ],
+      "anatomy": [
+        "supporting surface",
+        "header/identity",
+        "summary",
+        "optional internal sections",
+        "actions"
+      ],
+      "realizations": {
+        "web": "domains/interface-grammar/realizations/web/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.md"
+      },
+      "validation": [
+        "domains/interface-grammar/validation/behavior-contracts/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json"
+      ],
+      "showcases": [],
+      "showcase_status": "missing",
+      "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json",
+      "search_terms": [
+        "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+        "粘性辅助工作区",
+        "Sticky Supporting Pane",
+        "固定右栏",
+        "sticky 右栏",
+        "常驻输出区",
+        "右边停住左边滚",
+        "sticky supporting pane",
+        "在主工作区继续滚动时，让次要但持续相关的状态、检查或操作保持可见。",
+        "辅助信息需要跨越主内容滚动持续可见",
+        "辅助区域有明确次级任务身份",
+        "宽屏或横屏存在足够空间维持双区布局",
+        "supporting surface",
+        "header/identity",
+        "summary",
+        "optional internal sections",
+        "actions",
+        "secondary persistent surface",
+        "opaque or translucent variant",
+        "optional; sticky behavior must not be described as blur",
+        "may express elevation but must not be the only semantic cue",
+        "viewport-relative within its layout containing block",
+        "independent from main content",
+        "allowed only when pane exceeds available viewport height",
+        "pane bounds only",
+        "must fall back to non-sticky stacked or alternate presentation"
+      ]
+    },
+    {
+      "id": "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
+      "status": "experimental",
+      "name": {
+        "zh": "瞬态—已提交表面几何分离",
+        "en": "Transient–Committed Surface Geometry"
+      },
+      "aliases": [
+        "拖动候选不立即落盘",
+        "窗口几何提交",
+        "viewport clamp 不改布局",
+        "surface geometry"
+      ],
+      "intent": "将拖动/缩放过程中的临时几何与已提交、可恢复的工作区布局分离，避免旋转、窄视口、手势取消或临时 clamp 污染用户的长期布局。",
+      "use_when": [
+        "存在可拖动/缩放的工具表面",
+        "布局需要 Activity/process 恢复",
+        "同一布局会经历不同 viewport/inset"
+      ],
+      "do_not_use_when": [
+        "完全静态文档流布局",
+        "不存在持久几何或恢复语义"
+      ],
+      "anatomy": [
+        "canonical committed geometry",
+        "transient gesture candidate",
+        "viewport projection",
+        "layout lock",
+        "stacking order",
+        "versioned persistence"
+      ],
+      "realizations": {},
+      "validation": [],
+      "showcases": [],
+      "showcase_status": "missing",
+      "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY.json",
+      "search_terms": [
+        "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
+        "瞬态—已提交表面几何分离",
+        "Transient–Committed Surface Geometry",
+        "拖动候选不立即落盘",
+        "窗口几何提交",
+        "viewport clamp 不改布局",
+        "surface geometry",
+        "将拖动/缩放过程中的临时几何与已提交、可恢复的工作区布局分离，避免旋转、窄视口、手势取消或临时 clamp 污染用户的长期布局。",
+        "存在可拖动/缩放的工具表面",
+        "布局需要 Activity/process 恢复",
+        "同一布局会经历不同 viewport/inset",
+        "canonical committed geometry",
+        "transient gesture candidate",
+        "viewport projection",
+        "layout lock",
+        "stacking order",
+        "versioned persistence",
+        "transient outline or equivalent feedback may be used while content remains at committed size",
+        "compact headers may scroll actions horizontally rather than hiding them",
+        "may render transient translation without rewriting committed geometry each frame",
+        "candidate outline/geometry is committed on release; cancel discards candidate",
+        "projection/clamp is temporary and does not overwrite larger saved geometry",
+        "only committed geometry is serialized",
+        "layout lock affects presentation movement, not the tool's domain binding or editability"
+      ]
+    }
+  ]
+}

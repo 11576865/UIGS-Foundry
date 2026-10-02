@@ -15,7 +15,7 @@
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^UIGS\\\\."
+      "pattern": "^UIGS\\."
     },
     "type": {
       "const": "pattern"
@@ -105,6 +105,13 @@
       "items": {
         "type": "object"
       }
+    },
+    "showcases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
     }
   },
   "additionalProperties": true

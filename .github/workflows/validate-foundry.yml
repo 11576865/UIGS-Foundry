@@ -26,6 +26,10 @@ jobs:
         run: python tools/test_triage_pending.py
       - name: Unit-test project-state reporting
         run: python tools/test_project_state_report.py
+      - name: Build UI search index in workspace
+        run: python tools/build_ui_search_index.py
+      - name: Unit-test UI pattern retrieval
+        run: python tools/test_ui_pattern_query.py
       - name: Validate registry and manifests
         run: python tools/validate_foundry.py
       - name: Generate inventory report

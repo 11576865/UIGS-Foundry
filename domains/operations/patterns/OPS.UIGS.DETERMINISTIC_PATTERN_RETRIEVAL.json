@@ -1,0 +1,23 @@
+{
+  "id": "OPS.UIGS.DETERMINISTIC_PATTERN_RETRIEVAL",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "UI Pattern Registry 的确定性自然语言检索层",
+  "summary": "将 Pattern 的稳定 ID、双语名称、别名、Intent、Use When、Anatomy、Realization 与 Validation 编入机器可读索引；自然语言请求先由确定性词汇/字符相似度解析到候选 Pattern，再由代理根据上下文选择，而不是靠记忆猜测 Pattern 名称。",
+  "principles": [
+    "Exact Pattern IDs and aliases outrank fuzzy similarity.",
+    "Search results expose maturity and evidence gaps rather than hiding them.",
+    "Retrieval returns Realization and Validation references with the semantic Pattern.",
+    "Missing Showcase/Golden Baseline remains explicit.",
+    "The retrieval layer does not change Pattern maturity or Canonical status."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "implementation 2026-10-02",
+      "evidence_level": "implemented registry retrieval"
+    }
+  ],
+  "created": "2026-10-02"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE",
+  "type": "bug",
+  "status": "validated",
+  "title": "UI Pattern JSON Schema 的 ID 正则发生双重转义",
+  "symptom": "ui-pattern.schema.json 中 ID pattern 解析后包含两个连续反斜杠，不能正确表达预期的 ^UIGS\\. 前缀约束。",
+  "root_cause": "生成 JSON Schema 时把正则字符串按代码字符串和 JSON 字符串两层重复转义，导致序列化后的 regex 语义改变。",
+  "resolution": [
+    "将解析后的正则规范为单个转义反斜杠：^UIGS\\..",
+    "查询/验证工具继续直接检查 Pattern ID 前缀，避免单一 schema 错误静默放过非法 ID。"
+  ],
+  "regression_guard": [
+    "ui-pattern.schema.json 的 parsed properties.id.pattern 必须等于 ^UIGS\\\\. 的正则语义（单个反斜杠字符）。",
+    "Foundry validator continues to require every registry Pattern ID to start with UIGS."
+  ],
+  "reusable_lesson": "当正则需要跨编程语言字符串与 JSON 序列化边界时，应验证反序列化后的 regex 字符序列，而不是只看源码中的斜杠数量。",
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/UIGS-Foundry:schemas/ui-pattern.schema.json",
+      "revision": "e6d37763754ef2def4f273df2cd35b807e15c629",
+      "evidence_level": "repository defect observed during retrieval implementation"
+    }
+  ]
+}
