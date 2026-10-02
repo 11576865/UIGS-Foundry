@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "0.4",
+  "version": "0.5",
   "domains": [
     {
       "id": "interface-grammar",
@@ -39,6 +39,21 @@
       "id": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
       "status": "experimental",
       "path": "domains/interface-grammar/registry/patterns/UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.json"
+    },
+    {
+      "id": "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+      "status": "experimental",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.SCOPE_TRANSPARENCY.json"
+    },
+    {
+      "id": "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
+      "status": "experimental",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY.json"
+    },
+    {
+      "id": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+      "status": "experimental",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.json"
     }
   ],
   "records": [
@@ -161,6 +176,31 @@
       "id": "BUG.HSR.FAILED_REBUILD_PUBLISHED_SET",
       "status": "validated",
       "path": "domains/reliability/bug-museum/BUG.HSR.FAILED_REBUILD_PUBLISHED_SET.json"
+    },
+    {
+      "id": "REL.CAPABILITY_PROVEN_BY_OUTPUT",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.CAPABILITY_PROVEN_BY_OUTPUT.json"
+    },
+    {
+      "id": "REL.DURABLE_STAGING_FOR_LONG_JOB",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.DURABLE_STAGING_FOR_LONG_JOB.json"
+    },
+    {
+      "id": "ARCH.NATIVE_RESOURCE_IDENTITY_PRESERVATION",
+      "status": "experimental",
+      "path": "domains/architecture/patterns/ARCH.NATIVE_RESOURCE_IDENTITY_PRESERVATION.json"
+    },
+    {
+      "id": "OPS.RELEASE.NATIVE_BUILD_PROVENANCE",
+      "status": "experimental",
+      "path": "domains/operations/policies/OPS.RELEASE.NATIVE_BUILD_PROVENANCE.json"
+    },
+    {
+      "id": "TEST.RENDERED_EFFECT_DIFFERENTIAL",
+      "status": "experimental",
+      "path": "domains/reliability/test-patterns/TEST.RENDERED_EFFECT_DIFFERENTIAL.json"
     }
   ],
   "projects": [

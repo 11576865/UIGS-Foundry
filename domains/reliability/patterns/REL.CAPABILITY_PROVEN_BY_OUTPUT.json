@@ -1,0 +1,31 @@
+{
+  "id": "REL.CAPABILITY_PROVEN_BY_OUTPUT",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "能力必须由真实输出证明，而非名称/返回码声明",
+  "summary": "硬件编码器、字幕渲染、Native bridge 等能力不能因为 API 名称存在、encoder 被枚举或 FFmpeg 返回成功就视为可用；需要产生并验证真正体现目标能力的输出。",
+  "invariants": [
+    "Enumerated capability or encoder name is evidence of possibility, not successful execution.",
+    "Initialization success or process return code is insufficient when the desired visual/media effect can silently fail.",
+    "A capability smoke test SHOULD create a minimal output and validate it with an independent observer.",
+    "Device/vendor dependent acceleration remains opt-in until device-specific smoke evidence exists.",
+    "Observed capability evidence is scoped to the tested runtime/device/configuration."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:docs/failure-prevention-checklist.md",
+      "revision": "51a8c536658b263325d60a0fea68b99037d0cf0a",
+      "evidence_level": "failure-prevention policy",
+      "note": "MediaCodec, libass/fontconfig and output-validation rules."
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/UI-AUDIT-2026-10-01.md",
+      "revision": "aa3ffcf69e66f3e0aee15e659036ef2123c94696",
+      "evidence_level": "supporting project principle",
+      "note": "resource existence does not imply final font face/render hit."
+    }
+  ],
+  "created": "2026-10-02"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "REL.DURABLE_STAGING_FOR_LONG_JOB",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "长任务使用可恢复持久 staging，而非易失缓存",
+  "summary": "多分钟或多小时的正式任务应把中间/待发布成品放在受控、可恢复的持久 job 目录；启动前检查空间，完成后验证并交付，所有 terminal path 显式清理或保留为可恢复状态。",
+  "invariants": [
+    "Formal long-job staging does not rely on browser memory or evictable cache storage.",
+    "Storage headroom is checked before expensive execution.",
+    "Staging identity is tied to a job id.",
+    "Validated delivery precedes staging deletion.",
+    "Process death/timeout leaves an explicit recoverable or cleanable job state.",
+    "Cleanup policy is explicit for success, failure, cancel and timeout."
+  ],
+  "related": [
+    "REL.SINGLE_OWNER_LONG_JOB",
+    "REL.VERIFY_THEN_PUBLISH"
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:docs/failure-prevention-checklist.md",
+      "revision": "51a8c536658b263325d60a0fea68b99037d0cf0a",
+      "evidence_level": "implemented design policy",
+      "note": "Rules 19, 25 and 29."
+    }
+  ],
+  "created": "2026-10-02"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "TEST.RENDERED_EFFECT_DIFFERENTIAL",
+  "type": "test",
+  "status": "experimental",
+  "title": "目标视觉效果的差分烟雾测试",
+  "summary": "当渲染链可能在返回成功的同时静默缺失目标效果时，使用有/无该效果的受控输出进行像素/区域差分，证明效果真的进入最终渲染结果。",
+  "scenarios": [
+    "subtitle-rendered frame vs no-subtitle control frame",
+    "effect-on vs effect-off reference frame",
+    "expected glyph/overlay region has non-zero visual delta"
+  ],
+  "constraints": [
+    "A process return code alone does not satisfy this test.",
+    "The control pair should differ only in the capability under test where practical.",
+    "Thresholds must tolerate encoding/render noise without accepting zero-effect output."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:docs/failure-prevention-checklist.md",
+      "revision": "51a8c536658b263325d60a0fea68b99037d0cf0a",
+      "evidence_level": "specified native startup self-test",
+      "note": "libass/fontconfig silent-failure defense."
+    }
+  ],
+  "created": "2026-10-02"
+}

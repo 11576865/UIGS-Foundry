@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "updated": "2026-10-02",
+  "repositories": [
+    {
+      "repository": "11576865/ASS-Workbench-Android",
+      "passes": 4,
+      "harvested": [
+        "artifact policy",
+        "adversarial preflight",
+        "release-path parity",
+        "workspace binding",
+        "capability catalog",
+        "scope transparency",
+        "surface geometry model"
+      ],
+      "remaining": [
+        "full destructive matrix",
+        "renderer/device evidence corpus",
+        "multi-agent incident provenance",
+        "additional UI tool families"
+      ]
+    },
+    {
+      "repository": "11576865/Character-Voice-Service",
+      "passes": 3,
+      "harvested": [
+        "system graph",
+        "runtime isolation",
+        "declared/discovered reconciliation"
+      ],
+      "remaining": [
+        "runtime supervisor ownership edge cases",
+        "model/profile consistency",
+        "system-graph failure cases"
+      ]
+    },
+    {
+      "repository": "11576865/MKV-Fast-Muxer",
+      "passes": 3,
+      "harvested": [
+        "error taxonomy",
+        "encoding fixtures",
+        "container semantic audit",
+        "failure/cancel/restart recovery"
+      ],
+      "remaining": [
+        "task isolation internals",
+        "quota/storage fallbacks",
+        "release history bugs",
+        "additional visual patterns"
+      ]
+    },
+    {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "passes": 4,
+      "harvested": [
+        "web/native split",
+        "verify-then-publish",
+        "single-owner long job",
+        "structured native bridge",
+        "durable staging",
+        "native resource identity",
+        "output-proven capability",
+        "native build provenance"
+      ],
+      "remaining": [
+        "thermal/runtime budget",
+        "page-size/signing policy",
+        "SAF provider replacement semantics",
+        "session/log retention"
+      ]
+    },
+    {
+      "repository": "11576865/HSR-Voice-Archive-Builder",
+      "passes": 4,
+      "harvested": [
+        "paid API budget",
+        "autosave race",
+        "stable member identity",
+        "preview-inspector split",
+        "last-known-good rollback",
+        "integrity-checked recovery",
+        "progressive inspector disclosure"
+      ],
+      "remaining": [
+        "translation checkpoint semantics",
+        "project clone ownership boundaries",
+        "subtitle layout grammar",
+        "remote-update conflict model"
+      ]
+    }
+  ]
+}

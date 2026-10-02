@@ -1,0 +1,24 @@
+{
+  "id": "ARCH.NATIVE_RESOURCE_IDENTITY_PRESERVATION",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "跨 Web/Native 边界保留原生资源身份",
+  "summary": "浏览器 File、Android content URI、持久授权、本机 font pool 等不是同一种资源身份；跨桥接层时应保留原始原生句柄/URI 或受控副本，而不是从显示名称或 JavaScript 路径重建。",
+  "principles": [
+    "Browser File identity and native content URI identity are distinct.",
+    "Persistable URI grants or controlled app-private copies are explicit native persistence mechanisms.",
+    "Native font persistence is separate from browser IndexedDB persistence even when UI semantics are shared.",
+    "Temporary protocol registrations are owned by one job and unregistered on every terminal path.",
+    "Non-seekable content providers require probe/fallback-copy policy instead of assuming local-file semantics."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:docs/failure-prevention-checklist.md",
+      "revision": "51a8c536658b263325d60a0fea68b99037d0cf0a",
+      "evidence_level": "architecture policy",
+      "note": "SAF lifecycle, URI identity, native font pool, non-seekable providers."
+    }
+  ],
+  "created": "2026-10-02"
+}

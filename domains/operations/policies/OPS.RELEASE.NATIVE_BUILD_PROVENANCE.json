@@ -1,0 +1,34 @@
+{
+  "id": "OPS.RELEASE.NATIVE_BUILD_PROVENANCE",
+  "type": "policy",
+  "status": "experimental",
+  "title": "原生二进制发布的构建与许可证来源证明",
+  "summary": "当发布产物包含受具体 build flags、upstream revision 或许可证组合影响的原生组件时，发布身份必须记录这些构建事实，避免同一版本标签下静默切换能力或许可证语义。",
+  "domains": [
+    "operations",
+    "reliability"
+  ],
+  "rules": [
+    "Record exact upstream revision for distributed native components.",
+    "Record relevant build flags/configuration that change codec/features/license obligations.",
+    "Ship or link required license texts and corresponding source/build instructions.",
+    "Do not silently switch materially different native bundles under the same binary/release identity.",
+    "Build provenance SHOULD be inspectable independently from marketing/version labels."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:docs/failure-prevention-checklist.md",
+      "revision": "51a8c536658b263325d60a0fea68b99037d0cf0a",
+      "evidence_level": "release policy",
+      "note": "Rule 20 GPL build configuration and distributed Android artifact."
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/HARDENING-0.27.md",
+      "revision": "def359517071d620f41de1320656b7e48aa28b98",
+      "evidence_level": "supporting release provenance mechanism"
+    }
+  ],
+  "created": "2026-10-02"
+}

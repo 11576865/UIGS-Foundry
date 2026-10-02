@@ -1,0 +1,69 @@
+{
+  "$schema": "../../../../schemas/ui-pattern.schema.json",
+  "id": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+  "type": "pattern",
+  "status": "experimental",
+  "name": {
+    "zh": "检查器渐进式控制披露",
+    "en": "Progressive Inspector Control Disclosure"
+  },
+  "aliases": [
+    "基础/高级参数分组",
+    "高级折叠",
+    "长参数栈",
+    "inspector progressive disclosure"
+  ],
+  "intent": "在参数密集的 Inspector 中保持主要动作和高频基础参数可见，将低频高级参数按语义组折叠/分区，避免一条无限增长的同级参数墙。",
+  "use_when": [
+    "参数数量持续增长",
+    "主预览或主对象应保持视觉主导",
+    "高级能力重要但低频"
+  ],
+  "do_not_use_when": [
+    "全部参数同等高频且数量很少",
+    "折叠会隐藏完成当前任务所必需的关键状态"
+  ],
+  "anatomy": [
+    "primary actions",
+    "basic semantic groups",
+    "advanced disclosure sections",
+    "stable control identity",
+    "compact scrollable inspector"
+  ],
+  "interaction_contract": {
+    "primary_actions": "remain before/above the long parameter stack",
+    "advanced": "advanced groups are explicitly disclosed rather than permanently occupying equal hierarchy",
+    "identity": "control IDs and domain semantics remain stable when regrouped",
+    "responsive": "grouping survives tablet/mobile reflow without duplicating controls"
+  },
+  "visual_contract": {
+    "hierarchy": "primary actions > basic groups > advanced groups",
+    "wide": "inspector may be sticky while its internal content scrolls",
+    "narrow": "single-column flow restores normal document reachability"
+  },
+  "constraints": [
+    "Regrouping must not create duplicate implementations.",
+    "Critical completion/save/generate actions must not disappear below a long advanced stack.",
+    "Responsive reflow changes presentation, not control ownership."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:tests/test_subtitle_style_workbench_ui.py",
+      "revision": "a2d4fb95898304fed05ded2093686595083d29b6",
+      "evidence_level": "UI contract tests"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:app/static/index.html",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "production implementation"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/UI-AUDIT-2026-10-01.md",
+      "revision": "aa3ffcf69e66f3e0aee15e659036ef2123c94696",
+      "evidence_level": "cross-project supporting evidence"
+    }
+  ]
+}

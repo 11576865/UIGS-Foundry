@@ -1,0 +1,59 @@
+{
+  "$schema": "../../../../schemas/ui-pattern.schema.json",
+  "id": "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
+  "type": "pattern",
+  "status": "experimental",
+  "name": {
+    "zh": "瞬态—已提交表面几何分离",
+    "en": "Transient–Committed Surface Geometry"
+  },
+  "aliases": [
+    "拖动候选不立即落盘",
+    "窗口几何提交",
+    "viewport clamp 不改布局",
+    "surface geometry"
+  ],
+  "intent": "将拖动/缩放过程中的临时几何与已提交、可恢复的工作区布局分离，避免旋转、窄视口、手势取消或临时 clamp 污染用户的长期布局。",
+  "use_when": [
+    "存在可拖动/缩放的工具表面",
+    "布局需要 Activity/process 恢复",
+    "同一布局会经历不同 viewport/inset"
+  ],
+  "do_not_use_when": [
+    "完全静态文档流布局",
+    "不存在持久几何或恢复语义"
+  ],
+  "anatomy": [
+    "canonical committed geometry",
+    "transient gesture candidate",
+    "viewport projection",
+    "layout lock",
+    "stacking order",
+    "versioned persistence"
+  ],
+  "interaction_contract": {
+    "drag": "may render transient translation without rewriting committed geometry each frame",
+    "resize": "candidate outline/geometry is committed on release; cancel discards candidate",
+    "viewport": "projection/clamp is temporary and does not overwrite larger saved geometry",
+    "restore": "only committed geometry is serialized",
+    "lock": "layout lock affects presentation movement, not the tool's domain binding or editability"
+  },
+  "visual_contract": {
+    "resize_feedback": "transient outline or equivalent feedback may be used while content remains at committed size",
+    "reachability": "compact headers may scroll actions horizontally rather than hiding them"
+  },
+  "constraints": [
+    "Surface geometry contains no domain values or subtitle undo state.",
+    "Presentation order changes must not mutate document state.",
+    "Invalid persisted rows should be skipped individually rather than invalidating the whole workspace.",
+    "Temporary viewport constraints must not destroy canonical layout intent."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/WORKSPACE_SURFACES_0.27.2.md",
+      "revision": "eac7b951273ba96382de02891b51cb165857f2b8",
+      "evidence_level": "implemented model/controller + connected regression"
+    }
+  ]
+}

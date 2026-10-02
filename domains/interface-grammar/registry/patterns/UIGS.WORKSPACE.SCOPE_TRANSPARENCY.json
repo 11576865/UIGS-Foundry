@@ -1,0 +1,65 @@
+{
+  "$schema": "../../../../schemas/ui-pattern.schema.json",
+  "id": "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+  "type": "pattern",
+  "status": "experimental",
+  "name": {
+    "zh": "编辑作用域透明化",
+    "en": "Edit Scope Transparency"
+  },
+  "aliases": [
+    "WHO WHERE HOW MANY",
+    "作用域提示",
+    "当前修改谁",
+    "影响多少条",
+    "scope banner"
+  ],
+  "intent": "在专业编辑器中，让用户在执行修改前能看见当前写入对象、写入层级以及可能影响的对象数量，而不把这层解释 UI 变成新的状态所有者。",
+  "use_when": [
+    "同一参数可能写入共享 Style 或单 Event override",
+    "工具可绑定 Focus/Selection/Pinned target 等不同对象",
+    "一次操作可能影响多个对象"
+  ],
+  "do_not_use_when": [
+    "操作目标天然唯一且无共享/批量语义",
+    "提示本身会复制并拥有可编辑领域状态"
+  ],
+  "anatomy": [
+    "who/target identity",
+    "where/write layer",
+    "how many/affected count",
+    "binding/source explanation",
+    "unresolved state"
+  ],
+  "interaction_contract": {
+    "derived_only": "scope explanation is computed from canonical document plus tool binding",
+    "unresolved": "retain former pinned identity and expose affected count 0 instead of silently falling back",
+    "hosts": "fixed and floating/Canvas hosts consume the same resolver",
+    "mutation": "banner never becomes a mutation target or second owner"
+  },
+  "visual_contract": {
+    "prominence": "visible near mutating controls without competing with primary content",
+    "uncertainty": "unresolved state is explicit rather than hidden",
+    "count": "affected-count changes are visible before destructive/shared edits"
+  },
+  "constraints": [
+    "The explanation MUST be derived from canonical state and Binding.",
+    "Shared Style and Event Override must not be visually collapsed into one write target.",
+    "Unresolved pinned targets must not silently fall back to global Focus.",
+    "Action-dependent operations need action-specific scope metadata rather than a generic banner."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/WORKSPACE_MIGRATION_CHECKLIST.md",
+      "revision": "c10980aea79e75f72fe482e759393a400973a64b",
+      "evidence_level": "implemented migration"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:app/src/main/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceEditScope.kt",
+      "revision": "d98b018efff87186fdddbda8a745456c7bfdab28",
+      "evidence_level": "production implementation"
+    }
+  ]
+}
