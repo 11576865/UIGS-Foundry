@@ -126,6 +126,32 @@
         }
       },
       "additionalProperties": true
+    },
+    "invariant_evidence": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "path",
+        "authority"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflow": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
     }
   },
   "additionalProperties": true

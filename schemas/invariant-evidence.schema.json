@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/invariant-evidence.schema.json",
+  "title": "UIGS Source-owned Invariant Evidence Manifest",
+  "type": "object",
+  "required": ["schema_version", "project", "repository", "invariants"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "project": {"type": "string", "minLength": 1},
+    "repository": {"type": "string", "pattern": "^[^/]+/[^/]+$"},
+    "invariants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "status", "criticality", "claim", "boundaries", "required_levels", "evidence"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Z0-9_.-]+$"},
+          "title": {"type": "string", "minLength": 1},
+          "status": {"enum": ["active", "retired"]},
+          "criticality": {"enum": ["required", "recommended"]},
+          "claim": {"type": "string", "minLength": 1},
+          "boundaries": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "required_levels": {
+            "type": "array",
+            "items": {"enum": ["source", "test", "workflow", "runtime", "visual", "device"]},
+            "uniqueItems": true
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["id", "level", "kind"],
+              "properties": {
+                "id": {"type": "string", "minLength": 1},
+                "level": {"enum": ["source", "test", "workflow", "runtime", "visual", "device"]},
+                "kind": {"enum": ["pattern", "capture_equal", "capture_in_integer_set"]},
+                "path": {"type": "string"},
+                "pattern": {"type": "string"},
+                "sources": {"type": "array", "minItems": 2},
+                "needle": {"type": "object"},
+                "haystack": {"type": "object"},
+                "note": {"type": "string"}
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

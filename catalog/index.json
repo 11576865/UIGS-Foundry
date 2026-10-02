@@ -391,6 +391,7 @@
     "schemas/ui-realization.schema.json",
     "schemas/project-ui-inventory.schema.json",
     "schemas/ui-visual-capture-contract.schema.json",
-    "schemas/ui-production-visual-evidence.schema.json"
+    "schemas/ui-production-visual-evidence.schema.json",
+    "schemas/invariant-evidence.schema.json"
   ]
 }

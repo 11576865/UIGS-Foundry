@@ -53,6 +53,8 @@ jobs:
         run: python tools/test_intake_state.py
       - name: Unit-test Foundry writer retry contract
         run: python tools/test_push_retry_contract.py
+      - name: Unit-test invariant evidence coverage
+        run: python tools/test_invariant_evidence.py
       - name: Validate registry and manifests
         run: python tools/validate_foundry.py
       - name: Generate inventory report

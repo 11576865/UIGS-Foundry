@@ -36,3 +36,24 @@ Additional event types may be added later when they have a reliable signal and a
 - Missing uigs-outbox before the first event is not an error.
 - Imported packets remain Pending.
 - Canonical promotion is never automatic.
+
+
+## Invariant evidence coverage
+
+A product repository may expose a source-owned `.uigs/invariants.json` manifest and an `invariant_evidence` entry in `.uigs/project.json`.
+
+The manifest is not a claim that the product is bug-free. It records the critical invariants the project currently intends to prove and the evidence boundaries required for each one.
+
+Recommended execution path:
+
+`source invariant -> source/test/workflow evidence -> UIGS Evidence Coverage workflow -> failure -> existing Intake Adapter -> Pending packet`
+
+The initial validator supports three deterministic source-repository checks:
+
+- `pattern`: required source/test/workflow text exists;
+- `capture_equal`: captured contract values agree across producers/advertisers/consumers;
+- `capture_in_integer_set`: a current version captured from one source is included in a consumer's accepted-version set.
+
+Required evidence levels are explicit per invariant. A green ordinary CI suite does not satisfy an invariant whose declared evidence level is absent.
+
+This mechanism is intentionally source-owned: the product repository remains authoritative for its implementation and tests, while Foundry owns the reusable manifest semantics and validator. Missing invariant evidence may fail CI and therefore enter the existing Pending intake path. It does not trigger automatic Canonical promotion.
