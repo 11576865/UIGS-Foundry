@@ -1,0 +1,76 @@
+name: Capture Production UI HSR
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 3 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-production-ui-capture-writer
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: 11576865/HSR-Voice-Archive-Builder
+          path: .capture/hsr
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install capture dependencies
+        run: |
+          python -m pip install -r .capture/hsr/requirements-termux.txt
+          cd .capture/hsr/.uigs
+          npm install --no-save --package-lock=false playwright
+          npx playwright install --with-deps chromium
+      - name: Start HSR UI
+        shell: bash
+        run: |
+          set -euo pipefail
+          nohup bash -lc 'cd .capture/hsr && python -m app.launch --lite --no-browser --port 8765' > "$RUNNER_TEMP/hsr.log" 2>&1 &
+          for i in {1..90}; do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat "$RUNNER_TEMP/hsr.log"
+          exit 1
+      - name: Capture declared HSR states
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p domains/interface-grammar/visual-evidence/images/HSR
+          SHA="$(git -C .capture/hsr rev-parse HEAD)"
+          mapfile -t IDS < <(python -c 'import json; print("\n".join(x["id"] for x in json.load(open(".capture/hsr/.uigs/ui-visual-capture.json",encoding="utf-8"))["captures"]))')
+          for ID in "${IDS[@]}"; do
+            OUT="domains/interface-grammar/visual-evidence/images/HSR/${ID}.png"
+            META="$RUNNER_TEMP/${ID}.json"
+            node .capture/hsr/.uigs/capture-ui.mjs --capture "$ID" --base-url http://127.0.0.1:8765 --output "$OUT" --metadata-output "$META"
+            python tools/register_visual_evidence.py --contract .capture/hsr/.uigs/ui-visual-capture.json --capture-id "$ID" --source-repository 11576865/HSR-Voice-Archive-Builder --source-revision "$SHA" --image "$OUT" --metadata "$META" --output-manifest "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.${ID}.json"
+          done
+      - name: Persist evidence and indexes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/build_visual_evidence_index.py
+          python tools/generate_ui_knowledge_report.py
+          python tools/test_register_visual_evidence.py
+          python tools/test_ui_evidence_resolver.py
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)" ]]; then exit 0; fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add -A domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md
+          git commit -m "chore(uigs): capture HSR production UI evidence"
+          bash tools/push_with_rebase_retry.sh main 5
