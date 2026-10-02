@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "proposal_id": "proposal.chat.quick-hardsub.windows-native-picker-offscreen-owner.20261002T102700Z",
+  "proposal_status": "review_required",
+  "packet_id": "chat.quick-hardsub.windows-native-picker-offscreen-owner.20261002T102700Z",
+  "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+  "packet_sha256": "f5ede4b8c84b946a4424456819da123cd183f10636b375c809c0f64bb6661334",
+  "suggested_record": {
+    "id": "BUG.QUICK_AUTOMATIC_HARDSUB_ENCODER.HIDDEN_WINDOWS_BRIDGE_CAN_ANCHOR_NATIVE.6D928A6B",
+    "type": "bug",
+    "status": "observed",
+    "title": "Hidden Windows bridge can anchor native OpenFileDialog off-screen",
+    "summary": "A Windows Native Bridge launched with a hidden PowerShell window created a 1x1 TopMost owner Form at (-32000,-32000) and used it as the modal OpenFileDialog owner. A real-user report observed that video could not be selected. The owner was moved onto the working area of the monitor under the cursor, brought to front before ShowDialog, and picker cancellation was made explicit so it cannot replay a stale prior selection. Hosted Windows CI can validate the implementation contract but cannot prove an interactive desktop dialog is visible; real-device confirmation remains required.",
+    "domains": [
+      "reliability"
+    ],
+    "tags": [
+      "reliability",
+      "ui-interaction",
+      "windows-native"
+    ],
+    "provenance": [
+      {
+        "source_type": "repository",
+        "source": "11576865/Quick-Automatic-Hardsub-Encoder",
+        "revision": "b7fece013674de7375605a91da21756fe94ce92c",
+        "evidence_level": "durable intake packet",
+        "note": "chat.quick-hardsub.windows-native-picker-offscreen-owner.20261002T102700Z"
+      }
+    ],
+    "links": [
+      "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/29"
+    ],
+    "source_packet": "chat.quick-hardsub.windows-native-picker-offscreen-owner.20261002T102700Z",
+    "evidence_summary": {
+      "root_cause_resolved": false,
+      "fix_present": false,
+      "regression_evidence_present": false
+    }
+  },
+  "evidence_assessment": {
+    "root_cause_resolved": false,
+    "fix_present": false,
+    "regression_evidence_present": false
+  },
+  "dedupe_candidates": [],
+  "related_records": [],
+  "triage_status": "ready-for-record",
+  "proposed_at": "2026-10-02T10:27:40+00:00"
+}
