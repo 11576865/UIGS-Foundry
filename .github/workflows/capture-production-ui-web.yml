@@ -1,0 +1,89 @@
+name: Capture Production UI Web
+
+on:
+  schedule:
+    - cron: '13 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-production-ui-web
+  cancel-in-progress: true
+
+jobs:
+  mkv-output-hub:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: 11576865/MKV-Fast-Muxer
+          path: .capture/mkv
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: .capture/mkv/package-lock.json
+      - name: Install product and browser
+        working-directory: .capture/mkv
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+      - name: Start real product UI
+        working-directory: .capture/mkv
+        shell: bash
+        run: |
+          set -euo pipefail
+          nohup npm run dev -- --host 127.0.0.1 --port 4173 > "$RUNNER_TEMP/mkv-vite.log" 2>&1 &
+          echo $! > "$RUNNER_TEMP/mkv-vite.pid"
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat "$RUNNER_TEMP/mkv-vite.log"
+          exit 1
+      - name: Capture declared MKV production state
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT="$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png"
+          META="$RUNNER_TEMP/mkv-capture.json"
+          mkdir -p "$(dirname "$OUT")"
+          node .capture/mkv/.uigs/capture-ui.mjs \
+            --capture MKV.OUTPUT_HUB.DESKTOP_DARK \
+            --base-url http://127.0.0.1:4173 \
+            --output "$OUT" \
+            --metadata-output "$META"
+          SHA="$(git -C .capture/mkv rev-parse HEAD)"
+          python tools/register_visual_evidence.py \
+            --contract .capture/mkv/.uigs/ui-visual-capture.json \
+            --capture-id MKV.OUTPUT_HUB.DESKTOP_DARK \
+            --source-repository 11576865/MKV-Fast-Muxer \
+            --source-revision "$SHA" \
+            --image "$OUT" \
+            --metadata "$META" \
+            --output-manifest domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json
+      - name: Rebuild visual evidence indexes
+        run: |
+          python tools/build_visual_evidence_index.py
+          python tools/generate_ui_knowledge_report.py
+          python tools/test_register_visual_evidence.py
+          python tools/test_ui_evidence_resolver.py
+      - name: Persist production visual evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)" ]]; then
+            echo "Production Web visual evidence unchanged."
+            exit 0
+          fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add -A domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md
+          git commit -m "chore(uigs): capture MKV production UI evidence"
+          bash tools/push_with_rebase_retry.sh main 5
