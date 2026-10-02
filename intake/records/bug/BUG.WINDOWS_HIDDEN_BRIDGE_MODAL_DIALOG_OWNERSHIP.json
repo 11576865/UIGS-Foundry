@@ -1,0 +1,75 @@
+{
+  "$schema": "../../../schemas/knowledge-record.schema.json",
+  "id": "BUG.WINDOWS_HIDDEN_BRIDGE_MODAL_DIALOG_OWNERSHIP",
+  "type": "bug",
+  "status": "observed",
+  "title": "隐藏 Windows Native Bridge 的原生文件对话框必须拥有可见 owner",
+  "summary": "隐藏运行的 Windows Native Bridge 如果直接显示无 owner 的 OpenFileDialog 或 SaveFileDialog，模态窗口可能出现在浏览器后方或不可见位置；当 Bridge 又以同步请求循环处理 IPC 时，ShowDialog() 会阻塞当前请求，前端表象会变成“选择文件没反应”或“第二次导出卡死”。Quick-Automatic-Hardsub-Encoder 先前已在 OpenFileDialog 上观察到同族问题；2026-10-03 的第二次硬压导出冻结进一步表明 SaveFileDialog 也需要同一 ownership 约束。当前实现统一使用位于鼠标所在显示器工作区内的短生命周期 TopMost owner，并通过 CI 守卫阻止导出路径重新创建无 owner 的保存对话框。",
+  "domains": [
+    "reliability",
+    "architecture"
+  ],
+  "tags": [
+    "windows",
+    "native-bridge",
+    "modal-dialog",
+    "file-dialog",
+    "save-file-dialog",
+    "open-file-dialog",
+    "ipc",
+    "export",
+    "off-screen",
+    "repeat-operation"
+  ],
+  "root_cause": "隐藏 PowerShell Bridge 没有可见主窗口。Export-Job 与 Export-Sample 直接创建 SaveFileDialog 并调用无 owner 的 ShowDialog()；后续模态窗口可能被 Windows 放到浏览器后方或不可见位置，而 Bridge 的单线程同步 HTTP 请求会一直阻塞在该调用上，因此用户看到的是导出冻结而不是一个可操作的保存窗口。",
+  "resolution": [
+    "将原生文件对话框 ownership 视为隐藏 Bridge 的统一生命周期约束，而不是只修单个 picker。",
+    "SaveFileDialog 与 OpenFileDialog 均使用位于当前鼠标显示器工作区内的短生命周期 1x1 TopMost Form 作为 owner，并在 ShowDialog(owner) 前 Show/Activate/BringToFront。",
+    "正式成品导出与测试片段导出统一走 owned SaveFileDialog helper，保留 RestoreDirectory、扩展名补全、覆盖确认和路径检查。",
+    "Windows CI 静态守卫要求 Export-Job / Export-Sample 不得重新实例化无 owner 的 SaveFileDialog。"
+  ],
+  "regression_guard": [
+    "Quick-Automatic-Hardsub-Encoder PR #37 squash-merged as e19db1a3381ef25db7bab1aace2cb304edc5838b.",
+    "Windows local smoke run 37068730392 completed successfully, including the repeated native export dialog ownership guard.",
+    "Existing native file picker visibility guard remains green, covering the same owner-placement family for OpenFileDialog."
+  ],
+  "remaining_risk": "Hosted Windows CI can prove source/contract structure and bridge smoke behavior, but cannot prove that a real interactive SaveFileDialog is visibly foregrounded on every desktop/multi-monitor configuration. The merged fix still requires real-device repeat-export confirmation before this record should be treated as validated.",
+  "related_family": [
+    "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/chat.quick-hardsub.windows-native-picker-offscreen-owner.20261002T102700Z.json",
+    "outbox/proposals/11576865__Quick-Automatic-Hardsub-Encoder/chat.quick-hardsub.windows-native-picker-offscreen-owner.20261002T102700Z.json"
+  ],
+  "provenance": [
+    {
+      "source_type": "pull_request",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder#37",
+      "revision": "98b09c7705a43aaf914655637e2405811fd4f35a",
+      "evidence_level": "code review + merged fix",
+      "note": "SaveFileDialog ownership fix and regression guard."
+    },
+    {
+      "source_type": "commit",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "revision": "e19db1a3381ef25db7bab1aace2cb304edc5838b",
+      "evidence_level": "merged implementation"
+    },
+    {
+      "source_type": "report",
+      "source": "GitHub Actions Windows local smoke",
+      "revision": "37068730392",
+      "evidence_level": "hosted Windows CI success",
+      "note": "Includes parsing, dialog ownership guard, localhost bridge smoke, FFmpeg/libass and encoding checks."
+    },
+    {
+      "source_type": "conversation",
+      "source": "chat.quick-hardsub.windows-native-picker-offscreen-owner.20261002T102700Z",
+      "revision": "2026-10-02",
+      "evidence_level": "prior durable intake packet",
+      "note": "Existing family for hidden Bridge native file-dialog visibility."
+    }
+  ],
+  "links": [
+    "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/37",
+    "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/37068730392"
+  ],
+  "created": "2026-10-03"
+}
