@@ -82,7 +82,8 @@ jobs:
             test -s "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png"
             python "$GITHUB_WORKSPACE/tools/assert_png_orientation.py" "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png" landscape
 
-            gradle -p .capture/ass :app:connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=io.github.assworkbench.app.UigsVisualCaptureInstrumentedTest
+            adb install -r .capture/ass/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+            adb shell am instrument -w -e class io.github.assworkbench.app.UigsVisualCaptureInstrumentedTest io.github.assworkbench.app.test/androidx.test.runner.AndroidJUnitRunner
             adb exec-out run-as io.github.assworkbench.app cat files/uigs-style-tool-fixture-landscape.png > "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png"
             test -s "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png"
             python "$GITHUB_WORKSPACE/tools/assert_png_orientation.py" "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png" landscape
