@@ -1,4 +1,5 @@
 name: Capture Production UI HSR
+# source repositories are resolved from their current main at runtime
 
 on:
   push:
