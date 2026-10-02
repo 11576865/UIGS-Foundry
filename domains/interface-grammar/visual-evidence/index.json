@@ -41,7 +41,7 @@
         "width": 1134,
         "height": 615
       },
-      "change_status": "new",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
     }
   ],
@@ -133,7 +133,7 @@
           "width": 1134,
           "height": 615
         },
-        "change_status": "new",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
       }
     ],
