@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.UIGS.VISUAL_EVIDENCE.EMPTY_INDEX_SHAPE",
+  "type": "bug",
+  "status": "validated",
+  "title": "手写空 Visual Evidence index 未保持生成器的完整 by_surface 形状",
+  "symptom": "Validate Foundry 在 production visual evidence index --check 阶段报告 stale，尽管 evidence_count 为 0。",
+  "root_cause": "初始 index.json 被手工写成 by_surface: {}；确定性生成器即使没有证据，也会为每个已登记 concrete Surface 写入空数组，因此手写占位文件与生成结果不相等。",
+  "resolution": [
+    "用当前 UI Surface Inventory 构造完整 by_surface 空映射并同步 coverage total_surfaces。",
+    "后续生成型文件应优先由对应生成器产生，而不是手写最小占位结构。"
+  ],
+  "regression_guard": [
+    "Validate Foundry 执行 tools/build_visual_evidence_index.py --check。",
+    "修复后的 Validate Foundry run 36993079089 已成功。"
+  ],
+  "reusable_lesson": "确定性派生文件的‘空状态’也是 schema/shape 的一部分。Bootstrap 应执行真实 generator，不能用语义上看似等价的手写空对象代替。",
+  "provenance": [
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Validate Foundry run 36992829941",
+      "revision": "53a8b97a4785d6eb2f96629123a7130bba294905",
+      "evidence_level": "stale derived-index validation failure"
+    },
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Validate Foundry run 36993079089",
+      "revision": "679425ae4d540849425b8baba983567f0eec9405",
+      "evidence_level": "successful corrected validation"
+    }
+  ]
+}

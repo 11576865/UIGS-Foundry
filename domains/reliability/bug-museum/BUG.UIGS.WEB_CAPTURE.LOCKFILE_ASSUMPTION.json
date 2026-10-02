@@ -1,0 +1,39 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION",
+  "type": "bug",
+  "status": "validated",
+  "title": "Web Capture workflow 假设 npm lockfile 存在，导致 setup-node cache 与 npm ci 连续失败",
+  "symptom": "Capture Production UI Web 首次在 actions/setup-node cache-dependency-path 阶段因 package-lock.json 不存在失败；移除 cache 后第二次又在 npm ci 阶段因同一 lockfile 缺失失败。",
+  "root_cause": "Capture orchestrator 把 Node 项目的安装策略写死为 lockfile-based npm ci，但 MKV-Fast-Muxer 当前仓库只有 package.json，没有 package-lock.json。",
+  "resolution": [
+    "不对无 lockfile 的项目启用 setup-node npm cache。",
+    "当前初始 capture 改用 npm install --no-package-lock --no-audit --no-fund。",
+    "后续 Capture Contract 应显式声明 install strategy；若项目以后加入 lockfile，再切回 lockfile-based immutable install。"
+  ],
+  "regression_guard": [
+    "Capture workflow 不再声明不存在的 cache-dependency-path。",
+    "Web capture run 36993078966 已通过安装、产品启动、真实浏览器截图、证据登记和持久化。"
+  ],
+  "reusable_lesson": "跨项目自动化不能从语言/包管理器推断 lockfile 存在；安装可重复性、cache 键和 install command 应由源项目契约声明或由文件存在性确定。",
+  "provenance": [
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Web run 36992830110",
+      "revision": "53a8b97a4785d6eb2f96629123a7130bba294905",
+      "evidence_level": "setup-node cache path failure"
+    },
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Web run 36992975651",
+      "revision": "015915dd20126b996a7649a5dd05ca8d5141b6f5",
+      "evidence_level": "npm ci lockfile failure"
+    },
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Web run 36993078966",
+      "revision": "679425ae4d540849425b8baba983567f0eec9405",
+      "evidence_level": "successful corrected capture"
+    }
+  ]
+}
