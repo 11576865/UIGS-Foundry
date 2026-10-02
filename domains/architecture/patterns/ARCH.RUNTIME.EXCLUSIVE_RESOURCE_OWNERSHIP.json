@@ -1,0 +1,29 @@
+{
+  "id": "ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "互斥运行时资源的所有权感知切换",
+  "summary": "共享同一 GPU/端口/互斥组的运行时不能只按“谁正在运行”处理；Supervisor 只能自动停止自己拥有的进程，对健康但外部拥有的冲突运行时必须拒绝越权终止并要求显式交接。",
+  "principles": [
+    "Exclusive-resource conflicts are modeled explicitly with an exclusive_group or equivalent relation.",
+    "A supervisor may automatically stop only processes it owns.",
+    "A healthy conflicting runtime outside the supervisor causes a conflict error rather than an implicit kill.",
+    "Restart verifies that the endpoint actually became unowned/unhealthy before starting a replacement.",
+    "Managed and external runtimes share health semantics but not lifecycle authority."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Character-Voice-Service:server/runtime_supervisor.py",
+      "revision": "0a9de94c54645762ee32ebfd25e6183e3d704cd4",
+      "evidence_level": "production implementation"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/Character-Voice-Service:tests/test_runtime_supervisor.py",
+      "revision": "3cb1a4957d386313722a0cf9da65789fc8ddc4a4",
+      "evidence_level": "automated supervisor tests"
+    }
+  ],
+  "created": "2026-10-02"
+}

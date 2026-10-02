@@ -1,0 +1,34 @@
+{
+  "id": "REL.MOBILE.THERMAL_AWARE_PROGRESS",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "移动端长任务的热状态感知进度与 ETA",
+  "summary": "移动设备长时间高负载时吞吐可能显著变化，因此 ETA 应基于滚动实测吞吐而不是初始 FPS 线性外推；热状态是解释性能变化的运行证据，不应被误报为编码器故障。",
+  "invariants": [
+    "ETA uses rolling observed throughput rather than assuming initial speed remains constant.",
+    "Thermal status is surfaced when the platform exposes it.",
+    "Parallelism defaults are bounded and measured rather than derived mechanically from logical core count.",
+    "Thermal throttling changes performance expectations but does not by itself imply output failure."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:docs/failure-prevention-checklist.md",
+      "revision": "51a8c536658b263325d60a0fea68b99037d0cf0a",
+      "evidence_level": "documented policy"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:android-native/app/src/main/java/io/github/quickhardsub/NativeBridge.kt",
+      "revision": "3300811cce41f828055bce1272dbd9c0eb9d3d48",
+      "evidence_level": "production thermal probe"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:android-native/app/src/main/java/io/github/quickhardsub/EncodeService.kt",
+      "revision": "3300811cce41f828055bce1272dbd9c0eb9d3d48",
+      "evidence_level": "production job evidence"
+    }
+  ],
+  "created": "2026-10-02"
+}

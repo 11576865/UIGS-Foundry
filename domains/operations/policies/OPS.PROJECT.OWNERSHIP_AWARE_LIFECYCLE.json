@@ -1,0 +1,42 @@
+{
+  "id": "OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
+  "type": "policy",
+  "status": "experimental",
+  "title": "工程克隆与删除必须服从资源所有权边界",
+  "summary": "项目目录是否由应用完整管理决定了克隆/删除能做什么。自动管理根可整体删除；手工工程根只能删除明确拥有的状态/输出/marker，必须保留未知或用户文件。克隆复制可复用生成输入，但不复制旧输出和运行状态。",
+  "rules": [
+    "Managed project roots may be removed as a whole only when explicitly marked managed.",
+    "Manual roots preserve arbitrary/unowned files and remove only known owned state/output/metadata.",
+    "Clone destinations must differ from the source and must not overwrite a non-empty destination.",
+    "Generated project-local inputs may be copied; manual relative user inputs are rebound to their original absolute resources instead of silently duplicated.",
+    "Outputs and runtime state are not inherited by a semantic project clone unless explicitly requested.",
+    "Destructive project deletion should be blocked while owned jobs are active and may require verified recovery evidence."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:app/project.py",
+      "revision": "ea69de9426dcd8c764f63bccf44dd642bb003322",
+      "evidence_level": "production implementation"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:tests/test_v09h.py",
+      "revision": "8dae50f10c69ea020e7dda03bf924c234532ca41",
+      "evidence_level": "clone contract tests"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:tests/test_v09e.py",
+      "revision": "5f4ee38146bcddbecf0d8f80d7fc23efa49eb355",
+      "evidence_level": "delete/active-job safety tests"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:app/server.py",
+      "revision": "4e70a4c00bcd81cf0b919022880985f5df6dffed",
+      "evidence_level": "destructive-operation guard"
+    }
+  ],
+  "created": "2026-10-02"
+}

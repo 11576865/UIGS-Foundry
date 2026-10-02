@@ -1,0 +1,30 @@
+{
+  "id": "REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "检查点复用必须绑定执行路线与输入身份",
+  "summary": "昂贵工作检查点只有在 provider/base URL/model/源语言/目标语言等执行路线一致，且单条输入指纹仍匹配时才能安全复用；路线变化或输入变化应失效而不是猜测兼容。",
+  "invariants": [
+    "Checkpoint schema version is explicit.",
+    "Execution route identity includes provider, endpoint/base URL, model and relevant language roles.",
+    "Per-record reuse validates an input fingerprint, not only a display filename or old output presence.",
+    "Legacy checkpoints may be read only under their historically implicit route assumptions.",
+    "Completed paid work is persisted after each batch so later failure does not discard already-paid results.",
+    "Route/input mismatch invalidates reuse without deleting the historical checkpoint."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:app/pipeline.py",
+      "revision": "eae8429ddd9634308f8f0bde40669650562758f3",
+      "evidence_level": "production implementation"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:tests/test_v09e.py",
+      "revision": "5f4ee38146bcddbecf0d8f80d7fc23efa49eb355",
+      "evidence_level": "automated checkpoint invalidation/reuse tests"
+    }
+  ],
+  "created": "2026-10-02"
+}

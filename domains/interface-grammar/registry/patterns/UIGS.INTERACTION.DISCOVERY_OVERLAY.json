@@ -1,0 +1,72 @@
+{
+  "$schema": "../../../../schemas/ui-pattern.schema.json",
+  "id": "UIGS.INTERACTION.DISCOVERY_OVERLAY",
+  "type": "pattern",
+  "status": "experimental",
+  "name": {
+    "zh": "交互发现覆盖层",
+    "en": "Interaction Discovery Overlay"
+  },
+  "aliases": [
+    "预览长按选对象",
+    "preview picker",
+    "interaction overlay",
+    "锚点发现层"
+  ],
+  "intent": "在视觉预览上提供对象发现、定位和直接操作入口，同时明确该覆盖层只是交互/发现层，不冒充最终渲染器或字形命中权威。",
+  "use_when": [
+    "主预览需要直接选取/定位编辑对象",
+    "存在近似几何或语义锚点但最终视觉由独立 renderer 决定",
+    "固定布局与浮动/Canvas presentation 需要共享同一交互能力"
+  ],
+  "do_not_use_when": [
+    "发现算法会被误解为精确 renderer glyph/bbox hit testing",
+    "覆盖层自身需要持有第二份领域对象状态"
+  ],
+  "anatomy": [
+    "shared interaction registry",
+    "discovery proxy/anchor",
+    "candidate list",
+    "confidence label",
+    "focus action",
+    "open-pinned-target action"
+  ],
+  "interaction_contract": {
+    "registry": "multiple presentation hosts consume one InteractionOverlayRegistry",
+    "confidence": "candidate confidence distinguishes explicit anchor, derived anchor and unresolved semantics",
+    "actions": "changing Focus and opening a pinned edit target are separate actions",
+    "authority": "preview discovery never overrides renderer authority",
+    "lifecycle": "overlay/proxy state is transient interaction state, not canonical document state"
+  },
+  "visual_contract": {
+    "confidence": "approximate discovery is labeled as approximate",
+    "overlay": "must not obscure the primary preview beyond the active interaction",
+    "host_consistency": "fixed and Canvas hosts present the same semantic interaction"
+  },
+  "constraints": [
+    "Anchor discovery must not be described as glyph/bbox hit testing without renderer-backed evidence.",
+    "The renderer remains visual authority.",
+    "Interaction state must not be persisted as canonical domain data.",
+    "Presentation host changes must not duplicate interaction business logic."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/WORKSPACE_MIGRATION_CHECKLIST.md",
+      "revision": "c10980aea79e75f72fe482e759393a400973a64b",
+      "evidence_level": "implemented migration"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:app/src/main/kotlin/io/github/assworkbench/app/ui/ModernEditorScreen.kt",
+      "revision": "d98b018efff87186fdddbda8a745456c7bfdab28",
+      "evidence_level": "production implementation"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:app/src/main/kotlin/io/github/assworkbench/app/ui/VideoPreview.kt",
+      "revision": "d98b018efff87186fdddbda8a745456c7bfdab28",
+      "evidence_level": "production implementation"
+    }
+  ]
+}

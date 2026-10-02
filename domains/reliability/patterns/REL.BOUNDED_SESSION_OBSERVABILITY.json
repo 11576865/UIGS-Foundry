@@ -1,0 +1,24 @@
+{
+  "id": "REL.BOUNDED_SESSION_OBSERVABILITY",
+  "type": "pattern",
+  "status": "candidate",
+  "title": "长任务日志与会话历史必须有边界",
+  "summary": "媒体运行时的 session history、completion callbacks 和重定向日志可能在长任务中持续持有对象与内存。需要把正式任务的统计可观测性与无限日志/会话保留分离。",
+  "proposed_invariants": [
+    "Session history has a deliberate small bound.",
+    "Short self-tests/diagnostics may use verbose logs; long formal jobs use a lower active log level while retaining essential statistics.",
+    "Completed session objects are cleared after extracting required failure/provenance summaries.",
+    "Formal callbacks are owned by the long-lived job service and do not capture Activity/WebView objects."
+  ],
+  "note": "Repository search located the policy but not a confirmed implementation; keep Candidate.",
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:docs/failure-prevention-checklist.md",
+      "revision": "51a8c536658b263325d60a0fea68b99037d0cf0a",
+      "evidence_level": "documented policy only",
+      "note": "Rules 23 and 30."
+    }
+  ],
+  "created": "2026-10-02"
+}

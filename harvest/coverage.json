@@ -1,10 +1,10 @@
 {
-  "version": 1,
+  "version": 2,
   "updated": "2026-10-02",
   "repositories": [
     {
       "repository": "11576865/ASS-Workbench-Android",
-      "passes": 4,
+      "passes": 5,
       "harvested": [
         "artifact policy",
         "adversarial preflight",
@@ -12,27 +12,31 @@
         "workspace binding",
         "capability catalog",
         "scope transparency",
-        "surface geometry model"
+        "surface geometry model",
+        "interaction discovery overlay"
       ],
       "remaining": [
         "full destructive matrix",
         "renderer/device evidence corpus",
         "multi-agent incident provenance",
-        "additional UI tool families"
+        "additional tool-specific UI families",
+        "renderer-backed hit-testing when implemented"
       ]
     },
     {
       "repository": "11576865/Character-Voice-Service",
-      "passes": 3,
+      "passes": 4,
       "harvested": [
         "system graph",
         "runtime isolation",
-        "declared/discovered reconciliation"
+        "declared/discovered reconciliation",
+        "exclusive-resource lifecycle ownership"
       ],
       "remaining": [
-        "runtime supervisor ownership edge cases",
+        "external supervisor protocol failure modes",
         "model/profile consistency",
-        "system-graph failure cases"
+        "generation provenance",
+        "system-graph reporting"
       ]
     },
     {
@@ -53,7 +57,7 @@
     },
     {
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "passes": 4,
+      "passes": 5,
       "harvested": [
         "web/native split",
         "verify-then-publish",
@@ -62,18 +66,21 @@
         "durable staging",
         "native resource identity",
         "output-proven capability",
-        "native build provenance"
+        "native build provenance",
+        "16 KiB final-artifact alignment",
+        "stable debug signing",
+        "thermal-aware progress"
       ],
       "remaining": [
-        "thermal/runtime budget",
-        "page-size/signing policy",
-        "SAF provider replacement semantics",
-        "session/log retention"
+        "mediaProcessing timeout implementation evidence",
+        "session/log retention implementation",
+        "SAF destination replacement semantics",
+        "odd-dimension encoder preflight"
       ]
     },
     {
       "repository": "11576865/HSR-Voice-Archive-Builder",
-      "passes": 4,
+      "passes": 5,
       "harvested": [
         "paid API budget",
         "autosave race",
@@ -81,13 +88,16 @@
         "preview-inspector split",
         "last-known-good rollback",
         "integrity-checked recovery",
-        "progressive inspector disclosure"
+        "progressive inspector disclosure",
+        "checkpoint route/input identity",
+        "ownership-aware clone/delete",
+        "conflict-preserving remote update plan"
       ],
       "remaining": [
-        "translation checkpoint semantics",
-        "project clone ownership boundaries",
+        "project relink fingerprint policy",
         "subtitle layout grammar",
-        "remote-update conflict model"
+        "remote cache stale-evidence semantics",
+        "GPT-SoVITS export provenance"
       ]
     }
   ]

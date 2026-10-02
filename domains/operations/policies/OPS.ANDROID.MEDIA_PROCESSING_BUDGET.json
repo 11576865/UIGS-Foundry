@@ -1,0 +1,24 @@
+{
+  "id": "OPS.ANDROID.MEDIA_PROCESSING_BUDGET",
+  "type": "policy",
+  "status": "candidate",
+  "title": "Android mediaProcessing 后台预算必须进入任务预检与超时恢复",
+  "summary": "项目策略要求把 Android 15+ mediaProcessing foreground-service 的有限后台预算视为正式资源约束：启动前对超长任务给出风险，onTimeout 进入明确终止路径，并保证 staging/job state 可恢复或清理。",
+  "proposed_rules": [
+    "Formal media processing starts only from explicit foreground user action.",
+    "Success/failure/cancel/timeout all stop the service and settle job state.",
+    "Long estimated jobs surface background-budget risk before start.",
+    "Timeout/process death preserves recoverable or explicitly cleanable staging state."
+  ],
+  "note": "This harvest records the project's documented policy. The platform-limit statement was not independently re-verified during this pass, and repository search did not locate an implementation of onTimeout; keep Candidate.",
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:docs/failure-prevention-checklist.md",
+      "revision": "51a8c536658b263325d60a0fea68b99037d0cf0a",
+      "evidence_level": "documented policy only",
+      "note": "Rule 29."
+    }
+  ],
+  "created": "2026-10-02"
+}

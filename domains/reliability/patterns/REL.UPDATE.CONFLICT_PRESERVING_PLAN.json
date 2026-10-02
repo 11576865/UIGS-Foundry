@@ -1,0 +1,37 @@
+{
+  "id": "REL.UPDATE.CONFLICT_PRESERVING_PLAN",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "更新计划先分类冲突，再自动应用无歧义增量",
+  "summary": "远程/外部更新不应把“新增、已有、已有但变化、变量、冲突”压成一个下载列表。先形成可审计计划；有冲突或已有对象变化时保留双方证据并转人工审查，自动动作只处理可靠识别的增量。",
+  "categories": [
+    "exact_existing",
+    "variant_of_existing",
+    "new_logical",
+    "changed_existing",
+    "ambiguous"
+  ],
+  "invariants": [
+    "Conflicting upstream rows sharing one display basename are not resolved by last-row-wins.",
+    "Source-text changes and comparable audio SHA-256 changes are reported separately from new logical rows.",
+    "Ambiguous identity remains explicit with candidate records attached for review.",
+    "Existing rows remain read-only to automatic download/adoption unless a separate replacement workflow exists.",
+    "Repeated update planning excludes already applied/indexed additions without erasing historical evidence."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:app/remote_index.py",
+      "revision": "a3bbe1503b755a8d1114276fa84b4b07e5352866",
+      "evidence_level": "production classification implementation"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:CHANGELOG.md",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "implemented product behavior",
+      "note": "v0.9-M"
+    }
+  ],
+  "created": "2026-10-02"
+}

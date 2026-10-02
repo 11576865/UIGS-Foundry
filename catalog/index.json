@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "0.5",
+  "version": "0.6",
   "domains": [
     {
       "id": "interface-grammar",
@@ -54,6 +54,11 @@
       "id": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
       "status": "experimental",
       "path": "domains/interface-grammar/registry/patterns/UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.json"
+    },
+    {
+      "id": "UIGS.INTERACTION.DISCOVERY_OVERLAY",
+      "status": "experimental",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.INTERACTION.DISCOVERY_OVERLAY.json"
     }
   ],
   "records": [
@@ -201,6 +206,51 @@
       "id": "TEST.RENDERED_EFFECT_DIFFERENTIAL",
       "status": "experimental",
       "path": "domains/reliability/test-patterns/TEST.RENDERED_EFFECT_DIFFERENTIAL.json"
+    },
+    {
+      "id": "ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
+      "status": "experimental",
+      "path": "domains/architecture/patterns/ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP.json"
+    },
+    {
+      "id": "REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY.json"
+    },
+    {
+      "id": "OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
+      "status": "experimental",
+      "path": "domains/operations/policies/OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.json"
+    },
+    {
+      "id": "REL.UPDATE.CONFLICT_PRESERVING_PLAN",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.UPDATE.CONFLICT_PRESERVING_PLAN.json"
+    },
+    {
+      "id": "TEST.ANDROID.NATIVE_PAGE_ALIGNMENT",
+      "status": "experimental",
+      "path": "domains/reliability/test-patterns/TEST.ANDROID.NATIVE_PAGE_ALIGNMENT.json"
+    },
+    {
+      "id": "OPS.ANDROID.STABLE_DEBUG_SIGNING",
+      "status": "experimental",
+      "path": "domains/operations/policies/OPS.ANDROID.STABLE_DEBUG_SIGNING.json"
+    },
+    {
+      "id": "REL.MOBILE.THERMAL_AWARE_PROGRESS",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.MOBILE.THERMAL_AWARE_PROGRESS.json"
+    },
+    {
+      "id": "OPS.ANDROID.MEDIA_PROCESSING_BUDGET",
+      "status": "candidate",
+      "path": "domains/operations/policies/OPS.ANDROID.MEDIA_PROCESSING_BUDGET.json"
+    },
+    {
+      "id": "REL.BOUNDED_SESSION_OBSERVABILITY",
+      "status": "candidate",
+      "path": "domains/reliability/patterns/REL.BOUNDED_SESSION_OBSERVABILITY.json"
     }
   ],
   "projects": [
