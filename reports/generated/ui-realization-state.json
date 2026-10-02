@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "realizations": [
+    {
+      "id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+      "project": "ASS-Workbench-Android",
+      "platform": "android-compose",
+      "repository": "11576865/ASS-Workbench-Android",
+      "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+      "source_files": [
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/WorkbenchToolCatalog.kt",
+          "expected_blob_sha": "26693a044a5d7d541aef99165c723b719e37e5de",
+          "verified": true,
+          "actual_blob_sha": "26693a044a5d7d541aef99165c723b719e37e5de"
+        },
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceModel.kt",
+          "expected_blob_sha": "1bb00e9f9d24811943cc1fa15eb82b3231f2b057",
+          "verified": true,
+          "actual_blob_sha": "1bb00e9f9d24811943cc1fa15eb82b3231f2b057"
+        },
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceEditScope.kt",
+          "expected_blob_sha": "77281971deb58aeb07a74e1e03e453bb563cf955",
+          "verified": true,
+          "actual_blob_sha": "77281971deb58aeb07a74e1e03e453bb563cf955"
+        },
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceSurface.kt",
+          "expected_blob_sha": "dd5c261986ae80246bf3ebe0f4b1d00918bf57c1",
+          "verified": true,
+          "actual_blob_sha": "dd5c261986ae80246bf3ebe0f4b1d00918bf57c1"
+        },
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/workspace/WorkbenchSurfaceController.kt",
+          "expected_blob_sha": "83b5fcfdc788196b30f62fcd24aae32de853f295",
+          "verified": true,
+          "actual_blob_sha": "83b5fcfdc788196b30f62fcd24aae32de853f295"
+        },
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/interaction/WorkspaceInteractionOverlay.kt",
+          "expected_blob_sha": "b60639e5a342a5c0dbe921f57f3028747ef3a424",
+          "verified": true,
+          "actual_blob_sha": "b60639e5a342a5c0dbe921f57f3028747ef3a424"
+        }
+      ],
+      "validation_files": [
+        {
+          "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/WorkbenchToolCatalogTest.kt",
+          "expected_blob_sha": "1ab3e2c98225f3c3bfab303a268574ecb4179698",
+          "verified": true,
+          "actual_blob_sha": "1ab3e2c98225f3c3bfab303a268574ecb4179698"
+        },
+        {
+          "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceEditScopeResolverTest.kt",
+          "expected_blob_sha": "afd99966cde2511a70bd51dd36da8595f3c5c99f",
+          "verified": true,
+          "actual_blob_sha": "afd99966cde2511a70bd51dd36da8595f3c5c99f"
+        },
+        {
+          "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceStateTest.kt",
+          "expected_blob_sha": "7d43653f9f9a3624e69fbad5388853eb56471b1c",
+          "verified": true,
+          "actual_blob_sha": "7d43653f9f9a3624e69fbad5388853eb56471b1c"
+        },
+        {
+          "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/workspace/WorkbenchSurfaceControllerTest.kt",
+          "expected_blob_sha": "d1fe7594ba7b8b693dd2f6e407f6d9c3bbeb0084",
+          "verified": true,
+          "actual_blob_sha": "d1fe7594ba7b8b693dd2f6e407f6d9c3bbeb0084"
+        },
+        {
+          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/RodInteractionInstrumentedTest.kt",
+          "expected_blob_sha": "22878ac6b0ed68e42c5efc88c7780190f43379de",
+          "verified": true,
+          "actual_blob_sha": "22878ac6b0ed68e42c5efc88c7780190f43379de"
+        }
+      ],
+      "source_verified": true,
+      "current_head": "235f9c8d89408ea6832a87c05398c594462e03a1",
+      "head_matches_revision": true
+    },
+    {
+      "id": "REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH",
+      "project": "HSR-Voice-Archive-Builder",
+      "platform": "web",
+      "repository": "11576865/HSR-Voice-Archive-Builder",
+      "revision": "8777851bf8996c9a6fd8821f9ec8170e1d511922",
+      "source_files": [
+        {
+          "path": "app/static/index.html",
+          "expected_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf",
+          "verified": true,
+          "actual_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf"
+        }
+      ],
+      "validation_files": [
+        {
+          "path": "tests/test_progress_ui.py",
+          "expected_blob_sha": "0d159d9d003f029137d974859579012c7deef115",
+          "verified": true,
+          "actual_blob_sha": "0d159d9d003f029137d974859579012c7deef115"
+        }
+      ],
+      "source_verified": true,
+      "current_head": "8777851bf8996c9a6fd8821f9ec8170e1d511922",
+      "head_matches_revision": true
+    },
+    {
+      "id": "REALIZATION.WEB.MKV_FAST_MUXER.ADAPTIVE_OUTPUT_HUB",
+      "project": "MKV-Fast-Muxer",
+      "platform": "web",
+      "repository": "11576865/MKV-Fast-Muxer",
+      "revision": "e625c2b04de052c37b740a363a1930e6477da317",
+      "source_files": [
+        {
+          "path": "index.html",
+          "expected_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2",
+          "verified": true,
+          "actual_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2"
+        },
+        {
+          "path": "src/style.css",
+          "expected_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4",
+          "verified": true,
+          "actual_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4"
+        }
+      ],
+      "validation_files": [
+        {
+          "path": "tests/preview-ui.test.mjs",
+          "expected_blob_sha": "196e8195a9647623c983b3887fa55ea750b83aef",
+          "verified": true,
+          "actual_blob_sha": "196e8195a9647623c983b3887fa55ea750b83aef"
+        },
+        {
+          "path": "tests/desktop-layout.test.mjs",
+          "expected_blob_sha": "2d22cda166cf235da744c4a9ef07cf5a00b0c087",
+          "verified": true,
+          "actual_blob_sha": "2d22cda166cf235da744c4a9ef07cf5a00b0c087"
+        }
+      ],
+      "source_verified": true,
+      "current_head": "e625c2b04de052c37b740a363a1930e6477da317",
+      "head_matches_revision": true
+    }
+  ]
+}
