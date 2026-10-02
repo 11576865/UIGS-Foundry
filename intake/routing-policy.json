@@ -1,0 +1,54 @@
+{
+  "policy_id": "UIGS.INTAKE.ROUTING",
+  "status": "canonical",
+  "routes": [
+    {
+      "signals": [
+        "ui",
+        "interaction",
+        "layout",
+        "surface",
+        "overlay",
+        "visual",
+        "workspace"
+      ],
+      "domain": "interface-grammar"
+    },
+    {
+      "signals": [
+        "stress",
+        "regression",
+        "bug",
+        "failure",
+        "red reason",
+        "fault injection"
+      ],
+      "domain": "reliability"
+    },
+    {
+      "signals": [
+        "runtime",
+        "integration",
+        "registry",
+        "supervisor",
+        "dependency",
+        "lifecycle",
+        "reconciliation"
+      ],
+      "domain": "architecture"
+    },
+    {
+      "signals": [
+        "github actions",
+        "ci budget",
+        "artifact",
+        "release",
+        "agent collaboration",
+        "repository workflow"
+      ],
+      "domain": "operations"
+    }
+  ],
+  "multi_domain_allowed": true,
+  "rule": "Route by reusable semantics, not by source project name."
+}

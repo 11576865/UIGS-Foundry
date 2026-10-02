@@ -1,0 +1,34 @@
+{
+  "$schema": "../schemas/project-manifest.schema.json",
+  "project": "UIGS-Foundry",
+  "repository": "11576865/UIGS-Foundry",
+  "default_branch": "main",
+  "authority": {
+    "execution": "repository",
+    "cross_project_knowledge": "canonical records in this repository"
+  },
+  "domains": [
+    "interface-grammar",
+    "reliability",
+    "architecture",
+    "operations"
+  ],
+  "intake": {
+    "enabled": true,
+    "auto_capture": true,
+    "canonical_promotion": "gated"
+  },
+  "report_inputs": [
+    "inbox",
+    "domains",
+    "projects",
+    "governance",
+    "schemas"
+  ],
+  "authoritative_paths": [
+    "governance/",
+    "schemas/",
+    "domains/",
+    "projects/"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "TEST.UI.STICKY_SUPPORTING_PANE.CONTRACT",
+  "status": "experimental",
+  "pattern": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+  "assertions": [
+    {
+      "name": "primary-scroll-independence",
+      "expected": "main content scrolls without moving pane outside its sticky range"
+    },
+    {
+      "name": "internal-scroll-only-when-needed",
+      "expected": "pane scrolls internally only when content exceeds available viewport height"
+    },
+    {
+      "name": "narrow-fallback",
+      "expected": "pane becomes non-sticky stacked or equivalent when width is insufficient"
+    },
+    {
+      "name": "viewport-reduction",
+      "expected": "all pane controls remain reachable after viewport height reduction"
+    },
+    {
+      "name": "ancestor-overflow",
+      "expected": "unintended ancestors do not silently destroy sticky behavior"
+    },
+    {
+      "name": "touch-scroll",
+      "expected": "touch scrolling is not trapped when the gesture begins outside the pane"
+    }
+  ]
+}

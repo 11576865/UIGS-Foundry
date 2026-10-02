@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/ui-pattern.schema.json",
+  "title": "UIGS UI Pattern",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "status",
+    "name",
+    "intent",
+    "constraints",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^UIGS\\\\."
+    },
+    "type": {
+      "const": "pattern"
+    },
+    "status": {
+      "enum": [
+        "candidate",
+        "experimental",
+        "validated",
+        "canonical",
+        "deprecated"
+      ]
+    },
+    "name": {
+      "type": "object",
+      "required": [
+        "zh",
+        "en"
+      ],
+      "properties": {
+        "zh": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        }
+      }
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "intent": {
+      "type": "string"
+    },
+    "use_when": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "do_not_use_when": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "anatomy": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "interaction_contract": {
+      "type": "object"
+    },
+    "visual_contract": {
+      "type": "object"
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "realizations": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "known_failures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

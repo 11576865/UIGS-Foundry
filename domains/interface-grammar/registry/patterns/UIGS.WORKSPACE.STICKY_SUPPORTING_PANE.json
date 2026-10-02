@@ -1,0 +1,73 @@
+{
+  "$schema": "../../../../schemas/ui-pattern.schema.json",
+  "id": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+  "type": "pattern",
+  "status": "experimental",
+  "name": {
+    "zh": "粘性辅助工作区",
+    "en": "Sticky Supporting Pane"
+  },
+  "aliases": [
+    "固定右栏",
+    "sticky 右栏",
+    "常驻输出区",
+    "右边停住左边滚",
+    "sticky supporting pane"
+  ],
+  "intent": "在主工作区继续滚动时，让次要但持续相关的状态、检查或操作保持可见。",
+  "use_when": [
+    "辅助信息需要跨越主内容滚动持续可见",
+    "辅助区域有明确次级任务身份",
+    "宽屏或横屏存在足够空间维持双区布局"
+  ],
+  "do_not_use_when": [
+    "辅助内容会遮挡主要操作",
+    "窄屏无法为两个区域保留可用尺寸",
+    "任务实际上要求模态阻断"
+  ],
+  "anatomy": [
+    "supporting surface",
+    "header/identity",
+    "summary",
+    "optional internal sections",
+    "actions"
+  ],
+  "interaction_contract": {
+    "positioning": "viewport-relative within its layout containing block",
+    "primary_scroll": "independent from main content",
+    "internal_scroll": "allowed only when pane exceeds available viewport height",
+    "input_capture": "pane bounds only",
+    "narrow_viewport": "must fall back to non-sticky stacked or alternate presentation"
+  },
+  "visual_contract": {
+    "hierarchy": "secondary persistent surface",
+    "opacity": "opaque or translucent variant",
+    "blur": "optional; sticky behavior must not be described as blur",
+    "shadow": "may express elevation but must not be the only semantic cue"
+  },
+  "constraints": [
+    "Sticky behavior and backdrop blur are separate mechanisms.",
+    "The pane must remain reachable after viewport reduction.",
+    "Ancestor overflow and containing-block behavior must be tested.",
+    "Nested scrolling must not create accidental double-scroll traps."
+  ],
+  "realizations": {
+    "web": "domains/interface-grammar/realizations/web/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.md"
+  },
+  "validation": [
+    "domains/interface-grammar/validation/behavior-contracts/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json"
+  ],
+  "known_failures": [],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/MKV-Fast-Muxer",
+      "note": "Tablet landscape output pane exposed the distinction between sticky spatial layering and backdrop blur."
+    },
+    {
+      "source_type": "manual_decision",
+      "source": "UIGS-Foundry design discussion 2026-10-02",
+      "note": "Kept experimental; one visual case is insufficient for Canonical promotion."
+    }
+  ]
+}

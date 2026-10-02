@@ -1,0 +1,23 @@
+{
+  "policy_id": "UIGS.INTAKE.CAPTURE",
+  "status": "canonical",
+  "auto_capture": {
+    "observation": true,
+    "case": true,
+    "bug": true,
+    "test": true,
+    "lesson": true,
+    "implementation_reference": true,
+    "candidate": true
+  },
+  "requires_explicit_promotion": [
+    "canonical",
+    "core-governance-change",
+    "breaking-schema-change"
+  ],
+  "failure_behavior": {
+    "write_unavailable": "pending",
+    "must_notify_user": true,
+    "must_not_claim_success": true
+  }
+}

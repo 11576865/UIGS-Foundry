@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/project-manifest.schema.json",
+  "title": "UIGS Project Manifest",
+  "type": "object",
+  "required": [
+    "project",
+    "repository",
+    "authority",
+    "intake"
+  ],
+  "properties": {
+    "project": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "default_branch": {
+      "type": "string"
+    },
+    "authority": {
+      "type": "object"
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "intake": {
+      "type": "object"
+    },
+    "report_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authoritative_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

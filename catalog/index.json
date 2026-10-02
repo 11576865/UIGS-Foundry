@@ -1,0 +1,34 @@
+{
+  "name": "UIGS-Foundry",
+  "version": "0.1",
+  "domains": [
+    {
+      "id": "interface-grammar",
+      "path": "domains/interface-grammar/README.md"
+    },
+    {
+      "id": "reliability",
+      "path": "domains/reliability/README.md"
+    },
+    {
+      "id": "architecture",
+      "path": "domains/architecture/README.md"
+    },
+    {
+      "id": "operations",
+      "path": "domains/operations/README.md"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+      "status": "experimental",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json"
+    }
+  ],
+  "schemas": [
+    "schemas/knowledge-record.schema.json",
+    "schemas/ui-pattern.schema.json",
+    "schemas/project-manifest.schema.json"
+  ]
+}

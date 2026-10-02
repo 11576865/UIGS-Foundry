@@ -1,0 +1,18 @@
+# UIGS-Foundry
+AI-readable cross-project engineering knowledge and governance.
+
+Start:
+- /README.md
+- /AGENTS.md
+- /governance/CHARTER.md
+- /governance/AUTHORITY.md
+- /governance/PROMOTION.md
+- /intake/README.md
+- /catalog/index.json
+
+Interface Grammar:
+- /domains/interface-grammar/README.md
+
+Product repositories are authoritative for shipped implementation.
+Foundry is authoritative only for explicitly Canonical cross-project knowledge.
+A single observation must not be promoted directly to Canonical.
