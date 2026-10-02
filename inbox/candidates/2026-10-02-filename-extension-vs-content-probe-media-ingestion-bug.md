@@ -53,3 +53,22 @@ Tests should assert both the probed identity and the product-level decision, not
 Applicable to muxers, transcoders, media editors, upload validators, asset pipelines and any software that can inspect actual file content.
 
 Do not promote to Canonical from this single-project observation without broader validation.
+
+
+## Implementation evidence — MKV-Fast-Muxer PR #53
+
+PR #53 implements a first content-authoritative media identity layer for the single-file workflow:
+
+- lightweight header sniffing distinguishes ISO BMFF / MP4-family and Matroska / WebM before capability gating;
+- ffprobe remains the execution-time authority for actual container and stream codec identity;
+- the old primary-video extension allowlist is no longer the final mux gate;
+- a valid MP4 renamed to an unknown suffix is accepted after content identification and receives an explicit extension/content mismatch warning;
+- Matroska content renamed to `.mp4` is treated as Matroska for source-track scan and attachment/preserve capabilities;
+- external audio is staged under a neutral virtual filename, probed, and handled by its actual audio codec rather than its claimed extension;
+- invalid or unsupported actual media remains rejectable even if its filename uses a supported suffix.
+
+Regression coverage was added at helper, integration, and browser E2E levels. Browser scenario 34 directly exercises renamed MP4 and raw AAC content; a later extension of the same scenario exercises renamed Matroska capability exposure and source-track scanning.
+
+During full-suite validation, the new asynchronous header preflight exposed a separate batch-orchestration readiness race. That failure is tracked independently as `2026-10-02-batch-execution-async-preflight-readiness-race.md`; the fix makes batch execution await media-identity preflight before triggering mux.
+
+This remains Bug / candidate-level evidence and is not Canonical.
