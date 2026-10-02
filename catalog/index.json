@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "0.8",
+  "version": "0.9",
   "domains": [
     {
       "id": "interface-grammar",
@@ -256,6 +256,11 @@
       "id": "OPS.INTAKE.SOURCE_ENRICHED_TRIAGE",
       "status": "experimental",
       "path": "domains/operations/patterns/OPS.INTAKE.SOURCE_ENRICHED_TRIAGE.json"
+    },
+    {
+      "id": "BUG.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD.json"
     }
   ],
   "projects": [

@@ -38,7 +38,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- outbox/triage reports/red-reason-status.md; then
+          if [[ -z "$(git status --porcelain -- outbox/triage reports/red-reason-status.md)" ]]; then
             echo "No triage changes."
             exit 0
           fi

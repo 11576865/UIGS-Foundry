@@ -2,7 +2,6 @@
 from __future__ import annotations
 import json
 from collections import Counter,defaultdict
-from datetime import datetime,timezone
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -23,12 +22,13 @@ if TRIAGE.exists():
 categories=Counter(red.get("category","unknown") for _,red in rows)
 review=sum(1 for _,red in rows if red.get("needs_review"))
 by_repo=defaultdict(Counter)
+latest=max((str(item.get("triaged_at","")) for item,_ in rows),default="")
 for item,red in rows:
     by_repo[item.get("source_repository","unknown")][red.get("category","unknown")]+=1
 
 lines=[
     "# UIGS Red Reason Status","",
-    f"Generated: {datetime.now(timezone.utc).replace(microsecond=0).isoformat()}",
+    f"Latest triage: {latest or 'none'}",
     f"Triaged CI failures: {len(rows)}",
     f"Needs review: {review}","",
     "## Categories"

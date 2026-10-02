@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD",
+  "type": "bug",
+  "status": "validated",
+  "title": "Triage workflow used git diff to detect generated outputs, so first untracked report/triage files were not committed",
+  "symptom": "The first Triage UIGS Pending run completed successfully and generated output in the runner workspace, but reports/red-reason-status.md did not appear in the repository.",
+  "root_cause": "The workflow used git diff --quiet on output paths. git diff does not report untracked files, so a newly generated report or first triage JSON could be treated as 'no changes'.",
+  "resolution": [
+    "Use git status --porcelain on the output paths when deciding whether generated files exist or changed.",
+    "Track an initial deterministic red-reason status report.",
+    "Remove volatile wall-clock generation time from the report so unchanged state does not create needless commits."
+  ],
+  "regression_guard": [
+    "Triage workflow change detector includes untracked files.",
+    "Generated report content is deterministic for unchanged triage state.",
+    "Validate Foundry continues to unit-test triage logic."
+  ],
+  "reusable_lesson": "A CI commit guard that must notice newly generated files cannot rely on git diff alone; it must include untracked working-tree state.",
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry:.github/workflows/triage-uigs-pending.yml",
+      "revision": "539fb0896a6dc0b1b17fe1970fca4ae3fb118b68",
+      "evidence_level": "observed workflow behavior"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "ed85697d7fcfeae2e973e5e48caa41b7c7f45fa2",
+      "evidence_level": "repository state after successful triage run; generated report absent"
+    }
+  ]
+}

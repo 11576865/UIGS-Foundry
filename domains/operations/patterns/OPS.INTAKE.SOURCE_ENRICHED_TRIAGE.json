@@ -15,7 +15,7 @@
     {
       "source_type": "repository",
       "source": "11576865/UIGS-Foundry",
-      "revision": "pending in same implementation change",
+      "revision": "539fb0896a6dc0b1b17fe1970fca4ae3fb118b68",
       "evidence_level": "implemented control-plane architecture"
     },
     {
