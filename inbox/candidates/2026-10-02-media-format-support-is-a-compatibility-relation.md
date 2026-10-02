@@ -95,3 +95,31 @@ Reusable refinement:
 This does not invalidate PR #55's compatibility relation; it narrows the meaning of “verified” and suggests making the evidence backing explicit.
 
 This remains Candidate-level evidence and is not Canonical.
+
+
+## Implementation evidence — fixture-backed Compatibility Evidence Matrix
+
+MKV-Fast-Muxer PR #59 merged as `e858ffb31318fc5fb47cc6615d0d2b89905e8305` and turns the follow-up observation above into an executable evidence contract.
+
+The resolver no longer derives `DIRECT_COPY` from static “known codec” sets. A machine-readable `src/compatibility-evidence.js` now records each codec's evidence status. Only entries marked `verified-e2e` suppress `UNVERIFIED`; expected-only or unrecorded codecs continue to the real mux path without silent transcoding but are not described as already verified.
+
+CI now generates concrete fixtures and executes the browser-local ffmpeg.wasm path for each verified entry. For every case, E2E requires:
+
+```text
+generated source fixture
+  -> browser Media Identity / Compatibility Resolver
+  -> ffmpeg.wasm Stream Copy to Matroska
+  -> downloaded output
+  -> system ffprobe codec comparison
+  -> JSON compatibility evidence record
+  -> post-mux audit success
+```
+
+The merged matrix executed **18/18 verified cases** in CI:
+
+- video: MPEG-4 Part 2, H.264, HEVC, AV1, VP8, VP9;
+- audio: AAC, FLAC, MP3, Opus, Vorbis, AC-3, E-AC-3, ALAC, PCM s16/s24/s32/f32 LE.
+
+DTS intentionally remains `expected` / `UNVERIFIED` because the repository does not yet contain equivalent browser E2E evidence for it.
+
+This strengthens the Candidate with direct toolchain-specific execution evidence but does not promote it to Canonical.
