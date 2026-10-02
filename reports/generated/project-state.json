@@ -5,56 +5,56 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "default_branch": "main",
-      "head_sha": "818a26d2024f1b27a947d147b2f1de0142ce482d",
-      "head_commit_date": "2026-10-02T08:56:01Z",
+      "head_sha": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
+      "head_commit_date": "2026-10-02T09:54:21Z",
       "tracked_workflows": [
         {
           "name": "Android CI",
           "found": true,
-          "status": "completed",
-          "conclusion": "success",
-          "head_sha": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+          "status": "in_progress",
+          "conclusion": "",
+          "head_sha": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
           "head_matches_main": true,
-          "run_id": 36986871539,
-          "run_number": 647,
+          "run_id": 36992468788,
+          "run_number": 661,
           "event": "push",
-          "created_at": "2026-10-02T08:56:05Z",
-          "updated_at": "2026-10-02T08:59:22Z",
-          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36986871539"
+          "created_at": "2026-10-02T09:54:29Z",
+          "updated_at": "2026-10-02T09:55:09Z",
+          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36992468788"
         },
         {
           "name": "Android Emulator Regression",
           "found": true,
-          "status": "completed",
-          "conclusion": "success",
-          "head_sha": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+          "status": "in_progress",
+          "conclusion": "",
+          "head_sha": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
           "head_matches_main": true,
-          "run_id": 36986871566,
-          "run_number": 272,
+          "run_id": 36992468837,
+          "run_number": 286,
           "event": "push",
-          "created_at": "2026-10-02T08:56:05Z",
-          "updated_at": "2026-10-02T09:03:45Z",
-          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36986871566"
+          "created_at": "2026-10-02T09:54:29Z",
+          "updated_at": "2026-10-02T09:55:31Z",
+          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36992468837"
         },
         {
           "name": "Fontconfig renderer native probe",
           "found": true,
-          "status": "completed",
-          "conclusion": "success",
-          "head_sha": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+          "status": "in_progress",
+          "conclusion": "",
+          "head_sha": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
           "head_matches_main": true,
-          "run_id": 36986871529,
-          "run_number": 578,
+          "run_id": 36992468786,
+          "run_number": 589,
           "event": "push",
-          "created_at": "2026-10-02T08:56:05Z",
-          "updated_at": "2026-10-02T09:10:42Z",
-          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36986871529"
+          "created_at": "2026-10-02T09:54:29Z",
+          "updated_at": "2026-10-02T09:54:57Z",
+          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36992468786"
         }
       ],
       "pending_intake": 1,
       "triage_records": 1,
       "knowledge_records": 17,
-      "source_updated_at": "2026-10-02T09:10:42Z"
+      "source_updated_at": "2026-10-02T09:55:31Z"
     },
     {
       "project": "Character-Voice-Service",
@@ -114,8 +114,8 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "default_branch": "main",
-      "head_sha": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
-      "head_commit_date": "2026-10-02T08:57:05Z",
+      "head_sha": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
+      "head_commit_date": "2026-10-02T09:53:50Z",
       "tracked_workflows": [
         {
           "name": "Browser E2E mux tests",
@@ -136,20 +136,20 @@
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+          "head_sha": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
           "head_matches_main": true,
-          "run_id": 36986973164,
-          "run_number": 163,
+          "run_id": 36992415380,
+          "run_number": 164,
           "event": "push",
-          "created_at": "2026-10-02T08:57:09Z",
-          "updated_at": "2026-10-02T08:57:45Z",
-          "html_url": "https://github.com/11576865/MKV-Fast-Muxer/actions/runs/36986973164"
+          "created_at": "2026-10-02T09:53:54Z",
+          "updated_at": "2026-10-02T09:54:35Z",
+          "html_url": "https://github.com/11576865/MKV-Fast-Muxer/actions/runs/36992415380"
         }
       ],
       "pending_intake": 0,
       "triage_records": 0,
       "knowledge_records": 9,
-      "source_updated_at": "2026-10-02T08:57:45Z"
+      "source_updated_at": "2026-10-02T09:54:35Z"
     },
     {
       "project": "Quick-Automatic-Hardsub-Encoder",
@@ -240,22 +240,22 @@
       "project": "UIGS-Foundry",
       "repository": "11576865/UIGS-Foundry",
       "default_branch": "main",
-      "head_sha": "31895e2525f89589af783984892e6b1d7a0af69c",
-      "head_commit_date": "2026-10-02T09:11:40Z",
+      "head_sha": "4622431a93e4687687143aae57c7f32100b84f61",
+      "head_commit_date": "2026-10-02T09:56:32Z",
       "tracked_workflows": [
         {
           "name": "Validate Foundry",
           "found": true,
           "status": "completed",
-          "conclusion": "success",
-          "head_sha": "0e7387d23fd75bb13cafc5348850c768d03ef31a",
+          "conclusion": "failure",
+          "head_sha": "b97baaa17d0552c2d3b075d87a01c565bac090fe",
           "head_matches_main": false,
-          "run_id": 36988346799,
-          "run_number": 35,
+          "run_id": 36992643588,
+          "run_number": 41,
           "event": "push",
-          "created_at": "2026-10-02T09:11:26Z",
-          "updated_at": "2026-10-02T09:11:37Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36988346799"
+          "created_at": "2026-10-02T09:56:19Z",
+          "updated_at": "2026-10-02T09:56:31Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36992643588"
         },
         {
           "name": "Collect UIGS Outboxes",
@@ -290,14 +290,14 @@
           "found": true,
           "status": "in_progress",
           "conclusion": "",
-          "head_sha": "0e7387d23fd75bb13cafc5348850c768d03ef31a",
+          "head_sha": "b97baaa17d0552c2d3b075d87a01c565bac090fe",
           "head_matches_main": false,
-          "run_id": 36988346648,
-          "run_number": 12,
+          "run_id": 36992643488,
+          "run_number": 13,
           "event": "push",
-          "created_at": "2026-10-02T09:11:26Z",
-          "updated_at": "2026-10-02T09:11:30Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36988346648"
+          "created_at": "2026-10-02T09:56:19Z",
+          "updated_at": "2026-10-02T09:56:23Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36992643488"
         },
         {
           "name": "Capture UI Reference Baselines",
@@ -332,14 +332,14 @@
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "0e7387d23fd75bb13cafc5348850c768d03ef31a",
+          "head_sha": "b97baaa17d0552c2d3b075d87a01c565bac090fe",
           "head_matches_main": false,
-          "run_id": 36988346867,
-          "run_number": 12,
+          "run_id": 36992643515,
+          "run_number": 13,
           "event": "push",
-          "created_at": "2026-10-02T09:11:26Z",
-          "updated_at": "2026-10-02T09:11:35Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36988346867"
+          "created_at": "2026-10-02T09:56:19Z",
+          "updated_at": "2026-10-02T09:56:27Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36992643515"
         },
         {
           "name": "Review UIGS Promotion",
@@ -353,8 +353,8 @@
       "pending_intake": 0,
       "triage_records": 0,
       "knowledge_records": 13,
-      "source_updated_at": "2026-10-02T09:11:40Z"
+      "source_updated_at": "2026-10-02T09:56:32Z"
     }
   ],
-  "source_max_updated_at": "2026-10-02T09:11:40Z"
+  "source_max_updated_at": "2026-10-02T09:56:32Z"
 }
