@@ -1,0 +1,32 @@
+{
+  "packet_version": 1,
+  "packet_id": "chat.quick-hardsub.windows-hidden-startup-failure.20261002T074700Z",
+  "status": "pending",
+  "record_type": "bug",
+  "title": "Hidden Windows launcher makes native startup failures look like an unexplained flash-exit",
+  "summary": "Quick-Automatic-Hardsub-Encoder's normal Windows entry point starts native-bridge.ps1 with PowerShell -WindowStyle Hidden and immediately exits the batch process. Most bridge startup exceptions are therefore invisible to the user; only the explicit missing-FFmpeg branch has a MessageBox. On a real Windows machine the reported symptom is that the Windows version 'flashes and exits'. The root startup exception is not yet identified, but the launcher/diagnostic behavior is independently defective because it collapses distinct startup failures into the same silent symptom. Preserve the hidden-background UX on success, but on startup failure emit a durable log and visible error with a debug/retry path.",
+  "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+  "source_event": "chat_intake",
+  "source_ref": "refs/heads/main",
+  "source_sha": "3329621050109b51c825b3986bca3c66d1b1c79e",
+  "source_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder",
+  "created_at": "2026-10-02T07:47:00Z",
+  "dedupe_key": "Quick-Automatic-Hardsub-Encoder|windows|hidden-launcher|startup-failure-observability",
+  "routing_hints": [
+    "reliability",
+    "windows",
+    "startup",
+    "diagnostics",
+    "failure-visibility"
+  ],
+  "evidence": {
+    "user_report": "Windows version flashes and exits immediately on the user's machine.",
+    "launcher": "windows/start_windows.bat uses start powershell.exe ... -WindowStyle Hidden -File native-bridge.ps1, then exit /b 0.",
+    "debug_path": "windows/start_windows_debug.bat runs the same bridge visibly and pauses on non-zero exit.",
+    "code_observation": "native-bridge.ps1 handles missing FFmpeg with a MessageBox, but other top-level startup exceptions are not wrapped in a visible failure path."
+  },
+  "metadata": {
+    "root_cause_status": "unresolved",
+    "canonical_change_requested": false
+  }
+}
