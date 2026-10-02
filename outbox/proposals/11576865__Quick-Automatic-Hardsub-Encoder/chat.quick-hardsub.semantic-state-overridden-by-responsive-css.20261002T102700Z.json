@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "proposal_id": "proposal.chat.quick-hardsub.semantic-state-overridden-by-responsive-css.20261002T102700Z",
+  "proposal_status": "review_required",
+  "packet_id": "chat.quick-hardsub.semantic-state-overridden-by-responsive-css.20261002T102700Z",
+  "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+  "packet_sha256": "3f89cd070d579e9fa93db14b2f2c7724e298376861643b9b88f8e20f844214f9",
+  "suggested_record": {
+    "id": "CAND.QUICK_AUTOMATIC_HARDSUB_ENCODER.RESPONSIVE_PRESENTATION_CSS_MUST_NOT_RESUR.08465EF4",
+    "type": "candidate",
+    "status": "candidate",
+    "title": "Responsive presentation CSS must not resurrect semantically suppressed surfaces",
+    "summary": "A mobile hardsub regression persisted because responsive rules using display:flex/block !important had higher selector specificity than a semantic .hardsub-strategy-suppressed rule. The UI state correctly marked the inactive execution surface as suppressed, but presentation CSS made it visible again. The fix adds stage-aware selectors and a higher-specificity semantic gate keyed by data-media-operation and data-hardsub-strategy. Candidate lesson: semantic visibility state must outrank presentation/layout restoration rules, and regression tests should assert the rendered surface rather than only class presence.",
+    "domains": [
+      "interface-grammar",
+      "reliability"
+    ],
+    "tags": [
+      "interface-grammar",
+      "reliability",
+      "responsive-ui",
+      "testing"
+    ],
+    "provenance": [
+      {
+        "source_type": "repository",
+        "source": "11576865/Quick-Automatic-Hardsub-Encoder",
+        "revision": "80761b38c72b57902dd2be51338f2bbcafc42beb",
+        "evidence_level": "durable intake packet",
+        "note": "chat.quick-hardsub.semantic-state-overridden-by-responsive-css.20261002T102700Z"
+      }
+    ],
+    "links": [
+      "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/29"
+    ],
+    "source_packet": "chat.quick-hardsub.semantic-state-overridden-by-responsive-css.20261002T102700Z",
+    "evidence_summary": {
+      "root_cause_resolved": false,
+      "fix_present": false,
+      "regression_evidence_present": false
+    }
+  },
+  "evidence_assessment": {
+    "root_cause_resolved": false,
+    "fix_present": false,
+    "regression_evidence_present": false
+  },
+  "dedupe_candidates": [],
+  "related_records": [],
+  "triage_status": "ready-for-record",
+  "proposed_at": "2026-10-02T12:22:31+00:00"
+}
