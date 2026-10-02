@@ -1,0 +1,30 @@
+{
+  "id": "OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "UI 请求解析应跨 Pattern、Composition、Concrete Surface、Production Realization 与视觉证据层返回结果",
+  "summary": "单独检索 Grammar Pattern 只能回答‘这种界面机制叫什么’；单独检索产品 Surface 只能回答‘哪里已经有这个具体界面’。Foundry 应将两者双向连接，再附上组合 Recipe、真实项目实现、Reference Demo/Visual Baseline 和缺失证据，使自然语言请求直接落到可复用语义与可核验具体实现。",
+  "principles": [
+    "Natural-language resolution may start from reusable grammar or a concrete product surface.",
+    "Strong concrete-surface matches can lift explicitly linked Patterns; this is provenance-backed enrichment, not semantic guessing.",
+    "Matched Patterns expand to source-owned product Surfaces through explicit Pattern links.",
+    "Production Realization and Showcase evidence are returned as separate layers.",
+    "Evidence gaps remain first-class output, especially missing production screenshots/recordings.",
+    "The resolver does not promote Pattern maturity or rewrite source-owned inventories."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry:tools/resolve_ui_request.py",
+      "revision": "implementation 2026-10-02",
+      "evidence_level": "implemented cross-layer resolver"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry:domains/interface-grammar/inventory/index.json",
+      "revision": "939873eb6277728eadbad9c4f6bfa5056b92ceac",
+      "evidence_level": "62 concrete source-owned surfaces"
+    }
+  ],
+  "created": "2026-10-02"
+}

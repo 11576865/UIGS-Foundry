@@ -12,8 +12,11 @@ on:
       - 'schemas/project-adapter.schema.json'
       - 'tools/collect_ui_inventory.py'
       - 'tools/query_ui_surfaces.py'
+      - 'tools/resolve_ui_request.py'
+      - 'tools/generate_ui_knowledge_report.py'
       - 'tools/test_ui_inventory.py'
       - 'tools/test_ui_surface_query.py'
+      - 'tools/test_ui_evidence_resolver.py'
       - '.github/workflows/collect-ui-inventory.yml'
 
 permissions:
@@ -35,20 +38,23 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python tools/collect_ui_inventory.py
-      - name: Test inventory and concrete-surface retrieval
+      - name: Test inventory and cross-layer UI retrieval
         run: |
           python tools/test_ui_inventory.py
           python tools/test_ui_surface_query.py
-      - name: Commit changed inventory index and report
+          python tools/test_ui_evidence_resolver.py
+      - name: Generate cross-layer UI knowledge coverage
+        run: python tools/generate_ui_knowledge_report.py
+      - name: Commit changed inventory index and reports
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$(git status --porcelain -- domains/interface-grammar/inventory reports/generated/ui-surface-inventory.md)" ]]; then
-            echo "UI surface inventory unchanged."
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/inventory reports/generated/ui-surface-inventory.md reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)" ]]; then
+            echo "UI inventory and knowledge coverage unchanged."
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add -A domains/interface-grammar/inventory reports/generated/ui-surface-inventory.md
-          git commit -m "chore(uigs): refresh source-owned UI surface inventory"
+          git add -A domains/interface-grammar/inventory reports/generated/ui-surface-inventory.md reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md
+          git commit -m "chore(uigs): refresh UI inventory and knowledge coverage"
           bash tools/push_with_rebase_retry.sh main 5

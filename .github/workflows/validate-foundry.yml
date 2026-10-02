@@ -37,10 +37,12 @@ jobs:
           python tools/test_ui_realizations.py
           python tools/test_verify_ui_realizations.py
           python tools/verify_ui_realizations.py --offline
-      - name: Unit-test concrete UI surface inventory
+      - name: Unit-test concrete and cross-layer UI retrieval
         run: |
           python tools/test_ui_inventory.py
           python tools/test_ui_surface_query.py
+          python tools/test_ui_evidence_resolver.py
+          python tools/generate_ui_knowledge_report.py
       - name: Unit-test UI composition planning
         run: python tools/test_ui_composition.py
       - name: Unit-test intake review state
