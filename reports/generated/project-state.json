@@ -39,22 +39,22 @@
         {
           "name": "Fontconfig renderer native probe",
           "found": true,
-          "status": "in_progress",
-          "conclusion": "",
+          "status": "completed",
+          "conclusion": "success",
           "head_sha": "235f9c8d89408ea6832a87c05398c594462e03a1",
           "head_matches_main": true,
           "run_id": 36980375113,
           "run_number": 574,
           "event": "push",
           "created_at": "2026-10-02T07:46:49Z",
-          "updated_at": "2026-10-02T07:47:20Z",
+          "updated_at": "2026-10-02T08:01:38Z",
           "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36980375113"
         }
       ],
       "pending_intake": 0,
       "triage_records": 0,
       "knowledge_records": 14,
-      "source_updated_at": "2026-10-02T07:54:41Z"
+      "source_updated_at": "2026-10-02T08:01:38Z"
     },
     {
       "project": "Character-Voice-Service",
@@ -155,8 +155,8 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "default_branch": "main",
-      "head_sha": "3329621050109b51c825b3986bca3c66d1b1c79e",
-      "head_commit_date": "2026-10-02T07:48:21Z",
+      "head_sha": "d62dd49637fe4660ca6c0acdb3d78b3bbf606a96",
+      "head_commit_date": "2026-10-02T07:57:59Z",
       "tracked_workflows": [
         {
           "name": "Build Android Native Core Release",
@@ -220,42 +220,42 @@
           "name": "Windows local smoke",
           "found": true,
           "status": "completed",
-          "conclusion": "failure",
-          "head_sha": "37518be39f934fae98582c5a58b0367be6bc2223",
-          "head_matches_main": false,
-          "run_id": 36853789772,
-          "run_number": 155,
+          "conclusion": "success",
+          "head_sha": "d62dd49637fe4660ca6c0acdb3d78b3bbf606a96",
+          "head_matches_main": true,
+          "run_id": 36981380113,
+          "run_number": 159,
           "event": "push",
-          "created_at": "2026-10-01T11:11:19Z",
-          "updated_at": "2026-10-01T11:13:24Z",
-          "html_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36853789772"
+          "created_at": "2026-10-02T07:58:02Z",
+          "updated_at": "2026-10-02T07:58:57Z",
+          "html_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36981380113"
         }
       ],
       "pending_intake": 1,
       "triage_records": 1,
       "knowledge_records": 15,
-      "source_updated_at": "2026-10-02T07:48:21Z"
+      "source_updated_at": "2026-10-02T07:58:57Z"
     },
     {
       "project": "UIGS-Foundry",
       "repository": "11576865/UIGS-Foundry",
       "default_branch": "main",
-      "head_sha": "e6696d227f921d2f32f5af99629324ce3a53831f",
-      "head_commit_date": "2026-10-02T07:55:04Z",
+      "head_sha": "ead4d957811c37fec41502551118faf9ac9fe912",
+      "head_commit_date": "2026-10-02T08:02:58Z",
       "tracked_workflows": [
         {
           "name": "Validate Foundry",
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "497867e5b4b4ecc6d4ae845b8296bbb49c97f7be",
+          "head_sha": "e209cdfb9bc07f0766c17473532a44bf4f2ed15a",
           "head_matches_main": false,
-          "run_id": 36980867500,
-          "run_number": 15,
+          "run_id": 36981830470,
+          "run_number": 20,
           "event": "push",
-          "created_at": "2026-10-02T07:52:21Z",
-          "updated_at": "2026-10-02T07:52:34Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36980867500"
+          "created_at": "2026-10-02T08:02:53Z",
+          "updated_at": "2026-10-02T08:03:02Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36981830470"
         },
         {
           "name": "Collect UIGS Outboxes",
@@ -274,37 +274,37 @@
         {
           "name": "Triage UIGS Pending",
           "found": true,
-          "status": "in_progress",
-          "conclusion": "",
-          "head_sha": "e6696d227f921d2f32f5af99629324ce3a53831f",
-          "head_matches_main": true,
-          "run_id": 36981118182,
-          "run_number": 4,
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "b2493960df1aa6ce7d65922b1e5e3c3eb4d66038",
+          "head_matches_main": false,
+          "run_id": 36981403228,
+          "run_number": 5,
           "event": "push",
-          "created_at": "2026-10-02T07:55:06Z",
-          "updated_at": "2026-10-02T07:55:10Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36981118182"
+          "created_at": "2026-10-02T07:58:17Z",
+          "updated_at": "2026-10-02T07:58:30Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36981403228"
         },
         {
           "name": "Generate UIGS Project State",
           "found": true,
           "status": "in_progress",
           "conclusion": "",
-          "head_sha": "b1dbd9fbd8c3abc10148d8469663b97c243ae490",
+          "head_sha": "e209cdfb9bc07f0766c17473532a44bf4f2ed15a",
           "head_matches_main": false,
-          "run_id": 36981093192,
-          "run_number": 1,
+          "run_id": 36981830526,
+          "run_number": 2,
           "event": "push",
-          "created_at": "2026-10-02T07:54:51Z",
-          "updated_at": "2026-10-02T07:54:54Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36981093192"
+          "created_at": "2026-10-02T08:02:53Z",
+          "updated_at": "2026-10-02T08:02:57Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36981830526"
         }
       ],
       "pending_intake": 0,
       "triage_records": 0,
-      "knowledge_records": 3,
-      "source_updated_at": "2026-10-02T07:55:10Z"
+      "knowledge_records": 4,
+      "source_updated_at": "2026-10-02T08:03:02Z"
     }
   ],
-  "source_max_updated_at": "2026-10-02T07:55:10Z"
+  "source_max_updated_at": "2026-10-02T08:03:02Z"
 }
