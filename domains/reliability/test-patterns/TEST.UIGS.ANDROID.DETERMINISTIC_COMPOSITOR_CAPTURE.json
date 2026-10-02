@@ -1,0 +1,42 @@
+{
+  "id": "TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
+  "type": "test",
+  "status": "experimental",
+  "title": "Android 确定性 fixture + instrumentation + compositor 截图采集",
+  "summary": "对真实 Android APP 的可重复视觉证据，使用 source-owned deterministic fixture 驱动真实生产 Compose 树，在 emulator 中显式安装 app/test APK、运行 instrumentation、由 UiAutomation 捕获最终 display/compositor，再进行 PNG/方向/hash/provenance 校验并注册到 Surface ID。",
+  "preconditions": [
+    "项目提供 source-owned capture contract 与稳定 Surface IDs。",
+    "debug/test host 只负责注入确定性状态；被渲染的核心 UI 必须来自生产实现。",
+    "emulator profile、logical size、density、font scale、locale/theme 和 orientation 被声明。",
+    "capture state 不依赖人工点击或不稳定的视觉识别。"
+  ],
+  "procedure": [
+    "构建 app debug APK 与 androidTest APK。",
+    "配置 emulator 并显式安装两份 APK。",
+    "instrumentation fixture 将 canonical app state 推进到声明状态，并等待 Compose idle/语义 ready 条件。",
+    "UiAutomation.takeScreenshot() 捕获 display/compositor 输出到 target app private filesDir。",
+    "instrumentation 返回后立即 run-as 提取 PNG。",
+    "验证 PNG signature、声明方向与非零尺寸。",
+    "计算 SHA-256，并连同 source revision、capture contract、设备环境、Surface IDs 写入 Production Visual Evidence manifest。"
+  ],
+  "evidence_boundary": [
+    "此测试可证明 production-rendered APP 状态，而不是 runtime-backed 视频/libass/native renderer 状态。",
+    "debug-only fixture host 可以注入状态，但不得用替代 UI 组件伪装生产界面。",
+    "renderer-backed 状态需要额外启用真实 renderer/video/native dependency 后单独登记。"
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/ASS-Workbench-Android:app/src/androidTest/kotlin/io/github/assworkbench/app/UigsVisualCaptureInstrumentedTest.kt",
+      "revision": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
+      "evidence_level": "implemented test harness"
+    },
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Android run 36995860785",
+      "revision": "d9442489964eefc2ddf6da541b4e70dd2b9d9228",
+      "evidence_level": "successful production visual capture"
+    }
+  ],
+  "created": "2026-10-02"
+}

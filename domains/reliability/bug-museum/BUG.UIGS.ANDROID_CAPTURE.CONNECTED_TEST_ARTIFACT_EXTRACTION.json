@@ -1,0 +1,42 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.UIGS.ANDROID_CAPTURE.CONNECTED_TEST_ARTIFACT_EXTRACTION",
+  "type": "bug",
+  "status": "validated",
+  "title": "Android connected test 完成后从 app-private 路径提取视觉证据得到非 PNG 字节",
+  "symptom": "Capture Production UI Android run 36995233642 中 instrumentation/Gradle 测试阶段成功结束，但随后通过 run-as 从 app-private files 路径导出的文件虽然非空，却被 PNG signature 校验拒绝。",
+  "root_cause": "首版流水线把截图文件的保存与提取跨在 Gradle connectedDebugAndroidTest 的安装/执行/清理生命周期两侧，并仅用非空文件检查作为中间保护。该生命周期没有为后续 app-private 提取建立可靠契约，因此测试成功并不等价于可提取的 PNG 证据仍然有效。",
+  "resolution": [
+    "预先 assembleDebug 与 assembleDebugAndroidTest。",
+    "在 emulator 会话内显式安装 app APK 与 androidTest APK。",
+    "使用 Android instrumentation runner 显式运行 UigsVisualCaptureInstrumentedTest，而不是让 connectedDebugAndroidTest 代管完整生命周期。",
+    "测试通过 UiAutomation.takeScreenshot() 将 compositor 截图写入 debuggable target app filesDir。",
+    "instrumentation 完成后立即通过 run-as 提取文件，并继续执行 PNG signature/orientation 校验后才注册证据。"
+  ],
+  "regression_guard": [
+    "Capture Production UI Android 必须在注册前验证导出文件是有效 PNG，而不只验证文件非空。",
+    "ASS.STYLE_TOOL.FIXTURE_LANDSCAPE 的证据 manifest 必须能够由成功 capture run 重新生成。",
+    "Android capture workflow 的 instrumentation 路径保持显式 app/test APK install + am instrument + immediate extraction。"
+  ],
+  "reusable_lesson": "视觉采集流水线必须把测试状态准备、截图写入和证据提取视为一个明确的生命周期契约。测试进程成功只证明测试完成，不能证明测试后某个私有路径仍包含可注册的图像；二进制格式校验应发生在证据注册之前。",
+  "provenance": [
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Android run 36995233642",
+      "revision": "98e67948652b0d3262a404aaaea4db3d6e8afe78",
+      "evidence_level": "failed capture with non-PNG extraction"
+    },
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Android run 36995860785",
+      "revision": "d9442489964eefc2ddf6da541b4e70dd2b9d9228",
+      "evidence_level": "successful corrected pipeline"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/ASS-Workbench-Android",
+      "revision": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
+      "evidence_level": "source-owned deterministic fixture contract"
+    }
+  ]
+}

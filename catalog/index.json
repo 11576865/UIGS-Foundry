@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "2.4",
+  "version": "2.5",
   "domains": [
     {
       "id": "interface-grammar",
@@ -356,6 +356,16 @@
       "id": "BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED",
       "status": "validated",
       "path": "domains/reliability/bug-museum/BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED.json"
+    },
+    {
+      "id": "BUG.UIGS.ANDROID_CAPTURE.CONNECTED_TEST_ARTIFACT_EXTRACTION",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.UIGS.ANDROID_CAPTURE.CONNECTED_TEST_ARTIFACT_EXTRACTION.json"
+    },
+    {
+      "id": "TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
+      "status": "experimental",
+      "path": "domains/reliability/test-patterns/TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.json"
     }
   ],
   "projects": [
