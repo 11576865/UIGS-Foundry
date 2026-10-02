@@ -1,6 +1,13 @@
 name: Capture Production UI Web
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/capture-production-ui-web.yml'
+      - 'tools/register_visual_evidence.py'
+      - 'tools/build_visual_evidence_index.py'
+      - 'schemas/ui-production-visual-evidence.schema.json'
   schedule:
     - cron: '13 3 * * *'
   workflow_dispatch:

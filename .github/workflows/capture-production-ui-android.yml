@@ -1,0 +1,125 @@
+name: Capture Production UI Android
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/capture-production-ui-android.yml'
+      - 'tools/register_visual_evidence.py'
+      - 'tools/build_visual_evidence_index.py'
+      - 'schemas/ui-production-visual-evidence.schema.json'
+  schedule:
+    - cron: '31 4 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-production-ui-android
+  cancel-in-progress: true
+
+jobs:
+  ass-editor-shell:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: 11576865/ASS-Workbench-Android
+          path: .capture/ass
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: android-actions/setup-android@v4
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.7.1'
+      - name: Enable KVM
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm || true
+      - name: Build real debug APK
+        working-directory: .capture/ass
+        run: gradle :app:assembleDebug
+      - name: Launch real APK and capture Android compositor
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          disable-animations: true
+          emulator-options: >-
+            -no-window
+            -gpu swiftshader_indirect
+            -noaudio
+            -no-boot-anim
+            -camera-back none
+          script: |
+            set -euo pipefail
+            adb install -r .capture/ass/app/build/outputs/apk/debug/app-debug.apk
+            adb shell wm size 1600x1000
+            adb shell wm density 240
+            adb shell settings put system font_scale 1.0
+            adb shell settings put system accelerometer_rotation 0
+            adb shell settings put system user_rotation 1
+            adb shell am force-stop io.github.assworkbench.app
+            adb shell am start -W -n io.github.assworkbench.app/.MainActivity
+            sleep 5
+            mkdir -p "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS"
+            adb exec-out screencap -p > "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png"
+            test -s "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png"
+      - name: Register Android production evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          SHA="$(git -C .capture/ass rev-parse HEAD)"
+          META="$RUNNER_TEMP/ass-capture.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path(os.environ['RUNNER_TEMP']).joinpath('ass-capture.json').write_text(json.dumps({
+              'schema_version': 1,
+              'adapter': 'android-emulator-screencap',
+              'emulator': {'api_level': 35, 'target': 'google_apis', 'arch': 'x86_64', 'profile': 'pixel_6'},
+              'logical_size': {'width': 1600, 'height': 1000},
+              'density': 240,
+              'font_scale': 1.0,
+              'capture_surface': 'android-compositor'
+          }, indent=2) + '\n', encoding='utf-8')
+          PY
+          python tools/register_visual_evidence.py \
+            --contract .capture/ass/.uigs/ui-visual-capture.json \
+            --capture-id ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE \
+            --source-repository 11576865/ASS-Workbench-Android \
+            --source-revision "$SHA" \
+            --image domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png \
+            --metadata "$META" \
+            --output-manifest domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.json
+      - name: Rebuild visual evidence indexes
+        run: |
+          python tools/build_visual_evidence_index.py
+          python tools/generate_ui_knowledge_report.py
+          python tools/test_register_visual_evidence.py
+          python tools/test_ui_evidence_resolver.py
+      - name: Persist Android production visual evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)" ]]; then
+            echo "Production Android visual evidence unchanged."
+            exit 0
+          fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add -A domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md
+          git commit -m "chore(uigs): capture ASS Android production UI evidence"
+          bash tools/push_with_rebase_retry.sh main 5
