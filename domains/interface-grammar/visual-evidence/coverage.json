@@ -1,7 +1,7 @@
 {
   "version": 1,
   "total_surfaces": 63,
-  "with_production_visual_evidence": 1,
+  "with_production_visual_evidence": 2,
   "missing_production_visual_evidence": [
     "ASS.PREVIEW.VIDEO",
     "ASS.TOOL.BATCH",
@@ -22,7 +22,6 @@
     "ASS.TOOL.TEXT",
     "ASS.TOOL.TIMELINE",
     "ASS.TOOL.VECTOR_CLIP",
-    "ASS.WORKSPACE.EDITOR_SHELL",
     "ASS.WORKSPACE.EDIT_SCOPE_EXPLANATION",
     "ASS.WORKSPACE.FLOATING_SURFACE_GEOMETRY",
     "ASS.WORKSPACE.INTERACTION_OVERLAY",
@@ -66,5 +65,5 @@
     "QHE.SHELL.WORKFLOW_HEADER",
     "QHE.STATUS.TASK_OVERVIEW"
   ],
-  "evidence_records": 1
+  "evidence_records": 2
 }

@@ -1,0 +1,81 @@
+{
+  "$schema": "../../../../schemas/ui-production-visual-evidence.schema.json",
+  "id": "VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE",
+  "record_type": "ui-production-visual-evidence",
+  "status": "experimental",
+  "evidence_level": "production-rendered",
+  "platform": "android",
+  "capture_id": "ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE",
+  "surface_ids": [
+    "ASS.WORKSPACE.EDITOR_SHELL"
+  ],
+  "patterns": [],
+  "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
+  "source_repository": "11576865/ASS-Workbench-Android",
+  "source_revision": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
+  "sha256": "c5f43aee3b1d971f3ff648fd9d382161fab8618e1f0dddc52bce56f86ddc96a3",
+  "image": {
+    "width": 1000,
+    "height": 1600
+  },
+  "environment": {
+    "schema_version": 1,
+    "adapter": "android-emulator-screencap",
+    "emulator": {
+      "api_level": 35,
+      "target": "google_apis",
+      "arch": "x86_64",
+      "profile": "pixel_6"
+    },
+    "logical_size": {
+      "width": 1600,
+      "height": 1000
+    },
+    "density": 240,
+    "font_scale": 1.0,
+    "capture_surface": "android-compositor"
+  },
+  "capture_contract": {
+    "adapter": "android-emulator-screencap",
+    "route": null,
+    "selector": null,
+    "capture_region": null,
+    "viewport": null,
+    "device": {
+      "api_level": 35,
+      "target": "google_apis",
+      "arch": "x86_64",
+      "profile": "pixel_6",
+      "logical_size": {
+        "width": 1600,
+        "height": 1000
+      },
+      "density": 240,
+      "locale": "zh-CN",
+      "font_scale": 1
+    },
+    "ready": {
+      "settle_ms": 3500
+    }
+  },
+  "change_status": "new",
+  "previous_sha256": null,
+  "limitations": [
+    "This initial state captures the full running APK but does not load a video or ASS fixture.",
+    "Renderer-backed subtitle/video states require a later fixture-backed capture."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/ASS-Workbench-Android",
+      "revision": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
+      "evidence_level": "production-rendered"
+    },
+    {
+      "source_type": "capture-contract",
+      "source": "11576865/ASS-Workbench-Android:ui-visual-capture.json",
+      "revision": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
+      "evidence_level": "source-owned capture declaration"
+    }
+  ]
+}

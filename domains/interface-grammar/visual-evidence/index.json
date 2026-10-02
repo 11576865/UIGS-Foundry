@@ -1,7 +1,27 @@
 {
   "version": 1,
-  "evidence_count": 1,
+  "evidence_count": 2,
   "evidence": [
+    {
+      "id": "VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE",
+      "evidence_level": "production-rendered",
+      "platform": "android",
+      "capture_id": "ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE",
+      "surface_ids": [
+        "ASS.WORKSPACE.EDITOR_SHELL"
+      ],
+      "patterns": [],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
+      "source_repository": "11576865/ASS-Workbench-Android",
+      "source_revision": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
+      "sha256": "c5f43aee3b1d971f3ff648fd9d382161fab8618e1f0dddc52bce56f86ddc96a3",
+      "image": {
+        "width": 1000,
+        "height": 1600
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.json"
+    },
     {
       "id": "VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",
       "evidence_level": "production-rendered",
@@ -45,7 +65,28 @@
     "ASS.TOOL.TEXT": [],
     "ASS.TOOL.TIMELINE": [],
     "ASS.TOOL.VECTOR_CLIP": [],
-    "ASS.WORKSPACE.EDITOR_SHELL": [],
+    "ASS.WORKSPACE.EDITOR_SHELL": [
+      {
+        "id": "VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE",
+        "evidence_level": "production-rendered",
+        "platform": "android",
+        "capture_id": "ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE",
+        "surface_ids": [
+          "ASS.WORKSPACE.EDITOR_SHELL"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
+        "source_repository": "11576865/ASS-Workbench-Android",
+        "source_revision": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
+        "sha256": "c5f43aee3b1d971f3ff648fd9d382161fab8618e1f0dddc52bce56f86ddc96a3",
+        "image": {
+          "width": 1000,
+          "height": 1600
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.json"
+      }
+    ],
     "ASS.WORKSPACE.EDIT_SCOPE_EXPLANATION": [],
     "ASS.WORKSPACE.FLOATING_SURFACE_GEOMETRY": [],
     "ASS.WORKSPACE.INTERACTION_OVERLAY": [],
