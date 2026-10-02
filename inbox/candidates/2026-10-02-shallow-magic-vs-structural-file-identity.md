@@ -54,3 +54,22 @@ The revised implementation adds verified font inspection: it first recognizes th
 Applicable to fonts, archives, media containers, document formats, model files, databases, executable/object formats and other structured resources where a short magic prefix is necessary but not sufficient evidence of a usable file.
 
 Do not promote to Canonical from this single project implementation without broader validation.
+
+
+## Additional implementation evidence — MKV-Fast-Muxer PR #58
+
+PR #58 completes the font path with a verified Font Identity boundary rather than treating either the filename or a four-byte SFNT signature as sufficient evidence.
+
+The implementation separates two stages:
+
+```text
+SFNT / TTC header recognition
+    < successful internal face/table parsing
+    = supported font identity
+```
+
+A real TrueType/OpenType font renamed to an unknown suffix remains usable, while broken or zero-byte files named `.ttf` are rejected during preflight before mux execution. The verified identity is then carried into libass preview staging, HarfBuzz subsetting, batch discovery, attachment MIME selection and generated attachment filename normalization.
+
+Browser E2E exercises a real TrueType font renamed to `.mmmmmm` through preview, subset, mux and post-mux audit. Existing malformed-font scenarios were updated to assert that structurally invalid fonts are blocked by preflight instead of waiting for a later mux failure.
+
+This is additional Candidate-level evidence only; it does not promote the rule to Canonical.
