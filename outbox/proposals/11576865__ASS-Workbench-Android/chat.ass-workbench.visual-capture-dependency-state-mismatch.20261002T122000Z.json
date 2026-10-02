@@ -4,7 +4,7 @@
   "proposal_status": "review_required",
   "packet_id": "chat.ass-workbench.visual-capture-dependency-state-mismatch.20261002T122000Z",
   "source_repository": "11576865/ASS-Workbench-Android",
-  "packet_sha256": "606c7c56a93894c4dfb1f9ed885e0323e62738c994060d2f4bdeeca4f9d3a5c4",
+  "packet_sha256": "471e14c20d2a408260513e586a76ca74b1f649d7794e61f541d015b7f648dc9a",
   "suggested_record": {
     "id": "BUG.ASS_WORKBENCH_ANDROID.VISUAL_CAPTURE_CONTRACT_CAN_DECLARE_AN.3BCF59C9",
     "type": "bug",
@@ -26,7 +26,7 @@
       {
         "source_type": "repository",
         "source": "11576865/ASS-Workbench-Android",
-        "revision": "077ce3205f9c83d07afd7119bbc100653ff53e88",
+        "revision": "697e709a049b26536ad30495a47d560f0fd861c3",
         "evidence_level": "durable intake packet",
         "note": "chat.ass-workbench.visual-capture-dependency-state-mismatch.20261002T122000Z"
       }
@@ -49,5 +49,5 @@
   "dedupe_candidates": [],
   "related_records": [],
   "triage_status": "ready-for-record",
-  "proposed_at": "2026-10-02T12:22:31+00:00"
+  "proposed_at": "2026-10-02T12:37:57+00:00"
 }
