@@ -1,6 +1,7 @@
 {
-  "version": 2,
+  "version": 3,
   "source_digest": "56f8f140b72afb160fdf2c60372dafd975f43c93f35d9eab13bfc376988c1774",
+  "showcase_digest": "2762e726945b0bb4102a72933ab4c4f43ebf16aff22b950b3173dd0180baea54",
   "total_patterns": 8,
   "with_realization": 2,
   "with_validation": 1,
