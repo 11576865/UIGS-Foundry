@@ -1,0 +1,33 @@
+{
+  "packet_version": 1,
+  "packet_id": "chat.ass-workbench.visual-capture-dependency-state-mismatch.20261002T122000Z",
+  "status": "pending",
+  "record_type": "bug",
+  "title": "Visual capture contract can declare an impossible state when its fixture disables a required runtime dependency",
+  "summary": "ASS-Workbench-Android declared a production-rendered Canvas Position interaction capture that waited for rod-handle-position-1-pos while the debug capture host explicitly passed rendererEnabled=false. The real VideoPreview returns early in that state, so it never publishes the InteractionProxy needed by the production WindowInteractionOverlay. The capture state was therefore impossible by construction. The repair removes the unsupported capture declaration instead of simulating the missing production dependency or relabeling weaker evidence.",
+  "source_repository": "11576865/ASS-Workbench-Android",
+  "source_event": "chat_fix",
+  "source_ref": "fix/uigs-fixed-capabilities-entrypoint",
+  "source_sha": "077ce3205f9c83d07afd7119bbc100653ff53e88",
+  "source_url": "https://github.com/11576865/ASS-Workbench-Android/pull/75",
+  "created_at": "2026-10-02T12:20:00Z",
+  "dedupe_key": "bug:visual-capture-contract-runtime-dependency-state-mismatch",
+  "routing_hints": [
+    "reliability",
+    "interface-grammar",
+    "visual-evidence",
+    "android",
+    "testing"
+  ],
+  "evidence": {
+    "failing_check": "Android Emulator Regression: UigsVisualCaptureInstrumentedTest.captureFixedToolFixturesLandscape timed out waiting for rod-handle-position-1-pos.",
+    "cause": "EditorRegressionHostActivity renders ModernEditorScreen with rendererEnabled=false; VideoPreview returns before AuthoritativeMpvPreview and before position InteractionProxy publication, so the rod cannot exist in that fixture.",
+    "repair": [
+      "Use the real Fixed presentation entrypoint for CAPABILITIES capture.",
+      "Remove the impossible renderer-disabled Canvas Position rod capture step.",
+      "Remove ASS.CANVAS.POSITION_INTERACTION.FIXTURE_LANDSCAPE from the source-owned visual capture contract until a satisfiable renderer-backed or otherwise truthful fixture exists."
+    ],
+    "relation_to_existing_knowledge": "Consistent with Automated Production Visual Evidence Capture: runtime dependency unavailable must be reported separately and lower/incompatible evidence must not be relabeled as production evidence. This packet records the concrete failure mode rather than proposing a new canonical rule.",
+    "validation_status": "fix CI pending"
+  }
+}
