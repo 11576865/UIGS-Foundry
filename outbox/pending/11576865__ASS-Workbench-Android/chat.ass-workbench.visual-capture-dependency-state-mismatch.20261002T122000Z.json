@@ -8,7 +8,7 @@
   "source_repository": "11576865/ASS-Workbench-Android",
   "source_event": "chat_fix",
   "source_ref": "fix/uigs-fixed-capabilities-entrypoint",
-  "source_sha": "077ce3205f9c83d07afd7119bbc100653ff53e88",
+  "source_sha": "697e709a049b26536ad30495a47d560f0fd861c3",
   "source_url": "https://github.com/11576865/ASS-Workbench-Android/pull/75",
   "created_at": "2026-10-02T12:20:00Z",
   "dedupe_key": "bug:visual-capture-contract-runtime-dependency-state-mismatch",
@@ -28,6 +28,6 @@
       "Remove ASS.CANVAS.POSITION_INTERACTION.FIXTURE_LANDSCAPE from the source-owned visual capture contract until a satisfiable renderer-backed or otherwise truthful fixture exists."
     ],
     "relation_to_existing_knowledge": "Consistent with Automated Production Visual Evidence Capture: runtime dependency unavailable must be reported separately and lower/incompatible evidence must not be relabeled as production evidence. This packet records the concrete failure mode rather than proposing a new canonical rule.",
-    "validation_status": "fix CI pending"
+    "validation_status": "PR #75 Android CI and Android Emulator Regression both succeeded; merged to ASS-Workbench-Android main as 0addc6e8a168f8c28a2f05f2ef81d369d4ee252b. Packet remains Pending for Foundry triage."
   }
 }
