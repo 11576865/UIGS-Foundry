@@ -39,6 +39,7 @@ def pattern_candidates(text:str,index:dict[str,Any],limit:int=8)->list[dict[str,
             if relative and pos>0:keep=keep and score>=top*0.60
             if not keep:continue
             item=dict(r)
+            item["selection_source"]="query"
             item["matched_intents"]=sorted(set(item.get("matched_intents",[])+[source]))
             prev=merged.get(item["id"])
             if prev is None or score>float(prev["score"]):
@@ -48,8 +49,7 @@ def pattern_candidates(text:str,index:dict[str,Any],limit:int=8)->list[dict[str,
     absorb(qp.query(text,index,limit),"full-query",relative=False)
     for segment in split_intents(text):
         absorb(qp.query(segment,index,3),segment,relative=True)
-    ranked=sorted(merged.values(),key=lambda x:(-float(x["score"]),x["id"]))
-    return ranked[:limit]
+    return sorted(merged.values(),key=lambda x:(-float(x["score"]),x["id"]))[:limit]
 
 def recipe_score(text:str,recipe:dict[str,Any],selected_ids:set[str])->tuple[float,list[str]]:
     q=norm(text);qf=qp.features(text);reasons=[];score=0.0
@@ -74,18 +74,46 @@ def recipe_score(text:str,recipe:dict[str,Any],selected_ids:set[str])->tuple[flo
     if rec_hit:reasons.append("recommended-pattern-coverage")
     return score,sorted(set(reasons))
 
-def plan(text:str,index:dict[str,Any],recipes:list[dict[str,Any]])->dict[str,Any]:
-    selected=pattern_candidates(text,index)
-    selected_ids={x["id"] for x in selected}
+def rank_recipes(text:str,recipes:list[dict[str,Any]],selected_ids:set[str])->list[dict[str,Any]]:
     ranked=[]
     for recipe in recipes:
         s,reasons=recipe_score(text,recipe,selected_ids)
         if s<=0:continue
-        coverage=[]
-        for x in recipe.get("patterns",[]):
-            coverage.append({"id":x["id"],"role":x.get("role"),"matched":x["id"] in selected_ids,"purpose":x.get("purpose","")})
-        ranked.append({"id":recipe["id"],"score":round(s,2),"reasons":reasons,"status":recipe.get("status"),"name":recipe.get("name"),"coverage":coverage,"composition_contract":recipe.get("composition_contract",[]),"showcases":recipe.get("showcases",[]),"_path":recipe["_path"]})
+        coverage=[{"id":x["id"],"role":x.get("role"),"matched":x["id"] in selected_ids,"purpose":x.get("purpose","")} for x in recipe.get("patterns",[])]
+        ranked.append({"id":recipe["id"],"score":round(s,2),"reasons":reasons,"status":recipe.get("status"),"name":recipe.get("name"),"coverage":coverage,"composition_contract":recipe.get("composition_contract",[]),"showcases":recipe.get("showcases",[]),"_path":recipe["_path"],"_recipe":recipe})
     ranked.sort(key=lambda x:(-x["score"],x["id"]))
+    return ranked
+
+def expand_required(selected:list[dict[str,Any]],ranked:list[dict[str,Any]],index:dict[str,Any])->list[dict[str,Any]]:
+    if not ranked:return selected
+    best=ranked[0]
+    required=[x["id"] for x in best["_recipe"].get("patterns",[]) if x.get("role")=="required"]
+    selected_ids={x["id"] for x in selected}
+    hit=len(selected_ids&set(required))
+    if best["score"]<50 or hit<2:
+        return selected
+    rows={x["id"]:x for x in index.get("patterns",[])}
+    for pid in required:
+        if pid in selected_ids or pid not in rows:continue
+        row=rows[pid]
+        selected.append({
+            "id":pid,"score":0.0,"reasons":["recipe-required"],"status":row.get("status",""),
+            "name":row.get("name",{}),"intent":row.get("intent",""),"realizations":row.get("realizations",{}),
+            "validation":row.get("validation",[]),"showcase_status":row.get("showcase_status","missing"),
+            "source_path":row.get("source_path",""),"selection_source":"recipe-required",
+            "matched_intents":[best["id"]]
+        })
+        selected_ids.add(pid)
+    return selected
+
+def plan(text:str,index:dict[str,Any],recipes:list[dict[str,Any]])->dict[str,Any]:
+    selected=pattern_candidates(text,index)
+    ranked=rank_recipes(text,recipes,{x["id"] for x in selected})
+    selected=expand_required(selected,ranked,index)
+    selected_ids={x["id"] for x in selected}
+    ranked=rank_recipes(text,recipes,selected_ids)
+    for r in ranked:r.pop("_recipe",None)
+    selected.sort(key=lambda x:(0 if x.get("selection_source")=="query" else 1,-float(x.get("score",0)),x["id"]))
     missing=[]
     for p in selected:
         if not p.get("realizations"):missing.append({"pattern":p["id"],"kind":"realization"})
@@ -100,7 +128,7 @@ def main()->int:
     print("Intent segments:")
     for x in result["intent_segments"]:print(f"- {x}")
     print("Patterns:")
-    for x in result["patterns"]:print(f"- {x['id']} [{x['status']}] score={x['score']}")
+    for x in result["patterns"]:print(f"- {x['id']} [{x['status']}] source={x.get('selection_source','query')} score={x['score']}")
     print("Recipes:")
     for x in result["recipes"]:print(f"- {x['id']} [{x['status']}] score={x['score']}")
     if result["evidence_gaps"]:
