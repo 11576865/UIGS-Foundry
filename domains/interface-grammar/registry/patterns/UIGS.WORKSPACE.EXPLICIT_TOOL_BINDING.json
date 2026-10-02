@@ -1,0 +1,59 @@
+{
+  "$schema": "../../../../schemas/ui-pattern.schema.json",
+  "id": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+  "type": "pattern",
+  "status": "experimental",
+  "name": {
+    "zh": "显式工具实例绑定",
+    "en": "Explicit Tool Instance Binding"
+  },
+  "aliases": [
+    "工具固定目标",
+    "独立工具实例",
+    "pinned target",
+    "tool binding"
+  ],
+  "intent": "让同一种工具可以存在多个实例，每个实例明确绑定到自己的领域对象，而不是通过修改全局 Focus 间接决定写入目标。",
+  "use_when": [
+    "同一工具需要多实例",
+    "工具可固定到对象",
+    "全局 Focus 只是浏览上下文而不是唯一写入目标"
+  ],
+  "do_not_use_when": [
+    "工具是纯全局单例且没有对象级写入语义"
+  ],
+  "anatomy": [
+    "ToolInstance.id",
+    "Binding",
+    "resolved target",
+    "presentation surface",
+    "scope explanation"
+  ],
+  "interaction_contract": {
+    "duplicate": "creates a new ToolInstance rather than retargeting an existing pinned instance",
+    "close": "removes presentation, not domain data",
+    "unresolved": "missing pinned target remains UNRESOLVED instead of silently falling back to Focus",
+    "focus": "convenience context only; not canonical target ownership"
+  },
+  "visual_contract": {
+    "scope_transparency": "surface should expose who/where/how-many when mutation scope is non-obvious"
+  },
+  "constraints": [
+    "Surface identity and domain target identity are separate.",
+    "Derived scope banners must not become a second owner of target identity or values."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/WORKSPACE_MIGRATION_CHECKLIST.md",
+      "revision": "c10980aea79e75f72fe482e759393a400973a64b",
+      "evidence_level": "implemented migration + open remainder"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:app/src/test/kotlin/io/github/assworkbench/app/ui/WorkbenchToolCatalogTest.kt",
+      "revision": "1ab3e2c98225f3c3bfab303a268574ecb4179698",
+      "evidence_level": "unit contract"
+    }
+  ]
+}

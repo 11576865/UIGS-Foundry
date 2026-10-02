@@ -1,0 +1,58 @@
+{
+  "id": "REL.RED_REASON_TAXONOMY",
+  "status": "experimental",
+  "categories": [
+    {
+      "id": "policy",
+      "meaning": "machine-enforced repository or governance policy violation"
+    },
+    {
+      "id": "build",
+      "meaning": "compile/package/static build failure"
+    },
+    {
+      "id": "unit-test",
+      "meaning": "deterministic unit/domain test failure"
+    },
+    {
+      "id": "integration-test",
+      "meaning": "multi-component integration failure"
+    },
+    {
+      "id": "e2e",
+      "meaning": "end-to-end workflow failure"
+    },
+    {
+      "id": "runtime-smoke",
+      "meaning": "component exists but fails real startup/probe/smoke execution"
+    },
+    {
+      "id": "environment",
+      "meaning": "toolchain/runtime/dependency/environment mismatch"
+    },
+    {
+      "id": "packaging",
+      "meaning": "built artifact is missing required content or identity"
+    },
+    {
+      "id": "release-publication",
+      "meaning": "release/tag/asset publication or verification failure"
+    },
+    {
+      "id": "resource-budget",
+      "meaning": "storage, quota, token, memory, timeout, or cost guard failure"
+    },
+    {
+      "id": "device-only",
+      "meaning": "requires physical-device evidence and cannot be closed by hosted CI alone"
+    },
+    {
+      "id": "infra-flaky",
+      "meaning": "runner/network/provider instability without product evidence"
+    },
+    {
+      "id": "unknown",
+      "meaning": "insufficient evidence to classify safely"
+    }
+  ]
+}

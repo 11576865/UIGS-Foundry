@@ -1,0 +1,37 @@
+{
+  "id": "TEST.DESTRUCTIVE_COMBINATION_MATRIX",
+  "type": "test",
+  "status": "experimental",
+  "title": "破坏性组合矩阵",
+  "summary": "测试不只覆盖单功能 happy path，而以‘领域 + 破坏性组合 + 必须保持的不变量 + 证据层级’组织，从 Raw preservation、编码、撤销、生命周期、容器、异步保存、发布路径等维度主动攻击。",
+  "fields": [
+    "id",
+    "domain",
+    "destructive_case",
+    "required_invariant",
+    "evidence_status"
+  ],
+  "recommended_statuses": [
+    "AUTO",
+    "ADD",
+    "DEVICE",
+    "RESEARCH"
+  ],
+  "example_families": [
+    "unknown syntax preservation",
+    "encoding round-trip",
+    "cancel/switch races",
+    "stale async result",
+    "container preservation",
+    "process death",
+    "release packaging parity"
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/HARDENING-0.27.md",
+      "revision": "def359517071d620f41de1320656b7e48aa28b98",
+      "evidence_level": "implemented release hardening matrix"
+    }
+  ]
+}

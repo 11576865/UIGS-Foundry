@@ -1,0 +1,72 @@
+{
+  "$schema": "../../../../schemas/ui-pattern.schema.json",
+  "id": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+  "type": "pattern",
+  "status": "experimental",
+  "name": {
+    "zh": "预览—检查器分栏",
+    "en": "Preview–Inspector Split"
+  },
+  "aliases": [
+    "大预览右检查器",
+    "preview inspector",
+    "split-pane editor",
+    "右侧参数检查器"
+  ],
+  "intent": "视觉结果是主任务时，将大预览保持为主表面，把参数、诊断和次级控制压缩到右侧检查器，并在窄屏降级为单列。",
+  "use_when": [
+    "编辑结果需要持续视觉验证",
+    "参数数量多但不应挤占主画布",
+    "宽屏/平板可提供并排空间"
+  ],
+  "do_not_use_when": [
+    "主任务不是视觉结果",
+    "参数本身才是主要内容",
+    "窄屏没有可靠堆叠/切换降级"
+  ],
+  "anatomy": [
+    "primary preview",
+    "compact inspector",
+    "grouped parameter sections",
+    "top actions",
+    "advanced disclosure"
+  ],
+  "interaction_contract": {
+    "wide": "preview and inspector coexist",
+    "narrow": "inspector becomes static/stacked or alternate presentation",
+    "advanced_controls": "progressive disclosure"
+  },
+  "visual_contract": {
+    "desktop_grid": "minmax(0,1fr) + bounded inspector",
+    "inspector": "compact; may be sticky",
+    "preview": "dominant primary surface"
+  },
+  "constraints": [
+    "Preserve existing semantic control identity across layout changes.",
+    "Do not stretch one long parameter column across large screens.",
+    "Mobile fallback must restore normal document flow."
+  ],
+  "realizations": {
+    "web": "domains/interface-grammar/realizations/web/UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.md"
+  },
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:CHANGELOG.md",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "implemented redesign description"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:app/static/index.html",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "production implementation"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:tests/test_progress_ui.py",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "UI contract tests"
+    }
+  ]
+}

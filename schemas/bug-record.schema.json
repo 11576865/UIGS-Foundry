@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/bug-record.schema.json",
+  "title": "UIGS Bug Museum Record",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "status",
+    "title",
+    "symptom",
+    "root_cause",
+    "resolution",
+    "regression_guard",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^BUG\\."
+    },
+    "type": {
+      "const": "bug"
+    },
+    "status": {
+      "enum": [
+        "observed",
+        "candidate",
+        "validated",
+        "canonical",
+        "deprecated"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "symptom": {
+      "type": "string"
+    },
+    "root_cause": {
+      "type": "string"
+    },
+    "resolution": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "regression_guard": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reusable_lesson": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

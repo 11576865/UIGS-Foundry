@@ -1,0 +1,58 @@
+{
+  "$schema": "../../../../schemas/ui-pattern.schema.json",
+  "id": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
+  "type": "pattern",
+  "status": "experimental",
+  "name": {
+    "zh": "能力目录导航",
+    "en": "Capability Catalog Navigation"
+  },
+  "aliases": [
+    "工具目录",
+    "能力目录",
+    "tool catalog",
+    "跨区域工具检索"
+  ],
+  "intent": "使用一份机器可读工具元数据作为固定布局、自由 Canvas、搜索和导航的共同目录；目录是检索入口，不复制业务能力。",
+  "use_when": [
+    "专业工作台工具数量持续增长",
+    "同一能力需要在多个 presentation host 中被发现"
+  ],
+  "do_not_use_when": [
+    "只有少量固定功能且不存在跨区域检索需求"
+  ],
+  "anatomy": [
+    "stable tool key",
+    "group",
+    "description",
+    "initial density/geometry",
+    "binding capability",
+    "duplication capability"
+  ],
+  "interaction_contract": {
+    "activation": "catalog resolves to existing tool capability",
+    "reclassification": "must preserve persisted stable keys"
+  },
+  "visual_contract": {
+    "hierarchy": "two-level grouping is preferred over a flat strip of many equal-priority entries"
+  },
+  "constraints": [
+    "One tool has one metadata identity.",
+    "Catalog navigation must not create duplicate implementations.",
+    "Reclassification must preserve serialized keys or provide migration."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/UI-AUDIT-2026-10-01.md",
+      "revision": "aa3ffcf69e66f3e0aee15e659036ef2123c94696",
+      "evidence_level": "implemented UI refactor"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:app/src/test/kotlin/io/github/assworkbench/app/ui/WorkbenchToolCatalogTest.kt",
+      "revision": "1ab3e2c98225f3c3bfab303a268574ecb4179698",
+      "evidence_level": "regression contract"
+    }
+  ]
+}

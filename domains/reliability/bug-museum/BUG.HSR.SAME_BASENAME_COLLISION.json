@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.HSR.SAME_BASENAME_COLLISION",
+  "type": "bug",
+  "status": "validated",
+  "title": "不同目录同名 WAV 被扁平文件名身份混淆",
+  "symptom": "平行目录中同 basename 的角色语音可能阻断 Quick Mode、覆盖合并结果，或让字幕 override 绑定到错误 sibling。",
+  "root_cause": "把 basename 当稳定身份，忽略 package-relative path 和内容指纹。",
+  "resolution": [
+    "引入稳定 source_member_id = package-relative path。",
+    "scan/index/manifest/corrected CSV/subtitle override 全链路传递该身份。",
+    "优先使用 indexed SHA-256 或同 stem LAB 文本进行消歧。",
+    "无法可靠绑定的成员降级到 appendix，而不是错误绑定。",
+    "增量合并保持 package directory structure。"
+  ],
+  "regression_guard": [
+    "重复 basename fixture",
+    "identity round-trip through manifest and overrides",
+    "ambiguous bare-filename fallback disabled"
+  ],
+  "reusable_lesson": "显示名称和 basename 不能承担实体身份；跨阶段处理必须携带稳定 ID，并在歧义时显式降级而不是猜测。",
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:CHANGELOG.md",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "implemented fix",
+      "note": "Unreleased/v0.9-M lineage"
+    }
+  ]
+}

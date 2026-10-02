@@ -1,0 +1,23 @@
+{
+  "id": "REL.GENERATION_SAFE_ASYNC_PUBLICATION",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "异步结果的代际隔离与过期结果拒绝",
+  "summary": "异步计算、渲染、扫描或保存必须携带可验证的 generation/session/epoch 身份；旧任务完成后不得覆盖更新的状态或文件。",
+  "invariants": [
+    "Every async publication path has a generation/session/epoch identity.",
+    "Completion and failure callbacks verify that identity before mutating current state.",
+    "Temporary outputs are unique per operation or generation.",
+    "Cancelled/stale results are discarded before cache or canonical publication.",
+    "Reopening the same external URI does not make an old callback valid again."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/HARDENING-0.27.md",
+      "revision": "def359517071d620f41de1320656b7e48aa28b98",
+      "evidence_level": "implemented hardening",
+      "note": "Renderer generations, waveform cancellation, workspace epochs and MKV save callbacks."
+    }
+  ]
+}

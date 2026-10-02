@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.ASS.RELEASE_PATH_ASYMMETRY",
+  "type": "bug",
+  "status": "validated",
+  "title": "快速 CI 测试了 MKV bridge，但正式 APK 未打包该 bridge",
+  "symptom": "发布 APK 可能具有正确 renderer，却在设备上出现 MkvGoTool.isAvailable() = false，导致已测试的 MKV write-back 能力不在正式成品中。",
+  "root_cause": "快速 CI 与正式 Fontconfig production workflow 具有不同的构建/打包路径；后者没有生成并打入 libmkvgo.so。",
+  "resolution": [
+    "正式 workflow 使用同一 pinned mkvgo commit 和 patch。",
+    "在 packaging 前运行同一 Go tests。",
+    "构建 arm64 helper 到 jniLibs。",
+    "发布前检查 APK 内确实存在 libmkvgo.so。",
+    "build identity manifest 记录 helper SHA-256。"
+  ],
+  "regression_guard": [
+    "production workflow packaging check",
+    "core/container tests before publication",
+    "build identity manifest"
+  ],
+  "reusable_lesson": "测试通过不能证明正式产物包含被测试组件；发布路径本身必须进入测试和身份校验。",
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/HARDENING-0.27.md",
+      "revision": "def359517071d620f41de1320656b7e48aa28b98",
+      "evidence_level": "historical bug + implemented fix"
+    }
+  ]
+}

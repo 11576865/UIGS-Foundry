@@ -1,0 +1,22 @@
+{
+  "id": "OPS.AGENT.EXPLICIT_OWNERSHIP",
+  "type": "candidate",
+  "status": "candidate",
+  "title": "并行 Agent 的显式职责与集成所有权",
+  "summary": "多个开发 Agent 并行工作时，以明确模块/文件所有权、尽量独立 worktree、显式 integration owner 和最终跨分支一致性检查降低覆盖、职责漂移和隐性冲突。",
+  "proposed_rules": [
+    "Each agent receives explicit scope and ownership boundaries.",
+    "Independent worktrees are preferred for genuinely parallel changes.",
+    "Shared ownership units require an explicit integration owner.",
+    "Compilation success is not sufficient evidence that semantic overwrites did not occur.",
+    "Cross-agent changes require an integration/reconciliation pass."
+  ],
+  "provenance": [
+    {
+      "source_type": "conversation",
+      "source": "UIGS project discussion 2026-10-02",
+      "evidence_level": "repeated project experience, repository artifact not yet located",
+      "note": "Keep Candidate until backed by concrete ASS/other repo incidents or process artifacts."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "TEST.ENCODING_FIXTURE_MATRIX",
+  "type": "test",
+  "status": "experimental",
+  "title": "文本编码变体的真实端到端夹具矩阵",
+  "summary": "对用户文件格式的编码兼容不能停留在 parser 单测；生成真实 UTF-8/UTF-16LE/UTF-16BE 等夹具，并让浏览器/产品路径实际导入、处理和输出。",
+  "variants": [
+    "UTF-8",
+    "UTF-16LE with BOM",
+    "UTF-16BE with BOM"
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/MKV-Fast-Muxer:tests/e2e/generate-fixtures.sh",
+      "revision": "a9c9c63da376905a0c95b071e0b1346c9cfecfd6",
+      "evidence_level": "E2E fixture generation"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/MKV-Fast-Muxer:tests/e2e/browser-mux.e2e.mjs",
+      "revision": "a9c9c63da376905a0c95b071e0b1346c9cfecfd6",
+      "evidence_level": "browser E2E"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "REL.RELEASE_PATH_PARITY",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "测试路径与正式发布路径的一致性",
+  "summary": "不能只验证某个组件在快速 CI 中可用；正式发布流水线必须实际打包并验证同一被测试实现，否则会产生“测试绿、成品缺组件”的发布路径不对称。",
+  "invariants": [
+    "A release artifact MUST contain every component whose presence is assumed by release qualification.",
+    "Production packaging SHOULD verify required files inside the produced artifact.",
+    "Build identity SHOULD record component revision/hash when that component affects runtime behavior.",
+    "Release publication SHOULD fail if required assets/components are absent."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/HARDENING-0.27.md",
+      "revision": "def359517071d620f41de1320656b7e48aa28b98",
+      "evidence_level": "validated historical failure and fix",
+      "note": "H9 production APK omitted tested mkvgo bridge until production workflow was hardened."
+    }
+  ]
+}

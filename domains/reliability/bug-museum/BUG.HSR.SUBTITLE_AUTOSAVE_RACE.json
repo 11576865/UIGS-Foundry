@@ -1,0 +1,26 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.HSR.SUBTITLE_AUTOSAVE_RACE",
+  "type": "bug",
+  "status": "validated",
+  "title": "字幕快速导航造成自动保存并发竞态",
+  "symptom": "用户快速输入并切换条目时，多次 HTTP 保存可能并发，导致本地 override 文件存在竞态风险。",
+  "root_cause": "下一次自动保存可以在前一次写入尚未 settle 时启动。",
+  "resolution": [
+    "将字幕自动保存串行化：只有前一次 HTTP write settle 后才启动下一次。"
+  ],
+  "regression_guard": [
+    "保持保存队列单写者语义",
+    "快速输入 + 快速导航回归"
+  ],
+  "reusable_lesson": "自动保存是持久化写入队列，不是无约束的 debounce 网络请求；同一 canonical sidecar 应有单写者顺序。",
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:CHANGELOG.md",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "implemented fix",
+      "note": "v0.9-M"
+    }
+  ]
+}

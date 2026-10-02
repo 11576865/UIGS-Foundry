@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "0.2",
+  "version": "0.3",
   "domains": [
     {
       "id": "interface-grammar",
@@ -24,6 +24,21 @@
       "id": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
       "status": "experimental",
       "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json"
+    },
+    {
+      "id": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+      "status": "experimental",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.json"
+    },
+    {
+      "id": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
+      "status": "experimental",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.NAVIGATION.CAPABILITY_CATALOG.json"
+    },
+    {
+      "id": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+      "status": "experimental",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.json"
     }
   ],
   "records": [
@@ -61,6 +76,51 @@
       "id": "ARCH.WEB_CONTROL_NATIVE_EXECUTION",
       "status": "candidate",
       "path": "domains/architecture/patterns/ARCH.WEB_CONTROL_NATIVE_EXECUTION.json"
+    },
+    {
+      "id": "REL.GENERATION_SAFE_ASYNC_PUBLICATION",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.GENERATION_SAFE_ASYNC_PUBLICATION.json"
+    },
+    {
+      "id": "REL.RELEASE_PATH_PARITY",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.RELEASE_PATH_PARITY.json"
+    },
+    {
+      "id": "REL.VERIFY_THEN_PUBLISH",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.VERIFY_THEN_PUBLISH.json"
+    },
+    {
+      "id": "TEST.DESTRUCTIVE_COMBINATION_MATRIX",
+      "status": "experimental",
+      "path": "domains/reliability/test-patterns/TEST.DESTRUCTIVE_COMBINATION_MATRIX.json"
+    },
+    {
+      "id": "TEST.ENCODING_FIXTURE_MATRIX",
+      "status": "experimental",
+      "path": "domains/reliability/test-patterns/TEST.ENCODING_FIXTURE_MATRIX.json"
+    },
+    {
+      "id": "BUG.ASS.RELEASE_PATH_ASYMMETRY",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.ASS.RELEASE_PATH_ASYMMETRY.json"
+    },
+    {
+      "id": "BUG.HSR.SUBTITLE_AUTOSAVE_RACE",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.HSR.SUBTITLE_AUTOSAVE_RACE.json"
+    },
+    {
+      "id": "BUG.HSR.SAME_BASENAME_COLLISION",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.HSR.SAME_BASENAME_COLLISION.json"
+    },
+    {
+      "id": "OPS.AGENT.EXPLICIT_OWNERSHIP",
+      "status": "candidate",
+      "path": "domains/operations/agent-collaboration/OPS.AGENT.EXPLICIT_OWNERSHIP.json"
     }
   ],
   "projects": [
@@ -74,6 +134,7 @@
   "schemas": [
     "schemas/knowledge-record.schema.json",
     "schemas/ui-pattern.schema.json",
-    "schemas/project-manifest.schema.json"
+    "schemas/project-manifest.schema.json",
+    "schemas/bug-record.schema.json"
   ]
 }
