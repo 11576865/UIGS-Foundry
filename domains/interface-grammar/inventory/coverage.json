@@ -1,37 +1,45 @@
 {
   "version": 1,
   "sources_total": 5,
-  "with_ui_inventory": 3,
-  "missing_ui_inventory": [
-    "11576865/Character-Voice-Service",
-    "11576865/Quick-Automatic-Hardsub-Encoder"
+  "with_ui_inventory": 5,
+  "missing_ui_inventory": [],
+  "declared_empty_ui": [
+    "11576865/Character-Voice-Service"
   ],
-  "total_surfaces": 46,
+  "total_surfaces": 62,
   "by_project": {
     "ASS-Workbench-Android": 23,
     "HSR-Voice-Archive-Builder": 11,
-    "MKV-Fast-Muxer": 12
+    "MKV-Fast-Muxer": 12,
+    "Quick-Automatic-Hardsub-Encoder": 16
   },
   "by_kind": {
+    "action-dock": 1,
     "composition": 2,
     "control-group": 1,
+    "diagnostics": 2,
     "dialog": 1,
+    "disclosure": 2,
     "editor": 4,
-    "execution": 1,
+    "execution": 2,
+    "input": 1,
     "inspector": 1,
-    "navigation": 1,
+    "mode-switcher": 1,
+    "navigation": 4,
     "overlay": 1,
     "plan": 1,
-    "preview": 2,
+    "planner": 1,
+    "preflight": 1,
+    "preview": 3,
     "stage": 3,
     "summary": 1,
-    "supporting-pane": 1,
+    "supporting-pane": 2,
     "tool": 18,
-    "workspace": 5,
+    "workspace": 6,
     "workspace-mechanism": 3
   },
-  "with_pattern_links": 19,
-  "pattern_link_count": 25,
+  "with_pattern_links": 20,
+  "pattern_link_count": 26,
   "with_visual_evidence": 0,
   "missing_visual_evidence": [
     "ASS.PREVIEW.VIDEO",
@@ -79,6 +87,22 @@
     "MKV.STAGE.ADJUST",
     "MKV.STAGE.BATCH",
     "MKV.STAGE.INPUT",
-    "MKV.STAGE.OUTPUT_HUB"
+    "MKV.STAGE.OUTPUT_HUB",
+    "QHE.DIAGNOSTICS.ENVIRONMENT",
+    "QHE.ENCODE.ACTION_CARD",
+    "QHE.HELP.RUNTIME",
+    "QHE.INPUT.MATERIALS",
+    "QHE.LOG.TECHNICAL",
+    "QHE.MEDIA.ACTION_DOCK",
+    "QHE.MEDIA.ADVANCED_DISCLOSURE",
+    "QHE.MEDIA.MODE_SWITCHER",
+    "QHE.MEDIA.WORKSPACE",
+    "QHE.NAV.MOBILE_STAGE",
+    "QHE.PLAN.ENCODE",
+    "QHE.PREFLIGHT.MEDIA_SUBTITLE",
+    "QHE.PREVIEW.REAL_LIBASS",
+    "QHE.PREVIEW.SAMPLE_RAIL",
+    "QHE.SHELL.WORKFLOW_HEADER",
+    "QHE.STATUS.TASK_OVERVIEW"
   ]
 }
