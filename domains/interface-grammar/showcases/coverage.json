@@ -1,18 +1,15 @@
 {
   "version": 1,
-  "source_digest": "030468eba4a04e52001ae4561a5b669e30683b31f855eafa5219611f5cccfc54",
+  "source_digest": "847c340818cf22b9d413d3e1dbe863327f87eb47b152d8d044cd5ecabd8484e0",
   "total_patterns": 8,
   "with_realization": 2,
   "with_validation": 1,
-  "with_visual_showcase": 0,
+  "with_visual_showcase": 3,
   "missing_visual_showcase": [
-    "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
-    "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
     "UIGS.INTERACTION.DISCOVERY_OVERLAY",
     "UIGS.NAVIGATION.CAPABILITY_CATALOG",
     "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
     "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
-    "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
     "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY"
   ]
 }

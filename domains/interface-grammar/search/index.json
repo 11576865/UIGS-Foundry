@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "source_digest": "030468eba4a04e52001ae4561a5b669e30683b31f855eafa5219611f5cccfc54",
+  "source_digest": "847c340818cf22b9d413d3e1dbe863327f87eb47b152d8d044cd5ecabd8484e0",
   "pattern_count": 8,
   "patterns": [
     {
@@ -38,8 +38,10 @@
         "web": "domains/interface-grammar/realizations/web/UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.md"
       },
       "validation": [],
-      "showcases": [],
-      "showcase_status": "missing",
+      "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE.json"
+      ],
+      "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.json",
       "search_terms": [
         "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
@@ -98,8 +100,10 @@
       ],
       "realizations": {},
       "validation": [],
-      "showcases": [],
-      "showcase_status": "missing",
+      "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE.json"
+      ],
+      "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.json",
       "search_terms": [
         "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
@@ -406,8 +410,10 @@
       "validation": [
         "domains/interface-grammar/validation/behavior-contracts/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json"
       ],
-      "showcases": [],
-      "showcase_status": "missing",
+      "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.STICKY_SUPPORTING_PANE.WEB_REFERENCE.json"
+      ],
+      "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json",
       "search_terms": [
         "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
