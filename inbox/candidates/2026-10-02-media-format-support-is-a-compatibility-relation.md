@@ -123,3 +123,32 @@ The merged matrix executed **18/18 verified cases** in CI:
 DTS intentionally remains `expected` / `UNVERIFIED` because the repository does not yet contain equivalent browser E2E evidence for it.
 
 This strengthens the Candidate with direct toolchain-specific execution evidence but does not promote it to Canonical.
+
+
+## Cross-project evidence — copied audio can mux correctly and still play silently
+
+Quick-Automatic-Hardsub-Encoder PR #38 adds a second-project instance of the distinction between **container / mux success** and **playback compatibility**.
+
+Observed user behavior:
+
+```text
+hard-sub with copied source audio
+  -> encode/mux completes
+  -> resulting file is silent in the user's playback path
+
+same source + explicit AAC transcode
+  -> resulting file has audible playback
+```
+
+The project already verifies structural output properties such as stream presence and packet-duration continuity. Those checks can show that an audio track survived the pipeline, but they cannot prove that an unspecified target player can decode the copied codec.
+
+Reusable refinement:
+
+- when an operation uses audio Stream Copy, surface playback compatibility as a separate uncertainty even if container compatibility and output audit succeed;
+- do not silently transcode to “fix” the uncertainty;
+- provide an explicit recovery action such as AAC conversion when broad playback compatibility matters;
+- wording should distinguish “audio track exists” from “target player can render/decode this audio”.
+
+PR #38 implements this as a visible shared audio-policy warning and carries the same warning into compiled task compatibility output. It merged as `2c4dea6a2e634a7b0ea0bb34cd0b87858d89fa77` after frontend, Windows smoke, FFmpeg integration, build and UI smoke checks passed.
+
+This strengthens the existing Candidate with cross-project evidence. It remains Candidate-level and is not promoted to Canonical.
