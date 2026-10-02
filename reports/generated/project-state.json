@@ -231,7 +231,7 @@
           "html_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36981380113"
         }
       ],
-      "pending_intake": 1,
+      "pending_intake": 0,
       "triage_records": 1,
       "knowledge_records": 15,
       "source_updated_at": "2026-10-02T07:58:57Z"
@@ -240,22 +240,22 @@
       "project": "UIGS-Foundry",
       "repository": "11576865/UIGS-Foundry",
       "default_branch": "main",
-      "head_sha": "f54240cc171c11680b01e5c32e32c52eb7d72dab",
-      "head_commit_date": "2026-10-02T08:07:13Z",
+      "head_sha": "3b98da4012ff189f6bfd1108c6524478b3d655fb",
+      "head_commit_date": "2026-10-02T08:09:28Z",
       "tracked_workflows": [
         {
           "name": "Validate Foundry",
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "52bc0a5e31b9c21399028d813ef372041ac0bd81",
-          "head_matches_main": false,
-          "run_id": 36982234697,
-          "run_number": 22,
+          "head_sha": "3b98da4012ff189f6bfd1108c6524478b3d655fb",
+          "head_matches_main": true,
+          "run_id": 36982468631,
+          "run_number": 23,
           "event": "push",
-          "created_at": "2026-10-02T08:07:07Z",
-          "updated_at": "2026-10-02T08:07:18Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36982234697"
+          "created_at": "2026-10-02T08:09:39Z",
+          "updated_at": "2026-10-02T08:09:48Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36982468631"
         },
         {
           "name": "Collect UIGS Outboxes",
@@ -290,21 +290,21 @@
           "found": true,
           "status": "in_progress",
           "conclusion": "",
-          "head_sha": "52bc0a5e31b9c21399028d813ef372041ac0bd81",
-          "head_matches_main": false,
-          "run_id": 36982234672,
-          "run_number": 4,
+          "head_sha": "3b98da4012ff189f6bfd1108c6524478b3d655fb",
+          "head_matches_main": true,
+          "run_id": 36982468559,
+          "run_number": 5,
           "event": "push",
-          "created_at": "2026-10-02T08:07:07Z",
-          "updated_at": "2026-10-02T08:07:11Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36982234672"
+          "created_at": "2026-10-02T08:09:39Z",
+          "updated_at": "2026-10-02T08:09:43Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36982468559"
         }
       ],
       "pending_intake": 0,
       "triage_records": 0,
       "knowledge_records": 7,
-      "source_updated_at": "2026-10-02T08:07:18Z"
+      "source_updated_at": "2026-10-02T08:09:48Z"
     }
   ],
-  "source_max_updated_at": "2026-10-02T08:07:18Z"
+  "source_max_updated_at": "2026-10-02T08:09:48Z"
 }
