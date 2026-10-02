@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "1.4",
+  "version": "1.5",
   "domains": [
     {
       "id": "interface-grammar",
@@ -291,6 +291,11 @@
       "id": "OPS.UIGS.COMPOSABLE_PATTERN_PLANNING",
       "status": "experimental",
       "path": "domains/operations/patterns/OPS.UIGS.COMPOSABLE_PATTERN_PLANNING.json"
+    },
+    {
+      "id": "BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.json"
     }
   ],
   "projects": [

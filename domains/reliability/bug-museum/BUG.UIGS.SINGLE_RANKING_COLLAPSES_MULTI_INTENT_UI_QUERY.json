@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY",
+  "type": "bug",
+  "status": "validated",
+  "title": "单一整体查询排名会把多意图 UI 请求坍缩成一个 Pattern",
+  "symptom": "Composition planner 的首版测试中，‘大预览 + 右侧检查器 + 高级参数折叠 + 作用域提示’只返回 Scope Transparency；多实例工具请求只返回 Capability Catalog。",
+  "root_cause": "首版 planner 把整个自然语言请求当作一个检索向量，并用相对 top-score 阈值截断结果。一个强命中的 Pattern 抬高阈值后，会吞掉同一句话中其他正交 UI 意图。",
+  "resolution": [
+    "在组合检索前把显式加号、标点和常见并列连接词切成 intent segments。",
+    "对完整 query 和每个 segment 分别检索，再按 Pattern ID 合并。",
+    "每个 segment 至少保留其最高可信候选，并允许接近 top score 的第二候选。",
+    "Recipe 匹配继续与 Pattern 检索分离。"
+  ],
+  "regression_guard": [
+    "测试复杂 visual editor query 同时返回 Preview-Inspector、Progressive Disclosure 和 Scope Transparency。",
+    "测试 multi-instance workspace query 同时返回 Capability Catalog、Explicit Tool Binding 和 Transient-Committed Geometry。",
+    "Validate Foundry 必须运行 tools/test_ui_composition.py。"
+  ],
+  "reusable_lesson": "面向组合式 UI 的自然语言解析不能把一句多意图需求强迫成单标签分类。先进行意图分段，再合并正交 Pattern，是比单一 top-k 相对阈值更稳健的确定性基线。",
+  "provenance": [
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Validate Foundry run 36984145276",
+      "revision": "627bcce9638dc5cf28c9569dd8e27933eb91fb6b",
+      "evidence_level": "failing regression tests"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry:tools/query_ui_composition.py",
+      "revision": "fix 2026-10-02",
+      "evidence_level": "implemented correction"
+    }
+  ]
+}
