@@ -4,7 +4,7 @@
   "status": "pending",
   "record_type": "bug",
   "title": "Hidden Windows launcher makes native startup failures look like an unexplained flash-exit",
-  "summary": "Quick-Automatic-Hardsub-Encoder's Windows startup regression was traced to a malformed PowerShell return/if construct in windows/native-backend.ps1: `return if($Name -eq 'ffmpeg'){$toolchain.Ffmpeg}else{$toolchain.Ffprobe}` inside Find-NativeTool. The bridge dot-sources this file at startup, so the syntax/runtime parse failure aborts Native Bridge before the browser opens. The normal launcher starts PowerShell hidden and exits immediately, making the actual error appear as an unexplained flash-exit. Fix the conditional with explicit branch returns and retain a visible/durable startup-failure path.",
+  "summary": "Resolved Quick-Automatic-Hardsub-Encoder Windows startup regression: `Find-NativeTool` used a malformed/unsafe PowerShell `return if(...)` construct while resolving ffmpeg/ffprobe. The fix replaces it with explicit branch returns. A targeted Windows smoke assertion now executes `Find-NativeTool 'ffmpeg'` and `'ffprobe'`, and the full Windows local smoke job passed before PR #28 was squash-merged to main. The normal launcher still hides the Bridge process, so startup-failure observability remains a separate hardening concern.",
   "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
   "source_event": "chat_intake",
   "source_ref": "refs/heads/main",
@@ -25,10 +25,15 @@
     "debug_path": "windows/start_windows_debug.bat runs the same bridge visibly and pauses on non-zero exit.",
     "code_observation": "native-bridge.ps1 handles missing FFmpeg with a MessageBox, but other top-level startup exceptions are not wrapped in a visible failure path.",
     "root_cause": "windows/native-backend.ps1 Find-NativeTool contains `return if(...)`; replace with explicit `if (...) { return ... }` followed by fallback return.",
-    "failure_path": "native-bridge.ps1 dot-sources native-backend.ps1 before creating the listener/browser launch, so a parse failure aborts the bridge during startup."
+    "failure_path": "native-bridge.ps1 dot-sources native-backend.ps1 before creating the listener/browser launch, so a parse failure aborts the bridge during startup.",
+    "fix_pr": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/28",
+    "fix_commit": "d62dd49637fe4660ca6c0acdb3d78b3bbf606a96",
+    "ci_run": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36981285780",
+    "ci_result": "Windows local smoke job completed successfully, including parser, resolver, localhost Bridge, UTF-16 ASS, NVENC diagnostics, CPU codec matrix, output safety, and two-pass checks."
   },
   "metadata": {
-    "root_cause_status": "identified",
-    "canonical_change_requested": false
+    "root_cause_status": "resolved",
+    "canonical_change_requested": false,
+    "fix_merged": true
   }
 }
