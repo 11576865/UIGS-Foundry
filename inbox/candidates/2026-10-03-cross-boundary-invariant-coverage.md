@@ -53,6 +53,33 @@ The additional rule here concerns **cross-boundary evidence topology**: evidence
 
 It also aligns with the Canonical governance rule that CI success is not equivalent to device validation.
 
+
+## Implemented pilot
+
+A first operational pilot is now in place.
+
+Foundry commit `92e5660cf595cfd8a24e9a4c063bff15e50192bd` adds:
+
+- `schemas/invariant-evidence.schema.json`;
+- `tools/validate_invariant_evidence.py`;
+- validator unit coverage;
+- an optional `invariant_evidence` source-project manifest declaration;
+- protocol documentation for routing evidence-coverage failures through the existing Pending intake path.
+
+Quick-Automatic-Hardsub-Encoder commit `ca9f2e2fbbbb53fe3ebafd3e84efc81999032d57` pilots the mechanism with five active invariants:
+
+1. current media task schema version alignment across producer, Windows/Android advertisement, parsers and CI fixture;
+2. explicit audio-policy wiring across shared output UI, Guided hard-sub and Web/Windows/Android execution paths;
+3. stream-copy-only semantics for lossless trim, including real FFmpeg packet-identity evidence;
+4. browser source-staging reuse across probe -> execute;
+5. explicit output-container resolution.
+
+The new `UIGS Evidence Coverage` workflow passed on the pilot commit. Its workflow is also tracked by the existing UIGS Intake Adapter, so an evidence-coverage failure becomes a Pending packet instead of remaining a silent green-CI coverage gap.
+
+The ordinary frontend workflow also passed the new cross-backend Guided-audio wiring regression test plus existing real-FFmpeg integration tests.
+
+This implementation is evidence for the Candidate; it does not promote the rule to Canonical.
+
 ## Provenance
 
 - source project: `11576865/Quick-Automatic-Hardsub-Encoder`
