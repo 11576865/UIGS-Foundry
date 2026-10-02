@@ -22,7 +22,7 @@ concurrency:
 jobs:
   ass-android:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
         with:
@@ -49,7 +49,7 @@ jobs:
       - name: Build real debug APK and Android test APK
         working-directory: .capture/ass
         run: gradle :app:assembleDebug :app:assembleDebugAndroidTest
-      - name: Capture real APK and deterministic fixture states
+      - name: Capture real APK and all deterministic fixed-tool states
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35
@@ -65,7 +65,8 @@ jobs:
             -camera-back none
           script: |
             set -eu
-            mkdir -p "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS"
+            OUTDIR="$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS"
+            mkdir -p "$OUTDIR"
             adb shell settings put system accelerometer_rotation 0
             adb shell settings put system user_rotation 0
             adb shell cmd window user-rotation lock 0 || true
@@ -78,15 +79,26 @@ jobs:
             adb shell am force-stop io.github.assworkbench.app
             adb shell am start -W -n io.github.assworkbench.app/.MainActivity
             sleep 5
-            adb exec-out screencap -p > "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png"
-            test -s "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png"
-            python "$GITHUB_WORKSPACE/tools/assert_png_orientation.py" "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png" landscape
+            adb exec-out screencap -p > "$OUTDIR/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png"
+            test -s "$OUTDIR/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png"
+            python "$GITHUB_WORKSPACE/tools/assert_png_orientation.py" "$OUTDIR/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png" landscape
 
             adb install -r .capture/ass/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
             adb shell am instrument -w -e class io.github.assworkbench.app.UigsVisualCaptureInstrumentedTest io.github.assworkbench.app.test/androidx.test.runner.AndroidJUnitRunner
-            adb exec-out run-as io.github.assworkbench.app cat files/uigs-style-tool-fixture-landscape.png > "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png"
-            test -s "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png"
-            python "$GITHUB_WORKSPACE/tools/assert_png_orientation.py" "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png" landscape
+
+            python - <<'PY' > "$RUNNER_TEMP/ass-instrumented-captures.list"
+            import json
+            data=json.load(open(".capture/ass/.uigs/ui-visual-capture.json",encoding="utf-8"))
+            for capture in data["captures"]:
+                if capture.get("build",{}).get("test_class"):
+                    print(capture["id"]+"|"+capture["output_name"])
+            PY
+            while IFS='|' read -r ID FILE; do
+              test -n "$ID"
+              adb exec-out run-as io.github.assworkbench.app cat "files/$FILE" > "$OUTDIR/$FILE"
+              test -s "$OUTDIR/$FILE"
+              python "$GITHUB_WORKSPACE/tools/assert_png_orientation.py" "$OUTDIR/$FILE" landscape
+            done < "$RUNNER_TEMP/ass-instrumented-captures.list"
       - name: Register Android production evidence
         shell: bash
         run: |
@@ -95,44 +107,50 @@ jobs:
           python - <<'PY'
           import json, os
           from pathlib import Path
-          root = Path(os.environ['RUNNER_TEMP'])
-          common = {
-              'schema_version': 1,
-              'adapter': 'android-emulator-screencap',
-              'emulator': {'api_level': 35, 'target': 'google_apis', 'arch': 'x86_64', 'profile': 'pixel_6'},
-              'logical_size': {'width': 1600, 'height': 1000},
-              'density': 240,
-              'font_scale': 1.0,
-              'capture_surface': 'android-compositor',
-              'orientation_lock': 'natural-0 + wide wm size',
-              'declared_orientation': 'landscape',
-              'theme': 'dark'
+          contract=json.load(open(".capture/ass/.uigs/ui-visual-capture.json",encoding="utf-8"))
+          root=Path(os.environ["RUNNER_TEMP"])
+          common={
+              "schema_version":1,
+              "adapter":"android-emulator-screencap",
+              "emulator":{"api_level":35,"target":"google_apis","arch":"x86_64","profile":"pixel_6"},
+              "logical_size":{"width":1600,"height":1000},
+              "density":240,
+              "font_scale":1.0,
+              "capture_surface":"android-compositor",
+              "orientation_lock":"natural-0 + wide wm size",
+              "declared_orientation":"landscape",
+              "theme":"dark",
           }
-          root.joinpath('ass-shell-capture.json').write_text(
-              json.dumps(dict(common, state_source='MainActivity default launch'), indent=2) + '\n',
-              encoding='utf-8'
-          )
-          fixture = dict(common)
-          fixture.update({
-              'state_source': 'EditorRegressionHostActivity deterministic recovery fixture',
-              'instrumentation_test': 'io.github.assworkbench.app.UigsVisualCaptureInstrumentedTest',
-              'fixture_state': 'two subtitle events restored; Event 1 focused; fixed Style tool'
-          })
-          root.joinpath('ass-style-fixture-capture.json').write_text(
-              json.dumps(fixture, indent=2) + '\n',
-              encoding='utf-8'
-          )
+          for capture in contract["captures"]:
+              meta=dict(common)
+              if capture["id"]=="ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE":
+                  meta["state_source"]="MainActivity default launch"
+              else:
+                  meta["state_source"]="EditorRegressionHostActivity deterministic fixture"
+                  meta["instrumentation_test"]=capture.get("build",{}).get("test_class")
+                  meta["fixture_state"]=capture.get("fixture",{}).get("state")
+              root.joinpath(capture["id"]+".json").write_text(json.dumps(meta,indent=2)+"\n",encoding="utf-8")
           PY
-          python tools/register_visual_evidence.py --contract .capture/ass/.uigs/ui-visual-capture.json --capture-id ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE --source-repository 11576865/ASS-Workbench-Android --source-revision "$SHA" --image domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png --metadata "$RUNNER_TEMP/ass-shell-capture.json" --output-manifest domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.json
-          python tools/register_visual_evidence.py --contract .capture/ass/.uigs/ui-visual-capture.json --capture-id ASS.STYLE_TOOL.FIXTURE_LANDSCAPE --source-repository 11576865/ASS-Workbench-Android --source-revision "$SHA" --image domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png --metadata "$RUNNER_TEMP/ass-style-fixture-capture.json" --output-manifest domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json
-      - name: Persist source visual evidence first
+          python - <<'PY' > "$RUNNER_TEMP/ass-captures.list"
+          import json
+          data=json.load(open(".capture/ass/.uigs/ui-visual-capture.json",encoding="utf-8"))
+          for capture in data["captures"]:
+              print(capture["id"]+"|"+capture["output_name"])
+          PY
+          while IFS='|' read -r ID FILE; do
+            python tools/register_visual_evidence.py               --contract .capture/ass/.uigs/ui-visual-capture.json               --capture-id "$ID"               --source-repository 11576865/ASS-Workbench-Android               --source-revision "$SHA"               --image "domains/interface-grammar/visual-evidence/images/ASS/$FILE"               --metadata "$RUNNER_TEMP/$ID.json"               --output-manifest "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.$ID.json"
+          done < "$RUNNER_TEMP/ass-captures.list"
+      - name: Persist ASS source visual evidence first
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          if [[ -n "$(git status --porcelain -- domains/interface-grammar/visual-evidence/images/ASS domains/interface-grammar/visual-evidence/manifests)" ]]; then
-            git add -A domains/interface-grammar/visual-evidence/images/ASS domains/interface-grammar/visual-evidence/manifests
+          SOURCE_PATHS=(domains/interface-grammar/visual-evidence/images/ASS)
+          mapfile -t MANIFESTS < <(find domains/interface-grammar/visual-evidence/manifests -maxdepth 1 -type f -name 'VISUAL.PRODUCTION.ASS.*.json' -print)
+          SOURCE_PATHS+=("${MANIFESTS[@]}")
+          if [[ -n "$(git status --porcelain -- "${SOURCE_PATHS[@]}")" ]]; then
+            git add -A "${SOURCE_PATHS[@]}"
             git commit -m "chore(uigs): capture ASS Android production UI evidence"
             bash tools/push_with_rebase_retry.sh main 5
           else
@@ -149,12 +167,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$(git status --porcelain -- domains/interface-grammar/visual-evidence/index.json domains/interface-grammar/visual-evidence/coverage.json reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)" ]]; then
+          DERIVED_PATHS=(domains/interface-grammar/visual-evidence/index.json domains/interface-grammar/visual-evidence/coverage.json reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)
+          if [[ -z "$(git status --porcelain -- "${DERIVED_PATHS[@]}")" ]]; then
             echo "Derived Android visual indexes unchanged."
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add -A domains/interface-grammar/visual-evidence/index.json domains/interface-grammar/visual-evidence/coverage.json reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md
-          git commit -m "chore(uigs): refresh production visual evidence index"
+          git add -A "${DERIVED_PATHS[@]}"
+          git commit -m "chore(uigs): refresh ASS visual evidence index"
           bash tools/push_with_rebase_retry.sh main 5
