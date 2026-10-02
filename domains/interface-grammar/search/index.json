@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "source_digest": "847c340818cf22b9d413d3e1dbe863327f87eb47b152d8d044cd5ecabd8484e0",
+  "version": 2,
+  "source_digest": "56f8f140b72afb160fdf2c60372dafd975f43c93f35d9eab13bfc376988c1774",
   "pattern_count": 8,
   "patterns": [
     {
@@ -40,6 +40,9 @@
       "validation": [],
       "showcases": [
         "domains/interface-grammar/showcases/manifests/SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE.json"
+      ],
+      "showcase_types": [
+        "reference-demo"
       ],
       "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.json",
@@ -103,6 +106,9 @@
       "showcases": [
         "domains/interface-grammar/showcases/manifests/SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE.json"
       ],
+      "showcase_types": [
+        "reference-demo"
+      ],
       "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.json",
       "search_terms": [
@@ -164,8 +170,13 @@
       ],
       "realizations": {},
       "validation": [],
-      "showcases": [],
-      "showcase_status": "missing",
+      "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.SCOPED_EDITING.WEB_REFERENCE.json"
+      ],
+      "showcase_types": [
+        "reference-demo"
+      ],
+      "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.INTERACTION.DISCOVERY_OVERLAY.json",
       "search_terms": [
         "UIGS.INTERACTION.DISCOVERY_OVERLAY",
@@ -226,8 +237,13 @@
       ],
       "realizations": {},
       "validation": [],
-      "showcases": [],
-      "showcase_status": "missing",
+      "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.TOOL_CANVAS.WEB_REFERENCE.json"
+      ],
+      "showcase_types": [
+        "reference-demo"
+      ],
+      "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.NAVIGATION.CAPABILITY_CATALOG.json",
       "search_terms": [
         "UIGS.NAVIGATION.CAPABILITY_CATALOG",
@@ -282,8 +298,13 @@
       ],
       "realizations": {},
       "validation": [],
-      "showcases": [],
-      "showcase_status": "missing",
+      "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.SCOPED_EDITING.WEB_REFERENCE.json"
+      ],
+      "showcase_types": [
+        "reference-demo"
+      ],
+      "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.json",
       "search_terms": [
         "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
@@ -342,8 +363,13 @@
       ],
       "realizations": {},
       "validation": [],
-      "showcases": [],
-      "showcase_status": "missing",
+      "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.SCOPED_EDITING.WEB_REFERENCE.json"
+      ],
+      "showcase_types": [
+        "reference-demo"
+      ],
+      "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.SCOPE_TRANSPARENCY.json",
       "search_terms": [
         "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
@@ -413,6 +439,9 @@
       "showcases": [
         "domains/interface-grammar/showcases/manifests/SHOWCASE.STICKY_SUPPORTING_PANE.WEB_REFERENCE.json"
       ],
+      "showcase_types": [
+        "reference-demo"
+      ],
       "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json",
       "search_terms": [
@@ -477,8 +506,13 @@
       ],
       "realizations": {},
       "validation": [],
-      "showcases": [],
-      "showcase_status": "missing",
+      "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.TOOL_CANVAS.WEB_REFERENCE.json"
+      ],
+      "showcase_types": [
+        "reference-demo"
+      ],
+      "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY.json",
       "search_terms": [
         "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
