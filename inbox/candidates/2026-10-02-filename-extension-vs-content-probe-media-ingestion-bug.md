@@ -79,3 +79,21 @@ This remains Bug / candidate-level evidence and is not Canonical.
 PR #54 extended the same rule from the single-file path into batch discovery and pairing. Batch selection now reads candidate file headers before deciding which files are videos, accepts supported MP4/MOV/M4V/Matroska/WebM content even when the suffix is unknown or misleading, excludes supported-looking filenames whose actual content is not recognized, and drives Matroska preserve-all behavior from detected content identity. Browser E2E verifies a renamed MP4 and a Matroska file renamed to `.mp4` in the same batch, including preservation of original Matroska attachments. PR #54 merged as `25fe3f0956ccb22837dc0d0693ca8e8f281a5df5` after unit, build, and browser E2E success.
 
 This strengthens the Candidate with a second workflow surface in the same project, but does not promote it to Canonical.
+
+
+## Additional evidence — subtitle capability propagation
+
+PR #56 extends the same failure mode beyond primary media containers. Subtitle content identification correctly recognized a renamed ASS file, but an existing preview path initially still called an extension-based helper to decide whether ASS / SSA preview controls were available.
+
+This produced a second-order form of the same bug:
+
+```text
+content identity says ASS
+  -> mux path accepts ASS
+  -> preview capability still asks filename extension
+  -> renamed ASS can mux but preview is disabled
+```
+
+The fix makes preview eligibility, cue loading and preview rendering consume the already-detected subtitle track format rather than re-deriving format from the filename. This strengthens the reusable rule: once a semantic/content identity has been established, downstream capability gates must consume that identity consistently instead of independently re-classifying the resource from weaker hints.
+
+This is additional evidence for the existing Bug candidate, not a new Canonical rule.
