@@ -1,14 +1,14 @@
 {
   "version": 3,
   "source_digest": "56f8f140b72afb160fdf2c60372dafd975f43c93f35d9eab13bfc376988c1774",
-  "showcase_digest": "2762e726945b0bb4102a72933ab4c4f43ebf16aff22b950b3173dd0180baea54",
+  "showcase_digest": "4afa0f61c3404142dc95e01bedfc4980fffd27aa2e216a1bf6b1df35387e3171",
   "total_patterns": 8,
   "with_realization": 2,
   "with_validation": 1,
   "with_visual_showcase": 8,
   "with_reference_demo": 8,
   "with_production_evidence": 0,
-  "with_visual_baseline": 0,
+  "with_visual_baseline": 8,
   "missing_visual_showcase": [],
   "missing_production_evidence": [
     "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
@@ -20,14 +20,5 @@
     "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
     "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY"
   ],
-  "missing_visual_baseline": [
-    "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
-    "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
-    "UIGS.INTERACTION.DISCOVERY_OVERLAY",
-    "UIGS.NAVIGATION.CAPABILITY_CATALOG",
-    "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
-    "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
-    "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
-    "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY"
-  ]
+  "missing_visual_baseline": []
 }

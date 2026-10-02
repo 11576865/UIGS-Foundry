@@ -1,7 +1,7 @@
 {
   "version": 3,
   "source_digest": "56f8f140b72afb160fdf2c60372dafd975f43c93f35d9eab13bfc376988c1774",
-  "showcase_digest": "2762e726945b0bb4102a72933ab4c4f43ebf16aff22b950b3173dd0180baea54",
+  "showcase_digest": "4afa0f61c3404142dc95e01bedfc4980fffd27aa2e216a1bf6b1df35387e3171",
   "pattern_count": 8,
   "patterns": [
     {
@@ -40,10 +40,12 @@
       },
       "validation": [],
       "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.BASELINE.PREVIEW_INSPECTOR.1440X900.json",
         "domains/interface-grammar/showcases/manifests/SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE.json"
       ],
       "showcase_types": [
-        "reference-demo"
+        "reference-demo",
+        "visual-baseline"
       ],
       "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.json",
@@ -105,10 +107,12 @@
       "realizations": {},
       "validation": [],
       "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.BASELINE.PREVIEW_INSPECTOR.1440X900.json",
         "domains/interface-grammar/showcases/manifests/SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE.json"
       ],
       "showcase_types": [
-        "reference-demo"
+        "reference-demo",
+        "visual-baseline"
       ],
       "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.json",
@@ -172,10 +176,12 @@
       "realizations": {},
       "validation": [],
       "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.BASELINE.SCOPED_EDITING.1440X900.json",
         "domains/interface-grammar/showcases/manifests/SHOWCASE.SCOPED_EDITING.WEB_REFERENCE.json"
       ],
       "showcase_types": [
-        "reference-demo"
+        "reference-demo",
+        "visual-baseline"
       ],
       "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.INTERACTION.DISCOVERY_OVERLAY.json",
@@ -239,10 +245,12 @@
       "realizations": {},
       "validation": [],
       "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.BASELINE.TOOL_CANVAS.1440X900.json",
         "domains/interface-grammar/showcases/manifests/SHOWCASE.TOOL_CANVAS.WEB_REFERENCE.json"
       ],
       "showcase_types": [
-        "reference-demo"
+        "reference-demo",
+        "visual-baseline"
       ],
       "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.NAVIGATION.CAPABILITY_CATALOG.json",
@@ -300,10 +308,12 @@
       "realizations": {},
       "validation": [],
       "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.BASELINE.SCOPED_EDITING.1440X900.json",
         "domains/interface-grammar/showcases/manifests/SHOWCASE.SCOPED_EDITING.WEB_REFERENCE.json"
       ],
       "showcase_types": [
-        "reference-demo"
+        "reference-demo",
+        "visual-baseline"
       ],
       "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.json",
@@ -365,10 +375,12 @@
       "realizations": {},
       "validation": [],
       "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.BASELINE.SCOPED_EDITING.1440X900.json",
         "domains/interface-grammar/showcases/manifests/SHOWCASE.SCOPED_EDITING.WEB_REFERENCE.json"
       ],
       "showcase_types": [
-        "reference-demo"
+        "reference-demo",
+        "visual-baseline"
       ],
       "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.SCOPE_TRANSPARENCY.json",
@@ -438,10 +450,12 @@
         "domains/interface-grammar/validation/behavior-contracts/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json"
       ],
       "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.BASELINE.STICKY_SUPPORTING_PANE.1440X900.json",
         "domains/interface-grammar/showcases/manifests/SHOWCASE.STICKY_SUPPORTING_PANE.WEB_REFERENCE.json"
       ],
       "showcase_types": [
-        "reference-demo"
+        "reference-demo",
+        "visual-baseline"
       ],
       "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json",
@@ -508,10 +522,12 @@
       "realizations": {},
       "validation": [],
       "showcases": [
+        "domains/interface-grammar/showcases/manifests/SHOWCASE.BASELINE.TOOL_CANVAS.1440X900.json",
         "domains/interface-grammar/showcases/manifests/SHOWCASE.TOOL_CANVAS.WEB_REFERENCE.json"
       ],
       "showcase_types": [
-        "reference-demo"
+        "reference-demo",
+        "visual-baseline"
       ],
       "showcase_status": "available",
       "source_path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY.json",
