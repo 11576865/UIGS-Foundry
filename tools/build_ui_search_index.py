@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 ROOT=Path(__file__).resolve().parents[1]
 PATTERNS=ROOT/"domains"/"interface-grammar"/"registry"/"patterns"
+MANIFESTS=ROOT/"domains"/"interface-grammar"/"showcases"/"manifests"
 INDEX=ROOT/"domains"/"interface-grammar"/"search"/"index.json"
 COVERAGE=ROOT/"domains"/"interface-grammar"/"showcases"/"coverage.json"
 
@@ -18,6 +19,18 @@ def flatten(value:Any,out:list[str]|None=None)->list[str]:
         for x in value.values():flatten(x,out)
     return out
 
+def discovered_showcases(root:Path)->dict[str,list[str]]:
+    manifests=root/"domains"/"interface-grammar"/"showcases"/"manifests"
+    result:dict[str,list[str]]={}
+    if not manifests.exists():return result
+    for p in sorted(manifests.glob("*.json")):
+        try:d=load(p)
+        except Exception:continue
+        rel=p.relative_to(root).as_posix()
+        for pid in d.get("patterns",[]) if isinstance(d.get("patterns"),list) else []:
+            result.setdefault(str(pid),[]).append(rel)
+    return result
+
 def showcase_types(root:Path,refs:list[str])->list[str]:
     types=[]
     for ref in refs:
@@ -30,17 +43,25 @@ def showcase_types(root:Path,refs:list[str])->list[str]:
 
 def build(root:Path=ROOT)->tuple[dict[str,Any],dict[str,Any]]:
     pattern_dir=root/"domains"/"interface-grammar"/"registry"/"patterns";rows=[];digest=hashlib.sha256()
+    discovered=discovered_showcases(root)
     for path in sorted(pattern_dir.glob("*.json")):
         raw=path.read_bytes();digest.update(path.name.encode()+b"\0"+raw+b"\0");d=json.loads(raw.decode())
         terms=flatten({"id":d.get("id",""),"name":d.get("name",{}),"aliases":d.get("aliases",[]),"intent":d.get("intent",""),"use_when":d.get("use_when",[]),"anatomy":d.get("anatomy",[]),"visual_contract":d.get("visual_contract",{}),"interaction_contract":d.get("interaction_contract",{})})
         unique=[];seen=set()
         for t in terms:
             if t not in seen:seen.add(t);unique.append(t)
-        refs=d.get("showcases",[]) if isinstance(d.get("showcases",[]),list) else [];types=showcase_types(root,refs)
+        explicit=d.get("showcases",[]) if isinstance(d.get("showcases",[]),list) else []
+        refs=sorted(set(explicit+discovered.get(str(d["id"]),[])))
+        types=showcase_types(root,refs)
         rows.append({"id":d["id"],"status":d.get("status",""),"name":d.get("name",{}),"aliases":d.get("aliases",[]),"intent":d.get("intent",""),"use_when":d.get("use_when",[]),"do_not_use_when":d.get("do_not_use_when",[]),"anatomy":d.get("anatomy",[]),"realizations":d.get("realizations",{}),"validation":d.get("validation",[]),"showcases":refs,"showcase_types":types,"showcase_status":"available" if refs else "missing","source_path":path.relative_to(root).as_posix(),"search_terms":unique})
-    idx={"version":2,"source_digest":digest.hexdigest(),"pattern_count":len(rows),"patterns":rows}
+    manifest_digest=hashlib.sha256()
+    manifests=root/"domains"/"interface-grammar"/"showcases"/"manifests"
+    if manifests.exists():
+        for p in sorted(manifests.glob("*.json")):
+            manifest_digest.update(p.name.encode()+b"\0"+p.read_bytes()+b"\0")
+    idx={"version":3,"source_digest":digest.hexdigest(),"showcase_digest":manifest_digest.hexdigest(),"pattern_count":len(rows),"patterns":rows}
     has=lambda x,t:t in x["showcase_types"]
-    coverage={"version":2,"source_digest":idx["source_digest"],"total_patterns":len(rows),"with_realization":sum(bool(x["realizations"]) for x in rows),"with_validation":sum(bool(x["validation"]) for x in rows),"with_visual_showcase":sum(bool(x["showcases"]) for x in rows),"with_reference_demo":sum(has(x,"reference-demo") for x in rows),"with_production_evidence":sum(has(x,"production-evidence") or has(x,"interaction-recording") for x in rows),"with_visual_baseline":sum(has(x,"visual-baseline") for x in rows),"missing_visual_showcase":[x["id"] for x in rows if not x["showcases"]],"missing_production_evidence":[x["id"] for x in rows if not(has(x,"production-evidence") or has(x,"interaction-recording"))],"missing_visual_baseline":[x["id"] for x in rows if not has(x,"visual-baseline")]}
+    coverage={"version":3,"source_digest":idx["source_digest"],"showcase_digest":idx["showcase_digest"],"total_patterns":len(rows),"with_realization":sum(bool(x["realizations"]) for x in rows),"with_validation":sum(bool(x["validation"]) for x in rows),"with_visual_showcase":sum(bool(x["showcases"]) for x in rows),"with_reference_demo":sum(has(x,"reference-demo") for x in rows),"with_production_evidence":sum(has(x,"production-evidence") or has(x,"interaction-recording") for x in rows),"with_visual_baseline":sum(has(x,"visual-baseline") for x in rows),"missing_visual_showcase":[x["id"] for x in rows if not x["showcases"]],"missing_production_evidence":[x["id"] for x in rows if not(has(x,"production-evidence") or has(x,"interaction-recording"))],"missing_visual_baseline":[x["id"] for x in rows if not has(x,"visual-baseline")]}
     return idx,coverage
 def write(path:Path,value:Any):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 def main()->int:

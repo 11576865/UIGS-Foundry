@@ -9,7 +9,9 @@
     "Production evidence preserves provenance to the real product and state.",
     "Golden baseline declares viewport/theme/state and supports visual regression.",
     "Missing visual evidence is represented explicitly rather than substituted with a generated mock.",
-    "One Showcase may support multiple composable Patterns when the relationship is declared."
+    "One Showcase may support multiple composable Patterns when the relationship is declared.",
+    "Visual baselines record source Showcase identity, viewport, browser/version and content hash so screenshot evidence is reproducible and attributable.",
+    "Baseline regeneration is an explicit repository change; it must not silently rewrite semantic Pattern contracts."
   ],
   "provenance": [
     {

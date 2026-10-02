@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'domains/interface-grammar/registry/patterns/**'
+      - 'domains/interface-grammar/showcases/manifests/**'
       - 'tools/build_ui_search_index.py'
       - 'tools/query_ui_patterns.py'
       - 'tools/test_ui_pattern_query.py'

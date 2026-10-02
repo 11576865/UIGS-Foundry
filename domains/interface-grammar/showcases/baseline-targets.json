@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "targets": [
+    {
+      "source_showcase": "SHOWCASE.STICKY_SUPPORTING_PANE.WEB_REFERENCE",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "browser-default"
+    },
+    {
+      "source_showcase": "SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "browser-default"
+    },
+    {
+      "source_showcase": "SHOWCASE.SCOPED_EDITING.WEB_REFERENCE",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "browser-default"
+    },
+    {
+      "source_showcase": "SHOWCASE.TOOL_CANVAS.WEB_REFERENCE",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "browser-default"
+    }
+  ]
+}
