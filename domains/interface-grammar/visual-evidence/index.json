@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "evidence_count": 2,
+  "evidence_count": 3,
   "evidence": [
     {
       "id": "VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE",
@@ -13,14 +13,39 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "fe8c6184405a9056e213d10818ac5e225c63f065",
-      "sha256": "593604181132e7ed84e5f343ebb9e5196ba2e1fec58f0ed2e2460eb02432d3fd",
+      "source_revision": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
+      "sha256": "a2828daa665619d3b5622b397d8a59349847612a4eb7276d057e72b7d7bf0c44",
       "image": {
         "width": 1600,
         "height": 1000
       },
       "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE",
+      "evidence_level": "production-rendered",
+      "platform": "android",
+      "capture_id": "ASS.STYLE_TOOL.FIXTURE_LANDSCAPE",
+      "surface_ids": [
+        "ASS.TOOL.STYLE",
+        "ASS.WORKSPACE.EDIT_SCOPE_EXPLANATION",
+        "ASS.WORKSPACE.EDITOR_SHELL"
+      ],
+      "patterns": [
+        "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+        "UIGS.WORKSPACE.SCOPE_TRANSPARENCY"
+      ],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
+      "source_repository": "11576865/ASS-Workbench-Android",
+      "source_revision": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
+      "sha256": "3efe2ad2f444b147e4fac5d04c2c54c9fd49e060fea67c4867fe8cd6278cb152",
+      "image": {
+        "width": 1600,
+        "height": 1000
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
       "id": "VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",
@@ -60,7 +85,33 @@
     "ASS.TOOL.POSITION": [],
     "ASS.TOOL.PROJECT": [],
     "ASS.TOOL.QC": [],
-    "ASS.TOOL.STYLE": [],
+    "ASS.TOOL.STYLE": [
+      {
+        "id": "VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE",
+        "evidence_level": "production-rendered",
+        "platform": "android",
+        "capture_id": "ASS.STYLE_TOOL.FIXTURE_LANDSCAPE",
+        "surface_ids": [
+          "ASS.TOOL.STYLE",
+          "ASS.WORKSPACE.EDIT_SCOPE_EXPLANATION",
+          "ASS.WORKSPACE.EDITOR_SHELL"
+        ],
+        "patterns": [
+          "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+          "UIGS.WORKSPACE.SCOPE_TRANSPARENCY"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
+        "source_repository": "11576865/ASS-Workbench-Android",
+        "source_revision": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
+        "sha256": "3efe2ad2f444b147e4fac5d04c2c54c9fd49e060fea67c4867fe8cd6278cb152",
+        "image": {
+          "width": 1600,
+          "height": 1000
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
+      }
+    ],
     "ASS.TOOL.SUBTITLES": [],
     "ASS.TOOL.TEXT": [],
     "ASS.TOOL.TIMELINE": [],
@@ -77,17 +128,68 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "fe8c6184405a9056e213d10818ac5e225c63f065",
-        "sha256": "593604181132e7ed84e5f343ebb9e5196ba2e1fec58f0ed2e2460eb02432d3fd",
+        "source_revision": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
+        "sha256": "a2828daa665619d3b5622b397d8a59349847612a4eb7276d057e72b7d7bf0c44",
         "image": {
           "width": 1600,
           "height": 1000
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.json"
+      },
+      {
+        "id": "VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE",
+        "evidence_level": "production-rendered",
+        "platform": "android",
+        "capture_id": "ASS.STYLE_TOOL.FIXTURE_LANDSCAPE",
+        "surface_ids": [
+          "ASS.TOOL.STYLE",
+          "ASS.WORKSPACE.EDIT_SCOPE_EXPLANATION",
+          "ASS.WORKSPACE.EDITOR_SHELL"
+        ],
+        "patterns": [
+          "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+          "UIGS.WORKSPACE.SCOPE_TRANSPARENCY"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
+        "source_repository": "11576865/ASS-Workbench-Android",
+        "source_revision": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
+        "sha256": "3efe2ad2f444b147e4fac5d04c2c54c9fd49e060fea67c4867fe8cd6278cb152",
+        "image": {
+          "width": 1600,
+          "height": 1000
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
-    "ASS.WORKSPACE.EDIT_SCOPE_EXPLANATION": [],
+    "ASS.WORKSPACE.EDIT_SCOPE_EXPLANATION": [
+      {
+        "id": "VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE",
+        "evidence_level": "production-rendered",
+        "platform": "android",
+        "capture_id": "ASS.STYLE_TOOL.FIXTURE_LANDSCAPE",
+        "surface_ids": [
+          "ASS.TOOL.STYLE",
+          "ASS.WORKSPACE.EDIT_SCOPE_EXPLANATION",
+          "ASS.WORKSPACE.EDITOR_SHELL"
+        ],
+        "patterns": [
+          "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+          "UIGS.WORKSPACE.SCOPE_TRANSPARENCY"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
+        "source_repository": "11576865/ASS-Workbench-Android",
+        "source_revision": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
+        "sha256": "3efe2ad2f444b147e4fac5d04c2c54c9fd49e060fea67c4867fe8cd6278cb152",
+        "image": {
+          "width": 1600,
+          "height": 1000
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
+      }
+    ],
     "ASS.WORKSPACE.FLOATING_SURFACE_GEOMETRY": [],
     "ASS.WORKSPACE.INTERACTION_OVERLAY": [],
     "ASS.WORKSPACE.TOOL_INSTANCE_BINDING": [],
