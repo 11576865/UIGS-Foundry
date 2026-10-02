@@ -3,6 +3,12 @@ set -euo pipefail
 
 OUTDIR="$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS"
 mkdir -p "$OUTDIR"
+echo "ASS capture source revision: $(git -C "$GITHUB_WORKSPACE/.capture/ass" rev-parse HEAD)"
+python - <<'PY'
+import json
+data=json.load(open(".capture/ass/.uigs/ui-visual-capture.json",encoding="utf-8"))
+print("ASS declared capture states:", len(data["captures"]))
+PY
 
 adb shell settings put system accelerometer_rotation 0
 adb shell settings put system user_rotation 0
