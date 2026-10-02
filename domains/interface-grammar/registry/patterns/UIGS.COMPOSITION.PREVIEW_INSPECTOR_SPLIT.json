@@ -68,5 +68,8 @@
       "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
       "evidence_level": "UI contract tests"
     }
+  ],
+  "showcases": [
+    "domains/interface-grammar/showcases/manifests/SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE.json"
   ]
 }

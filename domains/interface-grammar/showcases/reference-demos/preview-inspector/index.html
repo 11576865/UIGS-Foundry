@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UIGS Preview Inspector Reference</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color-scheme:light dark}
+*{box-sizing:border-box}
+body{margin:0;background:Canvas;color:CanvasText}
+.shell{max-width:1260px;margin:0 auto;padding:18px}
+.title{margin-bottom:14px}
+.workbench{display:grid;grid-template-columns:minmax(0,1fr) clamp(330px,28vw,430px);gap:16px;align-items:start}
+.preview{min-height:620px;border-radius:16px;border:1px solid color-mix(in srgb,CanvasText 14%,transparent);background:color-mix(in srgb,Canvas 93%,CanvasText 7%);display:grid;place-items:center;padding:24px;overflow:hidden}
+.frame{width:min(82%,720px);aspect-ratio:16/9;border-radius:12px;background:color-mix(in srgb,CanvasText 88%,Canvas 12%);color:Canvas;display:grid;place-items:end center;padding:38px;text-align:center}
+.inspector{position:sticky;top:14px;max-height:calc(100dvh - 28px);overflow:auto;border:1px solid color-mix(in srgb,CanvasText 14%,transparent);border-radius:16px;padding:14px;background:Canvas}
+.group{padding:12px 0;border-top:1px solid color-mix(in srgb,CanvasText 12%,transparent)}
+.group:first-of-type{border-top:0}
+label{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;margin:10px 0}
+input[type=range]{grid-column:1/-1;width:100%}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+button,select{font:inherit;padding:8px 10px;border-radius:9px;border:1px solid color-mix(in srgb,CanvasText 18%,transparent);background:Canvas}
+details{border-top:1px solid color-mix(in srgb,CanvasText 12%,transparent);padding-top:12px}
+summary{cursor:pointer;font-weight:650}
+@media(max-width:780px){
+  .workbench{grid-template-columns:1fr}
+  .preview{min-height:360px}
+  .inspector{position:static;max-height:none;overflow:visible}
+}
+</style>
+</head>
+<body>
+<main class="shell">
+  <div class="title"><strong>Preview–Inspector + Progressive Disclosure</strong><br><small>Reference mechanism demo, not a product screenshot.</small></div>
+  <section class="workbench">
+    <div class="preview">
+      <div class="frame"><span id="sample">Preview remains visually dominant while parameters stay compact.</span></div>
+    </div>
+    <aside class="inspector">
+      <div class="actions"><button id="reset">Reset</button><button>Apply</button></div>
+      <div class="group">
+        <strong>Basic</strong>
+        <label>Font size <output id="sizeOut">36</output><input id="size" type="range" min="18" max="64" value="36"></label>
+        <label>Alignment <select><option>Bottom center</option><option>Top center</option><option>Middle center</option></select></label>
+      </div>
+      <div class="group">
+        <strong>Appearance</strong>
+        <label>Outline <output id="outlineOut">2</output><input id="outline" type="range" min="0" max="8" value="2"></label>
+      </div>
+      <details>
+        <summary>Advanced controls</summary>
+        <div class="group">
+          <label>Letter spacing <output>0</output><input type="range" min="-4" max="12" value="0"></label>
+          <label>Fade in <output>120 ms</output><input type="range" min="0" max="800" value="120"></label>
+          <label>Fade out <output>160 ms</output><input type="range" min="0" max="800" value="160"></label>
+        </div>
+      </details>
+    </aside>
+  </section>
+</main>
+<script>
+const size=document.querySelector('#size'),sizeOut=document.querySelector('#sizeOut'),sample=document.querySelector('#sample');
+function sync(){sizeOut.value=size.value;sample.style.fontSize=size.value+'px'}
+size.addEventListener('input',sync);sync();
+document.querySelector('#outline').addEventListener('input',e=>document.querySelector('#outlineOut').value=e.target.value);
+document.querySelector('#reset').addEventListener('click',()=>{size.value=36;document.querySelector('#outline').value=2;document.querySelector('#outlineOut').value=2;sync()});
+</script>
+</body>
+</html>

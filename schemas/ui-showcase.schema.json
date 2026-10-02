@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/ui-showcase.schema.json",
+  "title": "UIGS UI Showcase",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "status",
+    "platform",
+    "patterns",
+    "entrypoint",
+    "expected_effects",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^SHOWCASE\\."
+    },
+    "type": {
+      "enum": [
+        "reference-demo",
+        "production-evidence",
+        "interaction-recording",
+        "visual-baseline"
+      ]
+    },
+    "status": {
+      "enum": [
+        "experimental",
+        "validated"
+      ]
+    },
+    "platform": {
+      "type": "string"
+    },
+    "patterns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^UIGS\\."
+      },
+      "uniqueItems": true
+    },
+    "entrypoint": {
+      "type": "string"
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expected_effects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

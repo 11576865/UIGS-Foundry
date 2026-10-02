@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "1.2",
+  "version": "1.3",
   "domains": [
     {
       "id": "interface-grammar",
@@ -281,6 +281,11 @@
       "id": "BUG.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE",
       "status": "validated",
       "path": "domains/reliability/bug-museum/BUG.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE.json"
+    },
+    {
+      "id": "OPS.UIGS.SHOWCASE_EVIDENCE_LADDER",
+      "status": "experimental",
+      "path": "domains/operations/patterns/OPS.UIGS.SHOWCASE_EVIDENCE_LADDER.json"
     }
   ],
   "projects": [
@@ -300,6 +305,7 @@
     "schemas/project-adapter.schema.json",
     "schemas/triage-record.schema.json",
     "schemas/project-state.schema.json",
-    "schemas/promotion-proposal.schema.json"
+    "schemas/promotion-proposal.schema.json",
+    "schemas/ui-showcase.schema.json"
   ]
 }

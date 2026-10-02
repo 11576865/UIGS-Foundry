@@ -1,0 +1,23 @@
+{
+  "id": "OPS.UIGS.SHOWCASE_EVIDENCE_LADDER",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "UI Showcase 证据必须区分机制演示、生产证据与黄金基线",
+  "summary": "可运行 Reference Demo 能证明机制和交互契约，但不能冒充生产 UI 或视觉基线；生产截图/录屏证明某次真实实现，Golden Baseline 才承担受控状态下的视觉回归参照。Foundry 应显式标注这三种证据层级。",
+  "principles": [
+    "Reference demo proves mechanism and interaction shape, not pixel identity.",
+    "Production evidence preserves provenance to the real product and state.",
+    "Golden baseline declares viewport/theme/state and supports visual regression.",
+    "Missing visual evidence is represented explicitly rather than substituted with a generated mock.",
+    "One Showcase may support multiple composable Patterns when the relationship is declared."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "showcase framework 2026-10-02",
+      "evidence_level": "implemented registry structure"
+    }
+  ],
+  "created": "2026-10-02"
+}

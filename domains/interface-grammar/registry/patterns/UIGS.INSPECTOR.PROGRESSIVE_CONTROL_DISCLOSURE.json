@@ -65,5 +65,8 @@
       "revision": "aa3ffcf69e66f3e0aee15e659036ef2123c94696",
       "evidence_level": "cross-project supporting evidence"
     }
+  ],
+  "showcases": [
+    "domains/interface-grammar/showcases/manifests/SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE.json"
   ]
 }

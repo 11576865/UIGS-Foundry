@@ -30,6 +30,8 @@ jobs:
         run: python tools/build_ui_search_index.py
       - name: Unit-test UI pattern retrieval
         run: python tools/test_ui_pattern_query.py
+      - name: Unit-test UI showcase manifests
+        run: python tools/test_ui_showcases.py
       - name: Validate registry and manifests
         run: python tools/validate_foundry.py
       - name: Generate inventory report

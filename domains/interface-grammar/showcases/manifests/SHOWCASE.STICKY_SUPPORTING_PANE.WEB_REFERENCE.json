@@ -1,0 +1,40 @@
+{
+  "$schema": "../../../../../schemas/ui-showcase.schema.json",
+  "id": "SHOWCASE.STICKY_SUPPORTING_PANE.WEB_REFERENCE",
+  "type": "reference-demo",
+  "status": "experimental",
+  "platform": "web",
+  "patterns": [
+    "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+  ],
+  "entrypoint": "domains/interface-grammar/showcases/reference-demos/sticky-supporting-pane/index.html",
+  "states": [
+    "wide two-column",
+    "tall supporting pane with internal overflow",
+    "narrow single-column fallback",
+    "opaque/translucent visual variant"
+  ],
+  "expected_effects": [
+    "Main document can continue scrolling while the supporting pane remains within its sticky range.",
+    "Supporting pane obtains its own vertical scroll only when its content exceeds available viewport height.",
+    "Narrow viewports restore normal document flow instead of squeezing the two-column layout.",
+    "Translucency/blur is an optional visual variant independent from sticky positioning."
+  ],
+  "limitations": [
+    "Reference mechanism demo, not a golden visual baseline.",
+    "Does not claim production styling for MKV-Fast-Muxer or any other project."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "reference demo 2026-10-02",
+      "evidence_level": "reference implementation"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/MKV-Fast-Muxer",
+      "evidence_level": "production case provenance"
+    }
+  ]
+}

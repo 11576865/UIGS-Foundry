@@ -69,5 +69,8 @@
       "source": "UIGS-Foundry design discussion 2026-10-02",
       "note": "Kept experimental; one visual case is insufficient for Canonical promotion."
     }
+  ],
+  "showcases": [
+    "domains/interface-grammar/showcases/manifests/SHOWCASE.STICKY_SUPPORTING_PANE.WEB_REFERENCE.json"
   ]
 }

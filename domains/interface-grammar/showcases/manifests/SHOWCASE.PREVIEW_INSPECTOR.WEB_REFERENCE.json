@@ -1,0 +1,42 @@
+{
+  "$schema": "../../../../../schemas/ui-showcase.schema.json",
+  "id": "SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE",
+  "type": "reference-demo",
+  "status": "experimental",
+  "platform": "web",
+  "patterns": [
+    "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+    "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE"
+  ],
+  "entrypoint": "domains/interface-grammar/showcases/reference-demos/preview-inspector/index.html",
+  "states": [
+    "wide preview + inspector",
+    "advanced controls collapsed",
+    "advanced controls expanded",
+    "narrow stacked fallback"
+  ],
+  "expected_effects": [
+    "Preview remains the dominant primary surface on wide layouts.",
+    "Inspector has bounded width and groups high-frequency controls before advanced disclosure.",
+    "Advanced controls expand in-place without duplicating the underlying control identity.",
+    "Narrow viewport returns to one-column flow with reachable controls."
+  ],
+  "limitations": [
+    "Reference mechanism demo, not a pixel-accurate copy of HSR-Voice-Archive-Builder.",
+    "No golden baseline image has been captured yet."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "reference demo 2026-10-02",
+      "evidence_level": "reference implementation"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/HSR-Voice-Archive-Builder",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "production UI provenance"
+    }
+  ]
+}
