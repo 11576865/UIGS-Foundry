@@ -1,0 +1,27 @@
+{
+  "id": "ARCH.SYSTEM_GRAPH_INTEGRATION",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "稳定身份与生命周期驱动的系统图整合",
+  "summary": "系统整合不以文件是否共址定义，而以稳定身份、所有权、依赖、生命周期、资源关系、发现与可追溯性定义。",
+  "domains": [
+    "architecture"
+  ],
+  "principles": [
+    "Physical path is an implementation attribute, not system identity.",
+    "Semantic objects and executable runtimes SHOULD be connected by explicit stable identities.",
+    "Lifecycle ownership SHOULD be explicit.",
+    "Scarce/shared resources SHOULD be represented as relations rather than hidden assumptions.",
+    "The graph SHOULD expose structural inconsistencies such as missing runtime, model, binding, reference, or unreadable registry.",
+    "Generation/output revisions SHOULD include runtime/configuration identity when it can change behavior."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Character-Voice-Service:docs/system-graph.md",
+      "revision": "51d90abfccf21560a51b90503513d3d26ecd77e3",
+      "evidence_level": "implemented architecture"
+    }
+  ],
+  "created": "2026-10-02"
+}

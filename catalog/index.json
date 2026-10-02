@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "0.1",
+  "version": "0.2",
   "domains": [
     {
       "id": "interface-grammar",
@@ -25,6 +25,51 @@
       "status": "experimental",
       "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json"
     }
+  ],
+  "records": [
+    {
+      "id": "OPS.GHA.ARTIFACT_RETENTION_GUARD",
+      "status": "experimental",
+      "path": "domains/operations/policies/OPS.GHA.ARTIFACT_RETENTION_GUARD.json"
+    },
+    {
+      "id": "ARCH.SYSTEM_GRAPH_INTEGRATION",
+      "status": "experimental",
+      "path": "domains/architecture/patterns/ARCH.SYSTEM_GRAPH_INTEGRATION.json"
+    },
+    {
+      "id": "ARCH.RUNTIME_ENVIRONMENT_ISOLATION",
+      "status": "experimental",
+      "path": "domains/architecture/patterns/ARCH.RUNTIME_ENVIRONMENT_ISOLATION.json"
+    },
+    {
+      "id": "TEST.BUDGETED_ADVERSARIAL_PREFLIGHT",
+      "status": "experimental",
+      "path": "domains/reliability/test-patterns/TEST.BUDGETED_ADVERSARIAL_PREFLIGHT.json"
+    },
+    {
+      "id": "OPS.PAID_API.PREEXECUTION_BUDGET_GUARD",
+      "status": "experimental",
+      "path": "domains/operations/policies/OPS.PAID_API.PREEXECUTION_BUDGET_GUARD.json"
+    },
+    {
+      "id": "REL.ACTIONABLE_ERROR_TAXONOMY",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.ACTIONABLE_ERROR_TAXONOMY.json"
+    },
+    {
+      "id": "ARCH.WEB_CONTROL_NATIVE_EXECUTION",
+      "status": "candidate",
+      "path": "domains/architecture/patterns/ARCH.WEB_CONTROL_NATIVE_EXECUTION.json"
+    }
+  ],
+  "projects": [
+    "projects/ASS-Workbench-Android.project.json",
+    "projects/Character-Voice-Service.project.json",
+    "projects/MKV-Fast-Muxer.project.json",
+    "projects/Quick-Automatic-Hardsub-Encoder.project.json",
+    "projects/HSR-Voice-Archive-Builder.project.json",
+    "projects/UIGS-Foundry.project.json"
   ],
   "schemas": [
     "schemas/knowledge-record.schema.json",

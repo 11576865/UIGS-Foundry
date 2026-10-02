@@ -1,0 +1,32 @@
+{
+  "$schema": "../schemas/project-manifest.schema.json",
+  "project": "MKV-Fast-Muxer",
+  "repository": "11576865/MKV-Fast-Muxer",
+  "default_branch": "main",
+  "authority": {
+    "execution": "product repository",
+    "reusable_cross_project_knowledge": "UIGS-Foundry after promotion"
+  },
+  "domains": [
+    "interface-grammar",
+    "reliability",
+    "operations"
+  ],
+  "intake": {
+    "enabled": true,
+    "auto_capture": true,
+    "canonical_promotion": "gated"
+  },
+  "report_inputs": [
+    "src/",
+    "tests/",
+    ".github/workflows/",
+    "CHANGELOG.md"
+  ],
+  "authoritative_paths": [
+    "src/",
+    "tests/",
+    ".github/workflows/",
+    "CHANGELOG.md"
+  ]
+}

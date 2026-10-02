@@ -1,0 +1,34 @@
+{
+  "$schema": "../schemas/project-manifest.schema.json",
+  "project": "HSR-Voice-Archive-Builder",
+  "repository": "11576865/HSR-Voice-Archive-Builder",
+  "default_branch": "main",
+  "authority": {
+    "execution": "product repository",
+    "reusable_cross_project_knowledge": "UIGS-Foundry after promotion"
+  },
+  "domains": [
+    "operations",
+    "reliability",
+    "interface-grammar"
+  ],
+  "intake": {
+    "enabled": true,
+    "auto_capture": true,
+    "canonical_promotion": "gated"
+  },
+  "report_inputs": [
+    "app/",
+    "tests/",
+    "docs/",
+    ".github/workflows/",
+    "CHANGELOG.md"
+  ],
+  "authoritative_paths": [
+    "app/",
+    "tests/",
+    "docs/",
+    ".github/workflows/",
+    "CHANGELOG.md"
+  ]
+}

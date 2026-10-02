@@ -1,0 +1,27 @@
+{
+  "id": "ARCH.RUNTIME_ENVIRONMENT_ISOLATION",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "多运行时环境隔离与显式生命周期所有权",
+  "summary": "多个原生/AI 引擎不共享隐式 shell 环境；每个运行时使用自己的绝对可执行路径、工作目录与受控环境，并通过 registry/supervisor 管理生命周期与互斥资源。",
+  "domains": [
+    "architecture",
+    "operations"
+  ],
+  "principles": [
+    "Do not depend on the caller shell's implicit PATH or active virtual environment.",
+    "Each engine/runtime SHOULD own its dependency environment.",
+    "Adapters/sidecars SHOULD separate protocol integration from dependency environments.",
+    "Supervisor ownership MUST be explicit before terminating or replacing a conflicting process.",
+    "Machine-local runtime paths SHOULD stay out of version-controlled semantic registries when possible."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Character-Voice-Service:docs/windows-environment-isolation.md",
+      "revision": "c28f42c3ef228ed898dc9a540aaee10deffe61fe",
+      "evidence_level": "implemented architecture"
+    }
+  ],
+  "created": "2026-10-02"
+}

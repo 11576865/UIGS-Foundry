@@ -1,0 +1,34 @@
+{
+  "$schema": "../schemas/project-manifest.schema.json",
+  "project": "ASS-Workbench-Android",
+  "repository": "11576865/ASS-Workbench-Android",
+  "default_branch": "main",
+  "authority": {
+    "execution": "product repository",
+    "reusable_cross_project_knowledge": "UIGS-Foundry after promotion"
+  },
+  "domains": [
+    "interface-grammar",
+    "reliability",
+    "operations"
+  ],
+  "intake": {
+    "enabled": true,
+    "auto_capture": true,
+    "canonical_promotion": "gated"
+  },
+  "report_inputs": [
+    "docs/",
+    "tools/",
+    "tests/",
+    ".github/workflows/",
+    "app/src/"
+  ],
+  "authoritative_paths": [
+    "docs/",
+    "tools/",
+    "tests/",
+    ".github/workflows/",
+    "app/src/"
+  ]
+}

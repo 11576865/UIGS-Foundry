@@ -1,0 +1,27 @@
+{
+  "id": "OPS.PAID_API.PREEXECUTION_BUDGET_GUARD",
+  "type": "policy",
+  "status": "experimental",
+  "title": "付费 API 的执行前预算防线",
+  "summary": "在付费请求发出前估算工作量与成本并执行 token/USD 预算；完成批次和 checkpoint 保持可复用；实际 provider usage 仍是权威事实。",
+  "domains": [
+    "operations",
+    "reliability"
+  ],
+  "rules": [
+    "Projected over-budget work SHOULD be stopped before the paid request is sent.",
+    "Completed batches/checkpoints SHOULD remain reusable after a budget stop.",
+    "Actual provider usage is authoritative; estimates MUST remain labeled heuristic.",
+    "Unknown provider pricing MUST NOT silently inherit unrelated pricing assumptions."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:CHANGELOG.md",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "implemented product behavior",
+      "note": "v0.9-C"
+    }
+  ],
+  "created": "2026-10-02"
+}

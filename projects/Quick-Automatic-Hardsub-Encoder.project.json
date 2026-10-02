@@ -1,0 +1,35 @@
+{
+  "$schema": "../schemas/project-manifest.schema.json",
+  "project": "Quick-Automatic-Hardsub-Encoder",
+  "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+  "default_branch": "main",
+  "authority": {
+    "execution": "product repository",
+    "reusable_cross_project_knowledge": "UIGS-Foundry after promotion"
+  },
+  "domains": [
+    "architecture",
+    "reliability",
+    "operations",
+    "interface-grammar"
+  ],
+  "intake": {
+    "enabled": true,
+    "auto_capture": true,
+    "canonical_promotion": "gated"
+  },
+  "report_inputs": [
+    "windows/",
+    "android-native/",
+    "src/",
+    "docs/",
+    ".github/workflows/"
+  ],
+  "authoritative_paths": [
+    "windows/",
+    "android-native/",
+    "src/",
+    "docs/",
+    ".github/workflows/"
+  ]
+}

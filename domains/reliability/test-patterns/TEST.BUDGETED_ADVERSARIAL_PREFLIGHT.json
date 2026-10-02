@@ -1,0 +1,25 @@
+{
+  "id": "TEST.BUDGETED_ADVERSARIAL_PREFLIGHT",
+  "type": "test",
+  "status": "experimental",
+  "title": "带自身工作预算的恶意输入预检",
+  "summary": "安全扫描器必须能识别超大/极端输入，同时自身也必须有字符、token、数字项等工作预算，避免防御逻辑复制被防御的无界工作模式。",
+  "domains": [
+    "reliability"
+  ],
+  "attack_surface": [
+    "extreme numeric coordinates",
+    "oversized vector/drawing payloads",
+    "parser/tokenizer workload"
+  ],
+  "invariant": "A safety preflight MUST have bounded work independent of attacker-controlled payload growth.",
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/HARDENING-0.27.md",
+      "revision": "d98b018efff87186fdddbda8a745456c7bfdab28",
+      "evidence_level": "implemented hardening"
+    }
+  ],
+  "created": "2026-10-02"
+}

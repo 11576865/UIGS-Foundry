@@ -1,0 +1,36 @@
+{
+  "id": "REL.ACTIONABLE_ERROR_TAXONOMY",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "面向操作的错误分类与用户恢复建议",
+  "summary": "将底层日志与异常模式归入稳定错误类别，并为每类错误提供原因、恢复动作与成品是否仍可保存等语义，而不是直接把原始错误文本当产品反馈。",
+  "domains": [
+    "reliability",
+    "interface-grammar"
+  ],
+  "example_categories": [
+    "memory",
+    "storage",
+    "runtime-load",
+    "invalid-media",
+    "container-incompatible",
+    "probe",
+    "ffmpeg",
+    "audit-unknown"
+  ],
+  "principles": [
+    "Preserve raw evidence while presenting a stable user-facing category.",
+    "Separate failure cause from recommended recovery action.",
+    "Represent whether a usable output may still exist after a secondary audit failure.",
+    "Unknown failures remain unknown categories rather than being misclassified."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/MKV-Fast-Muxer:src/error-feedback.js",
+      "revision": "c7d10360f2c70ba4b2d38c8210a1c0ea6c179139",
+      "evidence_level": "production implementation"
+    }
+  ],
+  "created": "2026-10-02"
+}

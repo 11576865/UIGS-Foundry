@@ -1,0 +1,28 @@
+{
+  "id": "ARCH.WEB_CONTROL_NATIVE_EXECUTION",
+  "type": "pattern",
+  "status": "candidate",
+  "title": "统一 Web 控制面与原生执行面分离",
+  "summary": "现代 Web UI 作为统一控制界面，真实媒体处理由 Windows/Android 原生后端执行；能力必须由运行时探测而不是静态名称推断。",
+  "domains": [
+    "architecture",
+    "interface-grammar",
+    "reliability"
+  ],
+  "open_questions": [
+    "bridge trust boundary",
+    "job ownership",
+    "cancel/restart semantics",
+    "native capability evidence levels"
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "revision": "3300811cce41f828055bce1272dbd9c0eb9d3d48",
+      "evidence_level": "production architecture",
+      "note": "README/windows backend materials describe Web UI + Native Bridge and runtime-detected NVENC."
+    }
+  ],
+  "created": "2026-10-02"
+}

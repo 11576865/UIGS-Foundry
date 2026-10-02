@@ -1,0 +1,36 @@
+{
+  "id": "OPS.GHA.ARTIFACT_RETENTION_GUARD",
+  "type": "policy",
+  "status": "experimental",
+  "title": "GitHub Actions 临时产物保留防线",
+  "summary": "将 Actions artifacts 视为短期诊断通道而非归档存储；普通 push/PR 不上传，手工诊断才允许短期上传，长期产物进入 Release，并用 policy-as-code 强制执行。",
+  "domains": [
+    "operations",
+    "reliability"
+  ],
+  "rules": [
+    "Routine push and pull_request workflows SHOULD retain zero Actions artifacts.",
+    "upload-artifact SHOULD be restricted to explicit workflow_dispatch unless a documented exception exists.",
+    "Transient diagnostic artifacts SHOULD use deliberately short retention.",
+    "Long-lived release assets SHOULD live in a release/archive channel, not routine CI artifact storage.",
+    "The policy SHOULD be machine-enforced rather than documentation-only."
+  ],
+  "applicability": [
+    "repositories where Actions artifact growth can create cost/storage pressure"
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:docs/ARTIFACT-STORAGE-POLICY.md",
+      "revision": "4e6a3be7b1417494075ebe483fc1406a7efb119f",
+      "evidence_level": "implemented policy"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/ASS-Workbench-Android:tools/check_artifact_policy.py",
+      "revision": "c7f00bdf4f9035f3f1ef0c5b2de4af05d32b7f93",
+      "evidence_level": "machine enforcement"
+    }
+  ],
+  "created": "2026-10-02"
+}
