@@ -1,0 +1,28 @@
+{
+  "id": "TEST.FAIL_CANCEL_RESTART_RECOVERY",
+  "type": "test",
+  "status": "experimental",
+  "title": "失败/取消后立即重新执行的恢复测试",
+  "summary": "任务系统必须证明失败和取消不是终局污染：旧下载、旧 metadata、disabled state、临时 runtime 状态都应清理，紧接着的新任务能成功且不继承旧任务语义。",
+  "scenarios": [
+    "invalid input -> actionable failure -> primary action re-enabled -> no stale output -> corrected input succeeds",
+    "active task -> cancel -> no stale output -> immediate new task succeeds",
+    "successful task A -> successful task B -> output B contains no task-A metadata",
+    "main input switch -> scanned state/attachments/track plan from previous input are invalidated"
+  ],
+  "invariants": [
+    "No stale downloadable output is exposed after failure/cancel.",
+    "The next task is runnable without page/app restart.",
+    "Task-specific metadata and scanned state do not leak across task identity changes."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/MKV-Fast-Muxer:tests/e2e/browser-mux.e2e.mjs",
+      "revision": "958ebdebb7e549f98bfc768d10c5949eef5972ed",
+      "evidence_level": "browser E2E",
+      "note": "Scenarios 7, 9, 10, 11."
+    }
+  ],
+  "created": "2026-10-02"
+}

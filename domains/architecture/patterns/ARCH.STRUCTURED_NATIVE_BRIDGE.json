@@ -1,0 +1,28 @@
+{
+  "id": "ARCH.STRUCTURED_NATIVE_BRIDGE",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "结构化请求的 Web—Native Bridge",
+  "summary": "Web UI 与本机能力桥接时，前端提交受 schema/allowlist 约束的结构化任务，而不是任意 shell/FFmpeg 命令；bridge 只暴露最小能力并保持来源、文件和执行权限边界。",
+  "principles": [
+    "The bridge accepts structured domain requests, not arbitrary command strings.",
+    "Native code constructs argument arrays and validates supported codecs/options.",
+    "Bridge-enabled WebView/content origin is restricted and remote navigation is blocked.",
+    "Native-selected content URI identity is retained by the native shell instead of reconstructed from browser File objects.",
+    "Local file paths and privileged management tokens are not exposed to untrusted page content.",
+    "Runtime capability is probed by the native side and returned as evidence."
+  ],
+  "related": [
+    "ARCH.WEB_CONTROL_NATIVE_EXECUTION"
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:docs/failure-prevention-checklist.md",
+      "revision": "51a8c536658b263325d60a0fea68b99037d0cf0a",
+      "evidence_level": "implemented architecture policy",
+      "note": "Rules 7, 8, 14 and related native constraints."
+    }
+  ],
+  "created": "2026-10-02"
+}

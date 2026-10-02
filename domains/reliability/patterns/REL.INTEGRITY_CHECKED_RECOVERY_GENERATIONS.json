@@ -1,0 +1,25 @@
+{
+  "id": "REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "带完整性验证的恢复代际",
+  "summary": "自动恢复不能只写一个 latest 文件；应校验格式、大小、checksum 和语义身份，保留上一代已知良好副本，并在落盘后重新读取验证精确字节。",
+  "invariants": [
+    "Recovery packages have an explicit format/schema version and bounded total size.",
+    "Each embedded payload carries size and cryptographic checksum evidence.",
+    "Unsafe relative paths and malformed payloads are rejected before import.",
+    "A valid previous generation is retained before replacing latest.",
+    "The exact on-disk bytes are reread and validated before reporting backup success.",
+    "A failed backup attempt preserves prior healthy backup metadata rather than erasing evidence.",
+    "Import merges only compatible identities/routes and preserves conflicting packages for manual recovery."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:app/recovery.py",
+      "revision": "730b2e6440197b0f5a60e53afa083574a5e40249",
+      "evidence_level": "production implementation"
+    }
+  ],
+  "created": "2026-10-02"
+}

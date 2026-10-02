@@ -1,0 +1,32 @@
+{
+  "id": "TEST.CONTAINER_SEMANTIC_AUDIT",
+  "type": "test",
+  "status": "experimental",
+  "title": "媒体容器语义审计",
+  "summary": "容器处理 E2E 不只验证文件存在，而用独立 probe 检查 stream codec/order、language/title、Default/Forced、attachments、chapters、format metadata 与预期审计模型一致。",
+  "dimensions": [
+    "video/audio/subtitle stream count and codec",
+    "track language/title/disposition",
+    "attachment filename/mimetype/deduplication",
+    "chapter preservation",
+    "global format metadata",
+    "UTF encoding provenance where relevant",
+    "expected-vs-observed audit report"
+  ],
+  "principle": "A valid container file is not sufficient evidence that the intended media semantics survived.",
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/MKV-Fast-Muxer:tests/e2e/browser-mux.e2e.mjs",
+      "revision": "958ebdebb7e549f98bfc768d10c5949eef5972ed",
+      "evidence_level": "browser E2E"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/MKV-Fast-Muxer:tests/e2e/generate-fixtures.sh",
+      "revision": "a9c9c63da376905a0c95b071e0b1346c9cfecfd6",
+      "evidence_level": "deterministic fixture generator"
+    }
+  ],
+  "created": "2026-10-02"
+}

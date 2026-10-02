@@ -1,0 +1,32 @@
+{
+  "id": "REL.SINGLE_OWNER_LONG_JOB",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "长任务的单一生命周期所有者",
+  "summary": "耗时编码、构建或原生任务应由持久生命周期组件单独拥有；第二个正式任务必须拒绝或排队，所有终止路径都要由同一 owner 清理会话、临时资源和可观察状态。",
+  "invariants": [
+    "One formal job has one lifecycle owner.",
+    "A second conflicting job is rejected or queued; it does not share the active native session.",
+    "Success, failure, cancel and timeout all execute explicit cleanup.",
+    "Activity/WebView/UI lifetime is not the owner of a long native job.",
+    "Progress is observable independently from the UI object's lifetime.",
+    "Interrupted-job staging is recoverable or explicitly cleanable on the next launch."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:docs/failure-prevention-checklist.md",
+      "revision": "51a8c536658b263325d60a0fea68b99037d0cf0a",
+      "evidence_level": "implemented design policy",
+      "note": "Rules 3, 15, 19, 24, 25, 29."
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:tests/test_progress_ui.py",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "automated job concurrency contract",
+      "note": "Concurrent build creation is rejected."
+    }
+  ],
+  "created": "2026-10-02"
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.HSR.FAILED_REBUILD_PUBLISHED_SET",
+  "type": "bug",
+  "status": "validated",
+  "title": "失败重建会破坏上一套一致发布成品",
+  "symptom": "重建在替换/移除输出过程中失败时，用户可能失去上一套完整可用的音频、字幕、manifest/stage 状态，或面对新旧产物混合的模糊状态。",
+  "root_cause": "构建直接修改发布目录中的多份相关产物，但原流程缺少围绕整套发布集合的事务式备份/回滚边界。",
+  "resolution": [
+    "构建前保存上一套发布文件和已发布 stage 状态。",
+    "大媒体优先 hard-link，文本文件独立复制。",
+    "普通构建异常时整体恢复原发布集合。",
+    "使用 .build_in_progress marker 识别进程中断造成的不确定状态。",
+    "人工编辑、下载源和翻译 checkpoint 明确排除在 rollback 集合之外。"
+  ],
+  "regression_guard": [
+    "preserve_published_archive context boundary",
+    "build-in-progress marker",
+    "completion checkpoint restoration"
+  ],
+  "reusable_lesson": "跨多个相关文件定义的“成品”必须按一致集合发布或回滚；单文件成功不能代表整个发布状态一致。",
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:app/publishing.py",
+      "revision": "f49b31ff1e39f69e6beded369b3482d36596565a",
+      "evidence_level": "production fix"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:CHANGELOG.md",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "historical behavior + fix",
+      "note": "v0.9-M"
+    }
+  ]
+}

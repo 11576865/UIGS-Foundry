@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "repositories": [
+    {
+      "repository": "11576865/ASS-Workbench-Android",
+      "signals": [
+        "docs/HARDENING-*",
+        "docs/*MATRIX*",
+        "docs/UI-*",
+        "tests",
+        "app/src/test",
+        ".github/workflows",
+        "tools"
+      ]
+    },
+    {
+      "repository": "11576865/Character-Voice-Service",
+      "signals": [
+        "docs",
+        "server/*registry*",
+        "server/*supervisor*",
+        "server/reconciliation.py",
+        "tests/test_*registry.py",
+        "tests/test_runtime_supervisor.py",
+        "tests/test_reconciliation.py",
+        "tests/test_system_graph.py"
+      ]
+    },
+    {
+      "repository": "11576865/MKV-Fast-Muxer",
+      "signals": [
+        "tests/e2e",
+        "src/error-feedback.js",
+        "docs/release-*",
+        ".github/workflows",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "signals": [
+        "docs/failure-prevention-checklist.md",
+        "windows",
+        "android-native",
+        ".github/workflows",
+        "docs/*review*"
+      ]
+    },
+    {
+      "repository": "11576865/HSR-Voice-Archive-Builder",
+      "signals": [
+        "CHANGELOG.md",
+        "app/recovery.py",
+        "app/publishing.py",
+        "app/identity.py",
+        "tests/test_progress_ui.py",
+        "tests/test_v09*.py",
+        "tests/test_subtitle_*"
+      ]
+    }
+  ],
+  "rule": "Prefer explicit failure history, tests and production code over unsupported inference."
+}

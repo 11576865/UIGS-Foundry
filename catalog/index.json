@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "0.3",
+  "version": "0.4",
   "domains": [
     {
       "id": "interface-grammar",
@@ -121,6 +121,46 @@
       "id": "OPS.AGENT.EXPLICIT_OWNERSHIP",
       "status": "candidate",
       "path": "domains/operations/agent-collaboration/OPS.AGENT.EXPLICIT_OWNERSHIP.json"
+    },
+    {
+      "id": "REL.LAST_KNOWN_GOOD_ROLLBACK",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.LAST_KNOWN_GOOD_ROLLBACK.json"
+    },
+    {
+      "id": "REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS.json"
+    },
+    {
+      "id": "ARCH.DECLARED_DISCOVERED_RECONCILIATION",
+      "status": "experimental",
+      "path": "domains/architecture/patterns/ARCH.DECLARED_DISCOVERED_RECONCILIATION.json"
+    },
+    {
+      "id": "REL.SINGLE_OWNER_LONG_JOB",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.SINGLE_OWNER_LONG_JOB.json"
+    },
+    {
+      "id": "ARCH.STRUCTURED_NATIVE_BRIDGE",
+      "status": "experimental",
+      "path": "domains/architecture/patterns/ARCH.STRUCTURED_NATIVE_BRIDGE.json"
+    },
+    {
+      "id": "TEST.FAIL_CANCEL_RESTART_RECOVERY",
+      "status": "experimental",
+      "path": "domains/reliability/test-patterns/TEST.FAIL_CANCEL_RESTART_RECOVERY.json"
+    },
+    {
+      "id": "TEST.CONTAINER_SEMANTIC_AUDIT",
+      "status": "experimental",
+      "path": "domains/reliability/test-patterns/TEST.CONTAINER_SEMANTIC_AUDIT.json"
+    },
+    {
+      "id": "BUG.HSR.FAILED_REBUILD_PUBLISHED_SET",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.HSR.FAILED_REBUILD_PUBLISHED_SET.json"
     }
   ],
   "projects": [

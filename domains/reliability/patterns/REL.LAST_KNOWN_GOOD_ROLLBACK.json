@@ -1,0 +1,33 @@
+{
+  "id": "REL.LAST_KNOWN_GOOD_ROLLBACK",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "失败重建时保留最后一套一致成品",
+  "summary": "会原地替换多份已发布产物的重建流程，应在进入构建前保存最后一套一致发布状态；普通失败时整体回滚，而不是让用户看到新旧文件混杂的半成品。",
+  "invariants": [
+    "The previously published coherent artifact set remains recoverable until the new build commits successfully.",
+    "Rollback scope is explicit: generated outputs/stage state may roll back while human edits, source assets and checkpoints remain outside the rollback set unless separately specified.",
+    "A process-interruption marker makes ambiguous output visibly incomplete.",
+    "Rollback failure must not be reported as successful completion.",
+    "Large artifacts may use hard links or equivalent copy-on-write mechanisms when safe, while mutable text artifacts need independent copies."
+  ],
+  "related": [
+    "REL.VERIFY_THEN_PUBLISH"
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:app/publishing.py",
+      "revision": "f49b31ff1e39f69e6beded369b3482d36596565a",
+      "evidence_level": "production implementation"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/HSR-Voice-Archive-Builder:CHANGELOG.md",
+      "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+      "evidence_level": "implemented behavior",
+      "note": "v0.9-M"
+    }
+  ],
+  "created": "2026-10-02"
+}
