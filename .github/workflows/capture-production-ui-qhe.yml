@@ -1,6 +1,12 @@
 name: Capture Production UI QHE
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/capture-production-ui-qhe.yml'
+      - 'tools/register_visual_evidence.py'
+      - 'tools/build_visual_evidence_index.py'
   workflow_dispatch:
   schedule:
     - cron: '43 3 * * *'
