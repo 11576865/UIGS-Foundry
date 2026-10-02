@@ -6,10 +6,10 @@
       "project": "ASS-Workbench-Android",
       "platform": "android-compose",
       "default_branch": "main",
-      "head_sha": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "head_sha": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
-      "surface_count": 23
+      "surface_count": 24
     },
     {
       "repository": "11576865/Character-Voice-Service",
@@ -36,7 +36,7 @@
       "project": "MKV-Fast-Muxer",
       "platform": "web",
       "default_branch": "main",
-      "head_sha": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "head_sha": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
       "surface_count": 12
@@ -52,7 +52,7 @@
       "surface_count": 16
     }
   ],
-  "surface_count": 62,
+  "surface_count": 63,
   "surfaces": [
     {
       "id": "ASS.PREVIEW.VIDEO",
@@ -75,7 +75,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -99,7 +99,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -123,7 +123,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -145,7 +145,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -167,7 +167,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -191,7 +191,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -216,7 +216,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -238,7 +238,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -260,7 +260,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -282,7 +282,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -306,7 +306,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -332,7 +332,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -354,7 +354,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -376,7 +376,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -401,7 +401,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -423,7 +423,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -448,7 +448,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -470,7 +470,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -494,7 +494,34 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
+      "inventory_path": ".uigs/ui-surfaces.json"
+    },
+    {
+      "id": "ASS.WORKSPACE.EDITOR_SHELL",
+      "kind": "workspace",
+      "name": "主编辑器工作区",
+      "group": "WORKSPACE",
+      "status": "implemented",
+      "intent": "提供字幕编辑、预览、工具切换和项目操作的完整 APP 工作区。",
+      "implementation_effect": "真实 MainActivity 启动后进入 ModernEditorScreen；默认固定工作区打开 Style 工具，应用栏、编辑器与工作区 presentation 使用同一生产 Compose 树。",
+      "source_refs": [
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/MainActivity.kt",
+          "anchor": "MainActivity.setContent / ModernEditorScreen"
+        },
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/ModernEditorScreen.kt",
+          "anchor": "ModernEditorScreen / fixed-workspace"
+        }
+      ],
+      "patterns": [],
+      "tests": [],
+      "visual_evidence": [],
+      "project": "ASS-Workbench-Android",
+      "repository": "11576865/ASS-Workbench-Android",
+      "platform": "android-compose",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -521,7 +548,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -552,7 +579,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -579,7 +606,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -606,7 +633,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "source_head": "4f49d8e254864a90ff4b1ada6b5efe40ff8d5214",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -891,7 +918,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -913,7 +940,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -935,7 +962,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -957,7 +984,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -979,7 +1006,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1008,7 +1035,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1030,7 +1057,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1059,7 +1086,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1081,7 +1108,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1103,7 +1130,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1125,7 +1152,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1157,7 +1184,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "source_head": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
