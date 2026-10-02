@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "evidence_count": 3,
+  "evidence_count": 8,
   "evidence": [
     {
       "id": "VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE",
@@ -46,6 +46,115 @@
       },
       "change_status": "new",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.HSR.EXPORT.WORKSPACE.DESKTOP_DARK",
+      "evidence_level": "production-rendered",
+      "platform": "web",
+      "capture_id": "HSR.EXPORT.WORKSPACE.DESKTOP_DARK",
+      "surface_ids": [
+        "HSR.WORKSPACE.EXPORT"
+      ],
+      "patterns": [],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.EXPORT.WORKSPACE.DESKTOP_DARK.png",
+      "source_repository": "11576865/HSR-Voice-Archive-Builder",
+      "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+      "sha256": "1fec6b837c2f414d4af8cecddef63598adff1dfd5b319bbefee1f43ffc1f328a",
+      "image": {
+        "width": 1169,
+        "height": 385
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.EXPORT.WORKSPACE.DESKTOP_DARK.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK",
+      "evidence_level": "production-rendered",
+      "platform": "web",
+      "capture_id": "HSR.LAYOUT.WORKBENCH.DESKTOP_DARK",
+      "surface_ids": [
+        "HSR.WORKSPACE.LAYOUT",
+        "HSR.LAYOUT.PREVIEW_WORKBENCH",
+        "HSR.LAYOUT.PREVIEW_INSPECTOR",
+        "HSR.LAYOUT.INSPECTOR_SECTIONS"
+      ],
+      "patterns": [
+        "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+        "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE"
+      ],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
+      "source_repository": "11576865/HSR-Voice-Archive-Builder",
+      "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+      "sha256": "48efc2905fea0882c923a661c3efc487d96b467d82e18bc0440c99df1cf2dd45",
+      "image": {
+        "width": 1169,
+        "height": 903
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.HSR.PROJECT.WORKSPACE.DESKTOP_DARK",
+      "evidence_level": "production-rendered",
+      "platform": "web",
+      "capture_id": "HSR.PROJECT.WORKSPACE.DESKTOP_DARK",
+      "surface_ids": [
+        "HSR.WORKSPACE.PROJECT"
+      ],
+      "patterns": [],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.PROJECT.WORKSPACE.DESKTOP_DARK.png",
+      "source_repository": "11576865/HSR-Voice-Archive-Builder",
+      "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+      "sha256": "1d2d6cf1a81ee3fa124745d9b2c41ab2f28896d4ecff408b00ad6faab288f40b",
+      "image": {
+        "width": 1365,
+        "height": 900
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.PROJECT.WORKSPACE.DESKTOP_DARK.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK",
+      "evidence_level": "production-rendered",
+      "platform": "web",
+      "capture_id": "HSR.REVIEW.WORKBENCH.DESKTOP_DARK",
+      "surface_ids": [
+        "HSR.WORKSPACE.REVIEW",
+        "HSR.REVIEW.PROOFREADING_WORKSPACE",
+        "HSR.REVIEW.SUBTITLE_SIDEBAR",
+        "HSR.REVIEW.SUBTITLE_EDITOR"
+      ],
+      "patterns": [],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
+      "source_repository": "11576865/HSR-Voice-Archive-Builder",
+      "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+      "sha256": "77404d381f079f2c5c3363defdea99cd8913aa5f802edcb7d2fef2af90a347ce",
+      "image": {
+        "width": 1169,
+        "height": 1021
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.HSR.UPDATE.WORKSPACE.DESKTOP_DARK",
+      "evidence_level": "production-rendered",
+      "platform": "web",
+      "capture_id": "HSR.UPDATE.WORKSPACE.DESKTOP_DARK",
+      "surface_ids": [
+        "HSR.WORKSPACE.UPDATE"
+      ],
+      "patterns": [],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.UPDATE.WORKSPACE.DESKTOP_DARK.png",
+      "source_repository": "11576865/HSR-Voice-Archive-Builder",
+      "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+      "sha256": "c98a485872e22abfaecb2ddc4e0b55422c70075f33956bcdf8d267e32f00467d",
+      "image": {
+        "width": 1169,
+        "height": 674
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.UPDATE.WORKSPACE.DESKTOP_DARK.json"
     },
     {
       "id": "VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",
@@ -193,17 +302,284 @@
     "ASS.WORKSPACE.FLOATING_SURFACE_GEOMETRY": [],
     "ASS.WORKSPACE.INTERACTION_OVERLAY": [],
     "ASS.WORKSPACE.TOOL_INSTANCE_BINDING": [],
-    "HSR.LAYOUT.INSPECTOR_SECTIONS": [],
-    "HSR.LAYOUT.PREVIEW_INSPECTOR": [],
-    "HSR.LAYOUT.PREVIEW_WORKBENCH": [],
-    "HSR.REVIEW.PROOFREADING_WORKSPACE": [],
-    "HSR.REVIEW.SUBTITLE_EDITOR": [],
-    "HSR.REVIEW.SUBTITLE_SIDEBAR": [],
-    "HSR.WORKSPACE.EXPORT": [],
-    "HSR.WORKSPACE.LAYOUT": [],
-    "HSR.WORKSPACE.PROJECT": [],
-    "HSR.WORKSPACE.REVIEW": [],
-    "HSR.WORKSPACE.UPDATE": [],
+    "HSR.LAYOUT.INSPECTOR_SECTIONS": [
+      {
+        "id": "VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "HSR.LAYOUT.WORKBENCH.DESKTOP_DARK",
+        "surface_ids": [
+          "HSR.WORKSPACE.LAYOUT",
+          "HSR.LAYOUT.PREVIEW_WORKBENCH",
+          "HSR.LAYOUT.PREVIEW_INSPECTOR",
+          "HSR.LAYOUT.INSPECTOR_SECTIONS"
+        ],
+        "patterns": [
+          "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+          "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
+        "source_repository": "11576865/HSR-Voice-Archive-Builder",
+        "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+        "sha256": "48efc2905fea0882c923a661c3efc487d96b467d82e18bc0440c99df1cf2dd45",
+        "image": {
+          "width": 1169,
+          "height": 903
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.json"
+      }
+    ],
+    "HSR.LAYOUT.PREVIEW_INSPECTOR": [
+      {
+        "id": "VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "HSR.LAYOUT.WORKBENCH.DESKTOP_DARK",
+        "surface_ids": [
+          "HSR.WORKSPACE.LAYOUT",
+          "HSR.LAYOUT.PREVIEW_WORKBENCH",
+          "HSR.LAYOUT.PREVIEW_INSPECTOR",
+          "HSR.LAYOUT.INSPECTOR_SECTIONS"
+        ],
+        "patterns": [
+          "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+          "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
+        "source_repository": "11576865/HSR-Voice-Archive-Builder",
+        "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+        "sha256": "48efc2905fea0882c923a661c3efc487d96b467d82e18bc0440c99df1cf2dd45",
+        "image": {
+          "width": 1169,
+          "height": 903
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.json"
+      }
+    ],
+    "HSR.LAYOUT.PREVIEW_WORKBENCH": [
+      {
+        "id": "VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "HSR.LAYOUT.WORKBENCH.DESKTOP_DARK",
+        "surface_ids": [
+          "HSR.WORKSPACE.LAYOUT",
+          "HSR.LAYOUT.PREVIEW_WORKBENCH",
+          "HSR.LAYOUT.PREVIEW_INSPECTOR",
+          "HSR.LAYOUT.INSPECTOR_SECTIONS"
+        ],
+        "patterns": [
+          "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+          "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
+        "source_repository": "11576865/HSR-Voice-Archive-Builder",
+        "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+        "sha256": "48efc2905fea0882c923a661c3efc487d96b467d82e18bc0440c99df1cf2dd45",
+        "image": {
+          "width": 1169,
+          "height": 903
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.json"
+      }
+    ],
+    "HSR.REVIEW.PROOFREADING_WORKSPACE": [
+      {
+        "id": "VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "HSR.REVIEW.WORKBENCH.DESKTOP_DARK",
+        "surface_ids": [
+          "HSR.WORKSPACE.REVIEW",
+          "HSR.REVIEW.PROOFREADING_WORKSPACE",
+          "HSR.REVIEW.SUBTITLE_SIDEBAR",
+          "HSR.REVIEW.SUBTITLE_EDITOR"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
+        "source_repository": "11576865/HSR-Voice-Archive-Builder",
+        "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+        "sha256": "77404d381f079f2c5c3363defdea99cd8913aa5f802edcb7d2fef2af90a347ce",
+        "image": {
+          "width": 1169,
+          "height": 1021
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK.json"
+      }
+    ],
+    "HSR.REVIEW.SUBTITLE_EDITOR": [
+      {
+        "id": "VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "HSR.REVIEW.WORKBENCH.DESKTOP_DARK",
+        "surface_ids": [
+          "HSR.WORKSPACE.REVIEW",
+          "HSR.REVIEW.PROOFREADING_WORKSPACE",
+          "HSR.REVIEW.SUBTITLE_SIDEBAR",
+          "HSR.REVIEW.SUBTITLE_EDITOR"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
+        "source_repository": "11576865/HSR-Voice-Archive-Builder",
+        "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+        "sha256": "77404d381f079f2c5c3363defdea99cd8913aa5f802edcb7d2fef2af90a347ce",
+        "image": {
+          "width": 1169,
+          "height": 1021
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK.json"
+      }
+    ],
+    "HSR.REVIEW.SUBTITLE_SIDEBAR": [
+      {
+        "id": "VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "HSR.REVIEW.WORKBENCH.DESKTOP_DARK",
+        "surface_ids": [
+          "HSR.WORKSPACE.REVIEW",
+          "HSR.REVIEW.PROOFREADING_WORKSPACE",
+          "HSR.REVIEW.SUBTITLE_SIDEBAR",
+          "HSR.REVIEW.SUBTITLE_EDITOR"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
+        "source_repository": "11576865/HSR-Voice-Archive-Builder",
+        "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+        "sha256": "77404d381f079f2c5c3363defdea99cd8913aa5f802edcb7d2fef2af90a347ce",
+        "image": {
+          "width": 1169,
+          "height": 1021
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK.json"
+      }
+    ],
+    "HSR.WORKSPACE.EXPORT": [
+      {
+        "id": "VISUAL.PRODUCTION.HSR.EXPORT.WORKSPACE.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "HSR.EXPORT.WORKSPACE.DESKTOP_DARK",
+        "surface_ids": [
+          "HSR.WORKSPACE.EXPORT"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.EXPORT.WORKSPACE.DESKTOP_DARK.png",
+        "source_repository": "11576865/HSR-Voice-Archive-Builder",
+        "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+        "sha256": "1fec6b837c2f414d4af8cecddef63598adff1dfd5b319bbefee1f43ffc1f328a",
+        "image": {
+          "width": 1169,
+          "height": 385
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.EXPORT.WORKSPACE.DESKTOP_DARK.json"
+      }
+    ],
+    "HSR.WORKSPACE.LAYOUT": [
+      {
+        "id": "VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "HSR.LAYOUT.WORKBENCH.DESKTOP_DARK",
+        "surface_ids": [
+          "HSR.WORKSPACE.LAYOUT",
+          "HSR.LAYOUT.PREVIEW_WORKBENCH",
+          "HSR.LAYOUT.PREVIEW_INSPECTOR",
+          "HSR.LAYOUT.INSPECTOR_SECTIONS"
+        ],
+        "patterns": [
+          "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+          "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
+        "source_repository": "11576865/HSR-Voice-Archive-Builder",
+        "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+        "sha256": "48efc2905fea0882c923a661c3efc487d96b467d82e18bc0440c99df1cf2dd45",
+        "image": {
+          "width": 1169,
+          "height": 903
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.json"
+      }
+    ],
+    "HSR.WORKSPACE.PROJECT": [
+      {
+        "id": "VISUAL.PRODUCTION.HSR.PROJECT.WORKSPACE.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "HSR.PROJECT.WORKSPACE.DESKTOP_DARK",
+        "surface_ids": [
+          "HSR.WORKSPACE.PROJECT"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.PROJECT.WORKSPACE.DESKTOP_DARK.png",
+        "source_repository": "11576865/HSR-Voice-Archive-Builder",
+        "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+        "sha256": "1d2d6cf1a81ee3fa124745d9b2c41ab2f28896d4ecff408b00ad6faab288f40b",
+        "image": {
+          "width": 1365,
+          "height": 900
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.PROJECT.WORKSPACE.DESKTOP_DARK.json"
+      }
+    ],
+    "HSR.WORKSPACE.REVIEW": [
+      {
+        "id": "VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "HSR.REVIEW.WORKBENCH.DESKTOP_DARK",
+        "surface_ids": [
+          "HSR.WORKSPACE.REVIEW",
+          "HSR.REVIEW.PROOFREADING_WORKSPACE",
+          "HSR.REVIEW.SUBTITLE_SIDEBAR",
+          "HSR.REVIEW.SUBTITLE_EDITOR"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
+        "source_repository": "11576865/HSR-Voice-Archive-Builder",
+        "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+        "sha256": "77404d381f079f2c5c3363defdea99cd8913aa5f802edcb7d2fef2af90a347ce",
+        "image": {
+          "width": 1169,
+          "height": 1021
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK.json"
+      }
+    ],
+    "HSR.WORKSPACE.UPDATE": [
+      {
+        "id": "VISUAL.PRODUCTION.HSR.UPDATE.WORKSPACE.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "HSR.UPDATE.WORKSPACE.DESKTOP_DARK",
+        "surface_ids": [
+          "HSR.WORKSPACE.UPDATE"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.UPDATE.WORKSPACE.DESKTOP_DARK.png",
+        "source_repository": "11576865/HSR-Voice-Archive-Builder",
+        "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+        "sha256": "c98a485872e22abfaecb2ddc4e0b55422c70075f33956bcdf8d267e32f00467d",
+        "image": {
+          "width": 1169,
+          "height": 674
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.UPDATE.WORKSPACE.DESKTOP_DARK.json"
+      }
+    ],
     "MKV.DIALOG.PREVIEW": [],
     "MKV.EDITOR.CONFIG": [],
     "MKV.EDITOR.FONT": [],

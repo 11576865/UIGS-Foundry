@@ -1,0 +1,84 @@
+{
+  "$schema": "../../../../schemas/ui-production-visual-evidence.schema.json",
+  "id": "VISUAL.PRODUCTION.HSR.UPDATE.WORKSPACE.DESKTOP_DARK",
+  "record_type": "ui-production-visual-evidence",
+  "status": "experimental",
+  "evidence_level": "production-rendered",
+  "platform": "web",
+  "capture_id": "HSR.UPDATE.WORKSPACE.DESKTOP_DARK",
+  "surface_ids": [
+    "HSR.WORKSPACE.UPDATE"
+  ],
+  "patterns": [],
+  "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.UPDATE.WORKSPACE.DESKTOP_DARK.png",
+  "source_repository": "11576865/HSR-Voice-Archive-Builder",
+  "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+  "sha256": "c98a485872e22abfaecb2ddc4e0b55422c70075f33956bcdf8d267e32f00467d",
+  "image": {
+    "width": 1169,
+    "height": 674
+  },
+  "environment": {
+    "schema_version": 1,
+    "capture_id": "HSR.UPDATE.WORKSPACE.DESKTOP_DARK",
+    "surface_ids": [
+      "HSR.WORKSPACE.UPDATE"
+    ],
+    "adapter": "playwright-web",
+    "evidence_level": "production-rendered",
+    "browser": {
+      "name": "chromium",
+      "version": "153.0.8010.12"
+    },
+    "target_url": "http://127.0.0.1:8765/",
+    "viewport": {
+      "width": 1365,
+      "height": 900,
+      "deviceScaleFactor": 1
+    },
+    "color_scheme": "dark",
+    "locale": "zh-CN",
+    "selector": "#updateCard",
+    "fixture": {
+      "workspace": "update"
+    },
+    "page_errors": []
+  },
+  "capture_contract": {
+    "adapter": "playwright-web",
+    "route": "/",
+    "selector": "#updateCard",
+    "capture_region": "element",
+    "viewport": {
+      "width": 1365,
+      "height": 900,
+      "device_scale_factor": 1
+    },
+    "device": null,
+    "ready": {
+      "selector": "#updateCard",
+      "state": "visible",
+      "settle_ms": 900
+    }
+  },
+  "change_status": "new",
+  "previous_sha256": null,
+  "limitations": [
+    "No remote project data.",
+    "The capture harness reveals the real production panel when it is normally gated by active-project state; it does not fabricate project data."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/HSR-Voice-Archive-Builder",
+      "revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+      "evidence_level": "production-rendered"
+    },
+    {
+      "source_type": "capture-contract",
+      "source": "11576865/HSR-Voice-Archive-Builder:ui-visual-capture.json",
+      "revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+      "evidence_level": "source-owned capture declaration"
+    }
+  ]
+}

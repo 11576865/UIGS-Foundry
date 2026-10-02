@@ -1,7 +1,7 @@
 {
   "version": 1,
   "total_surfaces": 63,
-  "with_production_visual_evidence": 4,
+  "with_production_visual_evidence": 15,
   "missing_production_visual_evidence": [
     "ASS.PREVIEW.VIDEO",
     "ASS.TOOL.BATCH",
@@ -24,17 +24,6 @@
     "ASS.WORKSPACE.FLOATING_SURFACE_GEOMETRY",
     "ASS.WORKSPACE.INTERACTION_OVERLAY",
     "ASS.WORKSPACE.TOOL_INSTANCE_BINDING",
-    "HSR.LAYOUT.INSPECTOR_SECTIONS",
-    "HSR.LAYOUT.PREVIEW_INSPECTOR",
-    "HSR.LAYOUT.PREVIEW_WORKBENCH",
-    "HSR.REVIEW.PROOFREADING_WORKSPACE",
-    "HSR.REVIEW.SUBTITLE_EDITOR",
-    "HSR.REVIEW.SUBTITLE_SIDEBAR",
-    "HSR.WORKSPACE.EXPORT",
-    "HSR.WORKSPACE.LAYOUT",
-    "HSR.WORKSPACE.PROJECT",
-    "HSR.WORKSPACE.REVIEW",
-    "HSR.WORKSPACE.UPDATE",
     "MKV.DIALOG.PREVIEW",
     "MKV.EDITOR.CONFIG",
     "MKV.EDITOR.FONT",
@@ -63,5 +52,5 @@
     "QHE.SHELL.WORKFLOW_HEADER",
     "QHE.STATUS.TASK_OVERVIEW"
   ],
-  "evidence_records": 3
+  "evidence_records": 8
 }
