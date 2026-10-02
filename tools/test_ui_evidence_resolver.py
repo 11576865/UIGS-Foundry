@@ -8,6 +8,7 @@ import resolve_ui_request as resolver
 ROOT=Path(__file__).resolve().parents[1]
 P=json.loads((ROOT/"domains/interface-grammar/search/index.json").read_text(encoding="utf-8"))
 S=json.loads((ROOT/"domains/interface-grammar/inventory/index.json").read_text(encoding="utf-8"))
+VISUAL=json.loads((ROOT/"domains/interface-grammar/visual-evidence/index.json").read_text(encoding="utf-8"))
 R=composition.load_recipes()
 
 class ResolverTests(unittest.TestCase):
@@ -24,6 +25,13 @@ class ResolverTests(unittest.TestCase):
         self.assertIn("HSR.WORKSPACE.LAYOUT",surfaces)
         self.assertIn("UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",patterns)
         self.assertIn("UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",patterns)
+
+    def test_registered_production_visual_evidence_is_returned(self):
+        out=resolver.resolve("检查与封装",P,S,R,VISUAL)
+        ids={x["id"] for x in out["production_visual_evidence"]}
+        self.assertIn("VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",ids)
+        mkv=next(x for x in out["concrete_surfaces"] if x["id"]=="MKV.STAGE.OUTPUT_HUB")
+        self.assertTrue(mkv["production_visual_evidence"])
 
     def test_resolver_exposes_implementation_and_visual_gap_separately(self):
         out=resolver.resolve("检查与封装",P,S,R)
