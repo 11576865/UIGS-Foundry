@@ -62,7 +62,7 @@ def build_coverage(sources:list[dict[str,Any]],surfaces:list[dict[str,Any]])->di
     by_project=Counter(str(s["project"]) for s in surfaces);by_kind=Counter(str(s["kind"]) for s in surfaces)
     linked=[s for s in surfaces if s.get("patterns")];visual=[s for s in surfaces if s.get("visual_evidence")]
     return {"version":1,"sources_total":len(sources),"with_ui_inventory":sum(s.get("status")=="available" for s in sources),
-      "missing_ui_inventory":[s["repository"] for s in sources if s.get("status")!="available"],"total_surfaces":len(surfaces),
+      "missing_ui_inventory":[s["repository"] for s in sources if s.get("status")!="available"],"declared_empty_ui":[s["repository"] for s in sources if s.get("status")=="available" and int(s.get("surface_count",0))==0],"total_surfaces":len(surfaces),
       "by_project":dict(sorted(by_project.items())),"by_kind":dict(sorted(by_kind.items())),"with_pattern_links":len(linked),
       "pattern_link_count":sum(len(s.get("patterns",[])) for s in surfaces),"with_visual_evidence":len(visual),
       "missing_visual_evidence":[s["id"] for s in surfaces if not s.get("visual_evidence")]}
@@ -70,7 +70,7 @@ def build_coverage(sources:list[dict[str,Any]],surfaces:list[dict[str,Any]])->di
 def render_report(sources:list[dict[str,Any]],coverage:dict[str,Any])->str:
     lines=["# Cross-project UI Surface Inventory","",
       f"Sources with inventory: {coverage['with_ui_inventory']}/{coverage['sources_total']}",
-      f"Concrete surfaces: {coverage['total_surfaces']}",f"Pattern-linked surfaces: {coverage['with_pattern_links']}",
+      f"Concrete surfaces: {coverage['total_surfaces']}",f"Declared-empty UI sources: {len(coverage['declared_empty_ui'])}",f"Pattern-linked surfaces: {coverage['with_pattern_links']}",
       f"Surfaces with production visual evidence: {coverage['with_visual_evidence']}","",
       "| Project | Repository | Source HEAD | Status | Surfaces |","| --- | --- | --- | --- | ---: |"]
     for source in sources:

@@ -11,7 +11,8 @@
     "A concrete Surface may map to zero, one or multiple reusable Patterns.",
     "Implementation effect, source references, tests and visual evidence are separate fields.",
     "Missing production visual evidence is explicit and must not be filled with Foundry reference-demo images.",
-    "Missing project inventory is reported as coverage debt rather than invented from guesswork."
+    "Missing project inventory is reported as coverage debt rather than invented from guesswork.",
+    "A declared zero-surface inventory is coverage-complete for a service with no built-in UI and is distinct from a missing inventory."
   ],
   "provenance": [
     {
@@ -30,6 +31,18 @@
       "source_type": "repository",
       "source": "11576865/MKV-Fast-Muxer:.uigs/ui-surfaces.json",
       "revision": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "evidence_level": "source-owned UI inventory"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/Character-Voice-Service:.uigs/ui-surfaces.json",
+      "revision": "41fb27d0bd5c5b52719c72d4d53e6de1b9acf31e",
+      "evidence_level": "explicit zero-surface source-owned inventory"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:.uigs/ui-surfaces.json",
+      "revision": "5cf3acd7132eb1eb2a2ec7df7ff599af10fc42ed",
       "evidence_level": "source-owned UI inventory"
     }
   ],

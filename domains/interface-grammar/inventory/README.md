@@ -9,6 +9,6 @@ Each product repository remains authoritative and declares an optional `ui_inven
 
 Foundry periodically reads the adapter and inventory at the same source HEAD and builds a derived cross-project index.
 
-A product without a declared inventory is reported as missing coverage. Foundry does not infer or invent its surfaces.
+A missing inventory is coverage debt. A **declared zero-surface inventory** is different: it explicitly says the current project has no built-in UI and therefore counts as inventoried.
 
 An empty `visual_evidence` array means the concrete surface is indexed but no product screenshot/recording has yet been registered.
