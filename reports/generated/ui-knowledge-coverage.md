@@ -10,7 +10,7 @@
 | Pattern production-realization coverage | 8/8 |
 | Pattern reference-demo coverage | 8/8 |
 | Pattern visual-baseline coverage | 8/8 |
-| Concrete surfaces with production visual evidence | 31/63 |
+| Concrete surfaces with production visual evidence | 42/63 |
 | Realization source content current | 3/3 |
 | Realization revision exactly equals repo HEAD | 0/3 |
 

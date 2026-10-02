@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "evidence_count": 12,
+  "evidence_count": 16,
   "evidence": [
     {
       "id": "VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE",
@@ -157,19 +157,86 @@
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.UPDATE.WORKSPACE.DESKTOP_DARK.json"
     },
     {
+      "id": "VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK",
+      "evidence_level": "production-rendered",
+      "platform": "web",
+      "capture_id": "MKV.ADJUST.DESKTOP_DARK",
+      "surface_ids": [
+        "MKV.STAGE.ADJUST",
+        "MKV.PREVIEW.SUBTITLE",
+        "MKV.EDITOR.CONFIG",
+        "MKV.EDITOR.SOURCE_TRACK",
+        "MKV.EDITOR.FONT"
+      ],
+      "patterns": [],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
+      "source_repository": "11576865/MKV-Fast-Muxer",
+      "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+      "sha256": "7981445f9a3512da7265fcf8678d6c502a4445294da256b512e68d5185ce3ba3",
+      "image": {
+        "width": 975,
+        "height": 692
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.MKV.BATCH.DESKTOP_DARK",
+      "evidence_level": "production-rendered",
+      "platform": "web",
+      "capture_id": "MKV.BATCH.DESKTOP_DARK",
+      "surface_ids": [
+        "MKV.STAGE.BATCH"
+      ],
+      "patterns": [],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.BATCH.DESKTOP_DARK.png",
+      "source_repository": "11576865/MKV-Fast-Muxer",
+      "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+      "sha256": "b1579b67c11fd926c6649297b6a05d8262486be5beaee7552b3afe2fdcb506bc",
+      "image": {
+        "width": 1321,
+        "height": 90
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.BATCH.DESKTOP_DARK.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.MKV.INPUT.DESKTOP_DARK",
+      "evidence_level": "production-rendered",
+      "platform": "web",
+      "capture_id": "MKV.INPUT.DESKTOP_DARK",
+      "surface_ids": [
+        "MKV.STAGE.INPUT"
+      ],
+      "patterns": [],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.INPUT.DESKTOP_DARK.png",
+      "source_repository": "11576865/MKV-Fast-Muxer",
+      "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+      "sha256": "cfadab242f01910507dc2e56dc139334d754a8d322bbcbe8abf202333c4993bc",
+      "image": {
+        "width": 975,
+        "height": 168
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.INPUT.DESKTOP_DARK.json"
+    },
+    {
       "id": "VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",
       "evidence_level": "production-rendered",
       "platform": "web",
       "capture_id": "MKV.OUTPUT_HUB.DESKTOP_DARK",
       "surface_ids": [
-        "MKV.STAGE.OUTPUT_HUB"
+        "MKV.STAGE.OUTPUT_HUB",
+        "MKV.OUTPUT.SUMMARY",
+        "MKV.OUTPUT.MUX_PLAN",
+        "MKV.OUTPUT.EXECUTION"
       ],
       "patterns": [
         "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
       "source_repository": "11576865/MKV-Fast-Muxer",
-      "source_revision": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
+      "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
       "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
       "image": {
         "width": 1134,
@@ -177,6 +244,26 @@
       },
       "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.MKV.PREVIEW_DIALOG.DESKTOP_DARK",
+      "evidence_level": "production-rendered",
+      "platform": "web",
+      "capture_id": "MKV.PREVIEW_DIALOG.DESKTOP_DARK",
+      "surface_ids": [
+        "MKV.DIALOG.PREVIEW"
+      ],
+      "patterns": [],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.PREVIEW_DIALOG.DESKTOP_DARK.png",
+      "source_repository": "11576865/MKV-Fast-Muxer",
+      "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+      "sha256": "8fd06b401add3ca9767e27c0bf8d0e4008107d44f24df9d3d484c1d00d28ebe8",
+      "image": {
+        "width": 1285,
+        "height": 100
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.PREVIEW_DIALOG.DESKTOP_DARK.json"
     },
     {
       "id": "VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK",
@@ -680,17 +767,283 @@
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.UPDATE.WORKSPACE.DESKTOP_DARK.json"
       }
     ],
-    "MKV.DIALOG.PREVIEW": [],
-    "MKV.EDITOR.CONFIG": [],
-    "MKV.EDITOR.FONT": [],
-    "MKV.EDITOR.SOURCE_TRACK": [],
-    "MKV.OUTPUT.EXECUTION": [],
-    "MKV.OUTPUT.MUX_PLAN": [],
-    "MKV.OUTPUT.SUMMARY": [],
-    "MKV.PREVIEW.SUBTITLE": [],
-    "MKV.STAGE.ADJUST": [],
-    "MKV.STAGE.BATCH": [],
-    "MKV.STAGE.INPUT": [],
+    "MKV.DIALOG.PREVIEW": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.PREVIEW_DIALOG.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.PREVIEW_DIALOG.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.DIALOG.PREVIEW"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.PREVIEW_DIALOG.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+        "sha256": "8fd06b401add3ca9767e27c0bf8d0e4008107d44f24df9d3d484c1d00d28ebe8",
+        "image": {
+          "width": 1285,
+          "height": 100
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.PREVIEW_DIALOG.DESKTOP_DARK.json"
+      }
+    ],
+    "MKV.EDITOR.CONFIG": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.ADJUST.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.STAGE.ADJUST",
+          "MKV.PREVIEW.SUBTITLE",
+          "MKV.EDITOR.CONFIG",
+          "MKV.EDITOR.SOURCE_TRACK",
+          "MKV.EDITOR.FONT"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+        "sha256": "7981445f9a3512da7265fcf8678d6c502a4445294da256b512e68d5185ce3ba3",
+        "image": {
+          "width": 975,
+          "height": 692
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
+      }
+    ],
+    "MKV.EDITOR.FONT": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.ADJUST.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.STAGE.ADJUST",
+          "MKV.PREVIEW.SUBTITLE",
+          "MKV.EDITOR.CONFIG",
+          "MKV.EDITOR.SOURCE_TRACK",
+          "MKV.EDITOR.FONT"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+        "sha256": "7981445f9a3512da7265fcf8678d6c502a4445294da256b512e68d5185ce3ba3",
+        "image": {
+          "width": 975,
+          "height": 692
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
+      }
+    ],
+    "MKV.EDITOR.SOURCE_TRACK": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.ADJUST.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.STAGE.ADJUST",
+          "MKV.PREVIEW.SUBTITLE",
+          "MKV.EDITOR.CONFIG",
+          "MKV.EDITOR.SOURCE_TRACK",
+          "MKV.EDITOR.FONT"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+        "sha256": "7981445f9a3512da7265fcf8678d6c502a4445294da256b512e68d5185ce3ba3",
+        "image": {
+          "width": 975,
+          "height": 692
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
+      }
+    ],
+    "MKV.OUTPUT.EXECUTION": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.OUTPUT_HUB.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.STAGE.OUTPUT_HUB",
+          "MKV.OUTPUT.SUMMARY",
+          "MKV.OUTPUT.MUX_PLAN",
+          "MKV.OUTPUT.EXECUTION"
+        ],
+        "patterns": [
+          "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+        "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+        "image": {
+          "width": 1134,
+          "height": 615
+        },
+        "change_status": "unchanged",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
+      }
+    ],
+    "MKV.OUTPUT.MUX_PLAN": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.OUTPUT_HUB.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.STAGE.OUTPUT_HUB",
+          "MKV.OUTPUT.SUMMARY",
+          "MKV.OUTPUT.MUX_PLAN",
+          "MKV.OUTPUT.EXECUTION"
+        ],
+        "patterns": [
+          "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+        "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+        "image": {
+          "width": 1134,
+          "height": 615
+        },
+        "change_status": "unchanged",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
+      }
+    ],
+    "MKV.OUTPUT.SUMMARY": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.OUTPUT_HUB.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.STAGE.OUTPUT_HUB",
+          "MKV.OUTPUT.SUMMARY",
+          "MKV.OUTPUT.MUX_PLAN",
+          "MKV.OUTPUT.EXECUTION"
+        ],
+        "patterns": [
+          "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+        "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+        "image": {
+          "width": 1134,
+          "height": 615
+        },
+        "change_status": "unchanged",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
+      }
+    ],
+    "MKV.PREVIEW.SUBTITLE": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.ADJUST.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.STAGE.ADJUST",
+          "MKV.PREVIEW.SUBTITLE",
+          "MKV.EDITOR.CONFIG",
+          "MKV.EDITOR.SOURCE_TRACK",
+          "MKV.EDITOR.FONT"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+        "sha256": "7981445f9a3512da7265fcf8678d6c502a4445294da256b512e68d5185ce3ba3",
+        "image": {
+          "width": 975,
+          "height": 692
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
+      }
+    ],
+    "MKV.STAGE.ADJUST": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.ADJUST.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.STAGE.ADJUST",
+          "MKV.PREVIEW.SUBTITLE",
+          "MKV.EDITOR.CONFIG",
+          "MKV.EDITOR.SOURCE_TRACK",
+          "MKV.EDITOR.FONT"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+        "sha256": "7981445f9a3512da7265fcf8678d6c502a4445294da256b512e68d5185ce3ba3",
+        "image": {
+          "width": 975,
+          "height": 692
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
+      }
+    ],
+    "MKV.STAGE.BATCH": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.BATCH.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.BATCH.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.STAGE.BATCH"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.BATCH.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+        "sha256": "b1579b67c11fd926c6649297b6a05d8262486be5beaee7552b3afe2fdcb506bc",
+        "image": {
+          "width": 1321,
+          "height": 90
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.BATCH.DESKTOP_DARK.json"
+      }
+    ],
+    "MKV.STAGE.INPUT": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.INPUT.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.INPUT.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.STAGE.INPUT"
+        ],
+        "patterns": [],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.INPUT.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+        "sha256": "cfadab242f01910507dc2e56dc139334d754a8d322bbcbe8abf202333c4993bc",
+        "image": {
+          "width": 975,
+          "height": 168
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.INPUT.DESKTOP_DARK.json"
+      }
+    ],
     "MKV.STAGE.OUTPUT_HUB": [
       {
         "id": "VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",
@@ -698,14 +1051,17 @@
         "platform": "web",
         "capture_id": "MKV.OUTPUT_HUB.DESKTOP_DARK",
         "surface_ids": [
-          "MKV.STAGE.OUTPUT_HUB"
+          "MKV.STAGE.OUTPUT_HUB",
+          "MKV.OUTPUT.SUMMARY",
+          "MKV.OUTPUT.MUX_PLAN",
+          "MKV.OUTPUT.EXECUTION"
         ],
         "patterns": [
           "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
+        "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
         "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
         "image": {
           "width": 1134,

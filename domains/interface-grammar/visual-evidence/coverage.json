@@ -1,7 +1,7 @@
 {
   "version": 1,
   "total_surfaces": 63,
-  "with_production_visual_evidence": 31,
+  "with_production_visual_evidence": 42,
   "missing_production_visual_evidence": [
     "ASS.PREVIEW.VIDEO",
     "ASS.TOOL.BATCH",
@@ -23,18 +23,7 @@
     "ASS.TOOL.VECTOR_CLIP",
     "ASS.WORKSPACE.FLOATING_SURFACE_GEOMETRY",
     "ASS.WORKSPACE.INTERACTION_OVERLAY",
-    "ASS.WORKSPACE.TOOL_INSTANCE_BINDING",
-    "MKV.DIALOG.PREVIEW",
-    "MKV.EDITOR.CONFIG",
-    "MKV.EDITOR.FONT",
-    "MKV.EDITOR.SOURCE_TRACK",
-    "MKV.OUTPUT.EXECUTION",
-    "MKV.OUTPUT.MUX_PLAN",
-    "MKV.OUTPUT.SUMMARY",
-    "MKV.PREVIEW.SUBTITLE",
-    "MKV.STAGE.ADJUST",
-    "MKV.STAGE.BATCH",
-    "MKV.STAGE.INPUT"
+    "ASS.WORKSPACE.TOOL_INSTANCE_BINDING"
   ],
-  "evidence_records": 12
+  "evidence_records": 16
 }
