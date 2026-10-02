@@ -45,3 +45,17 @@ The failure was detected by the existing full browser E2E batch scenario after t
 Applicable to batch processors, import queues, multi-file editors, wizard automation, test drivers, and any architecture where programmatic flows reuse UI event handlers.
 
 Do not promote to Canonical from this single-project failure without broader validation.
+
+
+## Additional test evidence — font identity preflight
+
+PR #58 added asynchronous structural font preflight to the interactive path. The mux control now remains unavailable while font identity is pending and remains unavailable for structurally invalid fonts; the batch orchestrator explicitly awaits the same preflight after programmatically changing font inputs.
+
+Full browser E2E exposed two useful test-contract consequences:
+
+- an older test that asserted mux readiness immediately after asynchronous subtitle input assignment had to wait for semantic readiness rather than event dispatch completion;
+- the malformed-font scenario could no longer click the mux button and expect a late parser failure, because invalid fonts are now correctly blocked earlier by preflight. The regression was rewritten to assert the preflight diagnostic, disabled execution state, absence of stale output, and recovery after replacing the font with a valid resource.
+
+This strengthens the existing rule that asynchronous preflight changes both orchestration and test contracts. Tests should synchronize on the workflow's semantic ready/invalid state, not on the fact that an input-change event has fired.
+
+This remains Bug / Candidate-level evidence and is not promoted to Canonical.
