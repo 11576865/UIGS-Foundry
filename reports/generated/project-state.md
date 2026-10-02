@@ -1,6 +1,6 @@
 # Cross-project State
 
-Source max updated at: 2026-10-02T08:05:13Z
+Source max updated at: 2026-10-02T08:07:18Z
 
 | Project | HEAD | Tracked workflow state | Pending | Triage | Foundry records with provenance |
 | --- | --- | --- | ---: | ---: | ---: |
@@ -9,7 +9,7 @@ Source max updated at: 2026-10-02T08:05:13Z
 | HSR-Voice-Archive-Builder | `8777851bf8` | tests: success (HEAD) | 0 | 0 | 12 |
 | MKV-Fast-Muxer | `e625c2b04d` | Browser E2E mux tests: success (older SHA)<br>Deploy to GitHub Pages: success (HEAD) | 0 | 0 | 6 |
 | Quick-Automatic-Hardsub-Encoder | `d62dd49637` | Build Android Native Core Release: unknown<br>Build Web Core Release: unknown<br>Build Android and Deploy Frontend: success (older SHA)<br>Compile Android media tasks: success (older SHA)<br>Test frontend: success (older SHA)<br>Windows local smoke: success (HEAD) | 1 | 1 | 15 |
-| UIGS-Foundry | `98eefc1995` | Validate Foundry: success (older SHA)<br>Collect UIGS Outboxes: success (older SHA)<br>Triage UIGS Pending: success (older SHA)<br>Generate UIGS Project State: in_progress (older SHA) | 0 | 0 | 6 |
+| UIGS-Foundry | `f54240cc17` | Validate Foundry: success (older SHA)<br>Collect UIGS Outboxes: success (older SHA)<br>Triage UIGS Pending: success (older SHA)<br>Generate UIGS Project State: in_progress (older SHA) | 0 | 0 | 7 |
 
 ## Interpretation boundary
 
