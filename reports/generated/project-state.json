@@ -39,49 +39,49 @@
         {
           "name": "Fontconfig renderer native probe",
           "found": true,
-          "status": "in_progress",
-          "conclusion": "",
+          "status": "completed",
+          "conclusion": "success",
           "head_sha": "818a26d2024f1b27a947d147b2f1de0142ce482d",
           "head_matches_main": true,
           "run_id": 36986871529,
           "run_number": 578,
           "event": "push",
           "created_at": "2026-10-02T08:56:05Z",
-          "updated_at": "2026-10-02T08:56:09Z",
+          "updated_at": "2026-10-02T09:10:42Z",
           "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36986871529"
         }
       ],
       "pending_intake": 1,
       "triage_records": 1,
       "knowledge_records": 17,
-      "source_updated_at": "2026-10-02T09:03:45Z"
+      "source_updated_at": "2026-10-02T09:10:42Z"
     },
     {
       "project": "Character-Voice-Service",
       "repository": "11576865/Character-Voice-Service",
       "default_branch": "main",
-      "head_sha": "747e7998cb3f7d7f20ea4d689bb4620037d09c16",
-      "head_commit_date": "2026-10-02T07:47:40Z",
+      "head_sha": "41fb27d0bd5c5b52719c72d4d53e6de1b9acf31e",
+      "head_commit_date": "2026-10-02T09:07:10Z",
       "tracked_workflows": [
         {
           "name": "CVS tests",
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "747e7998cb3f7d7f20ea4d689bb4620037d09c16",
+          "head_sha": "41fb27d0bd5c5b52719c72d4d53e6de1b9acf31e",
           "head_matches_main": true,
-          "run_id": 36980456188,
-          "run_number": 242,
+          "run_id": 36987945389,
+          "run_number": 243,
           "event": "push",
-          "created_at": "2026-10-02T07:47:44Z",
-          "updated_at": "2026-10-02T07:48:04Z",
-          "html_url": "https://github.com/11576865/Character-Voice-Service/actions/runs/36980456188"
+          "created_at": "2026-10-02T09:07:14Z",
+          "updated_at": "2026-10-02T09:07:51Z",
+          "html_url": "https://github.com/11576865/Character-Voice-Service/actions/runs/36987945389"
         }
       ],
       "pending_intake": 0,
       "triage_records": 0,
-      "knowledge_records": 4,
-      "source_updated_at": "2026-10-02T07:48:04Z"
+      "knowledge_records": 5,
+      "source_updated_at": "2026-10-02T09:07:51Z"
     },
     {
       "project": "HSR-Voice-Archive-Builder",
@@ -155,8 +155,8 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "default_branch": "main",
-      "head_sha": "d62dd49637fe4660ca6c0acdb3d78b3bbf606a96",
-      "head_commit_date": "2026-10-02T07:57:59Z",
+      "head_sha": "5cf3acd7132eb1eb2a2ec7df7ff599af10fc42ed",
+      "head_commit_date": "2026-10-02T09:08:03Z",
       "tracked_workflows": [
         {
           "name": "Build Android Native Core Release",
@@ -222,7 +222,7 @@
           "status": "completed",
           "conclusion": "success",
           "head_sha": "d62dd49637fe4660ca6c0acdb3d78b3bbf606a96",
-          "head_matches_main": true,
+          "head_matches_main": false,
           "run_id": 36981380113,
           "run_number": 159,
           "event": "push",
@@ -233,29 +233,29 @@
       ],
       "pending_intake": 19,
       "triage_records": 20,
-      "knowledge_records": 15,
-      "source_updated_at": "2026-10-02T07:58:57Z"
+      "knowledge_records": 16,
+      "source_updated_at": "2026-10-02T09:08:03Z"
     },
     {
       "project": "UIGS-Foundry",
       "repository": "11576865/UIGS-Foundry",
       "default_branch": "main",
-      "head_sha": "cb190ac838668ce684377998c432d2aeba232842",
-      "head_commit_date": "2026-10-02T09:05:28Z",
+      "head_sha": "31895e2525f89589af783984892e6b1d7a0af69c",
+      "head_commit_date": "2026-10-02T09:11:40Z",
       "tracked_workflows": [
         {
           "name": "Validate Foundry",
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "2a15f7cfd8c4e04c5ce8234fa25f898e4f41d895",
+          "head_sha": "0e7387d23fd75bb13cafc5348850c768d03ef31a",
           "head_matches_main": false,
-          "run_id": 36987745386,
-          "run_number": 33,
+          "run_id": 36988346799,
+          "run_number": 35,
           "event": "push",
-          "created_at": "2026-10-02T09:05:13Z",
-          "updated_at": "2026-10-02T09:05:26Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36987745386"
+          "created_at": "2026-10-02T09:11:26Z",
+          "updated_at": "2026-10-02T09:11:37Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36988346799"
         },
         {
           "name": "Collect UIGS Outboxes",
@@ -290,14 +290,14 @@
           "found": true,
           "status": "in_progress",
           "conclusion": "",
-          "head_sha": "2a15f7cfd8c4e04c5ce8234fa25f898e4f41d895",
+          "head_sha": "0e7387d23fd75bb13cafc5348850c768d03ef31a",
           "head_matches_main": false,
-          "run_id": 36987745486,
-          "run_number": 11,
+          "run_id": 36988346648,
+          "run_number": 12,
           "event": "push",
-          "created_at": "2026-10-02T09:05:13Z",
-          "updated_at": "2026-10-02T09:05:17Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36987745486"
+          "created_at": "2026-10-02T09:11:26Z",
+          "updated_at": "2026-10-02T09:11:30Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36988346648"
         },
         {
           "name": "Capture UI Reference Baselines",
@@ -332,14 +332,14 @@
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "2a15f7cfd8c4e04c5ce8234fa25f898e4f41d895",
+          "head_sha": "0e7387d23fd75bb13cafc5348850c768d03ef31a",
           "head_matches_main": false,
-          "run_id": 36987745372,
-          "run_number": 11,
+          "run_id": 36988346867,
+          "run_number": 12,
           "event": "push",
-          "created_at": "2026-10-02T09:05:13Z",
-          "updated_at": "2026-10-02T09:05:23Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36987745372"
+          "created_at": "2026-10-02T09:11:26Z",
+          "updated_at": "2026-10-02T09:11:35Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36988346867"
         },
         {
           "name": "Review UIGS Promotion",
@@ -352,9 +352,9 @@
       ],
       "pending_intake": 0,
       "triage_records": 0,
-      "knowledge_records": 12,
-      "source_updated_at": "2026-10-02T09:05:28Z"
+      "knowledge_records": 13,
+      "source_updated_at": "2026-10-02T09:11:40Z"
     }
   ],
-  "source_max_updated_at": "2026-10-02T09:05:28Z"
+  "source_max_updated_at": "2026-10-02T09:11:40Z"
 }
