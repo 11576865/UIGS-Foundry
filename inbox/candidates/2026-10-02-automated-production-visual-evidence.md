@@ -57,6 +57,18 @@ Use an emulator/instrumentation capture path. Build the real app, launch a deter
 
 Capture fixture-backed UI states separately from runtime-backed states. A Windows runner can start the real native bridge and browser frontend for bridge-dependent evidence.
 
+## Capture adapter model
+
+The capture mechanism is not a crawler. Foundry dispatches a declared state to a platform-specific test/capture adapter.
+
+- Web: browser automation drives the real product and captures a declared selector/viewport.
+- Android full app: an emulator installs and launches the real APK, configures a declared device profile, waits for the state to settle, and captures the Android compositor output.
+- Android component snapshot: a faster lower-tier adapter may render deterministic Compose/component states.
+- Renderer-backed Android: fixture-backed video/subtitle/native-renderer states require full runtime/compositor capture.
+- Native-host Web: a Windows runner may start the real host/bridge before browser capture.
+
+Android evidence therefore has a useful ladder: component snapshot -> full-app emulator capture -> renderer-backed capture -> optional field-device capture. Lower tiers must not be relabeled as higher tiers.
+
 ## Orchestration
 
 Prefer Foundry as the control-plane runner:

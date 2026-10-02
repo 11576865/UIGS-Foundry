@@ -1,0 +1,1 @@
+# Production Visual Evidence\n\nMachine-captured real-product screenshots live here with immutable source provenance. This layer is separate from Foundry reference demos and visual baselines.\n

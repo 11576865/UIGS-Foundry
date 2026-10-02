@@ -32,6 +32,10 @@ jobs:
         run: python tools/test_ui_pattern_query.py
       - name: Unit-test UI showcase manifests
         run: python tools/test_ui_showcases.py
+      - name: Unit-test production visual evidence
+        run: |
+          python tools/test_register_visual_evidence.py
+          python tools/build_visual_evidence_index.py --check
       - name: Unit-test UI production realizations
         run: |
           python tools/test_ui_realizations.py

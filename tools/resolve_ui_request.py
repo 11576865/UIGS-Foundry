@@ -10,6 +10,7 @@ import query_ui_surfaces as surfaces_query
 ROOT=Path(__file__).resolve().parents[1]
 PATTERN_INDEX=ROOT/"domains"/"interface-grammar"/"search"/"index.json"
 SURFACE_INDEX=ROOT/"domains"/"interface-grammar"/"inventory"/"index.json"
+VISUAL_INDEX=ROOT/"domains"/"interface-grammar"/"visual-evidence"/"index.json"
 
 def load(path:Path)->Any:return json.loads(path.read_text(encoding="utf-8"))
 
@@ -23,7 +24,8 @@ def _pattern_row(row:dict[str,Any],source:str)->dict[str,Any]:
         "source_path":row.get("source_path",""),"selection_source":source,"score":0.0,"reasons":[source]
     }
 
-def resolve(text:str,pattern_index:dict[str,Any],surface_index:dict[str,Any],recipes:list[dict[str,Any]])->dict[str,Any]:
+def resolve(text:str,pattern_index:dict[str,Any],surface_index:dict[str,Any],recipes:list[dict[str,Any]],visual_index:dict[str,Any]|None=None)->dict[str,Any]:
+    visual_index=visual_index or {"by_surface":{}}
     plan=composition.plan(text,pattern_index,recipes)
     pattern_map={row["id"]:row for row in pattern_index.get("patterns",[])}
     selected={row["id"]:dict(row) for row in plan.get("patterns",[])}
@@ -86,9 +88,14 @@ def resolve(text:str,pattern_index:dict[str,Any],surface_index:dict[str,Any],rec
         if not merged.get("showcases"):gaps.append({"subject":pid,"kind":"showcase"})
         if not merged.get("validation"):gaps.append({"subject":pid,"kind":"pattern-validation"})
 
+    visual_records=[];visual_seen=set()
     for surface in concrete_rows:
-        if not surface.get("visual_evidence"):
-            gaps.append({"subject":surface["id"],"kind":"production-visual-evidence"})
+        evidence=visual_index.get("by_surface",{}).get(surface["id"],[])
+        surface["production_visual_evidence"]=evidence
+        if not evidence:gaps.append({"subject":surface["id"],"kind":"production-visual-evidence"})
+        for item in evidence:
+            eid=item.get("id")
+            if eid and eid not in visual_seen:visual_seen.add(eid);visual_records.append(item)
 
     return {
         "query":text,
@@ -98,12 +105,13 @@ def resolve(text:str,pattern_index:dict[str,Any],surface_index:dict[str,Any],rec
         "concrete_surfaces":concrete_rows,
         "production_realizations":realizations,
         "showcases":showcases,
+        "production_visual_evidence":visual_records,
         "evidence_gaps":gaps
     }
 
 def main()->int:
     p=argparse.ArgumentParser();p.add_argument("query");p.add_argument("--json",action="store_true");args=p.parse_args()
-    result=resolve(args.query,load(PATTERN_INDEX),load(SURFACE_INDEX),composition.load_recipes())
+    result=resolve(args.query,load(PATTERN_INDEX),load(SURFACE_INDEX),composition.load_recipes(),load(VISUAL_INDEX) if VISUAL_INDEX.is_file() else None)
     if args.json:print(json.dumps(result,ensure_ascii=False,indent=2));return 0
     print("Patterns:")
     for row in result["patterns"]:print(f"- {row['id']} source={row.get('selection_source','query')}")

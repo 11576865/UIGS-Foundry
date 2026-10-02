@@ -17,6 +17,7 @@ def build()->dict[str,Any]:
     inventory=load(ROOT/"domains/interface-grammar/inventory/coverage.json",{})
     realizations=load(ROOT/"domains/interface-grammar/realizations/coverage.json",{})
     showcases=load(ROOT/"domains/interface-grammar/showcases/coverage.json",{})
+    visual=load(ROOT/"domains/interface-grammar/visual-evidence/coverage.json",{})
     state=load(ROOT/"reports/generated/ui-realization-state.json",{"realizations":[]})
     realization_rows=state.get("realizations",[])
     recipe_count=len(list((ROOT/"domains/interface-grammar/compositions/recipes").glob("*.json")))
@@ -25,7 +26,7 @@ def build()->dict[str,Any]:
       "pattern_count":int(patterns.get("pattern_count",0)),
       "composition_recipe_count":recipe_count,
       "source_inventory":{"covered":int(inventory.get("with_ui_inventory",0)),"total":int(inventory.get("sources_total",0)),"declared_empty":inventory.get("declared_empty_ui",[])},
-      "concrete_surfaces":{"total":int(inventory.get("total_surfaces",0)),"pattern_linked":int(inventory.get("with_pattern_links",0)),"with_production_visual_evidence":int(inventory.get("with_visual_evidence",0))},
+      "concrete_surfaces":{"total":int(inventory.get("total_surfaces",0)),"pattern_linked":int(inventory.get("with_pattern_links",0)),"with_production_visual_evidence":int(visual.get("with_production_visual_evidence",0))},
       "production_realization_pattern_coverage":{"covered":int(realizations.get("with_production_implementation",0)),"total":int(realizations.get("total_patterns",0))},
       "reference_demo_pattern_coverage":{"covered":int(showcases.get("with_reference_demo",0)),"total":int(showcases.get("total_patterns",0))},
       "visual_baseline_pattern_coverage":{"covered":int(showcases.get("with_visual_baseline",0)),"total":int(showcases.get("total_patterns",0))},
