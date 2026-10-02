@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "proposal_id": "proposal.chat.quick-hardsub.windows-hidden-startup-failure.20261002T074700Z",
+  "proposal_status": "review_required",
+  "packet_id": "chat.quick-hardsub.windows-hidden-startup-failure.20261002T074700Z",
+  "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+  "packet_sha256": "3693593f5b8e50c77ebda29e2213ca50cde2297270110e48a07c11044f07fbce",
+  "suggested_record": {
+    "id": "BUG.QUICK_AUTOMATIC_HARDSUB_ENCODER.HIDDEN_WINDOWS_LAUNCHER_MAKES_NATIVE_START.37888EB2",
+    "type": "bug",
+    "status": "observed",
+    "title": "Hidden Windows launcher makes native startup failures look like an unexplained flash-exit",
+    "summary": "Resolved Quick-Automatic-Hardsub-Encoder Windows startup regression: `Find-NativeTool` used a malformed/unsafe PowerShell `return if(...)` construct while resolving ffmpeg/ffprobe. The fix replaces it with explicit branch returns. A targeted Windows smoke assertion now executes `Find-NativeTool 'ffmpeg'` and `'ffprobe'`, and the full Windows local smoke job passed before PR #28 was squash-merged to main. The normal launcher still hides the Bridge process, so startup-failure observability remains a separate hardening concern.",
+    "domains": [
+      "reliability"
+    ],
+    "tags": [
+      "diagnostics",
+      "failure-visibility",
+      "reliability",
+      "startup",
+      "windows"
+    ],
+    "provenance": [
+      {
+        "source_type": "repository",
+        "source": "11576865/Quick-Automatic-Hardsub-Encoder",
+        "revision": "3329621050109b51c825b3986bca3c66d1b1c79e",
+        "evidence_level": "durable intake packet",
+        "note": "chat.quick-hardsub.windows-hidden-startup-failure.20261002T074700Z"
+      }
+    ],
+    "links": [
+      "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder"
+    ],
+    "source_packet": "chat.quick-hardsub.windows-hidden-startup-failure.20261002T074700Z",
+    "evidence_summary": {
+      "root_cause_resolved": true,
+      "fix_present": true,
+      "regression_evidence_present": true
+    }
+  },
+  "evidence_assessment": {
+    "root_cause_resolved": true,
+    "fix_present": true,
+    "regression_evidence_present": true
+  },
+  "dedupe_candidates": [],
+  "related_records": [],
+  "triage_status": "ready-for-record",
+  "proposed_at": "2026-10-02T07:58:24+00:00"
+}
