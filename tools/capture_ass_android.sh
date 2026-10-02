@@ -21,7 +21,24 @@ test -s "$OUTDIR/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png"
 python "$GITHUB_WORKSPACE/tools/assert_png_orientation.py" "$OUTDIR/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png" landscape
 
 adb install -r "$GITHUB_WORKSPACE/.capture/ass/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
-adb shell am instrument -w -e class io.github.assworkbench.app.UigsVisualCaptureInstrumentedTest io.github.assworkbench.app.test/androidx.test.runner.AndroidJUnitRunner
+
+python - <<'PY' > "$RUNNER_TEMP/ass-instrumentation-classes.list"
+import json
+data=json.load(open(".capture/ass/.uigs/ui-visual-capture.json",encoding="utf-8"))
+classes=[]
+for capture in data["captures"]:
+    cls=capture.get("build",{}).get("test_class")
+    if cls and cls not in classes:
+        classes.append(cls)
+for cls in classes:
+    print(cls)
+PY
+
+while IFS= read -r TEST_CLASS; do
+  test -n "$TEST_CLASS"
+  echo "Running UIGS Android capture class: $TEST_CLASS"
+  adb shell am instrument -w -e class "$TEST_CLASS" io.github.assworkbench.app.test/androidx.test.runner.AndroidJUnitRunner
+done < "$RUNNER_TEMP/ass-instrumentation-classes.list"
 
 python - <<'PY' > "$RUNNER_TEMP/ass-instrumented-captures.list"
 import json
