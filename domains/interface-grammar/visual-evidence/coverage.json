@@ -1,7 +1,7 @@
 {
   "version": 1,
   "total_surfaces": 63,
-  "with_production_visual_evidence": 0,
+  "with_production_visual_evidence": 1,
   "missing_production_visual_evidence": [
     "ASS.PREVIEW.VIDEO",
     "ASS.TOOL.BATCH",
@@ -49,7 +49,6 @@
     "MKV.STAGE.ADJUST",
     "MKV.STAGE.BATCH",
     "MKV.STAGE.INPUT",
-    "MKV.STAGE.OUTPUT_HUB",
     "QHE.DIAGNOSTICS.ENVIRONMENT",
     "QHE.ENCODE.ACTION_CARD",
     "QHE.HELP.RUNTIME",
@@ -67,5 +66,5 @@
     "QHE.SHELL.WORKFLOW_HEADER",
     "QHE.STATUS.TASK_OVERVIEW"
   ],
-  "evidence_records": 0
+  "evidence_records": 1
 }

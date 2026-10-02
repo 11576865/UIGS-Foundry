@@ -1,0 +1,79 @@
+{
+  "$schema": "../../../../schemas/ui-production-visual-evidence.schema.json",
+  "id": "VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",
+  "record_type": "ui-production-visual-evidence",
+  "status": "experimental",
+  "evidence_level": "production-rendered",
+  "platform": "web",
+  "capture_id": "MKV.OUTPUT_HUB.DESKTOP_DARK",
+  "surface_ids": [
+    "MKV.STAGE.OUTPUT_HUB"
+  ],
+  "patterns": [
+    "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+  ],
+  "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
+  "source_repository": "11576865/MKV-Fast-Muxer",
+  "source_revision": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
+  "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+  "image": {
+    "width": 1134,
+    "height": 615
+  },
+  "environment": {
+    "schema_version": 1,
+    "capture_id": "MKV.OUTPUT_HUB.DESKTOP_DARK",
+    "surface_ids": [
+      "MKV.STAGE.OUTPUT_HUB"
+    ],
+    "adapter": "playwright-web",
+    "evidence_level": "production-rendered",
+    "browser": {
+      "name": "chromium",
+      "version": "153.0.8010.12"
+    },
+    "target_url": "http://127.0.0.1:4173/",
+    "viewport": {
+      "width": 1180,
+      "height": 900,
+      "deviceScaleFactor": 1
+    },
+    "color_scheme": "dark",
+    "locale": "zh-CN",
+    "selector": ".output-hub"
+  },
+  "capture_contract": {
+    "adapter": "playwright-web",
+    "route": "/",
+    "selector": ".output-hub",
+    "capture_region": "element",
+    "viewport": {
+      "width": 1180,
+      "height": 900,
+      "device_scale_factor": 1
+    },
+    "device": null,
+    "ready": {
+      "selector": ".output-hub",
+      "state": "visible",
+      "settle_ms": 800
+    }
+  },
+  "change_status": "new",
+  "previous_sha256": null,
+  "limitations": [],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/MKV-Fast-Muxer",
+      "revision": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
+      "evidence_level": "production-rendered"
+    },
+    {
+      "source_type": "capture-contract",
+      "source": "11576865/MKV-Fast-Muxer:ui-visual-capture.json",
+      "revision": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
+      "evidence_level": "source-owned capture declaration"
+    }
+  ]
+}

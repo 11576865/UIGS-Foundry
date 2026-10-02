@@ -1,7 +1,30 @@
 {
   "version": 1,
-  "evidence_count": 0,
-  "evidence": [],
+  "evidence_count": 1,
+  "evidence": [
+    {
+      "id": "VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",
+      "evidence_level": "production-rendered",
+      "platform": "web",
+      "capture_id": "MKV.OUTPUT_HUB.DESKTOP_DARK",
+      "surface_ids": [
+        "MKV.STAGE.OUTPUT_HUB"
+      ],
+      "patterns": [
+        "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+      ],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
+      "source_repository": "11576865/MKV-Fast-Muxer",
+      "source_revision": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
+      "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+      "image": {
+        "width": 1134,
+        "height": 615
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
+    }
+  ],
   "by_surface": {
     "ASS.PREVIEW.VIDEO": [],
     "ASS.TOOL.BATCH": [],
@@ -49,7 +72,30 @@
     "MKV.STAGE.ADJUST": [],
     "MKV.STAGE.BATCH": [],
     "MKV.STAGE.INPUT": [],
-    "MKV.STAGE.OUTPUT_HUB": [],
+    "MKV.STAGE.OUTPUT_HUB": [
+      {
+        "id": "VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK",
+        "evidence_level": "production-rendered",
+        "platform": "web",
+        "capture_id": "MKV.OUTPUT_HUB.DESKTOP_DARK",
+        "surface_ids": [
+          "MKV.STAGE.OUTPUT_HUB"
+        ],
+        "patterns": [
+          "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
+        "source_repository": "11576865/MKV-Fast-Muxer",
+        "source_revision": "f78f00c57fb1fc3a07c033092b3f8d34ffdbf4c8",
+        "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+        "image": {
+          "width": 1134,
+          "height": 615
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
+      }
+    ],
     "QHE.DIAGNOSTICS.ENVIRONMENT": [],
     "QHE.ENCODE.ACTION_CARD": [],
     "QHE.HELP.RUNTIME": [],
