@@ -1,0 +1,37 @@
+{
+  "id": "OPS.UIGS.SOURCE_OWNED_UI_INVENTORY",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "具体 UI 清单由源项目拥有，Foundry 只做跨项目规范化索引",
+  "summary": "数百个具体界面、工具、面板、对话框和工作区不应被强行提升为数百条 Grammar Pattern。产品仓库通过 .uigs/ui-surfaces.json 持有具体 UI 清单；Foundry 按稳定 Surface ID 收集实现位置、实际效果、Pattern 关系、测试和视觉证据，形成派生索引。",
+  "principles": [
+    "The product repository is authoritative for concrete UI surface existence and implementation location.",
+    "Foundry owns the cross-project index, schemas and reusable Pattern semantics, not duplicate product source.",
+    "Concrete Surface IDs remain stable across presentation refactors when product identity is stable.",
+    "A concrete Surface may map to zero, one or multiple reusable Patterns.",
+    "Implementation effect, source references, tests and visual evidence are separate fields.",
+    "Missing production visual evidence is explicit and must not be filled with Foundry reference-demo images.",
+    "Missing project inventory is reported as coverage debt rather than invented from guesswork."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/ASS-Workbench-Android:.uigs/ui-surfaces.json",
+      "revision": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "evidence_level": "source-owned UI inventory"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/HSR-Voice-Archive-Builder:.uigs/ui-surfaces.json",
+      "revision": "62df3afe483618df11d34fe973a767ab2ae9fd76",
+      "evidence_level": "source-owned UI inventory"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/MKV-Fast-Muxer:.uigs/ui-surfaces.json",
+      "revision": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "evidence_level": "source-owned UI inventory"
+    }
+  ],
+  "created": "2026-10-02"
+}

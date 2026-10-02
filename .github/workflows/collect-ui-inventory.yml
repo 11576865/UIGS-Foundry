@@ -1,0 +1,54 @@
+name: Collect UI Surface Inventory
+
+on:
+  schedule:
+    - cron: '47 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'outbox/sources.json'
+      - 'schemas/project-ui-inventory.schema.json'
+      - 'schemas/project-adapter.schema.json'
+      - 'tools/collect_ui_inventory.py'
+      - 'tools/query_ui_surfaces.py'
+      - 'tools/test_ui_inventory.py'
+      - 'tools/test_ui_surface_query.py'
+      - '.github/workflows/collect-ui-inventory.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-ui-inventory
+  cancel-in-progress: true
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Collect source-owned inventories
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python tools/collect_ui_inventory.py
+      - name: Test inventory and concrete-surface retrieval
+        run: |
+          python tools/test_ui_inventory.py
+          python tools/test_ui_surface_query.py
+      - name: Commit changed inventory index and report
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/inventory reports/generated/ui-surface-inventory.md)" ]]; then
+            echo "UI surface inventory unchanged."
+            exit 0
+          fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add -A domains/interface-grammar/inventory reports/generated/ui-surface-inventory.md
+          git commit -m "chore(uigs): refresh source-owned UI surface inventory"
+          bash tools/push_with_rebase_retry.sh main 5

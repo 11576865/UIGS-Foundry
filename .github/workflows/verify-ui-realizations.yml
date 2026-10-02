@@ -11,6 +11,7 @@ on:
       - 'schemas/ui-realization.schema.json'
       - 'tools/verify_ui_realizations.py'
       - 'tools/test_ui_realizations.py'
+      - 'tools/test_verify_ui_realizations.py'
       - '.github/workflows/verify-ui-realizations.yml'
 
 permissions:
@@ -32,6 +33,7 @@ jobs:
         run: |
           python tools/build_ui_realization_index.py
           python tools/test_ui_realizations.py
+          python tools/test_verify_ui_realizations.py
       - name: Verify immutable source provenance and currentness
         env:
           GITHUB_TOKEN: ${{ github.token }}

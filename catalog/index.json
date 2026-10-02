@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "1.8",
+  "version": "1.9",
   "domains": [
     {
       "id": "interface-grammar",
@@ -321,6 +321,16 @@
       "id": "OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE",
       "status": "experimental",
       "path": "domains/operations/patterns/OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.json"
+    },
+    {
+      "id": "REL.PROVENANCE.PATH_CONTENT_CURRENTNESS",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.PROVENANCE.PATH_CONTENT_CURRENTNESS.json"
+    },
+    {
+      "id": "OPS.UIGS.SOURCE_OWNED_UI_INVENTORY",
+      "status": "experimental",
+      "path": "domains/operations/patterns/OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.json"
     }
   ],
   "projects": [
@@ -343,6 +353,7 @@
     "schemas/promotion-proposal.schema.json",
     "schemas/ui-showcase.schema.json",
     "schemas/ui-composition.schema.json",
-    "schemas/ui-realization.schema.json"
+    "schemas/ui-realization.schema.json",
+    "schemas/project-ui-inventory.schema.json"
   ]
 }
