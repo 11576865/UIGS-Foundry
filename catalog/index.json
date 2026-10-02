@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "1.0",
+  "version": "1.1",
   "domains": [
     {
       "id": "interface-grammar",
@@ -266,6 +266,11 @@
       "id": "REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
       "status": "experimental",
       "path": "domains/reliability/patterns/REL.CI.HEAD_COVERAGE_AWARE_REPORTING.json"
+    },
+    {
+      "id": "OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL",
+      "status": "experimental",
+      "path": "domains/operations/patterns/OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.json"
     }
   ],
   "projects": [
@@ -284,6 +289,7 @@
     "schemas/intake-packet.schema.json",
     "schemas/project-adapter.schema.json",
     "schemas/triage-record.schema.json",
-    "schemas/project-state.schema.json"
+    "schemas/project-state.schema.json",
+    "schemas/promotion-proposal.schema.json"
   ]
 }

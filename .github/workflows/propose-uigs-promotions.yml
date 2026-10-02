@@ -1,0 +1,49 @@
+name: Propose UIGS Promotions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'outbox/pending/**'
+      - 'outbox/triage/**'
+      - 'catalog/**'
+      - 'tools/propose_promotions.py'
+      - 'tools/test_propose_promotions.py'
+      - '.github/workflows/propose-uigs-promotions.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-promotion-proposals
+  cancel-in-progress: false
+
+jobs:
+  propose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Test proposal logic
+        run: python tools/test_propose_promotions.py
+      - name: Generate reviewable proposals
+        run: python tools/propose_promotions.py
+      - name: Validate Foundry
+        run: python tools/validate_foundry.py
+      - name: Commit changed proposals
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain -- outbox/proposals)" ]]; then
+            echo "No proposal changes."
+            exit 0
+          fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add -A outbox/proposals
+          git commit -m "chore(intake): generate reviewable promotion proposals"
+          git pull --rebase origin main
+          git push origin HEAD:main

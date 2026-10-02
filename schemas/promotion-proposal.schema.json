@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/promotion-proposal.schema.json",
+  "title": "UIGS Promotion Proposal",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "proposal_id",
+    "proposal_status",
+    "packet_id",
+    "source_repository",
+    "packet_sha256",
+    "suggested_record",
+    "dedupe_candidates"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "proposal_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "proposal_status": {
+      "const": "review_required"
+    },
+    "packet_id": {
+      "type": "string"
+    },
+    "source_repository": {
+      "type": "string"
+    },
+    "packet_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "suggested_record": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "status",
+        "title",
+        "summary",
+        "domains",
+        "tags",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "type": {
+          "enum": [
+            "observation",
+            "candidate",
+            "bug",
+            "case",
+            "test",
+            "lesson"
+          ]
+        },
+        "status": {
+          "enum": [
+            "observed",
+            "candidate"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "provenance": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "evidence_assessment": {
+      "type": "object"
+    },
+    "dedupe_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "related_records": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

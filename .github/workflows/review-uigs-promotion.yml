@@ -1,0 +1,60 @@
+name: Review UIGS Promotion
+
+on:
+  workflow_dispatch:
+    inputs:
+      proposal_path:
+        description: Path under outbox/proposals
+        required: true
+        type: string
+      decision:
+        description: Review decision
+        required: true
+        type: choice
+        options: [accept, reject]
+      record_id:
+        description: Optional accepted record ID override
+        required: false
+        type: string
+      status:
+        description: Accepted intake maturity
+        required: true
+        default: observed
+        type: choice
+        options: [observed, candidate]
+      reason:
+        description: Review note
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply explicit review decision
+        run: >-
+          python tools/review_promotion.py
+          --proposal "${{ inputs.proposal_path }}"
+          --decision "${{ inputs.decision }}"
+          --status "${{ inputs.status }}"
+          --record-id "${{ inputs.record_id }}"
+          --reason "${{ inputs.reason }}"
+      - name: Validate Foundry
+        run: python tools/validate_foundry.py
+      - name: Commit review
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add -A outbox/reviews intake/records
+          git commit -m "chore(intake): review promotion proposal"
+          git pull --rebase origin main
+          git push origin HEAD:main

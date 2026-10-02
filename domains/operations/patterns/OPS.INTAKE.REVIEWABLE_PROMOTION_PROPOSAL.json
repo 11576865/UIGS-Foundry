@@ -1,0 +1,29 @@
+{
+  "id": "OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "自动生成可审查晋升提案，而不是自动升格知识",
+  "summary": "Intake 自动化应把事实整理成可审查 Proposal：建议记录类型、低成熟度状态、provenance、可能重复项和证据强度；真正落成 typed record 需要显式 accept/reject，且自动路径不得越过 observed/candidate。",
+  "principles": [
+    "Evidence packets remain immutable after collection.",
+    "Proposal generation is deterministic and repeatable from packet plus triage state.",
+    "Duplicate candidates are suggestions, not automatic merges.",
+    "Automatic proposals may suggest only observed or candidate maturity.",
+    "Acceptance creates a typed intake record, not Canonical knowledge.",
+    "Rejected proposals remain auditable through a review ledger."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "implementation 2026-10-02",
+      "evidence_level": "implemented intake control plane"
+    },
+    {
+      "source_type": "manual_decision",
+      "source": "UIGS operationalization continuation 2026-10-02",
+      "evidence_level": "explicit implementation authorization"
+    }
+  ],
+  "created": "2026-10-02"
+}
