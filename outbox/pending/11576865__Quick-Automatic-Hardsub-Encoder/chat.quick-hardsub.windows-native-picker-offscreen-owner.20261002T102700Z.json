@@ -1,0 +1,27 @@
+{
+  "packet_version": 1,
+  "packet_id": "chat.quick-hardsub.windows-native-picker-offscreen-owner.20261002T102700Z",
+  "status": "pending",
+  "record_type": "bug",
+  "title": "Hidden Windows bridge can anchor native OpenFileDialog off-screen",
+  "summary": "A Windows Native Bridge launched with a hidden PowerShell window created a 1x1 TopMost owner Form at (-32000,-32000) and used it as the modal OpenFileDialog owner. A real-user report observed that video could not be selected. The owner was moved onto the working area of the monitor under the cursor, brought to front before ShowDialog, and picker cancellation was made explicit so it cannot replay a stale prior selection. Hosted Windows CI can validate the implementation contract but cannot prove an interactive desktop dialog is visible; real-device confirmation remains required.",
+  "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+  "source_event": "chat_fix",
+  "source_ref": "ui/hardsub-workspace-redesign",
+  "source_sha": "b7fece013674de7375605a91da21756fe94ce92c",
+  "source_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/29",
+  "created_at": "2026-10-02T10:27:00Z",
+  "dedupe_key": "bug:windows-native-modal-picker-offscreen-owner",
+  "routing_hints": [
+    "reliability",
+    "windows-native",
+    "ui-interaction"
+  ],
+  "evidence": {
+    "symptom": "Windows version appeared unable to select a video.",
+    "root_cause_evidence": "Show-NativeOpenFileDialog used an invisible owner Form positioned at (-32000,-32000) and passed it to OpenFileDialog.ShowDialog(owner).",
+    "resolution_commit": "b7fece013674de7375605a91da21756fe94ce92c",
+    "regression_guard": "Windows local smoke rejects the off-screen anchor and requires cursor/screen-aware owner placement plus explicit cancellation.",
+    "validation_boundary": "CI success is implementation evidence only; interactive Windows device confirmation is still pending."
+  }
+}
