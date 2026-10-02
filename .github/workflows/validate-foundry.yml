@@ -24,7 +24,10 @@ jobs:
         run: python tools/test_collect_outboxes.py
       - name: Unit-test pending triage
         run: python tools/test_triage_pending.py
-      - name: Unit-test project-state reporting\n        run: python tools/test_project_state_report.py\n      - name: Validate registry and manifests\n        run: python tools/validate_foundry.py
+      - name: Unit-test project-state reporting
+        run: python tools/test_project_state_report.py
+      - name: Validate registry and manifests
+        run: python tools/validate_foundry.py
       - name: Generate inventory report
         run: python tools/generate_reports.py
       - name: Generate Red Reason report
