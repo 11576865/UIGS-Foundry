@@ -1,13 +1,14 @@
 # UIGS Red Reason Status
 
-Latest triage: none
-Triaged CI failures: 0
-Needs review: 0
+Latest triage: 2026-10-02T08:36:48+00:00
+Triaged CI failures: 18
+Needs review: 18
 
 ## Categories
-- none
+- unknown: 18
 
 ## By repository
-- none
+- 11576865/ASS-Workbench-Android: unknown=1
+- 11576865/Quick-Automatic-Hardsub-Encoder: unknown=17
 
 Automatic Red Reason classification is a triage aid, not a root-cause verdict.
