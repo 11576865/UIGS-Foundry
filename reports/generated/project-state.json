@@ -5,56 +5,56 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "default_branch": "main",
-      "head_sha": "da5670a408ca97a31900f71f8026d1c6079d6a3e",
-      "head_commit_date": "2026-10-02T10:19:03Z",
+      "head_sha": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
+      "head_commit_date": "2026-10-02T10:29:37Z",
       "tracked_workflows": [
         {
           "name": "Android CI",
           "found": true,
-          "status": "in_progress",
-          "conclusion": "",
-          "head_sha": "da5670a408ca97a31900f71f8026d1c6079d6a3e",
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
           "head_matches_main": true,
-          "run_id": 36994797513,
-          "run_number": 663,
+          "run_id": 36995778002,
+          "run_number": 670,
           "event": "push",
-          "created_at": "2026-10-02T10:19:06Z",
-          "updated_at": "2026-10-02T10:19:10Z",
-          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36994797513"
+          "created_at": "2026-10-02T10:29:46Z",
+          "updated_at": "2026-10-02T10:32:03Z",
+          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36995778002"
         },
         {
           "name": "Android Emulator Regression",
           "found": true,
           "status": "in_progress",
           "conclusion": "",
-          "head_sha": "da5670a408ca97a31900f71f8026d1c6079d6a3e",
+          "head_sha": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
           "head_matches_main": true,
-          "run_id": 36994797495,
-          "run_number": 288,
+          "run_id": 36995778046,
+          "run_number": 295,
           "event": "push",
-          "created_at": "2026-10-02T10:19:06Z",
-          "updated_at": "2026-10-02T10:19:46Z",
-          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36994797495"
+          "created_at": "2026-10-02T10:29:46Z",
+          "updated_at": "2026-10-02T10:29:57Z",
+          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36995778046"
         },
         {
           "name": "Fontconfig renderer native probe",
           "found": true,
-          "status": "queued",
+          "status": "in_progress",
           "conclusion": "",
-          "head_sha": "da5670a408ca97a31900f71f8026d1c6079d6a3e",
+          "head_sha": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
           "head_matches_main": true,
-          "run_id": 36994797566,
-          "run_number": 591,
+          "run_id": 36995778014,
+          "run_number": 597,
           "event": "push",
-          "created_at": "2026-10-02T10:19:06Z",
-          "updated_at": "2026-10-02T10:19:57Z",
-          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36994797566"
+          "created_at": "2026-10-02T10:29:46Z",
+          "updated_at": "2026-10-02T10:30:42Z",
+          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/36995778014"
         }
       ],
       "pending_intake": 1,
       "triage_records": 1,
-      "knowledge_records": 18,
-      "source_updated_at": "2026-10-02T10:19:57Z"
+      "knowledge_records": 20,
+      "source_updated_at": "2026-10-02T10:32:03Z"
     },
     {
       "project": "Character-Voice-Service",
@@ -155,8 +155,8 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "default_branch": "main",
-      "head_sha": "5cf3acd7132eb1eb2a2ec7df7ff599af10fc42ed",
-      "head_commit_date": "2026-10-02T09:08:03Z",
+      "head_sha": "436cfa662cd4ef0ab41a38c5b14eae019bf85014",
+      "head_commit_date": "2026-10-02T10:35:40Z",
       "tracked_workflows": [
         {
           "name": "Build Android Native Core Release",
@@ -177,85 +177,79 @@
         {
           "name": "Build Android and Deploy Frontend",
           "found": true,
-          "status": "completed",
-          "conclusion": "success",
-          "head_sha": "3300811cce41f828055bce1272dbd9c0eb9d3d48",
-          "head_matches_main": false,
-          "run_id": 36876457714,
-          "run_number": 265,
+          "status": "queued",
+          "conclusion": "",
+          "head_sha": "436cfa662cd4ef0ab41a38c5b14eae019bf85014",
+          "head_matches_main": true,
+          "run_id": 36996333480,
+          "run_number": 266,
           "event": "push",
-          "created_at": "2026-10-01T14:27:21Z",
-          "updated_at": "2026-10-01T14:29:32Z",
-          "html_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36876457714"
+          "created_at": "2026-10-02T10:35:43Z",
+          "updated_at": "2026-10-02T10:37:16Z",
+          "html_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36996333480"
         },
         {
           "name": "Compile Android media tasks",
-          "found": true,
-          "status": "completed",
-          "conclusion": "success",
-          "head_sha": "8d78d44f255f6e03a10d951aae3d5184e09d6d03",
-          "head_matches_main": false,
-          "run_id": 36851711759,
-          "run_number": 8,
-          "event": "push",
-          "created_at": "2026-10-01T10:51:19Z",
-          "updated_at": "2026-10-01T10:52:43Z",
-          "html_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36851711759"
+          "found": false,
+          "status": "unknown",
+          "conclusion": "unknown",
+          "head_sha": "",
+          "head_matches_main": false
         },
         {
           "name": "Test frontend",
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "3300811cce41f828055bce1272dbd9c0eb9d3d48",
-          "head_matches_main": false,
-          "run_id": 36876457693,
-          "run_number": 130,
+          "head_sha": "436cfa662cd4ef0ab41a38c5b14eae019bf85014",
+          "head_matches_main": true,
+          "run_id": 36996333463,
+          "run_number": 162,
           "event": "push",
-          "created_at": "2026-10-01T14:27:21Z",
-          "updated_at": "2026-10-01T14:46:23Z",
-          "html_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36876457693"
+          "created_at": "2026-10-02T10:35:43Z",
+          "updated_at": "2026-10-02T10:36:59Z",
+          "html_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36996333463"
         },
         {
           "name": "Windows local smoke",
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "d62dd49637fe4660ca6c0acdb3d78b3bbf606a96",
-          "head_matches_main": false,
-          "run_id": 36981380113,
-          "run_number": 159,
+          "head_sha": "436cfa662cd4ef0ab41a38c5b14eae019bf85014",
+          "head_matches_main": true,
+          "run_id": 36996333489,
+          "run_number": 204,
           "event": "push",
-          "created_at": "2026-10-02T07:58:02Z",
-          "updated_at": "2026-10-02T07:58:57Z",
-          "html_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36981380113"
+          "created_at": "2026-10-02T10:35:43Z",
+          "updated_at": "2026-10-02T10:36:42Z",
+          "html_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/36996333489"
         }
       ],
-      "pending_intake": 19,
-      "triage_records": 20,
+      "pending_intake": 21,
+      "triage_records": 21,
       "knowledge_records": 16,
-      "source_updated_at": "2026-10-02T09:08:03Z"
+      "source_updated_at": "2026-10-02T10:37:16Z"
     },
     {
       "project": "UIGS-Foundry",
       "repository": "11576865/UIGS-Foundry",
       "default_branch": "main",
-      "head_sha": "8855fcf424d32c413d76df03b19f7b9da0884780",
-      "head_commit_date": "2026-10-02T10:19:46Z",
+      "head_sha": "1d96685fa8681cbb99e2c9b68940d750bce440e4",
+      "head_commit_date": "2026-10-02T10:36:57Z",
       "tracked_workflows": [
         {
           "name": "Validate Foundry",
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "8855fcf424d32c413d76df03b19f7b9da0884780",
+          "head_sha": "1d96685fa8681cbb99e2c9b68940d750bce440e4",
           "head_matches_main": true,
-          "run_id": 36994866936,
-          "run_number": 50,
+          "run_id": 36996451517,
+          "run_number": 59,
           "event": "push",
-          "created_at": "2026-10-02T10:19:51Z",
-          "updated_at": "2026-10-02T10:20:05Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36994866936"
+          "created_at": "2026-10-02T10:37:02Z",
+          "updated_at": "2026-10-02T10:37:15Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36996451517"
         },
         {
           "name": "Collect UIGS Outboxes",
@@ -275,29 +269,29 @@
           "name": "Triage UIGS Pending",
           "found": true,
           "status": "completed",
-          "conclusion": "success",
-          "head_sha": "cdae726aa28e10e4d81cc4afca62ac09e635b20d",
+          "conclusion": "failure",
+          "head_sha": "44b12eddb66f028fb0a406bb0c8a1950f97339a7",
           "head_matches_main": false,
-          "run_id": 36985234897,
-          "run_number": 7,
+          "run_id": 36995583725,
+          "run_number": 9,
           "event": "push",
-          "created_at": "2026-10-02T08:38:58Z",
-          "updated_at": "2026-10-02T08:39:06Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36985234897"
+          "created_at": "2026-10-02T10:27:36Z",
+          "updated_at": "2026-10-02T10:27:56Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36995583725"
         },
         {
           "name": "Generate UIGS Project State",
           "found": true,
           "status": "in_progress",
           "conclusion": "",
-          "head_sha": "8855fcf424d32c413d76df03b19f7b9da0884780",
+          "head_sha": "1d96685fa8681cbb99e2c9b68940d750bce440e4",
           "head_matches_main": true,
-          "run_id": 36994866893,
-          "run_number": 16,
+          "run_id": 36996451473,
+          "run_number": 17,
           "event": "push",
-          "created_at": "2026-10-02T10:19:51Z",
-          "updated_at": "2026-10-02T10:19:55Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36994866893"
+          "created_at": "2026-10-02T10:37:02Z",
+          "updated_at": "2026-10-02T10:37:05Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36996451473"
         },
         {
           "name": "Capture UI Reference Baselines",
@@ -332,14 +326,14 @@
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "8855fcf424d32c413d76df03b19f7b9da0884780",
+          "head_sha": "1d96685fa8681cbb99e2c9b68940d750bce440e4",
           "head_matches_main": true,
-          "run_id": 36994866871,
-          "run_number": 16,
+          "run_id": 36996451535,
+          "run_number": 17,
           "event": "push",
-          "created_at": "2026-10-02T10:19:51Z",
-          "updated_at": "2026-10-02T10:19:59Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36994866871"
+          "created_at": "2026-10-02T10:37:02Z",
+          "updated_at": "2026-10-02T10:37:11Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/36996451535"
         },
         {
           "name": "Review UIGS Promotion",
@@ -353,8 +347,8 @@
       "pending_intake": 0,
       "triage_records": 0,
       "knowledge_records": 13,
-      "source_updated_at": "2026-10-02T10:20:05Z"
+      "source_updated_at": "2026-10-02T10:37:15Z"
     }
   ],
-  "source_max_updated_at": "2026-10-02T10:20:05Z"
+  "source_max_updated_at": "2026-10-02T10:37:16Z"
 }
