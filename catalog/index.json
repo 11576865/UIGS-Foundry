@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "2.3",
+  "version": "2.4",
   "domains": [
     {
       "id": "interface-grammar",
@@ -354,7 +354,7 @@
     },
     {
       "id": "BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED",
-      "status": "candidate",
+      "status": "validated",
       "path": "domains/reliability/bug-museum/BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED.json"
     }
   ],
