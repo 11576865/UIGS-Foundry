@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "pattern_count": 8,
+  "composition_recipe_count": 2,
+  "source_inventory": {
+    "covered": 5,
+    "total": 5,
+    "declared_empty": [
+      "11576865/Character-Voice-Service"
+    ]
+  },
+  "concrete_surfaces": {
+    "total": 62,
+    "pattern_linked": 20,
+    "with_production_visual_evidence": 0
+  },
+  "production_realization_pattern_coverage": {
+    "covered": 8,
+    "total": 8
+  },
+  "reference_demo_pattern_coverage": {
+    "covered": 8,
+    "total": 8
+  },
+  "visual_baseline_pattern_coverage": {
+    "covered": 8,
+    "total": 8
+  },
+  "realization_currentness": {
+    "records": 3,
+    "source_content_current": 3,
+    "revision_equals_head": 0
+  }
+}
