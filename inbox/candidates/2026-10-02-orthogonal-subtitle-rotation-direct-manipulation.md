@@ -1,0 +1,48 @@
+# Candidate: Orthogonal subtitle rotation as direct-manipulation geometry
+
+Status: **Candidate / single-observation**
+Date: 2026-10-02
+
+## Observation
+
+A user-provided Aegisub screen recording shows a visual typesetting interaction in which subtitle text is rotated around the screen-space X and Y axes. During manipulation, the rendered subtitle visibly compresses toward an edge-on state and re-expands after passing it, making the change legible as a spatial transformation rather than as a numeric-only parameter edit.
+
+## Reusable hypothesis
+
+For authoring tools whose output format already contains orthogonal rotation parameters, X/Y rotation should be treated as a first-class spatial manipulation capability rather than hidden as raw numeric fields.
+
+A robust UI contract should separate:
+
+- domain parameters (for ASS, likely the semantics corresponding to orthogonal rotation and rotation origin);
+- manipulation presentation (gizmo / drag proxy / gesture);
+- renderer-authoritative preview;
+- explicit write target and affected object;
+- transient preview during continuous manipulation and one formal commit at gesture end.
+
+The UI should make axis identity explicit and must not infer the user's intended axis from an ambiguous freeform gesture.
+
+## Why this may generalize
+
+The same interaction pattern can apply to 2.5D text/object editors, motion-graphics controls, subtitle authoring, and other parameterized visual editors where rotation exists in the domain model but is difficult to understand through numbers alone.
+
+## Evidence boundary
+
+This is based on one observed Aegisub interaction supplied by the user on 2026-10-02. It does **not** establish:
+- Aegisub's complete internal implementation;
+- exact ASS/libass mathematical behavior;
+- the best mobile gesture mapping;
+- accessibility behavior;
+- whether perspective/origin manipulation is coupled to the same tool.
+
+Before promotion, verify Aegisub behavior, ASS tag semantics, renderer differences, and mobile direct-manipulation ergonomics.
+
+## Related UIGS principles
+
+Consistent with:
+- renderer-authoritative feedback;
+- explicit user intent;
+- transient preview -> single commit;
+- semantic parameter / multiple presentations;
+- no ambiguous gesture inference.
+
+Do not promote to Canonical from this observation alone.
