@@ -1,0 +1,311 @@
+{
+  "version": 1,
+  "realization_count": 3,
+  "realizations": [
+    {
+      "id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+      "implementation_kind": "production",
+      "verification_status": "source-verified",
+      "platform": "android-compose",
+      "project": "ASS-Workbench-Android",
+      "repository": "11576865/ASS-Workbench-Android",
+      "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+      "patterns": [
+        {
+          "id": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
+          "role": "primary",
+          "note": "WorkbenchTool + ToolDescriptor provide stable tool identity, grouping, context kind, host hints and binding capabilities."
+        },
+        {
+          "id": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+          "role": "primary",
+          "note": "WorkspaceToolInstance owns Binding; different pinned Event targets create sibling instances instead of silently retargeting."
+        },
+        {
+          "id": "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+          "role": "primary",
+          "note": "WorkspaceEditScopeResolver derives WHO / WHERE / HOW MANY from canonical document state plus binding."
+        },
+        {
+          "id": "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
+          "role": "primary",
+          "note": "WorkbenchSurfaceController separates gesture candidate geometry from committed/saveable layout; viewport projection does not rewrite canonical geometry."
+        },
+        {
+          "id": "UIGS.INTERACTION.DISCOVERY_OVERLAY",
+          "role": "primary",
+          "note": "One InteractionOverlayRegistry aggregates semantic interaction proxies shared by workspace presentations."
+        }
+      ],
+      "source_files": [
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/WorkbenchToolCatalog.kt",
+          "blob_sha": "26693a044a5d7d541aef99165c723b719e37e5de",
+          "role": "stable capability catalog + tool metadata"
+        },
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceModel.kt",
+          "blob_sha": "1bb00e9f9d24811943cc1fa15eb82b3231f2b057",
+          "role": "ToolInstance identity + explicit binding + pinned sibling lifecycle"
+        },
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceEditScope.kt",
+          "blob_sha": "77281971deb58aeb07a74e1e03e453bb563cf955",
+          "role": "derived edit-scope explanation"
+        },
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceSurface.kt",
+          "blob_sha": "dd5c261986ae80246bf3ebe0f4b1d00918bf57c1",
+          "role": "committed surface state + viewport projection + versioned persistence"
+        },
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/workspace/WorkbenchSurfaceController.kt",
+          "blob_sha": "83b5fcfdc788196b30f62fcd24aae32de853f295",
+          "role": "transient gesture candidate owner + commit/cancel"
+        },
+        {
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/interaction/WorkspaceInteractionOverlay.kt",
+          "blob_sha": "b60639e5a342a5c0dbe921f57f3028747ef3a424",
+          "role": "shared interaction overlay registry"
+        }
+      ],
+      "validation_files": [
+        {
+          "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/WorkbenchToolCatalogTest.kt",
+          "blob_sha": "1ab3e2c98225f3c3bfab303a268574ecb4179698",
+          "kind": "catalog identity/geometry unit tests"
+        },
+        {
+          "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceEditScopeResolverTest.kt",
+          "blob_sha": "afd99966cde2511a70bd51dd36da8595f3c5c99f",
+          "kind": "scope/binding unit tests"
+        },
+        {
+          "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceStateTest.kt",
+          "blob_sha": "7d43653f9f9a3624e69fbad5388853eb56471b1c",
+          "kind": "pinned target lifecycle unit tests"
+        },
+        {
+          "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/workspace/WorkbenchSurfaceControllerTest.kt",
+          "blob_sha": "d1fe7594ba7b8b693dd2f6e407f6d9c3bbeb0084",
+          "kind": "candidate/commit/cancel geometry unit tests"
+        },
+        {
+          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/RodInteractionInstrumentedTest.kt",
+          "blob_sha": "22878ac6b0ed68e42c5efc88c7780190f43379de",
+          "kind": "interaction overlay instrumented tests"
+        }
+      ],
+      "implementation_effects": [
+        "A tool instance can remain bound to one Event while global Focus changes.",
+        "Missing pinned Events become explicit unresolved states rather than falling back to Focus.",
+        "Shared Style edits can expose the affected Event count before mutation.",
+        "Drag/resize cancellation restores committed window layout and only committed geometry is serialized.",
+        "Tool discovery and preview interaction can be hosted across fixed/Canvas presentations without duplicating domain ownership."
+      ],
+      "limitations": [
+        "Only some tools currently support explicit pinned Event binding; Canvas duplication must not be interpreted as universal independent target support.",
+        "This record proves production source mechanisms and tests, not a production screenshot or pixel baseline.",
+        "Renderer authority remains outside the interaction overlay; overlay anchors are not claimed as exact glyph hit-testing."
+      ],
+      "path": "domains/interface-grammar/realizations/manifests/REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL.json"
+    },
+    {
+      "id": "REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH",
+      "implementation_kind": "production",
+      "verification_status": "source-verified",
+      "platform": "web",
+      "project": "HSR-Voice-Archive-Builder",
+      "repository": "11576865/HSR-Voice-Archive-Builder",
+      "revision": "8777851bf8996c9a6fd8821f9ec8170e1d511922",
+      "patterns": [
+        {
+          "id": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+          "role": "primary",
+          "note": "Subtitle Style Workbench uses a dominant 16:9 preview and bounded right-side inspector."
+        },
+        {
+          "id": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+          "role": "primary",
+          "note": "Inspector sections and advanced controls are disclosed through semantic details groups instead of one flat parameter stack."
+        }
+      ],
+      "source_files": [
+        {
+          "path": "app/static/index.html",
+          "blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf",
+          "role": "production HTML/CSS/interaction implementation"
+        }
+      ],
+      "validation_files": [
+        {
+          "path": "tests/test_progress_ui.py",
+          "blob_sha": "0d159d9d003f029137d974859579012c7deef115",
+          "kind": "production UI contract tests for split geometry, sticky/static fallback and workbench structure"
+        }
+      ],
+      "implementation_effects": [
+        "The preview remains visually dominant rather than sharing equal width with a long form.",
+        "The inspector stays compact and scrollable on wide screens.",
+        "Low-frequency advanced controls do not permanently occupy the same hierarchy as primary controls.",
+        "Narrow layouts preserve reachability by stacking preview and controls vertically."
+      ],
+      "limitations": [
+        "Implementation lives in a large application HTML file rather than a reusable component package.",
+        "This record proves production source and contract tests, not a captured production visual state.",
+        "Reference Demo visuals in Foundry are not pixel copies of this product."
+      ],
+      "path": "domains/interface-grammar/realizations/manifests/REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH.json"
+    },
+    {
+      "id": "REALIZATION.WEB.MKV_FAST_MUXER.ADAPTIVE_OUTPUT_HUB",
+      "implementation_kind": "production",
+      "verification_status": "source-verified",
+      "platform": "web",
+      "project": "MKV-Fast-Muxer",
+      "repository": "11576865/MKV-Fast-Muxer",
+      "revision": "e625c2b04de052c37b740a363a1930e6477da317",
+      "patterns": [
+        {
+          "id": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+          "role": "conditional",
+          "note": "Output hub uses sticky bounded scrolling in selected viewport/pointer modes, but current wide desktop and portrait-tablet guards intentionally fall back to static flow."
+        }
+      ],
+      "source_files": [
+        {
+          "path": "index.html",
+          "blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2",
+          "role": "output-hub semantic markup"
+        },
+        {
+          "path": "src/style.css",
+          "blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4",
+          "role": "adaptive sticky/static pane realization"
+        }
+      ],
+      "validation_files": [
+        {
+          "path": "tests/preview-ui.test.mjs",
+          "blob_sha": "196e8195a9647623c983b3887fa55ea750b83aef",
+          "kind": "desktop static/no nested-scroll regression contract"
+        },
+        {
+          "path": "tests/desktop-layout.test.mjs",
+          "blob_sha": "2d22cda166cf235da744c4a9ef07cf5a00b0c087",
+          "kind": "portrait tablet layout guard tests"
+        }
+      ],
+      "implementation_effects": [
+        "Supporting output/review content can remain nearby on layouts where sticky behavior is useful.",
+        "Wide desktop uses available page height naturally and avoids an unnecessary nested scrollbar.",
+        "Portrait tablet/desktop-site browser geometry collapses to a safe single-column layout.",
+        "Sticky behavior is independent from the preview dialog's actual backdrop-filter blur."
+      ],
+      "limitations": [
+        "This is a conditional/adaptive realization, not a claim that the output hub is sticky in every desktop state.",
+        "The earlier glass-like appearance must not be inferred as backdrop blur; actual backdrop-filter usage belongs to the preview dialog backdrop.",
+        "This record proves source behavior and tests, not a production screenshot."
+      ],
+      "path": "domains/interface-grammar/realizations/manifests/REALIZATION.WEB.MKV_FAST_MUXER.ADAPTIVE_OUTPUT_HUB.json"
+    }
+  ],
+  "by_pattern": {
+    "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT": [
+      {
+        "realization_id": "REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH",
+        "platform": "web",
+        "project": "HSR-Voice-Archive-Builder",
+        "repository": "11576865/HSR-Voice-Archive-Builder",
+        "revision": "8777851bf8996c9a6fd8821f9ec8170e1d511922",
+        "role": "primary",
+        "verification_status": "source-verified",
+        "path": "domains/interface-grammar/realizations/manifests/REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH.json"
+      }
+    ],
+    "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE": [
+      {
+        "realization_id": "REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH",
+        "platform": "web",
+        "project": "HSR-Voice-Archive-Builder",
+        "repository": "11576865/HSR-Voice-Archive-Builder",
+        "revision": "8777851bf8996c9a6fd8821f9ec8170e1d511922",
+        "role": "primary",
+        "verification_status": "source-verified",
+        "path": "domains/interface-grammar/realizations/manifests/REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH.json"
+      }
+    ],
+    "UIGS.INTERACTION.DISCOVERY_OVERLAY": [
+      {
+        "realization_id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+        "platform": "android-compose",
+        "project": "ASS-Workbench-Android",
+        "repository": "11576865/ASS-Workbench-Android",
+        "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+        "role": "primary",
+        "verification_status": "source-verified",
+        "path": "domains/interface-grammar/realizations/manifests/REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL.json"
+      }
+    ],
+    "UIGS.NAVIGATION.CAPABILITY_CATALOG": [
+      {
+        "realization_id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+        "platform": "android-compose",
+        "project": "ASS-Workbench-Android",
+        "repository": "11576865/ASS-Workbench-Android",
+        "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+        "role": "primary",
+        "verification_status": "source-verified",
+        "path": "domains/interface-grammar/realizations/manifests/REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL.json"
+      }
+    ],
+    "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING": [
+      {
+        "realization_id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+        "platform": "android-compose",
+        "project": "ASS-Workbench-Android",
+        "repository": "11576865/ASS-Workbench-Android",
+        "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+        "role": "primary",
+        "verification_status": "source-verified",
+        "path": "domains/interface-grammar/realizations/manifests/REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL.json"
+      }
+    ],
+    "UIGS.WORKSPACE.SCOPE_TRANSPARENCY": [
+      {
+        "realization_id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+        "platform": "android-compose",
+        "project": "ASS-Workbench-Android",
+        "repository": "11576865/ASS-Workbench-Android",
+        "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+        "role": "primary",
+        "verification_status": "source-verified",
+        "path": "domains/interface-grammar/realizations/manifests/REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL.json"
+      }
+    ],
+    "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE": [
+      {
+        "realization_id": "REALIZATION.WEB.MKV_FAST_MUXER.ADAPTIVE_OUTPUT_HUB",
+        "platform": "web",
+        "project": "MKV-Fast-Muxer",
+        "repository": "11576865/MKV-Fast-Muxer",
+        "revision": "e625c2b04de052c37b740a363a1930e6477da317",
+        "role": "conditional",
+        "verification_status": "source-verified",
+        "path": "domains/interface-grammar/realizations/manifests/REALIZATION.WEB.MKV_FAST_MUXER.ADAPTIVE_OUTPUT_HUB.json"
+      }
+    ],
+    "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY": [
+      {
+        "realization_id": "REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL",
+        "platform": "android-compose",
+        "project": "ASS-Workbench-Android",
+        "repository": "11576865/ASS-Workbench-Android",
+        "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+        "role": "primary",
+        "verification_status": "source-verified",
+        "path": "domains/interface-grammar/realizations/manifests/REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL.json"
+      }
+    ]
+  }
+}

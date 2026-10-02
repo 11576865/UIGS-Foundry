@@ -1,0 +1,69 @@
+{
+  "$schema": "../../../../schemas/ui-realization.schema.json",
+  "id": "REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH",
+  "record_type": "ui-realization",
+  "implementation_kind": "production",
+  "verification_status": "source-verified",
+  "platform": "web",
+  "project": "HSR-Voice-Archive-Builder",
+  "repository": "11576865/HSR-Voice-Archive-Builder",
+  "default_branch": "main",
+  "revision": "8777851bf8996c9a6fd8821f9ec8170e1d511922",
+  "patterns": [
+    {
+      "id": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+      "role": "primary",
+      "note": "Subtitle Style Workbench uses a dominant 16:9 preview and bounded right-side inspector."
+    },
+    {
+      "id": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+      "role": "primary",
+      "note": "Inspector sections and advanced controls are disclosed through semantic details groups instead of one flat parameter stack."
+    }
+  ],
+  "source_files": [
+    {
+      "path": "app/static/index.html",
+      "blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf",
+      "role": "production HTML/CSS/interaction implementation"
+    }
+  ],
+  "mechanism": [
+    "Wide layout uses grid-template-columns:minmax(0,1fr) clamp(390px,26vw,460px).",
+    "Preview and inspector are sticky within the layout workspace on wide layouts; inspector owns bounded vertical overflow.",
+    "Inspector header/actions remain reachable while parameter content scrolls.",
+    "Advanced semantic groups use details/summary disclosure with stable underlying control identity.",
+    "Mobile/coarse-pointer rules return the inspector to static full-width document flow."
+  ],
+  "implementation_effects": [
+    "The preview remains visually dominant rather than sharing equal width with a long form.",
+    "The inspector stays compact and scrollable on wide screens.",
+    "Low-frequency advanced controls do not permanently occupy the same hierarchy as primary controls.",
+    "Narrow layouts preserve reachability by stacking preview and controls vertically."
+  ],
+  "responsive_contract": [
+    "Desktop/large layout: flexible preview + inspector clamped to 390–460px.",
+    "At max-width 960px, or coarse pointer up to 1200px, presentation becomes a one-column flow and the inspector becomes static.",
+    "Control identity and export behavior are preserved across presentation changes."
+  ],
+  "validation_files": [
+    {
+      "path": "tests/test_progress_ui.py",
+      "blob_sha": "0d159d9d003f029137d974859579012c7deef115",
+      "kind": "production UI contract tests for split geometry, sticky/static fallback and workbench structure"
+    }
+  ],
+  "limitations": [
+    "Implementation lives in a large application HTML file rather than a reusable component package.",
+    "This record proves production source and contract tests, not a captured production visual state.",
+    "Reference Demo visuals in Foundry are not pixel copies of this product."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/HSR-Voice-Archive-Builder",
+      "revision": "8777851bf8996c9a6fd8821f9ec8170e1d511922",
+      "evidence_level": "production UI source + regression tests"
+    }
+  ]
+}

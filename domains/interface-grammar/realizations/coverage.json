@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "total_patterns": 8,
+  "with_production_implementation": 8,
+  "missing_production_implementation": [],
+  "realization_records": 3,
+  "platform_pattern_links": {
+    "android-compose": 5,
+    "web": 3
+  },
+  "project_pattern_links": {
+    "ASS-Workbench-Android": 5,
+    "HSR-Voice-Archive-Builder": 2,
+    "MKV-Fast-Muxer": 1
+  }
+}

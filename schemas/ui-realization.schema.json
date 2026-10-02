@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/ui-realization.schema.json",
+  "title": "UIGS Production UI Realization",
+  "type": "object",
+  "required": [
+    "id",
+    "record_type",
+    "implementation_kind",
+    "verification_status",
+    "platform",
+    "project",
+    "repository",
+    "revision",
+    "patterns",
+    "source_files",
+    "implementation_effects",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^REALIZATION\\."
+    },
+    "record_type": {
+      "const": "ui-realization"
+    },
+    "implementation_kind": {
+      "enum": [
+        "production",
+        "reference"
+      ]
+    },
+    "verification_status": {
+      "enum": [
+        "source-linked",
+        "source-verified",
+        "stale",
+        "superseded"
+      ]
+    },
+    "platform": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "default_branch": {
+      "type": "string",
+      "default": "main"
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 7
+    },
+    "patterns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "role"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^UIGS\\."
+          },
+          "role": {
+            "enum": [
+              "primary",
+              "supporting",
+              "conditional"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "source_files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "blob_sha",
+          "role"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "blob_sha": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "mechanism": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "implementation_effects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "responsive_contract": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "blob_sha",
+          "kind"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "blob_sha": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "kind": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

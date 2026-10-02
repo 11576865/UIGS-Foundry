@@ -1,0 +1,36 @@
+{
+  "id": "OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "UI Pattern 的生产实现必须以不可变 revision + source path + blob identity 建立可核验 Realization",
+  "summary": "Pattern 描述可复用语义，Reference Demo 描述机制，而具体产品如何实现必须单独登记为 Platform Realization。Realization 绑定项目、平台、不可变 commit、源文件 blob、验证文件和限制；报告同时标记该 revision 是否仍等于项目当前 HEAD，避免把历史生产实现静默描述成当前实现。",
+  "principles": [
+    "Pattern semantics, generic realization recipe, production realization and production visual evidence are separate evidence classes.",
+    "Production realization provenance uses an immutable repository revision and file blob identities.",
+    "Currentness is reported independently from source verification.",
+    "One production realization may implement several composable Patterns, and one Pattern may have several platform/project realizations.",
+    "Adaptive/conditional implementations record the conditions under which a Pattern is active or deliberately falls back.",
+    "Source-linked implementation evidence must not be presented as pixel/visual production evidence."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/ASS-Workbench-Android",
+      "revision": "235f9c8d89408ea6832a87c05398c594462e03a1",
+      "evidence_level": "Android Compose production implementation"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/HSR-Voice-Archive-Builder",
+      "revision": "8777851bf8996c9a6fd8821f9ec8170e1d511922",
+      "evidence_level": "Web production implementation"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/MKV-Fast-Muxer",
+      "revision": "e625c2b04de052c37b740a363a1930e6477da317",
+      "evidence_level": "Adaptive Web production implementation"
+    }
+  ],
+  "created": "2026-10-02"
+}

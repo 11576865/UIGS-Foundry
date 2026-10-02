@@ -1,0 +1,73 @@
+{
+  "$schema": "../../../../schemas/ui-realization.schema.json",
+  "id": "REALIZATION.WEB.MKV_FAST_MUXER.ADAPTIVE_OUTPUT_HUB",
+  "record_type": "ui-realization",
+  "implementation_kind": "production",
+  "verification_status": "source-verified",
+  "platform": "web",
+  "project": "MKV-Fast-Muxer",
+  "repository": "11576865/MKV-Fast-Muxer",
+  "default_branch": "main",
+  "revision": "e625c2b04de052c37b740a363a1930e6477da317",
+  "patterns": [
+    {
+      "id": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+      "role": "conditional",
+      "note": "Output hub uses sticky bounded scrolling in selected viewport/pointer modes, but current wide desktop and portrait-tablet guards intentionally fall back to static flow."
+    }
+  ],
+  "source_files": [
+    {
+      "path": "index.html",
+      "blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2",
+      "role": "output-hub semantic markup"
+    },
+    {
+      "path": "src/style.css",
+      "blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4",
+      "role": "adaptive sticky/static pane realization"
+    }
+  ],
+  "mechanism": [
+    "Output hub remains a grid/flow participant rather than a fixed overlay.",
+    "A sticky variant constrains the pane with viewport-relative max-height and internal vertical scrolling.",
+    "Wide desktop fine-pointer mode intentionally switches .output-hub to position:static, max-height:none, overflow:visible to avoid nested scroll areas.",
+    "Portrait/narrow tablet guards also restore static flow instead of squeezing desktop columns."
+  ],
+  "implementation_effects": [
+    "Supporting output/review content can remain nearby on layouts where sticky behavior is useful.",
+    "Wide desktop uses available page height naturally and avoids an unnecessary nested scrollbar.",
+    "Portrait tablet/desktop-site browser geometry collapses to a safe single-column layout.",
+    "Sticky behavior is independent from the preview dialog's actual backdrop-filter blur."
+  ],
+  "responsive_contract": [
+    "Selected intermediate layouts may use sticky output-hub behavior with bounded overflow.",
+    "Desktop at min-width 1280px with hover/fine pointer uses static output flow.",
+    "Portrait tablet 601–1180px uses single-column static output flow."
+  ],
+  "validation_files": [
+    {
+      "path": "tests/preview-ui.test.mjs",
+      "blob_sha": "196e8195a9647623c983b3887fa55ea750b83aef",
+      "kind": "desktop static/no nested-scroll regression contract"
+    },
+    {
+      "path": "tests/desktop-layout.test.mjs",
+      "blob_sha": "2d22cda166cf235da744c4a9ef07cf5a00b0c087",
+      "kind": "portrait tablet layout guard tests"
+    }
+  ],
+  "limitations": [
+    "This is a conditional/adaptive realization, not a claim that the output hub is sticky in every desktop state.",
+    "The earlier glass-like appearance must not be inferred as backdrop blur; actual backdrop-filter usage belongs to the preview dialog backdrop.",
+    "This record proves source behavior and tests, not a production screenshot."
+  ],
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/MKV-Fast-Muxer",
+      "revision": "e625c2b04de052c37b740a363a1930e6477da317",
+      "evidence_level": "production HTML/CSS + layout regression tests"
+    }
+  ]
+}
