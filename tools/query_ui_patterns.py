@@ -67,7 +67,7 @@ def query(text: str,index: dict[str,Any],limit: int=5) -> list[dict[str,Any]]:
             "id":row["id"],"score":s,"reasons":reasons,"status":row.get("status",""),
             "name":row.get("name",{}),"intent":row.get("intent",""),
             "realizations":row.get("realizations",{}),"validation":row.get("validation",[]),
-            "showcase_status":row.get("showcase_status","missing"),"source_path":row.get("source_path","")
+            "showcase_status":row.get("showcase_status","missing"),"production_realizations":row.get("production_realizations",[]),"source_path":row.get("source_path","")
         })
     ranked.sort(key=lambda x:(-x["score"],x["id"]))
     return ranked[:limit]
@@ -88,7 +88,7 @@ def main() -> int:
             print(f"{i}. {r['id']} [{r['status']}] score={r['score']}")
             print(f"   {name.get('zh','')} / {name.get('en','')}")
             print(f"   {r['intent']}")
-            print(f"   realizations={','.join(sorted(r['realizations'])) or 'none'}; showcase={r['showcase_status']}")
+            print(f"   realizations={','.join(sorted(r['realizations'])) or 'none'}; production={len(r.get('production_realizations',[]))}; showcase={r['showcase_status']}")
     return 0
 
 if __name__=="__main__":

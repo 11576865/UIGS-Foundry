@@ -1,0 +1,51 @@
+name: Verify UI Production Realizations
+
+on:
+  schedule:
+    - cron: '23 4 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'domains/interface-grammar/realizations/manifests/**'
+      - 'schemas/ui-realization.schema.json'
+      - 'tools/verify_ui_realizations.py'
+      - 'tools/test_ui_realizations.py'
+      - '.github/workflows/verify-ui-realizations.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-ui-realization-verification
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build and test local realization registry
+        run: |
+          python tools/build_ui_realization_index.py
+          python tools/test_ui_realizations.py
+      - name: Verify immutable source provenance and currentness
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python tools/verify_ui_realizations.py --write-report
+      - name: Commit changed realization reports and indexes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/realizations/index.json domains/interface-grammar/realizations/coverage.json reports/generated/ui-realization-state.json reports/generated/ui-realization-state.md)" ]]; then
+            echo "UI realization verification unchanged."
+            exit 0
+          fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add -A domains/interface-grammar/realizations/index.json domains/interface-grammar/realizations/coverage.json reports/generated/ui-realization-state.json reports/generated/ui-realization-state.md
+          git commit -m "chore(uigs): refresh production realization verification"
+          bash tools/push_with_rebase_retry.sh main 5

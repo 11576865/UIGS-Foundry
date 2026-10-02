@@ -6,6 +6,8 @@ on:
     paths:
       - 'domains/interface-grammar/registry/patterns/**'
       - 'domains/interface-grammar/showcases/manifests/**'
+      - 'domains/interface-grammar/realizations/manifests/**'
+      - 'tools/build_ui_realization_index.py'
       - 'tools/build_ui_search_index.py'
       - 'tools/query_ui_patterns.py'
       - 'tools/test_ui_pattern_query.py'
@@ -27,20 +29,24 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Rebuild index and showcase coverage
-        run: python tools/build_ui_search_index.py
+      - name: Rebuild UI search, showcase and production-realization indexes
+        run: |
+          python tools/build_ui_realization_index.py
+          python tools/build_ui_search_index.py
       - name: Test natural-language retrieval
-        run: python tools/test_ui_pattern_query.py
+        run: |
+          python tools/test_ui_realizations.py
+          python tools/test_ui_pattern_query.py
       - name: Commit changed generated indexes
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$(git status --porcelain -- domains/interface-grammar/search/index.json domains/interface-grammar/showcases/coverage.json)" ]]; then
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/search/index.json domains/interface-grammar/showcases/coverage.json domains/interface-grammar/realizations/index.json domains/interface-grammar/realizations/coverage.json)" ]]; then
             echo "UI search index unchanged."
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add domains/interface-grammar/search/index.json domains/interface-grammar/showcases/coverage.json
+          git add domains/interface-grammar/search/index.json domains/interface-grammar/showcases/coverage.json domains/interface-grammar/realizations/index.json domains/interface-grammar/realizations/coverage.json
           git commit -m "chore(uigs): refresh UI pattern search index"
           bash tools/push_with_rebase_retry.sh main 5

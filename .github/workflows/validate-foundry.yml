@@ -32,6 +32,10 @@ jobs:
         run: python tools/test_ui_pattern_query.py
       - name: Unit-test UI showcase manifests
         run: python tools/test_ui_showcases.py
+      - name: Unit-test UI production realizations
+        run: |
+          python tools/test_ui_realizations.py
+          python tools/verify_ui_realizations.py --offline
       - name: Unit-test UI composition planning
         run: python tools/test_ui_composition.py
       - name: Unit-test intake review state

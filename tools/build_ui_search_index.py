@@ -31,6 +31,28 @@ def discovered_showcases(root:Path)->dict[str,list[str]]:
             result.setdefault(str(pid),[]).append(rel)
     return result
 
+def discovered_realizations(root:Path)->dict[str,list[dict[str,Any]]]:
+    result:dict[str,list[dict[str,Any]]]={}
+    base=root/"domains"/"interface-grammar"/"realizations"/"manifests"
+    if not base.exists():return result
+    for path in sorted(base.glob("*.json")):
+        try:data=load(path)
+        except Exception:continue
+        for link in data.get("patterns",[]) if isinstance(data.get("patterns"),list) else []:
+            pid=str(link.get("id",""))
+            if not pid:continue
+            result.setdefault(pid,[]).append({
+                "id":data.get("id",""),
+                "platform":data.get("platform",""),
+                "project":data.get("project",""),
+                "repository":data.get("repository",""),
+                "revision":data.get("revision",""),
+                "role":link.get("role",""),
+                "verification_status":data.get("verification_status",""),
+                "path":path.relative_to(root).as_posix(),
+            })
+    return result
+
 def showcase_types(root:Path,refs:list[str])->list[str]:
     types=[]
     for ref in refs:
@@ -44,6 +66,7 @@ def showcase_types(root:Path,refs:list[str])->list[str]:
 def build(root:Path=ROOT)->tuple[dict[str,Any],dict[str,Any]]:
     pattern_dir=root/"domains"/"interface-grammar"/"registry"/"patterns";rows=[];digest=hashlib.sha256()
     discovered=discovered_showcases(root)
+    realization_map=discovered_realizations(root)
     for path in sorted(pattern_dir.glob("*.json")):
         raw=path.read_bytes();digest.update(path.name.encode()+b"\0"+raw+b"\0");d=json.loads(raw.decode())
         terms=flatten({"id":d.get("id",""),"name":d.get("name",{}),"aliases":d.get("aliases",[]),"intent":d.get("intent",""),"use_when":d.get("use_when",[]),"anatomy":d.get("anatomy",[]),"visual_contract":d.get("visual_contract",{}),"interaction_contract":d.get("interaction_contract",{})})
@@ -53,7 +76,7 @@ def build(root:Path=ROOT)->tuple[dict[str,Any],dict[str,Any]]:
         explicit=d.get("showcases",[]) if isinstance(d.get("showcases",[]),list) else []
         refs=sorted(set(explicit+discovered.get(str(d["id"]),[])))
         types=showcase_types(root,refs)
-        rows.append({"id":d["id"],"status":d.get("status",""),"name":d.get("name",{}),"aliases":d.get("aliases",[]),"intent":d.get("intent",""),"use_when":d.get("use_when",[]),"do_not_use_when":d.get("do_not_use_when",[]),"anatomy":d.get("anatomy",[]),"realizations":d.get("realizations",{}),"validation":d.get("validation",[]),"showcases":refs,"showcase_types":types,"showcase_status":"available" if refs else "missing","source_path":path.relative_to(root).as_posix(),"search_terms":unique})
+        rows.append({"id":d["id"],"status":d.get("status",""),"name":d.get("name",{}),"aliases":d.get("aliases",[]),"intent":d.get("intent",""),"use_when":d.get("use_when",[]),"do_not_use_when":d.get("do_not_use_when",[]),"anatomy":d.get("anatomy",[]),"realizations":d.get("realizations",{}),"validation":d.get("validation",[]),"showcases":refs,"showcase_types":types,"showcase_status":"available" if refs else "missing","source_path":path.relative_to(root).as_posix(),"search_terms":unique,"production_realizations":realization_map.get(str(d["id"]),[])})
     manifest_digest=hashlib.sha256()
     manifests=root/"domains"/"interface-grammar"/"showcases"/"manifests"
     if manifests.exists():
