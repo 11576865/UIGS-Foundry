@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "packet_id": "ci-11576865-MKV-Fast-Muxer-37017864642-1",
+  "source_repository": "11576865/MKV-Fast-Muxer",
+  "packet_sha256": "94309b4960c399a7deb14b2badbcd89ef9c974b82c8e79038cb2a0d021459de4",
+  "triage_status": "auto-classified",
+  "record_type": "ci_failure",
+  "routing_hints": [
+    "interface-grammar",
+    "operations",
+    "red-reason",
+    "reliability"
+  ],
+  "red_reason": {
+    "category": "e2e",
+    "confidence": 0.92,
+    "needs_review": false,
+    "signals": [
+      "step:Browser end-to-end mux tests",
+      "workflow:Browser E2E mux tests"
+    ],
+    "matched_rules": [
+      "e2e"
+    ]
+  },
+  "related_records": [
+    "TEST.CONTAINER_SEMANTIC_AUDIT",
+    "TEST.FAIL_CANCEL_RESTART_RECOVERY",
+    "TEST.ENCODING_FIXTURE_MATRIX"
+  ],
+  "created_at": "2026-10-02T14:11:10+00:00",
+  "triaged_at": "2026-10-02T17:53:01+00:00"
+}

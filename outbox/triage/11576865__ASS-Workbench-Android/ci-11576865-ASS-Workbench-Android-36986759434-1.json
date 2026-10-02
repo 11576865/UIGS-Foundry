@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "packet_id": "ci-11576865-ASS-Workbench-Android-36986759434-1",
+  "source_repository": "11576865/ASS-Workbench-Android",
+  "packet_sha256": "5c0359968aa8b3cc8e774d5a10a42682b704ca0e280a4d56d07c6aab7b3a2272",
+  "triage_status": "needs-review",
+  "record_type": "ci_failure",
+  "routing_hints": [
+    "interface-grammar",
+    "operations",
+    "red-reason",
+    "reliability"
+  ],
+  "red_reason": {
+    "category": "unknown",
+    "confidence": 0.0,
+    "needs_review": true,
+    "signals": [],
+    "matched_rules": []
+  },
+  "related_records": [],
+  "created_at": "2026-10-02T09:01:13+00:00",
+  "triaged_at": "2026-10-02T17:53:00+00:00"
+}
