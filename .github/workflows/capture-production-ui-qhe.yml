@@ -1,0 +1,73 @@
+name: Capture Production UI QHE
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '43 3 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-production-ui-capture-writer
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: 11576865/Quick-Automatic-Hardsub-Encoder
+          path: .capture/qhe
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install product and browser
+        working-directory: .capture/qhe
+        run: |
+          npm ci --no-audit --no-fund
+          npm install --no-save --package-lock=false playwright
+          npx playwright install --with-deps chromium
+      - name: Start QHE UI
+        shell: bash
+        run: |
+          set -euo pipefail
+          nohup npm --prefix .capture/qhe run dev -- --host 127.0.0.1 --port 4174 > "$RUNNER_TEMP/qhe.log" 2>&1 &
+          for i in {1..90}; do
+            if curl -fsS http://127.0.0.1:4174/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat "$RUNNER_TEMP/qhe.log"
+          exit 1
+      - name: Capture declared QHE states
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p domains/interface-grammar/visual-evidence/images/QHE
+          SHA="$(git -C .capture/qhe rev-parse HEAD)"
+          mapfile -t IDS < <(python -c 'import json; print("\n".join(x["id"] for x in json.load(open(".capture/qhe/.uigs/ui-visual-capture.json",encoding="utf-8"))["captures"]))')
+          for ID in "${IDS[@]}"; do
+            OUT="domains/interface-grammar/visual-evidence/images/QHE/${ID}.png"
+            META="$RUNNER_TEMP/${ID}.json"
+            node .capture/qhe/.uigs/capture-ui.mjs --capture "$ID" --base-url http://127.0.0.1:4174 --output "$OUT" --metadata-output "$META"
+            python tools/register_visual_evidence.py --contract .capture/qhe/.uigs/ui-visual-capture.json --capture-id "$ID" --source-repository 11576865/Quick-Automatic-Hardsub-Encoder --source-revision "$SHA" --image "$OUT" --metadata "$META" --output-manifest "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.${ID}.json"
+          done
+      - name: Persist evidence and indexes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/build_visual_evidence_index.py
+          python tools/generate_ui_knowledge_report.py
+          python tools/test_register_visual_evidence.py
+          python tools/test_ui_evidence_resolver.py
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)" ]]; then exit 0; fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add -A domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md
+          git commit -m "chore(uigs): capture QHE production UI evidence"
+          bash tools/push_with_rebase_retry.sh main 5
