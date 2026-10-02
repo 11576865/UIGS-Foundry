@@ -63,10 +63,13 @@ Their middle semantics differ materially:
 
 They still share source probing, task lifecycle, output verification and save/export infrastructure.
 
+Implementation evidence strengthened on 2026-10-03: PR #33 (`Refactor media workflow into fork-join branches with shared output policy`) was merged to `main` at `54854594a7232fd86317e21b85abca20bfa19b4c`. The merged implementation preserves a shared source/probe ingress, exposes the three operation-specific branches, and rejoins at output-container policy, execution, verification and save/export. Frontend tests including real FFmpeg integration and Playwright UI smoke, Windows local smoke, Android media-task compilation, and the Android/Web build-and-deploy workflow all completed successfully.
+
 ## Provenance
 
 - source project: `11576865/Quick-Automatic-Hardsub-Encoder`
-- evidence level: current repository implementation + design analysis
-- status rationale: reusable architecture candidate; not yet canonical
+- implementation: PR #33, merged main `54854594a7232fd86317e21b85abca20bfa19b4c`
+- evidence level: merged cross-platform implementation + automated regression/FFmpeg/UI smoke evidence + design analysis
+- status rationale: reusable architecture candidate with one implemented product case; not yet canonical
 
 This is a Candidate only. It is not Canonical.
