@@ -68,3 +68,12 @@ It also complements `2026-10-02-filename-extension-vs-content-probe-media-ingest
 Applicable to muxers, transcoders, NLE/export pipelines, subtitle tooling, media ingest systems, asset packagers and other workflows that combine independently selectable media resources.
 
 This is a Candidate only. It is not Canonical.
+
+
+## Implementation result — MKV-Fast-Muxer PR #55
+
+PR #55 merged after unit/build and full Chromium browser E2E success as `3955641f5cb6fee192acf3447d781cf6e615237a`.
+
+The implementation keeps rule-level compatibility distinct from real execution evidence: the resolver runs after actual media probing and before mux; `UNSUPPORTED` blocks execution, `UNVERIFIED` proceeds to the real FFmpeg path without silent transcoding, and the JSON mux report records both the compatibility result and `actual-ffmpeg-mux` execution/audit evidence. Browser E2E verifies both a normal direct-copy case and an explicit WebVTT → SubRip subtitle-only conversion case.
+
+This remains Candidate-level evidence and is not Canonical.
