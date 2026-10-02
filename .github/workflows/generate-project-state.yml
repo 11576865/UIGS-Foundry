@@ -1,0 +1,53 @@
+name: Generate UIGS Project State
+
+on:
+  schedule:
+    - cron: '41 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'projects/**'
+      - 'catalog/**'
+      - 'tools/generate_project_state_report.py'
+      - 'tools/test_project_state_report.py'
+      - '.github/workflows/generate-project-state.yml'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: uigs-project-state
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Test project-state logic
+        run: python tools/test_project_state_report.py
+      - name: Generate live project-state report
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python tools/generate_project_state_report.py
+      - name: Validate Foundry
+        run: python tools/validate_foundry.py
+      - name: Commit changed reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain -- reports/generated)" ]]; then
+            echo "Project-state report unchanged."
+            exit 0
+          fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add -A reports/generated
+          git commit -m "chore(report): refresh cross-project state"
+          git pull --rebase origin main
+          git push origin HEAD:main

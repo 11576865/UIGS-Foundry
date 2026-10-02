@@ -30,5 +30,11 @@
     "schemas/",
     "domains/",
     "projects/"
+  ],
+  "tracked_workflows": [
+    "Validate Foundry",
+    "Collect UIGS Outboxes",
+    "Triage UIGS Pending",
+    "Generate UIGS Project State"
   ]
 }

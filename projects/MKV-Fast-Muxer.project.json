@@ -28,5 +28,9 @@
     "tests/",
     ".github/workflows/",
     "CHANGELOG.md"
+  ],
+  "tracked_workflows": [
+    "Browser E2E mux tests",
+    "Deploy to GitHub Pages"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "0.9",
+  "version": "1.0",
   "domains": [
     {
       "id": "interface-grammar",
@@ -261,6 +261,11 @@
       "id": "BUG.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD",
       "status": "validated",
       "path": "domains/reliability/bug-museum/BUG.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD.json"
+    },
+    {
+      "id": "REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
+      "status": "experimental",
+      "path": "domains/reliability/patterns/REL.CI.HEAD_COVERAGE_AWARE_REPORTING.json"
     }
   ],
   "projects": [
@@ -278,6 +283,7 @@
     "schemas/bug-record.schema.json",
     "schemas/intake-packet.schema.json",
     "schemas/project-adapter.schema.json",
-    "schemas/triage-record.schema.json"
+    "schemas/triage-record.schema.json",
+    "schemas/project-state.schema.json"
   ]
 }

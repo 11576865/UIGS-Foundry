@@ -31,5 +31,13 @@
     "src/",
     "docs/",
     ".github/workflows/"
+  ],
+  "tracked_workflows": [
+    "Build Android Native Core Release",
+    "Build Web Core Release",
+    "Build Android and Deploy Frontend",
+    "Compile Android media tasks",
+    "Test frontend",
+    "Windows local smoke"
   ]
 }

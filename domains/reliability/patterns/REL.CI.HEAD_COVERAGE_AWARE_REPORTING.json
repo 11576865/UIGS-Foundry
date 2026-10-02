@@ -1,0 +1,34 @@
+{
+  "id": "REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
+  "type": "pattern",
+  "status": "experimental",
+  "title": "CI 报告必须区分最新成功运行与当前 HEAD 覆盖",
+  "summary": "存在 paths/path-filter 的仓库中，某工作流最新一次成功运行可能针对旧 commit。跨项目报告必须显示 run head SHA 是否等于当前主分支 HEAD，不能把‘latest success’静默表述成‘当前代码已验证’。",
+  "invariants": [
+    "Report workflow run head SHA alongside current branch HEAD.",
+    "A successful run on an older SHA is labeled older/stale with respect to current HEAD.",
+    "Path-filtered absence of a new run is not automatically classified as failure.",
+    "CI coverage is not promoted to real-device/final-output evidence."
+  ],
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "11576865/MKV-Fast-Muxer:.github/workflows/browser-e2e.yml",
+      "revision": "e625c2b04de052c37b740a363a1930e6477da317",
+      "evidence_level": "path-filtered production CI"
+    },
+    {
+      "source_type": "file",
+      "source": "11576865/Quick-Automatic-Hardsub-Encoder:.github/workflows/test-frontend.yml",
+      "revision": "3329621050109b51c825b3986bca3c66d1b1c79e",
+      "evidence_level": "path-filtered production CI"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "project-state report implementation 2026-10-02",
+      "evidence_level": "implemented reporting invariant"
+    }
+  ],
+  "created": "2026-10-02"
+}

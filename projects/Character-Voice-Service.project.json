@@ -30,5 +30,8 @@
     "scripts/",
     "tests/",
     "config/"
+  ],
+  "tracked_workflows": [
+    "CVS tests"
   ]
 }

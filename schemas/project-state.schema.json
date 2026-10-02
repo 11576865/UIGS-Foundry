@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/project-state.schema.json",
+  "title": "UIGS Cross-project State Snapshot",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "projects"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "source_max_updated_at": {
+      "type": "string"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "project",
+          "repository",
+          "default_branch",
+          "head_sha",
+          "tracked_workflows",
+          "pending_intake",
+          "triage_records",
+          "knowledge_records"
+        ],
+        "properties": {
+          "project": {
+            "type": "string"
+          },
+          "repository": {
+            "type": "string"
+          },
+          "default_branch": {
+            "type": "string"
+          },
+          "head_sha": {
+            "type": "string"
+          },
+          "head_commit_date": {
+            "type": "string"
+          },
+          "tracked_workflows": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "pending_intake": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "triage_records": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "knowledge_records": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

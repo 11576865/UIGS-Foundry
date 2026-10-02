@@ -30,5 +30,10 @@
     "tests/",
     ".github/workflows/",
     "app/src/"
+  ],
+  "tracked_workflows": [
+    "Android CI",
+    "Android Emulator Regression",
+    "Fontconfig renderer native probe"
   ]
 }
