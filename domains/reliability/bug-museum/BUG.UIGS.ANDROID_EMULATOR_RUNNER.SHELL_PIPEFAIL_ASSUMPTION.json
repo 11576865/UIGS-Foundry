@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION",
+  "type": "bug",
+  "status": "validated",
+  "title": "Android emulator runner 的 script 由 /usr/bin/sh 执行时，Bash-only pipefail 会在任何 adb 操作前失败",
+  "symptom": "Capture Production UI Android 首次运行已成功构建真实 APK 并启动 emulator，但 capture script 的第一行 `set -euo pipefail` 在 /usr/bin/sh 下报 Illegal option -o pipefail，所有 adb 安装/启动/截图步骤均未执行。",
+  "root_cause": "工作流把 action 的 script 输入误当作 Bash 脚本；reactivecircus/android-emulator-runner@v2 在该 runner 上通过 /usr/bin/sh -c 执行 script，而 POSIX sh 不要求支持 `set -o pipefail`。",
+  "resolution": [
+    "将 action 内嵌 script 改为 POSIX 兼容 `set -eu`；需要 Bash 语义的逻辑应显式调用 bash 脚本文件。"
+  ],
+  "regression_guard": [
+    "Capture Production UI Android run 36993464998 在修复后完成 APK 安装、emulator 启动、compositor screencap、证据登记与持久化。",
+    "工作流内 emulator-runner script 不再出现 `set -euo pipefail`。"
+  ],
+  "reusable_lesson": "第三方 CI action 的 script 输入使用什么 shell 是接口契约的一部分；不能从外层 GitHub Actions `shell: bash` 习惯推断嵌套 action 也使用 Bash。",
+  "provenance": [
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Android run 36992830111",
+      "revision": "53a8b97a4785d6eb2f96629123a7130bba294905",
+      "evidence_level": "/usr/bin/sh pipefail failure"
+    },
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Android run 36993464998",
+      "revision": "2b9dca23aba43a65544ee97259d8b1699903de69",
+      "evidence_level": "successful corrected run"
+    }
+  ]
+}

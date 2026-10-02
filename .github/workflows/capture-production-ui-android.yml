@@ -16,8 +16,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: uigs-production-ui-android
-  cancel-in-progress: true
+  group: uigs-production-ui-capture-writer
+  cancel-in-progress: false
 
 jobs:
   ass-editor-shell:
@@ -66,17 +66,19 @@ jobs:
           script: |
             set -eu
             adb install -r .capture/ass/app/build/outputs/apk/debug/app-debug.apk
+            adb shell settings put system accelerometer_rotation 0
+            adb shell settings put system user_rotation 0
+            adb shell cmd window user-rotation lock 0 || true
             adb shell wm size 1600x1000
             adb shell wm density 240
             adb shell settings put system font_scale 1.0
-            adb shell settings put system accelerometer_rotation 0
-            adb shell settings put system user_rotation 1
             adb shell am force-stop io.github.assworkbench.app
             adb shell am start -W -n io.github.assworkbench.app/.MainActivity
             sleep 5
             mkdir -p "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS"
             adb exec-out screencap -p > "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png"
             test -s "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png"
+            python "$GITHUB_WORKSPACE/tools/assert_png_orientation.py"               "$GITHUB_WORKSPACE/domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png" landscape
       - name: Register Android production evidence
         shell: bash
         run: |
@@ -93,7 +95,9 @@ jobs:
               'logical_size': {'width': 1600, 'height': 1000},
               'density': 240,
               'font_scale': 1.0,
-              'capture_surface': 'android-compositor'
+              'capture_surface': 'android-compositor',
+              'orientation_lock': 'natural-0 + wide wm size',
+              'declared_orientation': 'landscape'
           }, indent=2) + '\n', encoding='utf-8')
           PY
           python tools/register_visual_evidence.py \
@@ -104,22 +108,46 @@ jobs:
             --image domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png \
             --metadata "$META" \
             --output-manifest domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.json
-      - name: Rebuild visual evidence indexes
+      - name: Persist source visual evidence first
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          SOURCE_PATHS=(
+            domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png
+            domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.json
+          )
+          if [[ -n "$(git status --porcelain -- "${SOURCE_PATHS[@]}")" ]]; then
+            git add -A "${SOURCE_PATHS[@]}"
+            git commit -m "chore(uigs): capture ASS Android production UI evidence"
+            bash tools/push_with_rebase_retry.sh main 5
+          else
+            git fetch origin main
+            git rebase origin/main
+          fi
+      - name: Rebuild visual evidence indexes from latest source state
         run: |
           python tools/build_visual_evidence_index.py
           python tools/generate_ui_knowledge_report.py
           python tools/test_register_visual_evidence.py
           python tools/test_ui_evidence_resolver.py
-      - name: Persist Android production visual evidence
+      - name: Persist derived visual indexes
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$(git status --porcelain -- domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)" ]]; then
-            echo "Production Android visual evidence unchanged."
+          DERIVED_PATHS=(
+            domains/interface-grammar/visual-evidence/index.json
+            domains/interface-grammar/visual-evidence/coverage.json
+            reports/generated/ui-knowledge-coverage.json
+            reports/generated/ui-knowledge-coverage.md
+          )
+          if [[ -z "$(git status --porcelain -- "${DERIVED_PATHS[@]}")" ]]; then
+            echo "Derived Android visual indexes unchanged."
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add -A domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md
-          git commit -m "chore(uigs): capture ASS Android production UI evidence"
+          git add -A "${DERIVED_PATHS[@]}"
+          git commit -m "chore(uigs): refresh production visual evidence index"
           bash tools/push_with_rebase_retry.sh main 5

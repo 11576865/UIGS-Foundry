@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "2.2",
+  "version": "2.3",
   "domains": [
     {
       "id": "interface-grammar",
@@ -346,6 +346,16 @@
       "id": "BUG.UIGS.VISUAL_EVIDENCE.EMPTY_INDEX_SHAPE",
       "status": "validated",
       "path": "domains/reliability/bug-museum/BUG.UIGS.VISUAL_EVIDENCE.EMPTY_INDEX_SHAPE.json"
+    },
+    {
+      "id": "BUG.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION.json"
+    },
+    {
+      "id": "BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED",
+      "status": "candidate",
+      "path": "domains/reliability/bug-museum/BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED.json"
     }
   ],
   "projects": [

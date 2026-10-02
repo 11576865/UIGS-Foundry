@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED",
+  "type": "bug",
+  "status": "candidate",
+  "title": "Android capture contract 声明横屏但 compositor 截图仍可能为竖屏",
+  "symptom": "ASS 初始 capture ID 与契约意图为 EMULATOR_LANDSCAPE，设备逻辑尺寸声明 1600x1000，但成功保存的 PNG 实际为 1000x1600。",
+  "root_cause": "候选原因是同时设置宽屏 wm size 与 user_rotation=1 导致最终 compositor 再次交换输出轴；旧管线没有对最终 PNG 尺寸/方向做契约级断言，因此错误状态仍被登记为 production-rendered evidence。",
+  "resolution": [
+    "源项目 capture contract 增加显式 device.orientation=landscape 与 image_orientation assertion。",
+    "capture workflow 使用 natural rotation 0 + 1600x1000 wide wm size，并在登记前解析 PNG IHDR 断言 width > height。",
+    "register_visual_evidence.py 二次执行契约级 orientation 校验，防止其它 adapter 绕过 workflow guard。"
+  ],
+  "regression_guard": [
+    "tools/test_register_visual_evidence.py 覆盖声明 landscape + portrait PNG 必须失败。",
+    "Android workflow 的 compositor screenshot 在登记前运行 tools/assert_png_orientation.py landscape。",
+    "在新的真实 emulator capture 得到 width > height 后再把此 Bug 升为 validated。"
+  ],
+  "reusable_lesson": "声明的 viewport/device state 不是证据；视觉采集必须验证最终产物满足状态契约，尤其是 orientation、尺寸、theme 等会被 OS/compositor 二次解释的属性。",
+  "provenance": [
+    {
+      "source_type": "file",
+      "source": "UIGS-Foundry:domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.json",
+      "revision": "6696121d5239767cf31221665505a53d11089df6",
+      "evidence_level": "manifest records actual PNG 1000x1600 against declared logical 1600x1000"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/ASS-Workbench-Android:.uigs/ui-visual-capture.json",
+      "revision": "fe8c6184405a9056e213d10818ac5e225c63f065",
+      "evidence_level": "source contract now explicitly declares landscape"
+    }
+  ]
+}

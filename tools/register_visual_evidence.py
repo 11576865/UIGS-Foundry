@@ -15,6 +15,18 @@ def png_size(path:Path)->tuple[int,int]:
         raise ValueError(f"not a PNG: {path}")
     return struct.unpack(">II",raw[16:24])
 
+def assert_declared_orientation(capture:dict[str,Any],width:int,height:int)->None:
+    assertions=capture.get("assertions") if isinstance(capture.get("assertions"),dict) else {}
+    device=capture.get("device") if isinstance(capture.get("device"),dict) else {}
+    declared=str(assertions.get("image_orientation") or device.get("orientation") or "").lower().strip()
+    if not declared:return
+    if declared=="landscape" and width<=height:
+        raise ValueError(f"capture declared landscape but PNG is {width}x{height}")
+    if declared=="portrait" and height<=width:
+        raise ValueError(f"capture declared portrait but PNG is {width}x{height}")
+    if declared not in {"landscape","portrait"}:
+        raise ValueError(f"unsupported declared image orientation: {declared}")
+
 def surface_patterns(ids:list[str])->list[str]:
     if not SURFACE_INDEX.is_file():return []
     index=load(SURFACE_INDEX);wanted=set(ids);patterns=set()
@@ -27,6 +39,7 @@ def register(contract_path:Path,capture_id:str,source_repository:str,source_revi
     capture=next((x for x in contract.get("captures",[]) if x.get("id")==capture_id),None)
     if capture is None:raise ValueError(f"capture not found: {capture_id}")
     raw=image_path.read_bytes();digest=hashlib.sha256(raw).hexdigest();width,height=png_size(image_path)
+    assert_declared_orientation(capture,width,height)
     previous=None
     if output_path.is_file():
         try:previous=load(output_path).get("sha256")

@@ -16,8 +16,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: uigs-production-ui-web
-  cancel-in-progress: true
+  group: uigs-production-ui-capture-writer
+  cancel-in-progress: false
 
 jobs:
   mkv-output-hub:
@@ -73,22 +73,46 @@ jobs:
             --image "$OUT" \
             --metadata "$META" \
             --output-manifest domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json
-      - name: Rebuild visual evidence indexes
+      - name: Persist source visual evidence first
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          SOURCE_PATHS=(
+            domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png
+            domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json
+          )
+          if [[ -n "$(git status --porcelain -- "${SOURCE_PATHS[@]}")" ]]; then
+            git add -A "${SOURCE_PATHS[@]}"
+            git commit -m "chore(uigs): capture MKV production UI evidence"
+            bash tools/push_with_rebase_retry.sh main 5
+          else
+            git fetch origin main
+            git rebase origin/main
+          fi
+      - name: Rebuild visual evidence indexes from latest source state
         run: |
           python tools/build_visual_evidence_index.py
           python tools/generate_ui_knowledge_report.py
           python tools/test_register_visual_evidence.py
           python tools/test_ui_evidence_resolver.py
-      - name: Persist production visual evidence
+      - name: Persist derived visual indexes
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$(git status --porcelain -- domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)" ]]; then
-            echo "Production Web visual evidence unchanged."
+          DERIVED_PATHS=(
+            domains/interface-grammar/visual-evidence/index.json
+            domains/interface-grammar/visual-evidence/coverage.json
+            reports/generated/ui-knowledge-coverage.json
+            reports/generated/ui-knowledge-coverage.md
+          )
+          if [[ -z "$(git status --porcelain -- "${DERIVED_PATHS[@]}")" ]]; then
+            echo "Derived Web visual indexes unchanged."
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add -A domains/interface-grammar/visual-evidence reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md
-          git commit -m "chore(uigs): capture MKV production UI evidence"
+          git add -A "${DERIVED_PATHS[@]}"
+          git commit -m "chore(uigs): refresh production visual evidence index"
           bash tools/push_with_rebase_retry.sh main 5

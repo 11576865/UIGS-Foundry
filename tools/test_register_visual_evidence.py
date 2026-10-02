@@ -15,6 +15,20 @@ class Tests(unittest.TestCase):
     def test_png_size(self):
         with tempfile.TemporaryDirectory() as td:
             p=Path(td)/"x.png";png(p,7,5);self.assertEqual(r.png_size(p),(7,5))
+    def test_declared_landscape_rejects_portrait_png(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td);contract=root/"c.json";image=root/"x.png";out=root/"m.json";png(image,5,9)
+            contract.write_text(json.dumps({"platform":"android","captures":[{
+                "id":"A","surface_ids":["S"],"adapter":"android-emulator-screencap",
+                "evidence_level":"production-rendered","output_name":"x.png",
+                "device":{"orientation":"landscape"}
+            }]}),encoding="utf-8")
+            with self.assertRaisesRegex(ValueError,"declared landscape"):
+                r.register(contract,"A","o/r","abcdef0",image,out)
+
+    def test_declared_landscape_accepts_landscape_png(self):
+        r.assert_declared_orientation({"device":{"orientation":"landscape"}},9,5)
+
     def test_contract_lookup_rejects_unknown(self):
         with tempfile.TemporaryDirectory() as td:
             root=Path(td);contract=root/"c.json";image=root/"x.png";out=root/"m.json";png(image)
