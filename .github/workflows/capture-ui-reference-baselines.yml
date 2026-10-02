@@ -32,22 +32,39 @@ jobs:
       - name: Validate showcase manifests and hashes
         run: python tools/test_ui_showcases.py
 
-      - name: Rebuild dependent search/coverage in the same run
+      - name: Persist baseline source evidence first
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -n "$(git status --porcelain -- domains/interface-grammar/showcases/baselines domains/interface-grammar/showcases/manifests)" ]]; then
+            git config user.name "uigs-foundry-bot"
+            git config user.email "uigs-foundry-bot@users.noreply.github.com"
+            git add -A domains/interface-grammar/showcases/baselines domains/interface-grammar/showcases/manifests
+            git commit -m "chore(uigs): refresh reference visual baselines"
+            bash tools/push_with_rebase_retry.sh main 5
+          else
+            echo "Baseline source evidence unchanged."
+            git fetch origin main
+            git rebase origin/main
+          fi
+
+      - name: Rebuild dependent search/coverage from latest source state
         run: |
           python tools/build_ui_search_index.py
           python tools/test_ui_pattern_query.py
           python tools/test_ui_composition.py
+          python tools/test_ui_showcases.py
 
-      - name: Commit changed baselines and derived indexes
+      - name: Persist derived UI indexes separately
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$(git status --porcelain -- domains/interface-grammar/showcases domains/interface-grammar/search/index.json)" ]]; then
-            echo "Reference baselines and derived indexes unchanged."
+          if [[ -z "$(git status --porcelain -- domains/interface-grammar/search/index.json domains/interface-grammar/showcases/coverage.json)" ]]; then
+            echo "Derived UI indexes unchanged."
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add -A domains/interface-grammar/showcases domains/interface-grammar/search/index.json
-          git commit -m "chore(uigs): refresh reference baselines and derived index"
+          git add domains/interface-grammar/search/index.json domains/interface-grammar/showcases/coverage.json
+          git commit -m "chore(uigs): refresh baseline-aware UI index"
           bash tools/push_with_rebase_retry.sh main 5

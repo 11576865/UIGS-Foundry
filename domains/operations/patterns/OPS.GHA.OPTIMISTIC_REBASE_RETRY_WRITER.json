@@ -9,7 +9,9 @@
     "Non-fast-forward caused by an intervening disjoint writer is retryable.",
     "Content/rebase conflicts are not silently auto-resolved.",
     "Repository writers share one tested retry helper instead of copy-pasted ad-hoc shell.",
-    "Do not serialize every writer with a global concurrency group when dropping/replacing pending work would be unacceptable."
+    "Do not serialize every writer with a global concurrency group when dropping/replacing pending work would be unacceptable.",
+    "Derived artifacts that conflict after rebase should be regenerated from the latest source state rather than conflict-merged as if they were authored truth.",
+    "Persist source evidence before rebuilding dependent derived indexes when the two are independently reproducible."
   ],
   "provenance": [
     {
@@ -23,6 +25,12 @@
       "source": "11576865/UIGS-Foundry:tools/push_with_rebase_retry.sh",
       "revision": "implementation 2026-10-02",
       "evidence_level": "implemented writer guard"
+    },
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture UI Reference Baselines run 36985234871",
+      "revision": "cdae726aa28e10e4d81cc4afca62ac09e635b20d",
+      "evidence_level": "showed retry alone cannot resolve overlapping generated-file conflicts"
     }
   ],
   "created": "2026-10-02"

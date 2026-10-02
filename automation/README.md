@@ -16,3 +16,7 @@ If a future design intentionally requires cross-workflow triggering, it must use
 ## Writer concurrency
 
 Foundry has several workflows that may write to `main`. They do not rely on a single pre-push `pull --rebase`. All writers use `tools/push_with_rebase_retry.sh`: fetch current main, rebase, attempt push, and retry boundedly if a disjoint writer wins the race. A true rebase conflict remains an explicit failure.
+
+## Derived-output rule
+
+When a writer produces both source evidence and deterministic derived files, source evidence is persisted first. The workflow then reconciles with current `main`, regenerates derived files from that latest state, and commits them separately. Generated indexes should not be conflict-merged as authored truth.

@@ -4,10 +4,6 @@ on:
   push:
     branches: [main]
     paths:
-      - 'outbox/pending/**'
-      - 'outbox/triage/**'
-      - 'outbox/reviews/**'
-      - 'intake/records/**'
       - 'catalog/**'
       - 'tools/propose_promotions.py'
       - 'tools/test_propose_promotions.py'

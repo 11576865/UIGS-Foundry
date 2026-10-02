@@ -4,12 +4,14 @@
   "type": "bug",
   "status": "validated",
   "title": "并发 Foundry writer 在 pull --rebase 与 push 之间发生远端 ref 竞争",
-  "symptom": "Capture UI Reference Baselines run 36985008317 已成功生成/验证四份 PNG baseline，并在本地 commit 后执行 pull --rebase；随后 push 被 GitHub 拒绝：remote main 已从 a6c6372d... 移动到 25009d0c...。",
+  "symptom": "Capture UI Reference Baselines run 36985008317 已成功生成/验证四份 PNG baseline，并在本地 commit 后执行 pull --rebase；随后 push 被 GitHub 拒绝：remote main 已从 a6c6372d... 移动到 25009d0c...。 第二次 run 36985234871 已使用 rebase-retry，但与并发 Search Index writer 在同一派生 JSON 上发生 rebase 内容冲突，证明单纯重试只能处理不相交写入。",
   "root_cause": "多个写入型 workflow 可并发修改 main。单次 pull --rebase 只同步到执行时刻的远端 HEAD，不提供锁；另一个 writer 可以在 rebase 完成与 push 之间推进分支。",
   "resolution": [
     "新增 tools/push_with_rebase_retry.sh，在 push 失败后重新 fetch/rebase 并有限次重试。",
     "所有写入 Foundry main 的 workflow 统一调用同一 helper。",
-    "rebase 内容冲突立即失败并保留可诊断输出，不做静默冲突合并。"
+    "真正的内容/rebase 冲突立即失败，不做静默冲突合并。",
+    "视觉 baseline pipeline 改为两阶段：先持久化 baseline/source manifests；同步最新 main 后再重新生成 search index/coverage 并单独提交，避免把可重建派生产物与源证据绑定在一个陈旧 commit 中。",
+    "Propose workflow 不再与 Pending/Triage 主链重复监听同一事件；Triage/Collector 在同一 run 内完成 proposal 生成。"
   ],
   "regression_guard": [
     "tools/test_push_retry_contract.py 验证 helper 存在 fetch/rebase/push retry loop。",
@@ -23,6 +25,12 @@
       "source": "UIGS-Foundry GitHub Actions Capture UI Reference Baselines run 36985008317",
       "revision": "a6c6372d3fb587c1090d94d9e32b0866e6620e82",
       "evidence_level": "failed push log with expected/current ref mismatch"
+    },
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture UI Reference Baselines run 36985234871",
+      "revision": "cdae726aa28e10e4d81cc4afca62ac09e635b20d",
+      "evidence_level": "rebase conflict on generated search/index and showcase coverage"
     }
   ]
 }
