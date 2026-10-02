@@ -77,3 +77,21 @@ PR #55 merged after unit/build and full Chromium browser E2E success as `3955641
 The implementation keeps rule-level compatibility distinct from real execution evidence: the resolver runs after actual media probing and before mux; `UNSUPPORTED` blocks execution, `UNVERIFIED` proceeds to the real FFmpeg path without silent transcoding, and the JSON mux report records both the compatibility result and `actual-ffmpeg-mux` execution/audit evidence. Browser E2E verifies both a normal direct-copy case and an explicit WebVTT → SubRip subtitle-only conversion case.
 
 This remains Candidate-level evidence and is not Canonical.
+
+
+## Follow-up observation — “verified set” needs fixture-backed evidence
+
+A later review of current `MKV-Fast-Muxer` main found a gap between the resolver's static “known Matroska Stream Copy” codec sets and the browser E2E evidence actually present in the repository.
+
+The resolver currently lists multiple video and audio codecs as known direct-copy candidates, while the generated E2E fixtures exercise only a much smaller subset end-to-end. This means the word “verified” can silently drift from “observed in real mux + post-mux audit” toward “believed to be supported by the container/toolchain”.
+
+Reusable refinement:
+
+- a codec or combination should enter a **verified** compatibility set only when there is an explicit evidence record tying the rule to a reproducible fixture, actual executor run, and output audit;
+- otherwise classify it as documented/expected support or `UNVERIFIED`, even when the container specification or native FFmpeg is known to support it;
+- keep the evidence matrix machine-readable enough that tests can detect when a hard-coded verified rule lacks a corresponding fixture/test case;
+- treat bundled runtime constraints separately from native FFmpeg capability, because browser/wasm builds may differ from desktop builds.
+
+This does not invalidate PR #55's compatibility relation; it narrows the meaning of “verified” and suggests making the evidence backing explicit.
+
+This remains Candidate-level evidence and is not Canonical.
