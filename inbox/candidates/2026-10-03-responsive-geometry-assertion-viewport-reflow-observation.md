@@ -1,6 +1,6 @@
 # Observation: Responsive geometry assertions can race viewport reflow
 
-Status: **Observation / test-stability signal**
+Status: **Bug / reusable E2E synchronization failure**
 Date: 2026-10-03
 Project evidence: `11576865/MKV-Fast-Muxer`, PR #59 CI attempt 1
 
@@ -41,3 +41,26 @@ change viewport / disclosure
 ## Evidence limits
 
 This was observed once and passed on immediate workflow retry without code changes. It should not be promoted to a general Bug or Canonical rule without repeated evidence across projects or browsers.
+
+
+## Repeated evidence and fix — MKV-Fast-Muxer PR #60
+
+The same `preview ratio at 390: NaN` failure occurred again on the merged `main` run for PR #59, so the condition was no longer only a one-off flake signal.
+
+Root cause analysis showed a specific synchronization race:
+
+```text
+setViewportSize(390)
+  -> test immediately checks current visibility
+  -> matchMedia change handler has not yet re-initialized phone disclosure
+  -> test may decide no expand click is needed
+  -> handler then marks preview collapsed
+  -> geometry is measured as 0 × 0
+  -> 0 / 0 => NaN
+```
+
+PR #60 fixes the test contract rather than changing product behavior. The test now waits for the mobile disclosure to report initialization, synchronizes on `aria-expanded`, expands if necessary, and waits for a non-zero preview bounding box before aspect-ratio assertions.
+
+PR #60 merged as `671bb6684c29403fbfca74e6fcf7f51c68d53d0e` after full Browser E2E success.
+
+This is now Bug-level reusable evidence for UI E2E synchronization, but it remains non-Canonical and project-scoped.
