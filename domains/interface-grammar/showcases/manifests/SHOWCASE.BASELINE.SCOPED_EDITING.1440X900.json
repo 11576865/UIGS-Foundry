@@ -1,0 +1,42 @@
+{
+  "$schema": "../../../../../schemas/ui-showcase.schema.json",
+  "id": "SHOWCASE.BASELINE.SCOPED_EDITING.1440X900",
+  "type": "visual-baseline",
+  "status": "experimental",
+  "platform": "web",
+  "patterns": [
+    "UIGS.INTERACTION.DISCOVERY_OVERLAY",
+    "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+    "UIGS.WORKSPACE.SCOPE_TRANSPARENCY"
+  ],
+  "entrypoint": "domains/interface-grammar/showcases/baselines/SHOWCASE.BASELINE.SCOPED_EDITING.1440X900.png",
+  "states": [
+    "reference demo default state"
+  ],
+  "expected_effects": [
+    "Pixel baseline for deterministic reference-demo regression at the declared viewport."
+  ],
+  "limitations": [
+    "Baseline covers only the default state; interactive states require separate declared captures.",
+    "Reference-demo baseline is not production-product visual evidence."
+  ],
+  "source_showcase": "domains/interface-grammar/showcases/manifests/SHOWCASE.SCOPED_EDITING.WEB_REFERENCE.json",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "theme": "browser-default",
+  "browser": {
+    "executable": "google-chrome",
+    "version": "Google Chrome 154.0.8037.57"
+  },
+  "sha256": "6f62a1db06fb669df6a56a58671a2f917d219edd7a98c84549494e0c426dddab",
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "27cde70a61f8a91a1a157153d333351a32e1e6ea",
+      "evidence_level": "generated visual baseline"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "../../../../../schemas/ui-showcase.schema.json",
+  "id": "SHOWCASE.BASELINE.TOOL_CANVAS.1440X900",
+  "type": "visual-baseline",
+  "status": "experimental",
+  "platform": "web",
+  "patterns": [
+    "UIGS.NAVIGATION.CAPABILITY_CATALOG",
+    "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY"
+  ],
+  "entrypoint": "domains/interface-grammar/showcases/baselines/SHOWCASE.BASELINE.TOOL_CANVAS.1440X900.png",
+  "states": [
+    "reference demo default state"
+  ],
+  "expected_effects": [
+    "Pixel baseline for deterministic reference-demo regression at the declared viewport."
+  ],
+  "limitations": [
+    "Baseline covers only the default state; interactive states require separate declared captures.",
+    "Reference-demo baseline is not production-product visual evidence."
+  ],
+  "source_showcase": "domains/interface-grammar/showcases/manifests/SHOWCASE.TOOL_CANVAS.WEB_REFERENCE.json",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "theme": "browser-default",
+  "browser": {
+    "executable": "google-chrome",
+    "version": "Google Chrome 154.0.8037.57"
+  },
+  "sha256": "811d3bc9bd6a006c318693f96e8aa8350b02d55bdccdc011f0bfae54f7c70c00",
+  "provenance": [
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry",
+      "revision": "27cde70a61f8a91a1a157153d333351a32e1e6ea",
+      "evidence_level": "generated visual baseline"
+    }
+  ]
+}
