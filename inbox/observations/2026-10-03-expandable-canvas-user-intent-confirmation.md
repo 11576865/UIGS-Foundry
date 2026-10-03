@@ -27,3 +27,11 @@ Evidence level: 单一用户偏好陈述 + 局部录屏视觉证据。不能推�
 ## Dedupe
 
 已检查 Foundry 树中的 registry/inbox 文件名，并读取现有 MULTI_INSTANCE_TOOL_WORKSPACE recipe 与 TOOL_CANVAS.WEB_REFERENCE manifest；复用现有 family，仅补充本轮用户意图与视觉证据，未创建重复 Pattern。
+
+## User clarification — 2026-10-03 23:08 Asia/Shanghai
+
+用户纠正了将无限画布仅理解为工具布局/展示策略的狭窄解读：无限画布是展示空间本身，是可以承载此前讨论的 UI 设计的空间基底。用户同时强调手指手势对缩放、移动、编辑、改变对象和层次、跳转、叠加、淡入淡出的统一操控意图。
+
+Interpretation: 画布可作为可缩放空间界面（Zoomable User Interface, ZUI）的基底；工具、列表、时间轴、预览和组合面板作为其承载的界面对象。后续设计应区分视口导航、对象编辑、层级/组合操作和表现过渡，但保留同一连续空间中的直接操纵体验。屏幕固定入口也可作为空间导航的辅助层，而非要求所有控件随世界坐标缩小。
+
+Evidence boundary: 此段是明确用户意图及设计解释；没有证明所列手势已实现，也不将空间容量等同于业务能力或无限资源。后续验证应覆盖手势目标判定、对象与视口变换隔离、层级操作及返回路径。更新同一 Observation，不创建新 Pattern，不提升 Canonical。
