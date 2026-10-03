@@ -37,6 +37,7 @@ For media-processing products that combine heterogeneous resources:
 - never silently transcode or otherwise change user intent to “repair” an incompatible combination;
 - if a transformation is built into the workflow, expose its exact scope (for example WebVTT → SubRip on one subtitle stream while video/audio remain Stream Copy);
 - do not treat container-level mux success as proof of playback compatibility in an unspecified player or renderer;
+- even a successful full decode by the application's bundled decoder proves only that decoder/path can consume the stream; it still does not prove playback in a different target player or platform decoder.
 - record rule-level compatibility and actual execution / audit evidence separately.
 
 ## Evidence
