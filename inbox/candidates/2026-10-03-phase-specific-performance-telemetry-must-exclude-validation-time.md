@@ -23,3 +23,10 @@ Conservative-looking telemetry can still be semantically wrong if the measured i
 ## Evidence
 
 Single project observation from PR #47 high-risk review. Candidate only; no Canonical change.
+
+
+## Follow-up implementation evidence
+
+PR #47 was changed so Windows Native accumulates each FFmpeg process interval from `Process.StartTime` to `Process.ExitTime`. Two-pass jobs sum the two encode-process intervals, while downstream FFprobe/packet-scan validation no longer contributes to `encodeSeconds` or `averageSpeed`.
+
+This reinforces the distinction between phase throughput and end-to-end wall time.
