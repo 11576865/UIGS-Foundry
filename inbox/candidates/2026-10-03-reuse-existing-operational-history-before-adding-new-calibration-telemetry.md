@@ -56,3 +56,20 @@ Therefore:
 
 This distinction prevents a history-rich product from becoming confidently wrong by over-transferring quality observations across unrelated content.
 
+## Follow-up refinement — provenance must survive normalization
+
+When heterogeneous evidence kinds share one local history store, downstream consumers must filter by provenance before prediction.
+
+In the current compression-evidence implementation:
+- full successful encodes are valid runtime/ETA evidence;
+- short quality-calibration samples also contain encode speed, but must **not** enter full-job ETA prediction merely because the numeric field is present;
+- source-specific perceptual samples may be reused only for the same source/configuration and compatible encoder runtime.
+
+Therefore:
+- normalization must preserve an explicit `evidenceKind` / `evidenceScope`;
+- predictors must select evidence by intended semantics, not by the presence of matching fields;
+- reusable perceptual evidence should carry a runtime identity so FFmpeg/core/backend changes invalidate stale quality points;
+- mixed stores require provenance-aware retention/query policies as they grow.
+
+This is a concrete example of why a shared telemetry store must preserve evidence semantics rather than flattening all observations into one generic record type.
+
