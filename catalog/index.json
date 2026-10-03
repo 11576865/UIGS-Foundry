@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "2.5",
+  "version": "2.6",
   "domains": [
     {
       "id": "interface-grammar",
@@ -366,6 +366,11 @@
       "id": "TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
       "status": "experimental",
       "path": "domains/reliability/test-patterns/TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.json"
+    },
+    {
+      "id": "BUG.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION.json"
     }
   ],
   "projects": [

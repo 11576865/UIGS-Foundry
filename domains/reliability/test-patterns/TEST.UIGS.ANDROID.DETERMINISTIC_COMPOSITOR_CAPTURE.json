@@ -8,12 +8,14 @@
     "项目提供 source-owned capture contract 与稳定 Surface IDs。",
     "debug/test host 只负责注入确定性状态；被渲染的核心 UI 必须来自生产实现。",
     "emulator profile、logical size、density、font scale、locale/theme 和 orientation 被声明。",
-    "capture state 不依赖人工点击或不稳定的视觉识别。"
+    "capture state 不依赖人工点击或不稳定的视觉识别。",
+    "批量 instrumentation/capture 循环必须隔离 adb 的 stdin，避免外部命令吞掉 while-read 清单。"
   ],
   "procedure": [
     "构建 app debug APK 与 androidTest APK。",
     "配置 emulator 并显式安装两份 APK。",
     "instrumentation fixture 将 canonical app state 推进到声明状态，并等待 Compose idle/语义 ready 条件。",
+    "若通过 while-read 清单批量调用 adb，则对 adb stdin 使用 /dev/null 或等价隔离，并验证声明的全部 test_class 都实际执行。",
     "UiAutomation.takeScreenshot() 捕获 display/compositor 输出到 target app private filesDir。",
     "instrumentation 返回后立即 run-as 提取 PNG。",
     "验证 PNG signature、声明方向与非零尺寸。",
@@ -36,6 +38,12 @@
       "source": "UIGS-Foundry GitHub Actions Capture Production UI Android run 36995860785",
       "revision": "d9442489964eefc2ddf6da541b4e70dd2b9d9228",
       "evidence_level": "successful production visual capture"
+    },
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Android run 37141141888",
+      "revision": "890185aab22204dfbd730bf976ef4823b756e10f",
+      "evidence_level": "failure proving stdin-consuming adb truncated the declared instrumentation class loop"
     }
   ],
   "created": "2026-10-02"

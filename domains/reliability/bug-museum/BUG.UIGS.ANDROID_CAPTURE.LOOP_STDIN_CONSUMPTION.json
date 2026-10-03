@@ -1,0 +1,40 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION",
+  "type": "bug",
+  "status": "validated",
+  "title": "adb 在 while-read 批处理循环中消费 stdin，导致后续 Android capture test class 被静默跳过",
+  "symptom": "Capture Production UI Android run 37141141888 的契约声明 21 个 capture state、4 个 instrumentation test class，但日志只执行了第一个 UigsVisualCaptureInstrumentedTest。随后提取 ASS.TOOL_INSTANCE_WORKSPACE.FIXTURE_LANDSCAPE.png 时得到非 PNG，因为生成该文件的 UigsToolInstanceVisualCaptureInstrumentedTest 从未运行。此前 run 37011393476 出现同一行为。",
+  "root_cause": "capture_ass_android.sh 使用 `while read ...; do adb shell am instrument ...; done < list`。adb 命令继承了循环的 stdin，可读取/耗尽重定向的 class list，导致 while 在第一轮之后直接到 EOF。相同风险也存在于 capture 提取循环中的 `adb exec-out`。",
+  "resolution": [
+    "对 while-read 循环内的 `adb shell am instrument` 显式重定向 stdin 到 /dev/null。",
+    "对 `adb exec-out run-as ...` 同样隔离 stdin，避免 capture manifest list 被消费。",
+    "保留 source capture contract 完整性检查，要求 implemented Surface 全部有声明 capture state。"
+  ],
+  "regression_guard": [
+    "Android capture workflow 必须执行 capture contract 中每个唯一 test_class，而不是只看到第一个 class 成功就继续提取全部声明文件。",
+    "脚本中 while-read 内的 adb 调用必须使用独立 stdin（/dev/null 或等价实现）。",
+    "完整 capture run 应能生成 ToolInstance、renderer-backed 和 Canvas 后续 class 的 PNG，再进入 evidence registration。"
+  ],
+  "reusable_lesson": "Shell 的 while-read 循环与可能读取 stdin 的子进程共享同一文件描述符时，子进程会破坏循环协议。CI 批处理清单中的外部命令应显式隔离 stdin，尤其是 adb、ssh 等可能接管标准输入的工具。",
+  "provenance": [
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Android run 37141141888",
+      "revision": "890185aab22204dfbd730bf976ef4823b756e10f",
+      "evidence_level": "reproduced failure: only first instrumentation class ran"
+    },
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Android run 37011393476",
+      "revision": "f8999346ad343eea18afd2e5819abd05dbf347ab",
+      "evidence_level": "earlier matching failure signature"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry:tools/capture_ass_android.sh",
+      "revision": "02ce3fa1e53244b4a8701a2a570bc3989536a78c",
+      "evidence_level": "implemented stdin isolation fix"
+    }
+  ]
+}
