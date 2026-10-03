@@ -2,9 +2,9 @@
 
 | Realization | Platform | Revision vs HEAD | Immutable blobs | Current source content | Current validation content |
 | --- | --- | --- | --- | --- | --- |
-| REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL | android-compose | older revision | verified | current | current |
+| REALIZATION.ANDROID_COMPOSE.ASS_WORKBENCH.WORKSPACE_KERNEL | android-compose | older revision | verified | changed/missing | changed/missing |
 | REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH | web | older revision | verified | current | current |
-| REALIZATION.WEB.MKV_FAST_MUXER.ADAPTIVE_OUTPUT_HUB | web | older revision | verified | current | current |
+| REALIZATION.WEB.MKV_FAST_MUXER.ADAPTIVE_OUTPUT_HUB | web | older revision | verified | changed/missing | current |
 
 ## Evidence boundary
 

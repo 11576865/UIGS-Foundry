@@ -28,8 +28,8 @@
           "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceEditScope.kt",
           "expected_blob_sha": "77281971deb58aeb07a74e1e03e453bb563cf955",
           "verified": true,
-          "current_blob_sha": "77281971deb58aeb07a74e1e03e453bb563cf955",
-          "current": true,
+          "current_blob_sha": "341c9f4ec7a1f88069e1835817f9852750f7cba7",
+          "current": false,
           "actual_blob_sha": "77281971deb58aeb07a74e1e03e453bb563cf955"
         },
         {
@@ -70,8 +70,8 @@
           "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceEditScopeResolverTest.kt",
           "expected_blob_sha": "afd99966cde2511a70bd51dd36da8595f3c5c99f",
           "verified": true,
-          "current_blob_sha": "afd99966cde2511a70bd51dd36da8595f3c5c99f",
-          "current": true,
+          "current_blob_sha": "b622209ba848dd5728e0a592522d73979320abbd",
+          "current": false,
           "actual_blob_sha": "afd99966cde2511a70bd51dd36da8595f3c5c99f"
         },
         {
@@ -100,10 +100,10 @@
         }
       ],
       "source_verified": true,
-      "current_head": "818a26d2024f1b27a947d147b2f1de0142ce482d",
+      "current_head": "73c09f4052af0b7b057794a138a618f7883f4803",
       "head_matches_revision": false,
-      "source_content_current": true,
-      "validation_content_current": true
+      "source_content_current": false,
+      "validation_content_current": false
     },
     {
       "id": "REALIZATION.WEB.HSR.SUBTITLE_STYLE_WORKBENCH",
@@ -132,7 +132,7 @@
         }
       ],
       "source_verified": true,
-      "current_head": "62df3afe483618df11d34fe973a767ab2ae9fd76",
+      "current_head": "3041c75f1e01269d36ce3040a55f19096b0e1838",
       "head_matches_revision": false,
       "source_content_current": true,
       "validation_content_current": true
@@ -148,16 +148,16 @@
           "path": "index.html",
           "expected_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2",
           "verified": true,
-          "current_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2",
-          "current": true,
+          "current_blob_sha": "1f663f6147f5b96a903f1615fb89a433f122fdb4",
+          "current": false,
           "actual_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2"
         },
         {
           "path": "src/style.css",
           "expected_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4",
           "verified": true,
-          "current_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4",
-          "current": true,
+          "current_blob_sha": "7fa0fea6bef08ac81120883e0500a6e95f6962bc",
+          "current": false,
           "actual_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4"
         }
       ],
@@ -180,9 +180,9 @@
         }
       ],
       "source_verified": true,
-      "current_head": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+      "current_head": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
       "head_matches_revision": false,
-      "source_content_current": true,
+      "source_content_current": false,
       "validation_content_current": true
     }
   ]
