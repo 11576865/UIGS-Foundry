@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37120867524-1",
+  "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+  "packet_sha256": "64e96e556820dcdafdda23280cf7d54b9e60dc6e448f3d29f666332ce2090435",
+  "triage_status": "needs-review",
+  "record_type": "ci_failure",
+  "routing_hints": [
+    "architecture",
+    "interface-grammar",
+    "operations",
+    "red-reason",
+    "reliability"
+  ],
+  "red_reason": {
+    "category": "runtime-smoke",
+    "confidence": 0.68,
+    "needs_review": true,
+    "signals": [
+      "workflow:Windows local smoke"
+    ],
+    "matched_rules": [
+      "runtime-smoke"
+    ]
+  },
+  "related_records": [
+    "REL.CAPABILITY_PROVEN_BY_OUTPUT",
+    "ARCH.STRUCTURED_NATIVE_BRIDGE"
+  ],
+  "created_at": "2026-10-03T11:49:49+00:00",
+  "triaged_at": "2026-10-03T16:18:15+00:00"
+}

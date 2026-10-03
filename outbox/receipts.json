@@ -1080,6 +1080,159 @@
       "ingested_at": "2026-10-03T11:40:29+00:00",
       "disposition": "pending",
       "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120353580-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37124340979-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37124340979-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37124340979:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37124340979-1.json",
+      "ingested_at": "2026-10-03T16:18:08+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37124340979-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37124611634-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37124611634-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37124611634:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37124611634-1.json",
+      "ingested_at": "2026-10-03T16:18:08+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37124611634-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37127772173-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37127772173-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37127772173:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37127772173-1.json",
+      "ingested_at": "2026-10-03T16:18:08+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37127772173-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37120391342-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37120391342-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37120391342:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120391342-1.json",
+      "ingested_at": "2026-10-03T16:18:11+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120391342-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37120406312-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37120406312-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37120406312:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120406312-1.json",
+      "ingested_at": "2026-10-03T16:18:11+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120406312-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37120423649-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37120423649-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37120423649:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120423649-1.json",
+      "ingested_at": "2026-10-03T16:18:11+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120423649-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37120432185-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37120432185-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37120432185:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120432185-1.json",
+      "ingested_at": "2026-10-03T16:18:11+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120432185-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37120849684-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37120849684-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37120849684:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120849684-1.json",
+      "ingested_at": "2026-10-03T16:18:12+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120849684-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37120852078-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37120852078-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37120852078:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120852078-1.json",
+      "ingested_at": "2026-10-03T16:18:12+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120852078-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37120867524-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37120867524-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37120867524:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120867524-1.json",
+      "ingested_at": "2026-10-03T16:18:12+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37120867524-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37121040474-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37121040474-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37121040474:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37121040474-1.json",
+      "ingested_at": "2026-10-03T16:18:12+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37121040474-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37121041793-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37121041793-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37121041793:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37121041793-1.json",
+      "ingested_at": "2026-10-03T16:18:13+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37121041793-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37121139872-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37121139872-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37121139872:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37121139872-1.json",
+      "ingested_at": "2026-10-03T16:18:13+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37121139872-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37121143460-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37121143460-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37121143460:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37121143460-1.json",
+      "ingested_at": "2026-10-03T16:18:13+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37121143460-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37128239944-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37128239944-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37128239944:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37128239944-1.json",
+      "ingested_at": "2026-10-03T16:18:13+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37128239944-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37134481337-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37134481337-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37134481337:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37134481337-1.json",
+      "ingested_at": "2026-10-03T16:18:14+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37134481337-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37134622653-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37134622653-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37134622653:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37134622653-1.json",
+      "ingested_at": "2026-10-03T16:18:14+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37134622653-1.json"
     }
   }
 }
