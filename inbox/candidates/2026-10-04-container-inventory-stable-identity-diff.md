@@ -2,7 +2,7 @@
 
 Status: **Candidate / reusable UI + verification pattern**
 Date: 2026-10-04
-Project context: `11576865/ASS-Workbench-Android` soft-mux / MKV container workflow design
+Project evidence: `11576865/ASS-Workbench-Android`, PR #89 (implementation + tests)
 
 ## Observation
 
@@ -42,8 +42,25 @@ The UI should make the verified inventory and diff primary, while moving explana
 
 The pattern applies to MKV/MP4 remuxers, archive editors, package managers, project asset bundles, database migration previews, and other tools that modify collections while trying to preserve unrelated members.
 
-## Evidence status
+## Implementation evidence
 
-This entry comes from a design requirement and established non-destructive / evidence-level project principles. It has not yet been validated by a completed ASS-Workbench implementation or user study.
+ASS-Workbench Android PR #89 implements the pattern in the MKV soft-mux workflow:
 
-Do not promote to Canonical from this single design observation.
+- the project surface is now inventory-first instead of explanation-first;
+- Matroska scanning exposes all TrackEntry records plus attachments/fonts and chapter count, while editable ASS remains a subset;
+- attachment metadata is represented separately from retained payload, so bounded payload reads do not force the whole resource to disappear from the inventory;
+- track matching prefers TrackUID; attachment matching prefers AttachmentUID and then content SHA-256;
+- weak metadata identities are accepted only when unique; duplicate weak candidates become `UNRESOLVED` rather than being paired by list position;
+- source re-scan is compared against the first-load baseline;
+- remux output is re-scanned before publish, and the verified inventory is compared to the baseline;
+- write-back verification checks track identity/order/metadata, chapter count, original attachment preservation, and ASS persisted semantics before the destination is published.
+
+Tests cover stable-UID track reordering, added/removed/modified resources, ambiguous weak identities, all major TrackEntry classes used by the reader fixture, chapter counting, bounded attachment metadata, and an Android Emulator MKV bridge fixture for modified ASS + added font with no silent source-resource removal.
+
+At intake time Android CI #842 passed. Android Emulator Regression #467 and Fontconfig renderer native probe #742 were still running, so those two evidence levels are not claimed as passed here.
+
+The implementation currently has observed `BASELINE`, source re-scan, and `VERIFIED_OUTPUT` states. A separate pre-write predicted/planned inventory remains a design direction from this Candidate and is not claimed as implemented by PR #89.
+
+## Status
+
+Keep as **Candidate**. This is now implementation-backed in one project, but it has not been validated across multiple projects or by a user study. Do not promote to Canonical from this evidence alone.
