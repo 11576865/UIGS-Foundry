@@ -24,7 +24,7 @@ Quick-Automatic-Hardsub-Encoder starts Native FFprobe work after video selection
 
 The callbacks carried no generation/identity guard.
 
-PR #35 introduces monotonically increasing probe generations on Windows and Android and suppresses callbacks from older generations.
+PR #41 introduces monotonically increasing probe generations on Windows and Android and suppresses callbacks from older generations.
 
 ## Candidate rule
 
@@ -42,7 +42,7 @@ Applies to file/media probes, remote metadata lookup, previews, validation, sear
 ## Provenance
 
 - source project: `11576865/Quick-Automatic-Hardsub-Encoder`
-- implementation: PR #35 `Stabilize media workflow state transitions`
+- implementation: PR #41 `Stabilize Windows Native sessions and workflow state`, merged as `04bdf5764a4850a931cf93bec80de423de97afb8`; earlier PR #35 was superseded and closed
 - evidence level: code-audited race with deterministic regression coverage
 
 This is a Candidate only. It is not Canonical.
