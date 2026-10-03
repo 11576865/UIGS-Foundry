@@ -56,4 +56,25 @@ Regression tests use one heterogeneous batch and verify that only the compatible
 - deduplication: searched UIGS-Foundry for equivalent compatibility-filtered heterogeneous batch guidance; no direct duplicate found
 - status rationale: reusable batch-authoring architecture candidate; not Canonical
 
+
+## Refinement — 2026-10-04
+
+ASS Workbench Android PR #95 supersedes draft #85 after the per-syllable flip/effective-state compiler landed in main.
+
+This adds two constraints to the candidate pattern:
+
+8. **The compatibility predicate must be parameter-identical to the transform it guards.** If compatibility depends on duration, geometry, ownership, codec, mode, or any other transform input, the filter must receive the same spec rather than evaluating a generic/default configuration.
+
+9. **The transform must revalidate against the object state that actually reaches it.** In an ordered batch pipeline, earlier actions may change the same object's text, style, geometry, ownership, or other preconditions after the initial filter ran. The guarded action therefore needs a second compatibility check against the current transformed object and relevant document context before applying itself.
+
+PR #95 also demonstrates why compatibility cannot be reduced to text-only inspection when authoring semantics depend on inherited/effective state. Karaoke reveal compilation now depends on Event text plus Style alpha/scale and Event-level geometry, so the batch predicate uses the same document-aware compiler boundary as the action.
+
+Additional evidence:
+- project: `11576865/ASS-Workbench-Android`
+- superseded draft: #85
+- replacement PR: #95
+- implementation revision: `56284433f18016d4ba58fab3aeecec1cd9205c7e`
+- evidence level at intake: branch + PR + domain/UI/regression tests authored; asynchronous CI pending
+- Canonical status unchanged
+
 This is a Candidate only. It is not Canonical.
