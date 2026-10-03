@@ -66,6 +66,17 @@ Automated evidence:
 Visual evidence:
 - CI captures the analyzed mobile copy timeline with keyframe lane and requested/actual markers.
 
+PR #40, merged as `09b67ee4ed774fa258365e9aee2717e23855efca`, strengthens the same pattern with source-frame evidence:
+- scrubbing the timeline decodes and displays the source frame at the current cursor;
+- Copy mode displays the requested-IN frame and the execution-realizable keyframe-IN frame side by side;
+- the two visual values remain separate from the execution authority; the backend still independently resolves the keyframe at run time;
+- Web, Windows Native and Android Native expose the same frame-preview semantic path;
+- real FFmpeg integration verifies source-frame extraction at distinct timestamps;
+- Playwright exercises the cursor preview and requested-vs-actual boundary inspector;
+- UIGS invariant `MEDIA.TIMELINE.SOURCE_FRAME_PREVIEW` binds source, test and workflow evidence.
+
+This is stronger evidence for “preview the execution-realizable result before execution” but is still one product implementation, so it does not justify Canonical promotion.
+
 ## Scope / non-claims
 
 This does not imply that all stream-copy endpoints must be keyframes, nor that every codec/container has identical seek semantics. It captures the product rule: the UI must expose the actual constraint used by the execution path instead of implying precision the operation cannot provide.
