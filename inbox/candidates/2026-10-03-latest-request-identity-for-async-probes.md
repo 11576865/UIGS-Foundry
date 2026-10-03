@@ -26,12 +26,15 @@ The callbacks carried no generation/identity guard.
 
 PR #41 introduces monotonically increasing probe generations on Windows and Android and suppresses callbacks from older generations.
 
+PR #43 extends the same identity rule beyond FFprobe itself: Native preview, frame, waveform, and sample waiters are explicitly cancelled and removed when video / ASS / font identity changes, so an old request cannot complete into a newly configured workflow.
+
 ## Candidate rule
 
 - every replaceable-source async probe should carry or capture a request/source identity;
 - only the latest still-valid identity may publish state;
 - stale success and stale failure must both be discarded;
 - changing source identity invalidates older in-flight probe results;
+- input-dependent async waiters that cannot cheaply carry source identity should be cancelled and cleared when the relevant input identity changes;
 - regression tests should force out-of-order completion and assert that only the newest result becomes visible;
 - UI state and logs must not be updated by stale completions.
 
@@ -42,7 +45,7 @@ Applies to file/media probes, remote metadata lookup, previews, validation, sear
 ## Provenance
 
 - source project: `11576865/Quick-Automatic-Hardsub-Encoder`
-- implementation: PR #41 `Stabilize Windows Native sessions and workflow state`, merged as `04bdf5764a4850a931cf93bec80de423de97afb8`; earlier PR #35 was superseded and closed
+- implementation: PR #41 `Stabilize Windows Native sessions and workflow state`, merged as `04bdf5764a4850a931cf93bec80de423de97afb8`; PR #43 `Stabilize input lifecycle and native picker identity` extends the rule to preview/frame/waveform/sample waiters; earlier PR #35 was superseded and closed
 - evidence level: code-audited race with deterministic regression coverage
 
 This is a Candidate only. It is not Canonical.
