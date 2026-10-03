@@ -24,3 +24,17 @@ When an extractor fails because a source requires an authenticated session, the 
 - evidence level: general extraction workflow observation
 
 This is a Candidate only. It is not Canonical.
+
+## Follow-up implementation evidence
+
+A standalone Windows subtitle-grabber wrapper was implemented around yt-dlp using this state split:
+
+- normal/default extraction;
+- authenticated extraction via browser session cookies;
+- automatic retry with a different YouTube client when age/login/403 symptoms indicate a client-specific path;
+- explicit distinction between authentication failure, PO Token / 403 attestation failure, no matching subtitles, browser-cookie access failure, and generic extractor failure;
+- browser cookies are handed directly to yt-dlp rather than exported or persisted by the wrapper.
+
+This reinforces the Candidate and adds one practical refinement:
+
+- client fallback is a recovery action, not evidence that authentication or attestation requirements disappeared; if fallback also fails, the UI/CLI must preserve the more specific failure class rather than collapsing back to “download failed”.
