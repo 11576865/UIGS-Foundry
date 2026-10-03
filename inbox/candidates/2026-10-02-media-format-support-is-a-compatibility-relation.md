@@ -153,3 +153,38 @@ Reusable refinement:
 PR #38 implements this as a visible shared audio-policy warning and carries the same warning into compiled task compatibility output. It merged as `2c4dea6a2e634a7b0ea0bb34cd0b87858d89fa77` after frontend, Windows smoke, FFmpeg integration, build and UI smoke checks passed.
 
 This strengthens the existing Candidate with cross-project evidence. It remains Candidate-level and is not promoted to Canonical.
+
+
+## Implementation refinement — codec-aware playback guidance
+
+Quick-Automatic-Hardsub-Encoder PR #39 merged as `94238aa40826e48f3c6841486ec545e6f04fa461` and refines the generic copied-audio warning into probe-backed, codec-aware guidance.
+
+The implementation consumes existing FFprobe / Native probe evidence:
+
+```text
+audioCodecs
+audioTracks
+audioBitRate
+```
+
+and separates **evidence about the source stream** from **claims about the target player**.
+
+Current policy:
+
+- AAC / MP3 copied audio is rendered as informational guidance because those codecs usually have broad playback support, but the UI still explicitly says that the actual external player has not been verified;
+- DTS, FLAC, Opus, mixed codec sets, and other player-dependent codecs retain warning-level guidance;
+- missing codec identity remains explicitly unknown rather than guessed;
+- no case silently converts copied audio;
+- warning-level cases provide explicit AAC conversion as a user-controlled recovery action;
+- source-media UI exposes all detected audio codecs, track count and aggregate bitrate rather than collapsing multi-track input to only the first codec.
+
+Reusable refinement:
+
+- compatibility communication should use the strongest available **observed identity evidence** to make warnings more specific;
+- reduced warning severity must not erase the remaining evidence boundary: broad ecosystem support is not the same as target-player verification;
+- UI state should distinguish `common / informational` from `player-dependent / warning` and `unknown`, instead of giving every copied stream the same generic warning;
+- a recovery action should remain explicit and reversible rather than automatic.
+
+Browser UI regression coverage verifies probe-driven AAC ↔ DTS state changes as well as Copy ↔ AAC policy changes.
+
+This strengthens the Candidate but remains non-Canonical.
