@@ -188,3 +188,22 @@ Reusable refinement:
 Browser UI regression coverage verifies probe-driven AAC ↔ DTS state changes as well as Copy ↔ AAC policy changes.
 
 This strengthens the Candidate but remains non-Canonical.
+
+## Follow-up observation — metadata probe success is not decoder support
+
+A Quick-Automatic-Hardsub-Encoder capability review for Bink 2 (`.bk2`) adds another evidence boundary.
+
+The Windows Native probe separately records:
+- FFprobe/container/stream metadata;
+- a one-frame FFmpeg decode smoke result (`inputDecodeSmoke`).
+
+That separation matters because an executor may recognize the container/header well enough to return dimensions, duration, streams or format identity while still lacking a decoder for the actual video bitstream. Current FFmpeg Bink demuxing is a concrete example: Bink-family metadata can be recognized while Bink 2 video decoding is not implemented.
+
+Reusable refinement:
+- media-ingest capability should distinguish at least **recognized/probed**, **decodable**, and **transcodable**;
+- a successful metadata probe must not promote an input to “supported” if decode evidence failed or is unavailable;
+- downstream transcode/hardsub execution should gate on decode capability, not merely on probe success;
+- UI should surface “metadata readable but video decoder unavailable” as a first-class unsupported state rather than allowing the failure to appear later during preview or encode.
+
+This reinforces the existing compatibility-relation Candidate; it does not create a new Canonical rule.
+
