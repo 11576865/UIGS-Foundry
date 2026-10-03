@@ -49,3 +49,12 @@ That rule says not to burn the session polling external validation after submiss
 ## Evidence boundary
 
 This rule originates from an explicit user workflow requirement in an active engineering project. Treat as Candidate process knowledge. Do not promote to Canonical solely from this instruction.
+
+
+## Continuation planning
+
+Reconciliation also applies before choosing the **next** engineering task, not only before editing a file.
+
+After an interrupted or resumed session, inspect open/merged PRs and explicit branch ancestry/dependencies before proposing new implementation. If existing work already forms an ordered stack, prefer closing, rebasing, integrating, validating, or superseding that stack over starting another parallel implementation.
+
+This prevents a resumed session from misclassifying integration debt as missing product capability.
