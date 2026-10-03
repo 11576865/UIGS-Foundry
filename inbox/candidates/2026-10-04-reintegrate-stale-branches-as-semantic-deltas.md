@@ -35,3 +35,17 @@ Diff-size inspection is also a useful guardrail: a feature expected to add a few
 This comes from one concrete stale-PR reintegration. It should remain Candidate until repeated across projects or independently validated.
 
 Do not promote to Canonical from this single case.
+
+
+## Independent follow-up evidence
+
+ASS-Workbench-Android later reproduced the same integration shape with Timeline Dock:
+
+- stale PR #82 remained behaviorally useful but was 26 commits behind current main;
+- current main did not yet contain the feature;
+- a fresh current-main branch replayed only the Timeline Dock semantic delta and tests;
+- the resulting replacement PR #98 stayed feature-sized and preserved newer mainline authority;
+- the stale PR was then closed as superseded;
+- asynchronous CI was left pending after submission rather than actively polled.
+
+This provides a second project-level example supporting the Candidate. It still remains Candidate; no automatic Canonical promotion follows from the additional case.
