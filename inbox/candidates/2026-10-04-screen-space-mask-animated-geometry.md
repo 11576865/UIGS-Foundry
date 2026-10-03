@@ -1,4 +1,4 @@
-# Candidate: Treat screen-space masks as incompatible with animated object geometry unless the mask follows the transform
+# Candidate: Prevent screen-space masks from overlapping incompatible animated geometry
 
 Status: candidate
 Date: 2026-10-04
@@ -8,7 +8,9 @@ Domains: authoring-tools, animation, masking, coordinate-spaces
 
 A visual composition can look correct in a static frame while becoming invalid as soon as the object geometry animates.
 
-When a mask/crop is authored in fixed screen/script coordinates but the visual object later rotates, scales, shears, or otherwise changes geometry, the mask does not automatically follow that transform. Combining the two without an explicit transform relationship can therefore clip the wrong region or make generated layers visually detach.
+When a mask/crop is authored in fixed screen/script coordinates but the visual object later rotates, scales, shears, or otherwise changes geometry, the mask does not automatically follow that transform. Combining the two while both are visible can therefore clip the wrong region or make generated layers visually detach.
+
+There are at least two safe resolution strategies: make the mask follow the same transform, or remove the temporal overlap so the mask is only visible after the animated geometry has reached the state for which the mask was authored.
 
 ## Candidate rule
 
@@ -16,10 +18,11 @@ For authoring systems that combine masks/crops with animated geometry:
 
 1. Identify the coordinate space of the mask and the coordinate space of the animated object.
 2. Do not assume a fixed screen-space mask follows object-space scale/rotation/shear.
-3. If the format/runtime cannot express the required mask transform coherently, fail closed on the unsupported combination.
-4. Surface the incompatibility in the authoring UI before commit when practical.
-5. Preserve atomicity: an unsupported composition must not partially generate layers or mutate the canonical document.
-6. Lift the restriction only after the mask can be represented in a coordinate space or transform chain that remains coherent with the animated geometry.
+3. If the format/runtime cannot express the required mask transform coherently, either fail closed or explicitly sequence visibility so the fixed mask is hidden while incompatible geometry is moving.
+4. A temporal workaround must preserve the source timing model; for timed text, prefer alpha-gating over shifting Event start time when shifting would desynchronize span-local timing.
+5. Surface the composition strategy or incompatibility in the authoring UI before commit when practical.
+6. Preserve atomicity: an unsupported composition must not partially generate layers or mutate the canonical document.
+7. Treat temporal sequencing as a different visual behavior from true transform-following masks; do not claim geometric equivalence.
 
 ## Evidence
 
@@ -27,13 +30,15 @@ ASS Workbench Android PR #84 implements a reflected-subtitle spatial fade by spl
 
 The same composition system can also author a flip/stretch entrance using `\frx` and `\fscy` animation. Those transforms affect the reflected glyph geometry, but the rectangular `\clip` bands remain fixed in script/screen coordinates. Applying both simultaneously would therefore allow the reflection to rotate/scale through static masks and produce geometrically detached clipping.
 
-The branch was corrected to reject `fade + entrance` at the domain composition boundary, mirror that restriction in UI validity, and add regression coverage confirming the failed composition leaves the source document unchanged.
+The branch first corrected this by rejecting `fade + entrance` at the domain composition boundary. A subsequent implementation found a safe canonical-ASS fallback that does not require a transformed mask: source/glow perform the entrance, while the clipped reflection bands remain fully transparent until the entrance settles and then reveal over a short window. The reflected Events retain their original start time, so Karaoke timing is not shifted. If the Event is too short to leave a post-entrance visible interval, composition still fails atomically.
+
+Regression coverage verifies that the source animation is authored normally, reflection bands are not given incompatible geometry transforms, their Event start times are preserved, and short Events fail without mutating the input document.
 
 ## Provenance
 
 - project: 11576865/ASS-Workbench-Android
 - PR: #84
-- evidence level: concrete composition incompatibility found during implementation + fail-closed fix + regression test
+- evidence level: concrete composition incompatibility found during implementation + fail-closed correction + temporal-sequencing implementation + regression tests
 - deduplication: searched UIGS-Foundry for equivalent screen-space-mask / animated-geometry guidance; no direct duplicate found
 - status rationale: reusable coordinate-space/composition rule, but not yet validated across multiple formats/renderers
 
