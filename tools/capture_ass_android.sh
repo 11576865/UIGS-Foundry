@@ -43,7 +43,8 @@ PY
 while IFS= read -r TEST_CLASS; do
   test -n "$TEST_CLASS"
   echo "Running UIGS Android capture class: $TEST_CLASS"
-  adb shell am instrument -w -e class "$TEST_CLASS" io.github.assworkbench.app.test/androidx.test.runner.AndroidJUnitRunner
+  # adb may read from stdin; detach it so it cannot consume the remaining while-read list.
+  adb shell am instrument -w -e class "$TEST_CLASS" io.github.assworkbench.app.test/androidx.test.runner.AndroidJUnitRunner </dev/null
 done < "$RUNNER_TEMP/ass-instrumentation-classes.list"
 
 python - <<'PY' > "$RUNNER_TEMP/ass-instrumented-captures.list"
@@ -56,7 +57,8 @@ PY
 
 while IFS='|' read -r ID FILE; do
   test -n "$ID"
-  adb exec-out run-as io.github.assworkbench.app cat "files/$FILE" > "$OUTDIR/$FILE"
+  # Preserve the capture manifest loop for the same reason: adb must not own loop stdin.
+  adb exec-out run-as io.github.assworkbench.app cat "files/$FILE" </dev/null > "$OUTDIR/$FILE"
   test -s "$OUTDIR/$FILE"
   python "$GITHUB_WORKSPACE/tools/assert_png_orientation.py" "$OUTDIR/$FILE" landscape
 done < "$RUNNER_TEMP/ass-instrumented-captures.list"
