@@ -33,7 +33,7 @@ ASS Workbench Android PR #86 initially recomputed `planProgressiveRevealBatch(..
 
 This keeps text-field interaction independent of selection size while preserving fail-closed batch semantics.
 
-A second occurrence appeared in ASS Workbench Android PR #95: adding Karaoke FX to the general Batch pane initially caused `AssBatchEngine.preview(...)` to rerun full compiler-backed compatibility and output generation whenever Karaoke parameters changed. The correction moved Karaoke batch preview to an explicit preflight button, invalidates that preview when the recipe changes, requires a current successful preview before Commit, and orders cheap filters before the compiler-backed compatibility filter.
+A second occurrence appeared in ASS Workbench Android PR #95: adding Karaoke FX to the general Batch pane initially caused `AssBatchEngine.preview(...)` to rerun full compiler-backed compatibility and output generation whenever parameters changed. Review then exposed that the same O(N) recomputation already existed for the rest of the Batch pane. The correction now makes **all** batch preview explicit: parameter edits only rebuild local recipe state and validation, any recipe/document change invalidates the previous preview, Commit requires a current successful preview, and cheap filters run before compiler-backed Karaoke compatibility.
 
 ## Provenance
 
