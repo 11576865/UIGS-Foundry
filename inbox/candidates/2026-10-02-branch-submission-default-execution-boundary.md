@@ -39,3 +39,12 @@ Continue past branch submission only when:
 This is based on one explicit user workflow preference in an active engineering project. Treat as a Candidate process rule, not Canonical policy.
 
 Do not promote to Canonical from this observation alone.
+
+
+## Reinforcement — 2026-10-04
+
+The user explicitly reinforced the execution-boundary rule with a failure mode to avoid: **do not keep checking progress until the conversation/session times out**.
+
+Operationally, once the requested code/configuration/document work has been submitted and no immediately actionable failure is already present, the agent must stop active polling. A running CI job is reported as Pending CI; it is not a reason to consume the rest of the session.
+
+This reinforcement does not change the status above: it remains a Candidate, not Canonical.
