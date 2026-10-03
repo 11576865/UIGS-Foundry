@@ -102,3 +102,20 @@ That Candidate concerns infeasible arithmetic budgets. This Candidate concerns e
 - design discussion: replacing arbitrary target-size guessing with a visible, content-aware compression efficiency curve
 
 This is a Candidate only. It is not Canonical.
+
+## Follow-up implementation evidence — single-branch model v1
+
+A stacked implementation PR for Quick-Automatic-Hardsub-Encoder now exercises the first Model layer on top of the evidence store:
+
+- fit one codec/preset/resolution branch at a time;
+- sort measured points by bitrate and fit in log-bitrate space;
+- use weighted isotonic regression to enforce the expected non-decreasing quality-vs-bitrate shape without introducing spline overshoot;
+- refuse extrapolation outside the measured bitrate domain;
+- preserve lower/central/upper sample-derived evidence ranges separately from the fitted center line;
+- estimate a local diminishing-return knee only when enough measured points exist;
+- map video bitrate to whole-file target size using duration, audio bitrate and reserve, while preserving explicit impossible / below-evidence / within-evidence / above-evidence states.
+
+This implementation reinforces the earlier Candidate: the decision curve should remain evidence-bounded and shape-constrained rather than presenting a decorative smooth curve as if it were measured truth.
+
+The current implementation remains single-branch and SSIM-based. It does not yet justify Canonical promotion.
+
