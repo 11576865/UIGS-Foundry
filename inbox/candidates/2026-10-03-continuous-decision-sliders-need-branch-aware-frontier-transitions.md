@@ -52,3 +52,55 @@ That Candidate defines the measured rate-distortion frontier. This Candidate con
 - design discussion: using a continuous slider on a compression decision frontier with seamless handoff between resolution/codec branches
 
 This is a Candidate only. It is not Canonical.
+
+## Follow-up refinement — exact crossover, hysteresis, and uncertainty are different things
+
+A mathematically exact crossover between two continuous branches is a sharp boundary:
+`Q_A(S*) = Q_B(S*)`.
+
+Hysteresis should not be treated as proof that the boundary itself is fuzzy. It is a control/interaction policy layered on top of that boundary:
+
+- moving upward in size may switch A -> B only at `S_up > S*`;
+- moving downward may switch B -> A only at `S_down < S*`.
+
+The interval `[S_down, S_up]` is therefore a stability band, not necessarily the full uncertainty interval.
+
+For measured compression curves, a better default is to derive stickiness from evidence:
+- remain on the current branch while the predicted quality advantage of the alternative is below a perceptual epsilon or while confidence bands overlap materially;
+- switch only when the alternative's advantage is both large enough and sufficiently supported;
+- report the region as “near-equivalent” rather than pretending the optimizer knows a unique winner.
+
+This bounds the deliberate efficiency loss: the maximum regret inside the stability band can be measured as the quality delta from the instantaneous upper envelope.
+
+## Follow-up refinement — curve continuity and branch kinks
+
+If each candidate rate-distortion curve is continuous over a shared valid size domain, their finite upper envelope is also continuous. Branch handoffs therefore normally create a **kink** (a derivative/slope change), not a visible break.
+
+True gaps/discontinuities arise only when:
+- candidate domains do not overlap;
+- a configuration becomes invalid below/above a hard constraint;
+- discrete format/decoder requirements create an unreachable interval.
+
+The visualization should preserve this distinction.
+
+## Follow-up refinement — comparison space vs physical display
+
+The core frontier should be measured in a canonical comparison/viewing space before any user display device is considered.
+
+For mixed-resolution candidates:
+- map every output to one fixed comparison resolution with one fixed resampler;
+- compare against the same reference in that space;
+- keep actual display-device assumptions out of the baseline optimizer.
+
+A display-aware profile may be an optional later layer when the product is explicitly optimizing perceived quality for a phone, desktop monitor, or TV. It should not contaminate the default source-to-output quality model.
+
+## Follow-up refinement — uncertainty rendering
+
+For a continuous slider, the primary representation should remain:
+- a continuous fitted curve;
+- a translucent confidence/uncertainty band;
+- discrete measured sample points visible as evidence;
+- optional thin “ghost” curves for competing branches.
+
+Block/cell visualizations are better suited to a secondary matrix or experiment table. They should not replace the continuous frontier when the user's primary interaction is continuous target-size selection.
+
