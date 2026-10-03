@@ -37,3 +37,22 @@ Current history therefore already supplies runtime/throughput priors, but it doe
 - implementation review after discussing time-budgeted compression calibration
 
 This is a Candidate only. It is not Canonical.
+
+## Follow-up refinement — priors have different transferability
+
+Historical observations should not be pooled as if every field transfers equally across future jobs.
+
+A practical split is:
+
+- **hardware/runtime priors** (encode speed, thermal behavior, startup overhead): relatively transferable across different source videos when codec/preset/resolution/fps and device conditions are similar;
+- **rate-control priors** (planned bitrate -> actual bitrate/output-size deviation): moderately transferable when encoder mode and source class are similar;
+- **perceptual quality priors** (SSIM/VMAF vs bitrate/CRF): strongly source-content dependent and should not be treated as exact evidence for unrelated videos.
+
+Therefore:
+- reuse runtime history broadly;
+- reuse rate-control history conditionally;
+- use perceptual-quality history only as a weak prior unless current-source features or direct samples support transfer;
+- persist current-source calibration samples separately so repeated decisions on the same source can reuse them at high confidence.
+
+This distinction prevents a history-rich product from becoming confidently wrong by over-transferring quality observations across unrelated content.
+
