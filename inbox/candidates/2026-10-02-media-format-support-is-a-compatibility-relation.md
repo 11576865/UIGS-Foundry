@@ -207,3 +207,27 @@ Reusable refinement:
 
 This reinforces the existing compatibility-relation Candidate; it does not create a new Canonical rule.
 
+## Follow-up observation — stream-set identity must survive probe-to-task planning
+
+A 2026-10-04 review of current `Quick-Automatic-Hardsub-Encoder` main found an asymmetry between audio and video stream modeling.
+
+Observed implementation:
+
+- FFprobe / Native probe enumerate all audio streams and expose `audioCodecs`, `audioTracks`, and aggregate audio bitrate;
+- the shared task compiler has an explicit `videoStream` field and emits `-map 0:v:<index>`, but currently constrains that field to index `0` only;
+- source-media normalization collapses video identity to the first video stream;
+- guided/native hard-sub paths explicitly map `0:v:0`;
+- output validation expects exactly one video stream.
+
+This means a valid container with multiple video streams is currently treated as “first video stream + optional audio set”, rather than as a fully explicit stream-set selection problem.
+
+Reusable refinement:
+
+- media probing should preserve the complete stream set, including stable stream indices and per-stream identity, until an explicit selection policy resolves the execution target;
+- probe normalization must not silently collapse multiple candidate streams to the first stream when downstream task semantics can distinguish them;
+- the task model should encode whether a stream is **selected**, **copied**, **transcoded**, or **dropped**, rather than relying on implicit FFmpeg default selection;
+- UI may still default to the first/default video stream for the common case, but multi-stream input should be surfaced as an explicit choice or an explicit “using stream X” decision;
+- validation should compare the produced stream plan with the requested stream plan, not merely assert a fixed count such as one video stream;
+- container analysis in mux/remux products and transcode products should share stream identity semantics even if their execution policies differ.
+
+This extends the existing compatibility-relation Candidate rather than creating a new Canonical rule. It remains Candidate-level evidence.
