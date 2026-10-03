@@ -37,6 +37,24 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: android-actions/setup-android@v4
+      - name: Assert ASS capture contract covers implemented surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          inventory=json.load(open(".capture/ass/.uigs/ui-surfaces.json",encoding="utf-8"))
+          contract=json.load(open(".capture/ass/.uigs/ui-visual-capture.json",encoding="utf-8"))
+          implemented={s["id"] for s in inventory["surfaces"] if s.get("status")=="implemented"}
+          declared={sid for capture in contract["captures"] for sid in capture.get("surface_ids",[])}
+          missing=sorted(implemented-declared)
+          unknown=sorted(declared-{s["id"] for s in inventory["surfaces"]})
+          if unknown:
+              raise SystemExit("capture contract references unknown ASS surfaces: "+", ".join(unknown))
+          if missing:
+              raise SystemExit("implemented ASS surfaces missing capture states: "+", ".join(missing))
+          print(f"ASS production capture contract covers {len(implemented)}/{len(implemented)} implemented surfaces across {len(contract['captures'])} capture states.")
+          PY
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '9.7.1'
