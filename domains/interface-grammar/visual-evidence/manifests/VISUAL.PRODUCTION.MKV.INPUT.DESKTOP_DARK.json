@@ -12,11 +12,11 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.INPUT.DESKTOP_DARK.png",
   "source_repository": "11576865/MKV-Fast-Muxer",
-  "source_revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
-  "sha256": "cfadab242f01910507dc2e56dc139334d754a8d322bbcbe8abf202333c4993bc",
+  "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
+  "sha256": "7035fcd3bf9113fd8706159d3a15495a1ccfadbdf3c80b2e5569109c7eadc637",
   "image": {
     "width": 975,
-    "height": 168
+    "height": 193
   },
   "environment": {
     "schema_version": 1,
@@ -57,8 +57,8 @@
       "settle_ms": 500
     }
   },
-  "change_status": "new",
-  "previous_sha256": null,
+  "change_status": "changed",
+  "previous_sha256": "cfadab242f01910507dc2e56dc139334d754a8d322bbcbe8abf202333c4993bc",
   "limitations": [
     "No user media is loaded; this records the real empty-input production state."
   ],
@@ -66,13 +66,13 @@
     {
       "source_type": "repository",
       "source": "11576865/MKV-Fast-Muxer",
-      "revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+      "revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/MKV-Fast-Muxer:ui-visual-capture.json",
-      "revision": "a01e4b0bfad4dcf7638bd31e7859443c4a411031",
+      "revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
       "evidence_level": "source-owned capture declaration"
     }
   ]
