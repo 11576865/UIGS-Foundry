@@ -1,0 +1,161 @@
+name: Capture Production UI Android Repair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/capture-production-ui-android-repair.yml'
+      - 'tools/capture_ass_android_repair.sh'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-production-ui-capture-android-repair
+  cancel-in-progress: false
+
+jobs:
+  ass-android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: 11576865/ASS-Workbench-Android
+          path: .capture/ass
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: android-actions/setup-android@v4
+      - name: Assert ASS capture contract covers implemented surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          inventory=json.load(open(".capture/ass/.uigs/ui-surfaces.json",encoding="utf-8"))
+          contract=json.load(open(".capture/ass/.uigs/ui-visual-capture.json",encoding="utf-8"))
+          implemented={s["id"] for s in inventory["surfaces"] if s.get("status")=="implemented"}
+          declared={sid for capture in contract["captures"] for sid in capture.get("surface_ids",[])}
+          missing=sorted(implemented-declared)
+          unknown=sorted(declared-{s["id"] for s in inventory["surfaces"]})
+          if unknown:
+              raise SystemExit("capture contract references unknown ASS surfaces: "+", ".join(unknown))
+          if missing:
+              raise SystemExit("implemented ASS surfaces missing capture states: "+", ".join(missing))
+          print(f"ASS production capture contract covers {len(implemented)}/{len(implemented)} implemented surfaces across {len(contract['captures'])} capture states.")
+          PY
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.7.1'
+      - name: Enable KVM
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm || true
+      - name: Build real debug APK and Android test APK
+        working-directory: .capture/ass
+        run: gradle :app:assembleDebug :app:assembleDebugAndroidTest
+      - name: Capture real APK, deterministic UI states, and runtime-backed renderer states
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          disable-animations: true
+          emulator-options: >-
+            -no-window
+            -gpu swiftshader_indirect
+            -noaudio
+            -no-boot-anim
+            -camera-back none
+          script: |
+            bash "$GITHUB_WORKSPACE/tools/capture_ass_android_repair.sh"
+      - name: Register Android production evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          SHA="$(git -C .capture/ass rev-parse HEAD)"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          contract=json.load(open(".capture/ass/.uigs/ui-visual-capture.json",encoding="utf-8"))
+          root=Path(os.environ["RUNNER_TEMP"])
+          common={
+              "schema_version":1,
+              "adapter":"android-emulator-screencap",
+              "emulator":{"api_level":35,"target":"google_apis","arch":"x86_64","profile":"pixel_6"},
+              "logical_size":{"width":1600,"height":1000},
+              "density":240,
+              "font_scale":1.0,
+              "capture_surface":"android-compositor",
+              "orientation_lock":"natural-0 + wide wm size",
+              "declared_orientation":"landscape",
+              "theme":"dark",
+          }
+          for capture in contract["captures"]:
+              meta=dict(common)
+              if capture["id"]=="ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE":
+                  meta["state_source"]="MainActivity default launch"
+              else:
+                  meta["state_source"]=capture.get("activity") or capture.get("fixture",{}).get("source") or "instrumentation fixture"
+                  meta["instrumentation_test"]=capture.get("build",{}).get("test_class")
+                  meta["fixture_kind"]=capture.get("fixture",{}).get("kind")
+                  meta["fixture_source"]=capture.get("fixture",{}).get("source")
+                  meta["fixture_state"]=capture.get("fixture",{}).get("state")
+              root.joinpath(capture["id"]+".json").write_text(json.dumps(meta,indent=2)+"\n",encoding="utf-8")
+          PY
+          python - <<'PY' > "$RUNNER_TEMP/ass-captures.list"
+          import json
+          data=json.load(open(".capture/ass/.uigs/ui-visual-capture.json",encoding="utf-8"))
+          for capture in data["captures"]:
+              print(capture["id"]+"|"+capture["output_name"])
+          PY
+          while IFS='|' read -r ID FILE; do
+            python tools/register_visual_evidence.py               --contract .capture/ass/.uigs/ui-visual-capture.json               --capture-id "$ID"               --source-repository 11576865/ASS-Workbench-Android               --source-revision "$SHA"               --image "domains/interface-grammar/visual-evidence/images/ASS/$FILE"               --metadata "$RUNNER_TEMP/$ID.json"               --output-manifest "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.$ID.json"
+          done < "$RUNNER_TEMP/ass-captures.list"
+      - name: Persist ASS source visual evidence first
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          SOURCE_PATHS=(domains/interface-grammar/visual-evidence/images/ASS)
+          mapfile -t MANIFESTS < <(find domains/interface-grammar/visual-evidence/manifests -maxdepth 1 -type f -name 'VISUAL.PRODUCTION.ASS.*.json' -print)
+          SOURCE_PATHS+=("${MANIFESTS[@]}")
+          if [[ -n "$(git status --porcelain -- "${SOURCE_PATHS[@]}")" ]]; then
+            git add -A "${SOURCE_PATHS[@]}"
+            git commit -m "chore(uigs): capture ASS Android production UI evidence"
+            bash tools/push_with_rebase_retry.sh main 5
+          else
+            git fetch origin main
+            git rebase origin/main
+          fi
+      - name: Rebuild visual evidence indexes from latest source state
+        run: |
+          python tools/build_visual_evidence_index.py
+          python tools/generate_ui_knowledge_report.py
+          python tools/test_register_visual_evidence.py
+          python tools/test_ui_evidence_resolver.py
+      - name: Persist derived visual indexes
+        shell: bash
+        run: |
+          set -euo pipefail
+          DERIVED_PATHS=(domains/interface-grammar/visual-evidence/index.json domains/interface-grammar/visual-evidence/coverage.json reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)
+          if [[ -z "$(git status --porcelain -- "${DERIVED_PATHS[@]}")" ]]; then
+            echo "Derived Android visual indexes unchanged."
+            exit 0
+          fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add -A "${DERIVED_PATHS[@]}"
+          git commit -m "chore(uigs): refresh ASS visual evidence index"
+          bash tools/push_with_rebase_retry.sh main 5
