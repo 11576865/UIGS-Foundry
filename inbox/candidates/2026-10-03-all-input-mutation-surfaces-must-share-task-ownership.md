@@ -19,6 +19,7 @@ However two mutation paths remained outside that lock:
 
 1. Windows Native uses separate system-picker buttons for video / ASS / fonts.
 2. The browser saved-font library can remove or clear fonts that participate in ASS font resolution.
+3. Shared guided output-policy controls (audio/container) are owned by the media workspace form and were locked in manual execution, but remained mutable during guided execution.
 
 This allowed the effective input universe to change while an existing task still assumed the old one.
 
@@ -26,6 +27,7 @@ PR #43 now:
 - locks Windows Native picker buttons under the same operation owner;
 - rejects picker starts while `operationBusy` or a Native job is active;
 - locks saved-font delete / clear actions during active tasks;
+- locks the shared audio/container output policy during guided tasks as well as manual tasks;
 - invalidates analysis when the saved-font dependency set changes.
 
 ## Candidate rule
