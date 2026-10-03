@@ -10,7 +10,7 @@ A generated visual layer can begin with the intended reflection, glow, or entran
 
 The failure appears when a higher-level compositor establishes a layer-level base state (for example alpha, blur, Scale Y, Rotation X or border), while later span-local override blocks in the copied source re-own one of those same properties.
 
-With ASS Karaoke this is especially easy to trigger because each syllable may carry its own override block and time-scoped transforms.
+With ASS Karaoke this is especially easy to trigger because each syllable may carry its own override block and time-scoped transforms. The same failure is not Karaoke-specific: ordinary later inline spans, leading time transforms, fades, and style resets can also re-own generated properties.
 
 ## Failure mechanism
 
@@ -27,17 +27,20 @@ This is not a parsing failure. It is an **ownership-order failure**.
 
 ## Mitigation implemented
 
-ASS Workbench Android PR #87 adds a fail-closed compatibility guard:
+ASS Workbench Android PR #87 first added a fail-closed compatibility guard for Karaoke-region ownership conflicts. Follow-up review in PR #93 generalized the same boundary after finding that non-Karaoke spans and temporal controls can produce the same failure.
+
+The current mitigation:
 
 - plain Karaoke timing tags remain accepted;
-- leading Event-level base overrides remain accepted;
-- generated reflection rejects Karaoke-region alpha/blur/Scale Y/Rotation X ownership;
-- generated glow rejects Karaoke-region alpha/blur/border ownership;
-- generated flip entrance rejects Karaoke-region Scale Y/Rotation X/transform ownership;
-- malformed inline syntax is rejected;
+- leading static Event-level base overrides remain accepted;
+- any later inline span that re-owns a generated property is rejected, whether or not Karaoke is present;
+- leading `\t` transforms are inspected for generated-property ownership;
+- `\fad` / `\fade` are rejected when the generated effect owns alpha;
+- `\r` Style reset is rejected because it can replace the effective style and re-own alpha/blur/geometry mid-line;
+- malformed inline or animation syntax is rejected;
 - the guard runs before document mutation.
 
-The guard is intentionally temporary architecture protection. It does not claim to solve Layer-aware Karaoke composition.
+The guard is intentionally architecture protection. It does not claim to solve full span-aware effect composition.
 
 ## Reusable lesson
 
@@ -53,8 +56,8 @@ Silently relying on the generated layer's initial override is unsafe.
 ## Evidence
 
 - project: `11576865/ASS-Workbench-Android`
-- PR: #87
-- regression coverage: plain Karaoke compatibility; reflection/glow/entrance ownership conflicts; failure before mutation
+- PRs: #87, #93
+- regression coverage: plain Karaoke compatibility; Karaoke and non-Karaoke span conflicts; leading transform/fade ownership; Style reset; reflection/glow/entrance failure before mutation
 - deduplication: searched UIGS-Foundry for generated-layer/span ownership, Karaoke reflection, and later-inline-override equivalents; no direct duplicate found
 
 This Bug entry is evidence, not a Canonical rule.
