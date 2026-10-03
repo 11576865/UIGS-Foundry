@@ -22,7 +22,7 @@ made the source-analysis button disabled with the label “正在读取视频参
 
 After a probe failure, the UI could therefore look permanently busy and offered no retry action.
 
-PR #35 now distinguishes:
+PR #41 now distinguishes:
 
 - no result yet → pending, disabled, “正在读取视频参数…”;
 - failed result → retryable, enabled, “重试读取视频参数”;
@@ -46,7 +46,7 @@ Applies to source probes, validation, remote lookup, import, synchronization, pr
 ## Provenance
 
 - source project: `11576865/Quick-Automatic-Hardsub-Encoder`
-- implementation: PR #35
+- implementation: PR #41 `Stabilize Windows Native sessions and workflow state`, merged as `04bdf5764a4850a931cf93bec80de423de97afb8`; earlier PR #35 was superseded and closed
 - evidence level: code-audited terminal-state defect plus regression contract
 
 This is a Candidate only. It is not Canonical.
