@@ -282,13 +282,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-      "sha256": "88152724644ed894f7eec754b3240c6d403537e95976c394a14e71d9062f757a",
+      "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+      "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
       "image": {
         "width": 1365,
-        "height": 2330
+        "height": 2714
       },
-      "change_status": "new",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
     },
     {
@@ -305,13 +305,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-      "sha256": "e1540911a92260a7c4fb9a0bcc5e895609ea8e13ac67f3a743aadd431c2867ef",
+      "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+      "sha256": "9e446a974f420f027e6d74614926f49fbf2f3bbf4d9ada40e44eeddf46c72eed",
       "image": {
         "width": 1021,
-        "height": 2363
+        "height": 3242
       },
-      "change_status": "new",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
     },
     {
@@ -329,13 +329,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-      "sha256": "290b139195ec60384fb9b30e1253924a95fdd8fcc635563d40bd6024d1f7e4e4",
+      "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+      "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
       "image": {
         "width": 390,
         "height": 844
       },
-      "change_status": "new",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
     },
     {
@@ -356,13 +356,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-      "sha256": "e334d341ebdd8c924ec173ad209b4013d167322862d48b27adaa51d64e75d793",
+      "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+      "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
       "image": {
         "width": 1365,
         "height": 900
       },
-      "change_status": "new",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
     }
   ],
@@ -1090,13 +1090,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "e334d341ebdd8c924ec173ad209b4013d167322862d48b27adaa51d64e75d793",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
         "image": {
           "width": 1365,
           "height": 900
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       }
     ],
@@ -1118,13 +1118,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "88152724644ed894f7eec754b3240c6d403537e95976c394a14e71d9062f757a",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
         "image": {
           "width": 1365,
-          "height": 2330
+          "height": 2714
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -1142,13 +1142,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "290b139195ec60384fb9b30e1253924a95fdd8fcc635563d40bd6024d1f7e4e4",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
         "image": {
           "width": 390,
           "height": 844
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -1168,13 +1168,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "290b139195ec60384fb9b30e1253924a95fdd8fcc635563d40bd6024d1f7e4e4",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
         "image": {
           "width": 390,
           "height": 844
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -1197,13 +1197,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "e334d341ebdd8c924ec173ad209b4013d167322862d48b27adaa51d64e75d793",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
         "image": {
           "width": 1365,
           "height": 900
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       }
     ],
@@ -1226,13 +1226,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "e334d341ebdd8c924ec173ad209b4013d167322862d48b27adaa51d64e75d793",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
         "image": {
           "width": 1365,
           "height": 900
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       }
     ],
@@ -1251,13 +1251,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "e1540911a92260a7c4fb9a0bcc5e895609ea8e13ac67f3a743aadd431c2867ef",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "9e446a974f420f027e6d74614926f49fbf2f3bbf4d9ada40e44eeddf46c72eed",
         "image": {
           "width": 1021,
-          "height": 2363
+          "height": 3242
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -1276,13 +1276,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "e1540911a92260a7c4fb9a0bcc5e895609ea8e13ac67f3a743aadd431c2867ef",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "9e446a974f420f027e6d74614926f49fbf2f3bbf4d9ada40e44eeddf46c72eed",
         "image": {
           "width": 1021,
-          "height": 2363
+          "height": 3242
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -1301,13 +1301,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "e1540911a92260a7c4fb9a0bcc5e895609ea8e13ac67f3a743aadd431c2867ef",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "9e446a974f420f027e6d74614926f49fbf2f3bbf4d9ada40e44eeddf46c72eed",
         "image": {
           "width": 1021,
-          "height": 2363
+          "height": 3242
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -1326,13 +1326,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "e1540911a92260a7c4fb9a0bcc5e895609ea8e13ac67f3a743aadd431c2867ef",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "9e446a974f420f027e6d74614926f49fbf2f3bbf4d9ada40e44eeddf46c72eed",
         "image": {
           "width": 1021,
-          "height": 2363
+          "height": 3242
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -1352,13 +1352,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "290b139195ec60384fb9b30e1253924a95fdd8fcc635563d40bd6024d1f7e4e4",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
         "image": {
           "width": 390,
           "height": 844
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -1380,13 +1380,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "88152724644ed894f7eec754b3240c6d403537e95976c394a14e71d9062f757a",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
         "image": {
           "width": 1365,
-          "height": 2330
+          "height": 2714
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -1404,13 +1404,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "290b139195ec60384fb9b30e1253924a95fdd8fcc635563d40bd6024d1f7e4e4",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
         "image": {
           "width": 390,
           "height": 844
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -1433,13 +1433,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "e334d341ebdd8c924ec173ad209b4013d167322862d48b27adaa51d64e75d793",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
         "image": {
           "width": 1365,
           "height": 900
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       }
     ],
@@ -1461,13 +1461,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "88152724644ed894f7eec754b3240c6d403537e95976c394a14e71d9062f757a",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
         "image": {
           "width": 1365,
-          "height": 2330
+          "height": 2714
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -1485,13 +1485,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "290b139195ec60384fb9b30e1253924a95fdd8fcc635563d40bd6024d1f7e4e4",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
         "image": {
           "width": 390,
           "height": 844
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -1513,13 +1513,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "88152724644ed894f7eec754b3240c6d403537e95976c394a14e71d9062f757a",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
         "image": {
           "width": 1365,
-          "height": 2330
+          "height": 2714
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       }
     ],
@@ -1542,13 +1542,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "e334d341ebdd8c924ec173ad209b4013d167322862d48b27adaa51d64e75d793",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
         "image": {
           "width": 1365,
           "height": 900
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       }
     ],
@@ -1570,13 +1570,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "88152724644ed894f7eec754b3240c6d403537e95976c394a14e71d9062f757a",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
         "image": {
           "width": 1365,
-          "height": 2330
+          "height": 2714
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -1597,13 +1597,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "c9929e98dbab72ce8f72432558a022e0394ef874",
-        "sha256": "e334d341ebdd8c924ec173ad209b4013d167322862d48b27adaa51d64e75d793",
+        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
+        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
         "image": {
           "width": 1365,
           "height": 900
         },
-        "change_status": "new",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       }
     ]
