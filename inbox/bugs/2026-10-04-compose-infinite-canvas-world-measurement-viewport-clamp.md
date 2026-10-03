@@ -1,7 +1,7 @@
 # Bug: Infinite canvas surfaces can remain viewport-clamped under a bounded Compose parent
 
 Date: 2026-10-04
-Status: Bug / fix submitted, CI validation pending
+Status: Bug / product fix retained; regression expectation fix submitted, CI validation pending
 Source: 11576865/ASS-Workbench-Android PR #88
 
 ## Symptom
@@ -39,3 +39,12 @@ The instrumentation test `InfiniteCanvasInstrumentedTest.surfaceMeasurementIsNot
 The initial failure is confirmed by Android Emulator Regression: expected 2362 px, measured 1080 px.
 
 The fix has been submitted but its replacement CI run is still pending at the time of this record. Do not promote to Canonical until the regression is green and the behavior is validated in the integrated spatial workspace.
+
+
+## Follow-up: exact pixel rounding in the regression gate
+
+The first post-fix Android Emulator Regression no longer reproduced the viewport clamp. The measured width was 2363 px, while the test expected 2362 px. The remaining one-pixel failure came from the test computing `900 * density` with `.toInt()` truncation rather than Compose-equivalent nearest-pixel rounding.
+
+PR #88 follow-up commit: `9af7eba866d5d99d6c33f6c1a0320a6f92714632`.
+
+This follow-up preserves the original regression invariant; it only corrects how the expected dp-derived pixel width is calculated. CI validation of the follow-up is pending.
