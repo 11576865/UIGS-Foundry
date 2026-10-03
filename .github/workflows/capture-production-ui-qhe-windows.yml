@@ -1,0 +1,136 @@
+name: Capture Production UI QHE Windows Native
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/capture-production-ui-qhe-windows.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '7 4 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-production-ui-capture-writer
+  cancel-in-progress: false
+
+jobs:
+  qhe-windows-native:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: 11576865/Quick-Automatic-Hardsub-Encoder
+          path: .capture/qhe
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install capture dependencies
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Push-Location .capture/qhe
+          npm ci --no-audit --no-fund
+          npm install --no-save --package-lock=false playwright
+          npx playwright install chromium
+          Pop-Location
+          choco install ffmpeg --yes --no-progress
+
+      - name: Start real Windows Native Bridge and frontend
+        shell: pwsh
+        env:
+          UIGS_BRIDGE_TOKEN: uigs-ci-runtime-visual-capture
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $bridgeOut = Join-Path $env:RUNNER_TEMP 'qhe-bridge.out.log'
+          $bridgeErr = Join-Path $env:RUNNER_TEMP 'qhe-bridge.err.log'
+          $bridgeScript = (Resolve-Path '.capture/qhe/windows/native-bridge.ps1').Path
+          $bridgeArgs = @('-NoProfile','-ExecutionPolicy','Bypass','-File',$bridgeScript,'-Port','9347','-NoBrowser','-Token',$env:UIGS_BRIDGE_TOKEN)
+          $bridge = Start-Process powershell.exe -PassThru -WindowStyle Hidden -RedirectStandardOutput $bridgeOut -RedirectStandardError $bridgeErr -ArgumentList $bridgeArgs
+          "QHE_BRIDGE_PID=$($bridge.Id)" | Out-File $env:GITHUB_ENV -Append
+          $ready = $false
+          for ($i=0; $i -lt 120; $i++) {
+            try {
+              $h = Invoke-RestMethod 'http://127.0.0.1:9347/api/health' -Headers @{'X-Quick-Hardsub-Token'=$env:UIGS_BRIDGE_TOKEN} -TimeoutSec 3
+              if ($h.backend -eq 'windows-native' -and $h.available) { $ready=$true; break }
+            } catch {}
+            if ($bridge.HasExited) { Get-Content $bridgeOut -ErrorAction SilentlyContinue; Get-Content $bridgeErr -ErrorAction SilentlyContinue; throw 'Bridge exited early' }
+            Start-Sleep 1
+          }
+          if (-not $ready) { Get-Content $bridgeOut -ErrorAction SilentlyContinue; throw 'Bridge health timeout' }
+          $viteOut = Join-Path $env:RUNNER_TEMP 'qhe-vite.out.log'
+          $viteErr = Join-Path $env:RUNNER_TEMP 'qhe-vite.err.log'
+          $vite = Start-Process node.exe -PassThru -WorkingDirectory (Resolve-Path '.capture/qhe').Path -RedirectStandardOutput $viteOut -RedirectStandardError $viteErr -ArgumentList @('node_modules/vite/bin/vite.js','--host','127.0.0.1','--port','4174','--strictPort')
+          "QHE_VITE_PID=$($vite.Id)" | Out-File $env:GITHUB_ENV -Append
+          $ready = $false
+          for ($i=0; $i -lt 90; $i++) {
+            try { $r=Invoke-WebRequest -UseBasicParsing 'http://127.0.0.1:4174/' -TimeoutSec 3; if ($r.StatusCode -eq 200) { $ready=$true; break } } catch {}
+            if ($vite.HasExited) { Get-Content $viteOut -ErrorAction SilentlyContinue; Get-Content $viteErr -ErrorAction SilentlyContinue; throw 'Vite exited early' }
+            Start-Sleep 1
+          }
+          if (-not $ready) { throw 'Vite startup timeout' }
+
+      - name: Capture and register runtime-backed state
+        shell: pwsh
+        env:
+          UIGS_BRIDGE_TOKEN: uigs-ci-runtime-visual-capture
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $id='QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK'
+          $dir='domains/interface-grammar/visual-evidence/images/QHE'
+          New-Item -ItemType Directory -Force $dir | Out-Null
+          $image=Join-Path $dir "$id.png"
+          $meta=Join-Path $env:RUNNER_TEMP "$id.json"
+          node .capture/qhe/.uigs/capture-windows-native.mjs --capture $id --base-url http://127.0.0.1:4174 --bridge-url http://127.0.0.1:9347 --token $env:UIGS_BRIDGE_TOKEN --output $image --metadata-output $meta
+          $sha=(git -C .capture/qhe rev-parse HEAD).Trim()
+          python tools/register_visual_evidence.py --contract .capture/qhe/.uigs/ui-visual-capture.json --capture-id $id --source-repository 11576865/Quick-Automatic-Hardsub-Encoder --source-revision $sha --image $image --metadata $meta --output-manifest "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.$id.json"
+
+      - name: Stop runtime processes
+        if: always()
+        shell: pwsh
+        run: |
+          foreach ($name in @('QHE_VITE_PID','QHE_BRIDGE_PID')) {
+            $pidValue=[Environment]::GetEnvironmentVariable($name)
+            if ($pidValue) { Stop-Process -Id ([int]$pidValue) -Force -ErrorAction SilentlyContinue }
+          }
+
+      - name: Persist source evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name uigs-foundry-bot
+          git config user.email uigs-foundry-bot@users.noreply.github.com
+          if [[ -n "$(git status --porcelain -- domains/interface-grammar/visual-evidence/images/QHE domains/interface-grammar/visual-evidence/manifests)" ]]; then
+            git add -A domains/interface-grammar/visual-evidence/images/QHE domains/interface-grammar/visual-evidence/manifests
+            git commit -m 'chore(uigs): capture QHE Windows Native runtime evidence'
+            bash tools/push_with_rebase_retry.sh main 5
+          else
+            git fetch origin main
+            git rebase origin/main
+          fi
+
+      - name: Rebuild and persist derived evidence indexes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tools/build_visual_evidence_index.py
+          python tools/generate_ui_knowledge_report.py
+          python tools/test_register_visual_evidence.py
+          python tools/test_ui_evidence_resolver.py
+          PATHS=(domains/interface-grammar/visual-evidence/index.json domains/interface-grammar/visual-evidence/coverage.json reports/generated/ui-knowledge-coverage.json reports/generated/ui-knowledge-coverage.md)
+          if [[ -z "$(git status --porcelain -- "${PATHS[@]}")" ]]; then exit 0; fi
+          git config user.name uigs-foundry-bot
+          git config user.email uigs-foundry-bot@users.noreply.github.com
+          git add -A "${PATHS[@]}"
+          git commit -m 'chore(uigs): refresh QHE Windows visual evidence index'
+          bash tools/push_with_rebase_retry.sh main 5
