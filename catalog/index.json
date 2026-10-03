@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "2.6",
+  "version": "2.7",
   "domains": [
     {
       "id": "interface-grammar",
@@ -371,6 +371,11 @@
       "id": "BUG.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION",
       "status": "validated",
       "path": "domains/reliability/bug-museum/BUG.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION.json"
+    },
+    {
+      "id": "BUG.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE",
+      "status": "validated",
+      "path": "domains/reliability/bug-museum/BUG.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE.json"
     }
   ],
   "projects": [
