@@ -22,15 +22,17 @@ For example, a reflection operation that owns only a Y offset should not clamp X
 
 ASS Workbench Android PR #93 generates reflected ASS Events by shifting vertical geometry. The implementation was clamping X values of `\pos`, `\move`, and `\org` to `PlayResX` even though reflection authoring did not own horizontal position.
 
-That meant a valid source such as `\pos(-120,300)` or `\org(2040,200)` was silently rewritten horizontally when only a Y reflection offset was requested.
+That meant a valid source such as `\pos(-120,1100)`, `\org(2040,1200)`, or an off-screen `\move` path could be silently snapped back toward the current PlayRes while only a reflection offset was requested.
 
-The correction preserves X exactly and only applies the intended vertical change. Regression coverage includes negative and beyond-PlayRes horizontal coordinates for both positioned and moving Events.
+The correction now preserves explicit `\pos`, `\move`, `\org`, and rectangular `\clip` geometry exactly apart from the requested Y offset. It also stops clamping inherited-margin anchors during explicitization. Spatial fade is different because its mask is intentionally screen-space: if the resulting reflection anchor is outside the picture, the compiler fails explicitly instead of moving the anchor into view.
+
+Regression coverage includes negative and beyond-PlayRes coordinates, translated clips, moving Events, and fail-closed spatial fade for an off-screen anchor.
 
 ## Provenance
 
 - project: 11576865/ASS-Workbench-Android
 - PR: #93
-- evidence level: concrete semantic mutation bug + implementation correction + regression test
+- evidence level: concrete semantic mutation bug + implementation correction + regression tests across explicit and screen-space geometry
 - deduplication: searched UIGS-Foundry for unrelated-axis clamping / preserving unowned geometry / semantic patch ownership; no direct duplicate found
 - status rationale: reusable semantic-editing principle; not promoted to Canonical from a single project observation
 
