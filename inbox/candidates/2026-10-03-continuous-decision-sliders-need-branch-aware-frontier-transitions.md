@@ -104,3 +104,19 @@ For a continuous slider, the primary representation should remain:
 
 Block/cell visualizations are better suited to a secondary matrix or experiment table. They should not replace the continuous frontier when the user's primary interaction is continuous target-size selection.
 
+## Follow-up implementation evidence — the curve itself can be the control
+
+Quick-Automatic-Hardsub-Encoder's first single-branch target-size frontier now uses the plotted measured curve itself as a slider surface:
+
+- horizontal pointer position maps continuously to the decision coordinate (whole-file target bytes);
+- the thumb is rendered on the fitted curve rather than on a separate generic range track;
+- pointer drag and keyboard slider semantics update the same target-size coordinate;
+- the selected curve coordinate drives the execution bitrate budget directly, instead of being silently re-clamped by an unrelated legacy heuristic;
+- the legacy source-relative multiplier remains available as an explicit fallback control rather than competing with the curve;
+- when execution constraints impose a minimum video bitrate, the plotted evidence domain is clipped to the same executable domain;
+- measured points remain visible as evidence, while the shaded band is currently labelled as sample dispersion rather than overstated as a statistical confidence interval.
+
+This adds implementation support for two parts of the Candidate: preserve one continuous decision coordinate, and ensure the visualization does not claim regions that the execution layer cannot actually realize.
+
+The implementation is still single-branch. It does not yet provide evidence for automatic branch handoff, hysteresis, or upper-envelope switching, so those parts remain Candidate-level design work.
+
