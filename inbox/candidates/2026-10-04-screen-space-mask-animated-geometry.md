@@ -32,13 +32,15 @@ The same composition system can also author a flip/stretch entrance using `\frx`
 
 The branch first corrected this by rejecting `fade + entrance` at the domain composition boundary. A subsequent implementation found a safe canonical-ASS fallback that does not require a transformed mask: source/glow perform the entrance, while the clipped reflection bands remain fully transparent until the entrance settles and then reveal over a short window. The reflected Events retain their original start time, so Karaoke timing is not shifted. If the Event is too short to leave a post-entrance visible interval, composition still fails atomically.
 
-Regression coverage verifies that the source animation is authored normally, reflection bands are not given incompatible geometry transforms, their Event start times are preserved, and short Events fail without mutating the input document.
+Regression coverage verifies that the authored entrance is handled by temporal sequencing, reflection bands are not given incompatible geometry transforms, their Event start times are preserved, and short Events fail without mutating the input document.
+
+A later PR #93 review found the same coordinate-space hazard in **pre-existing source animation** rather than compositor-authored entrance animation. A source Event with a leading `\t(...,\frz...\fscx...)` or later span-local geometry changes could previously pass spatial-fade validation even though the generated rectangular clips stay fixed in screen/script coordinates. The branch now rejects geometry-affecting source transforms/spans for spatial fade while still allowing non-geometric transforms such as color-only animation.
 
 ## Provenance
 
 - project: 11576865/ASS-Workbench-Android
-- PR: #84
-- evidence level: concrete composition incompatibility found during implementation + fail-closed correction + temporal-sequencing implementation + regression tests
+- PRs: #84, #93
+- evidence level: repeated coordinate-space incompatibility found in both compositor-authored and pre-existing source animation + fail-closed/temporal-sequencing corrections + regression tests
 - deduplication: searched UIGS-Foundry for equivalent screen-space-mask / animated-geometry guidance; no direct duplicate found
 - status rationale: reusable coordinate-space/composition rule, but not yet validated across multiple formats/renderers
 
