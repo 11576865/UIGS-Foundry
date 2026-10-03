@@ -23,3 +23,10 @@ A cache/evidence key is a correctness boundary, not merely an optimization detai
 ## Evidence
 
 Single project observation from compression quality calibration review. This does not justify a Canonical rule by itself.
+
+
+## Follow-up implementation evidence
+
+PR #47 was changed so quality calibration records with an incomplete render dependency key are persisted as `observation` evidence only. They are excluded from reusable source-quality priors until the effective ASS/font/render configuration is included in the identity.
+
+This makes the safe fallback explicit: retain measurements for later analysis, but do not let incomplete identity silently become cache reuse.
