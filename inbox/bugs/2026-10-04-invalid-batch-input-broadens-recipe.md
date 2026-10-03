@@ -60,7 +60,22 @@ Only the first may be silently omitted from the compiled operation. The third mu
 
 - project: `11576865/ASS-Workbench-Android`
 - PR: #95
-- evidence level: concrete destructive-scope defect found during code review + fail-closed UI correction + regression coverage
+- evidence level: concrete destructive-scope defect found during code review + fail-closed UI and domain corrections + regression coverage
 - deduplication: searched UIGS-Foundry for invalid optional batch fields, silently omitted filters/actions, and broadened batch scope; no direct duplicate found
 
 This Bug entry is evidence, not a Canonical rule.
+
+
+## Domain-layer follow-up
+
+Further PR #95 review found that form validation alone is not a sufficient safety boundary because batch recipes/actions can also be constructed programmatically.
+
+The domain layer now independently enforces relevant invariants:
+
+- target Style must exist;
+- Event margins cannot be negative;
+- duration/time ranges must be ordered and non-negative;
+- numeric overrides must be finite and respect the property's minimum;
+- Tag filters must contain a valid tag name and are matched through parsed ASS syntax rather than a raw-text regex.
+
+The UI remains responsible for immediate local feedback, but correctness no longer depends on the UI being the only caller.
