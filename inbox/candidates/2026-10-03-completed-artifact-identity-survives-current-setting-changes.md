@@ -15,7 +15,7 @@ If the user changes mode or parameters after completion, the artifact should rem
 
 In Quick-Automatic-Hardsub-Encoder, a completed transcode could remain in `verified/saved` state while the user switched the current operation to another mode. The action label could still say “重新压制” even though pressing it would execute a different current operation.
 
-PR #35 keeps the completed artifact available but marks it as a previous-task artifact when current settings diverge. Save actions become “保存上一成品 / 重试保存上一成品 / 再次保存上一成品”, while the run action reflects the current mode.
+PR #41 keeps the completed artifact available but marks it as a previous-task artifact when current settings diverge. Save actions become “保存上一成品 / 重试保存上一成品 / 再次保存上一成品”, while the run action reflects the current mode.
 
 ## Candidate rule
 
@@ -34,7 +34,7 @@ Applies to encoders, renderers, exporters, build systems, report generators, mod
 ## Provenance
 
 - source project: `11576865/Quick-Automatic-Hardsub-Encoder`
-- implementation: PR #35
+- implementation: PR #41 `Stabilize Windows Native sessions and workflow state`, merged as `04bdf5764a4850a931cf93bec80de423de97afb8`; earlier PR #35 was superseded and closed
 - evidence level: state audit plus automated transition regression
 
 This is a Candidate only. It is not Canonical.
