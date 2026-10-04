@@ -91,3 +91,23 @@ Evidence:
 - asynchronous CI pending
 
 No Canonical promotion is implied by this refinement.
+
+
+## Refinement — session and target revalidation at intent routing
+
+ASS Workbench Android PR #118 exposed another boundary condition while reconciling the drag-extraction branch with current main:
+
+19. Descriptor/binding/arity validation is necessary but not sufficient immediately before a live preview or commit.
+20. The router caller must also revalidate the **current workspace session** and resolve the projection binding again against current focus/selection/Event existence.
+21. A transient preview must not overwrite another owner. Before PREVIEW/COMMIT, the current preview owner must be null or the exact projection owner.
+22. CANCEL is scoped to the captured workspace session so disposal of an old projection cannot clear a same-named preview that belongs to a newer session.
+
+This is especially important after branch reconciliation: a syntactically correct intent router can still regress lifecycle ownership if session/target guards from an older control-specific path are dropped during abstraction.
+
+Evidence:
+- project PR #118
+- repair revision `c83899fde95587c3822084e7c7e4e031626e3389`
+- deduplication: searched Foundry for session/target revalidation and projection preview-owner guards; no direct duplicate found
+- asynchronous CI pending
+
+No Canonical promotion is implied by this refinement.
