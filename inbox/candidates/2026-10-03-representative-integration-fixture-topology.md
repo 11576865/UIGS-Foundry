@@ -44,3 +44,31 @@ When converting a production regression into automated acceptance:
 This does not replace large-file, long-duration, memory-pressure or device-performance testing when scale itself is causal. Those require separate runtime/device evidence.
 
 This is a Candidate only. It is not Canonical.
+
+
+## Device-acceptance extension — package the representative topology with an independent verifier
+
+Quick-Automatic-Hardsub-Encoder PR #56, merged as `f2c1e5b004b44c3f5179a45c4ae194ce9ca051b8`, extends the representative-fixture pattern from hosted integration testing into a reproducible real-device acceptance handoff.
+
+The project now generates one canonical multi-stream fixture containing:
+
+- two video streams with different dimensions/frame rates;
+- two audio streams;
+- one soft-subtitle stream;
+- one attachment;
+- chapters and container metadata.
+
+The same pack carries a fixed eight-case device matrix and an **independent output verifier**. The verifier reads the actual exported files and checks stream inventory, packet-duration behavior, Stream Copy packet hashes, hard-subtitle frame changes, preserved container assets, and full A/V decodeability.
+
+A separate reference-output builder runs the shared task compiler against desktop FFmpeg and feeds those outputs through the same verifier. This proves that the fixture and verifier are internally usable before a human/device run, but the documentation explicitly keeps that evidence below real Windows Native / Android device acceptance.
+
+Reusable refinement:
+
+1. A representative fixture intended for device acceptance should be shipped as a **portable acceptance pack**, not just as test code embedded in CI.
+2. The pack should bind together the source fixture, exact task cases, expected output identities, and an independent post-hoc verifier.
+3. Reference-executor success should validate the fixture/verifier pair but must remain a lower evidence tier than the platform/device execution being accepted.
+4. Device outputs should be verified from exported artifacts, so the acceptance claim is tied to the final product output rather than only to UI state or task-launch success.
+5. A single topology-rich fixture can efficiently exercise stream selection, mixed operation policies, independent time domains, remux/transcode composition, and container-asset preservation when scale is not causal.
+6. Artifact naming or a manifest should make each device result traceable to one exact acceptance case.
+
+This strengthens the existing Candidate. It does not change Canonical guidance and does not make hosted CI equivalent to field-device evidence.
