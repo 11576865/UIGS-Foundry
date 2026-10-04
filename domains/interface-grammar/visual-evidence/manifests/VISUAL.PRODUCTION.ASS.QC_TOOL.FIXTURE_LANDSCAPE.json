@@ -1,25 +1,19 @@
 {
   "$schema": "../../../../schemas/ui-production-visual-evidence.schema.json",
-  "id": "VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE",
+  "id": "VISUAL.PRODUCTION.ASS.QC_TOOL.FIXTURE_LANDSCAPE",
   "record_type": "ui-production-visual-evidence",
   "status": "experimental",
   "evidence_level": "production-rendered",
   "platform": "android",
-  "capture_id": "ASS.STYLE_TOOL.FIXTURE_LANDSCAPE",
+  "capture_id": "ASS.QC_TOOL.FIXTURE_LANDSCAPE",
   "surface_ids": [
-    "ASS.TOOL.STYLE",
-    "ASS.WORKSPACE.EDIT_SCOPE_EXPLANATION",
-    "ASS.WORKSPACE.EDITOR_SHELL",
-    "ASS.TOOL.SUBTITLES"
+    "ASS.TOOL.QC"
   ],
-  "patterns": [
-    "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
-    "UIGS.WORKSPACE.SCOPE_TRANSPARENCY"
-  ],
-  "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
+  "patterns": [],
+  "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.QC_TOOL.FIXTURE_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
   "source_revision": "d6d5c359c60e63aba19e55aad859ab22eef94f58",
-  "sha256": "168ea64e40c9164cadbf3c4738e09a2c91c876d1c42ff0f86a3613106bb08ee0",
+  "sha256": "ab6a1dd4cf11df5d4b35fb70e539335a65514494fa9114c1d89011d194a3c29f",
   "image": {
     "width": 1600,
     "height": 1000
@@ -46,8 +40,8 @@
     "state_source": "io.github.assworkbench.app/.EditorRegressionHostActivity",
     "instrumentation_test": "io.github.assworkbench.app.UigsVisualCaptureInstrumentedTest",
     "fixture_kind": "debug-regression-host",
-    "fixture_source": "EditorRegressionHostActivity.seedRecovery",
-    "fixture_state": "restore deterministic two-line ASS fixture; focus Event 1; default fixed Style tool"
+    "fixture_source": "EditorRegressionHostActivity.restoreDeterministicFixture",
+    "fixture_state": "restore deterministic two-line ASS fixture; focus Event 1; fixed QC tool"
   },
   "capture_contract": {
     "adapter": "android-emulator-screencap",
@@ -70,18 +64,17 @@
       "orientation": "landscape"
     },
     "ready": {
-      "test_tag": "fixed-workspace",
+      "test_tag": "fixed-inspector",
       "state": "instrumentation-test-complete",
-      "settle_ms": 500
+      "settle_ms": 250
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "3efe2ad2f444b147e4fac5d04c2c54c9fd49e060fea67c4867fe8cd6278cb152",
+  "change_status": "new",
+  "previous_sha256": null,
   "limitations": [
-    "Uses the debug-only regression host to inject deterministic app state, while rendering the production ModernEditorScreen and EditorViewModel.",
-    "Renderer is disabled in this state; video/libass runtime pixels require a separate renderer-backed capture.",
-    "The screenshot is captured from Android UiAutomation at full-display compositor level.",
-    "The three-pane fixture also records the real subtitle-navigation surface; it does not claim renderer-backed video/subtitle pixels."
+    "Uses the debug-only regression host to inject deterministic app state while rendering the production ModernEditorScreen and EditorViewModel.",
+    "Renderer/video runtime pixels are not active in this fixed-tool state.",
+    "Screenshot is captured from Android UiAutomation at full-display compositor level."
   ],
   "provenance": [
     {
