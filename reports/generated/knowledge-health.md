@@ -1,13 +1,13 @@
 # UIGS Knowledge Health
 
-Generated: 2026-10-04T15:24:48+00:00
+Generated: 2026-10-04T15:41:15+00:00
 
 ## Intake and knowledge inventory
 
 | Metric | Count |
 | --- | ---: |
 | Bug records | 21 |
-| Candidates | 138 |
+| Candidates | 139 |
 | Observations | 20 |
 | Cases | 8 |
 | Durable Pending packets | 234 |
