@@ -10,3 +10,4 @@ Duplicate receipts: 0
 - 11576865/Quick-Automatic-Hardsub-Encoder: 135
 
 Packets in outbox/pending are durable intake evidence, not Canonical knowledge.
+Triage/proposal/review state is stored separately, so this raw Pending count is not an unprocessed-backlog count.
