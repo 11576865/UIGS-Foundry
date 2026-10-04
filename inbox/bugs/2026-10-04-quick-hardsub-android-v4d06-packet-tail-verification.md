@@ -32,3 +32,12 @@ The emitted evidence artifact was still uploaded by the workflow.
 Compare V4D-06's canonical video range, generated ffmpeg command, output duration/last packet PTS/DTS and the independent host verifier's expected terminal boundary. Avoid weakening the assertion until the execution-vs-verification ownership is identified.
 
 No Canonical promotion.
+
+
+## Repair submitted
+
+Quick-Automatic-Hardsub-Encoder PR #61 re-lands the emulator acceptance on current main and changes Android output validation so FFmpegKit `Statistics.time` is no longer the stream-tail authority.
+
+The repair keeps the full demux-to-null pass for integrity, then derives each output stream's tail from FFprobe packet `pts_time + duration_time`, matching the independent host verifier. Long outputs probe only an 8-second tail window to avoid materializing a full packet listing. Every output video/audio stream is checked rather than only an aggregate progress timestamp.
+
+Validation status: **Pending CI**. Do not mark this Bug resolved/validated from implementation alone.
