@@ -79,3 +79,14 @@ The domain layer now independently enforces relevant invariants:
 - Tag filters must contain a valid tag name and are matched through parsed ASS syntax rather than a raw-text regex.
 
 The UI remains responsible for immediate local feedback, but correctness no longer depends on the UI being the only caller.
+
+
+## Search/Replace recurrence
+
+PR #99 exposed the same three-state input bug in Semantic Search/Replace.
+
+Optional Style/Actor regex fields were parsed with `runCatching { Regex(...) }.getOrNull()`. A nonblank malformed regex therefore became the same `null` representation as an intentionally blank optional filter. The resulting replacement preview could run against a broader set than the form visibly requested.
+
+The correction now distinguishes blank from invalid input, surfaces invalid optional filters, disables replacement while invalid, and wraps domain preview so Style-reference failures are also visible rather than escaping through Compose.
+
+This recurrence shows the issue is not specific to Batch: any destructive form compiler must preserve absent / valid / invalid as distinct states.
