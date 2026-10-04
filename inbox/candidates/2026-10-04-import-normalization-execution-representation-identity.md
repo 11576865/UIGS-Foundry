@@ -43,8 +43,20 @@ PR #122 applies this to standalone ASS → Matroska Track import:
 
 This deliberately means an encoding-only raw-byte change that decodes to the same normalized ASS can remain equivalent, while a semantic change fails closed.
 
+## Additional implementation evidence
+
+PR #123 extends the same rule from a single ASS source adapter to a second source format, SRT:
+
+- ASS / SSA and SRT now converge into the same deterministic UTF-8 ASS execution representation before the native writer;
+- the Matroska writer does not gain an SRT parser or a second subtitle-writing path;
+- BOM and line-ending differences that normalize to the same SRT semantics produce the same normalized identity;
+- semantic SRT changes produce a different normalized SHA-256;
+- the same save-time re-read, normalized evidence check, native bridge validation, fresh destination identity allocation, and post-write semantic verification are reused.
+
+This strengthens the observation that a normalized execution representation can act as the stable contract between multiple source adapters and one downstream writer, reducing format-specific branching below the adapter boundary.
+
 ## Evidence boundary
 
-This evidence comes from one text-to-container import adapter. Binary media normalization, transcoding, lossy canonicalization, color-management transforms, and nondeterministic encoders may require stronger or different equivalence definitions.
+This evidence now covers two text subtitle adapters converging on one execution representation. Binary media normalization, transcoding, lossy canonicalization, color-management transforms, and nondeterministic encoders may require stronger or different equivalence definitions.
 
 Do not promote to Canonical from this evidence alone.
