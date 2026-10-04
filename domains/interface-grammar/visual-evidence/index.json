@@ -387,7 +387,7 @@
         "width": 1365,
         "height": 900
       },
-      "change_status": "new",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.json"
     }
   ],
@@ -1146,7 +1146,7 @@
           "width": 1365,
           "height": 900
         },
-        "change_status": "new",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.json"
       }
     ],
@@ -1249,7 +1249,7 @@
           "width": 1365,
           "height": 900
         },
-        "change_status": "new",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.json"
       }
     ],
@@ -1648,7 +1648,7 @@
           "width": 1365,
           "height": 900
         },
-        "change_status": "new",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.json"
       }
     ],
@@ -1728,7 +1728,7 @@
           "width": 1365,
           "height": 900
         },
-        "change_status": "new",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.json"
       }
     ]
