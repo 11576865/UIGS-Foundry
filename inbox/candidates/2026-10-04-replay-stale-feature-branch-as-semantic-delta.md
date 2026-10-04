@@ -30,3 +30,18 @@ Textual conflict resolution can produce a syntactically valid branch that delete
 ## Evidence boundary
 
 This is derived from one concrete cross-cutting rebase/integration case. It should remain Candidate rather than Canonical until repeated across additional repositories or features.
+
+
+## Additional independent evidence — ASS Workbench MKV stack
+
+ASS Workbench Android independently reached the same integration boundary after its Matroska work accumulated through inventory, generic attachments, mutation preflight, CRUD, extraction, and metadata editing while `main` advanced through unrelated semantic-search hardening.
+
+The consolidation did not merge the stale stack wholesale. It rebuilt the latest complete MKV surface from current `main`, reused exact historical blobs only for the 18 MKV/container-owned paths, verified the replay was one commit ahead / zero behind, and submitted replacement PR #103 while closing intermediate replay PR #101 and stale stacked PR #102.
+
+This adds a second project/feature family to the Candidate and sharpens the rule:
+
+- exact blob reuse is appropriate only after path ownership and newer-main overlap are checked;
+- when an evolved main and stale feature both changed a file, semantic reconciliation is required;
+- once a later stacked feature strictly supersedes an intermediate replay, keep one authoritative replacement PR rather than preserving parallel integration branches.
+
+This remains Candidate evidence; it is not automatically Canonical.
