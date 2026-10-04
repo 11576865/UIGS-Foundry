@@ -26,6 +26,10 @@ jobs:
         run: python tools/test_triage_pending.py
       - name: Unit-test project-state reporting
         run: python tools/test_project_state_report.py
+      - name: Unit-test knowledge-health reporting
+        run: |
+          python tools/test_knowledge_health_report.py
+          python tools/generate_knowledge_health_report.py
       - name: Build UI search index in workspace
         run: python tools/build_ui_search_index.py
       - name: Unit-test UI pattern retrieval
