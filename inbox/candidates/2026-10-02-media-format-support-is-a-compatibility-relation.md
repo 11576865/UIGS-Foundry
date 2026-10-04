@@ -231,3 +231,49 @@ Reusable refinement:
 - container analysis in mux/remux products and transcode products should share stream identity semantics even if their execution policies differ.
 
 This extends the existing compatibility-relation Candidate rather than creating a new Canonical rule. It remains Candidate-level evidence.
+
+
+## Implementation evidence — stream-aware task schema v4
+
+Quick-Automatic-Hardsub-Encoder PR #55 merged as `586a13883d36e394ea0700e5177faf59dc3d5eaa` and implements the stream-set planning refinement above as task schema v4.
+
+The implementation separates four concepts that had previously been partially collapsed:
+
+- container identity / remux policy;
+- selected video-stream set;
+- per-stream-class processing action;
+- per-stream-class temporal policy.
+
+The task compiler now carries explicit video ordinals (`0`, `1`, `0,1`, `all`) and compiles each selected video to an explicit FFmpeg `-map`. Video operation (`hardsub`, `transcode`, `copy`) is no longer treated as a file-wide statement about audio: video Stream Copy can coexist with audio AAC/Opus transcode, while video transcode can coexist with audio Stream Copy.
+
+The same task model also distinguishes temporal scope by stream class:
+
+- video `trim/full`;
+- audio `trim/full`;
+- soft-subtitle `trim/full`.
+
+This permits an intentional plan such as “trim selected video streams but keep source audio complete” without silently extending the trim to audio. The execution plan realizes this with separate full-source and trimmed-source input views and maps each stream class from the appropriate view. Metadata, chapters and attachments are sourced from the complete input view rather than the trimmed one.
+
+Reusable refinement supported by this implementation:
+
+- **operation scope and temporal scope are separate axes**; an operation such as “video copy” or “video transcode” should not implicitly define what happens to audio/subtitle streams or their time domains;
+- **Remux and Transcode are orthogonal**; changing the output container does not imply transcoding, and transcoding a selected stream does not imply preserving the source container;
+- **validation should compare the requested stream plan with the produced stream set**, including selected stream count and per-class expected duration, rather than use fixed assumptions such as “one video stream” or “all streams share one duration”;
+- when one global control cannot be given an unambiguous meaning for multiple selected streams (for example a single target-size budget, whole-file two-pass plan, or total-frame cap), reject the combination until a per-stream allocation policy exists rather than inventing a pseudo-precise result;
+- preview/keyframe tooling must follow the selected primary stream instead of remaining hard-coded to `v:0`.
+
+Hosted CI on the PR head passed:
+
+- real FFmpeg selection of a specific non-primary video stream;
+- multi-video transcode;
+- multi-video Stream Copy trim;
+- multi-video hard-subtitle rendering;
+- video Stream Copy + audio transcode;
+- Remux + Transcode;
+- video trim with full-length audio and the inverse combination;
+- soft-subtitle `trim/full` independent of A/V policy;
+- preservation of metadata, chapters and attachments from the full source;
+- output stream-count, packet-duration and full A/V decode checks;
+- Windows Native smoke, Android task compilation and UIGS invariant-evidence coverage.
+
+This strengthens the existing Candidate with a completed cross-platform implementation and executor-backed acceptance evidence. It remains Candidate-level and is not promoted to Canonical.
