@@ -56,14 +56,14 @@
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "validation-gated-construction",
-          "status": "submitted",
+          "status": "enforced-main",
           "pull_request": 100,
           "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/SemanticSearchReplacePane.kt"
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "regression-test",
-          "status": "submitted",
+          "status": "enforced-main",
           "pull_request": 100,
           "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/EditorRegressionInstrumentedTest.kt"
         }
@@ -81,21 +81,21 @@
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "semantic-parser",
-          "status": "submitted",
+          "status": "enforced-main",
           "pull_request": 99,
           "path": "core/domain/src/main/kotlin/io/github/assworkbench/domain/AssTopLevelOverrideSyntax.kt"
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "regression-test",
-          "status": "submitted",
+          "status": "enforced-main",
           "pull_request": 99,
           "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AssStyleInheritanceTest.kt"
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "regression-test",
-          "status": "submitted",
+          "status": "enforced-main",
           "pull_request": 99,
           "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AssEffectiveInspectorTest.kt"
         }
@@ -129,14 +129,14 @@
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "semantic-token-boundary",
-          "status": "submitted",
+          "status": "enforced-main",
           "pull_request": 100,
           "path": "core/domain/src/main/kotlin/io/github/assworkbench/domain/AssSearchReplace.kt"
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "regression-test",
-          "status": "submitted",
+          "status": "enforced-main",
           "pull_request": 100,
           "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AuthoringEngineSuiteTest.kt"
         }
