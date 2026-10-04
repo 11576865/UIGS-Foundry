@@ -2,6 +2,7 @@
 
 Date: 2026-10-04
 Status: Bug
+Lifecycle: repair-evidenced
 Scope: effective-state inspection / ASS override semantics / preview targeting
 
 ## Symptom
