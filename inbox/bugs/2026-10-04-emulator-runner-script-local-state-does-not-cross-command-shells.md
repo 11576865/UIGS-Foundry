@@ -49,3 +49,12 @@ Before relying on local variables, shell functions, `cd`, `set -e`, traps, or ot
 - deduplication: searched Foundry for emulator-runner command-shell / lost shell-local variable guidance; no direct duplicate found
 
 This Bug record is evidence. It is not Canonical.
+
+
+## Verification
+
+- repaired workflow run: Android Stream Plan v4 emulator runtime acceptance #7 — success
+- companion checks: Compile Android media tasks #105 — success; UIGS Evidence Coverage #148 — success
+- project PR #61 merged as `abbe9f436ebc9e60942b5a04eaa4c197f02d5762`
+
+The failure is therefore confirmed as workflow command-shell scoping rather than a Stream Plan v4 runtime acceptance failure.
