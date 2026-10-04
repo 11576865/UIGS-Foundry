@@ -72,3 +72,33 @@ Reusable refinement:
 6. Artifact naming or a manifest should make each device result traceable to one exact acceptance case.
 
 This strengthens the existing Candidate. It does not change Canonical guidance and does not make hosted CI equivalent to field-device evidence.
+
+
+## Runtime-backed extension — same acceptance pack through the product's native host
+
+Quick-Automatic-Hardsub-Encoder PR #57, merged as `a9be63cb0097d61301887679943c98882fc50c69`, runs the same eight-case Stream Plan v4 acceptance pack through the real Windows Native Bridge on a GitHub-hosted Windows runner.
+
+The execution path is materially stronger than calling desktop FFmpeg directly:
+
+```text
+canonical fixture
+  -> schema-v4 structured task request
+  -> Windows Native Bridge HTTP contract
+  -> Native task parser / capability checks
+  -> Bridge-owned FFmpeg job
+  -> Bridge terminal output validation
+  -> final output artifact
+  -> independent acceptance verifier
+```
+
+The independent verifier then checks the exported job artifacts for stream identity/count, hard-sub frame changes, independent video/audio packet durations, packet hashes for Stream Copy, remux/container identity, preserved soft subtitles and container assets, and complete timed-stream decodeability.
+
+Reusable refinement:
+
+- reuse the **same fixture + case manifest + external verifier** when moving from a lower evidence tier to a stronger runtime tier; changing the test oracle at the same time weakens comparability;
+- runtime-backed acceptance should enter through the product's real host/parser/job lifecycle rather than invoke the underlying library directly;
+- final acceptance should inspect host-produced artifacts outside the host's own validator, so one implementation bug cannot simultaneously create and certify the same false result;
+- CI-hosted native runtime evidence is stronger than parser/build/reference evidence but remains below a real user/device field run;
+- an automation-only local startup seam (for example a local-process initial fixture argument) is preferable to adding a remote path-injection API solely for CI.
+
+This is additional Candidate evidence only. It does not promote the rule to Canonical and does not relabel a hosted Windows runner as field-device evidence.
