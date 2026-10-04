@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T17:25:10+00:00",
+  "generated_at": "2026-10-04T17:35:06+00:00",
   "inbox": {
-    "bugs": 21,
+    "bugs": 22,
     "candidates": 139,
     "observations": 20,
     "cases": 8,
@@ -10,7 +10,7 @@
   },
   "bug_lifecycle": {
     "counts": {
-      "recorded": 7,
+      "recorded": 8,
       "regression-verified": 3,
       "repair-evidenced": 9,
       "validation-pending": 2
