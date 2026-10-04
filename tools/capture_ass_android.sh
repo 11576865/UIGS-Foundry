@@ -40,25 +40,31 @@ for cls in classes:
     print(cls)
 PY
 
+copy_outputs_for_class() {
+  local test_class="$1"
+  python - "$test_class" <<'PY' > "$RUNNER_TEMP/ass-class-captures.list"
+import json, sys
+test_class=sys.argv[1]
+data=json.load(open(".capture/ass/.uigs/ui-visual-capture.json",encoding="utf-8"))
+for capture in data["captures"]:
+    if capture.get("build",{}).get("test_class")==test_class:
+        print(capture["id"]+"|"+capture["output_name"])
+PY
+  while IFS='|' read -r ID FILE; do
+    test -n "$ID"
+    adb exec-out run-as io.github.assworkbench.app cat "files/$FILE" </dev/null > "$OUTDIR/$FILE"
+    test -s "$OUTDIR/$FILE"
+    python "$GITHUB_WORKSPACE/tools/assert_png_orientation.py" "$OUTDIR/$FILE" landscape
+  done < "$RUNNER_TEMP/ass-class-captures.list"
+}
+
 while IFS= read -r TEST_CLASS; do
   test -n "$TEST_CLASS"
   echo "Running UIGS Android capture class: $TEST_CLASS"
-  # adb may read from stdin; detach it so it cannot consume the remaining while-read list.
-  adb shell am instrument -w -e class "$TEST_CLASS" io.github.assworkbench.app.test/androidx.test.runner.AndroidJUnitRunner </dev/null
+  if [[ "$TEST_CLASS" == *UigsRendererVisualCaptureInstrumentedTest ]]; then
+    timeout 180s adb shell am instrument -w -e class "$TEST_CLASS" io.github.assworkbench.app.test/androidx.test.runner.AndroidJUnitRunner </dev/null
+  else
+    adb shell am instrument -w -e class "$TEST_CLASS" io.github.assworkbench.app.test/androidx.test.runner.AndroidJUnitRunner </dev/null
+  fi
+  copy_outputs_for_class "$TEST_CLASS"
 done < "$RUNNER_TEMP/ass-instrumentation-classes.list"
-
-python - <<'PY' > "$RUNNER_TEMP/ass-instrumented-captures.list"
-import json
-data=json.load(open(".capture/ass/.uigs/ui-visual-capture.json",encoding="utf-8"))
-for capture in data["captures"]:
-    if capture.get("build",{}).get("test_class"):
-        print(capture["id"]+"|"+capture["output_name"])
-PY
-
-while IFS='|' read -r ID FILE; do
-  test -n "$ID"
-  # Preserve the capture manifest loop for the same reason: adb must not own loop stdin.
-  adb exec-out run-as io.github.assworkbench.app cat "files/$FILE" </dev/null > "$OUTDIR/$FILE"
-  test -s "$OUTDIR/$FILE"
-  python "$GITHUB_WORKSPACE/tools/assert_png_orientation.py" "$OUTDIR/$FILE" landscape
-done < "$RUNNER_TEMP/ass-instrumented-captures.list"
