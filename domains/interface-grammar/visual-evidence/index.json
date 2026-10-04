@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "evidence_count": 16,
+  "evidence_count": 17,
   "evidence": [
     {
       "id": "VISUAL.PRODUCTION.ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE",
@@ -282,11 +282,11 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-      "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
+      "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+      "sha256": "fc3d55c7b05bccc7f7e4d3ba9abd5fffecea93ef00bba7e179a21321d1ed7b05",
       "image": {
         "width": 1365,
-        "height": 2714
+        "height": 2792
       },
       "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
@@ -305,11 +305,11 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-      "sha256": "9e446a974f420f027e6d74614926f49fbf2f3bbf4d9ada40e44eeddf46c72eed",
+      "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+      "sha256": "055bb541006c3a1f830c02bcd2b5388a9701922af684cee222f53ea19cabb91b",
       "image": {
         "width": 1021,
-        "height": 3242
+        "height": 3386
       },
       "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
@@ -329,8 +329,8 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-      "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
+      "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+      "sha256": "88acb92c0360ac9a3f4646eeb2debbd5c9ca967cb1cbd5c6740085543da2332a",
       "image": {
         "width": 390,
         "height": 844
@@ -356,14 +356,39 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-      "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
+      "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+      "sha256": "d5af353b366fa341eb60db5a9d18fa7fc6bc87b4a71e80acb46035f3e8dd2ca7",
       "image": {
         "width": 1365,
         "height": 900
       },
       "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+      "evidence_level": "runtime-backed",
+      "platform": "web-plus-native-hosts",
+      "capture_id": "QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+      "surface_ids": [
+        "QHE.SHELL.WORKFLOW_HEADER",
+        "QHE.HELP.RUNTIME",
+        "QHE.DIAGNOSTICS.ENVIRONMENT",
+        "QHE.STATUS.TASK_OVERVIEW"
+      ],
+      "patterns": [
+        "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+      ],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
+      "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+      "sha256": "06e29e7fe558a6dcd6594dbc4ebf50a21d222eff2e943f319c7dd45abde7a958",
+      "image": {
+        "width": 1365,
+        "height": 900
+      },
+      "change_status": "new",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.json"
     }
   ],
   "by_surface": {
@@ -1090,14 +1115,39 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "d5af353b366fa341eb60db5a9d18fa7fc6bc87b4a71e80acb46035f3e8dd2ca7",
         "image": {
           "width": 1365,
           "height": 900
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
+      },
+      {
+        "id": "VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+        "evidence_level": "runtime-backed",
+        "platform": "web-plus-native-hosts",
+        "capture_id": "QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+        "surface_ids": [
+          "QHE.SHELL.WORKFLOW_HEADER",
+          "QHE.HELP.RUNTIME",
+          "QHE.DIAGNOSTICS.ENVIRONMENT",
+          "QHE.STATUS.TASK_OVERVIEW"
+        ],
+        "patterns": [
+          "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
+        "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "06e29e7fe558a6dcd6594dbc4ebf50a21d222eff2e943f319c7dd45abde7a958",
+        "image": {
+          "width": 1365,
+          "height": 900
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.json"
       }
     ],
     "QHE.ENCODE.ACTION_CARD": [
@@ -1118,11 +1168,11 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "fc3d55c7b05bccc7f7e4d3ba9abd5fffecea93ef00bba7e179a21321d1ed7b05",
         "image": {
           "width": 1365,
-          "height": 2714
+          "height": 2792
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
@@ -1142,8 +1192,8 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "88acb92c0360ac9a3f4646eeb2debbd5c9ca967cb1cbd5c6740085543da2332a",
         "image": {
           "width": 390,
           "height": 844
@@ -1168,14 +1218,39 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "88acb92c0360ac9a3f4646eeb2debbd5c9ca967cb1cbd5c6740085543da2332a",
         "image": {
           "width": 390,
           "height": 844
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
+      },
+      {
+        "id": "VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+        "evidence_level": "runtime-backed",
+        "platform": "web-plus-native-hosts",
+        "capture_id": "QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+        "surface_ids": [
+          "QHE.SHELL.WORKFLOW_HEADER",
+          "QHE.HELP.RUNTIME",
+          "QHE.DIAGNOSTICS.ENVIRONMENT",
+          "QHE.STATUS.TASK_OVERVIEW"
+        ],
+        "patterns": [
+          "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
+        "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "06e29e7fe558a6dcd6594dbc4ebf50a21d222eff2e943f319c7dd45abde7a958",
+        "image": {
+          "width": 1365,
+          "height": 900
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.json"
       }
     ],
     "QHE.INPUT.MATERIALS": [
@@ -1197,8 +1272,8 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "d5af353b366fa341eb60db5a9d18fa7fc6bc87b4a71e80acb46035f3e8dd2ca7",
         "image": {
           "width": 1365,
           "height": 900
@@ -1226,8 +1301,8 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "d5af353b366fa341eb60db5a9d18fa7fc6bc87b4a71e80acb46035f3e8dd2ca7",
         "image": {
           "width": 1365,
           "height": 900
@@ -1251,11 +1326,11 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "9e446a974f420f027e6d74614926f49fbf2f3bbf4d9ada40e44eeddf46c72eed",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "055bb541006c3a1f830c02bcd2b5388a9701922af684cee222f53ea19cabb91b",
         "image": {
           "width": 1021,
-          "height": 3242
+          "height": 3386
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
@@ -1276,11 +1351,11 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "9e446a974f420f027e6d74614926f49fbf2f3bbf4d9ada40e44eeddf46c72eed",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "055bb541006c3a1f830c02bcd2b5388a9701922af684cee222f53ea19cabb91b",
         "image": {
           "width": 1021,
-          "height": 3242
+          "height": 3386
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
@@ -1301,11 +1376,11 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "9e446a974f420f027e6d74614926f49fbf2f3bbf4d9ada40e44eeddf46c72eed",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "055bb541006c3a1f830c02bcd2b5388a9701922af684cee222f53ea19cabb91b",
         "image": {
           "width": 1021,
-          "height": 3242
+          "height": 3386
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
@@ -1326,11 +1401,11 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "9e446a974f420f027e6d74614926f49fbf2f3bbf4d9ada40e44eeddf46c72eed",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "055bb541006c3a1f830c02bcd2b5388a9701922af684cee222f53ea19cabb91b",
         "image": {
           "width": 1021,
-          "height": 3242
+          "height": 3386
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
@@ -1352,8 +1427,8 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "88acb92c0360ac9a3f4646eeb2debbd5c9ca967cb1cbd5c6740085543da2332a",
         "image": {
           "width": 390,
           "height": 844
@@ -1380,11 +1455,11 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "fc3d55c7b05bccc7f7e4d3ba9abd5fffecea93ef00bba7e179a21321d1ed7b05",
         "image": {
           "width": 1365,
-          "height": 2714
+          "height": 2792
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
@@ -1404,8 +1479,8 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "88acb92c0360ac9a3f4646eeb2debbd5c9ca967cb1cbd5c6740085543da2332a",
         "image": {
           "width": 390,
           "height": 844
@@ -1433,8 +1508,8 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "d5af353b366fa341eb60db5a9d18fa7fc6bc87b4a71e80acb46035f3e8dd2ca7",
         "image": {
           "width": 1365,
           "height": 900
@@ -1461,11 +1536,11 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "fc3d55c7b05bccc7f7e4d3ba9abd5fffecea93ef00bba7e179a21321d1ed7b05",
         "image": {
           "width": 1365,
-          "height": 2714
+          "height": 2792
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
@@ -1485,8 +1560,8 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "3e978a53169597f7d806083022b883c81dbced484afc9f75486cb780edfb0b48",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "88acb92c0360ac9a3f4646eeb2debbd5c9ca967cb1cbd5c6740085543da2332a",
         "image": {
           "width": 390,
           "height": 844
@@ -1513,11 +1588,11 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "fc3d55c7b05bccc7f7e4d3ba9abd5fffecea93ef00bba7e179a21321d1ed7b05",
         "image": {
           "width": 1365,
-          "height": 2714
+          "height": 2792
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
@@ -1542,14 +1617,39 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "d5af353b366fa341eb60db5a9d18fa7fc6bc87b4a71e80acb46035f3e8dd2ca7",
         "image": {
           "width": 1365,
           "height": 900
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
+      },
+      {
+        "id": "VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+        "evidence_level": "runtime-backed",
+        "platform": "web-plus-native-hosts",
+        "capture_id": "QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+        "surface_ids": [
+          "QHE.SHELL.WORKFLOW_HEADER",
+          "QHE.HELP.RUNTIME",
+          "QHE.DIAGNOSTICS.ENVIRONMENT",
+          "QHE.STATUS.TASK_OVERVIEW"
+        ],
+        "patterns": [
+          "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
+        "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "06e29e7fe558a6dcd6594dbc4ebf50a21d222eff2e943f319c7dd45abde7a958",
+        "image": {
+          "width": 1365,
+          "height": 900
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.json"
       }
     ],
     "QHE.STATUS.TASK_OVERVIEW": [
@@ -1570,11 +1670,11 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "145811d4a1cbffacb2d533158f0afcbd3a280e26a0cb70fff1b4f81e78c04592",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "fc3d55c7b05bccc7f7e4d3ba9abd5fffecea93ef00bba7e179a21321d1ed7b05",
         "image": {
           "width": 1365,
-          "height": 2714
+          "height": 2792
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
@@ -1597,14 +1697,39 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "09b67ee4ed774fa258365e9aee2717e23855efca",
-        "sha256": "1a20cf0a6c2d72c3c06413b53c75b53f3ba27131d5c708c1ec72ca3b94d9529a",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "d5af353b366fa341eb60db5a9d18fa7fc6bc87b4a71e80acb46035f3e8dd2ca7",
         "image": {
           "width": 1365,
           "height": 900
         },
         "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
+      },
+      {
+        "id": "VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+        "evidence_level": "runtime-backed",
+        "platform": "web-plus-native-hosts",
+        "capture_id": "QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+        "surface_ids": [
+          "QHE.SHELL.WORKFLOW_HEADER",
+          "QHE.HELP.RUNTIME",
+          "QHE.DIAGNOSTICS.ENVIRONMENT",
+          "QHE.STATUS.TASK_OVERVIEW"
+        ],
+        "patterns": [
+          "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+        ],
+        "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
+        "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+        "source_revision": "a9be63cb0097d61301887679943c98882fc50c69",
+        "sha256": "06e29e7fe558a6dcd6594dbc4ebf50a21d222eff2e943f319c7dd45abde7a958",
+        "image": {
+          "width": 1365,
+          "height": 900
+        },
+        "change_status": "new",
+        "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.json"
       }
     ]
   }
