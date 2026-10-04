@@ -91,3 +91,18 @@ Optional Style/Actor regex fields were parsed with `runCatching { Regex(...) }.g
 The correction now distinguishes blank from invalid input, surfaces invalid optional filters, disables replacement while invalid, and wraps domain preview so Style-reference failures are also visible rather than escaping through Compose.
 
 This recurrence shows the issue is not specific to Batch: any destructive form compiler must preserve absent / valid / invalid as distinct states.
+
+
+## Validation-gating follow-up
+
+PR #100 found a second failure mode after the Search/Replace three-state correction.
+
+The UI correctly computed an error state for malformed Tag input, but still constructed `AssSearchQuery` unconditionally before the preview guard. Because the domain constructor correctly rejected the invalid Tag, normal typing could throw during Compose recomposition even though the UI already “knew” the input was invalid.
+
+The correction now gates **construction itself** behind local validation and represents constructor/preflight failure as UI state.
+
+Additional reusable rule:
+
+> Computing an error message is not sufficient validation. Every downstream parser, constructor, preview compiler, or mutation planner that assumes valid input must be gated by that validation state.
+
+This is especially important in reactive UI, where derived values may evaluate during recomposition before disabled buttons or error labels can protect the path.
