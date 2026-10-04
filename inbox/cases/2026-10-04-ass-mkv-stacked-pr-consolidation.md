@@ -37,3 +37,23 @@ This case therefore provides concrete evidence for the Candidate **Interrupted e
 ## Evidence boundary
 
 This is one project-specific case. It records current branch/PR relationships and should not be promoted directly to Canonical guidance.
+
+
+## 2026-10-04 consolidation update
+
+The earlier `#89 -> #92 -> #96` stack subsequently grew through attachment CRUD and attachment read/update work. The latest complete attachment workflow was present in stale stacked PR #102, while current `main` had advanced independently.
+
+A current-main replay was first created as PR #101 for the CRUD-level stack. When #102 appeared with the newer extraction + metadata-edit layer, the intermediate replay was intentionally superseded rather than maintaining two authorities.
+
+Current consolidation authority:
+
+- PR #103: `feat: re-land complete Matroska attachment workflow on current main`;
+- branch: `feat/mkv-attachment-metadata-current-main`;
+- replay revision: `8221bb71f1b6e911b42bed95a8a5c44dc274650f`;
+- submission delta: one commit ahead / zero behind current main;
+- stale/intermediate PRs #101 and #102 closed as superseded;
+- validation state at submission: asynchronous CI pending.
+
+The replay uses the latest #102-owned blobs only across the identified MKV/container ownership surface; unrelated current-main semantic-search work remains authoritative.
+
+This update records integration state only and does not promote any Canonical rule.
