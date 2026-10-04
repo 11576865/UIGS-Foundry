@@ -69,6 +69,8 @@ jobs:
         working-directory: .capture/ass
         run: gradle :app:assembleDebug :app:assembleDebugAndroidTest
       - name: Capture real APK, deterministic UI states, and runtime-backed renderer states
+        id: capture
+        continue-on-error: true
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35
@@ -84,7 +86,8 @@ jobs:
             -camera-back none
           script: |
             bash "$GITHUB_WORKSPACE/tools/capture_ass_android.sh"
-      - name: Register Android production evidence
+      - name: Register available Android production evidence
+        if: always()
         shell: bash
         run: |
           set -euo pipefail
@@ -125,9 +128,22 @@ jobs:
               print(capture["id"]+"|"+capture["output_name"])
           PY
           while IFS='|' read -r ID FILE; do
-            python tools/register_visual_evidence.py               --contract .capture/ass/.uigs/ui-visual-capture.json               --capture-id "$ID"               --source-repository 11576865/ASS-Workbench-Android               --source-revision "$SHA"               --image "domains/interface-grammar/visual-evidence/images/ASS/$FILE"               --metadata "$RUNNER_TEMP/$ID.json"               --output-manifest "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.$ID.json"
+            IMAGE="domains/interface-grammar/visual-evidence/images/ASS/$FILE"
+            if [[ ! -s "$IMAGE" ]]; then
+              echo "::warning::Skipping missing ASS capture after capture-step failure: $ID ($FILE)"
+              continue
+            fi
+            python tools/register_visual_evidence.py \
+              --contract .capture/ass/.uigs/ui-visual-capture.json \
+              --capture-id "$ID" \
+              --source-repository 11576865/ASS-Workbench-Android \
+              --source-revision "$SHA" \
+              --image "$IMAGE" \
+              --metadata "$RUNNER_TEMP/$ID.json" \
+              --output-manifest "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.$ID.json"
           done < "$RUNNER_TEMP/ass-captures.list"
       - name: Persist ASS source visual evidence first
+        if: always()
         shell: bash
         run: |
           set -euo pipefail
@@ -145,12 +161,14 @@ jobs:
             git rebase origin/main
           fi
       - name: Rebuild visual evidence indexes from latest source state
+        if: always()
         run: |
           python tools/build_visual_evidence_index.py
           python tools/generate_ui_knowledge_report.py
           python tools/test_register_visual_evidence.py
           python tools/test_ui_evidence_resolver.py
       - name: Persist derived visual indexes
+        if: always()
         shell: bash
         run: |
           set -euo pipefail
@@ -164,3 +182,9 @@ jobs:
           git add -A "${DERIVED_PATHS[@]}"
           git commit -m "chore(uigs): refresh ASS visual evidence index"
           bash tools/push_with_rebase_retry.sh main 5
+
+      - name: Surface Android capture failure after preserving partial evidence
+        if: always() && steps.capture.outcome == 'failure'
+        run: |
+          echo "::error::ASS Android capture did not complete. Successfully materialized capture states were preserved and indexed; inspect the capture step for the remaining failure."
+          exit 1

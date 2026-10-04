@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../schemas/bug-record.schema.json",
+  "id": "BUG.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE",
+  "type": "bug",
+  "status": "validated",
+  "title": "Android visual capture 的晚期失败会丢弃同一 emulator session 中已经成功生成的早期证据",
+  "symptom": "Capture Production UI Android run 37141505668 已成功生成 Editor Shell、Fixed Tool 与 ToolInstance 截图，但 renderer-backed capture 随后在 Hosted Emulator 的 H.264 路径挂起并被取消。旧 pipeline 因等待所有 instrumentation class 完成后才统一导出、注册证据，导致前面已成功生成的 PNG 全部未进入 Foundry。",
+  "root_cause": "一个多状态 capture session 被错误建模成 all-or-nothing transaction：设备内产物直到最后才导出，capture step 又是 register/persist/index 的成功前置条件。晚期高风险状态因此成为所有早期低风险证据的提交屏障。",
+  "resolution": [
+    "每个 instrumentation class 成功后立即从 app-private storage 导出并验证属于该 class 的 PNG。",
+    "runtime-backed renderer class 使用 180 秒 bounded timeout，避免单一状态占满整个 workflow timeout。",
+    "capture step 即使失败也继续执行 evidence registration、persistence 和 index rebuild。",
+    "注册阶段只接受实际存在且非空的 PNG；缺失状态明确 warning，不生成伪造 manifest。",
+    "已完成证据持久化后仍显式令 workflow 失败，保留 External Validation 未完成的红灯语义。"
+  ],
+  "regression_guard": [
+    "tools/capture_ass_android.sh 按 instrumentation class 立即导出产物。",
+    "capture-production-ui-android.yml 的 register/persist/index 步骤在 capture late failure 后仍执行。",
+    "缺失 PNG 不得生成 evidence manifest；已存在 PNG 不得因后续 state 失败而被丢弃。"
+  ],
+  "reusable_lesson": "多状态证据采集不应默认为原子事务。高成本或高不确定性的晚期状态失败时，已经验证完成的早期不可变证据应按阶段持久化，同时最终验证仍保持失败。",
+  "provenance": [
+    {
+      "source_type": "report",
+      "source": "UIGS-Foundry GitHub Actions Capture Production UI Android run 37141505668",
+      "revision": "02ce3fa1e53244b4a8701a2a570bc3989536a78c",
+      "evidence_level": "successful early captures followed by renderer hang and cancelled job"
+    },
+    {
+      "source_type": "repository",
+      "source": "11576865/UIGS-Foundry:tools/capture_ass_android.sh",
+      "revision": "fix/uigs-ass-capture-failure-isolation-20261004",
+      "evidence_level": "implemented per-class extraction and bounded runtime capture"
+    }
+  ]
+}
