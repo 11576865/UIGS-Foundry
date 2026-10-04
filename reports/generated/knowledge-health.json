@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T15:24:14+00:00",
+  "generated_at": "2026-10-04T15:24:48+00:00",
   "inbox": {
     "bugs": 21,
     "candidates": 138,
     "observations": 20,
     "cases": 8,
-    "tests": 1
+    "tests": 2
   },
   "bug_lifecycle": {
     "counts": {
