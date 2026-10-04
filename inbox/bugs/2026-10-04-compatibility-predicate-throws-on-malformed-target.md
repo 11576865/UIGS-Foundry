@@ -2,6 +2,7 @@
 
 Date: 2026-10-04
 Status: Bug
+Lifecycle: repair-evidenced
 Scope: batch filtering / compatibility predicates / malformed input / fail-closed behavior
 
 ## Symptom
