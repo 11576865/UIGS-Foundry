@@ -52,3 +52,30 @@ The observation only supports an evidence-ordering rule: infrastructure loss plu
 - deduplication: searched UIGS-Foundry for Android Emulator / device-offline / connectedDebugAndroidTest infrastructure guidance; no direct duplicate found
 
 This remains an Observation. It is not Canonical.
+
+
+## Refinement — unrelated existing UI failure with empty diagnostics
+
+A later ASS Workbench Android case broadens the evidence pattern without removing the original device-offline condition.
+
+PR #127 (Position XY projection) had Android CI and Fontconfig green while Android Emulator Regression #608 failed. The instrumentation XML contained 15 executed tests, with one failure in the pre-existing `EditorRegressionInstrumentedTest.inspectorDraftSurvivesToolSwitchAndRotation`. Its `<failure></failure>` body was empty. The PR-specific `WorkspacePositionProjectionInstrumentedTest` did not execute in that run.
+
+There was no deterministic assertion/stack trace localizing the failure to the Position XY change. Therefore the first action remained an unchanged rerun of the failed emulator job rather than product-code mutation.
+
+Refined triage rule:
+
+- identify the exact failing test and whether it belongs to the changed feature;
+- inspect whether the feature-specific connected test actually executed;
+- distinguish a non-diagnostic existing-test failure from deterministic feature evidence;
+- rerun unchanged when the failure is empty/non-localized and the changed feature was not exercised;
+- mutate product or test semantics only after a healthy rerun reproduces a deterministic, attributable failure.
+
+This refinement does **not** assert that every unrelated or empty test failure is infrastructure noise. Reproduction on a healthy device still overrides the provisional classification.
+
+Evidence:
+- project: `11576865/ASS-Workbench-Android`
+- PR: #127
+- failing workflow: Android Emulator Regression #608
+- existing failing test: `inspectorDraftSurvivesToolSwitchAndRotation`
+- PR-specific connected test did not execute
+- action: rerun failed emulator job unchanged
