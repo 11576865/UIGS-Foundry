@@ -2,6 +2,7 @@
 
 Date: 2026-10-04
 Status: Bug
+Lifecycle: regression-verified
 Domains: CI, Android emulator, shell execution, workflow reliability
 
 ## Symptom

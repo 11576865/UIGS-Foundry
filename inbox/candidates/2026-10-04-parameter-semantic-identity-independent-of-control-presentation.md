@@ -47,3 +47,24 @@ Drag-to-extract UI, persisted parameter instances and EditorViewModel routing re
 - deduplication: searched Foundry for parameter semantic identity / visual presentation / custom-control intent contract equivalents; no direct duplicate found
 
 This is a Candidate only. It is not Canonical.
+
+
+## Refinement — live projection slice
+
+ASS Workbench Android PR #116 adds a first live consumer and sharpens the rule:
+
+8. Persisted projection identity is separate from parameter identity. Two controls may share one descriptor while retaining distinct projection ids, geometry and presentation.
+9. Target binding is persisted with the projection; presentation changes must not silently retarget the parameter.
+10. Transient preview ownership should include the projection instance identity when multiple controls can write the same semantic parameter. A live projection therefore uses an owner such as `geometry:<event>:<projection>`.
+11. Existing parameter panes may project that preview as external/read-only state, but they must not mistake it for their own local draft ownership.
+12. Commit still crosses the canonical editor mutation boundary and enters normal document history; projection persistence itself is workspace state and must not create ASS Undo entries.
+
+Evidence:
+- project PR #116
+- revision `1ce656e9f6d18630b964ba7584c04c7438f54244`
+- WorkspaceState schema v4 parameter projection persistence
+- first live Rotation Z NUMBER/SLIDER projection
+- connected preview → commit → Undo regression authored
+- asynchronous CI pending
+
+No Canonical promotion is implied by this refinement.

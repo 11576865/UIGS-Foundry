@@ -1,16 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T07:43:28+00:00",
+  "generated_at": "2026-10-04T15:13:53+00:00",
   "inbox": {
-    "bugs": 17,
-    "candidates": 126,
-    "observations": 18,
+    "bugs": 21,
+    "candidates": 138,
+    "observations": 20,
     "cases": 8,
-    "tests": 0
+    "tests": 1
   },
   "bug_lifecycle": {
     "counts": {
-      "recorded": 6,
+      "recorded": 7,
+      "regression-verified": 3,
       "repair-evidenced": 9,
       "validation-pending": 2
     },
@@ -18,14 +19,14 @@
     "note": "Bug records are durable evidence and are not an unresolved-product-bug count."
   },
   "intake": {
-    "pending_total": 221,
-    "pending_unreviewed": 220,
-    "triage_records": 221,
-    "triaged_pending": 221,
+    "pending_total": 234,
+    "pending_unreviewed": 233,
+    "triage_records": 234,
+    "triaged_pending": 234,
     "untriaged_pending": 0,
     "triage_status_counts": {
-      "auto-classified": 42,
-      "needs-review": 175,
+      "auto-classified": 47,
+      "needs-review": 183,
       "ready-for-record": 4
     },
     "proposals_total": 4,
@@ -43,14 +44,14 @@
   },
   "prevention": {
     "entries": 5,
-    "enforced_entries": 1,
-    "submitted_entries": 4,
+    "enforced_entries": 4,
+    "submitted_entries": 1,
     "unguarded_entries": 0,
     "recurring_entries": 2,
     "recurrence_total": 2,
     "control_status_counts": {
-      "enforced-main": 1,
-      "submitted": 4
+      "enforced-main": 4,
+      "submitted": 2
     }
   }
 }
