@@ -1,12 +1,12 @@
 # UIGS Review Queue
 
-Generated: 2026-10-04T21:08:42+00:00
+Generated: 2026-10-04T21:26:07+00:00
 
 ## Summary
 
-- Durable Pending packets: 234
-- Triage records: 234
-- Needs-review packets: 183
+- Durable Pending packets: 253
+- Triage records: 253
+- Needs-review packets: 201
 - Needs-review families after grouping: 9
 - Open promotion proposals: 3
 - Reviewed packets: 1
@@ -17,15 +17,15 @@ Raw Pending count is durable storage. This report narrows review work to unresol
 
 | Count | Repository | Workflow | Category | Matched rules | Related knowledge |
 | ---: | --- | --- | --- | --- | --- |
-| 78 | 11576865/Quick-Automatic-Hardsub-Encoder | Test frontend | unknown | — | — |
-| 47 | 11576865/ASS-Workbench-Android | Android Emulator Regression | unknown | — | — |
-| 46 | 11576865/Quick-Automatic-Hardsub-Encoder | Windows local smoke | runtime-smoke | runtime-smoke | ARCH.STRUCTURED_NATIVE_BRIDGE, REL.CAPABILITY_PROVEN_BY_OUTPUT |
+| 79 | 11576865/Quick-Automatic-Hardsub-Encoder | Test frontend | unknown | — | — |
+| 54 | 11576865/ASS-Workbench-Android | Android Emulator Regression | unknown | — | — |
+| 54 | 11576865/Quick-Automatic-Hardsub-Encoder | Windows local smoke | runtime-smoke | runtime-smoke | ARCH.STRUCTURED_NATIVE_BRIDGE, REL.CAPABILITY_PROVEN_BY_OUTPUT |
 | 4 | 11576865/ASS-Workbench-Android | Fontconfig renderer native probe | release-publication | release | BUG.ASS.RELEASE_PATH_ASYMMETRY, REL.RELEASE_PATH_PARITY |
+| 2 | 11576865/ASS-Workbench-Android | Android CI | unknown | — | — |
+| 2 | 11576865/ASS-Workbench-Android | Fontconfig renderer native probe | runtime-smoke | runtime-smoke | REL.CAPABILITY_PROVEN_BY_OUTPUT, TEST.RENDERED_EFFECT_DIFFERENTIAL |
 | 2 | 11576865/MKV-Fast-Muxer | Deploy to GitHub Pages | release-publication | release | — |
 | 2 | 11576865/Quick-Automatic-Hardsub-Encoder | Compile Android media tasks | unknown | — | — |
 | 2 | 11576865/Quick-Automatic-Hardsub-Encoder | UIGS Evidence Coverage | unknown | — | — |
-| 1 | 11576865/ASS-Workbench-Android | Android CI | unknown | — | — |
-| 1 | 11576865/ASS-Workbench-Android | Fontconfig renderer native probe | runtime-smoke | runtime-smoke | REL.CAPABILITY_PROVEN_BY_OUTPUT, TEST.RENDERED_EFFECT_DIFFERENTIAL |
 
 ## Open promotion proposals
 

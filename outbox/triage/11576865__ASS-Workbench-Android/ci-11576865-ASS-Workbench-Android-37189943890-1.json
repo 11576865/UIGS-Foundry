@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "packet_id": "ci-11576865-ASS-Workbench-Android-37189943890-1",
+  "source_repository": "11576865/ASS-Workbench-Android",
+  "packet_sha256": "78944d3b3c91be5e3a00c7b3801cb1c9b1e4f273ca521a598b82d4a03d153534",
+  "triage_status": "needs-review",
+  "record_type": "ci_failure",
+  "routing_hints": [
+    "interface-grammar",
+    "operations",
+    "red-reason",
+    "reliability"
+  ],
+  "red_reason": {
+    "category": "runtime-smoke",
+    "confidence": 0.68,
+    "needs_review": true,
+    "signals": [
+      "workflow:Fontconfig renderer native probe"
+    ],
+    "matched_rules": [
+      "runtime-smoke"
+    ]
+  },
+  "related_records": [
+    "REL.CAPABILITY_PROVEN_BY_OUTPUT",
+    "TEST.RENDERED_EFFECT_DIFFERENTIAL"
+  ],
+  "created_at": "2026-10-04T08:46:01+00:00",
+  "triaged_at": "2026-10-04T21:26:06+00:00"
+}
