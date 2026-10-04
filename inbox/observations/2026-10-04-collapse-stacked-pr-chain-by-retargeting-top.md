@@ -43,3 +43,20 @@ Do not apply this mechanically when branches are not a strict ancestry chain or 
 This is one successful project case, not a Canonical rule. Repository branch protection, CI triggers, merge strategy, and conflict behavior can differ.
 
 No Canonical promotion.
+
+
+## Extension: parallel stack consolidation
+
+The same ASS integration pass also had a parallel Matroska branch family that could not be represented by simple stacked retargeting.
+
+A clean consolidation path was:
+
+1. replay the latest Matroska-owned blobs onto current main as one explicit current-main branch;
+2. verify the resulting PR is independently mergeable against main;
+3. open a temporary branch-to-branch integration PR from that consolidated Matroska branch into the existing top spatial integration branch;
+4. let GitHub perform the normal three-way merge and confirm it is clean;
+5. merge that temporary PR into the integration branch, close the now-redundant Matroska PR, and leave one final main-targeted integration PR.
+
+This avoided manually reconstructing a cross-domain merge when GitHub's three-way merge could already prove the two current-main deltas were compatible.
+
+Use this only when both sides have been reconciled to the same current-main base and the temporary integration PR is clean/mergeable. A dirty integration PR still requires semantic conflict resolution rather than force-merging.
