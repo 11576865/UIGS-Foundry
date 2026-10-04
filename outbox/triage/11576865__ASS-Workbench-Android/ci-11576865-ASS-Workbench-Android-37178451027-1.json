@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "packet_id": "ci-11576865-ASS-Workbench-Android-37178451027-1",
+  "source_repository": "11576865/ASS-Workbench-Android",
+  "packet_sha256": "2decf65253368510871a356cdd3973094f439f72213845874c124963a924fda3",
+  "triage_status": "needs-review",
+  "record_type": "ci_failure",
+  "routing_hints": [
+    "interface-grammar",
+    "operations",
+    "red-reason",
+    "reliability"
+  ],
+  "red_reason": {
+    "category": "release-publication",
+    "confidence": 0.5,
+    "needs_review": true,
+    "signals": [
+      "step:Run ASS Workbench release-gate unit tests"
+    ],
+    "matched_rules": [
+      "release"
+    ]
+  },
+  "related_records": [
+    "BUG.ASS.RELEASE_PATH_ASYMMETRY",
+    "REL.RELEASE_PATH_PARITY"
+  ],
+  "created_at": "2026-10-04T05:08:54+00:00",
+  "triaged_at": "2026-10-04T05:53:58+00:00"
+}
