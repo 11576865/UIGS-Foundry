@@ -1,6 +1,7 @@
 # Bug: Android Stream Plan v4 emulator tail verification rejects V4D-06
 
 Status: bug
+Lifecycle: regression-verified
 Date: 2026-10-04
 Project: Quick-Automatic-Hardsub-Encoder
 Evidence: PR #58 workflow run 37190815690
@@ -40,4 +41,4 @@ Quick-Automatic-Hardsub-Encoder PR #61 re-lands the emulator acceptance on curre
 
 The repair keeps the full demux-to-null pass for integrity, then derives each output stream's tail from FFprobe packet `pts_time + duration_time`, matching the independent host verifier. Long outputs probe only an 8-second tail window to avoid materializing a full packet listing. Every output video/audio stream is checked rather than only an aggregate progress timestamp.
 
-Validation status: **Pending CI**. Do not mark this Bug resolved/validated from implementation alone.
+Validation status: **Regression verified**. PR #61 merged as `abbe9f436ebc9e60942b5a04eaa4c197f02d5762`; Android Stream Plan v4 emulator runtime acceptance run `37206272016`, UIGS Evidence Coverage, and Compile Android media tasks all completed successfully. The PR also added `fix(ci): keep emulator verification paths across split shell commands` before merge.
