@@ -2,6 +2,7 @@
 
 Date: 2026-10-04
 Status: Bug
+Lifecycle: repair-evidenced
 Scope: pinned dependencies / source injection / CI compile boundary / external API contracts
 
 ## Symptom
