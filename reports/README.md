@@ -24,3 +24,12 @@ Generated reports must not imply freshness beyond their source revisions.
 `reports/generated/knowledge-health.json` and `knowledge-health.md` separate durable Bug/Candidate inventory from intake backlog and executable prevention coverage.
 
 The report intentionally does **not** treat the number of Bug records as an unresolved-product-bug count. Bug evidence lifecycle comes from `Lifecycle:` metadata, while executable enforcement is registered independently in `prevention/registry.json`.
+
+
+## Review queue
+
+`reports/generated/review-queue.json` and `review-queue.md` turn raw intake volume into reviewable work.
+
+The queue groups unresolved `needs-review` CI packets by repository, workflow, red-reason category, matched rule set, and related knowledge. This is operational grouping only: it reduces repeated review effort without claiming that every packet in a group has the same root cause.
+
+Open promotion proposals remain explicit per-packet review items and still require accept/reject decisions.
