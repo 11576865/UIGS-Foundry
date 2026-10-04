@@ -2,6 +2,7 @@
 
 Date: 2026-10-04
 Status: Bug
+Lifecycle: regression-verified
 Scope: Android emulator acceptance / packaged runtime dependencies / production asset staging
 
 ## Symptom
@@ -38,3 +39,10 @@ A runtime acceptance test is authoritative only for the artifact it actually con
 Prefer one reusable packaging step or explicit parity assertions between production build and acceptance workflows.
 
 Do not promote to Canonical from this single bug observation.
+
+
+## Validation evidence
+
+Quick-Automatic-Hardsub-Encoder PR #61 merged after Android Stream Plan v4 emulator runtime acceptance run 37206272016 completed successfully. That workflow stages the production Web assets and pinned fallback font before assembling the Android test artifact, then executes the real MainActivity + EncodeService matrix and independently verifies exported outputs.
+
+This regression evidence verifies the packaging-parity repair for the acceptance path; it does not imply arbitrary device/OEM acceptance.
