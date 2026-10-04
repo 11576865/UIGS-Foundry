@@ -31,15 +31,17 @@ Using the lexical tag stream directly as semantic ownership state conflates thes
 
 ## Evidence
 
-ASS Workbench Android PR #99 found that `AssInlineSyntax` intentionally exposes nested transform tags, while `AssEffectiveInspector` and preview-target logic needed direct top-level semantics.
+ASS Workbench Android PR #99 found that `AssInlineSyntax` intentionally exposes nested transform tags, while `AssEffectiveInspector`, preview-target logic, Semantic Search, and Style-inheritance cleanup each needed direct top-level semantics.
 
-The correction adds a separate top-level override projection while preserving lexical nested-tag visibility. Preview targeting also fails closed for ambiguous late `\an`, `\pos`, or `\move` rather than ranking the Event from guessed placement.
+The correction adds a shared top-level override projection while preserving lexical nested-tag visibility. Preview targeting fails closed for ambiguous late `\an`, `\pos`, or `\move`; Semantic Search sees later direct tags but excludes transform payload tags; Style-inheritance cleanup removes only direct managed tags and preserves nested `\t(...)` payloads.
+
+PR #95 independently hit the same boundary in Batch `HasTag`: using the lexical tag stream caused `{\t(...,\pos(...))}` to match a direct `pos` filter. The Batch filter now uses the same top-level semantic projection while later direct span tags still match.
 
 ## Provenance
 
 - project: `11576865/ASS-Workbench-Android`
-- PR: #99
-- evidence level: concrete parser/semantic boundary defect + implementation correction + tests
+- PRs: #95, #99
+- evidence level: repeated parser/semantic boundary defects across Batch, Search, Style inheritance, effective-state inspection, and preview targeting + implementation corrections + tests
 - deduplication: searched UIGS-Foundry for lexical-vs-semantic tags, nested transform ownership, and ambiguous preview anchors; no direct duplicate found
 - status rationale: reusable parser/editor architecture candidate; not Canonical
 
