@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-04T08:36:03+00:00",
+  "summary": {
+    "pending_packets": 234,
+    "triage_records": 234,
+    "needs_review_packets": 183,
+    "needs_review_families": 9,
+    "open_proposals": 3,
+    "reviewed_packets": 1,
+    "orphan_needs_review": 0
+  },
+  "triage_status_counts": {
+    "auto-classified": 47,
+    "needs-review": 183,
+    "ready-for-record": 4
+  },
+  "needs_review_families": [
+    {
+      "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "workflow": "Test frontend",
+      "category": "unknown",
+      "matched_rules": [],
+      "related_records": [],
+      "count": 78,
+      "confidence_min": 0.0,
+      "confidence_max": 0.0,
+      "oldest_at": "2026-10-02T08:20:21+00:00",
+      "latest_at": "2026-10-04T06:08:30+00:00",
+      "sample_packet_ids": [
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-36983431516-1",
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-36983484223-1",
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-36983569634-1",
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-36983794122-1",
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-36983885692-1"
+      ]
+    },
+    {
+      "source_repository": "11576865/ASS-Workbench-Android",
+      "workflow": "Android Emulator Regression",
+      "category": "unknown",
+      "matched_rules": [],
+      "related_records": [],
+      "count": 47,
+      "confidence_min": 0.0,
+      "confidence_max": 0.0,
+      "oldest_at": "2026-10-02T07:58:09+00:00",
+      "latest_at": "2026-10-04T07:38:05+00:00",
+      "sample_packet_ids": [
+        "ci-11576865-ASS-Workbench-Android-36980710627-1",
+        "ci-11576865-ASS-Workbench-Android-36986759434-1",
+        "ci-11576865-ASS-Workbench-Android-36986848543-1",
+        "ci-11576865-ASS-Workbench-Android-36987704438-1",
+        "ci-11576865-ASS-Workbench-Android-36988558266-1"
+      ]
+    },
+    {
+      "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "workflow": "Windows local smoke",
+      "category": "runtime-smoke",
+      "matched_rules": [
+        "runtime-smoke"
+      ],
+      "related_records": [
+        "ARCH.STRUCTURED_NATIVE_BRIDGE",
+        "REL.CAPABILITY_PROVEN_BY_OUTPUT"
+      ],
+      "count": 46,
+      "confidence_min": 0.68,
+      "confidence_max": 0.68,
+      "oldest_at": "2026-10-02T11:14:44+00:00",
+      "latest_at": "2026-10-04T04:39:31+00:00",
+      "sample_packet_ids": [
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-36999888374-1",
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-37115671933-1",
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-37115724285-1",
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-37115741342-1",
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-37120093822-1"
+      ]
+    },
+    {
+      "source_repository": "11576865/ASS-Workbench-Android",
+      "workflow": "Fontconfig renderer native probe",
+      "category": "release-publication",
+      "matched_rules": [
+        "release"
+      ],
+      "related_records": [
+        "BUG.ASS.RELEASE_PATH_ASYMMETRY",
+        "REL.RELEASE_PATH_PARITY"
+      ],
+      "count": 4,
+      "confidence_min": 0.5,
+      "confidence_max": 0.5,
+      "oldest_at": "2026-10-03T20:00:40+00:00",
+      "latest_at": "2026-10-04T07:16:34+00:00",
+      "sample_packet_ids": [
+        "ci-11576865-ASS-Workbench-Android-37149218796-1",
+        "ci-11576865-ASS-Workbench-Android-37150869433-1",
+        "ci-11576865-ASS-Workbench-Android-37178451027-1",
+        "ci-11576865-ASS-Workbench-Android-37184837805-1"
+      ]
+    },
+    {
+      "source_repository": "11576865/MKV-Fast-Muxer",
+      "workflow": "Deploy to GitHub Pages",
+      "category": "release-publication",
+      "matched_rules": [
+        "release"
+      ],
+      "related_records": [],
+      "count": 2,
+      "confidence_min": 0.68,
+      "confidence_max": 0.68,
+      "oldest_at": "2026-10-02T14:18:32+00:00",
+      "latest_at": "2026-10-02T14:46:59+00:00",
+      "sample_packet_ids": [
+        "ci-11576865-MKV-Fast-Muxer-37018860236-1",
+        "ci-11576865-MKV-Fast-Muxer-37022222458-1"
+      ]
+    },
+    {
+      "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "workflow": "Compile Android media tasks",
+      "category": "unknown",
+      "matched_rules": [],
+      "related_records": [],
+      "count": 2,
+      "confidence_min": 0.0,
+      "confidence_max": 0.0,
+      "oldest_at": "2026-10-04T04:36:19+00:00",
+      "latest_at": "2026-10-04T04:37:55+00:00",
+      "sample_packet_ids": [
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-37177443414-1",
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-37177513617-1"
+      ]
+    },
+    {
+      "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "workflow": "UIGS Evidence Coverage",
+      "category": "unknown",
+      "matched_rules": [],
+      "related_records": [],
+      "count": 2,
+      "confidence_min": 0.0,
+      "confidence_max": 0.0,
+      "oldest_at": "2026-10-04T04:35:39+00:00",
+      "latest_at": "2026-10-04T04:37:05+00:00",
+      "sample_packet_ids": [
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-37177443416-1",
+        "ci-11576865-Quick-Automatic-Hardsub-Encoder-37177513635-1"
+      ]
+    },
+    {
+      "source_repository": "11576865/ASS-Workbench-Android",
+      "workflow": "Android CI",
+      "category": "unknown",
+      "matched_rules": [],
+      "related_records": [],
+      "count": 1,
+      "confidence_min": 0.0,
+      "confidence_max": 0.0,
+      "oldest_at": "2026-10-03T19:31:10+00:00",
+      "latest_at": "2026-10-03T19:31:10+00:00",
+      "sample_packet_ids": [
+        "ci-11576865-ASS-Workbench-Android-37148145904-1"
+      ]
+    },
+    {
+      "source_repository": "11576865/ASS-Workbench-Android",
+      "workflow": "Fontconfig renderer native probe",
+      "category": "runtime-smoke",
+      "matched_rules": [
+        "runtime-smoke"
+      ],
+      "related_records": [
+        "REL.CAPABILITY_PROVEN_BY_OUTPUT",
+        "TEST.RENDERED_EFFECT_DIFFERENTIAL"
+      ],
+      "count": 1,
+      "confidence_min": 0.68,
+      "confidence_max": 0.68,
+      "oldest_at": "2026-10-02T13:06:03+00:00",
+      "latest_at": "2026-10-02T13:06:03+00:00",
+      "sample_packet_ids": [
+        "ci-11576865-ASS-Workbench-Android-37010496462-1"
+      ]
+    }
+  ],
+  "open_proposals": [
+    {
+      "packet_id": "chat.ass-workbench.visual-capture-dependency-state-mismatch.20261002T122000Z",
+      "source_repository": "11576865/ASS-Workbench-Android",
+      "suggested_type": "bug",
+      "suggested_id": "BUG.ASS_WORKBENCH_ANDROID.VISUAL_CAPTURE_CONTRACT_CAN_DECLARE_AN.3BCF59C9",
+      "title": "Visual capture contract can declare an impossible state when its fixture disables a required runtime dependency",
+      "dedupe_candidates": []
+    },
+    {
+      "packet_id": "chat.quick-hardsub.semantic-state-overridden-by-responsive-css.20261002T102700Z",
+      "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "suggested_type": "candidate",
+      "suggested_id": "CAND.QUICK_AUTOMATIC_HARDSUB_ENCODER.RESPONSIVE_PRESENTATION_CSS_MUST_NOT_RESUR.08465EF4",
+      "title": "Responsive presentation CSS must not resurrect semantically suppressed surfaces",
+      "dedupe_candidates": []
+    },
+    {
+      "packet_id": "chat.quick-hardsub.windows-native-picker-offscreen-owner.20261002T102700Z",
+      "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "suggested_type": "bug",
+      "suggested_id": "BUG.QUICK_AUTOMATIC_HARDSUB_ENCODER.HIDDEN_WINDOWS_BRIDGE_CAN_ANCHOR_NATIVE.6D928A6B",
+      "title": "Hidden Windows bridge can anchor native OpenFileDialog off-screen",
+      "dedupe_candidates": []
+    }
+  ],
+  "orphan_needs_review_packet_ids": []
+}
