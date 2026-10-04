@@ -2,6 +2,7 @@
 
 Date: 2026-10-03
 Status: Bug
+Lifecycle: repair-evidenced
 Scope: Kotlin / Java regex portability / Android instrumentation / shared domain code
 
 ## Symptom
