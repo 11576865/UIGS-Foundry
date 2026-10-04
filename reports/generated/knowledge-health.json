@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T17:35:06+00:00",
+  "generated_at": "2026-10-04T18:52:27+00:00",
   "inbox": {
     "bugs": 22,
-    "candidates": 139,
+    "candidates": 140,
     "observations": 20,
     "cases": 8,
     "tests": 2
