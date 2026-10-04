@@ -2,6 +2,7 @@
 
 Date: 2026-10-04
 Status: Bug
+Lifecycle: validation-pending
 Scope: browser UI / render purity / persistence ownership / runtime ReferenceError
 
 ## Symptom
