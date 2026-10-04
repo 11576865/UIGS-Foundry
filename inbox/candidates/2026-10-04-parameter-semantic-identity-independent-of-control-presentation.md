@@ -68,3 +68,26 @@ Evidence:
 - asynchronous CI pending
 
 No Canonical promotion is implied by this refinement.
+
+
+## Refinement — drag extraction and live intent routing
+
+ASS Workbench Android PR #118 exercises the contract through a real gesture and adds these refinements:
+
+13. Extraction is a workspace mutation, not a document mutation. Creating or moving a projected parameter control must not enter document Undo history.
+14. A drag gesture may create a new projection instance, but the extracted instance still references the same semantic descriptor and target binding as the source parameter.
+15. Live controls should dispatch typed PREVIEW / COMMIT / CANCEL intents through one router rather than calling document mutation APIs ad hoc from each visual control.
+16. The router validates the descriptor/binding/value contract before delegating to the canonical editor mutation boundary.
+17. A new presentation such as an angle dial changes interaction geometry, not parameter authority. NUMBER, SLIDER and ANGLE_DIAL for Rotation Z remain one semantic parameter.
+18. Gesture extraction needs an accessible non-drag fallback when long-press dragging is inconvenient or unavailable.
+
+Evidence:
+- project PR #118
+- revision `968c661e9cc5b3c7530ae2a342023ec775e9b0c4`
+- long-press drag extraction for Rotation Z plus click fallback
+- WorkspaceParameterIntentRouter
+- live Angle Dial
+- connected extraction and Angle Dial preview → commit → Undo regressions authored
+- asynchronous CI pending
+
+No Canonical promotion is implied by this refinement.
