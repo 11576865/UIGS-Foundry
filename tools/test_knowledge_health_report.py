@@ -123,7 +123,9 @@ class KnowledgeHealthTests(unittest.TestCase):
         self.assertEqual(len(snapshot["bug_lifecycle"]["unclassified"]), 1)
 
         self.assertEqual(snapshot["intake"]["pending_total"], 2)
-        self.assertEqual(snapshot["intake"]["pending_open"], 1)
+        self.assertEqual(snapshot["intake"]["pending_unreviewed"], 1)
+        self.assertEqual(snapshot["intake"]["triaged_pending"], 1)
+        self.assertEqual(snapshot["intake"]["untriaged_pending"], 1)
         self.assertEqual(snapshot["intake"]["proposals_total"], 2)
         self.assertEqual(snapshot["intake"]["proposals_open"], 1)
 
@@ -138,6 +140,7 @@ class KnowledgeHealthTests(unittest.TestCase):
         root = self.fixture()
         rendered = g.render_markdown(g.build_snapshot(root))
         self.assertIn("not** the count of unresolved product defects", rendered)
+        self.assertIn("Pending packets not yet triaged | 1", rendered)
         self.assertIn("Submitted but not yet main-enforced: 1", rendered)
         self.assertIn("Rules with recorded recurrence: 1", rendered)
 
