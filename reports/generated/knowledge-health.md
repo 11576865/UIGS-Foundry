@@ -1,6 +1,6 @@
 # UIGS Knowledge Health
 
-Generated: 2026-10-04T16:06:22+00:00
+Generated: 2026-10-04T17:25:10+00:00
 
 ## Intake and knowledge inventory
 
@@ -17,7 +17,7 @@ Generated: 2026-10-04T16:06:22+00:00
 | Triage records total | 234 |
 | Promotion proposals (total / open) | 4 / 3 |
 | Typed intake records | 2 |
-| Catalog entries | 70 |
+| Catalog entries | 71 |
 
 ## Bug evidence lifecycle
 
@@ -43,7 +43,7 @@ Prevention coverage tracks executable controls separately from prose knowledge. 
 
 - candidate: 4
 - experimental: 51
-- validated: 15
+- validated: 16
 
 ## Interpretation boundary
 
