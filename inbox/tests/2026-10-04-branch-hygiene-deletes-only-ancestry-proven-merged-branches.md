@@ -41,6 +41,6 @@ After the safe sweep, count remaining open-PR or unique-work branches. If the co
 The workflow pattern was submitted on 2026-10-04 to six project repositories:
 ASS-Workbench-Android #119, Quick-Automatic-Hardsub-Encoder #62, MKV-Fast-Muxer #62, HSR-Voice-Archive-Builder #130, Character-Voice-Service #12, and Character-Voice-Reader #9.
 
-Validation is pending repository CI and first-run sweep evidence.
+Validation evidence: the workflow PRs merged successfully in ASS-Workbench-Android, Quick-Automatic-Hardsub-Encoder, MKV-Fast-Muxer, HSR-Voice-Archive-Builder, Character-Voice-Service, and Character-Voice-Reader. First-run sweeps reduced observed branch counts without deleting unique-work branches: Quick 61→33, MKV 60→35, HSR approximately 132→82, and ASS 129→69 after its workflow landed. Foundry adopted the same workflow directly on main and reduced from 9→5 branches. These counts are operational evidence, not a claim that all remaining branches are still needed.
 
 No Canonical promotion.
