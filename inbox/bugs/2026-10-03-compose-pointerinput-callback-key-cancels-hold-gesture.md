@@ -2,6 +2,7 @@
 
 Date: 2026-10-03
 Status: Bug
+Lifecycle: recorded
 Scope: Jetpack Compose / long-press repeat / continuous gesture controls
 
 ## Symptom
