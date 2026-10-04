@@ -12,8 +12,8 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
-  "source_revision": "d6d5c359c60e63aba19e55aad859ab22eef94f58",
-  "sha256": "e70568d68546b4954f9591b03f13b08bbdec31353b219cc7780cca810bd8c3c6",
+  "source_revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
+  "sha256": "ba510412b43723d3da4fbc6d7242ca785e1df59684e51c8a9959e6510222bf3e",
   "image": {
     "width": 1600,
     "height": 1000
@@ -64,7 +64,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "a2828daa665619d3b5622b397d8a59349847612a4eb7276d057e72b7d7bf0c44",
+  "previous_sha256": "e70568d68546b4954f9591b03f13b08bbdec31353b219cc7780cca810bd8c3c6",
   "limitations": [
     "This initial state captures the full running APK but does not load a video or ASS fixture.",
     "Renderer-backed subtitle/video states require a later fixture-backed capture."
@@ -73,13 +73,13 @@
     {
       "source_type": "repository",
       "source": "11576865/ASS-Workbench-Android",
-      "revision": "d6d5c359c60e63aba19e55aad859ab22eef94f58",
+      "revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/ASS-Workbench-Android:ui-visual-capture.json",
-      "revision": "d6d5c359c60e63aba19e55aad859ab22eef94f58",
+      "revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
       "evidence_level": "source-owned capture declaration"
     }
   ]

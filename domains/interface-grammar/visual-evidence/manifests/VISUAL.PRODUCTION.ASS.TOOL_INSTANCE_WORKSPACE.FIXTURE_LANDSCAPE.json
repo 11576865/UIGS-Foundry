@@ -16,8 +16,8 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.TOOL_INSTANCE_WORKSPACE.FIXTURE_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
-  "source_revision": "d6d5c359c60e63aba19e55aad859ab22eef94f58",
-  "sha256": "bd979c97cc437653c664d90cda7a1f716fa3151a59e958e62c653a812707e17e",
+  "source_revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
+  "sha256": "75b6fae7499c1fba1cf4edcb3cd8089ce395f3247f6ea178769fdfd31b6441b1",
   "image": {
     "width": 1600,
     "height": 1000
@@ -73,8 +73,8 @@
       "settle_ms": 500
     }
   },
-  "change_status": "new",
-  "previous_sha256": null,
+  "change_status": "changed",
+  "previous_sha256": "bd979c97cc437653c664d90cda7a1f716fa3151a59e958e62c653a812707e17e",
   "limitations": [
     "Uses the debug-only regression host to inject deterministic editor state while rendering the production ToolInstanceWorkspace and FloatingWorkbenchSurface implementation.",
     "Renderer/video pixels are not required for this evidence because the covered claims are binding identity and floating-surface geometry/presentation.",
@@ -84,13 +84,13 @@
     {
       "source_type": "repository",
       "source": "11576865/ASS-Workbench-Android",
-      "revision": "d6d5c359c60e63aba19e55aad859ab22eef94f58",
+      "revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/ASS-Workbench-Android:ui-visual-capture.json",
-      "revision": "d6d5c359c60e63aba19e55aad859ab22eef94f58",
+      "revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
       "evidence_level": "source-owned capture declaration"
     }
   ]

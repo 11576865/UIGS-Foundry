@@ -16,8 +16,8 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.POSITION_TOOL.FIXTURE_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
-  "source_revision": "d6d5c359c60e63aba19e55aad859ab22eef94f58",
-  "sha256": "d2576adf586b66f65c2ac1546e64c9f868f07114fdf33ef9e7c385bce00514a5",
+  "source_revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
+  "sha256": "7d026095495eab539a6056c162974ee9b97aee3d2b39ac9a05e9f7605dc82b3e",
   "image": {
     "width": 1600,
     "height": 1000
@@ -73,8 +73,8 @@
       "settle_ms": 250
     }
   },
-  "change_status": "new",
-  "previous_sha256": null,
+  "change_status": "changed",
+  "previous_sha256": "d2576adf586b66f65c2ac1546e64c9f868f07114fdf33ef9e7c385bce00514a5",
   "limitations": [
     "Uses the debug-only regression host to inject deterministic app state while rendering the production ModernEditorScreen and EditorViewModel.",
     "Renderer/video runtime pixels are not active in this fixed-tool state.",
@@ -84,13 +84,13 @@
     {
       "source_type": "repository",
       "source": "11576865/ASS-Workbench-Android",
-      "revision": "d6d5c359c60e63aba19e55aad859ab22eef94f58",
+      "revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/ASS-Workbench-Android:ui-visual-capture.json",
-      "revision": "d6d5c359c60e63aba19e55aad859ab22eef94f58",
+      "revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
       "evidence_level": "source-owned capture declaration"
     }
   ]
