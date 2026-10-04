@@ -47,6 +47,41 @@ def count_json_files(path: Path) -> int:
     return sum(1 for _ in path.rglob("*.json")) if path.exists() else 0
 
 
+def triage_coverage(root: Path, pending: list[tuple[Path, dict[str, Any]]]) -> dict[str, Any]:
+    records = []
+    base = root / "outbox" / "triage"
+    if base.exists():
+        for path in sorted(base.rglob("*.json")):
+            try:
+                item = load_json(path, {})
+            except Exception:
+                continue
+            if isinstance(item, dict):
+                records.append(item)
+
+    pending_ids = {
+        str(item.get("packet_id", ""))
+        for _, item in pending
+        if str(item.get("packet_id", ""))
+    }
+    triaged_ids = {
+        str(item.get("packet_id", ""))
+        for item in records
+        if str(item.get("packet_id", ""))
+    }
+    statuses = Counter(
+        str(item.get("triage_status", "unknown"))
+        for item in records
+        if str(item.get("packet_id", "")) in pending_ids
+    )
+    return {
+        "records": len(records),
+        "triaged_pending": len(pending_ids & triaged_ids),
+        "untriaged_pending": len(pending_ids - triaged_ids),
+        "status_counts": dict(sorted(statuses.items())),
+    }
+
+
 def open_proposals(root: Path) -> tuple[int, int]:
     base = root / "outbox" / "proposals"
     proposals = []
@@ -120,8 +155,10 @@ def build_snapshot(root: Path = ROOT) -> dict[str, Any]:
         if parse_bug_lifecycle(path) == "unclassified"
     ]
 
-    pending_total = len(intake_state.pending_packets(root, open_only=False))
-    pending_open = len(intake_state.pending_packets(root, open_only=True))
+    pending_packets = intake_state.pending_packets(root, open_only=False)
+    pending_total = len(pending_packets)
+    pending_unreviewed = len(intake_state.pending_packets(root, open_only=True))
+    triage = triage_coverage(root, pending_packets)
     proposals_total, proposals_open = open_proposals(root)
     catalog_total, status_counts = catalog_statuses(root)
 
@@ -142,8 +179,11 @@ def build_snapshot(root: Path = ROOT) -> dict[str, Any]:
         },
         "intake": {
             "pending_total": pending_total,
-            "pending_open": pending_open,
-            "triage_records": count_json_files(root / "outbox" / "triage"),
+            "pending_unreviewed": pending_unreviewed,
+            "triage_records": triage["records"],
+            "triaged_pending": triage["triaged_pending"],
+            "untriaged_pending": triage["untriaged_pending"],
+            "triage_status_counts": triage["status_counts"],
             "proposals_total": proposals_total,
             "proposals_open": proposals_open,
             "reviews": len(intake_state.review_items(root)),
@@ -177,8 +217,11 @@ def render_markdown(snapshot: dict[str, Any]) -> str:
         f"| Candidates | {inbox['candidates']} |",
         f"| Observations | {inbox['observations']} |",
         f"| Cases | {inbox['cases']} |",
-        f"| Durable Pending packets (total / open) | {intake['pending_total']} / {intake['pending_open']} |",
-        f"| Triage records | {intake['triage_records']} |",
+        f"| Durable Pending packets | {intake['pending_total']} |",
+        f"| Pending packets without review decision | {intake['pending_unreviewed']} |",
+        f"| Pending packets with triage record | {intake['triaged_pending']} |",
+        f"| Pending packets not yet triaged | {intake['untriaged_pending']} |",
+        f"| Triage records total | {intake['triage_records']} |",
         f"| Promotion proposals (total / open) | {intake['proposals_total']} / {intake['proposals_open']} |",
         f"| Typed intake records | {intake['typed_records']} |",
         f"| Catalog entries | {catalog['total']} |",
@@ -219,7 +262,9 @@ def render_markdown(snapshot: dict[str, Any]) -> str:
         "## Interpretation boundary",
         "",
         "- A high Bug/Candidate count can reflect stronger observation and capture rather than lower product quality.",
-        "- Open Pending and proposal backlog measure intake/governance debt, not source-product defect count.",
+        "- The Pending directory is durable intake storage: a packet may already be triaged while remaining under Pending.",
+        "- Untriaged Pending and open review proposals are stronger backlog signals than the raw Pending count.",
+        "- Review/proposal backlog measures governance debt, not source-product defect count.",
         "- `submitted` prevention controls are not counted as enforced until the source main contains the control.",
         "- Recurrence is tracked separately because repeated failure after prior knowledge is evidence of prevention/enforcement debt.",
         "",
@@ -244,7 +289,7 @@ def main() -> int:
     print(
         "knowledge-health: "
         f"bugs={snapshot['inbox']['bugs']} "
-        f"pending_open={snapshot['intake']['pending_open']} "
+        f"untriaged={snapshot['intake']['untriaged_pending']} "
         f"prevention={snapshot['prevention']['entries']}"
     )
     return 0
