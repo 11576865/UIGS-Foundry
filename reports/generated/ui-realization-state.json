@@ -28,7 +28,7 @@
           "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceEditScope.kt",
           "expected_blob_sha": "77281971deb58aeb07a74e1e03e453bb563cf955",
           "verified": true,
-          "current_blob_sha": "341c9f4ec7a1f88069e1835817f9852750f7cba7",
+          "current_blob_sha": "9bbceb788b71e3bd3834aeed7313ac3a9a538659",
           "current": false,
           "actual_blob_sha": "77281971deb58aeb07a74e1e03e453bb563cf955"
         },
@@ -52,8 +52,8 @@
           "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/interaction/WorkspaceInteractionOverlay.kt",
           "expected_blob_sha": "b60639e5a342a5c0dbe921f57f3028747ef3a424",
           "verified": true,
-          "current_blob_sha": "b60639e5a342a5c0dbe921f57f3028747ef3a424",
-          "current": true,
+          "current_blob_sha": "597ec016476cd5e4cef63774cd7d0535301e90e1",
+          "current": false,
           "actual_blob_sha": "b60639e5a342a5c0dbe921f57f3028747ef3a424"
         }
       ],
@@ -70,7 +70,7 @@
           "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/workspace/WorkspaceEditScopeResolverTest.kt",
           "expected_blob_sha": "afd99966cde2511a70bd51dd36da8595f3c5c99f",
           "verified": true,
-          "current_blob_sha": "b622209ba848dd5728e0a592522d73979320abbd",
+          "current_blob_sha": "a2fd2a6dae5c8eb98318c9060ae33b3faf9e164e",
           "current": false,
           "actual_blob_sha": "afd99966cde2511a70bd51dd36da8595f3c5c99f"
         },
@@ -94,13 +94,13 @@
           "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/RodInteractionInstrumentedTest.kt",
           "expected_blob_sha": "22878ac6b0ed68e42c5efc88c7780190f43379de",
           "verified": true,
-          "current_blob_sha": "22878ac6b0ed68e42c5efc88c7780190f43379de",
-          "current": true,
+          "current_blob_sha": "229874c1a26dd35ef0605a9ef7690e4db07f0d1c",
+          "current": false,
           "actual_blob_sha": "22878ac6b0ed68e42c5efc88c7780190f43379de"
         }
       ],
       "source_verified": true,
-      "current_head": "73c09f4052af0b7b057794a138a618f7883f4803",
+      "current_head": "d6d5c359c60e63aba19e55aad859ab22eef94f58",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
