@@ -1953,6 +1953,123 @@
       "ingested_at": "2026-10-04T05:53:58+00:00",
       "disposition": "pending",
       "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37177696726-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37182132476-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37182132476-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37182132476:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37182132476-1.json",
+      "ingested_at": "2026-10-04T07:43:30+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37182132476-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37182132485-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37182132485-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37182132485:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37182132485-1.json",
+      "ingested_at": "2026-10-04T07:43:31+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37182132485-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37182132523-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37182132523-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37182132523:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37182132523-1.json",
+      "ingested_at": "2026-10-04T07:43:31+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37182132523-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37184837805-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37184837805-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37184837805:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37184837805-1.json",
+      "ingested_at": "2026-10-04T07:43:31+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37184837805-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37184837813-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37184837813-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37184837813:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37184837813-1.json",
+      "ingested_at": "2026-10-04T07:43:32+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37184837813-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37184968515-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37184968515-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37184968515:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37184968515-1.json",
+      "ingested_at": "2026-10-04T07:43:32+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37184968515-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37185243204-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37185243204-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37185243204:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37185243204-1.json",
+      "ingested_at": "2026-10-04T07:43:32+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37185243204-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37185629349-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37185629349-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37185629349:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37185629349-1.json",
+      "ingested_at": "2026-10-04T07:43:32+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37185629349-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37185629355-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37185629355-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37185629355:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37185629355-1.json",
+      "ingested_at": "2026-10-04T07:43:33+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37185629355-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37185802477-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37185802477-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37185802477:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37185802477-1.json",
+      "ingested_at": "2026-10-04T07:43:33+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37185802477-1.json"
+    },
+    "11576865/ASS-Workbench-Android#ci-11576865-ASS-Workbench-Android-37185895410-1": {
+      "repository": "11576865/ASS-Workbench-Android",
+      "packet_id": "ci-11576865-ASS-Workbench-Android-37185895410-1",
+      "dedupe_key": "workflow_run:11576865/ASS-Workbench-Android:37185895410:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-ASS-Workbench-Android-37185895410-1.json",
+      "ingested_at": "2026-10-04T07:43:34+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__ASS-Workbench-Android/ci-11576865-ASS-Workbench-Android-37185895410-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37181864861-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37181864861-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37181864861:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37181864861-1.json",
+      "ingested_at": "2026-10-04T07:43:36+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37181864861-1.json"
+    },
+    "11576865/Quick-Automatic-Hardsub-Encoder#ci-11576865-Quick-Automatic-Hardsub-Encoder-37182194382-1": {
+      "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+      "packet_id": "ci-11576865-Quick-Automatic-Hardsub-Encoder-37182194382-1",
+      "dedupe_key": "workflow_run:11576865/Quick-Automatic-Hardsub-Encoder:37182194382:1",
+      "origin_path": "uigs-outbox:packets/ci-11576865-Quick-Automatic-Hardsub-Encoder-37182194382-1.json",
+      "ingested_at": "2026-10-04T07:43:36+00:00",
+      "disposition": "pending",
+      "pending_path": "outbox/pending/11576865__Quick-Automatic-Hardsub-Encoder/ci-11576865-Quick-Automatic-Hardsub-Encoder-37182194382-1.json"
     }
   }
 }

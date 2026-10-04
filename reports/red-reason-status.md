@@ -1,21 +1,21 @@
 # UIGS Red Reason Status
 
-Latest triage: 2026-10-04T05:53:58+00:00
-Triaged CI failures: 217
-Needs review: 175
+Latest triage: 2026-10-04T07:43:37+00:00
+Triaged CI failures: 230
+Needs review: 183
 
 ## Categories
 - e2e: 13
-- integration-test: 1
-- packaging: 3
-- release-publication: 5
+- integration-test: 2
+- packaging: 4
+- release-publication: 6
 - runtime-smoke: 54
-- unit-test: 18
-- unknown: 123
+- unit-test: 21
+- unknown: 130
 
 ## By repository
-- 11576865/ASS-Workbench-Android: packaging=3, release-publication=3, runtime-smoke=1, unit-test=17, unknown=42
+- 11576865/ASS-Workbench-Android: packaging=4, release-publication=4, runtime-smoke=1, unit-test=20, unknown=48
 - 11576865/MKV-Fast-Muxer: e2e=13, release-publication=2, unit-test=1
-- 11576865/Quick-Automatic-Hardsub-Encoder: integration-test=1, runtime-smoke=53, unknown=81
+- 11576865/Quick-Automatic-Hardsub-Encoder: integration-test=2, runtime-smoke=53, unknown=82
 
 Automatic Red Reason classification is a triage aid, not a root-cause verdict.
