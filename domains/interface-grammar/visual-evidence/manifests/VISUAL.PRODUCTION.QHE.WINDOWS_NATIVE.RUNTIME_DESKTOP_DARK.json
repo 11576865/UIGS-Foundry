@@ -23,38 +23,7 @@
     "width": 1365,
     "height": 900
   },
-  "environment": {
-    "schema_version": 1,
-    "capture_id": "QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
-    "surface_ids": [
-      "QHE.SHELL.WORKFLOW_HEADER",
-      "QHE.HELP.RUNTIME",
-      "QHE.DIAGNOSTICS.ENVIRONMENT",
-      "QHE.STATUS.TASK_OVERVIEW"
-    ],
-    "adapter": "windows-runtime-web",
-    "evidence_level": "runtime-backed",
-    "browser": {
-      "name": "chromium",
-      "version": "153.0.8010.12"
-    },
-    "target_url": "http://127.0.0.1:4174/",
-    "viewport": {
-      "width": 1365,
-      "height": 900,
-      "deviceScaleFactor": 1
-    },
-    "color_scheme": "dark",
-    "locale": "zh-CN",
-    "selector": "body",
-    "fixture": {
-      "state": "windows-native-connected",
-      "bridge": "real localhost Windows Native Bridge",
-      "bridge_port": 9347,
-      "token_source": "workflow ephemeral token"
-    },
-    "page_errors": []
-  },
+  "environment": {},
   "capture_contract": {
     "adapter": "windows-runtime-web",
     "route": "/",
@@ -72,8 +41,8 @@
       "settle_ms": 1000
     }
   },
-  "change_status": "new",
-  "previous_sha256": null,
+  "change_status": "unchanged",
+  "previous_sha256": "06e29e7fe558a6dcd6594dbc4ebf50a21d222eff2e943f319c7dd45abde7a958",
   "limitations": [
     "Hosted Windows runner uses its installed software FFmpeg toolchain; hardware/NVENC availability reflects the runner and is not fabricated.",
     "This capture proves a real localhost Bridge health/session connection and product runtime identity; it does not run a full encoding job."
