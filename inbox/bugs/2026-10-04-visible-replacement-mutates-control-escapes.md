@@ -2,6 +2,7 @@
 
 Date: 2026-10-04
 Status: Bug
+Lifecycle: repair-evidenced
 Scope: structured text editing / search-replace / lossless syntax / control escapes
 
 ## Symptom

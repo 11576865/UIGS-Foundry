@@ -2,6 +2,7 @@
 
 Date: 2026-10-04
 Status: Bug
+Lifecycle: repair-evidenced
 Scope: batch editing / form validation / destructive scope / preview
 
 ## Symptom

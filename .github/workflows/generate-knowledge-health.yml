@@ -1,0 +1,61 @@
+name: Generate UIGS Knowledge Health
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'inbox/**'
+      - 'outbox/pending/**'
+      - 'outbox/triage/**'
+      - 'outbox/proposals/**'
+      - 'outbox/reviews/**'
+      - 'intake/records/**'
+      - 'catalog/**'
+      - 'prevention/**'
+      - 'governance/BUG-LIFECYCLE.md'
+      - 'tools/generate_knowledge_health_report.py'
+      - 'tools/test_knowledge_health_report.py'
+      - 'tools/validate_foundry.py'
+      - '.github/workflows/generate-knowledge-health.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uigs-knowledge-health
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Test knowledge-health logic
+        run: python tools/test_knowledge_health_report.py
+
+      - name: Generate knowledge-health report
+        run: python tools/generate_knowledge_health_report.py
+
+      - name: Validate Foundry
+        run: python tools/validate_foundry.py
+
+      - name: Commit changed health report
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain -- reports/generated/knowledge-health.json reports/generated/knowledge-health.md)" ]]; then
+            echo "Knowledge-health report unchanged."
+            exit 0
+          fi
+          git config user.name "uigs-foundry-bot"
+          git config user.email "uigs-foundry-bot@users.noreply.github.com"
+          git add reports/generated/knowledge-health.json reports/generated/knowledge-health.md
+          git commit -m "chore(report): refresh knowledge health"
+          bash tools/push_with_rebase_retry.sh main 5

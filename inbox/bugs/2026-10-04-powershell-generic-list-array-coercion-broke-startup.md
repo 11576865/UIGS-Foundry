@@ -2,6 +2,7 @@
 
 Date: 2026-10-04
 Status: Bug
+Lifecycle: recorded
 Scope: PowerShell / helper discovery / startup reliability
 
 ## Symptom

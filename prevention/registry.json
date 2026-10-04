@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "PREVENT.MOBILE_INSPECTOR_PRIMARY_ACTION_REACHABILITY",
+      "title": "Keep primary inspector actions reachable on the minimum supported viewport",
+      "knowledge_refs": [
+        "inbox/bugs/2026-10-04-fixed-inspector-action-unreachable-no-scroll.md"
+      ],
+      "enforcement": [
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "production-structure",
+          "status": "enforced-main",
+          "pull_request": 86,
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/KaraokeVectorPanes.kt"
+        },
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "android-regression",
+          "status": "enforced-main",
+          "pull_request": 86,
+          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/EditorRegressionInstrumentedTest.kt"
+        }
+      ],
+      "recurrence_count": 0
+    },
+    {
+      "id": "PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE",
+      "title": "Keep absent, valid and invalid optional destructive inputs distinct",
+      "knowledge_refs": [
+        "inbox/bugs/2026-10-04-invalid-batch-input-broadens-recipe.md"
+      ],
+      "enforcement": [
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "ui-preflight",
+          "status": "submitted",
+          "pull_request": 95,
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/RuleBatchPane.kt"
+        },
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "ui-preflight",
+          "status": "submitted",
+          "pull_request": 95,
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/SemanticSearchReplacePane.kt"
+        },
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "regression-test",
+          "status": "submitted",
+          "pull_request": 95,
+          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/EditorRegressionInstrumentedTest.kt"
+        },
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "validation-gated-construction",
+          "status": "submitted",
+          "pull_request": 100,
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/SemanticSearchReplacePane.kt"
+        },
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "regression-test",
+          "status": "submitted",
+          "pull_request": 100,
+          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/EditorRegressionInstrumentedTest.kt"
+        }
+      ],
+      "recurrence_count": 1
+    },
+    {
+      "id": "PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP",
+      "title": "Use semantic ownership rather than raw regex for nested structured cleanup",
+      "knowledge_refs": [
+        "inbox/bugs/2026-10-04-regex-cleanup-corrupts-nested-semantics.md",
+        "inbox/bugs/2026-10-04-effective-inspector-collapses-span-state.md"
+      ],
+      "enforcement": [
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "semantic-parser",
+          "status": "submitted",
+          "pull_request": 99,
+          "path": "core/domain/src/main/kotlin/io/github/assworkbench/domain/AssTopLevelOverrideSyntax.kt"
+        },
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "regression-test",
+          "status": "submitted",
+          "pull_request": 99,
+          "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AssStyleInheritanceTest.kt"
+        },
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "regression-test",
+          "status": "submitted",
+          "pull_request": 99,
+          "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AssEffectiveInspectorTest.kt"
+        }
+      ],
+      "recurrence_count": 1
+    },
+    {
+      "id": "PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT",
+      "title": "Measure world-space canvas content independently from the viewport bound",
+      "knowledge_refs": [
+        "inbox/bugs/2026-10-04-compose-infinite-canvas-world-measurement-viewport-clamp.md"
+      ],
+      "enforcement": [
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "android-regression",
+          "status": "submitted",
+          "pull_request": 88,
+          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/InfiniteCanvasInstrumentedTest.kt"
+        }
+      ],
+      "recurrence_count": 0
+    },
+    {
+      "id": "PREVENT.STRUCTURED_TEXT_VISIBLE_REPLACEMENT_TOKEN_BOUNDARY",
+      "title": "Mutate only token classes owned by visible-text replacement",
+      "knowledge_refs": [
+        "inbox/bugs/2026-10-04-visible-replacement-mutates-control-escapes.md"
+      ],
+      "enforcement": [
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "semantic-token-boundary",
+          "status": "submitted",
+          "pull_request": 100,
+          "path": "core/domain/src/main/kotlin/io/github/assworkbench/domain/AssSearchReplace.kt"
+        },
+        {
+          "project": "11576865/ASS-Workbench-Android",
+          "kind": "regression-test",
+          "status": "submitted",
+          "pull_request": 100,
+          "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AuthoringEngineSuiteTest.kt"
+        }
+      ],
+      "recurrence_count": 0
+    }
+  ]
+}

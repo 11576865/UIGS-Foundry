@@ -2,6 +2,7 @@
 
 Date: 2026-10-03
 Status: Bug
+Lifecycle: recorded
 Scope: UI state ownership / media workbench / form event delegation
 
 ## Symptom

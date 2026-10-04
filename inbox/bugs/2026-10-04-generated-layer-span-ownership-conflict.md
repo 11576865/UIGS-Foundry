@@ -2,6 +2,7 @@
 
 Date: 2026-10-04
 Status: Bug
+Lifecycle: repair-evidenced
 Scope: effect composition / timed text / inline override ownership / ASS Karaoke
 
 ## Symptom

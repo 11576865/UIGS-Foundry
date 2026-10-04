@@ -6,6 +6,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 errors: list[str] = []
 
+BUG_LIFECYCLES={"recorded","repair-evidenced","validation-pending","regression-verified","recurring","superseded"}
+ENFORCEMENT_STATUSES={"submitted","enforced-main","deprecated"}
+
+
 def load(path: Path):
     try:
         return json.loads(path.read_text(encoding="utf-8"))
@@ -49,6 +53,57 @@ for path in sorted(ROOT.rglob("*.json")):
                 errors.append(f"{rel}: missing intake packet field {key}")
         if data.get("status") != "pending":
             errors.append(f"{rel}: imported outbox packet must remain pending")
+
+for path in sorted((ROOT/"inbox"/"bugs").glob("*.md")) if (ROOT/"inbox"/"bugs").exists() else []:
+    text=path.read_text(encoding="utf-8")
+    rel=path.relative_to(ROOT).as_posix()
+    lifecycle=None
+    for line in text.splitlines():
+        if line.startswith("Lifecycle:"):
+            lifecycle=line.split(":",1)[1].strip()
+            break
+    if not lifecycle:
+        errors.append(f"{rel}: missing Lifecycle")
+    elif lifecycle not in BUG_LIFECYCLES:
+        errors.append(f"{rel}: invalid Lifecycle {lifecycle}")
+
+prevention=load(ROOT/"prevention"/"registry.json") if (ROOT/"prevention"/"registry.json").is_file() else None
+if prevention:
+    if prevention.get("schema_version") != 1:
+        errors.append("prevention/registry.json: schema_version must be 1")
+    seen_prevention=set()
+    for entry in prevention.get("entries",[]):
+        pid=str(entry.get("id",""))
+        if not pid.startswith("PREVENT."):
+            errors.append(f"prevention/registry.json: invalid prevention id {pid}")
+        if pid in seen_prevention:
+            errors.append(f"prevention/registry.json: duplicate prevention id {pid}")
+        seen_prevention.add(pid)
+        refs=entry.get("knowledge_refs",[])
+        if not isinstance(refs,list):
+            errors.append(f"{pid}: knowledge_refs must be a list")
+            refs=[]
+        for ref in refs:
+            if not (ROOT/str(ref)).is_file():
+                errors.append(f"{pid}: missing knowledge ref {ref}")
+        controls=entry.get("enforcement",[])
+        if not isinstance(controls,list):
+            errors.append(f"{pid}: enforcement must be a list")
+            controls=[]
+        for control in controls:
+            if not isinstance(control,dict):
+                errors.append(f"{pid}: enforcement item must be an object")
+                continue
+            status=str(control.get("status",""))
+            if status not in ENFORCEMENT_STATUSES:
+                errors.append(f"{pid}: invalid enforcement status {status}")
+            if not str(control.get("project","")):
+                errors.append(f"{pid}: enforcement item missing project")
+            if not str(control.get("kind","")):
+                errors.append(f"{pid}: enforcement item missing kind")
+        recurrence=entry.get("recurrence_count",0)
+        if not isinstance(recurrence,int) or recurrence < 0:
+            errors.append(f"{pid}: recurrence_count must be a non-negative integer")
 
 catalog=load(ROOT/"catalog/index.json")
 if catalog:

@@ -14,7 +14,7 @@ At the observed snapshot:
 - `inbox/candidates`: 126 Candidate records;
 - `inbox/observations`: 17 Observation records;
 - `inbox/cases`: 8 Case records;
-- durable outbox Pending packets: 217;
+- durable outbox Pending packets: 217 at the observed snapshot; these are durable intake storage and may already have triage records;
 - catalog: 62 reusable entries, including 43 experimental and 15 validated entries.
 
 The Bug directory is cumulative evidence, not an open-defect tracker: several Bug records already include an implemented mitigation or repair PR. Therefore Bug-record count must not be read as unresolved-product-bug count.
@@ -37,7 +37,7 @@ Operational maturity should therefore be measured separately across:
 - executable enforcement;
 - recurrence rate.
 
-A rising Bug/Candidate count can indicate improving observability rather than declining product quality, but a growing Pending backlog and repeated bug families indicate prevention/enforcement lag.
+A rising Bug/Candidate count can indicate improving observability rather than declining product quality. Raw Pending count alone is not backlog because packets remain in durable Pending storage after triage; untriaged packets, unresolved review/proposal work, and repeated bug families are stronger indicators of governance or prevention lag.
 
 ## Evidence boundary
 

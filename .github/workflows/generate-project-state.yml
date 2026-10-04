@@ -9,6 +9,9 @@ on:
     paths:
       - 'projects/**'
       - 'catalog/**'
+      - 'outbox/pending/**'
+      - 'outbox/triage/**'
+      - 'outbox/reviews/**'
       - 'tools/generate_project_state_report.py'
       - 'tools/test_project_state_report.py'
       - '.github/workflows/generate-project-state.yml'
