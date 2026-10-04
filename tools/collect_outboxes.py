@@ -142,7 +142,12 @@ def write_report(receipts: dict[str,Any], root: Path = ROOT) -> None:
         "## Pending by source repository"
     ]
     lines.extend([f"- {repo}: {count}" for repo,count in sorted(by_repo.items())] or ["- none"])
-    lines += ["","Packets in outbox/pending are durable intake evidence, not Canonical knowledge.",""]
+    lines += [
+        "",
+        "Packets in outbox/pending are durable intake evidence, not Canonical knowledge.",
+        "Triage/proposal/review state is stored separately, so this raw Pending count is not an unprocessed-backlog count.",
+        "",
+    ]
     path = root / "reports" / "outbox-status.md"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines), encoding="utf-8")
