@@ -177,7 +177,7 @@
         "width": 975,
         "height": 693
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
     },
     {
@@ -197,7 +197,7 @@
         "width": 1321,
         "height": 90
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.BATCH.DESKTOP_DARK.json"
     },
     {
@@ -217,7 +217,7 @@
         "width": 975,
         "height": 193
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.INPUT.DESKTOP_DARK.json"
     },
     {
@@ -811,7 +811,7 @@
           "width": 975,
           "height": 693
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -837,7 +837,7 @@
           "width": 975,
           "height": 693
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -863,7 +863,7 @@
           "width": 975,
           "height": 693
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -970,7 +970,7 @@
           "width": 975,
           "height": 693
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -996,7 +996,7 @@
           "width": 975,
           "height": 693
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -1018,7 +1018,7 @@
           "width": 1321,
           "height": 90
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.BATCH.DESKTOP_DARK.json"
       }
     ],
@@ -1040,7 +1040,7 @@
           "width": 975,
           "height": 193
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.INPUT.DESKTOP_DARK.json"
       }
     ],
