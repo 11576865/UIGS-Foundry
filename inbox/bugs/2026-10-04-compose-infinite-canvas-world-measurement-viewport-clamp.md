@@ -2,6 +2,7 @@
 
 Date: 2026-10-04
 Status: Bug / product fix retained; regression expectation fix submitted, CI validation pending
+Lifecycle: validation-pending
 Source: 11576865/ASS-Workbench-Android PR #88
 
 ## Symptom
