@@ -18,8 +18,8 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
   "source_repository": "11576865/HSR-Voice-Archive-Builder",
-  "source_revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
-  "sha256": "48efc2905fea0882c923a661c3efc487d96b467d82e18bc0440c99df1cf2dd45",
+  "source_revision": "5dde8e3d8a1bc32f3553be7f4f17ae6873930d75",
+  "sha256": "032a42227709f22fb99c9a750375bbc0f69ed73ffe6c8b7784e4d463a946b533",
   "image": {
     "width": 1169,
     "height": 903
@@ -70,7 +70,7 @@
       "settle_ms": 900
     }
   },
-  "change_status": "unchanged",
+  "change_status": "changed",
   "previous_sha256": "48efc2905fea0882c923a661c3efc487d96b467d82e18bc0440c99df1cf2dd45",
   "limitations": [
     "Production layout UI; not classified as runtime-backed libass evidence.",
@@ -80,13 +80,13 @@
     {
       "source_type": "repository",
       "source": "11576865/HSR-Voice-Archive-Builder",
-      "revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+      "revision": "5dde8e3d8a1bc32f3553be7f4f17ae6873930d75",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/HSR-Voice-Archive-Builder:ui-visual-capture.json",
-      "revision": "3041c75f1e01269d36ce3040a55f19096b0e1838",
+      "revision": "5dde8e3d8a1bc32f3553be7f4f17ae6873930d75",
       "evidence_level": "source-owned capture declaration"
     }
   ]
