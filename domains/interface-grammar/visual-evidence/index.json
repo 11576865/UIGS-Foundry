@@ -581,13 +581,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
       "source_repository": "11576865/MKV-Fast-Muxer",
-      "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-      "sha256": "5da787c1d427171d8ca8c573193994eea157adcd88200ef19e707a85ac859792",
+      "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+      "sha256": "80f8c85ad476b838ecd100766d605c2463fe2c1d12163ee6c2dbcc183f89ddec",
       "image": {
         "width": 975,
-        "height": 693
+        "height": 584
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
     },
     {
@@ -601,13 +601,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.BATCH.DESKTOP_DARK.png",
       "source_repository": "11576865/MKV-Fast-Muxer",
-      "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-      "sha256": "0d43b4f68107ca5feef678532647e629fdcd2c2316c1b9a50c4d527e1ab0f63b",
+      "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+      "sha256": "5e15b42db855fea04892585a4cbcdcbbb8dc30dbe72c582e5e1a26e019d2fffe",
       "image": {
         "width": 1321,
         "height": 90
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.BATCH.DESKTOP_DARK.json"
     },
     {
@@ -621,13 +621,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.INPUT.DESKTOP_DARK.png",
       "source_repository": "11576865/MKV-Fast-Muxer",
-      "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-      "sha256": "7035fcd3bf9113fd8706159d3a15495a1ccfadbdf3c80b2e5569109c7eadc637",
+      "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+      "sha256": "dcc67477ebd96505b76d0b3a40edaea11eab89931f95d542ef5c7c3a907985b2",
       "image": {
         "width": 975,
-        "height": 193
+        "height": 168
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.INPUT.DESKTOP_DARK.json"
     },
     {
@@ -646,13 +646,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
       "source_repository": "11576865/MKV-Fast-Muxer",
-      "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-      "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+      "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+      "sha256": "4123f91e38b170fbda6e45039a5d8fee756a55642b485d8e60414a1cf8417952",
       "image": {
         "width": 1134,
-        "height": 615
+        "height": 537
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
     },
     {
@@ -666,7 +666,7 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.PREVIEW_DIALOG.DESKTOP_DARK.png",
       "source_repository": "11576865/MKV-Fast-Muxer",
-      "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
+      "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
       "sha256": "8fd06b401add3ca9767e27c0bf8d0e4008107d44f24df9d3d484c1d00d28ebe8",
       "image": {
         "width": 1285,
@@ -1720,7 +1720,7 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.PREVIEW_DIALOG.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
         "sha256": "8fd06b401add3ca9767e27c0bf8d0e4008107d44f24df9d3d484c1d00d28ebe8",
         "image": {
           "width": 1285,
@@ -1746,13 +1746,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-        "sha256": "5da787c1d427171d8ca8c573193994eea157adcd88200ef19e707a85ac859792",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+        "sha256": "80f8c85ad476b838ecd100766d605c2463fe2c1d12163ee6c2dbcc183f89ddec",
         "image": {
           "width": 975,
-          "height": 693
+          "height": 584
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -1772,13 +1772,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-        "sha256": "5da787c1d427171d8ca8c573193994eea157adcd88200ef19e707a85ac859792",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+        "sha256": "80f8c85ad476b838ecd100766d605c2463fe2c1d12163ee6c2dbcc183f89ddec",
         "image": {
           "width": 975,
-          "height": 693
+          "height": 584
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -1798,13 +1798,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-        "sha256": "5da787c1d427171d8ca8c573193994eea157adcd88200ef19e707a85ac859792",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+        "sha256": "80f8c85ad476b838ecd100766d605c2463fe2c1d12163ee6c2dbcc183f89ddec",
         "image": {
           "width": 975,
-          "height": 693
+          "height": 584
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -1825,13 +1825,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-        "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+        "sha256": "4123f91e38b170fbda6e45039a5d8fee756a55642b485d8e60414a1cf8417952",
         "image": {
           "width": 1134,
-          "height": 615
+          "height": 537
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
       }
     ],
@@ -1852,13 +1852,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-        "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+        "sha256": "4123f91e38b170fbda6e45039a5d8fee756a55642b485d8e60414a1cf8417952",
         "image": {
           "width": 1134,
-          "height": 615
+          "height": 537
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
       }
     ],
@@ -1879,13 +1879,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-        "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+        "sha256": "4123f91e38b170fbda6e45039a5d8fee756a55642b485d8e60414a1cf8417952",
         "image": {
           "width": 1134,
-          "height": 615
+          "height": 537
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
       }
     ],
@@ -1905,13 +1905,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-        "sha256": "5da787c1d427171d8ca8c573193994eea157adcd88200ef19e707a85ac859792",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+        "sha256": "80f8c85ad476b838ecd100766d605c2463fe2c1d12163ee6c2dbcc183f89ddec",
         "image": {
           "width": 975,
-          "height": 693
+          "height": 584
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -1931,13 +1931,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-        "sha256": "5da787c1d427171d8ca8c573193994eea157adcd88200ef19e707a85ac859792",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+        "sha256": "80f8c85ad476b838ecd100766d605c2463fe2c1d12163ee6c2dbcc183f89ddec",
         "image": {
           "width": 975,
-          "height": 693
+          "height": 584
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -1953,13 +1953,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.BATCH.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-        "sha256": "0d43b4f68107ca5feef678532647e629fdcd2c2316c1b9a50c4d527e1ab0f63b",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+        "sha256": "5e15b42db855fea04892585a4cbcdcbbb8dc30dbe72c582e5e1a26e019d2fffe",
         "image": {
           "width": 1321,
           "height": 90
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.BATCH.DESKTOP_DARK.json"
       }
     ],
@@ -1975,13 +1975,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.INPUT.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-        "sha256": "7035fcd3bf9113fd8706159d3a15495a1ccfadbdf3c80b2e5569109c7eadc637",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+        "sha256": "dcc67477ebd96505b76d0b3a40edaea11eab89931f95d542ef5c7c3a907985b2",
         "image": {
           "width": 975,
-          "height": 193
+          "height": 168
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.INPUT.DESKTOP_DARK.json"
       }
     ],
@@ -2002,13 +2002,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
         "source_repository": "11576865/MKV-Fast-Muxer",
-        "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-        "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+        "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+        "sha256": "4123f91e38b170fbda6e45039a5d8fee756a55642b485d8e60414a1cf8417952",
         "image": {
           "width": 1134,
-          "height": 615
+          "height": 537
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
       }
     ],
