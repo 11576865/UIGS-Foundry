@@ -1,6 +1,6 @@
 # UIGS Knowledge Health
 
-Generated: 2026-10-04T21:08:42+00:00
+Generated: 2026-10-05T06:58:40+00:00
 
 ## Intake and knowledge inventory
 
@@ -10,11 +10,11 @@ Generated: 2026-10-04T21:08:42+00:00
 | Candidates | 140 |
 | Observations | 20 |
 | Cases | 8 |
-| Durable Pending packets | 234 |
-| Pending packets without review decision | 233 |
-| Pending packets with triage record | 234 |
+| Durable Pending packets | 253 |
+| Pending packets without review decision | 252 |
+| Pending packets with triage record | 253 |
 | Pending packets not yet triaged | 0 |
-| Triage records total | 234 |
+| Triage records total | 253 |
 | Promotion proposals (total / open) | 4 / 3 |
 | Typed intake records | 2 |
 | Catalog entries | 71 |

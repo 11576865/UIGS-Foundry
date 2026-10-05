@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T21:08:42+00:00",
+  "generated_at": "2026-10-05T06:58:40+00:00",
   "inbox": {
     "bugs": 22,
     "candidates": 140,
     "observations": 20,
     "cases": 8,
-    "tests": 2
+    "tests": 3
   },
   "bug_lifecycle": {
     "counts": {
@@ -19,14 +19,14 @@
     "note": "Bug records are durable evidence and are not an unresolved-product-bug count."
   },
   "intake": {
-    "pending_total": 234,
-    "pending_unreviewed": 233,
-    "triage_records": 234,
-    "triaged_pending": 234,
+    "pending_total": 253,
+    "pending_unreviewed": 252,
+    "triage_records": 253,
+    "triaged_pending": 253,
     "untriaged_pending": 0,
     "triage_status_counts": {
-      "auto-classified": 47,
-      "needs-review": 183,
+      "auto-classified": 48,
+      "needs-review": 201,
       "ready-for-record": 4
     },
     "proposals_total": 4,
