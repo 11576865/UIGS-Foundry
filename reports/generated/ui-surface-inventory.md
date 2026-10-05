@@ -8,11 +8,11 @@ Surfaces with production visual evidence: 0
 
 | Project | Repository | Source HEAD | Status | Surfaces |
 | --- | --- | --- | --- | ---: |
-| ASS-Workbench-Android | 11576865/ASS-Workbench-Android | 29aa836674 | available | 24 |
+| ASS-Workbench-Android | 11576865/ASS-Workbench-Android | 6fc865498b | available | 24 |
 | Character-Voice-Service | 11576865/Character-Voice-Service | d818bee338 | available | 0 |
 | HSR-Voice-Archive-Builder | 11576865/HSR-Voice-Archive-Builder | 5dde8e3d8a | available | 11 |
 | MKV-Fast-Muxer | 11576865/MKV-Fast-Muxer | 9eb28679fd | available | 12 |
-| Quick-Automatic-Hardsub-Encoder | 11576865/Quick-Automatic-Hardsub-Encoder | 8a3ba82e45 | available | 16 |
+| Quick-Automatic-Hardsub-Encoder | 11576865/Quick-Automatic-Hardsub-Encoder | 899ed59e4e | available | 16 |
 
 ## Boundary
 
