@@ -17,11 +17,11 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
   "source_repository": "11576865/MKV-Fast-Muxer",
-  "source_revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
-  "sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
+  "source_revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
+  "sha256": "4123f91e38b170fbda6e45039a5d8fee756a55642b485d8e60414a1cf8417952",
   "image": {
     "width": 1134,
-    "height": 615
+    "height": 537
   },
   "environment": {
     "schema_version": 1,
@@ -65,7 +65,7 @@
       "settle_ms": 800
     }
   },
-  "change_status": "unchanged",
+  "change_status": "changed",
   "previous_sha256": "9d7b25037dd2ee00c18dc1e57f520236ea6d893077525c583803675fac6f2470",
   "limitations": [
     "No mux job is executed; summary, plan and execution surfaces are the real production pre-execution state."
@@ -74,13 +74,13 @@
     {
       "source_type": "repository",
       "source": "11576865/MKV-Fast-Muxer",
-      "revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
+      "revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/MKV-Fast-Muxer:ui-visual-capture.json",
-      "revision": "671bb6684c29403fbfca74e6fcf7f51c68d53d0e",
+      "revision": "9eb28679fd1fe3d69a699eeb094b114e06b049d0",
       "evidence_level": "source-owned capture declaration"
     }
   ]
