@@ -69,3 +69,18 @@ Repositories may temporarily exceed the budget during a bounded integration even
 This is a user-requested workflow guard and a Candidate, not a Canonical specification. The numeric budget may be revised after observing real multi-repository workload.
 
 No Canonical promotion.
+
+
+## 2026-10-05 cross-repository reconciliation evidence
+
+A branch-budget audit across Character-Voice-Service, MKV-Fast-Muxer and HSR-Voice-Archive-Builder found several branches that still reported unique commits against current main even though their useful behavior had already landed through a clean successor or a stronger later implementation.
+
+This adds an important distinction to cleanup priority step 2:
+
+- **Git uniqueness is a retention signal for automation, not a semantic ownership claim.**
+- Before re-landing an old branch, inspect successor PRs/current-main behavior and identify whether any capability delta is genuinely absent.
+- If the capability is already represented, record the supersession and avoid manufacturing a duplicate current-main replay solely because `ahead_by > 0`.
+
+The audit annotated the relevant closed PR threads so future continuation work has a durable successor trail.
+
+This remains Candidate evidence; no Canonical promotion.
