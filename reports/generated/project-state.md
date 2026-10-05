@@ -1,15 +1,15 @@
 # Cross-project State
 
-Source max updated at: 2026-10-04T17:25:17Z
+Source max updated at: 2026-10-05T10:48:58Z
 
 | Project | HEAD | Tracked workflow state | Pending | Triage | Foundry records with provenance |
 | --- | --- | --- | ---: | ---: | ---: |
-| ASS-Workbench-Android | `1f88268c6d` | Android CI: success (HEAD)<br>Android Emulator Regression: success (HEAD)<br>Fontconfig renderer native probe: success (HEAD) | 78 | 78 | 20 |
-| Character-Voice-Service | `41fb27d0bd` | CVS tests: success (HEAD) | 0 | 0 | 5 |
-| HSR-Voice-Archive-Builder | `3041c75f1e` | tests: success (HEAD) | 0 | 0 | 15 |
-| MKV-Fast-Muxer | `9eb28679fd` | Browser E2E mux tests: success (older SHA)<br>Deploy to GitHub Pages: in_progress (HEAD) | 16 | 16 | 9 |
-| Quick-Automatic-Hardsub-Encoder | `2e45453cc8` | Build Android Native Core Release: unknown<br>Build Web Core Release: unknown<br>Build Android and Deploy Frontend: success (older SHA)<br>Compile Android media tasks: success (older SHA)<br>Test frontend: success (older SHA)<br>Windows local smoke: success (older SHA) | 139 | 140 | 16 |
-| UIGS-Foundry | `57f240aebc` | Validate Foundry: success (older SHA)<br>Collect UIGS Outboxes: failure (older SHA)<br>Triage UIGS Pending: success (older SHA)<br>Generate UIGS Project State: in_progress (older SHA)<br>Capture UI Reference Baselines: unknown<br>Refresh UI Search Index: unknown<br>Propose UIGS Promotions: success (older SHA)<br>Review UIGS Promotion: unknown | 0 | 0 | 15 |
+| ASS-Workbench-Android | `554100fdb4` | Android CI: success (HEAD)<br>Android Emulator Regression: success (HEAD)<br>Fontconfig renderer native probe: success (HEAD) | 88 | 88 | 20 |
+| Character-Voice-Service | `d818bee338` | CVS tests: success (HEAD) | 0 | 0 | 5 |
+| HSR-Voice-Archive-Builder | `5dde8e3d8a` | tests: success (HEAD) | 0 | 0 | 15 |
+| MKV-Fast-Muxer | `9eb28679fd` | Browser E2E mux tests: success (older SHA)<br>Deploy to GitHub Pages: success (HEAD) | 16 | 16 | 9 |
+| Quick-Automatic-Hardsub-Encoder | `8a3ba82e45` | Build Android Native Core Release: unknown<br>Build Web Core Release: unknown<br>Build Android and Deploy Frontend: success (HEAD)<br>Compile Android media tasks: success (older SHA)<br>Test frontend: success (HEAD)<br>Windows local smoke: success (older SHA) | 148 | 149 | 16 |
+| UIGS-Foundry | `47041f2c99` | Validate Foundry: success (older SHA)<br>Collect UIGS Outboxes: success (older SHA)<br>Triage UIGS Pending: unknown<br>Generate UIGS Project State: in_progress (HEAD)<br>Capture UI Reference Baselines: unknown<br>Refresh UI Search Index: unknown<br>Propose UIGS Promotions: success (older SHA)<br>Review UIGS Promotion: unknown | 0 | 0 | 15 |
 
 ## Interpretation boundary
 
