@@ -44,3 +44,23 @@ ASS-Workbench-Android #119, Quick-Automatic-Hardsub-Encoder #62, MKV-Fast-Muxer 
 Validation evidence: the workflow PRs merged successfully in ASS-Workbench-Android, Quick-Automatic-Hardsub-Encoder, MKV-Fast-Muxer, HSR-Voice-Archive-Builder, Character-Voice-Service, and Character-Voice-Reader. First-run sweeps reduced observed branch counts without deleting unique-work branches: Quick 61→33, MKV 60→35, HSR approximately 132→82, and ASS 129→69 after its workflow landed. Foundry adopted the same workflow directly on main and reduced from 9→5 branches. These counts are operational evidence, not a claim that all remaining branches are still needed.
 
 No Canonical promotion.
+
+
+## 2026-10-05 semantic reconciliation evidence
+
+A follow-up cross-repository audit exercised the contract's `ahead_by > 0` boundary rather than treating Git uniqueness as proof of missing product work.
+
+Confirmed examples:
+
+- Character-Voice-Service PR #9 remains many commits ahead of its old base, but current main already contains the stronger post-Reader EngineAdapter/engine-registry/IndexTTS architecture through PR #11 and later work.
+- MKV-Fast-Muxer PR #25 remains Git-unique, while current main already contains canonical/Open Graph/Twitter/WebApplication metadata plus robots/sitemap and regression coverage.
+- MKV-Fast-Muxer PR #26 remains Git-unique, while current main already contains the evolved mobile/tablet layout authority and browser E2E coverage.
+- HSR-Voice-Archive-Builder PR #38 was superseded semantically by merged PR #68's center-outward bilingual ASS engine.
+- HSR PR #56 was superseded by merged PR #57's responsive subtitle-editor layout.
+- HSR PR #77 was superseded by merged PR #78's voice-gap-aware fade/motion engine.
+
+The closed PR threads were annotated with the semantic successor/equivalence evidence.
+
+This reinforces the test boundary: `ahead_by > 0` means automated deletion must stop, but it does **not** mean the branch should automatically be re-landed. A human/agent reconciliation must determine whether the semantic capability is absent, already represented by a successor, or intentionally obsolete.
+
+No Canonical promotion.
