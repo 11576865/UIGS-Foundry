@@ -1,0 +1,29 @@
+{
+  "packet_version": 1,
+  "packet_id": "chat.quick-hardsub.emulator-verifier-false-green.20261005T131500Z",
+  "status": "pending",
+  "record_type": "bug",
+  "title": "Android emulator acceptance can report green when independent verifier fails behind tee",
+  "summary": "Quick-Automatic-Hardsub-Encoder Android Stream Plan v4 emulator run 37206272016 completed the in-app instrumentation test but the host-side independent verifier failed immediately on V4D-01 with EBML header parsing failure. Because the verifier command was piped to tee under POSIX sh without pipeline failure propagation, the workflow still concluded success. This invalidates treating that run alone as independently verified emulator-output evidence.",
+  "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
+  "source_event": "chat_audit",
+  "source_ref": "main",
+  "source_sha": "abbe9f436ebc9e60942b5a04eaa4c197f02d5762",
+  "source_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/37206272016",
+  "created_at": "2026-10-05T13:15:00Z",
+  "dedupe_key": "bug:android-emulator-runner-authoritative-verifier-tee-false-green",
+  "routing_hints": [
+    "reliability",
+    "testing",
+    "android",
+    "ci",
+    "acceptance"
+  ],
+  "evidence": {
+    "runtime_test": "Gradle connectedDebugAndroidTest completed successfully and the in-app EncodeService matrix reached terminal success.",
+    "independent_verifier": "Host FFprobe failed on V4D-01 with `EBML header parsing failed` and `Invalid data found when processing input`.",
+    "masking_mechanism": "Workflow executed `node scripts/verify-stream-plan-v4-device-outputs.mjs ... | tee ...` inside emulator-runner POSIX sh; without pipefail, the pipeline status came from tee and the job remained green.",
+    "dedupe_target": "domains/reliability/bug-museum/BUG.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION.json",
+    "intake_blocker": "Foundry Validate run 37315032981 fails on unrelated `production visual evidence index is stale`, so the deduplicated Bug update cannot currently be merged safely."
+  }
+}
