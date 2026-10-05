@@ -49,3 +49,19 @@ ASS-Workbench-Android later reproduced the same integration shape with Timeline 
 - asynchronous CI was left pending after submission rather than actively polled.
 
 This provides a second project-level example supporting the Candidate. It still remains Candidate; no automatic Canonical promotion follows from the additional case.
+
+
+## PR-continuity variant: rebuild the existing head on current main
+
+ASS-Workbench-Android PR #131 provided a narrower variant of the same rule. The feature itself was one commit ahead, while `main` had advanced four commits and only one changed regression-test file overlapped the feature surface.
+
+Instead of opening another replacement PR, the integration rebuilt the PR head directly from current `main`:
+
+- exact feature blobs were reused only for paths unchanged by newer `main`;
+- the one overlapping regression file was replayed as a semantic hunk onto current `main`;
+- the rebuilt head became one commit ahead / zero behind `main`;
+- the existing PR number and review context were retained.
+
+This refines, rather than replaces, the Candidate sequence: a fresh replacement PR is useful when history/ownership is badly tangled, but PR continuity can be preserved when the semantic replay is small, auditable, and the head can be reconstructed deterministically from current authority.
+
+This remains Candidate-level guidance. It is not a Canonical promotion.
