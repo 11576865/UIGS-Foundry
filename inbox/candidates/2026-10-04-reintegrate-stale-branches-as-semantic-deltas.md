@@ -65,3 +65,23 @@ Instead of opening another replacement PR, the integration rebuilt the PR head d
 This refines, rather than replaces, the Candidate sequence: a fresh replacement PR is useful when history/ownership is badly tangled, but PR continuity can be preserved when the semantic replay is small, auditable, and the head can be reconstructed deterministically from current authority.
 
 This remains Candidate-level guidance. It is not a Canonical promotion.
+
+
+## Tree-consolidation variant: collapse historical branch stacks without changing the final tree
+
+ASS-Workbench-Android PR #129 exposed a second PR-continuity case. The branch was already zero commits behind current `main`, but its history still carried more than 180 accumulated integration commits even though the actual PR tree differed from `main` in only 16 files.
+
+The integration boundary was reduced by reconstructing the **current branch tree** directly on top of current `main`:
+
+1. verify the PR head is zero behind current `main`;
+2. enumerate the actual changed paths from the current head;
+3. reuse the exact current-head blobs for those changed paths;
+4. use current `main` as the base tree for everything else;
+5. create one consolidation commit and move the existing PR head to it;
+6. verify the resulting PR is one commit ahead / zero behind and the changed-file set is unchanged.
+
+This is different from replaying an old feature snapshot: the source of truth is the already-reconciled **current PR tree**, not historical commits. It is useful when semantic reconciliation has already happened but the branch still contains a large, noisy integration history.
+
+Safety boundary: this requires a stable observed head and a final race check before rewriting the ref. It must not discard concurrent updates, and it does not justify rewriting a branch whose tree has not already been reconciled against current main.
+
+This remains Candidate-level guidance, not Canonical.
