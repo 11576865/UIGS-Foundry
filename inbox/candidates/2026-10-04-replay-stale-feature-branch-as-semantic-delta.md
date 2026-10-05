@@ -45,3 +45,49 @@ This adds a second project/feature family to the Candidate and sharpens the rule
 - once a later stacked feature strictly supersedes an intermediate replay, keep one authoritative replacement PR rather than preserving parallel integration branches.
 
 This remains Candidate evidence; it is not automatically Canonical.
+
+
+## Additional implementation evidence — ASS-Workbench-Android PR #129
+
+On 2026-10-05, the ASS-Workbench-Android container/media import stack provided a stronger reconciliation case.
+
+The stale feature line had diverged substantially from current `main`: the old integration branch carried roughly 159 commits not on main while missing roughly 126 newer main commits. The branch still contained an older generalized Track-addition model, while current main had independently strengthened the same subsystem with:
+
+- source TrackUID pinning;
+- fresh destination TrackNumber / TrackUID allocation with removed-identity reservation;
+- BCP 47 and accessibility/semantic track metadata;
+- track-targeted Tag retargeting;
+- newer output Inventory verification;
+- unrelated later workspace/UI changes.
+
+A textual or wholesale merge would therefore have risked replacing newer invariants with an older implementation.
+
+PR #129 was reconciled using current main as the authoritative baseline:
+
+1. Current-main state, bridge, native TrackImport planner, ViewModel workflow, preflight, and UI files were taken as the structural baseline.
+2. Only the intended semantic delta was replayed:
+   - standalone ASS import;
+   - SRT → deterministic ASS normalization;
+   - read-only generic-media compatibility assessment;
+   - executable MP3 compressed-packet stream-copy;
+   - source-drift evidence and post-write packet/semantic verification.
+3. The older parallel `PendingContainerTrackAdditionUi / TrackAdditionInput` model was dropped instead of merged.
+4. New source adapters were expressed as extensions of current-main `ContainerTrackImportCandidateUi / PendingContainerTrackImportUi / TrackImportInput / TrackImport`.
+5. Current-main TrackUID, BCP 47, accessibility metadata, Tag retargeting and fresh-identity rules remained authoritative.
+6. Unrelated old-stack differences were eliminated rather than conflict-resolved file by file.
+
+After reconciliation, the compare against current main became `behind=0` and the visible file delta contracted to the small set of files that actually implement the semantic feature. The PR returned to a mergeable state and Android CI, emulator regression, and native/fontconfig validation were triggered.
+
+This strengthens the Candidate rule:
+
+> When both main and the stale branch evolved the same subsystem, replay **behavioral intent and evidence contracts**, not the stale implementation shape.
+
+A useful completion signal is not merely “merge conflicts resolved”, but:
+
+- current main is an ancestor / the branch is no longer behind;
+- unrelated file differences disappear;
+- newer-main invariants remain represented in the reconciled code;
+- only the semantic feature delta remains reviewable;
+- the reconciled branch re-enters the normal CI boundary.
+
+This is additional implementation evidence only. Do not promote to Canonical from this case alone.
