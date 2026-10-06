@@ -4,6 +4,7 @@ AI-readable cross-project engineering knowledge and governance.
 Start:
 - /README.md
 - /AGENTS.md
+- /governance/AGENT-EXECUTION.md
 - /governance/CHARTER.md
 - /governance/AUTHORITY.md
 - /governance/PROMOTION.md
@@ -16,3 +17,4 @@ Interface Grammar:
 Product repositories are authoritative for shipped implementation.
 Foundry is authoritative only for explicitly Canonical cross-project knowledge.
 A single observation must not be promoted directly to Canonical.
+Interactive agent sessions are disposable workers; durable repository state is the recovery source of truth.
