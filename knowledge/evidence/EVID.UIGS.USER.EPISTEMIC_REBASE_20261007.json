@@ -24,6 +24,8 @@
       "result": "supports",
       "defeater_type": "none",
       "directness": "static",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
       "notes": "Explicit governance authorization."
     },
     {
@@ -31,6 +33,8 @@
       "result": "supports",
       "defeater_type": "none",
       "directness": "static",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
       "notes": "Explicit governance authorization."
     }
   ]
