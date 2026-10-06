@@ -23,3 +23,4 @@ Use computed effective authority; quarantined knowledge is not default guidance.
 Evidence lineage, scope, assumptions, freshness, and directness are first-class.
 A single observation must not be promoted directly to Canonical.
 Interactive agent sessions are disposable workers; durable repository state is the recovery source of truth.
+\n
