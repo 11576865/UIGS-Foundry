@@ -1,7 +1,13 @@
 # Candidate: Branch submission is the default execution boundary for asynchronous CI
 
-Status: **Candidate / user-established engineering workflow**
+Status: **historical candidate — incorporated into Canonical `governance/AGENT-EXECUTION.md`**
 Date: 2026-10-02
+
+## Promotion note
+
+On 2026-10-07, the user explicitly authorized the execution-reliability change that promoted this boundary into the Canonical durable agent execution policy.
+
+This file remains as provenance for the original user-established workflow and its later reinforcement. For current execution behavior, follow `governance/AGENT-EXECUTION.md` and root `AGENTS.md`.
 
 ## Trigger
 
@@ -36,15 +42,10 @@ Continue past branch submission only when:
 
 ## Evidence boundary
 
-This is based on one explicit user workflow preference in an active engineering project. Treat as a Candidate process rule, not Canonical policy.
-
-Do not promote to Canonical from this observation alone.
-
+This began as one explicit user workflow preference in an active engineering project and was later reinforced by repeated failure observations. The current authoritative rule now lives in `governance/AGENT-EXECUTION.md`.
 
 ## Reinforcement — 2026-10-04
 
 The user explicitly reinforced the execution-boundary rule with a failure mode to avoid: **do not keep checking progress until the conversation/session times out**.
 
 Operationally, once the requested code/configuration/document work has been submitted and no immediately actionable failure is already present, the agent must stop active polling. A running CI job is reported as Pending CI; it is not a reason to consume the rest of the session.
-
-This reinforcement does not change the status above: it remains a Candidate, not Canonical.
