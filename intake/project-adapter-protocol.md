@@ -23,6 +23,23 @@ product workflow or manual dispatch
 -> triage and deduplication
 -> structured knowledge record
 
+## Interactive-agent execution boundary
+
+Participating repositories should expose a root `AGENTS.md` that applies the Canonical policy in `governance/AGENT-EXECUTION.md`.
+
+The source-side contract is:
+
+1. Treat an interactive agent session as a disposable worker.
+2. Convert broad/open-ended goals into bounded work units.
+3. Persist a pushed checkpoint before long or external validation when safe.
+4. After a coherent work unit is durably submitted, external CI/emulator/render/deployment/Foundry work may remain Pending.
+5. Do not keep the current conversation turn alive by repeatedly polling asynchronous work.
+6. For multi-unit goals, keep a durable task state under `.uigs/tasks/<task-id>.json` conforming to `schemas/agent-task-state.schema.json`.
+7. On continuation, recover from the task state + branch/PR + latest durable commit before relying on conversation memory.
+8. UIGS Intake may emit one bounded packet or update one narrow record, but downstream Foundry processing is a separate lifecycle.
+
+A source adapter is therefore a persistence bridge, not a reason for a product-side interactive agent to wait for Foundry processing.
+
 ## Scope
 
 The adapter is intentionally conservative. It does not automatically convert every push, pull request, issue, or release into knowledge. CI failures are machine events with a clear evidence artifact; higher-level reusable meaning still requires triage.
@@ -36,7 +53,7 @@ Additional event types may be added later when they have a reliable signal and a
 - Missing uigs-outbox before the first event is not an error.
 - Imported packets remain Pending.
 - Canonical promotion is never automatic.
-
+- Failure or delay in downstream Foundry processing does not reopen an already completed product-side agent work unit.
 
 ## Invariant evidence coverage
 
