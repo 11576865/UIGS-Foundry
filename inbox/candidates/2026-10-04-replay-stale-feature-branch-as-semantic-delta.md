@@ -91,3 +91,25 @@ A useful completion signal is not merely “merge conflicts resolved”, but:
 - the reconciled branch re-enters the normal CI boundary.
 
 This is additional implementation evidence only. Do not promote to Canonical from this case alone.
+
+
+## Final validation of the PR #129 reconciliation
+
+The reconciliation described above subsequently reached a full external validation boundary.
+
+Final PR #129 state before review:
+
+- current-main compare: ahead 5, behind 0;
+- mergeable: true;
+- Draft converted to Ready for review;
+- Android CI #1022: success;
+- Android Emulator Regression #647: success;
+- Fontconfig renderer native probe #915: success.
+
+The final reviewable delta remained constrained to the container/media import implementation and tests rather than reintroducing unrelated historical branch changes.
+
+This strengthens the Candidate with a complete execution sequence:
+
+`diverged stale branch -> semantic replay on authoritative main -> unrelated-diff elimination -> current-main invariant preservation -> green CI across unit/native/emulator lanes -> ready-for-review boundary`.
+
+This remains Candidate evidence, not Canonical policy.
