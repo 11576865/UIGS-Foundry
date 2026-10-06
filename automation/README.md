@@ -7,11 +7,23 @@ Therefore, dependent transformations are executed in the **same workflow run** w
 - Collect Outboxes -> Triage -> Red Reason -> Promotion Proposal -> reports.
 - Triage Pending -> Promotion Proposal -> reports.
 - Review Promotion -> promotion status report.
+- Claim/Evidence changes -> epistemic evaluation -> validation missions -> authority-aware indexes.
 - Capture Reference Baselines -> rebuild UI search/showcase coverage.
 
 Separate workflows remain useful for direct human/repository pushes, scheduled entry points, and manual repair runs, but they are not used as an implicit bot-commit event bus.
 
 If a future design intentionally requires cross-workflow triggering, it must use an explicit supported trigger/token design and document the privilege boundary.
+
+## Epistemic time watch
+
+Evidence may become stale with the passage of time even when no repository commit occurs.
+
+A scheduled epistemic watch therefore:
+1. evaluates the Claim/Evidence graph against current time;
+2. generates epistemic-state and validation-mission reports as workflow artifacts;
+3. fails visibly if any Claim becomes effectively quarantined or the graph is invalid.
+
+The watch does not permanently demote or rewrite Claims.
 
 ## Writer concurrency
 
