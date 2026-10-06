@@ -15,8 +15,8 @@
   ],
   "repository": "11576865/UIGS-Foundry",
   "branch": "feat/migrate-validated-uigs-claims",
-  "pull_request": null,
-  "last_durable_commit": null,
+  "pull_request": 22,
+  "last_durable_commit": "ba12293564d81159f10b0ae8acf438c2b5230d10",
   "external_validation": {
     "ci": "pending"
   },
