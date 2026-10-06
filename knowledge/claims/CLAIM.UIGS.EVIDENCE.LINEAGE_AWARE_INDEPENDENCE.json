@@ -7,7 +7,9 @@
   "authority": "active",
   "epistemic_state": "supported",
   "scope": {
-    "repositories": ["11576865/UIGS-Foundry"],
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
     "platforms": [],
     "versions": [],
     "environments": [],
