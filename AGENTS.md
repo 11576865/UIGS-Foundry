@@ -21,6 +21,19 @@ Interactive agent sessions are disposable workers. Repositories, commits, branch
 
 These rules take precedence over lower-level intake, reporting, validation, and workflow instructions whenever continuing those activities would risk losing already-completed work or keeping an interactive turn alive without a bounded purpose.
 
+## Epistemic protocol
+
+1. Treat `governance/EPISTEMIC-MODEL.md` as the semantic source of truth for reusable knowledge.
+2. Do not equate maturity with current truth or current authority.
+3. Before using high-impact reusable knowledge, respect scope, assumptions, computed effective authority, epistemic state, and evidence freshness.
+4. A Canonical Claim that is effectively quarantined must not be used as default guidance.
+5. New contradictory or undercutting evidence must challenge the existing Claim; do not merely append a new contradictory document.
+6. Preserve evidence lineage. Do not count copied/adopted implementations as independent confirmation when they share an upstream origin.
+7. When a dependency is invalidated, propagate review debt only to Claims that actually depend on it.
+8. Permanent demotion/deprecation/supersession requires a durable Knowledge Change record.
+9. Prefer revising/narrowing a Claim over deleting history.
+10. Before inventing a new foundational governance mechanism, perform prior-art mapping against `governance/PRIOR-ART.md`.
+
 ## Knowledge-control protocol
 
 1. After substantial software/UI/testing/engineering work, perform a UIGS Intake Check.
@@ -28,7 +41,7 @@ These rules take precedence over lower-level intake, reporting, validation, and 
 3. Search existing registry and inbox records before creating a new one.
 4. Record provenance and evidence level.
 5. Prefer updating an existing family over creating a duplicate.
-6. A single observation may create Observation, Candidate, Case, Bug, Test, Lesson, or implementation reference.
+6. A single observation may create Observation, Candidate, Case, Bug, Test, Lesson, Claim, Evidence, or implementation reference.
 7. Do not silently promote a rule to Canonical; follow `governance/PROMOTION.md`.
 8. Product repositories remain authoritative for executable implementation.
 9. If a Foundry write cannot be completed, report it as **Pending**; never imply success.
