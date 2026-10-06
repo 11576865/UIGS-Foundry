@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "task_id": "uigs-epistemic-rebase-2026-10-07",
+  "goal": "Rebase UIGS onto a prior-art-grounded, reversible, evidence-governed learning architecture.",
+  "status": "completed",
+  "current_work_unit": null,
+  "completed_units": [
+    "prior-art epistemic model",
+    "Claim/Evidence/Knowledge Change schemas",
+    "non-monotonic effective-authority evaluator",
+    "scope/directness-aware defeater handling",
+    "lineage-aware independent support",
+    "dependency invalidation propagation",
+    "quarantine-aware retrieval",
+    "validation mission generation",
+    "legacy migration reporting",
+    "bounded synchronous execution policy",
+    "CI enforcement"
+  ],
+  "next_units": [],
+  "repository": "11576865/UIGS-Foundry",
+  "branch": "feat/epistemic-rebase",
+  "pull_request": 21,
+  "last_durable_commit": "c09aa58f9935c0959a257171b1e5ec56336cd7ca",
+  "external_validation": {
+    "ci": "pending"
+  },
+  "blockers": [],
+  "notes": [
+    "Architecture submission is complete; CI remains asynchronous.",
+    "Legacy catalog migration is visible debt and is not silently fabricated."
+  ],
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}
