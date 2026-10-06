@@ -21,7 +21,7 @@
   "repository": "11576865/UIGS-Foundry",
   "branch": "feat/epistemic-rebase",
   "pull_request": 21,
-  "last_durable_commit": "4422bcfb7c362750ed241b75b7dc2cd227b13417",
+  "last_durable_commit": "b009450920c493463208adb56aa298e27903179b",
   "external_validation": {
     "ci": "pending"
   },
@@ -29,7 +29,9 @@
   "notes": [
     "Architecture submission is complete; CI remains asynchronous.",
     "Legacy catalog migration is visible debt and is not silently fabricated.",
-    "One bounded repair generation corrected deterministic visual-evidence ordering; next CI generation is intentionally left Pending."
+    "One bounded repair generation corrected deterministic visual-evidence ordering; next CI generation is intentionally left Pending.",
+    "Latest CI passed epistemic graph, visual evidence, UI realization, retrieval, composition, intake, writer retry, and invariant evidence tests; final validator failed only because two existing Bug records lacked Lifecycle metadata.",
+    "Both Bug records now declare Lifecycle: repair-evidenced; the next CI generation is intentionally left Pending."
   ],
   "updated_at": "2026-10-07T00:00:00+00:00"
 }
