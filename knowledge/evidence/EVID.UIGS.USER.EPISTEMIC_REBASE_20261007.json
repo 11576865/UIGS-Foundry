@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.USER.EPISTEMIC_REBASE_20261007",
+  "status": "active",
+  "source": {
+    "type": "manual_decision",
+    "locator": "conversation:2026-10-07:uigs-theoretical-rebase",
+    "revision": "explicit user authorization: 一步到位",
+    "environment_fingerprint": null
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "USER_DECISION.UIGS.EPISTEMIC_REBASE.2026-10-07",
+  "provenance": {
+    "entity_id": "decision:uigs-epistemic-rebase-2026-10-07",
+    "activity_id": "uigs-theoretical-rebase-2026-10-07",
+    "agent_id": "user",
+    "was_derived_from": [],
+    "was_attributed_to": "user"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.EPISTEMIC.NON_MONOTONIC_AUTHORITY",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "static",
+      "notes": "Explicit governance authorization."
+    },
+    {
+      "claim_id": "CLAIM.UIGS.EVIDENCE.LINEAGE_AWARE_INDEPENDENCE",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "static",
+      "notes": "Explicit governance authorization."
+    }
+  ]
+}
