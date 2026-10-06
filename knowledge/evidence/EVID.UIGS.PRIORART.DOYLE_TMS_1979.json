@@ -23,6 +23,8 @@
     "result": "supports",
     "defeater_type": "none",
     "directness": "inferred",
+    "scope_relation": "within_scope",
+    "assumption_context": [],
     "notes": "TMS explicitly records reasons for beliefs and revises beliefs when discoveries contradict assumptions."
   }]
 }
