@@ -3,19 +3,23 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-CLAIMS = ROOT / "knowledge" / "claims"
-EVIDENCE = ROOT / "knowledge" / "evidence"
-CHANGES = ROOT / "knowledge" / "changes"
 OUT_JSON = ROOT / "reports" / "generated" / "epistemic-state.json"
 OUT_MD = ROOT / "reports" / "generated" / "epistemic-state.md"
 
 HIGH_MATURITY = {"validated", "canonical"}
 PERMANENT_OPS = {"revise", "contract", "demote", "deprecate", "supersede"}
+DIRECTNESS_RANK = {
+    "static": 0,
+    "inferred": 1,
+    "runtime": 2,
+    "real_sample": 3,
+    "device_or_final_output": 4,
+}
 
 
 def load_json_files(root: Path) -> list[tuple[Path, dict[str, Any]]]:
@@ -68,9 +72,13 @@ def validate_graph(
             errors.append(f"{cid}: missing superseding claim {replacement}")
         if claim.get("authority") == "superseded" and not replacement:
             errors.append(f"{cid}: superseded authority requires superseded_by")
+
         policy = claim.get("support_policy", {})
         minimum = int(policy.get("minimum_independent_support", 0))
+        minimum_directness = str(policy.get("minimum_directness", ""))
         maturity = str(claim.get("maturity", ""))
+        if minimum_directness not in DIRECTNESS_RANK:
+            errors.append(f"{cid}: invalid or missing support_policy.minimum_directness")
         if maturity == "canonical" and minimum < 2:
             errors.append(f"{cid}: canonical claim must require >=2 independent support groups")
         if maturity == "validated" and minimum < 1:
@@ -91,12 +99,25 @@ def validate_graph(
                 errors.append(f"{eid}: relation references missing claim {cid}")
             elif eid not in claims[cid].get("evidence_refs", []):
                 errors.append(f"{eid}: {cid} relation is not listed in claim.evidence_refs")
-            result = rel.get("result")
-            defeater = rel.get("defeater_type")
+
+            result = str(rel.get("result", ""))
+            defeater = str(rel.get("defeater_type", ""))
+            scope_relation = str(rel.get("scope_relation", ""))
+            directness = str(rel.get("directness", ""))
+            if directness not in DIRECTNESS_RANK:
+                errors.append(f"{eid}: invalid directness {directness}")
+            if scope_relation not in {"within_scope", "outside_scope", "unknown"}:
+                errors.append(f"{eid}: invalid or missing scope_relation")
             if result == "contradicts" and defeater == "none":
                 errors.append(f"{eid}: contradiction must declare rebutting or undercutting defeater")
             if result != "contradicts" and defeater != "none":
                 errors.append(f"{eid}: non-contradiction evidence must use defeater_type=none")
+            if result in {"supports", "contradicts"} and scope_relation == "outside_scope":
+                errors.append(
+                    f"{eid}: {result} evidence outside Claim scope must be recorded as "
+                    "narrows_scope/inconclusive or attached to a correctly scoped Claim"
+                )
+
         prov = item.get("provenance") if isinstance(item.get("provenance"), dict) else {}
         for parent in prov.get("was_derived_from", []):
             if parent == eid:
@@ -128,12 +149,23 @@ def relation_rows(
     claim_id: str,
     evidence: dict[str, dict[str, Any]],
     as_of: datetime,
+    max_evidence_age_days: int | None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     active: list[dict[str, Any]] = []
     stale: list[dict[str, Any]] = []
     for eid, item in evidence.items():
         valid_until = parse_time(item.get("valid_until"))
-        effective_stale = item.get("status") != "active" or (valid_until is not None and valid_until < as_of)
+        observed_at = parse_time(item.get("observed_at"))
+        age_stale = (
+            max_evidence_age_days is not None
+            and observed_at is not None
+            and observed_at + timedelta(days=max_evidence_age_days) < as_of
+        )
+        effective_stale = (
+            item.get("status") != "active"
+            or (valid_until is not None and valid_until < as_of)
+            or age_stale
+        )
         for rel in item.get("relations", []):
             if rel.get("claim_id") != claim_id:
                 continue
@@ -143,6 +175,8 @@ def relation_rows(
                 "result": str(rel.get("result", "")),
                 "defeater_type": str(rel.get("defeater_type", "none")),
                 "directness": str(rel.get("directness", "")),
+                "scope_relation": str(rel.get("scope_relation", "unknown")),
+                "assumption_context": [str(x) for x in rel.get("assumption_context", [])],
                 "status": str(item.get("status", "")),
             }
             (stale if effective_stale else active).append(row)
@@ -155,12 +189,37 @@ def base_state(
     evidence: dict[str, dict[str, Any]],
     as_of: datetime,
 ) -> dict[str, Any]:
-    active, stale = relation_rows(cid, evidence, as_of)
-    supports = [x for x in active if x["result"] == "supports"]
-    contradicts = [x for x in active if x["result"] == "contradicts"]
+    policy = claim.get("support_policy", {})
+    minimum = int(policy.get("minimum_independent_support", 0))
+    minimum_directness = str(policy.get("minimum_directness", "static"))
+    min_rank = DIRECTNESS_RANK.get(minimum_directness, 0)
+    max_age = policy.get("max_evidence_age_days")
+    max_age = int(max_age) if isinstance(max_age, int) else None
+
+    active, stale = relation_rows(cid, evidence, as_of, max_age)
+    within = [x for x in active if x["scope_relation"] == "within_scope"]
+    contextual_unknown = [x for x in active if x["scope_relation"] == "unknown"]
+
+    supports = [
+        x for x in within
+        if x["result"] == "supports" and DIRECTNESS_RANK.get(x["directness"], -1) >= min_rank
+    ]
+    weak_supports = [
+        x for x in within
+        if x["result"] == "supports" and DIRECTNESS_RANK.get(x["directness"], -1) < min_rank
+    ]
+    contradicts = [
+        x for x in within
+        if x["result"] == "contradicts" and DIRECTNESS_RANK.get(x["directness"], -1) >= min_rank
+    ]
+    weak_contradicts = [
+        x for x in within
+        if x["result"] == "contradicts" and DIRECTNESS_RANK.get(x["directness"], -1) < min_rank
+    ]
+    uncertain_contradicts = [x for x in contextual_unknown if x["result"] == "contradicts"]
+
     support_groups = sorted({x["independence_key"] for x in supports})
     contradiction_groups = sorted({x["independence_key"] for x in contradicts})
-    minimum = int(claim.get("support_policy", {}).get("minimum_independent_support", 0))
     assumption_challenge = any(
         str(a.get("status")) == "challenged"
         for a in claim.get("assumptions", [])
@@ -170,10 +229,13 @@ def base_state(
     reasons: list[str] = []
     if contradicts and supports:
         epistemic = "mixed"
-        reasons.append("active supporting and contradicting evidence coexist")
+        reasons.append("qualifying supporting and contradicting evidence coexist within Claim scope")
     elif contradicts:
         epistemic = "contradicted"
-        reasons.append("active contradicting evidence exists")
+        reasons.append("qualifying active contradiction exists within Claim scope")
+    elif weak_contradicts or uncertain_contradicts:
+        epistemic = "challenged"
+        reasons.append("contradiction exists but is below directness threshold or has unresolved scope")
     elif assumption_challenge:
         epistemic = "challenged"
         reasons.append("one or more assumptions are challenged")
@@ -181,24 +243,23 @@ def base_state(
         epistemic = "supported"
     elif stale and not supports:
         epistemic = "stale"
-        reasons.append("referenced evidence is stale/retracted/superseded or expired")
-    elif supports:
+        reasons.append("relevant evidence is stale/retracted/superseded, expired, or older than policy")
+    elif supports or weak_supports or contextual_unknown:
         epistemic = "challenged"
         reasons.append(
-            f"independent support below policy minimum ({len(support_groups)}/{minimum})"
+            f"qualifying independent support below policy minimum ({len(support_groups)}/{minimum})"
         )
     else:
         epistemic = "unknown"
-        reasons.append("no active supporting evidence")
+        reasons.append("no active in-scope evidence meeting the support policy")
 
     declared_authority = str(claim.get("authority", "active"))
     effective_authority = declared_authority
-    policy = claim.get("support_policy", {})
 
     if declared_authority == "active":
         if contradicts and bool(policy.get("quarantine_on_active_contradiction", False)):
             effective_authority = "quarantined"
-            reasons.append("automatic quarantine: active contradiction")
+            reasons.append("automatic quarantine: qualifying active contradiction")
         elif assumption_challenge:
             effective_authority = "quarantined"
             reasons.append("automatic quarantine: challenged assumption")
@@ -219,10 +280,15 @@ def base_state(
         "effective_authority": effective_authority,
         "stored_epistemic_state": claim.get("epistemic_state"),
         "effective_epistemic_state": epistemic,
+        "required_independent_support": minimum,
+        "minimum_directness": minimum_directness,
         "support_groups": support_groups,
         "contradiction_groups": contradiction_groups,
         "active_support_count": len(supports),
-        "active_contradiction_count": len(contradicts),
+        "weak_support_count": len(weak_supports),
+        "active_contradiction_count": len(contradicts) + len(weak_contradicts) + len(uncertain_contradicts),
+        "qualifying_contradiction_count": len(contradicts),
+        "weak_or_contextual_contradiction_count": len(weak_contradicts) + len(uncertain_contradicts),
         "stale_relation_count": len(stale),
         "broken_dependencies": [],
         "review_required": bool(
@@ -343,18 +409,18 @@ def markdown(report: dict[str, Any]) -> str:
     if report["validation_errors"]:
         lines.extend(["", "## Validation errors", ""])
         lines.extend(f"- {x}" for x in report["validation_errors"])
-    lines.extend(
-        [
-            "",
-            "## Interpretation boundary",
-            "",
-            "- Maturity is governance history, not current truth.",
-            "- Effective authority is the value consumers must use.",
-            "- Automatic quarantine is reversible and does not silently demote maturity.",
-            "- Raw artifact count is not independent evidence count.",
-            "",
-        ]
-    )
+    lines.extend([
+        "",
+        "## Interpretation boundary",
+        "",
+        "- Maturity is governance history, not current truth.",
+        "- Effective authority is the value consumers must use.",
+        "- Automatic quarantine is reversible and does not silently demote maturity.",
+        "- Evidence outside Claim scope does not automatically rebut the Claim.",
+        "- Evidence below a Claim's directness threshold cannot satisfy its support requirement.",
+        "- Raw artifact count is not independent evidence count.",
+        "",
+    ])
     return "\n".join(lines)
 
 
