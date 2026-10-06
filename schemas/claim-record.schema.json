@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/claim-record.schema.json",
+  "title": "UIGS Claim Record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "statement",
+    "kind",
+    "maturity",
+    "authority",
+    "epistemic_state",
+    "scope",
+    "assumptions",
+    "evidence_refs",
+    "depends_on",
+    "support_policy",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": {
+      "type": "string",
+      "pattern": "^CLAIM\\.[A-Za-z0-9._-]+$"
+    },
+    "statement": { "type": "string", "minLength": 1 },
+    "kind": {
+      "enum": [
+        "empirical",
+        "causal",
+        "capability",
+        "constraint",
+        "heuristic",
+        "normative",
+        "definition"
+      ]
+    },
+    "maturity": {
+      "enum": [
+        "observed",
+        "candidate",
+        "experimental",
+        "validated",
+        "canonical"
+      ]
+    },
+    "authority": {
+      "enum": [
+        "active",
+        "quarantined",
+        "deprecated",
+        "superseded"
+      ]
+    },
+    "epistemic_state": {
+      "enum": [
+        "unknown",
+        "supported",
+        "mixed",
+        "challenged",
+        "contradicted",
+        "stale"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "repositories": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "platforms": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "versions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "environments": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "statement", "status"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "statement": { "type": "string", "minLength": 1 },
+          "status": {
+            "enum": ["active", "challenged", "retired"]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EVID\\.[A-Za-z0-9._-]+$"
+      },
+      "uniqueItems": true
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^CLAIM\\.[A-Za-z0-9._-]+$"
+      },
+      "uniqueItems": true
+    },
+    "supersedes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^CLAIM\\.[A-Za-z0-9._-]+$"
+      },
+      "uniqueItems": true
+    },
+    "superseded_by": {
+      "type": ["string", "null"],
+      "pattern": "^CLAIM\\.[A-Za-z0-9._-]+$"
+    },
+    "support_policy": {
+      "type": "object",
+      "required": [
+        "minimum_independent_support",
+        "quarantine_on_active_contradiction",
+        "quarantine_on_broken_dependency"
+      ],
+      "properties": {
+        "minimum_independent_support": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "quarantine_on_active_contradiction": {
+          "type": "boolean"
+        },
+        "quarantine_on_broken_dependency": {
+          "type": "boolean"
+        },
+        "max_evidence_age_days": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "last_reviewed_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "next_review_due": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "approved_by": {
+          "type": ["string", "null"]
+        },
+        "rationale": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
