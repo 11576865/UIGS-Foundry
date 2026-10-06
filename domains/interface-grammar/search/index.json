@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "source_digest": "56f8f140b72afb160fdf2c60372dafd975f43c93f35d9eab13bfc376988c1774",
   "showcase_digest": "b4e607fc6d91e6edb0bbe20b5babb0dd3df09e21095be062efcbb4d7491aff43",
   "pattern_count": 8,
@@ -7,6 +7,9 @@
     {
       "id": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
       "status": "experimental",
+      "effective_authority": "legacy_unmapped",
+      "claim_refs": [],
+      "claim_states": [],
       "name": {
         "zh": "预览—检查器分栏",
         "en": "Preview–Inspector Split"
@@ -89,6 +92,9 @@
     {
       "id": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
       "status": "experimental",
+      "effective_authority": "legacy_unmapped",
+      "claim_refs": [],
+      "claim_states": [],
       "name": {
         "zh": "检查器渐进式控制披露",
         "en": "Progressive Inspector Control Disclosure"
@@ -169,6 +175,9 @@
     {
       "id": "UIGS.INTERACTION.DISCOVERY_OVERLAY",
       "status": "experimental",
+      "effective_authority": "legacy_unmapped",
+      "claim_refs": [],
+      "claim_states": [],
       "name": {
         "zh": "交互发现覆盖层",
         "en": "Interaction Discovery Overlay"
@@ -252,6 +261,9 @@
     {
       "id": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
       "status": "experimental",
+      "effective_authority": "legacy_unmapped",
+      "claim_refs": [],
+      "claim_states": [],
       "name": {
         "zh": "能力目录导航",
         "en": "Capability Catalog Navigation"
@@ -327,6 +339,9 @@
     {
       "id": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
       "status": "experimental",
+      "effective_authority": "legacy_unmapped",
+      "claim_refs": [],
+      "claim_states": [],
       "name": {
         "zh": "显式工具实例绑定",
         "en": "Explicit Tool Instance Binding"
@@ -404,6 +419,9 @@
     {
       "id": "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
       "status": "experimental",
+      "effective_authority": "legacy_unmapped",
+      "claim_refs": [],
+      "claim_states": [],
       "name": {
         "zh": "编辑作用域透明化",
         "en": "Edit Scope Transparency"
@@ -486,6 +504,9 @@
     {
       "id": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
       "status": "experimental",
+      "effective_authority": "legacy_unmapped",
+      "claim_refs": [],
+      "claim_states": [],
       "name": {
         "zh": "粘性辅助工作区",
         "en": "Sticky Supporting Pane"
@@ -575,6 +596,9 @@
     {
       "id": "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
       "status": "experimental",
+      "effective_authority": "legacy_unmapped",
+      "claim_refs": [],
+      "claim_states": [],
       "name": {
         "zh": "瞬态—已提交表面几何分离",
         "en": "Transient–Committed Surface Geometry"
