@@ -65,8 +65,8 @@
       "settle_ms": 500
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "5da787c1d427171d8ca8c573193994eea157adcd88200ef19e707a85ac859792",
+  "change_status": "unchanged",
+  "previous_sha256": "80f8c85ad476b838ecd100766d605c2463fe2c1d12163ee6c2dbcc183f89ddec",
   "limitations": [
     "No user media is loaded; preview and editor controls are captured in their deterministic empty-state."
   ],
