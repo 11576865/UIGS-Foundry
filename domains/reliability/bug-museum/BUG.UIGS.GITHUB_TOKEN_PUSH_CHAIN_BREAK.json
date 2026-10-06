@@ -31,5 +31,8 @@
       "source": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow",
       "evidence_level": "GitHub official documentation"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.GHA.GITHUB_TOKEN_NON_RECURSIVE_TRIGGER"
   ]
 }

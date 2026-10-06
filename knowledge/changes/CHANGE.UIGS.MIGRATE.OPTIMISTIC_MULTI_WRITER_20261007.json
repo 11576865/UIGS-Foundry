@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.UIGS.MIGRATE.OPTIMISTIC_MULTI_WRITER_20261007",
+  "target_claim": "CLAIM.UIGS.GHA.OPTIMISTIC_MULTI_WRITER",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Migrate validated concurrent-writer failure knowledge into Claim/Evidence form while preserving shared incident lineage.",
+  "evidence_refs": [
+    "EVID.UIGS.GHA.WRITER_RACE_36985008317",
+    "EVID.UIGS.GHA.WRITER_CONFLICT_36985234871"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

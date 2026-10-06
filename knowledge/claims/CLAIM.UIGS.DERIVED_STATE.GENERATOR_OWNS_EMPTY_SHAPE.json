@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.DERIVED_STATE.GENERATOR_OWNS_EMPTY_SHAPE",
+  "statement": "A deterministic derived artifact must be produced by its authoritative generator even for an empty-data bootstrap state; a hand-written object that is semantically similar but has a different deterministic shape must not be treated as equivalent generated state.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [
+      "deterministically generated repository artifacts"
+    ],
+    "notes": "The concrete evidence is the production visual-evidence index; the Claim is limited to deterministic derived artifacts with an authoritative generator."
+  },
+  "assumptions": [
+    {
+      "id": "authoritative-generator",
+      "statement": "The artifact has a deterministic authoritative generator whose output shape is part of repository validation.",
+      "status": "active"
+    }
+  ],
+  "evidence_refs": [
+    "EVID.UIGS.VISUAL_INDEX_EMPTY_SHAPE_FAILURE",
+    "EVID.UIGS.VISUAL_INDEX_EMPTY_SHAPE_RECOVERY"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "real_sample",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Migrated from a validated failure/recovery pair for deterministic visual-evidence derived state."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

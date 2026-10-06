@@ -28,5 +28,8 @@
       "revision": "679425ae4d540849425b8baba983567f0eec9405",
       "evidence_level": "successful corrected validation"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.DERIVED_STATE.GENERATOR_OWNS_EMPTY_SHAPE"
   ]
 }

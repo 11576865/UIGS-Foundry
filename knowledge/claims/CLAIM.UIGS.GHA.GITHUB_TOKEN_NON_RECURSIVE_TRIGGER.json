@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.GHA.GITHUB_TOKEN_NON_RECURSIVE_TRIGGER",
+  "statement": "A GitHub Actions workflow that writes a commit with the repository GITHUB_TOKEN must not assume that commit's ordinary push event will trigger a dependent workflow; required deterministic downstream transformations must run in the same workflow transaction or use an explicit supported dispatch mechanism.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [
+      "github-actions"
+    ],
+    "versions": [],
+    "environments": [
+      "workflows using repository GITHUB_TOKEN"
+    ],
+    "notes": "Scoped to GitHub Actions event triggering; does not claim that all explicit dispatch/token mechanisms are non-recursive."
+  },
+  "assumptions": [
+    {
+      "id": "github-token-writer",
+      "statement": "The write/event is produced using the repository GITHUB_TOKEN rather than an independently configured credential or explicit dispatch mechanism.",
+      "status": "active"
+    }
+  ],
+  "evidence_refs": [
+    "EVID.UIGS.GHA.GITHUB_TOKEN_CHAIN_OBSERVATION",
+    "EVID.UIGS.GHA.GITHUB_TOKEN_OFFICIAL_TRIGGER_DOC"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Migrated conservatively from a validated Foundry bug with both observed repository behavior and official GitHub trigger documentation."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

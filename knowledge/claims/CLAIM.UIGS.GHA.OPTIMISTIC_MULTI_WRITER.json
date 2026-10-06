@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.GHA.OPTIMISTIC_MULTI_WRITER",
+  "statement": "Multiple GitHub Actions writers updating the same branch must treat remote-ref movement as optimistic concurrency: bounded fetch/rebase/push retry is appropriate for replayable non-overlapping writes, while semantic/rebase conflicts must fail explicitly and derived artifacts should be regenerated from current source state rather than conflict-merged.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [
+      "github-actions",
+      "git"
+    ],
+    "versions": [],
+    "environments": [
+      "multiple automated writers targeting one branch"
+    ],
+    "notes": "Does not prescribe retry for non-replayable side effects or silent conflict resolution."
+  },
+  "assumptions": [
+    {
+      "id": "replayable-writer",
+      "statement": "The automated write is replayable/idempotent enough to retry after a remote ref advances.",
+      "status": "active"
+    }
+  ],
+  "evidence_refs": [
+    "EVID.UIGS.GHA.WRITER_RACE_36985008317",
+    "EVID.UIGS.GHA.WRITER_CONFLICT_36985234871"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "real_sample",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Migrated from a validated two-run Foundry writer-race bug; both runs share one incident family and therefore one independence lineage."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

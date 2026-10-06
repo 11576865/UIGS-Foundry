@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.UIGS.MIGRATE.GENERATOR_OWNS_EMPTY_SHAPE_20261007",
+  "target_claim": "CLAIM.UIGS.DERIVED_STATE.GENERATOR_OWNS_EMPTY_SHAPE",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Migrate validated deterministic-derived-state failure/recovery knowledge into Claim/Evidence form.",
+  "evidence_refs": [
+    "EVID.UIGS.VISUAL_INDEX_EMPTY_SHAPE_FAILURE",
+    "EVID.UIGS.VISUAL_INDEX_EMPTY_SHAPE_RECOVERY"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.GHA.WRITER_CONFLICT_36985234871",
+  "status": "active",
+  "source": {
+    "type": "workflow_run",
+    "locator": "UIGS-Foundry GitHub Actions Capture UI Reference Baselines run 36985234871",
+    "revision": "cdae726aa28e10e4d81cc4afca62ac09e635b20d",
+    "environment_fingerprint": "concurrent Foundry main writers touching generated search/index state"
+  },
+  "observed_at": "2026-10-02T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "INCIDENT.UIGS.CONCURRENT_BOT_WRITER_REF_RACE.2026-10-02",
+  "provenance": {
+    "entity_id": "workflow-run:36985234871",
+    "activity_id": "legacy-claim-migration-2026-10-07",
+    "agent_id": "GitHub Actions",
+    "was_derived_from": [],
+    "was_attributed_to": "UIGS-Foundry"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.GHA.OPTIMISTIC_MULTI_WRITER",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "real_sample",
+      "scope_relation": "within_scope",
+      "assumption_context": [
+        "multiple writers",
+        "overlapping generated files"
+      ],
+      "notes": "Observed that retry cannot safely resolve semantic/rebase conflicts on overlapping generated state."
+    }
+  ]
+}

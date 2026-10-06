@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "uigs-validated-claim-migration-wave1-2026-10-07",
+  "goal": "Migrate the highest-value validated UIGS infrastructure knowledge into the Claim/Evidence graph without widening semantics or fabricating provenance.",
+  "status": "completed",
+  "current_work_unit": null,
+  "completed_units": [
+    "migrate GITHUB_TOKEN non-recursive trigger knowledge",
+    "migrate concurrent writer optimistic-concurrency knowledge",
+    "migrate deterministic derived-state empty-shape knowledge",
+    "link legacy Bug/Pattern views to Claim refs"
+  ],
+  "next_units": [
+    "prioritize remaining validated legacy records using impact, recurrence, and enforcement evidence"
+  ],
+  "repository": "11576865/UIGS-Foundry",
+  "branch": "feat/migrate-validated-uigs-claims",
+  "pull_request": 22,
+  "last_durable_commit": "ba12293564d81159f10b0ae8acf438c2b5230d10",
+  "external_validation": {
+    "ci": "pending"
+  },
+  "blockers": [],
+  "notes": [
+    "Claims intentionally preserve the scope of validated legacy evidence rather than generalizing beyond it.",
+    "Evidence from the same incident family shares an independence_key and therefore does not inflate support."
+  ],
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}
