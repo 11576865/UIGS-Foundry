@@ -23,6 +23,8 @@
     "result": "supports",
     "defeater_type": "none",
     "directness": "inferred",
+    "scope_relation": "within_scope",
+    "assumption_context": [],
     "notes": "W3C PROV provides explicit derivation and attribution semantics needed to preserve evidence lineage; UIGS adds the governance rule that shared lineage is not independent confirmation."
   }]
 }
