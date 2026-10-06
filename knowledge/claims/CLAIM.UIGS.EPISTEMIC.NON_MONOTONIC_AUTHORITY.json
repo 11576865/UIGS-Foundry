@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.EPISTEMIC.NON_MONOTONIC_AUTHORITY",
+  "statement": "Governance maturity is not irreversible truth: new defeating evidence may remove a Claim's effective default authority without erasing its historical promotion state.",
+  "kind": "normative",
+  "maturity": "canonical",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Applies to reusable Foundry knowledge and its consumers."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.UIGS.PRIORART.DOYLE_TMS_1979",
+    "EVID.UIGS.PRIORART.NON_MONOTONIC_LOGIC",
+    "EVID.UIGS.USER.EPISTEMIC_REBASE_20261007"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "user",
+    "rationale": "Explicitly authorized theoretical rebase; established truth-maintenance and non-monotonic reasoning provide independent prior-art support."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

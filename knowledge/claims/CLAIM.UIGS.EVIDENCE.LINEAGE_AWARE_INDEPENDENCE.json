@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.EVIDENCE.LINEAGE_AWARE_INDEPENDENCE",
+  "statement": "Evidence derived from the same upstream decision, rule, experiment, or implementation must not be counted as independent confirmation merely because it appears in multiple downstream artifacts or repositories.",
+  "kind": "normative",
+  "maturity": "canonical",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Applies to promotion, validation, knowledge-health reporting, and active-learning prioritization."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.UIGS.PRIORART.W3C_PROV",
+    "EVID.UIGS.USER.EPISTEMIC_REBASE_20261007"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "user",
+    "rationale": "Explicit user authorization plus established provenance/derivation semantics justify lineage-aware evidence accounting as a governance safeguard."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

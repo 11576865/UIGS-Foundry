@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/evidence-record.schema.json",
+  "title": "UIGS Evidence Record",
+  "type": "object",
+  "required": ["schema_version","id","status","source","observed_at","independence_key","relations"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^EVID\\.[A-Za-z0-9._-]+$" },
+    "status": { "enum": ["active","stale","retracted","superseded"] },
+    "source": {
+      "type": "object",
+      "required": ["type","locator"],
+      "properties": {
+        "type": {
+          "enum": ["repository","file","commit","pull_request","issue","workflow_run","test_run","runtime_probe","device_test","final_output","standard","web","report","conversation","manual_decision"]
+        },
+        "locator": { "type": "string", "minLength": 1 },
+        "revision": { "type": ["string","null"] },
+        "environment_fingerprint": { "type": ["string","null"] }
+      },
+      "additionalProperties": false
+    },
+    "observed_at": { "type": "string", "format": "date-time" },
+    "valid_until": { "type": ["string","null"], "format": "date-time" },
+    "independence_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Evidence derived from the same originating decision/experiment should normally share this key."
+    },
+    "provenance": {
+      "type": "object",
+      "description": "PROV-inspired lineage fields.",
+      "properties": {
+        "entity_id": { "type": ["string","null"] },
+        "activity_id": { "type": ["string","null"] },
+        "agent_id": { "type": ["string","null"] },
+        "was_derived_from": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^EVID\\.[A-Za-z0-9._-]+$" },
+          "uniqueItems": true
+        },
+        "was_attributed_to": { "type": ["string","null"] }
+      },
+      "additionalProperties": false
+    },
+    "relations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["claim_id","result","defeater_type","directness","scope_relation"],
+        "properties": {
+          "claim_id": { "type": "string", "pattern": "^CLAIM\\.[A-Za-z0-9._-]+$" },
+          "result": { "enum": ["supports","contradicts","inconclusive","narrows_scope"] },
+          "defeater_type": { "enum": ["none","rebutting","undercutting"] },
+          "directness": {
+            "enum": ["static","inferred","runtime","real_sample","device_or_final_output"]
+          },
+          "scope_relation": {
+            "enum": ["within_scope","outside_scope","unknown"],
+            "description": "Whether this evidence was established to apply within the target Claim's declared scope/assumptions."
+          },
+          "assumption_context": {
+            "type": "array",
+            "items": { "type": "string" },
+            "uniqueItems": true
+          },
+          "notes": { "type": ["string","null"] }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

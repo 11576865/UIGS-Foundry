@@ -6,6 +6,7 @@ from typing import Any
 
 ROOT=Path(__file__).resolve().parents[1]
 INDEX=ROOT/"domains"/"interface-grammar"/"search"/"index.json"
+BLOCKED_AUTHORITIES={"quarantined","deprecated","superseded"}
 
 def norm(s: str) -> str:
     return re.sub(r"\s+"," ",unicodedata.normalize("NFKC",s).lower()).strip()
@@ -58,16 +59,28 @@ def score(query: str,row: dict[str,Any]) -> tuple[float,list[str]]:
     if best>=0.35: reasons.append("token/bigram-overlap")
     return round(total,3),sorted(set(reasons))
 
-def query(text: str,index: dict[str,Any],limit: int=5) -> list[dict[str,Any]]:
+def query(
+    text: str,
+    index: dict[str,Any],
+    limit: int=5,
+    include_quarantined: bool=False,
+) -> list[dict[str,Any]]:
     ranked=[]
     for row in index.get("patterns",[]):
+        authority=str(row.get("effective_authority","legacy_unmapped"))
+        if not include_quarantined and authority in BLOCKED_AUTHORITIES:
+            continue
         s,reasons=score(text,row)
         if s<=0: continue
         ranked.append({
             "id":row["id"],"score":s,"reasons":reasons,"status":row.get("status",""),
+            "effective_authority":authority,
+            "claim_refs":row.get("claim_refs",[]),"claim_states":row.get("claim_states",[]),
             "name":row.get("name",{}),"intent":row.get("intent",""),
             "realizations":row.get("realizations",{}),"validation":row.get("validation",[]),
-            "showcase_status":row.get("showcase_status","missing"),"production_realizations":row.get("production_realizations",[]),"source_path":row.get("source_path","")
+            "showcase_status":row.get("showcase_status","missing"),
+            "production_realizations":row.get("production_realizations",[]),
+            "source_path":row.get("source_path","")
         })
     ranked.sort(key=lambda x:(-x["score"],x["id"]))
     return ranked[:limit]
@@ -77,15 +90,20 @@ def main() -> int:
     p.add_argument("query")
     p.add_argument("--limit",type=int,default=5)
     p.add_argument("--json",action="store_true")
+    p.add_argument(
+        "--include-quarantined",
+        action="store_true",
+        help="Include quarantined/deprecated/superseded knowledge for audit or recovery."
+    )
     args=p.parse_args()
     index=json.loads(INDEX.read_text(encoding="utf-8"))
-    results=query(args.query,index,max(1,args.limit))
+    results=query(args.query,index,max(1,args.limit),args.include_quarantined)
     if args.json:
         print(json.dumps({"query":args.query,"results":results},ensure_ascii=False,indent=2))
     else:
         for i,r in enumerate(results,1):
             name=r.get("name",{})
-            print(f"{i}. {r['id']} [{r['status']}] score={r['score']}")
+            print(f"{i}. {r['id']} [{r['status']}; authority={r['effective_authority']}] score={r['score']}")
             print(f"   {name.get('zh','')} / {name.get('en','')}")
             print(f"   {r['intent']}")
             print(f"   realizations={','.join(sorted(r['realizations'])) or 'none'}; production={len(r.get('production_realizations',[]))}; showcase={r['showcase_status']}")

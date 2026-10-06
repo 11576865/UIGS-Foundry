@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, fix/durable-agent-execution-boundary ]
   workflow_dispatch:
 
 permissions:
@@ -34,6 +34,14 @@ jobs:
         run: |
           python tools/test_review_queue_report.py
           python tools/generate_review_queue_report.py
+      - name: Unit-test epistemic graph
+        run: python tools/test_epistemic_graph.py
+      - name: Validate epistemic graph
+        run: python tools/evaluate_epistemic_graph.py --check
+      - name: Generate epistemic state and validation missions
+        run: |
+          python tools/evaluate_epistemic_graph.py
+          python tools/generate_validation_missions.py
       - name: Build UI search index in workspace
         run: python tools/build_ui_search_index.py
       - name: Unit-test UI pattern retrieval

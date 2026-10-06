@@ -7,11 +7,23 @@ Therefore, dependent transformations are executed in the **same workflow run** w
 - Collect Outboxes -> Triage -> Red Reason -> Promotion Proposal -> reports.
 - Triage Pending -> Promotion Proposal -> reports.
 - Review Promotion -> promotion status report.
+- Claim/Evidence changes -> epistemic evaluation -> validation missions -> authority-aware indexes.
 - Capture Reference Baselines -> rebuild UI search/showcase coverage.
 
 Separate workflows remain useful for direct human/repository pushes, scheduled entry points, and manual repair runs, but they are not used as an implicit bot-commit event bus.
 
 If a future design intentionally requires cross-workflow triggering, it must use an explicit supported trigger/token design and document the privilege boundary.
+
+## Epistemic time watch
+
+Evidence may become stale with the passage of time even when no repository commit occurs.
+
+A scheduled epistemic watch therefore:
+1. evaluates the Claim/Evidence graph against current time;
+2. generates epistemic-state and validation-mission reports as workflow artifacts;
+3. fails visibly if any Claim becomes effectively quarantined or the graph is invalid.
+
+The watch does not permanently demote or rewrite Claims.
 
 ## Writer concurrency
 
@@ -20,3 +32,12 @@ Foundry has several workflows that may write to `main`. They do not rely on a si
 ## Derived-output rule
 
 When a writer produces both source evidence and deterministic derived files, source evidence is persisted first. The workflow then reconciles with current `main`, regenerates derived files from that latest state, and commits them separately. Generated indexes should not be conflict-merged as authored truth.
+
+
+## Epistemic derived state
+
+Claim/Evidence/Knowledge Change files are authored durable state. Effective authority, epistemic-state reports, validation missions, and migration coverage are derived state.
+
+A workflow that writes epistemic source records and requires derived state for correctness must run the evaluator/report generators in the same workflow run rather than assuming its own `GITHUB_TOKEN` push triggers another workflow.
+
+Automatic evaluation may quarantine **effective authority**. It must not silently perform permanent demotion, deprecation, revision, contraction, or supersession.

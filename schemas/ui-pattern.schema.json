@@ -29,88 +29,64 @@
         "deprecated"
       ]
     },
+    "claim_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^CLAIM\\.[A-Za-z0-9._-]+$"
+      },
+      "uniqueItems": true,
+      "description": "Fine-grained epistemic Claims supporting this aggregate pattern."
+    },
     "name": {
       "type": "object",
-      "required": [
-        "zh",
-        "en"
-      ],
+      "required": ["zh", "en"],
       "properties": {
-        "zh": {
-          "type": "string"
-        },
-        "en": {
-          "type": "string"
-        }
+        "zh": { "type": "string" },
+        "en": { "type": "string" }
       }
     },
     "aliases": {
       "type": "array",
-      "items": {
-        "type": "string"
-      },
+      "items": { "type": "string" },
       "uniqueItems": true
     },
-    "intent": {
-      "type": "string"
-    },
+    "intent": { "type": "string" },
     "use_when": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": { "type": "string" }
     },
     "do_not_use_when": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": { "type": "string" }
     },
     "anatomy": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": { "type": "string" }
     },
-    "interaction_contract": {
-      "type": "object"
-    },
-    "visual_contract": {
-      "type": "object"
-    },
+    "interaction_contract": { "type": "object" },
+    "visual_contract": { "type": "object" },
     "constraints": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": { "type": "string" }
     },
-    "realizations": {
-      "type": "object"
-    },
+    "realizations": { "type": "object" },
     "validation": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": { "type": "string" }
     },
     "known_failures": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": { "type": "string" }
     },
     "provenance": {
       "type": "array",
       "minItems": 1,
-      "items": {
-        "type": "object"
-      }
+      "items": { "type": "object" }
     },
     "showcases": {
       "type": "array",
-      "items": {
-        "type": "string"
-      },
+      "items": { "type": "string" },
       "uniqueItems": true
     }
   },
