@@ -7,7 +7,9 @@
   "authority": "active",
   "epistemic_state": "supported",
   "scope": {
-    "repositories": ["11576865/UIGS-Foundry"],
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
     "platforms": [],
     "versions": [],
     "environments": [],
@@ -24,7 +26,7 @@
   "superseded_by": null,
   "support_policy": {
     "minimum_independent_support": 2,
-    "minimum_directness": "inferred",
+    "minimum_directness": "static",
     "quarantine_on_active_contradiction": true,
     "quarantine_on_broken_dependency": true,
     "max_evidence_age_days": null
