@@ -32,3 +32,12 @@ Foundry has several workflows that may write to `main`. They do not rely on a si
 ## Derived-output rule
 
 When a writer produces both source evidence and deterministic derived files, source evidence is persisted first. The workflow then reconciles with current `main`, regenerates derived files from that latest state, and commits them separately. Generated indexes should not be conflict-merged as authored truth.
+
+
+## Epistemic derived state
+
+Claim/Evidence/Knowledge Change files are authored durable state. Effective authority, epistemic-state reports, validation missions, and migration coverage are derived state.
+
+A workflow that writes epistemic source records and requires derived state for correctness must run the evaluator/report generators in the same workflow run rather than assuming its own `GITHUB_TOKEN` push triggers another workflow.
+
+Automatic evaluation may quarantine **effective authority**. It must not silently perform permanent demotion, deprecation, revision, contraction, or supersession.
