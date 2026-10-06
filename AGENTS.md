@@ -46,3 +46,8 @@ These rules take precedence over lower-level intake, reporting, validation, and 
 8. Product repositories remain authoritative for executable implementation.
 9. If a Foundry write cannot be completed, report it as **Pending**; never imply success.
 10. For UI work resolve: natural-language intent -> Pattern ID -> platform realization -> expected effect -> validation contract -> known failures.
+
+
+## Synchronous liveness guard
+
+**Bound synchronous action chains.** Durable checkpointing and bounded polling are not sufficient by themselves. Prefer one coherent work package, batch related remote mutations, and hand off before entering a second independent subsystem or migration phase. A broad goal describes the desired end architecture, not permission for an unbounded turn.
