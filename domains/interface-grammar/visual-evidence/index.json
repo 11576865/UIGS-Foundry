@@ -174,26 +174,6 @@
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EVENT_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
-      "id": "VISUAL.PRODUCTION.ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE",
-      "evidence_level": "production-rendered",
-      "platform": "android",
-      "capture_id": "ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE",
-      "surface_ids": [
-        "ASS.TOOL.FONT_REQUIREMENTS"
-      ],
-      "patterns": [],
-      "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE.png",
-      "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
-      "sha256": "d55dcd43db4f4efcf3ef95ccf4c2ff61fb6530b65249dc1100be053f570dee99",
-      "image": {
-        "width": 1600,
-        "height": 1000
-      },
-      "change_status": "changed",
-      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE.json"
-    },
-    {
       "id": "VISUAL.PRODUCTION.ASS.FONTS_TOOL.FIXTURE_LANDSCAPE",
       "evidence_level": "production-rendered",
       "platform": "android",
@@ -212,6 +192,26 @@
       },
       "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONTS_TOOL.FIXTURE_LANDSCAPE.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE",
+      "evidence_level": "production-rendered",
+      "platform": "android",
+      "capture_id": "ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE",
+      "surface_ids": [
+        "ASS.TOOL.FONT_REQUIREMENTS"
+      ],
+      "patterns": [],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE.png",
+      "source_repository": "11576865/ASS-Workbench-Android",
+      "source_revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
+      "sha256": "d55dcd43db4f4efcf3ef95ccf4c2ff61fb6530b65249dc1100be053f570dee99",
+      "image": {
+        "width": 1600,
+        "height": 1000
+      },
+      "change_status": "changed",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
       "id": "VISUAL.PRODUCTION.ASS.FRAMES_TOOL.FIXTURE_LANDSCAPE",
@@ -587,7 +587,7 @@
         "width": 975,
         "height": 584
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
     },
     {
@@ -607,7 +607,7 @@
         "width": 1321,
         "height": 90
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.BATCH.DESKTOP_DARK.json"
     },
     {
@@ -627,7 +627,7 @@
         "width": 975,
         "height": 168
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.INPUT.DESKTOP_DARK.json"
     },
     {
@@ -652,7 +652,7 @@
         "width": 1134,
         "height": 537
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
     },
     {
@@ -1752,7 +1752,7 @@
           "width": 975,
           "height": 584
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -1778,7 +1778,7 @@
           "width": 975,
           "height": 584
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -1804,7 +1804,7 @@
           "width": 975,
           "height": 584
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -1831,7 +1831,7 @@
           "width": 1134,
           "height": 537
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
       }
     ],
@@ -1858,7 +1858,7 @@
           "width": 1134,
           "height": 537
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
       }
     ],
@@ -1885,7 +1885,7 @@
           "width": 1134,
           "height": 537
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
       }
     ],
@@ -1911,7 +1911,7 @@
           "width": 975,
           "height": 584
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -1937,7 +1937,7 @@
           "width": 975,
           "height": 584
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.ADJUST.DESKTOP_DARK.json"
       }
     ],
@@ -1959,7 +1959,7 @@
           "width": 1321,
           "height": 90
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.BATCH.DESKTOP_DARK.json"
       }
     ],
@@ -1981,7 +1981,7 @@
           "width": 975,
           "height": 168
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.INPUT.DESKTOP_DARK.json"
       }
     ],
@@ -2008,7 +2008,7 @@
           "width": 1134,
           "height": 537
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.MKV.OUTPUT_HUB.DESKTOP_DARK.json"
       }
     ],
