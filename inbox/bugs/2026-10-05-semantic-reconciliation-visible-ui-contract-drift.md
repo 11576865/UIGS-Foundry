@@ -2,6 +2,7 @@
 
 Date: 2026-10-05
 Status: Candidate Bug
+Lifecycle: repair-evidenced
 Source project: ASS-Workbench-Android
 Evidence: PR #129 current-main reconciliation
 
