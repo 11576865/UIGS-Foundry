@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-05T13:31:55+00:00",
+  "generated_at": "2026-10-06T19:02:30+00:00",
   "inbox": {
-    "bugs": 22,
+    "bugs": 25,
     "candidates": 140,
     "observations": 20,
     "cases": 8,
@@ -12,8 +12,8 @@
     "counts": {
       "recorded": 8,
       "regression-verified": 3,
-      "repair-evidenced": 9,
-      "validation-pending": 2
+      "repair-evidenced": 11,
+      "validation-pending": 3
     },
     "unclassified": [],
     "note": "Bug records are durable evidence and are not an unresolved-product-bug count."
