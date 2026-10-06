@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.PRIORART.W3C_PROV",
+  "status": "active",
+  "source": {
+    "type": "standard",
+    "locator": "https://www.w3.org/TR/prov-dm/",
+    "revision": "W3C Recommendation 2013",
+    "environment_fingerprint": null
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "STANDARD.W3C.PROV",
+  "provenance": {
+    "entity_id": "w3c:prov-dm",
+    "activity_id": "uigs-theoretical-rebase-2026-10-07",
+    "agent_id": "ChatGPT",
+    "was_derived_from": [],
+    "was_attributed_to": "W3C Provenance Working Group"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.EVIDENCE.LINEAGE_AWARE_INDEPENDENCE",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "inferred",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "W3C PROV provides explicit derivation and attribution semantics needed to preserve evidence lineage; UIGS adds the governance rule that shared lineage is not independent confirmation."
+    }
+  ]
+}

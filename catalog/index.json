@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "2.7",
+  "version": "3.0",
   "domains": [
     {
       "id": "interface-grammar",
@@ -402,6 +402,18 @@
     "schemas/project-ui-inventory.schema.json",
     "schemas/ui-visual-capture-contract.schema.json",
     "schemas/ui-production-visual-evidence.schema.json",
-    "schemas/invariant-evidence.schema.json"
-  ]
+    "schemas/invariant-evidence.schema.json",
+    "schemas/agent-task-state.schema.json",
+    "schemas/claim-record.schema.json",
+    "schemas/evidence-record.schema.json",
+    "schemas/knowledge-change.schema.json",
+    "schemas/validation-mission.schema.json"
+  ],
+  "knowledge": {
+    "claims": "knowledge/claims",
+    "evidence": "knowledge/evidence",
+    "changes": "knowledge/changes",
+    "model": "governance/EPISTEMIC-MODEL.md",
+    "prior_art": "governance/PRIOR-ART.md"
+  }
 }

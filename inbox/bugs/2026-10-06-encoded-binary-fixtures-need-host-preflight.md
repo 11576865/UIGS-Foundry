@@ -1,6 +1,7 @@
 # Bug: encoded binary test fixtures must be validated before device execution
 
 Status: **Bug / Observation**
+Lifecycle: repair-evidenced
 Date: 2026-10-06
 Project evidence: `11576865/ASS-Workbench-Android` PR #129
 

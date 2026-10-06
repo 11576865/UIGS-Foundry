@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.PRIORART.DOYLE_TMS_1979",
+  "status": "active",
+  "source": {
+    "type": "web",
+    "locator": "https://doi.org/10.1016/0004-3702(79)90008-0",
+    "revision": "Artificial Intelligence 12(3), 1979",
+    "environment_fingerprint": null
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "PRIORART.DOYLE.TMS.1979",
+  "provenance": {
+    "entity_id": "doi:10.1016/0004-3702(79)90008-0",
+    "activity_id": "uigs-theoretical-rebase-2026-10-07",
+    "agent_id": "ChatGPT",
+    "was_derived_from": [],
+    "was_attributed_to": "Jon Doyle"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.EPISTEMIC.NON_MONOTONIC_AUTHORITY",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "inferred",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "TMS explicitly records reasons for beliefs and revises beliefs when discoveries contradict assumptions."
+    }
+  ]
+}

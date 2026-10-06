@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/validation-mission.schema.json",
+  "title": "UIGS Validation Mission",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "claim_id",
+    "status",
+    "priority",
+    "trigger",
+    "objective",
+    "desired_evidence",
+    "independence_requirement",
+    "created_at"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": {
+      "type": "string",
+      "pattern": "^MISSION\\.[A-Za-z0-9._-]+$"
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^CLAIM\\.[A-Za-z0-9._-]+$"
+    },
+    "status": {
+      "enum": ["proposed", "accepted", "running", "completed", "cancelled"]
+    },
+    "priority": {
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "trigger": {
+      "enum": [
+        "contradiction",
+        "mixed_evidence",
+        "stale_evidence",
+        "insufficient_independent_support",
+        "broken_dependency",
+        "unknown_state",
+        "scope_gap"
+      ]
+    },
+    "objective": { "type": "string", "minLength": 1 },
+    "desired_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "independence_requirement": { "type": "string", "minLength": 1 },
+    "constraints": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

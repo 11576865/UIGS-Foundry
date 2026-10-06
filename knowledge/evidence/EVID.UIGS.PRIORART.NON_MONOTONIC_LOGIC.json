@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.PRIORART.NON_MONOTONIC_LOGIC",
+  "status": "active",
+  "source": {
+    "type": "web",
+    "locator": "https://plato.stanford.edu/entries/logic-nonmonotonic/",
+    "revision": "Stanford Encyclopedia of Philosophy",
+    "environment_fingerprint": null
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "PRIORART.NON_MONOTONIC_LOGIC",
+  "provenance": {
+    "entity_id": "sep:logic-nonmonotonic",
+    "activity_id": "uigs-theoretical-rebase-2026-10-07",
+    "agent_id": "ChatGPT",
+    "was_derived_from": [],
+    "was_attributed_to": "Stanford Encyclopedia of Philosophy"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.EPISTEMIC.NON_MONOTONIC_AUTHORITY",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "inferred",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "Defeasible conclusions may be retracted in light of additional information."
+    }
+  ]
+}

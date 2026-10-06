@@ -26,5 +26,21 @@ class QueryTests(unittest.TestCase):
     def test_progressive_advanced_controls(self):
         self.assertEqual(self.top("高级参数折叠"),"UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE")
 
+    def test_quarantined_pattern_hidden_by_default(self):
+        index={"patterns":[{
+            "id":"UIGS.TEST.QUARANTINED",
+            "status":"canonical",
+            "effective_authority":"quarantined",
+            "name":{"zh":"隔离测试","en":"Quarantine Test"},
+            "aliases":["隔离测试"],
+            "intent":"test",
+            "search_terms":["隔离测试"],
+            "realizations":{},
+            "validation":[],
+        }]}
+        self.assertEqual(q.query("隔离测试",index,3),[])
+        results=q.query("隔离测试",index,3,include_quarantined=True)
+        self.assertEqual(results[0]["id"],"UIGS.TEST.QUARANTINED")
+
 if __name__=="__main__":
     unittest.main()

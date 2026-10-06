@@ -1,8 +1,14 @@
 # Candidate: Bound status polling for long-running external jobs
 
-Status: candidate
+Status: historical candidate — incorporated into Canonical `governance/AGENT-EXECUTION.md`
 Date: 2026-10-02
 Domains: operations, reliability, agent-workflow
+
+## Promotion note
+
+On 2026-10-07, the user explicitly authorized the execution-reliability change that promoted this guidance into the Canonical durable agent execution policy.
+
+This file remains as provenance for the original failure observation. For current execution behavior, follow `governance/AGENT-EXECUTION.md` and root `AGENTS.md`.
 
 ## Summary
 
@@ -18,7 +24,7 @@ The current project also relies on multiple independent validation pipelines, so
 
 This is a reported interaction/operations failure mode, not yet a quantified platform timeout threshold.
 
-## Candidate rule
+## Original candidate rule
 
 For external operations whose completion time is not known to be short:
 
@@ -47,5 +53,3 @@ Does not prohibit a single status read or a short, explicitly bounded follow-up 
 - source repository context: `11576865/ASS-Workbench-Android`
 - source: direct user feedback during 2026-10-02 engineering work
 - evidence level: user-reported operational failure mode / process candidate
-
-This is a Candidate only. It is not Canonical.

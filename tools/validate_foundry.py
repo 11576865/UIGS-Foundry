@@ -54,6 +54,52 @@ for path in sorted(ROOT.rglob("*.json")):
         if data.get("status") != "pending":
             errors.append(f"{rel}: imported outbox packet must remain pending")
 
+
+claim_ids: set[str] = set()
+for path in sorted((ROOT/"knowledge"/"claims").glob("*.json")) if (ROOT/"knowledge"/"claims").exists() else []:
+    data=load(path)
+    if not isinstance(data,dict):
+        continue
+    rel=path.relative_to(ROOT).as_posix()
+    for key in ("schema_version","id","statement","kind","maturity","authority","epistemic_state","scope","assumptions","evidence_refs","depends_on","support_policy","created_at","updated_at"):
+        if key not in data:
+            errors.append(f"{rel}: missing Claim field {key}")
+    cid=str(data.get("id",""))
+    if not cid.startswith("CLAIM."):
+        errors.append(f"{rel}: Claim id must start CLAIM.")
+    if cid:
+        claim_ids.add(cid)
+
+for path in sorted((ROOT/"knowledge"/"evidence").glob("*.json")) if (ROOT/"knowledge"/"evidence").exists() else []:
+    data=load(path)
+    if not isinstance(data,dict):
+        continue
+    rel=path.relative_to(ROOT).as_posix()
+    for key in ("schema_version","id","status","source","observed_at","independence_key","relations"):
+        if key not in data:
+            errors.append(f"{rel}: missing Evidence field {key}")
+    if not str(data.get("id","")).startswith("EVID."):
+        errors.append(f"{rel}: Evidence id must start EVID.")
+
+for path in sorted((ROOT/"knowledge"/"changes").glob("*.json")) if (ROOT/"knowledge"/"changes").exists() else []:
+    data=load(path)
+    if not isinstance(data,dict):
+        continue
+    rel=path.relative_to(ROOT).as_posix()
+    for key in ("schema_version","id","target_claim","operation","reason","evidence_refs","decided_by","decided_at"):
+        if key not in data:
+            errors.append(f"{rel}: missing Knowledge Change field {key}")
+    if not str(data.get("id","")).startswith("CHANGE."):
+        errors.append(f"{rel}: Knowledge Change id must start CHANGE.")
+
+for path in sorted((ROOT/"domains"/"interface-grammar"/"registry"/"patterns").glob("*.json")) if (ROOT/"domains"/"interface-grammar"/"registry"/"patterns").exists() else []:
+    data=load(path)
+    if not isinstance(data,dict):
+        continue
+    for ref in data.get("claim_refs",[]) if isinstance(data.get("claim_refs",[]),list) else []:
+        if str(ref) not in claim_ids:
+            errors.append(f"{path.relative_to(ROOT)}: missing Claim reference {ref}")
+
 for path in sorted((ROOT/"inbox"/"bugs").glob("*.md")) if (ROOT/"inbox"/"bugs").exists() else []:
     text=path.read_text(encoding="utf-8")
     rel=path.relative_to(ROOT).as_posix()
@@ -119,6 +165,9 @@ if catalog:
     for target in catalog.get("projects",[]):
         if not (ROOT/target).is_file():
             errors.append(f"catalog/index.json: missing project {target}")
+    for target in catalog.get("schemas",[]):
+        if not (ROOT/target).is_file():
+            errors.append(f"catalog/index.json: missing schema {target}")
 
 sources=load(ROOT/"outbox"/"sources.json")
 if sources:
