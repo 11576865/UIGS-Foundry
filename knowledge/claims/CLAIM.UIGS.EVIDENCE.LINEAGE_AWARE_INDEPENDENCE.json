@@ -23,6 +23,7 @@
   "superseded_by": null,
   "support_policy": {
     "minimum_independent_support": 2,
+    "minimum_directness": "static",
     "quarantine_on_active_contradiction": true,
     "quarantine_on_broken_dependency": true,
     "max_evidence_age_days": null
