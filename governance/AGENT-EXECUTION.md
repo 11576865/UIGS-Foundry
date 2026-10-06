@@ -195,3 +195,20 @@ This Canonical policy incorporates and supersedes the execution guidance from:
 - `inbox/candidates/2026-10-02-branch-submission-default-execution-boundary.md`.
 
 Those records remain as provenance for the observed failure mode and the user's repeated execution-boundary requirement.
+
+
+## Interactive transaction budget
+
+Durable checkpoints protect durability; they do not by themselves guarantee liveness.
+
+A substantial interactive turn must also have a finite synchronous execution boundary:
+
+- interpret broad goals as project goals, then select one coherent durable work package;
+- prefer batched repository mutations over long per-file network-write chains;
+- a checkpoint is not permission to continue indefinitely;
+- stop before a second independent subsystem or migration phase when the current package is already recoverable;
+- crossing another repository or long validation domain normally creates a handoff boundary;
+- if remaining work is recoverable from repository state, hand off instead of consuming the rest of the turn;
+- broad instructions such as "finish everything" or "一步到位" define the desired end architecture, not a requirement that one interactive session survive the entire project.
+
+This prevents unbounded synchronous action chains: individually reasonable operations whose cumulative latency exhausts the interactive execution window even without polling.
