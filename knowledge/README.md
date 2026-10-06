@@ -36,3 +36,12 @@ Do not fabricate Claim/Evidence records merely to reach coverage targets. A miss
 Consumers should use `tools/evaluate_epistemic_graph.py` output to determine effective authority.
 
 A stored `maturity=canonical` Claim can still be effectively quarantined.
+
+
+## Validation missions
+
+`tools/generate_validation_missions.py` proposes the next evidence needed to resolve high-impact uncertainty. This is the Active-Learning boundary: UIGS may identify what should be tested next, but it does not silently execute experiments or rewrite mature knowledge.
+
+## Migration visibility
+
+`tools/generate_epistemic_migration_report.py` measures which legacy aggregate records have explicit `claim_refs`. Missing mappings are migration debt, not permission to invent provenance or evidence.
