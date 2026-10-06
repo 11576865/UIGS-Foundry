@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.UIGS.EPISTEMIC_REBASE_20261007",
+  "target_claim": "CLAIM.UIGS.EPISTEMIC.NON_MONOTONIC_AUTHORITY",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "canonical",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Bootstrap the Foundry's explicit non-monotonic epistemic model after user-authorized theoretical rebase.",
+  "evidence_refs": [
+    "EVID.UIGS.PRIORART.DOYLE_TMS_1979",
+    "EVID.UIGS.PRIORART.NON_MONOTONIC_LOGIC",
+    "EVID.UIGS.USER.EPISTEMIC_REBASE_20261007"
+  ],
+  "decided_by": "user",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}
