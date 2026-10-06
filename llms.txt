@@ -5,9 +5,12 @@ Start:
 - /README.md
 - /AGENTS.md
 - /governance/AGENT-EXECUTION.md
+- /governance/EPISTEMIC-MODEL.md
+- /governance/PRIOR-ART.md
 - /governance/CHARTER.md
 - /governance/AUTHORITY.md
 - /governance/PROMOTION.md
+- /knowledge/README.md
 - /intake/README.md
 - /catalog/index.json
 
@@ -15,6 +18,8 @@ Interface Grammar:
 - /domains/interface-grammar/README.md
 
 Product repositories are authoritative for shipped implementation.
-Foundry is authoritative only for explicitly Canonical cross-project knowledge.
+Foundry is authoritative for governed cross-project knowledge, but Canonical is maturity rather than timeless truth.
+Use computed effective authority; quarantined knowledge is not default guidance.
+Evidence lineage, scope, assumptions, freshness, and directness are first-class.
 A single observation must not be promoted directly to Canonical.
 Interactive agent sessions are disposable workers; durable repository state is the recovery source of truth.
