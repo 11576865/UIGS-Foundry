@@ -1,6 +1,6 @@
 # Test: MP3 stream-copy import needs packet-level evidence across plan, save, and output
 
-Status: **Test / Pending external CI**
+Status: **Test / externally validated on ASS-Workbench-Android PR #129**
 Date: 2026-10-05
 Project evidence: `11576865/ASS-Workbench-Android` PR #129, stacked on PR #124
 
@@ -102,3 +102,26 @@ AAC, FLAC, video adapters and transcoding remain out of scope.
 At intake time PR #129 is open and mergeable, but repository CI has not run because the current workflows filter pull requests to `main`, while #129 is intentionally stacked on feature branch #124.
 
 Therefore this record is **Pending external CI**. It may be promoted from Test/Pending only after the stacked work reaches a CI-triggering boundary and the relevant Android/native regressions pass.
+
+
+## External validation result
+
+PR #129 was reconciled onto current `main` and the final current-head validation completed successfully:
+
+- Android CI #1022 — success;
+- Android Emulator Regression #647 — success;
+- Fontconfig renderer native probe #915 — success.
+
+The authoritative PR head for this validation was:
+
+`a39cc1f44fb3f0f62dfdd8dba636f81ba311bcfe`
+
+At that boundary the branch was:
+
+- mergeable;
+- 5 commits ahead of current main;
+- 0 commits behind;
+- limited to the intended container/media import delta;
+- marked Ready for review after all three validation lanes passed.
+
+This upgrades the record from Pending external CI to an externally validated Test. It does **not** promote any associated Candidate to Canonical.
