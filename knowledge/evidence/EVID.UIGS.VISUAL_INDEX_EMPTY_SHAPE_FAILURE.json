@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.VISUAL_INDEX_EMPTY_SHAPE_FAILURE",
+  "status": "active",
+  "source": {
+    "type": "workflow_run",
+    "locator": "UIGS-Foundry GitHub Actions Validate Foundry run 36992829941",
+    "revision": "53a8b97a4785d6eb2f96629123a7130bba294905",
+    "environment_fingerprint": "production visual evidence index bootstrap"
+  },
+  "observed_at": "2026-10-02T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "INCIDENT.UIGS.VISUAL_EVIDENCE.EMPTY_INDEX_SHAPE.2026-10-02",
+  "provenance": {
+    "entity_id": "workflow-run:36992829941",
+    "activity_id": "legacy-claim-migration-2026-10-07",
+    "agent_id": "GitHub Actions",
+    "was_derived_from": [],
+    "was_attributed_to": "UIGS-Foundry"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.DERIVED_STATE.GENERATOR_OWNS_EMPTY_SHAPE",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "real_sample",
+      "scope_relation": "within_scope",
+      "assumption_context": [
+        "deterministic generator",
+        "hand-written empty placeholder"
+      ],
+      "notes": "Validation marked the hand-written empty index stale because its by_surface shape differed from generator output."
+    }
+  ]
+}

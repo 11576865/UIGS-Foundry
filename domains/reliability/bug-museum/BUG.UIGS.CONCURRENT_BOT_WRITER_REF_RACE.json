@@ -32,5 +32,8 @@
       "revision": "cdae726aa28e10e4d81cc4afca62ac09e635b20d",
       "evidence_level": "rebase conflict on generated search/index and showcase coverage"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.GHA.OPTIMISTIC_MULTI_WRITER"
   ]
 }

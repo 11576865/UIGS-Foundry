@@ -33,5 +33,8 @@
       "evidence_level": "showed retry alone cannot resolve overlapping generated-file conflicts"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.UIGS.GHA.OPTIMISTIC_MULTI_WRITER"
+  ]
 }

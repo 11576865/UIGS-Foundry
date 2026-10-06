@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.VISUAL_INDEX_EMPTY_SHAPE_RECOVERY",
+  "status": "active",
+  "source": {
+    "type": "workflow_run",
+    "locator": "UIGS-Foundry GitHub Actions Validate Foundry run 36993079089",
+    "revision": "679425ae4d540849425b8baba983567f0eec9405",
+    "environment_fingerprint": "production visual evidence index corrected bootstrap"
+  },
+  "observed_at": "2026-10-02T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "INCIDENT.UIGS.VISUAL_EVIDENCE.EMPTY_INDEX_SHAPE.2026-10-02",
+  "provenance": {
+    "entity_id": "workflow-run:36993079089",
+    "activity_id": "legacy-claim-migration-2026-10-07",
+    "agent_id": "GitHub Actions",
+    "was_derived_from": [
+      "EVID.UIGS.VISUAL_INDEX_EMPTY_SHAPE_FAILURE"
+    ],
+    "was_attributed_to": "UIGS-Foundry"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.DERIVED_STATE.GENERATOR_OWNS_EMPTY_SHAPE",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "real_sample",
+      "scope_relation": "within_scope",
+      "assumption_context": [
+        "deterministic generator",
+        "generator-shaped empty output"
+      ],
+      "notes": "Corrected generator-shaped index passed validation; same incident lineage, so it does not create a second independent support group."
+    }
+  ]
+}

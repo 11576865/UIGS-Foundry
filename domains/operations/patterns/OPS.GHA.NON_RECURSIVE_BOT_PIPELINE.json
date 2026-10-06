@@ -24,5 +24,8 @@
       "evidence_level": "GitHub official documented trigger behavior"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.UIGS.GHA.GITHUB_TOKEN_NON_RECURSIVE_TRIGGER"
+  ]
 }
