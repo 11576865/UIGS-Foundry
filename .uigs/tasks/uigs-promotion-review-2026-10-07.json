@@ -18,16 +18,19 @@
     "external validation and merge"
   ],
   "repository": "11576865/UIGS-Foundry",
-  "branch": "fix/stable-epistemic-triage",
+  "branch": "main",
   "pull_request": 26,
-  "last_durable_commit": "aaf27986354b27246710db55fc514b5d3396a491",
+  "last_durable_commit": "405a562e1375c2b64bb4fa123952189bb421b0d8",
   "external_validation": {
-    "ci": "pending"
+    "ci": "passed",
+    "merge": "passed",
+    "reporting": "passed"
   },
   "blockers": [],
   "notes": [
     "Support-policy satisfaction no longer collapses after Claim mapping.",
-    "Five non-promoted candidates now request specific additional evidence through the existing mission generator."
+    "Five non-promoted candidates now request specific additional evidence through the existing mission generator.",
+    "PR #26 merged; Validate Foundry #402, Knowledge Health #59, and UI Search #11 all passed."
   ],
-  "updated_at": "2026-10-07T15:25:00+08:00"
+  "updated_at": "2026-10-07T07:17:00+00:00"
 }

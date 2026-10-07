@@ -2,24 +2,22 @@
   "schema_version": 2,
   "task_id": "uigs-epistemic-rebase-project-2026-10-07",
   "goal": "Complete the UIGS epistemic rebase as an operational, reversible, evidence-governed learning system across the active knowledge lifecycle.",
-  "status": "in_progress",
+  "status": "completed",
   "level": "project",
   "project_id": "uigs-epistemic-rebase-project-2026-10-07",
   "parent_task_id": null,
-  "current_work_unit": "Final external validation of stable triage and governed promotion review",
+  "current_work_unit": null,
   "completed_units": [
     "epistemic foundation",
     "validated legacy Claim/Evidence migration",
     "Experimental epistemic triage",
     "Experimental Claim coverage",
     "durable Active Learning reporting",
-    "governed promotion review"
+    "governed promotion review",
+    "final external validation",
+    "epistemic rebase project closure"
   ],
-  "next_units": [
-    "merge final stable-triage/promotion-review change set",
-    "verify post-merge reports on main",
-    "close final_external_validation and mark PROJECT_COMPLETE"
-  ],
+  "next_units": [],
   "completion_gates": [
     {
       "id": "epistemic_foundation",
@@ -97,22 +95,33 @@
     {
       "id": "final_external_validation",
       "required": true,
-      "status": "pending",
+      "status": "passed",
       "description": "Final stable-triage/promotion-review change set must pass CI, merge, and regenerate durable reports on main.",
-      "evidence": []
+      "evidence": [
+        "PR #26",
+        "Validate Foundry #402",
+        "Generate UIGS Knowledge Health #59",
+        "Refresh UI Search Index #11",
+        "reports/generated/epistemic-state.json",
+        "reports/generated/validation-missions.json",
+        "reports/generated/experimental-epistemic-triage.json"
+      ]
     }
   ],
   "repository": "11576865/UIGS-Foundry",
-  "branch": "fix/stable-epistemic-triage",
+  "branch": "main",
   "pull_request": 26,
-  "last_durable_commit": "aaf27986354b27246710db55fc514b5d3396a491",
+  "last_durable_commit": "405a562e1375c2b64bb4fa123952189bb421b0d8",
   "external_validation": {
-    "ci": "pending"
+    "ci": "passed",
+    "merge": "passed",
+    "reporting": "passed"
   },
   "blockers": [],
   "notes": [
     "Project state supersedes earlier milestone-level uses of status=completed.",
-    "A completed milestone or work package must not be reported as PROJECT_COMPLETE while required project gates remain unfinished."
+    "All required project completion gates are passed.",
+    "The 42 remaining Validation Missions are expected ongoing knowledge-governance work for evidence-insufficient Experimental Claims; they are outputs of the completed epistemic system, not blockers to the epistemic-rebase project itself."
   ],
-  "updated_at": "2026-10-07T15:25:00+08:00"
+  "updated_at": "2026-10-07T07:17:00+00:00"
 }

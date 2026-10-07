@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "project_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "status": "completed",
+  "completed_at": "2026-10-07T07:17:00+00:00",
+  "final_main_observed": "405a562e1375c2b64bb4fa123952189bb421b0d8",
+  "final_merge_commit": "869e0e64861ddf7987c2e0f5f7c144bd82514503",
+  "validation": {
+    "validate_foundry_run": 402,
+    "knowledge_health_run": 59,
+    "ui_search_run": 11,
+    "result": "passed"
+  },
+  "epistemic_state": {
+    "claims": 67,
+    "evidence": 131,
+    "changes": 73,
+    "validation_errors": 0,
+    "review_required": 0,
+    "effectively_quarantined": 0
+  },
+  "active_learning": {
+    "validation_missions": 42,
+    "triage": {
+      "experimental_records": 44,
+      "promotion_candidate": 0,
+      "validation_mission": 42,
+      "challenge_or_narrow": 0,
+      "aggregate_view": 2
+    }
+  },
+  "completion_semantics": {
+    "project_complete": true,
+    "unresolved_validation_missions_are_blockers": false,
+    "rationale": "The rebase goal was to make evidence-insufficient knowledge produce durable governed validation work. Remaining missions therefore demonstrate operational Active Learning rather than incomplete rebase implementation."
+  },
+  "major_outcomes": [
+    "Claim/Evidence/Knowledge Change model with reversible non-monotonic authority",
+    "dependency invalidation and retrieval enforcement",
+    "lineage-aware evidence independence",
+    "durable Validation Missions and epistemic reporting",
+    "all current Validated legacy knowledge migrated to Claim/Evidence",
+    "all current Experimental knowledge given Claim-level coverage or explicit aggregate-view mapping",
+    "governed promotion review with auditable promote operations",
+    "Project/Milestone/Work Package/Turn completion hierarchy"
+  ]
+}
