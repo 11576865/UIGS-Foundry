@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+  "statement": "在参数密集的 Inspector 中保持主要动作和高频基础参数可见，将低频高级参数按语义组折叠/分区，避免一条无限增长的同级参数墙。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/HSR-Voice-Archive-Builder",
+      "11576865/ASS-Workbench-Android"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE; scope is limited to its recorded provenance and original statement."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.01",
+    "EVID.EXPERIMENTAL.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.02",
+    "EVID.EXPERIMENTAL.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.03"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

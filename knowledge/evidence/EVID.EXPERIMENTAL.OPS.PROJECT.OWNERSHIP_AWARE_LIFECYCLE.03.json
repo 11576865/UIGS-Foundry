@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.03",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/HSR-Voice-Archive-Builder:tests/test_v09e.py",
+    "revision": "5f4ee38146bcddbecf0d8f80d7fc23efa49eb355",
+    "environment_fingerprint": "OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.11576865_HSR-Voice-Archive-Builder",
+  "provenance": {
+    "entity_id": "legacy-experimental:OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE:3",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "delete/active-job safety tests"
+    }
+  ]
+}

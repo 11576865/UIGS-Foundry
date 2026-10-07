@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY.01",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/HSR-Voice-Archive-Builder:app/pipeline.py",
+    "revision": "eae8429ddd9634308f8f0bde40669650562758f3",
+    "environment_fingerprint": "REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY.11576865_HSR-Voice-Archive-Builder",
+  "provenance": {
+    "entity_id": "legacy-experimental:REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY:1",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "production implementation"
+    }
+  ]
+}

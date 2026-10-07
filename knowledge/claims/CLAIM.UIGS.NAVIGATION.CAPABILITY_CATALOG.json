@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.NAVIGATION.CAPABILITY_CATALOG",
+  "statement": "使用一份机器可读工具元数据作为固定布局、自由 Canvas、搜索和导航的共同目录；目录是检索入口，不复制业务能力。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/ASS-Workbench-Android"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record UIGS.NAVIGATION.CAPABILITY_CATALOG; scope is limited to its recorded provenance and original statement."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.NAVIGATION.CAPABILITY_CATALOG.01",
+    "EVID.EXPERIMENTAL.UIGS.NAVIGATION.CAPABILITY_CATALOG.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

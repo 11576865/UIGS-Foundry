@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.ARCH.DECLARED_DISCOVERED_RECONCILIATION",
+  "statement": "运行时 Registry/Graph 描述期望系统，Host Inventory 描述实际可见环境；Reconciliation 将两者对账并把缺失依赖、重复私有所有权、未认领运行时和 PATH 多版本等漂移变成结构化 issue。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/Character-Voice-Service"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record ARCH.DECLARED_DISCOVERED_RECONCILIATION; scope is limited to its recorded provenance and original statement."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.ARCH.DECLARED_DISCOVERED_RECONCILIATION.01",
+    "EVID.EXPERIMENTAL.ARCH.DECLARED_DISCOVERED_RECONCILIATION.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

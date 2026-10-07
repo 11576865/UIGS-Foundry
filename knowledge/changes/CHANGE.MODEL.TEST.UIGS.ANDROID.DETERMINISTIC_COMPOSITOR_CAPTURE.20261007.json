@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.20261007",
+  "target_claim": "CLAIM.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Create Claim/Evidence representation for Experimental catalog record TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE without promoting its maturity.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.01",
+    "EVID.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.02",
+    "EVID.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.03"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

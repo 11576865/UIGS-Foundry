@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.20261007",
+  "target_claim": "CLAIM.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Create Claim/Evidence representation for Experimental catalog record UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING without promoting its maturity.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.01",
+    "EVID.EXPERIMENTAL.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

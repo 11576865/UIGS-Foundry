@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.20261007",
+  "target_claim": "CLAIM.REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Create Claim/Evidence representation for Experimental catalog record REL.CI.HEAD_COVERAGE_AWARE_REPORTING without promoting its maturity.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.01",
+    "EVID.EXPERIMENTAL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.02",
+    "EVID.EXPERIMENTAL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.03"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

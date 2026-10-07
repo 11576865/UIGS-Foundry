@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP.02",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/Character-Voice-Service:tests/test_runtime_supervisor.py",
+    "revision": "3cb1a4957d386313722a0cf9da65789fc8ddc4a4",
+    "environment_fingerprint": "ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP.11576865_Character-Voice-Service",
+  "provenance": {
+    "entity_id": "legacy-experimental:ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP:2",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "automated supervisor tests"
+    }
+  ]
+}

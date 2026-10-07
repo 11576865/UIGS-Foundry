@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.20261007",
+  "target_claim": "CLAIM.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Create Claim/Evidence representation for Experimental catalog record OPS.UIGS.SOURCE_OWNED_UI_INVENTORY without promoting its maturity.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.01",
+    "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.02",
+    "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.03",
+    "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.04",
+    "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.05"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

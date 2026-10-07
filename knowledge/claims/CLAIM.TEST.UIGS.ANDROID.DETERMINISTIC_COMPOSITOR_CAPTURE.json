@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
+  "statement": "对真实 Android APP 的可重复视觉证据，使用 source-owned deterministic fixture 驱动真实生产 Compose 树，在 emulator 中显式安装 app/test APK、运行 instrumentation、由 UiAutomation 捕获最终 display/compositor，再进行 PNG/方向/hash/provenance 校验并注册到 Surface ID。",
+  "kind": "constraint",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/ASS-Workbench-Android",
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE; scope is limited to its recorded provenance and original statement."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.01",
+    "EVID.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.02",
+    "EVID.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.03"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

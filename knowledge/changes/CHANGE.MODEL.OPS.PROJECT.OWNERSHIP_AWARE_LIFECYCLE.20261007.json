@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.20261007",
+  "target_claim": "CLAIM.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Create Claim/Evidence representation for Experimental catalog record OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE without promoting its maturity.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.01",
+    "EVID.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.02",
+    "EVID.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.03",
+    "EVID.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.04"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

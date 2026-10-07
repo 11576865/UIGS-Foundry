@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.ARCH.DECLARED_DISCOVERED_RECONCILIATION.20261007",
+  "target_claim": "CLAIM.ARCH.DECLARED_DISCOVERED_RECONCILIATION",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Create Claim/Evidence representation for Experimental catalog record ARCH.DECLARED_DISCOVERED_RECONCILIATION without promoting its maturity.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.ARCH.DECLARED_DISCOVERED_RECONCILIATION.01",
+    "EVID.EXPERIMENTAL.ARCH.DECLARED_DISCOVERED_RECONCILIATION.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

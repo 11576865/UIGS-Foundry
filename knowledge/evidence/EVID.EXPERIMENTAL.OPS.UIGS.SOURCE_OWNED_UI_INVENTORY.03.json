@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.03",
+  "status": "active",
+  "source": {
+    "type": "repository",
+    "locator": "11576865/MKV-Fast-Muxer:.uigs/ui-surfaces.json",
+    "revision": "f2a29c0b3e59bf34a165a5fb1997686f9b3c81e1",
+    "environment_fingerprint": "OPS.UIGS.SOURCE_OWNED_UI_INVENTORY"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_MKV-Fast-Muxer",
+  "provenance": {
+    "entity_id": "legacy-experimental:OPS.UIGS.SOURCE_OWNED_UI_INVENTORY:3",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "repository"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "static",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "source-owned UI inventory"
+    }
+  ]
+}

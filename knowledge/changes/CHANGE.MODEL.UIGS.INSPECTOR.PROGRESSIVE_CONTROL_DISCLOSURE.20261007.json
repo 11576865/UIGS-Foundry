@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.20261007",
+  "target_claim": "CLAIM.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Create Claim/Evidence representation for Experimental catalog record UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE without promoting its maturity.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.01",
+    "EVID.EXPERIMENTAL.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.02",
+    "EVID.EXPERIMENTAL.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.03"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}
