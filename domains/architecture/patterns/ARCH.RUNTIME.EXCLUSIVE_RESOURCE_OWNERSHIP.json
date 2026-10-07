@@ -1,7 +1,7 @@
 {
   "id": "ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
   "type": "pattern",
-  "status": "experimental",
+  "status": "validated",
   "title": "互斥运行时资源的所有权感知切换",
   "summary": "共享同一 GPU/端口/互斥组的运行时不能只按“谁正在运行”处理；Supervisor 只能自动停止自己拥有的进程，对健康但外部拥有的冲突运行时必须拒绝越权终止并要求显式交接。",
   "principles": [

@@ -1,7 +1,7 @@
 {
   "id": "REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
   "type": "pattern",
-  "status": "experimental",
+  "status": "validated",
   "title": "CI 报告必须区分最新成功运行与当前 HEAD 覆盖",
   "summary": "存在 paths/path-filter 的仓库中，某工作流最新一次成功运行可能针对旧 commit。跨项目报告必须显示 run head SHA 是否等于当前主分支 HEAD，不能把‘latest success’静默表述成‘当前代码已验证’。",
   "invariants": [

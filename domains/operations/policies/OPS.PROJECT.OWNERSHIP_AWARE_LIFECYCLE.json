@@ -1,7 +1,7 @@
 {
   "id": "OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
   "type": "policy",
-  "status": "experimental",
+  "status": "validated",
   "title": "工程克隆与删除必须服从资源所有权边界",
   "summary": "项目目录是否由应用完整管理决定了克隆/删除能做什么。自动管理根可整体删除；手工工程根只能删除明确拥有的状态/输出/marker，必须保留未知或用户文件。克隆复制可复用生成输入，但不复制旧输出和运行状态。",
   "rules": [
