@@ -1,0 +1,34 @@
+{
+  "schema_version": 2,
+  "task_id": "uigs-experimental-claim-coverage-2026-10-07",
+  "goal": "Give every current Experimental catalog record Claim-level epistemic coverage or an explicit aggregate-view mapping, and make Active Learning outputs durable.",
+  "status": "completed",
+  "level": "work_package",
+  "project_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "parent_task_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "current_work_unit": null,
+  "completed_units": [
+    "modeled 12 promotion candidates as Experimental Claims without maturity promotion",
+    "modeled 37 evidence-insufficient records as challenged Experimental Claims",
+    "preserved two existing aggregate-view Claim mappings",
+    "linked all Experimental records to Claim-level epistemic state",
+    "extended Knowledge Health writer to persist epistemic state and validation missions"
+  ],
+  "next_units": [
+    "external validation and merge",
+    "governed promotion review of promotion candidates"
+  ],
+  "repository": "11576865/UIGS-Foundry",
+  "branch": "feat/experimental-claim-coverage",
+  "pull_request": null,
+  "last_durable_commit": "bef3b49cf2f6f0528dc28e7d1b781dee7efe1058",
+  "external_validation": {
+    "ci": "pending"
+  },
+  "blockers": [],
+  "notes": [
+    "No Experimental record was promoted automatically.",
+    "Validation-mission Claims intentionally require one additional independent evidence lineage beyond currently recorded support."
+  ],
+  "updated_at": "2026-10-07T15:00:00+08:00"
+}
