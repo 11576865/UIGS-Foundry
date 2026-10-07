@@ -38,5 +38,8 @@
       "revision": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
       "evidence_level": "source-owned deterministic fixture contract"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.ANDROID_CAPTURE.CONNECTED_TEST_ARTIFACT_EXTRACTION"
   ]
 }

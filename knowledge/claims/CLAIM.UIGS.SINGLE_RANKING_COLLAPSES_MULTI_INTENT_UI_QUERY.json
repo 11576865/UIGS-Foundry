@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY",
+  "statement": "For UIGS composition planning, a multi-intent UI request must not be reduced to one global ranking outcome; explicit intent segmentation and merged orthogonal Pattern retrieval are required to preserve independently expressed UI intents.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [
+      "UI composition retrieval"
+    ],
+    "notes": "Scoped to the deterministic UIGS composition planner."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.01",
+    "EVID.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.02",
+    "EVID.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.03"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "real_sample",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Conservative migration from validated legacy record BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY; statement is bounded to the failure mode and remediation already evidenced by that record."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

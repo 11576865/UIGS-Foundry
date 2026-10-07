@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.HSR.FAILED_REBUILD_PUBLISHED_SET",
+  "statement": "For HSR-Voice-Archive-Builder outputs that together form one published result, rebuild publication/rollback must preserve the set atomically enough that a failed rebuild does not destroy or mix the previous coherent published set.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/HSR-Voice-Archive-Builder"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [
+      "multi-file publication",
+      "rebuild"
+    ],
+    "notes": "Scoped to output sets whose files jointly define one published result."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.HSR.FAILED_REBUILD_PUBLISHED_SET.01",
+    "EVID.HSR.FAILED_REBUILD_PUBLISHED_SET.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Conservative migration from validated legacy record BUG.HSR.FAILED_REBUILD_PUBLISHED_SET; statement is bounded to the failure mode and remediation already evidenced by that record."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

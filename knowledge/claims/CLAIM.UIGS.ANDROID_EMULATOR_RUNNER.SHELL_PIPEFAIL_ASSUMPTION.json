@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION",
+  "statement": "For third-party GitHub Actions that execute a script field, the nested shell is part of the action interface contract; Foundry must not use Bash-only semantics unless Bash is invoked explicitly.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [
+      "github-actions",
+      "android"
+    ],
+    "versions": [],
+    "environments": [
+      "reactivecircus/android-emulator-runner@v2 capture orchestration"
+    ],
+    "notes": "Scoped to nested action script execution semantics observed by Foundry."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION.01",
+    "EVID.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION.02",
+    "EVID.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION.03"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "real_sample",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Conservative migration from validated legacy record BUG.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION; statement is bounded to the failure mode and remediation already evidenced by that record."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

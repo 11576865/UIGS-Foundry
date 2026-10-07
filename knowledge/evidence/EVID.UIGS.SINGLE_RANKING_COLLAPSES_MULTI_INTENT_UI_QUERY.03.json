@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.03",
+  "status": "active",
+  "source": {
+    "type": "workflow_run",
+    "locator": "UIGS-Foundry GitHub Actions Validate Foundry run 36984338870",
+    "revision": "4c4c59fb45b3883fc55a9cde9c616bd47c1f1a31",
+    "environment_fingerprint": "BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY:3",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "report"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "real_sample",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "second failing regression isolated missing recipe-required expansion"
+    }
+  ]
+}

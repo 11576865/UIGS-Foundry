@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.02",
+  "status": "active",
+  "source": {
+    "type": "repository",
+    "locator": "11576865/UIGS-Foundry:tools/query_ui_composition.py",
+    "revision": "fix 2026-10-02",
+    "environment_fingerprint": "BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY:2",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "repository"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "static",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "implemented correction"
+    }
+  ]
+}

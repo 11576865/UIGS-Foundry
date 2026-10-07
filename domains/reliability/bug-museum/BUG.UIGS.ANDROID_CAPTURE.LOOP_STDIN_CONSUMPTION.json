@@ -36,5 +36,8 @@
       "revision": "02ce3fa1e53244b4a8701a2a570bc3989536a78c",
       "evidence_level": "implemented stdin isolation fix"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION"
   ]
 }

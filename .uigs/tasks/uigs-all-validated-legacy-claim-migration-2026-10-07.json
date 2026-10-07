@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "uigs-all-validated-legacy-claim-migration-2026-10-07",
+  "goal": "Complete first-pass Claim/Evidence migration for every currently Validated legacy catalog record without widening semantics or fabricating provenance.",
+  "status": "completed",
+  "current_work_unit": null,
+  "completed_units": [
+    "merged validated migration wave 1",
+    "migrated all remaining validated legacy Bug records",
+    "preserved provenance lineage without inflating independent support",
+    "linked every validated legacy Bug to its atomic Claim"
+  ],
+  "next_units": [
+    "use epistemic migration report to prioritize Experimental knowledge only when evidence justifies promotion or claim-level modeling"
+  ],
+  "repository": "11576865/UIGS-Foundry",
+  "branch": "feat/migrate-all-validated-legacy-claims",
+  "pull_request": 23,
+  "last_durable_commit": "735aef410f6a9830bd4ece6dc892a1ad71f8839a",
+  "external_validation": {
+    "ci": "pending_after_rebase"
+  },
+  "blockers": [],
+  "notes": [
+    "All provenance entries within one legacy Bug were conservatively assigned one incident lineage unless separately established as independent.",
+    "Migration does not promote any legacy record beyond its existing Validated maturity.",
+    "Observed_at marks migration-time recording because the legacy provenance did not consistently preserve an exact original observation timestamp.",
+    "PR #23 migration was replayed onto current main after an unrelated intake bot commit advanced main; the two change sets had zero overlapping files."
+  ],
+  "updated_at": "2026-10-07T14:23:00+08:00"
+}

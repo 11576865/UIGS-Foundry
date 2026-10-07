@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MIGRATE.HSR.SAME_BASENAME_COLLISION.20261007",
+  "target_claim": "CLAIM.HSR.SAME_BASENAME_COLLISION",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Migrate validated legacy knowledge BUG.HSR.SAME_BASENAME_COLLISION into Claim/Evidence form without widening its evidenced scope.",
+  "evidence_refs": [
+    "EVID.HSR.SAME_BASENAME_COLLISION.01"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

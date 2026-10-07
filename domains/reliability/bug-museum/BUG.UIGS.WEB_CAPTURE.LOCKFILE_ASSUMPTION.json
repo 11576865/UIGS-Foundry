@@ -35,5 +35,8 @@
       "revision": "679425ae4d540849425b8baba983567f0eec9405",
       "evidence_level": "successful corrected capture"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION"
   ]
 }

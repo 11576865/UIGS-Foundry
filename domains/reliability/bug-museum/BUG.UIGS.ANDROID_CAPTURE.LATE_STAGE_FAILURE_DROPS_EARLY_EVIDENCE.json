@@ -32,5 +32,8 @@
       "revision": "fix/uigs-ass-capture-failure-isolation-20261004",
       "evidence_level": "implemented per-class extraction and bounded runtime capture"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE"
   ]
 }

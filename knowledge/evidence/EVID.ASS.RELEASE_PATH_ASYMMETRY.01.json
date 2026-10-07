@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.ASS.RELEASE_PATH_ASYMMETRY.01",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/ASS-Workbench-Android:docs/HARDENING-0.27.md",
+    "revision": "def359517071d620f41de1320656b7e48aa28b98",
+    "environment_fingerprint": "BUG.ASS.RELEASE_PATH_ASYMMETRY"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.ASS.RELEASE_PATH_ASYMMETRY.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.ASS.RELEASE_PATH_ASYMMETRY:1",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.ASS.RELEASE_PATH_ASYMMETRY",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "historical bug + implemented fix"
+    }
+  ]
+}

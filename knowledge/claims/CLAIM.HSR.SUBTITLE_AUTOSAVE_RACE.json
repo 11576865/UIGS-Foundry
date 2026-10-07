@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.HSR.SUBTITLE_AUTOSAVE_RACE",
+  "statement": "For HSR-Voice-Archive-Builder subtitle autosave targeting the same canonical sidecar, persistence writes must have single-writer ordering so a later autosave does not start before the prior write settles.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/HSR-Voice-Archive-Builder"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [
+      "subtitle autosave"
+    ],
+    "notes": "Scoped to writes targeting one canonical subtitle sidecar."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.HSR.SUBTITLE_AUTOSAVE_RACE.01"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Conservative migration from validated legacy record BUG.HSR.SUBTITLE_AUTOSAVE_RACE; statement is bounded to the failure mode and remediation already evidenced by that record."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

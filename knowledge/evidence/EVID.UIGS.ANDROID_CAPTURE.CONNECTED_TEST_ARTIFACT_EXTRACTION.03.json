@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.ANDROID_CAPTURE.CONNECTED_TEST_ARTIFACT_EXTRACTION.03",
+  "status": "active",
+  "source": {
+    "type": "repository",
+    "locator": "11576865/ASS-Workbench-Android",
+    "revision": "2bca59ee1ee06dc07226e3bed0e2dfabf979cfa0",
+    "environment_fingerprint": "BUG.UIGS.ANDROID_CAPTURE.CONNECTED_TEST_ARTIFACT_EXTRACTION"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.UIGS.ANDROID_CAPTURE.CONNECTED_TEST_ARTIFACT_EXTRACTION.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.UIGS.ANDROID_CAPTURE.CONNECTED_TEST_ARTIFACT_EXTRACTION:3",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "repository"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.ANDROID_CAPTURE.CONNECTED_TEST_ARTIFACT_EXTRACTION",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "static",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "source-owned deterministic fixture contract"
+    }
+  ]
+}

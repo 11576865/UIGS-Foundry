@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION.02",
+  "status": "active",
+  "source": {
+    "type": "workflow_run",
+    "locator": "UIGS-Foundry GitHub Actions Capture Production UI Web run 36992975651",
+    "revision": "015915dd20126b996a7649a5dd05ca8d5141b6f5",
+    "environment_fingerprint": "BUG.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION:2",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "report"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "real_sample",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "npm ci lockfile failure"
+    }
+  ]
+}

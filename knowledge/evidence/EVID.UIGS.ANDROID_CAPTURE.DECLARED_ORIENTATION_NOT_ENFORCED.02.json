@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED.02",
+  "status": "active",
+  "source": {
+    "type": "repository",
+    "locator": "11576865/ASS-Workbench-Android:.uigs/ui-visual-capture.json",
+    "revision": "fe8c6184405a9056e213d10818ac5e225c63f065",
+    "environment_fingerprint": "BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED:2",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "repository"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "static",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "source contract now explicitly declares landscape"
+    }
+  ]
+}

@@ -36,5 +36,8 @@
       "revision": "01cec249664611cc69f4728ca641964296549d1a",
       "evidence_level": "successful corrected emulator/compositor capture at 1600x1000"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED"
   ]
 }

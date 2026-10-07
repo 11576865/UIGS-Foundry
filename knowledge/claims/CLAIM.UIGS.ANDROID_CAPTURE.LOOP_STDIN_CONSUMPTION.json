@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION",
+  "statement": "In Foundry shell batch loops driven by while-read input, child tools that may consume stdin (such as adb) must receive isolated stdin so they cannot silently consume the loop protocol.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [
+      "shell",
+      "android"
+    ],
+    "versions": [],
+    "environments": [
+      "while-read batch capture loops"
+    ],
+    "notes": "Scoped to subprocess stdin interaction with list-driven loops."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION.01",
+    "EVID.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION.02",
+    "EVID.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION.03"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "real_sample",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Conservative migration from validated legacy record BUG.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION; statement is bounded to the failure mode and remediation already evidenced by that record."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

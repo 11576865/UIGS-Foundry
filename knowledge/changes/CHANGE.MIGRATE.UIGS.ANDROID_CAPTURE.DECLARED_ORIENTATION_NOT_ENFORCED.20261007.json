@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MIGRATE.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED.20261007",
+  "target_claim": "CLAIM.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Migrate validated legacy knowledge BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED into Claim/Evidence form without widening its evidenced scope.",
+  "evidence_refs": [
+    "EVID.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED.01",
+    "EVID.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED.02",
+    "EVID.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED.03"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

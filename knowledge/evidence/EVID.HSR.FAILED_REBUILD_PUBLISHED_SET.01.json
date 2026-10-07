@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.HSR.FAILED_REBUILD_PUBLISHED_SET.01",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/HSR-Voice-Archive-Builder:app/publishing.py",
+    "revision": "f49b31ff1e39f69e6beded369b3482d36596565a",
+    "environment_fingerprint": "BUG.HSR.FAILED_REBUILD_PUBLISHED_SET"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.HSR.FAILED_REBUILD_PUBLISHED_SET.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.HSR.FAILED_REBUILD_PUBLISHED_SET:1",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.HSR.FAILED_REBUILD_PUBLISHED_SET",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "static",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "production fix"
+    }
+  ]
+}

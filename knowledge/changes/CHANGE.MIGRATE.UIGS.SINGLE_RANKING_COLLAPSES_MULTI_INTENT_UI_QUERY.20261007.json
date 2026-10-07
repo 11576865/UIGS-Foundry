@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MIGRATE.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.20261007",
+  "target_claim": "CLAIM.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Migrate validated legacy knowledge BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY into Claim/Evidence form without widening its evidenced scope.",
+  "evidence_refs": [
+    "EVID.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.01",
+    "EVID.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.02",
+    "EVID.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.03"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

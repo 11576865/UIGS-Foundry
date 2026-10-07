@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE.01",
+  "status": "active",
+  "source": {
+    "type": "workflow_run",
+    "locator": "UIGS-Foundry GitHub Actions Capture Production UI Android run 37141505668",
+    "revision": "02ce3fa1e53244b4a8701a2a570bc3989536a78c",
+    "environment_fingerprint": "BUG.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE:1",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "report"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "real_sample",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "successful early captures followed by renderer hang and cancelled job"
+    }
+  ]
+}

@@ -22,5 +22,8 @@
       "revision": "e6d37763754ef2def4f273df2cd35b807e15c629",
       "evidence_level": "repository defect observed during retrieval implementation"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE"
   ]
 }

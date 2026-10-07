@@ -35,5 +35,8 @@
       "revision": "74ce96cd148a5b9f5f8ff490ab22ede9e217362b",
       "evidence_level": "reproduced per-command shell isolation via lost OUTDIR assignment"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION"
   ]
 }

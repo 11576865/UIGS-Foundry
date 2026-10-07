@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.HSR.SUBTITLE_AUTOSAVE_RACE.01",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/HSR-Voice-Archive-Builder:CHANGELOG.md",
+    "revision": "7374fb8871908b13de90b21ebbb4d050c92bcc59",
+    "environment_fingerprint": "BUG.HSR.SUBTITLE_AUTOSAVE_RACE"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.HSR.SUBTITLE_AUTOSAVE_RACE.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.HSR.SUBTITLE_AUTOSAVE_RACE:1",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.HSR.SUBTITLE_AUTOSAVE_RACE",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "static",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "implemented fix; v0.9-M"
+    }
+  ]
+}
