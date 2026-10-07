@@ -173,6 +173,7 @@ UIGS records belief change using operations aligned with established terminology
 - `revise` — change statement/scope/assumptions to accommodate evidence;
 - `contract` — withdraw a Claim or part of its scope from the active belief set;
 - `restore` — return a quarantined Claim to active authority after review;
+- `promote` — raise governance maturity after an explicit promotion review;
 - `demote` — lower governance maturity by explicit decision;
 - `deprecate` — retain history but prohibit new default use;
 - `supersede` — replace with another Claim.
