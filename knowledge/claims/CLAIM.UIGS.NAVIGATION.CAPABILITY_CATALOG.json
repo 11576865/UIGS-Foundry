@@ -3,7 +3,7 @@
   "id": "CLAIM.UIGS.NAVIGATION.CAPABILITY_CATALOG",
   "statement": "使用一份机器可读工具元数据作为固定布局、自由 Canvas、搜索和导航的共同目录；目录是检索入口，不复制业务能力。",
   "kind": "heuristic",
-  "maturity": "experimental",
+  "maturity": "validated",
   "authority": "active",
   "epistemic_state": "supported",
   "scope": {
@@ -25,7 +25,7 @@
   "superseded_by": null,
   "support_policy": {
     "minimum_independent_support": 1,
-    "minimum_directness": "static",
+    "minimum_directness": "runtime",
     "quarantine_on_active_contradiction": true,
     "quarantine_on_broken_dependency": true,
     "max_evidence_age_days": null
@@ -34,7 +34,7 @@
     "last_reviewed_at": "2026-10-07T00:00:00+00:00",
     "next_review_due": null,
     "approved_by": "governance",
-    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+    "rationale": "Governed promotion review found implementation plus executable/runtime or production-path validation sufficient for the Claim's explicitly narrow declared scope."
   },
   "created_at": "2026-10-07T00:00:00+00:00",
   "updated_at": "2026-10-07T00:00:00+00:00"

@@ -1,7 +1,7 @@
 {
   "id": "REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY",
   "type": "pattern",
-  "status": "experimental",
+  "status": "validated",
   "title": "检查点复用必须绑定执行路线与输入身份",
   "summary": "昂贵工作检查点只有在 provider/base URL/model/源语言/目标语言等执行路线一致，且单条输入指纹仍匹配时才能安全复用；路线变化或输入变化应失效而不是猜测兼容。",
   "invariants": [

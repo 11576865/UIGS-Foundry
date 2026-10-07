@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.PROMOTE.UIGS.NAVIGATION.CAPABILITY_CATALOG.20261007",
+  "target_claim": "CLAIM.UIGS.NAVIGATION.CAPABILITY_CATALOG",
+  "operation": "promote",
+  "from": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Governed review approved promotion from Experimental to Validated within the Claim's current narrow scope; evidence includes implementation plus executable/runtime or production-path validation.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.NAVIGATION.CAPABILITY_CATALOG.01",
+    "EVID.EXPERIMENTAL.UIGS.NAVIGATION.CAPABILITY_CATALOG.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

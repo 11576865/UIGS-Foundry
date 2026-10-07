@@ -4,12 +4,16 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/"tools"))
+import evaluate_epistemic_graph as epistemic
+
 OUT_JSON=ROOT/"reports"/"generated"/"experimental-epistemic-triage.json"
 OUT_MD=ROOT/"reports"/"generated"/"experimental-epistemic-triage.md"
 
@@ -56,7 +60,12 @@ def recurrence_for(path:str, record_id:str, related:list[str], prevention:dict[s
             total+=int(entry.get("recurrence_count",0) or 0)
     return total
 
-def classify_record(entry:dict[str,Any], data:dict[str,Any], prevention:dict[str,Any])->dict[str,Any]:
+def classify_record(
+    entry:dict[str,Any],
+    data:dict[str,Any],
+    prevention:dict[str,Any],
+    claim_states:dict[str,dict[str,Any]],
+)->dict[str,Any]:
     provenance=data.get("provenance",[]) if isinstance(data.get("provenance"),list) else []
     claim_refs=[str(x) for x in data.get("claim_refs",[]) if str(x)] if isinstance(data.get("claim_refs"),list) else []
     related=data.get("related_records",data.get("related",[]))
@@ -77,17 +86,42 @@ def classify_record(entry:dict[str,Any], data:dict[str,Any], prevention:dict[str
             implementation+=1
         if any(token in level for token in VALIDATION_TOKENS):
             validation+=1
-    recurrence=recurrence_for(str(entry.get("path","")),str(entry.get("id","")),related,prevention)
 
+    recurrence=recurrence_for(str(entry.get("path","")),str(entry.get("id","")),related,prevention)
     reasons=[]
-    if claim_refs:
-        classification="aggregate_view"
-        reasons.append("record already projects one or more Claim refs")
-        action="Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
-    elif recurrence>0:
+    linked=[claim_states[x] for x in claim_refs if x in claim_states]
+    experimental=[x for x in linked if str(x.get("maturity"))=="experimental"]
+
+    if recurrence>0:
         classification="challenge_or_narrow"
         reasons.append(f"prevention recurrence signal={recurrence}")
-        action="Model or locate the underlying Claim, attach recurrence as counter-evidence, and review scope/authority before promotion."
+        action="Review the linked Claim as counter-evidence/scope debt before any promotion."
+    elif experimental:
+        if any(
+            int(x.get("qualifying_contradiction_count",0))>0
+            or bool(x.get("broken_dependencies"))
+            for x in experimental
+        ):
+            classification="challenge_or_narrow"
+            reasons.append("linked Experimental Claim has contradiction or broken dependency")
+            action="Resolve contradiction/dependency scope before promotion."
+        elif all(
+            str(x.get("effective_epistemic_state"))=="supported"
+            and str(x.get("effective_authority"))=="active"
+            and len(x.get("support_groups",[]))>=int(x.get("required_independent_support",0))
+            for x in experimental
+        ):
+            classification="promotion_candidate"
+            reasons.append("linked Experimental Claim currently satisfies its declared support policy")
+            action="Perform governed Validated-promotion review; do not auto-promote."
+        else:
+            classification="validation_mission"
+            reasons.append("linked Experimental Claim does not yet satisfy its declared support policy")
+            action="Acquire the missing independent/direct evidence requested by the Claim support policy."
+    elif claim_refs:
+        classification="aggregate_view"
+        reasons.append("record projects non-Experimental Claim state")
+        action="Keep this record as a view; govern truth/authority at the linked Claim level."
     elif (implementation>=1 and validation>=1) or (len(groups)>=2 and (implementation+validation)>=2):
         classification="promotion_candidate"
         reasons.append("existing provenance includes both implementation/production and validation signals, or multiple source groups")
@@ -120,6 +154,8 @@ def classify_record(entry:dict[str,Any], data:dict[str,Any], prevention:dict[str
 def generate(root:Path=ROOT, generated_at:str|None=None)->dict[str,Any]:
     catalog=load(root/"catalog"/"index.json")
     prevention=load(root/"prevention"/"registry.json") if (root/"prevention"/"registry.json").is_file() else {"entries":[]}
+    state_report=epistemic.evaluate(root)
+    claim_states={str(x["id"]):x for x in state_report.get("claims",[])}
     entries=[*(catalog.get("patterns",[]) or []),*(catalog.get("records",[]) or [])]
     items=[]
     for entry in entries:
@@ -131,7 +167,7 @@ def generate(root:Path=ROOT, generated_at:str|None=None)->dict[str,Any]:
         data=load(path)
         if not isinstance(data,dict):
             continue
-        items.append(classify_record(entry,data,prevention))
+        items.append(classify_record(entry,data,prevention,claim_states))
     order={"challenge_or_narrow":0,"promotion_candidate":1,"validation_mission":2,"aggregate_view":3}
     items.sort(key=lambda x:(order[x["classification"]],x["record_id"]))
     summary={"experimental_records":len(items),"promotion_candidate":0,"validation_mission":0,"challenge_or_narrow":0,"aggregate_view":0}
@@ -170,7 +206,7 @@ def markdown(data:dict[str,Any])->str:
         else:
             for item in rows:
                 reasons="; ".join(item["reasons"]) or "classified by current evidence policy"
-                lines.append(f"- \`{item['record_id']}\` — {reasons}. Next: {item['recommended_action']}")
+                lines.append(f"- `{item['record_id']}` — {reasons}. Next: {item['recommended_action']}")
         lines.append("")
     return "\n".join(lines)
 

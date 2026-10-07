@@ -56,7 +56,7 @@ A working implementation is not by itself proof of a universal rule.
 A screenshot is evidence of appearance, not proof of behavior.
 CI success is not equivalent to device/final-output validation.
 
-Explicit user authorization may approve a governance promotion; scope and rationale must still be recorded.
+Explicit user authorization may approve a governance promotion; scope and rationale must still be recorded.\n\nEvery promotion must also create a durable Knowledge Change record with `operation=promote`, the prior and new maturity, evidence refs, reviewer/authority, and rationale.
 
 ## Challenge and automatic quarantine
 

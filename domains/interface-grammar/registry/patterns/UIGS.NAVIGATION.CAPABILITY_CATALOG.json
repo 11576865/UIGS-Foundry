@@ -2,7 +2,7 @@
   "$schema": "../../../../schemas/ui-pattern.schema.json",
   "id": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
   "type": "pattern",
-  "status": "experimental",
+  "status": "validated",
   "name": {
     "zh": "能力目录导航",
     "en": "Capability Catalog Navigation"

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.PROMOTE.ARCH.DECLARED_DISCOVERED_RECONCILIATION.20261007",
+  "target_claim": "CLAIM.ARCH.DECLARED_DISCOVERED_RECONCILIATION",
+  "operation": "promote",
+  "from": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Governed review approved promotion from Experimental to Validated within the Claim's current narrow scope; evidence includes implementation plus executable/runtime or production-path validation.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.ARCH.DECLARED_DISCOVERED_RECONCILIATION.01",
+    "EVID.EXPERIMENTAL.ARCH.DECLARED_DISCOVERED_RECONCILIATION.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

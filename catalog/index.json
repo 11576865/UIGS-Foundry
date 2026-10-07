@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "3.1",
+  "version": "3.2",
   "domains": [
     {
       "id": "interface-grammar",
@@ -32,7 +32,7 @@
     },
     {
       "id": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
-      "status": "experimental",
+      "status": "validated",
       "path": "domains/interface-grammar/registry/patterns/UIGS.NAVIGATION.CAPABILITY_CATALOG.json"
     },
     {
@@ -154,7 +154,7 @@
     },
     {
       "id": "ARCH.DECLARED_DISCOVERED_RECONCILIATION",
-      "status": "experimental",
+      "status": "validated",
       "path": "domains/architecture/patterns/ARCH.DECLARED_DISCOVERED_RECONCILIATION.json"
     },
     {
@@ -209,17 +209,17 @@
     },
     {
       "id": "ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
-      "status": "experimental",
+      "status": "validated",
       "path": "domains/architecture/patterns/ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP.json"
     },
     {
       "id": "REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY",
-      "status": "experimental",
+      "status": "validated",
       "path": "domains/reliability/patterns/REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY.json"
     },
     {
       "id": "OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
-      "status": "experimental",
+      "status": "validated",
       "path": "domains/operations/policies/OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.json"
     },
     {
@@ -264,7 +264,7 @@
     },
     {
       "id": "REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
-      "status": "experimental",
+      "status": "validated",
       "path": "domains/reliability/patterns/REL.CI.HEAD_COVERAGE_AWARE_REPORTING.json"
     },
     {
@@ -364,7 +364,7 @@
     },
     {
       "id": "TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
-      "status": "experimental",
+      "status": "validated",
       "path": "domains/reliability/test-patterns/TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.json"
     },
     {

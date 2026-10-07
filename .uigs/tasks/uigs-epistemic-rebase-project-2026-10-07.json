@@ -6,17 +6,19 @@
   "level": "project",
   "project_id": "uigs-epistemic-rebase-project-2026-10-07",
   "parent_task_id": null,
-  "current_work_unit": "Experimental Claim coverage and durable Active Learning reports",
+  "current_work_unit": "Final external validation of stable triage and governed promotion review",
   "completed_units": [
     "epistemic foundation",
     "validated legacy Claim/Evidence migration",
-    "Experimental epistemic triage"
+    "Experimental epistemic triage",
+    "Experimental Claim coverage",
+    "durable Active Learning reporting",
+    "governed promotion review"
   ],
   "next_units": [
-    "merge Experimental Claim coverage",
-    "verify validation missions are durably generated for evidence-insufficient Experimental Claims",
-    "perform governed review of 12 promotion candidates without automatic promotion",
-    "close remaining project completion gates only after merged CI/report evidence"
+    "merge final stable-triage/promotion-review change set",
+    "verify post-merge reports on main",
+    "close final_external_validation and mark PROJECT_COMPLETE"
   ],
   "completion_gates": [
     {
@@ -52,36 +54,58 @@
     {
       "id": "experimental_claim_coverage",
       "required": true,
-      "status": "in_progress",
-      "description": "Promotion candidates are modeled at Claim/Evidence granularity or explicitly retained as aggregate views.",
+      "status": "passed",
+      "description": "Every active Experimental catalog record has Claim-level coverage or is an explicit aggregate view.",
       "evidence": [
-        "feat/experimental-claim-coverage"
+        "PR #25",
+        "reports/generated/epistemic-state.json"
       ]
     },
     {
       "id": "active_learning_coverage",
       "required": true,
-      "status": "in_progress",
-      "description": "Evidence-poor or challenged Experimental knowledge has actionable validation/challenge work rather than remaining inert.",
+      "status": "passed",
+      "description": "Evidence-poor Experimental Claims have durable validation missions rather than remaining inert.",
       "evidence": [
-        "knowledge/claims",
-        "tools/generate_validation_missions.py"
+        "reports/generated/validation-missions.json",
+        "Generate UIGS Knowledge Health #58"
       ]
     },
     {
       "id": "governance_reporting",
       "required": true,
-      "status": "in_progress",
-      "description": "Epistemic state, Experimental triage, missions, and project completion state are durably generated and reviewable.",
+      "status": "passed",
+      "description": "Epistemic state, triage, and validation missions are durably generated and reviewable.",
       "evidence": [
-        ".github/workflows/generate-knowledge-health.yml"
+        "reports/generated/epistemic-state.json",
+        "reports/generated/validation-missions.json",
+        "reports/generated/experimental-epistemic-triage.json",
+        "Generate UIGS Knowledge Health #58"
       ]
+    },
+    {
+      "id": "promotion_review",
+      "required": true,
+      "status": "passed",
+      "description": "All 12 promotion candidates received explicit governed review; 7 were promoted and 5 retained with concrete evidence requirements.",
+      "evidence": [
+        "reports/epistemic-promotion-review-2026-10-07.json",
+        "7 promote Change records",
+        "5 retained Experimental mission policies"
+      ]
+    },
+    {
+      "id": "final_external_validation",
+      "required": true,
+      "status": "pending",
+      "description": "Final stable-triage/promotion-review change set must pass CI, merge, and regenerate durable reports on main.",
+      "evidence": []
     }
   ],
   "repository": "11576865/UIGS-Foundry",
-  "branch": "feat/experimental-claim-coverage",
-  "pull_request": 25,
-  "last_durable_commit": "8080f74c070fe9004d007dbb09af2985c35e7483",
+  "branch": "fix/stable-epistemic-triage",
+  "pull_request": 26,
+  "last_durable_commit": "aaf27986354b27246710db55fc514b5d3396a491",
   "external_validation": {
     "ci": "pending"
   },
@@ -90,5 +114,5 @@
     "Project state supersedes earlier milestone-level uses of status=completed.",
     "A completed milestone or work package must not be reported as PROJECT_COMPLETE while required project gates remain unfinished."
   ],
-  "updated_at": "2026-10-07T15:00:00+08:00"
+  "updated_at": "2026-10-07T15:25:00+08:00"
 }

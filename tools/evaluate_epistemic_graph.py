@@ -12,7 +12,7 @@ OUT_JSON = ROOT / "reports" / "generated" / "epistemic-state.json"
 OUT_MD = ROOT / "reports" / "generated" / "epistemic-state.md"
 
 HIGH_MATURITY = {"validated", "canonical"}
-PERMANENT_OPS = {"revise", "contract", "demote", "deprecate", "supersede"}
+PERMANENT_OPS = {"promote", "revise", "contract", "demote", "deprecate", "supersede"}
 DIRECTNESS_RANK = {
     "static": 0,
     "inferred": 1,

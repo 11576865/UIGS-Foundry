@@ -1,7 +1,7 @@
 {
   "id": "TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
   "type": "test",
-  "status": "experimental",
+  "status": "validated",
   "title": "Android 确定性 fixture + instrumentation + compositor 截图采集",
   "summary": "对真实 Android APP 的可重复视觉证据，使用 source-owned deterministic fixture 驱动真实生产 Compose 树，在 emulator 中显式安装 app/test APK、运行 instrumentation、由 UiAutomation 捕获最终 display/compositor，再进行 PNG/方向/hash/provenance 校验并注册到 Surface ID。",
   "preconditions": [

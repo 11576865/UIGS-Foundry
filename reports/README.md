@@ -80,3 +80,8 @@ This report is intentionally conservative. Promotion remains governed and must n
 The Knowledge Health workflow persists epistemic-state and validation-mission reports alongside health, review-queue, and Experimental triage outputs.
 
 This matters because CI-only generation is transient. Active Learning is considered operational only when its current Claim states and proposed validation missions are durably reviewable from repository state.
+
+
+## Promotion review
+
+Curated promotion-review reports record explicit governance decisions for Claims that satisfy triage support policy but still require a human/governance maturity decision. Passing the support policy is necessary evidence, not automatic promotion.

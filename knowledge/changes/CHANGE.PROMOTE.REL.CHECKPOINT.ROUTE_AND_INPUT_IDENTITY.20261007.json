@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.PROMOTE.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY.20261007",
+  "target_claim": "CLAIM.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY",
+  "operation": "promote",
+  "from": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Governed review approved promotion from Experimental to Validated within the Claim's current narrow scope; evidence includes implementation plus executable/runtime or production-path validation.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY.01",
+    "EVID.EXPERIMENTAL.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

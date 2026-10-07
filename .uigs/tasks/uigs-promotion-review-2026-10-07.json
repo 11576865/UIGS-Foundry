@@ -1,0 +1,33 @@
+{
+  "schema_version": 2,
+  "task_id": "uigs-promotion-review-2026-10-07",
+  "goal": "Stabilize post-mapping Experimental triage and perform governed review of the 12 promotion candidates.",
+  "status": "completed",
+  "level": "work_package",
+  "project_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "parent_task_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "current_work_unit": null,
+  "completed_units": [
+    "stable mapped-Claim triage semantics",
+    "auditable promote operation",
+    "12-candidate governed review",
+    "7 Validated promotions",
+    "5 retained Experimental mission policies"
+  ],
+  "next_units": [
+    "external validation and merge"
+  ],
+  "repository": "11576865/UIGS-Foundry",
+  "branch": "fix/stable-epistemic-triage",
+  "pull_request": 26,
+  "last_durable_commit": "aaf27986354b27246710db55fc514b5d3396a491",
+  "external_validation": {
+    "ci": "pending"
+  },
+  "blockers": [],
+  "notes": [
+    "Support-policy satisfaction no longer collapses after Claim mapping.",
+    "Five non-promoted candidates now request specific additional evidence through the existing mission generator."
+  ],
+  "updated_at": "2026-10-07T15:25:00+08:00"
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "review_id": "PROMOTION-REVIEW.EXPERIMENTAL-20261007",
+  "reviewed_at": "2026-10-07T00:00:00+00:00",
+  "reviewed_by": "governance",
+  "source": "reports/generated/experimental-epistemic-triage.json before Claim-mapping stabilization",
+  "candidates": 12,
+  "promoted": 7,
+  "retained_experimental": 5,
+  "decisions": [
+    {
+      "id": "ARCH.DECLARED_DISCOVERED_RECONCILIATION",
+      "decision": "promote",
+      "reason": "Production reconciliation implementation plus automated tests validate the narrow single-project Claim."
+    },
+    {
+      "id": "ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
+      "decision": "promote",
+      "reason": "Production supervisor behavior plus automated ownership/conflict tests validate the narrow single-project Claim."
+    },
+    {
+      "id": "OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
+      "decision": "promote",
+      "reason": "Production implementation, clone contracts, destructive-operation guards, and active-job safety tests validate the scoped lifecycle policy."
+    },
+    {
+      "id": "OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE",
+      "decision": "retain_experimental",
+      "reason": "Three production implementations demonstrate adoption, but the provenance/currentness contract still lacks independent runtime/final-output validation."
+    },
+    {
+      "id": "OPS.UIGS.SOURCE_OWNED_UI_INVENTORY",
+      "decision": "retain_experimental",
+      "reason": "Five repositories demonstrate inventory adoption, but static inventory presence alone does not validate collection/currentness semantics."
+    },
+    {
+      "id": "REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY",
+      "decision": "promote",
+      "reason": "Production checkpoint implementation plus automated invalidation/reuse tests validate the scoped Claim."
+    },
+    {
+      "id": "REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
+      "decision": "promote",
+      "reason": "Two independent path-filtered production CI configurations plus Foundry reporting implementation validate the scoped reporting invariant."
+    },
+    {
+      "id": "TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
+      "decision": "promote",
+      "reason": "Implemented instrumentation harness plus successful production capture and observed failure evidence validate the test pattern within its declared boundary."
+    },
+    {
+      "id": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+      "decision": "retain_experimental",
+      "reason": "One product has implementation and UI contract tests; independent realization or discriminating UX/visual validation is still missing."
+    },
+    {
+      "id": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+      "decision": "retain_experimental",
+      "reason": "Executable evidence is concentrated in one product; the second-project evidence is currently supporting audit material."
+    },
+    {
+      "id": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
+      "decision": "promote",
+      "reason": "Implemented refactor plus regression contract validate the narrowly scoped catalog identity/navigation Claim."
+    },
+    {
+      "id": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+      "decision": "retain_experimental",
+      "reason": "The recorded implementation still has an open remainder and only one implementation lineage."
+    }
+  ]
+}
