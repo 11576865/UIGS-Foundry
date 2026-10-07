@@ -27,5 +27,8 @@
       "note": "resource existence does not imply final font face/render hit."
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.REL.CAPABILITY_PROVEN_BY_OUTPUT"
+  ]
 }

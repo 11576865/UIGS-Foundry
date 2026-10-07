@@ -21,5 +21,8 @@
       "evidence_level": "implemented registry structure"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER"
+  ]
 }

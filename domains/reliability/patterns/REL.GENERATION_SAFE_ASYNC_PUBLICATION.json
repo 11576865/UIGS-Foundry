@@ -19,5 +19,8 @@
       "evidence_level": "implemented hardening",
       "note": "Renderer generations, waveform cancellation, workspace epochs and MKV save callbacks."
     }
+  ],
+  "claim_refs": [
+    "CLAIM.REL.GENERATION_SAFE_ASYNC_PUBLICATION"
   ]
 }

@@ -18,5 +18,8 @@
       "evidence_level": "validated historical failure and fix",
       "note": "H9 production APK omitted tested mkvgo bridge until production workflow was hardened."
     }
+  ],
+  "claim_refs": [
+    "CLAIM.REL.RELEASE_PATH_PARITY"
   ]
 }

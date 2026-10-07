@@ -30,5 +30,8 @@
       "evidence_level": "production job evidence"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.REL.MOBILE.THERMAL_AWARE_PROGRESS"
+  ]
 }

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER.01",
+  "status": "active",
+  "source": {
+    "type": "repository",
+    "locator": "11576865/UIGS-Foundry",
+    "revision": "showcase framework 2026-10-02",
+    "environment_fingerprint": "OPS.UIGS.SHOWCASE_EVIDENCE_LADDER"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER.11576865_UIGS-Foundry",
+  "provenance": {
+    "entity_id": "legacy-experimental:OPS.UIGS.SHOWCASE_EVIDENCE_LADDER:1",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "repository"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "implemented registry structure"
+    }
+  ]
+}

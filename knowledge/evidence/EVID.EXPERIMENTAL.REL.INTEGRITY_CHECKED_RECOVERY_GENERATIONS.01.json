@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS.01",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/HSR-Voice-Archive-Builder:app/recovery.py",
+    "revision": "730b2e6440197b0f5a60e53afa083574a5e40249",
+    "environment_fingerprint": "REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS.11576865_HSR-Voice-Archive-Builder",
+  "provenance": {
+    "entity_id": "legacy-experimental:REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS:1",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "production implementation"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.REL.RELEASE_PATH_PARITY.20261007",
+  "target_claim": "CLAIM.REL.RELEASE_PATH_PARITY",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record REL.RELEASE_PATH_PARITY; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.RELEASE_PATH_PARITY.01"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

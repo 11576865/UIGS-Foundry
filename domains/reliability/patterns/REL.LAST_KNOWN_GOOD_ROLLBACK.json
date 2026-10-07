@@ -29,5 +29,8 @@
       "note": "v0.9-M"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.REL.LAST_KNOWN_GOOD_ROLLBACK"
+  ]
 }

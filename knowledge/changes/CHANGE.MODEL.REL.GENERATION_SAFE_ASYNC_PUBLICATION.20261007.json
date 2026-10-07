@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.REL.GENERATION_SAFE_ASYNC_PUBLICATION.20261007",
+  "target_claim": "CLAIM.REL.GENERATION_SAFE_ASYNC_PUBLICATION",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record REL.GENERATION_SAFE_ASYNC_PUBLICATION; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.GENERATION_SAFE_ASYNC_PUBLICATION.01"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

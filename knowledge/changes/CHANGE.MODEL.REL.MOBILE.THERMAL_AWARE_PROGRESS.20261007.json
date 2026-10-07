@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.REL.MOBILE.THERMAL_AWARE_PROGRESS.20261007",
+  "target_claim": "CLAIM.REL.MOBILE.THERMAL_AWARE_PROGRESS",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record REL.MOBILE.THERMAL_AWARE_PROGRESS; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.MOBILE.THERMAL_AWARE_PROGRESS.01",
+    "EVID.EXPERIMENTAL.REL.MOBILE.THERMAL_AWARE_PROGRESS.02",
+    "EVID.EXPERIMENTAL.REL.MOBILE.THERMAL_AWARE_PROGRESS.03"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

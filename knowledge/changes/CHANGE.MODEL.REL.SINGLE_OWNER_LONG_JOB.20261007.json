@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.REL.SINGLE_OWNER_LONG_JOB.20261007",
+  "target_claim": "CLAIM.REL.SINGLE_OWNER_LONG_JOB",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record REL.SINGLE_OWNER_LONG_JOB; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.SINGLE_OWNER_LONG_JOB.01",
+    "EVID.EXPERIMENTAL.REL.SINGLE_OWNER_LONG_JOB.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

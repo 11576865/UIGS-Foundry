@@ -25,5 +25,8 @@
       "note": "Rules 19, 25 and 29."
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.REL.DURABLE_STAGING_FOR_LONG_JOB"
+  ]
 }

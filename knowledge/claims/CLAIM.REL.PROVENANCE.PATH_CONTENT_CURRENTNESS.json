@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS",
+  "statement": "不可变 revision 证明历史证据；当前仍适用与否应额外比较声明的实现源文件在当前 HEAD 的 Git blob identity。文档、CI 或 .uigs 元数据等无关提交使 revision != HEAD 时，不应自动把未变化的实现标成 stale。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "challenged",
+  "scope": {
+    "repositories": [
+      "11576865/ASS-Workbench-Android",
+      "11576865/HSR-Voice-Archive-Builder",
+      "11576865/MKV-Fast-Muxer"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record REL.PROVENANCE.PATH_CONTENT_CURRENTNESS; support threshold intentionally exceeds current independent evidence by one group."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS.01",
+    "EVID.EXPERIMENTAL.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS.02",
+    "EVID.EXPERIMENTAL.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS.03"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 4,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Evidence-insufficient Experimental record modeled without promotion; additional independent evidence is required by policy."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}
