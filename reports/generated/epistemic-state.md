@@ -1,12 +1,12 @@
 # UIGS Epistemic State
 
-Generated: 2026-10-07T11:07:47+00:00
+Generated: 2026-10-07T11:12:38+00:00
 
 ## Summary
 
-- Claims: 67
-- Evidence records: 131
-- Knowledge changes: 73
+- Claims: 73
+- Evidence records: 138
+- Knowledge changes: 80
 - Validation errors: 0
 - Review required: 0
 - Effectively quarantined: 0
@@ -38,6 +38,12 @@ Generated: 2026-10-07T11:07:47+00:00
 | CLAIM.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE | experimental | active | active | challenged | 0 | 0 | no |
 | CLAIM.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER | experimental | active | active | challenged | 1 | 0 | no |
 | CLAIM.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY | experimental | active | active | challenged | 0 | 0 | no |
+| CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1 | experimental | superseded | superseded | mixed | 1 | 1 | no |
+| CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2 | experimental | active | active | supported | 1 | 0 | no |
+| CLAIM.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1 | experimental | active | active | challenged | 0 | 0 | no |
+| CLAIM.PREVENT.MOBILE_INSPECTOR_PRIMARY_ACTION_REACHABILITY.G1 | experimental | active | active | supported | 1 | 0 | no |
+| CLAIM.PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP.G1 | experimental | active | active | supported | 1 | 0 | no |
+| CLAIM.PREVENT.STRUCTURED_TEXT_VISIBLE_REPLACEMENT_TOKEN_BOUNDARY.G1 | experimental | active | active | supported | 1 | 0 | no |
 | CLAIM.REL.ACTIONABLE_ERROR_TAXONOMY | experimental | active | active | challenged | 1 | 0 | no |
 | CLAIM.REL.CAPABILITY_PROVEN_BY_OUTPUT | experimental | active | active | challenged | 2 | 0 | no |
 | CLAIM.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY | validated | active | active | supported | 1 | 0 | no |

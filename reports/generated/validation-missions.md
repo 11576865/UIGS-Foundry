@@ -1,8 +1,8 @@
 # UIGS Validation Missions
 
-Generated: 2026-10-07T11:07:47+00:00
+Generated: 2026-10-07T11:12:39+00:00
 
-Proposed missions: 42
+Proposed missions: 44
 
 These are evidence-acquisition proposals, not automatically executed work.
 
@@ -133,6 +133,22 @@ These are evidence-acquisition proposals, not automatically executed work.
 - Trigger: `insufficient_independent_support`
 - Objective: Acquire independent support sufficient to meet the Claim policy (0/2 independent support groups currently active).
 - Independence: New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.
+
+## MISSION.CLAIM.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1.INSUFFICIENT_INDEPENDENT_SUPPORT
+
+- Claim: `CLAIM.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1`
+- Priority: **medium**
+- Trigger: `insufficient_independent_support`
+- Objective: Acquire independent support sufficient to meet the Claim policy (0/1 independent support groups currently active).
+- Independence: New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.
+
+## MISSION.CLAIM.PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP.G1.RECURRENCE_PROVENANCE_GAP
+
+- Claim: `CLAIM.PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP.G1`
+- Priority: **medium**
+- Trigger: `recurrence_provenance_gap`
+- Objective: Attribute 1 legacy recurrence count(s) for PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP to concrete source events before using them as counter-evidence.
+- Independence: Do not infer a recurrence event from the aggregate counter alone; each attributed event needs its own source provenance.
 
 ## MISSION.CLAIM.REL.ACTIONABLE_ERROR_TAXONOMY.INSUFFICIENT_INDEPENDENT_SUPPORT
 

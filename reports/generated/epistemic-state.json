@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-07T11:07:47+00:00",
+  "generated_at": "2026-10-07T11:12:38+00:00",
   "summary": {
-    "claims": 67,
-    "evidence": 131,
-    "changes": 73,
+    "claims": 73,
+    "evidence": 138,
+    "changes": 80,
     "validation_errors": 0,
     "review_required": 0,
     "effectively_quarantined": 0
@@ -591,6 +591,154 @@
       "reasons": [
         "qualifying independent support below policy minimum (0/2)"
       ]
+    },
+    {
+      "id": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1",
+      "statement": "Prevention generation 1 for destructive optional-input tri-state handling sufficiently covered the documented failure family within its listed ASS Workbench Android controls.",
+      "maturity": "experimental",
+      "declared_authority": "superseded",
+      "effective_authority": "superseded",
+      "stored_epistemic_state": "mixed",
+      "effective_epistemic_state": "mixed",
+      "required_independent_support": 1,
+      "minimum_directness": "static",
+      "support_groups": [
+        "PREVENTION.CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1.PR95"
+      ],
+      "contradiction_groups": [
+        "RECURRENCE.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.SEARCH_REPLACE_PR99"
+      ],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 1,
+      "qualifying_contradiction_count": 1,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying supporting and contradicting evidence coexist within Claim scope"
+      ]
+    },
+    {
+      "id": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2",
+      "statement": "Prevention generation 2 for destructive optional-input tri-state handling enforces validation-gated construction and regression coverage for the documented Search/Replace recurrence within the listed ASS Workbench Android scope.",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "runtime",
+      "support_groups": [
+        "PREVENTION.CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2.PR100"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1",
+      "statement": "Prevention generation 1 for infinite-canvas unbounded measurement has a submitted Android regression control, but current evidence does not yet establish enforced-main/runtime coverage.",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 1,
+      "minimum_directness": "runtime",
+      "support_groups": [],
+      "contradiction_groups": [],
+      "active_support_count": 0,
+      "weak_support_count": 1,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (0/1)"
+      ]
+    },
+    {
+      "id": "CLAIM.PREVENT.MOBILE_INSPECTOR_PRIMARY_ACTION_REACHABILITY.G1",
+      "statement": "Prevention generation 1 for primary inspector action reachability has executable controls covering the documented failure mechanism within the listed ASS Workbench Android scope.",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "runtime",
+      "support_groups": [
+        "PREVENTION.CLAIM.PREVENT.MOBILE_INSPECTOR_PRIMARY_ACTION_REACHABILITY.G1.PR86"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP.G1",
+      "statement": "Prevention generation 1 for structural semantic-cleanup ownership has executable parser and regression controls covering the documented nested ASS semantics within the listed scope.",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "runtime",
+      "support_groups": [
+        "PREVENTION.CLAIM.PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP.G1.PR99"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.PREVENT.STRUCTURED_TEXT_VISIBLE_REPLACEMENT_TOKEN_BOUNDARY.G1",
+      "statement": "Prevention generation 1 for visible-text replacement token boundaries has enforced semantic-token and regression controls covering the documented ASS control-escape failure within the listed scope.",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "runtime",
+      "support_groups": [
+        "PREVENTION.CLAIM.PREVENT.STRUCTURED_TEXT_VISIBLE_REPLACEMENT_TOKEN_BOUNDARY.G1.PR100"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
     },
     {
       "id": "CLAIM.REL.ACTIONABLE_ERROR_TAXONOMY",
