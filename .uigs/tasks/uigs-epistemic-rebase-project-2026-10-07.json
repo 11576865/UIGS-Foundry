@@ -104,8 +104,8 @@
   ],
   "repository": "11576865/UIGS-Foundry",
   "branch": "fix/stable-epistemic-triage",
-  "pull_request": null,
-  "last_durable_commit": "f11dd5a8d9605949f9cedbebfb15309b7729c13b",
+  "pull_request": 26,
+  "last_durable_commit": "aaf27986354b27246710db55fc514b5d3396a491",
   "external_validation": {
     "ci": "pending"
   },
@@ -114,5 +114,5 @@
     "Project state supersedes earlier milestone-level uses of status=completed.",
     "A completed milestone or work package must not be reported as PROJECT_COMPLETE while required project gates remain unfinished."
   ],
-  "updated_at": "2026-10-07T15:20:00+08:00"
+  "updated_at": "2026-10-07T15:25:00+08:00"
 }

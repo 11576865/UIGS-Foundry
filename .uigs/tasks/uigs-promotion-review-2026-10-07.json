@@ -19,8 +19,8 @@
   ],
   "repository": "11576865/UIGS-Foundry",
   "branch": "fix/stable-epistemic-triage",
-  "pull_request": null,
-  "last_durable_commit": "f11dd5a8d9605949f9cedbebfb15309b7729c13b",
+  "pull_request": 26,
+  "last_durable_commit": "aaf27986354b27246710db55fc514b5d3396a491",
   "external_validation": {
     "ci": "pending"
   },
@@ -29,5 +29,5 @@
     "Support-policy satisfaction no longer collapses after Claim mapping.",
     "Five non-promoted candidates now request specific additional evidence through the existing mission generator."
   ],
-  "updated_at": "2026-10-07T15:20:00+08:00"
+  "updated_at": "2026-10-07T15:25:00+08:00"
 }
