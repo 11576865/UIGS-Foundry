@@ -61,8 +61,8 @@
   ],
   "repository": "11576865/UIGS-Foundry",
   "branch": "fix/platform-stable-visual-evidence-ordering",
-  "pull_request": 27,
-  "last_durable_commit": "17c19522ec0daa23c776cd2c55e3a88ea0f2a87d",
+  "pull_request": 28,
+  "last_durable_commit": "d2675dfd8bb302ae4870accb1545fba4b8b48ce1",
   "external_validation": {
     "ci": "pending"
   },
@@ -74,5 +74,5 @@
     "External validation blocker is unrelated to recurrence semantics: visual evidence generator used sorted(Path), whose WindowsPath order differs from PosixPath for FONTS vs FONT_REQUIREMENTS.",
     "Repair uses p.as_posix() as the platform-stable sort key and adds a cross-platform regression test."
   ],
-  "updated_at": "2026-10-07T18:00:00+00:00"
+  "updated_at": "2026-10-07T18:05:00+00:00"
 }
