@@ -23,7 +23,38 @@
     "width": 1365,
     "height": 900
   },
-  "environment": {},
+  "environment": {
+    "schema_version": 1,
+    "capture_id": "QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+    "surface_ids": [
+      "QHE.SHELL.WORKFLOW_HEADER",
+      "QHE.HELP.RUNTIME",
+      "QHE.DIAGNOSTICS.ENVIRONMENT",
+      "QHE.STATUS.TASK_OVERVIEW"
+    ],
+    "adapter": "windows-runtime-web",
+    "evidence_level": "runtime-backed",
+    "browser": {
+      "name": "chromium",
+      "version": "153.0.8010.12"
+    },
+    "target_url": "http://127.0.0.1:4174/",
+    "viewport": {
+      "width": 1365,
+      "height": 900,
+      "deviceScaleFactor": 1
+    },
+    "color_scheme": "dark",
+    "locale": "zh-CN",
+    "selector": "body",
+    "fixture": {
+      "state": "windows-native-connected",
+      "bridge": "real localhost Windows Native Bridge",
+      "bridge_port": 9347,
+      "token_source": "workflow ephemeral token"
+    },
+    "page_errors": []
+  },
   "capture_contract": {
     "adapter": "windows-runtime-web",
     "route": "/",
