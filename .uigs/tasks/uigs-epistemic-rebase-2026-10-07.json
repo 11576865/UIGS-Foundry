@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "task_id": "uigs-epistemic-rebase-2026-10-07",
   "goal": "Rebase UIGS onto a prior-art-grounded, reversible, evidence-governed learning architecture.",
   "status": "completed",
@@ -31,7 +31,11 @@
     "Epistemic rebase merged through PR #21 after two consecutive successful Validate Foundry runs.",
     "PR #19 durable-agent execution boundary was incorporated and is also merged.",
     "Legacy catalog migration remains explicit migration debt; no provenance or Claim mappings were fabricated.",
-    "Post-merge automation may continue refreshing derived reports independently of this completed task."
+    "Post-merge automation may continue refreshing derived reports independently of this completed task.",
+    "This record is a completed milestone, not the overall epistemic-rebase project state."
   ],
-  "updated_at": "2026-10-07T03:01:00+08:00"
+  "updated_at": "2026-10-07T03:01:00+08:00",
+  "level": "milestone",
+  "project_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "parent_task_id": "uigs-epistemic-rebase-project-2026-10-07"
 }

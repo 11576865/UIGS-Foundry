@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "task_id": "uigs-validated-claim-migration-wave1-2026-10-07",
   "goal": "Migrate the highest-value validated UIGS infrastructure knowledge into the Claim/Evidence graph without widening semantics or fabricating provenance.",
   "status": "completed",
@@ -18,12 +18,17 @@
   "pull_request": 22,
   "last_durable_commit": "ba12293564d81159f10b0ae8acf438c2b5230d10",
   "external_validation": {
-    "ci": "pending"
+    "ci": "passed",
+    "merge": "passed"
   },
   "blockers": [],
   "notes": [
     "Claims intentionally preserve the scope of validated legacy evidence rather than generalizing beyond it.",
-    "Evidence from the same incident family shares an independence_key and therefore does not inflate support."
+    "Evidence from the same incident family shares an independence_key and therefore does not inflate support.",
+    "Historical work-package state normalized after PR #22 merge."
   ],
-  "updated_at": "2026-10-07T00:00:00+00:00"
+  "updated_at": "2026-10-07T00:00:00+00:00",
+  "level": "work_package",
+  "project_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "parent_task_id": "uigs-all-validated-legacy-claim-migration-2026-10-07"
 }

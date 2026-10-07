@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "task_id": "uigs-experimental-triage-2026-10-07",
+  "goal": "Add project-level completion semantics and a deterministic Experimental epistemic triage/reporting pipeline.",
+  "status": "completed",
+  "level": "work_package",
+  "project_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "parent_task_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "current_work_unit": null,
+  "completed_units": [
+    "task hierarchy schema and validator",
+    "Experimental triage classifier and tests",
+    "knowledge-health report integration",
+    "project-level completion gates"
+  ],
+  "next_units": [
+    "review generated triage and execute promotion/mission/challenge actions"
+  ],
+  "repository": "11576865/UIGS-Foundry",
+  "branch": "feat/project-completion-and-experimental-triage",
+  "pull_request": null,
+  "last_durable_commit": null,
+  "external_validation": {
+    "ci": "pending"
+  },
+  "blockers": [],
+  "notes": [
+    "Work-package completion does not imply parent project completion."
+  ],
+  "updated_at": "2026-10-07T14:23:00+08:00"
+}

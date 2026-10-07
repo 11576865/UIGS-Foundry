@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "task_id": "uigs-all-validated-legacy-claim-migration-2026-10-07",
   "goal": "Complete first-pass Claim/Evidence migration for every currently Validated legacy catalog record without widening semantics or fabricating provenance.",
   "status": "completed",
@@ -26,7 +26,11 @@
     "All currently Validated legacy catalog records now have first-pass Claim/Evidence representation.",
     "PR #23 content passed Validate Foundry before final replay; final replay onto current main had zero overlapping changed files with intervening main updates.",
     "PR #23 merged successfully after replay onto current main.",
-    "No legacy record was promoted beyond Validated and no provenance was fabricated."
+    "No legacy record was promoted beyond Validated and no provenance was fabricated.",
+    "This record is a completed milestone; the parent epistemic-rebase project remains independently gated."
   ],
-  "updated_at": "2026-10-07T14:23:00+08:00"
+  "updated_at": "2026-10-07T14:23:00+08:00",
+  "level": "milestone",
+  "project_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "parent_task_id": "uigs-epistemic-rebase-project-2026-10-07"
 }

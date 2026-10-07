@@ -1,6 +1,6 @@
 {
   "name": "UIGS-Foundry",
-  "version": "3.0",
+  "version": "3.1",
   "domains": [
     {
       "id": "interface-grammar",
@@ -407,7 +407,8 @@
     "schemas/claim-record.schema.json",
     "schemas/evidence-record.schema.json",
     "schemas/knowledge-change.schema.json",
-    "schemas/validation-mission.schema.json"
+    "schemas/validation-mission.schema.json",
+    "schemas/epistemic-triage.schema.json"
   ],
   "knowledge": {
     "claims": "knowledge/claims",
