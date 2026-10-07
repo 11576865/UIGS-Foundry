@@ -1,12 +1,12 @@
 # UIGS Review Queue
 
-Generated: 2026-10-07T11:12:38+00:00
+Generated: 2026-10-07T13:24:44+00:00
 
 ## Summary
 
-- Durable Pending packets: 286
-- Triage records: 286
-- Needs-review packets: 231
+- Durable Pending packets: 288
+- Triage records: 288
+- Needs-review packets: 233
 - Needs-review families after grouping: 9
 - Open promotion proposals: 3
 - Reviewed packets: 1
@@ -18,7 +18,7 @@ Raw Pending count is durable storage. This report narrows review work to unresol
 | Count | Repository | Workflow | Category | Matched rules | Related knowledge |
 | ---: | --- | --- | --- | --- | --- |
 | 81 | 11576865/Quick-Automatic-Hardsub-Encoder | Test frontend | unknown | — | — |
-| 61 | 11576865/ASS-Workbench-Android | Android Emulator Regression | unknown | — | — |
+| 63 | 11576865/ASS-Workbench-Android | Android Emulator Regression | unknown | — | — |
 | 54 | 11576865/Quick-Automatic-Hardsub-Encoder | Windows local smoke | runtime-smoke | runtime-smoke | ARCH.STRUCTURED_NATIVE_BRIDGE, REL.CAPABILITY_PROVEN_BY_OUTPUT |
 | 13 | 11576865/ASS-Workbench-Android | Android CI | unknown | — | — |
 | 12 | 11576865/ASS-Workbench-Android | Fontconfig renderer native probe | runtime-smoke | runtime-smoke | REL.CAPABILITY_PROVEN_BY_OUTPUT, TEST.RENDERED_EFFECT_DIFFERENTIAL |
