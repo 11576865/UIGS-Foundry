@@ -3,7 +3,7 @@
   "id": "CLAIM.ARCH.DECLARED_DISCOVERED_RECONCILIATION",
   "statement": "运行时 Registry/Graph 描述期望系统，Host Inventory 描述实际可见环境；Reconciliation 将两者对账并把缺失依赖、重复私有所有权、未认领运行时和 PATH 多版本等漂移变成结构化 issue。",
   "kind": "heuristic",
-  "maturity": "experimental",
+  "maturity": "validated",
   "authority": "active",
   "epistemic_state": "supported",
   "scope": {
@@ -25,7 +25,7 @@
   "superseded_by": null,
   "support_policy": {
     "minimum_independent_support": 1,
-    "minimum_directness": "static",
+    "minimum_directness": "runtime",
     "quarantine_on_active_contradiction": true,
     "quarantine_on_broken_dependency": true,
     "max_evidence_age_days": null
@@ -34,7 +34,7 @@
     "last_reviewed_at": "2026-10-07T00:00:00+00:00",
     "next_review_due": null,
     "approved_by": "governance",
-    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+    "rationale": "Governed promotion review found implementation plus executable/runtime or production-path validation sufficient for the Claim's explicitly narrow declared scope."
   },
   "created_at": "2026-10-07T00:00:00+00:00",
   "updated_at": "2026-10-07T00:00:00+00:00"

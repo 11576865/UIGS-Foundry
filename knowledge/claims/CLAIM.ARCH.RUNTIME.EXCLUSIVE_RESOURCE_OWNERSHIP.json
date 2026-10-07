@@ -3,7 +3,7 @@
   "id": "CLAIM.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
   "statement": "共享同一 GPU/端口/互斥组的运行时不能只按“谁正在运行”处理；Supervisor 只能自动停止自己拥有的进程，对健康但外部拥有的冲突运行时必须拒绝越权终止并要求显式交接。",
   "kind": "heuristic",
-  "maturity": "experimental",
+  "maturity": "validated",
   "authority": "active",
   "epistemic_state": "supported",
   "scope": {
@@ -25,7 +25,7 @@
   "superseded_by": null,
   "support_policy": {
     "minimum_independent_support": 1,
-    "minimum_directness": "static",
+    "minimum_directness": "runtime",
     "quarantine_on_active_contradiction": true,
     "quarantine_on_broken_dependency": true,
     "max_evidence_age_days": null
@@ -34,7 +34,7 @@
     "last_reviewed_at": "2026-10-07T00:00:00+00:00",
     "next_review_due": null,
     "approved_by": "governance",
-    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+    "rationale": "Governed promotion review found implementation plus executable/runtime or production-path validation sufficient for the Claim's explicitly narrow declared scope."
   },
   "created_at": "2026-10-07T00:00:00+00:00",
   "updated_at": "2026-10-07T00:00:00+00:00"

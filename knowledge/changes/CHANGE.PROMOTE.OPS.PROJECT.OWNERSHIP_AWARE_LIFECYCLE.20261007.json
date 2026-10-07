@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.PROMOTE.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.20261007",
+  "target_claim": "CLAIM.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
+  "operation": "promote",
+  "from": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Governed review approved promotion from Experimental to Validated within the Claim's current narrow scope; evidence includes implementation plus executable/runtime or production-path validation.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.01",
+    "EVID.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.02",
+    "EVID.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.03",
+    "EVID.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.04"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}
