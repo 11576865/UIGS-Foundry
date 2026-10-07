@@ -1,8 +1,8 @@
 # UIGS Validation Missions
 
-Generated: 2026-10-07T06:58:21+00:00
+Generated: 2026-10-07T07:16:19+00:00
 
-Proposed missions: 37
+Proposed missions: 42
 
 These are evidence-acquisition proposals, not automatically executed work.
 
@@ -110,12 +110,28 @@ These are evidence-acquisition proposals, not automatically executed work.
 - Objective: Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).
 - Independence: New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.
 
+## MISSION.CLAIM.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.INSUFFICIENT_INDEPENDENT_SUPPORT
+
+- Claim: `CLAIM.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE`
+- Priority: **medium**
+- Trigger: `insufficient_independent_support`
+- Objective: Acquire independent support sufficient to meet the Claim policy (0/1 independent support groups currently active).
+- Independence: New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.
+
 ## MISSION.CLAIM.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER.INSUFFICIENT_INDEPENDENT_SUPPORT
 
 - Claim: `CLAIM.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER`
 - Priority: **medium**
 - Trigger: `insufficient_independent_support`
 - Objective: Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).
+- Independence: New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.
+
+## MISSION.CLAIM.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.INSUFFICIENT_INDEPENDENT_SUPPORT
+
+- Claim: `CLAIM.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY`
+- Priority: **medium**
+- Trigger: `insufficient_independent_support`
+- Objective: Acquire independent support sufficient to meet the Claim policy (0/2 independent support groups currently active).
 - Independence: New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.
 
 ## MISSION.CLAIM.REL.ACTIONABLE_ERROR_TAXONOMY.INSUFFICIENT_INDEPENDENT_SUPPORT
@@ -270,9 +286,33 @@ These are evidence-acquisition proposals, not automatically executed work.
 - Objective: Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).
 - Independence: New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.
 
+## MISSION.CLAIM.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.INSUFFICIENT_INDEPENDENT_SUPPORT
+
+- Claim: `CLAIM.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT`
+- Priority: **medium**
+- Trigger: `insufficient_independent_support`
+- Objective: Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).
+- Independence: New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.
+
+## MISSION.CLAIM.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.INSUFFICIENT_INDEPENDENT_SUPPORT
+
+- Claim: `CLAIM.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE`
+- Priority: **medium**
+- Trigger: `insufficient_independent_support`
+- Objective: Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).
+- Independence: New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.
+
 ## MISSION.CLAIM.UIGS.INTERACTION.DISCOVERY_OVERLAY.INSUFFICIENT_INDEPENDENT_SUPPORT
 
 - Claim: `CLAIM.UIGS.INTERACTION.DISCOVERY_OVERLAY`
+- Priority: **medium**
+- Trigger: `insufficient_independent_support`
+- Objective: Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).
+- Independence: New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.
+
+## MISSION.CLAIM.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.INSUFFICIENT_INDEPENDENT_SUPPORT
+
+- Claim: `CLAIM.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING`
 - Priority: **medium**
 - Trigger: `insufficient_independent_support`
 - Objective: Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).

@@ -1,6 +1,6 @@
 # UIGS Knowledge Health
 
-Generated: 2026-10-07T06:58:21+00:00
+Generated: 2026-10-07T07:16:19+00:00
 
 ## Intake and knowledge inventory
 
@@ -42,8 +42,8 @@ Prevention coverage tracks executable controls separately from prose knowledge. 
 ## Catalog maturity
 
 - candidate: 4
-- experimental: 51
-- validated: 16
+- experimental: 44
+- validated: 23
 
 ## Interpretation boundary
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-07T06:58:21+00:00",
+  "generated_at": "2026-10-07T07:16:19+00:00",
   "inbox": {
     "bugs": 25,
     "candidates": 140,
@@ -38,8 +38,8 @@
     "total": 71,
     "status_counts": {
       "candidate": 4,
-      "experimental": 51,
-      "validated": 16
+      "experimental": 44,
+      "validated": 23
     }
   },
   "prevention": {

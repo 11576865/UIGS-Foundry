@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-07T06:58:21+00:00",
+  "generated_at": "2026-10-07T07:16:19+00:00",
   "summary": {
     "claims": 67,
     "evidence": 131,
-    "changes": 66,
+    "changes": 73,
     "validation_errors": 0,
     "review_required": 0,
     "effectively_quarantined": 0
@@ -14,13 +14,13 @@
     {
       "id": "CLAIM.ARCH.DECLARED_DISCOVERED_RECONCILIATION",
       "statement": "运行时 Registry/Graph 描述期望系统，Host Inventory 描述实际可见环境；Reconciliation 将两者对账并把缺失依赖、重复私有所有权、未认领运行时和 PATH 多版本等漂移变成结构化 issue。",
-      "maturity": "experimental",
+      "maturity": "validated",
       "declared_authority": "active",
       "effective_authority": "active",
       "stored_epistemic_state": "supported",
       "effective_epistemic_state": "supported",
       "required_independent_support": 1,
-      "minimum_directness": "static",
+      "minimum_directness": "runtime",
       "support_groups": [
         "LEGACY.EXPERIMENTAL.ARCH.DECLARED_DISCOVERED_RECONCILIATION.11576865_Character-Voice-Service"
       ],
@@ -64,13 +64,13 @@
     {
       "id": "CLAIM.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
       "statement": "共享同一 GPU/端口/互斥组的运行时不能只按“谁正在运行”处理；Supervisor 只能自动停止自己拥有的进程，对健康但外部拥有的冲突运行时必须拒绝越权终止并要求显式交接。",
-      "maturity": "experimental",
+      "maturity": "validated",
       "declared_authority": "active",
       "effective_authority": "active",
       "stored_epistemic_state": "supported",
       "effective_epistemic_state": "supported",
       "required_independent_support": 1,
-      "minimum_directness": "static",
+      "minimum_directness": "runtime",
       "support_groups": [
         "LEGACY.EXPERIMENTAL.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP.11576865_Character-Voice-Service"
       ],
@@ -392,13 +392,13 @@
     {
       "id": "CLAIM.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
       "statement": "项目目录是否由应用完整管理决定了克隆/删除能做什么。自动管理根可整体删除；手工工程根只能删除明确拥有的状态/输出/marker，必须保留未知或用户文件。克隆复制可复用生成输入，但不复制旧输出和运行状态。",
-      "maturity": "experimental",
+      "maturity": "validated",
       "declared_authority": "active",
       "effective_authority": "active",
       "stored_epistemic_state": "supported",
       "effective_epistemic_state": "supported",
       "required_independent_support": 1,
-      "minimum_directness": "static",
+      "minimum_directness": "runtime",
       "support_groups": [
         "LEGACY.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.11576865_HSR-Voice-Archive-Builder"
       ],
@@ -524,25 +524,23 @@
       "maturity": "experimental",
       "declared_authority": "active",
       "effective_authority": "active",
-      "stored_epistemic_state": "supported",
-      "effective_epistemic_state": "supported",
-      "required_independent_support": 3,
-      "minimum_directness": "static",
-      "support_groups": [
-        "LEGACY.EXPERIMENTAL.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.11576865_ASS-Workbench-Android",
-        "LEGACY.EXPERIMENTAL.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.11576865_HSR-Voice-Archive-Builder",
-        "LEGACY.EXPERIMENTAL.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.11576865_MKV-Fast-Muxer"
-      ],
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 1,
+      "minimum_directness": "real_sample",
+      "support_groups": [],
       "contradiction_groups": [],
-      "active_support_count": 3,
-      "weak_support_count": 0,
+      "active_support_count": 0,
+      "weak_support_count": 3,
       "active_contradiction_count": 0,
       "qualifying_contradiction_count": 0,
       "weak_or_contextual_contradiction_count": 0,
       "stale_relation_count": 0,
       "broken_dependencies": [],
       "review_required": false,
-      "reasons": []
+      "reasons": [
+        "qualifying independent support below policy minimum (0/1)"
+      ]
     },
     {
       "id": "CLAIM.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER",
@@ -576,27 +574,23 @@
       "maturity": "experimental",
       "declared_authority": "active",
       "effective_authority": "active",
-      "stored_epistemic_state": "supported",
-      "effective_epistemic_state": "supported",
-      "required_independent_support": 5,
-      "minimum_directness": "static",
-      "support_groups": [
-        "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_ASS-Workbench-Android",
-        "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_Character-Voice-Service",
-        "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_HSR-Voice-Archive-Builder",
-        "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_MKV-Fast-Muxer",
-        "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_Quick-Automatic-Hardsub-Encoder"
-      ],
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "runtime",
+      "support_groups": [],
       "contradiction_groups": [],
-      "active_support_count": 5,
-      "weak_support_count": 0,
+      "active_support_count": 0,
+      "weak_support_count": 5,
       "active_contradiction_count": 0,
       "qualifying_contradiction_count": 0,
       "weak_or_contextual_contradiction_count": 0,
       "stale_relation_count": 0,
       "broken_dependencies": [],
       "review_required": false,
-      "reasons": []
+      "reasons": [
+        "qualifying independent support below policy minimum (0/2)"
+      ]
     },
     {
       "id": "CLAIM.REL.ACTIONABLE_ERROR_TAXONOMY",
@@ -654,13 +648,13 @@
     {
       "id": "CLAIM.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY",
       "statement": "昂贵工作检查点只有在 provider/base URL/model/源语言/目标语言等执行路线一致，且单条输入指纹仍匹配时才能安全复用；路线变化或输入变化应失效而不是猜测兼容。",
-      "maturity": "experimental",
+      "maturity": "validated",
       "declared_authority": "active",
       "effective_authority": "active",
       "stored_epistemic_state": "supported",
       "effective_epistemic_state": "supported",
       "required_independent_support": 1,
-      "minimum_directness": "static",
+      "minimum_directness": "runtime",
       "support_groups": [
         "LEGACY.EXPERIMENTAL.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY.11576865_HSR-Voice-Archive-Builder"
       ],
@@ -678,13 +672,13 @@
     {
       "id": "CLAIM.REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
       "statement": "存在 paths/path-filter 的仓库中，某工作流最新一次成功运行可能针对旧 commit。跨项目报告必须显示 run head SHA 是否等于当前主分支 HEAD，不能把‘latest success’静默表述成‘当前代码已验证’。",
-      "maturity": "experimental",
+      "maturity": "validated",
       "declared_authority": "active",
       "effective_authority": "active",
       "stored_epistemic_state": "supported",
       "effective_epistemic_state": "supported",
       "required_independent_support": 3,
-      "minimum_directness": "static",
+      "minimum_directness": "runtime",
       "support_groups": [
         "LEGACY.EXPERIMENTAL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.11576865_MKV-Fast-Muxer",
         "LEGACY.EXPERIMENTAL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.11576865_Quick-Automatic-Hardsub-Encoder",
@@ -1149,13 +1143,13 @@
     {
       "id": "CLAIM.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
       "statement": "对真实 Android APP 的可重复视觉证据，使用 source-owned deterministic fixture 驱动真实生产 Compose 树，在 emulator 中显式安装 app/test APK、运行 instrumentation、由 UiAutomation 捕获最终 display/compositor，再进行 PNG/方向/hash/provenance 校验并注册到 Surface ID。",
-      "maturity": "experimental",
+      "maturity": "validated",
       "declared_authority": "active",
       "effective_authority": "active",
       "stored_epistemic_state": "supported",
       "effective_epistemic_state": "supported",
       "required_independent_support": 2,
-      "minimum_directness": "static",
+      "minimum_directness": "runtime",
       "support_groups": [
         "LEGACY.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.11576865_ASS-Workbench-Android",
         "LEGACY.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.11576865_UIGS-Foundry"
@@ -1297,10 +1291,10 @@
       "maturity": "experimental",
       "declared_authority": "active",
       "effective_authority": "active",
-      "stored_epistemic_state": "supported",
-      "effective_epistemic_state": "supported",
-      "required_independent_support": 1,
-      "minimum_directness": "static",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "runtime",
       "support_groups": [
         "LEGACY.EXPERIMENTAL.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.11576865_HSR-Voice-Archive-Builder"
       ],
@@ -1313,7 +1307,9 @@
       "stale_relation_count": 0,
       "broken_dependencies": [],
       "review_required": false,
-      "reasons": []
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
     },
     {
       "id": "CLAIM.UIGS.DERIVED_STATE.GENERATOR_OWNS_EMPTY_SHAPE",
@@ -1445,24 +1441,25 @@
       "maturity": "experimental",
       "declared_authority": "active",
       "effective_authority": "active",
-      "stored_epistemic_state": "supported",
-      "effective_epistemic_state": "supported",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
       "required_independent_support": 2,
-      "minimum_directness": "static",
+      "minimum_directness": "runtime",
       "support_groups": [
-        "LEGACY.EXPERIMENTAL.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.11576865_ASS-Workbench-Android",
         "LEGACY.EXPERIMENTAL.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.11576865_HSR-Voice-Archive-Builder"
       ],
       "contradiction_groups": [],
-      "active_support_count": 3,
-      "weak_support_count": 0,
+      "active_support_count": 2,
+      "weak_support_count": 1,
       "active_contradiction_count": 0,
       "qualifying_contradiction_count": 0,
       "weak_or_contextual_contradiction_count": 0,
       "stale_relation_count": 0,
       "broken_dependencies": [],
       "review_required": false,
-      "reasons": []
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
     },
     {
       "id": "CLAIM.UIGS.INTERACTION.DISCOVERY_OVERLAY",
@@ -1493,13 +1490,13 @@
     {
       "id": "CLAIM.UIGS.NAVIGATION.CAPABILITY_CATALOG",
       "statement": "使用一份机器可读工具元数据作为固定布局、自由 Canvas、搜索和导航的共同目录；目录是检索入口，不复制业务能力。",
-      "maturity": "experimental",
+      "maturity": "validated",
       "declared_authority": "active",
       "effective_authority": "active",
       "stored_epistemic_state": "supported",
       "effective_epistemic_state": "supported",
       "required_independent_support": 1,
-      "minimum_directness": "static",
+      "minimum_directness": "runtime",
       "support_groups": [
         "LEGACY.EXPERIMENTAL.UIGS.NAVIGATION.CAPABILITY_CATALOG.11576865_ASS-Workbench-Android"
       ],
@@ -1616,23 +1613,25 @@
       "maturity": "experimental",
       "declared_authority": "active",
       "effective_authority": "active",
-      "stored_epistemic_state": "supported",
-      "effective_epistemic_state": "supported",
-      "required_independent_support": 1,
-      "minimum_directness": "static",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "runtime",
       "support_groups": [
         "LEGACY.EXPERIMENTAL.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.11576865_ASS-Workbench-Android"
       ],
       "contradiction_groups": [],
-      "active_support_count": 2,
-      "weak_support_count": 0,
+      "active_support_count": 1,
+      "weak_support_count": 1,
       "active_contradiction_count": 0,
       "qualifying_contradiction_count": 0,
       "weak_or_contextual_contradiction_count": 0,
       "stale_relation_count": 0,
       "broken_dependencies": [],
       "review_required": false,
-      "reasons": []
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
     },
     {
       "id": "CLAIM.UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
