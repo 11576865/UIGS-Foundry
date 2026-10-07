@@ -33,5 +33,8 @@
       "revision": "def359517071d620f41de1320656b7e48aa28b98",
       "evidence_level": "implemented release hardening matrix"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.TEST.DESTRUCTIVE_COMBINATION_MATRIX"
   ]
 }

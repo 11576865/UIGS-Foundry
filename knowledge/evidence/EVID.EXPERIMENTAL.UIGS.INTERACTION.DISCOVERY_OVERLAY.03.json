@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.UIGS.INTERACTION.DISCOVERY_OVERLAY.03",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/ASS-Workbench-Android:app/src/main/kotlin/io/github/assworkbench/app/ui/VideoPreview.kt",
+    "revision": "d98b018efff87186fdddbda8a745456c7bfdab28",
+    "environment_fingerprint": "UIGS.INTERACTION.DISCOVERY_OVERLAY"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.UIGS.INTERACTION.DISCOVERY_OVERLAY.11576865_ASS-Workbench-Android",
+  "provenance": {
+    "entity_id": "legacy-experimental:UIGS.INTERACTION.DISCOVERY_OVERLAY:3",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.INTERACTION.DISCOVERY_OVERLAY",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "production implementation"
+    }
+  ]
+}

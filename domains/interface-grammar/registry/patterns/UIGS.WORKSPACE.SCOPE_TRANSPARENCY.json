@@ -64,5 +64,8 @@
   ],
   "showcases": [
     "domains/interface-grammar/showcases/manifests/SHOWCASE.SCOPED_EDITING.WEB_REFERENCE.json"
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.WORKSPACE.SCOPE_TRANSPARENCY"
   ]
 }

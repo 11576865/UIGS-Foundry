@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.02",
+  "status": "active",
+  "source": {
+    "type": "manual_decision",
+    "locator": "UIGS-Foundry design discussion 2026-10-02",
+    "revision": null,
+    "environment_fingerprint": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.11576865_MKV-Fast-Muxer",
+  "provenance": {
+    "entity_id": "legacy-experimental:UIGS.WORKSPACE.STICKY_SUPPORTING_PANE:2",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "manual_decision"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "inferred",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "Kept experimental; one visual case is insufficient for Canonical promotion."
+    }
+  ]
+}

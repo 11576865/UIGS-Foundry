@@ -25,5 +25,8 @@
       "evidence_level": "workflow smoke coverage",
       "note": "Windows local smoke exercises verified-output rejection paths."
     }
+  ],
+  "claim_refs": [
+    "CLAIM.REL.VERIFY_THEN_PUBLISH"
   ]
 }

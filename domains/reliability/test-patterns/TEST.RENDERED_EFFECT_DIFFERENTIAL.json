@@ -23,5 +23,8 @@
       "note": "libass/fontconfig silent-failure defense."
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.TEST.RENDERED_EFFECT_DIFFERENTIAL"
+  ]
 }

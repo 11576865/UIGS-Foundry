@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.REL.UPDATE.CONFLICT_PRESERVING_PLAN",
+  "statement": "远程/外部更新不应把“新增、已有、已有但变化、变量、冲突”压成一个下载列表。先形成可审计计划；有冲突或已有对象变化时保留双方证据并转人工审查，自动动作只处理可靠识别的增量。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "challenged",
+  "scope": {
+    "repositories": [
+      "11576865/HSR-Voice-Archive-Builder"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record REL.UPDATE.CONFLICT_PRESERVING_PLAN; support threshold intentionally exceeds current independent evidence by one group."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.UPDATE.CONFLICT_PRESERVING_PLAN.01",
+    "EVID.EXPERIMENTAL.REL.UPDATE.CONFLICT_PRESERVING_PLAN.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Evidence-insufficient Experimental record modeled without promotion; additional independent evidence is required by policy."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

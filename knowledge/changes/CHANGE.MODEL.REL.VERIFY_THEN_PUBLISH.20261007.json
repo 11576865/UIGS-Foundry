@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.REL.VERIFY_THEN_PUBLISH.20261007",
+  "target_claim": "CLAIM.REL.VERIFY_THEN_PUBLISH",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record REL.VERIFY_THEN_PUBLISH; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.VERIFY_THEN_PUBLISH.01",
+    "EVID.EXPERIMENTAL.REL.VERIFY_THEN_PUBLISH.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.REL.UPDATE.CONFLICT_PRESERVING_PLAN.01",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/HSR-Voice-Archive-Builder:app/remote_index.py",
+    "revision": "a3bbe1503b755a8d1114276fa84b4b07e5352866",
+    "environment_fingerprint": "REL.UPDATE.CONFLICT_PRESERVING_PLAN"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.REL.UPDATE.CONFLICT_PRESERVING_PLAN.11576865_HSR-Voice-Archive-Builder",
+  "provenance": {
+    "entity_id": "legacy-experimental:REL.UPDATE.CONFLICT_PRESERVING_PLAN:1",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.REL.UPDATE.CONFLICT_PRESERVING_PLAN",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "production classification implementation"
+    }
+  ]
+}

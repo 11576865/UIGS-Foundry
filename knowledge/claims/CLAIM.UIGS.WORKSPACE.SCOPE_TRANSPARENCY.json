@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+  "statement": "在专业编辑器中，让用户在执行修改前能看见当前写入对象、写入层级以及可能影响的对象数量，而不把这层解释 UI 变成新的状态所有者。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "challenged",
+  "scope": {
+    "repositories": [
+      "11576865/ASS-Workbench-Android"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record UIGS.WORKSPACE.SCOPE_TRANSPARENCY; support threshold intentionally exceeds current independent evidence by one group."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.WORKSPACE.SCOPE_TRANSPARENCY.01",
+    "EVID.EXPERIMENTAL.UIGS.WORKSPACE.SCOPE_TRANSPARENCY.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Evidence-insufficient Experimental record modeled without promotion; additional independent evidence is required by policy."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

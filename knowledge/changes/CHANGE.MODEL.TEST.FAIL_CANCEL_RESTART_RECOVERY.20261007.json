@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.TEST.FAIL_CANCEL_RESTART_RECOVERY.20261007",
+  "target_claim": "CLAIM.TEST.FAIL_CANCEL_RESTART_RECOVERY",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record TEST.FAIL_CANCEL_RESTART_RECOVERY; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.TEST.FAIL_CANCEL_RESTART_RECOVERY.01"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

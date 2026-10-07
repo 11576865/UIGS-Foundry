@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.20261007",
+  "target_claim": "CLAIM.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record UIGS.WORKSPACE.STICKY_SUPPORTING_PANE; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.01",
+    "EVID.EXPERIMENTAL.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

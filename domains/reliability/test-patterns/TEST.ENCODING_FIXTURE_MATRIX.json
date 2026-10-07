@@ -22,5 +22,8 @@
       "revision": "a9c9c63da376905a0c95b071e0b1346c9cfecfd6",
       "evidence_level": "browser E2E"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.TEST.ENCODING_FIXTURE_MATRIX"
   ]
 }

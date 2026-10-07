@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.TEST.CONTAINER_SEMANTIC_AUDIT.01",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/MKV-Fast-Muxer:tests/e2e/browser-mux.e2e.mjs",
+    "revision": "958ebdebb7e549f98bfc768d10c5949eef5972ed",
+    "environment_fingerprint": "TEST.CONTAINER_SEMANTIC_AUDIT"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.TEST.CONTAINER_SEMANTIC_AUDIT.11576865_MKV-Fast-Muxer",
+  "provenance": {
+    "entity_id": "legacy-experimental:TEST.CONTAINER_SEMANTIC_AUDIT:1",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.TEST.CONTAINER_SEMANTIC_AUDIT",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "browser E2E"
+    }
+  ]
+}

@@ -24,5 +24,8 @@
       "note": "Scenarios 7, 9, 10, 11."
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.TEST.FAIL_CANCEL_RESTART_RECOVERY"
+  ]
 }

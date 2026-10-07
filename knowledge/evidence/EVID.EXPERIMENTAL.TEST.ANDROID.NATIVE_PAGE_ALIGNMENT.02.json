@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT.02",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/Quick-Automatic-Hardsub-Encoder:docs/failure-prevention-checklist.md",
+    "revision": "51a8c536658b263325d60a0fea68b99037d0cf0a",
+    "environment_fingerprint": "TEST.ANDROID.NATIVE_PAGE_ALIGNMENT"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT.11576865_Quick-Automatic-Hardsub-Encoder",
+  "provenance": {
+    "entity_id": "legacy-experimental:TEST.ANDROID.NATIVE_PAGE_ALIGNMENT:2",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "static",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "documented policy"
+    }
+  ]
+}

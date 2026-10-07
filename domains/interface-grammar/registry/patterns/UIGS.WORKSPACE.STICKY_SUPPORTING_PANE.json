@@ -72,5 +72,8 @@
   ],
   "showcases": [
     "domains/interface-grammar/showcases/manifests/SHOWCASE.STICKY_SUPPORTING_PANE.WEB_REFERENCE.json"
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
   ]
 }

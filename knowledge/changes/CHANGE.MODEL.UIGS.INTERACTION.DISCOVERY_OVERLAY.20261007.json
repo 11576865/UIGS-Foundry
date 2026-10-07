@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.UIGS.INTERACTION.DISCOVERY_OVERLAY.20261007",
+  "target_claim": "CLAIM.UIGS.INTERACTION.DISCOVERY_OVERLAY",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record UIGS.INTERACTION.DISCOVERY_OVERLAY; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.INTERACTION.DISCOVERY_OVERLAY.01",
+    "EVID.EXPERIMENTAL.UIGS.INTERACTION.DISCOVERY_OVERLAY.02",
+    "EVID.EXPERIMENTAL.UIGS.INTERACTION.DISCOVERY_OVERLAY.03"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

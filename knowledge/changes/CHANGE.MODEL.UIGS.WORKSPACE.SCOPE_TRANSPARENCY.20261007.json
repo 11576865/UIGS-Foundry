@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.UIGS.WORKSPACE.SCOPE_TRANSPARENCY.20261007",
+  "target_claim": "CLAIM.UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record UIGS.WORKSPACE.SCOPE_TRANSPARENCY; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.WORKSPACE.SCOPE_TRANSPARENCY.01",
+    "EVID.EXPERIMENTAL.UIGS.WORKSPACE.SCOPE_TRANSPARENCY.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}
