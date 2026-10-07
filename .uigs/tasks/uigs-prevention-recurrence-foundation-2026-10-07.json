@@ -1,0 +1,34 @@
+{
+  "schema_version": 2,
+  "task_id": "uigs-prevention-recurrence-foundation-2026-10-07",
+  "goal": "Implement generation-aware prevention recurrence epistemics as one bounded work package.",
+  "status": "completed",
+  "level": "work_package",
+  "project_id": "uigs-prevention-recurrence-epistemics-2026-10-07",
+  "parent_task_id": "uigs-prevention-recurrence-epistemics-2026-10-07",
+  "current_work_unit": null,
+  "completed_units": [
+    "registry v2 model",
+    "generation-specific prevention effectiveness Claims",
+    "historical tri-state recurrence attribution",
+    "recurrence recorder",
+    "provenance-gap mission generation",
+    "tests and CI integration"
+  ],
+  "next_units": [
+    "external validation and merge"
+  ],
+  "repository": "11576865/UIGS-Foundry",
+  "branch": "feat/prevention-recurrence-epistemics",
+  "pull_request": 27,
+  "last_durable_commit": "17c19522ec0daa23c776cd2c55e3a88ea0f2a87d",
+  "external_validation": {
+    "ci": "pending"
+  },
+  "blockers": [],
+  "notes": [
+    "The structural-semantic recurrence count remains legacy_unattributed because no source event could be recovered from repository history.",
+    "Legacy unattributed counts do not automatically contradict Claims."
+  ],
+  "updated_at": "2026-10-07T07:40:00+00:00"
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.SUPERSEDE.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1.G2.20261007",
+  "target_claim": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1",
+  "operation": "supersede",
+  "from": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "mixed"
+  },
+  "to": {
+    "maturity": "experimental",
+    "authority": "superseded",
+    "epistemic_state": "mixed"
+  },
+  "reason": "A documented recurrence exposed a generation-1 coverage gap; PR #100 introduced a stronger generation-2 enforcement set.",
+  "evidence_refs": [
+    "EVID.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1.RECURRENCE.PR99"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2"
+}

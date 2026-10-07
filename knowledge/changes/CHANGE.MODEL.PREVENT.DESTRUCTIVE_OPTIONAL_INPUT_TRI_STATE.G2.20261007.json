@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2.20261007",
+  "target_claim": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Model generation-specific prevention effectiveness separately from the reusable prevention rule.",
+  "evidence_refs": [
+    "EVID.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2.ENFORCEMENT.PR100"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

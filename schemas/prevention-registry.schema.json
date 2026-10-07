@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/prevention-registry.schema.json",
+  "title": "UIGS Prevention Registry",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "knowledge_refs",
+          "effectiveness_claim_ref",
+          "enforcement_generation",
+          "enforcement",
+          "recurrence_events",
+          "legacy_unattributed_recurrence_count",
+          "recurrence_count"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^PREVENT\\.[A-Za-z0-9._-]+$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "knowledge_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "effectiveness_claim_ref": {
+            "type": "string",
+            "pattern": "^CLAIM\\.PREVENT\\.[A-Za-z0-9._-]+\\.G[1-9][0-9]*$"
+          },
+          "enforcement_generation": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "enforcement": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "project",
+                "kind",
+                "status",
+                "path",
+                "generation"
+              ],
+              "properties": {
+                "project": {
+                  "type": "string",
+                  "pattern": "^[^/]+/[^/]+$"
+                },
+                "kind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "status": {
+                  "enum": [
+                    "submitted",
+                    "enforced-main",
+                    "deprecated"
+                  ]
+                },
+                "pull_request": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1
+                },
+                "path": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "generation": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "recurrence_events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "generation",
+                "observed_at",
+                "source_ref",
+                "evidence_ref",
+                "status"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^RECURRENCE\\.[A-Za-z0-9._-]+$"
+                },
+                "generation": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "observed_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "source_ref": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidence_ref": {
+                  "type": "string",
+                  "pattern": "^EVID\\.PREVENT\\.[A-Za-z0-9._-]+$"
+                },
+                "status": {
+                  "enum": [
+                    "active",
+                    "addressed"
+                  ]
+                },
+                "project": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^[^/]+/[^/]+$"
+                },
+                "pull_request": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1
+                },
+                "resolved_by_generation": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1
+                },
+                "notes": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "legacy_unattributed_recurrence_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "recurrence_count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

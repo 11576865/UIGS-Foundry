@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP.G1",
+  "statement": "Prevention generation 1 for structural semantic-cleanup ownership has executable parser and regression controls covering the documented nested ASS semantics within the listed scope.",
+  "kind": "capability",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/ASS-Workbench-Android"
+    ],
+    "platforms": [
+      "android"
+    ],
+    "versions": [],
+    "environments": [],
+    "notes": "Generation-specific prevention effectiveness Claim; scope is limited to the listed ASS Workbench Android controls."
+  },
+  "assumptions": [
+    {
+      "id": "CLAIM.PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP.G1.ASSUMPTION.GENERATION",
+      "statement": "The prevention registry generation encoded by CLAIM.PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP.G1 is the applicable enforcement set.",
+      "status": "active"
+    }
+  ],
+  "evidence_refs": [
+    "EVID.PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP.G1.ENFORCEMENT.PR99"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "runtime",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Current controls are supported by PR #99 implementation/tests. One historical recurrence count lacks event provenance and is therefore not treated as contradiction Evidence."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

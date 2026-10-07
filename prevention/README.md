@@ -1,24 +1,17 @@
 # Prevention Registry
 
-`registry.json` links reusable UIGS knowledge to **executable prevention controls** in source projects.
+`registry.json` links reusable UIGS knowledge to executable prevention controls and generation-specific prevention-effectiveness Claims.
 
-A knowledge document and an enforcement control are intentionally separate:
+`Captured knowledge != Executable prevention != Proven prevention effectiveness`
 
-`Captured knowledge != Executable prevention`
+## Registry v2
 
-Each entry records:
+Each entry records `effectiveness_claim_ref`, `enforcement_generation`, generation-tagged controls, attributed `recurrence_events[]`, `legacy_unattributed_recurrence_count`, and total `recurrence_count`.
 
-- `id`: stable prevention identity;
-- `knowledge_refs`: Bug/Candidate/Observation evidence that motivated the rule;
-- `enforcement`: concrete source-project controls;
-- `recurrence_count`: known recurrences after related knowledge already existed.
+A recurrence challenges the effectiveness Claim for the generation active when it occurred. Strengthening prevention creates a new generation and a new Claim; old recurrence evidence is preserved against the old Claim.
 
-Enforcement statuses:
+Future recurrences should be recorded through `tools/record_prevention_recurrence.py`, which atomically appends the recurrence event, creates contradicting Evidence, and attaches it to the current generation Claim.
 
-- `submitted` — a concrete control exists on a submitted branch/PR but is not claimed as current-main authority;
-- `enforced-main` — the source project's current main contains the control;
-- `deprecated` — retained for provenance but no longer an active guard.
+A historical numeric recurrence count without event provenance is not counter-evidence. It remains `legacy_unattributed_recurrence_count` and generates a provenance-gap Validation Mission.
 
-Kinds may include regression tests, typed APIs, schemas, linters, parser boundaries, preflight checks, CI assertions, or production-structure constraints.
-
-The registry does not promote the linked knowledge to Canonical. Its purpose is to measure whether reusable knowledge has crossed the gap from prose memory to executable prevention.
+Enforcement statuses remain `submitted`, `enforced-main`, and `deprecated`.

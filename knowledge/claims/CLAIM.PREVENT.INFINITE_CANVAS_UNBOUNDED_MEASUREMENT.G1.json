@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1",
+  "statement": "Prevention generation 1 for infinite-canvas unbounded measurement has a submitted Android regression control, but current evidence does not yet establish enforced-main/runtime coverage.",
+  "kind": "capability",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "challenged",
+  "scope": {
+    "repositories": [
+      "11576865/ASS-Workbench-Android"
+    ],
+    "platforms": [
+      "android"
+    ],
+    "versions": [],
+    "environments": [],
+    "notes": "Generation-specific prevention effectiveness Claim; scope is limited to the listed ASS Workbench Android controls."
+  },
+  "assumptions": [
+    {
+      "id": "CLAIM.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1.ASSUMPTION.GENERATION",
+      "statement": "The prevention registry generation encoded by CLAIM.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1 is the applicable enforcement set.",
+      "status": "active"
+    }
+  ],
+  "evidence_refs": [
+    "EVID.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1.SUBMITTED.PR88"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "runtime",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "PR #88 is recorded as submitted/validation-pending; static submitted-control evidence cannot yet satisfy the runtime support threshold."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

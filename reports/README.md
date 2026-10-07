@@ -85,3 +85,8 @@ This matters because CI-only generation is transient. Active Learning is conside
 ## Promotion review
 
 Curated promotion-review reports record explicit governance decisions for Claims that satisfy triage support policy but still require a human/governance maturity decision. Passing the support policy is necessary evidence, not automatic promotion.
+
+
+## Prevention epistemics
+
+Prevention effectiveness is modeled separately from the reusable rule. Each registry entry points to a generation-specific effectiveness Claim. Attributed recurrence events become counter-evidence against the generation active at recurrence time. Historical recurrence counters without source provenance create `recurrence_provenance_gap` Validation Missions instead of synthetic contradiction Evidence.

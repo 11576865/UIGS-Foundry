@@ -40,6 +40,8 @@ jobs:
           python tools/validate_task_states.py
       - name: Unit-test epistemic graph
         run: python tools/test_epistemic_graph.py
+      - name: Unit-test prevention recurrence epistemics
+        run: python tools/test_prevention_recurrence.py
       - name: Unit-test Experimental epistemic triage
         run: |
           python tools/test_experimental_epistemic_triage.py

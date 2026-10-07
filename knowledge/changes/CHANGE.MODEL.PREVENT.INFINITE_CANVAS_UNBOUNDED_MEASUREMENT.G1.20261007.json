@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1.20261007",
+  "target_claim": "CLAIM.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Model generation-specific prevention effectiveness separately from the reusable prevention rule.",
+  "evidence_refs": [
+    "EVID.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1.SUBMITTED.PR88"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

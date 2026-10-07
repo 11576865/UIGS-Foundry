@@ -29,6 +29,9 @@ on:
       - 'tools/test_experimental_epistemic_triage.py'
       - 'tools/validate_task_states.py'
       - 'tools/test_task_state_hierarchy.py'
+      - 'schemas/prevention-registry.schema.json'
+      - 'tools/record_prevention_recurrence.py'
+      - 'tools/test_prevention_recurrence.py'
       - 'governance/BUG-LIFECYCLE.md'
       - 'tools/generate_knowledge_health_report.py'
       - 'tools/test_knowledge_health_report.py'
@@ -67,6 +70,7 @@ jobs:
           python tools/generate_experimental_epistemic_triage.py
           python tools/test_task_state_hierarchy.py
           python tools/validate_task_states.py
+          python tools/test_prevention_recurrence.py
 
       - name: Validate Foundry
         run: python tools/validate_foundry.py

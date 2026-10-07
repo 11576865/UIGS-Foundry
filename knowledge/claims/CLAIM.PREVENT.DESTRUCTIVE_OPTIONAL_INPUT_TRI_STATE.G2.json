@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2",
+  "statement": "Prevention generation 2 for destructive optional-input tri-state handling enforces validation-gated construction and regression coverage for the documented Search/Replace recurrence within the listed ASS Workbench Android scope.",
+  "kind": "capability",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/ASS-Workbench-Android"
+    ],
+    "platforms": [
+      "android"
+    ],
+    "versions": [],
+    "environments": [],
+    "notes": "Current generation 2 effectiveness Claim after PR #100 strengthened the original prevention controls."
+  },
+  "assumptions": [
+    {
+      "id": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2.ASSUMPTION.GENERATION",
+      "statement": "The prevention registry generation encoded by CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2 is the applicable enforcement set.",
+      "status": "active"
+    }
+  ],
+  "evidence_refs": [
+    "EVID.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2.ENFORCEMENT.PR100"
+  ],
+  "depends_on": [],
+  "supersedes": [
+    "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1"
+  ],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "runtime",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Initial generation-specific prevention-effectiveness modeling."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

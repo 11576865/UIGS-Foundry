@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "entries": [
     {
       "id": "PREVENT.MOBILE_INSPECTOR_PRIMARY_ACTION_REACHABILITY",
@@ -7,22 +7,28 @@
       "knowledge_refs": [
         "inbox/bugs/2026-10-04-fixed-inspector-action-unreachable-no-scroll.md"
       ],
+      "effectiveness_claim_ref": "CLAIM.PREVENT.MOBILE_INSPECTOR_PRIMARY_ACTION_REACHABILITY.G1",
+      "enforcement_generation": 1,
       "enforcement": [
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "production-structure",
           "status": "enforced-main",
           "pull_request": 86,
-          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/KaraokeVectorPanes.kt"
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/KaraokeVectorPanes.kt",
+          "generation": 1
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "android-regression",
           "status": "enforced-main",
           "pull_request": 86,
-          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/EditorRegressionInstrumentedTest.kt"
+          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/EditorRegressionInstrumentedTest.kt",
+          "generation": 1
         }
       ],
+      "recurrence_events": [],
+      "legacy_unattributed_recurrence_count": 0,
       "recurrence_count": 0
     },
     {
@@ -31,43 +37,65 @@
       "knowledge_refs": [
         "inbox/bugs/2026-10-04-invalid-batch-input-broadens-recipe.md"
       ],
+      "effectiveness_claim_ref": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2",
+      "enforcement_generation": 2,
       "enforcement": [
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "ui-preflight",
           "status": "submitted",
           "pull_request": 95,
-          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/RuleBatchPane.kt"
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/RuleBatchPane.kt",
+          "generation": 1
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "ui-preflight",
           "status": "submitted",
           "pull_request": 95,
-          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/SemanticSearchReplacePane.kt"
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/SemanticSearchReplacePane.kt",
+          "generation": 1
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "regression-test",
           "status": "submitted",
           "pull_request": 95,
-          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/EditorRegressionInstrumentedTest.kt"
+          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/EditorRegressionInstrumentedTest.kt",
+          "generation": 1
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "validation-gated-construction",
           "status": "enforced-main",
           "pull_request": 100,
-          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/SemanticSearchReplacePane.kt"
+          "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/SemanticSearchReplacePane.kt",
+          "generation": 2
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "regression-test",
           "status": "enforced-main",
           "pull_request": 100,
-          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/EditorRegressionInstrumentedTest.kt"
+          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/EditorRegressionInstrumentedTest.kt",
+          "generation": 2
         }
       ],
+      "recurrence_events": [
+        {
+          "id": "RECURRENCE.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.SEARCH_REPLACE_PR99",
+          "generation": 1,
+          "observed_at": "2026-10-04T00:00:00+00:00",
+          "source_ref": "inbox/bugs/2026-10-04-invalid-batch-input-broadens-recipe.md",
+          "evidence_ref": "EVID.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1.RECURRENCE.PR99",
+          "status": "addressed",
+          "project": "11576865/ASS-Workbench-Android",
+          "pull_request": 99,
+          "resolved_by_generation": 2,
+          "notes": "The Bug record explicitly documents Search/Replace recurrence after the initial Batch-oriented correction; PR #100 strengthened construction gating."
+        }
+      ],
+      "legacy_unattributed_recurrence_count": 0,
       "recurrence_count": 1
     },
     {
@@ -77,29 +105,36 @@
         "inbox/bugs/2026-10-04-regex-cleanup-corrupts-nested-semantics.md",
         "inbox/bugs/2026-10-04-effective-inspector-collapses-span-state.md"
       ],
+      "effectiveness_claim_ref": "CLAIM.PREVENT.STRUCTURAL_SEMANTIC_CLEANUP_OWNERSHIP.G1",
+      "enforcement_generation": 1,
       "enforcement": [
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "semantic-parser",
           "status": "enforced-main",
           "pull_request": 99,
-          "path": "core/domain/src/main/kotlin/io/github/assworkbench/domain/AssTopLevelOverrideSyntax.kt"
+          "path": "core/domain/src/main/kotlin/io/github/assworkbench/domain/AssTopLevelOverrideSyntax.kt",
+          "generation": 1
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "regression-test",
           "status": "enforced-main",
           "pull_request": 99,
-          "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AssStyleInheritanceTest.kt"
+          "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AssStyleInheritanceTest.kt",
+          "generation": 1
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "regression-test",
           "status": "enforced-main",
           "pull_request": 99,
-          "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AssEffectiveInspectorTest.kt"
+          "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AssEffectiveInspectorTest.kt",
+          "generation": 1
         }
       ],
+      "recurrence_events": [],
+      "legacy_unattributed_recurrence_count": 1,
       "recurrence_count": 1
     },
     {
@@ -108,15 +143,20 @@
       "knowledge_refs": [
         "inbox/bugs/2026-10-04-compose-infinite-canvas-world-measurement-viewport-clamp.md"
       ],
+      "effectiveness_claim_ref": "CLAIM.PREVENT.INFINITE_CANVAS_UNBOUNDED_MEASUREMENT.G1",
+      "enforcement_generation": 1,
       "enforcement": [
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "android-regression",
           "status": "submitted",
           "pull_request": 88,
-          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/InfiniteCanvasInstrumentedTest.kt"
+          "path": "app/src/androidTest/kotlin/io/github/assworkbench/app/InfiniteCanvasInstrumentedTest.kt",
+          "generation": 1
         }
       ],
+      "recurrence_events": [],
+      "legacy_unattributed_recurrence_count": 0,
       "recurrence_count": 0
     },
     {
@@ -125,22 +165,28 @@
       "knowledge_refs": [
         "inbox/bugs/2026-10-04-visible-replacement-mutates-control-escapes.md"
       ],
+      "effectiveness_claim_ref": "CLAIM.PREVENT.STRUCTURED_TEXT_VISIBLE_REPLACEMENT_TOKEN_BOUNDARY.G1",
+      "enforcement_generation": 1,
       "enforcement": [
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "semantic-token-boundary",
           "status": "enforced-main",
           "pull_request": 100,
-          "path": "core/domain/src/main/kotlin/io/github/assworkbench/domain/AssSearchReplace.kt"
+          "path": "core/domain/src/main/kotlin/io/github/assworkbench/domain/AssSearchReplace.kt",
+          "generation": 1
         },
         {
           "project": "11576865/ASS-Workbench-Android",
           "kind": "regression-test",
           "status": "enforced-main",
           "pull_request": 100,
-          "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AuthoringEngineSuiteTest.kt"
+          "path": "core/domain/src/test/kotlin/io/github/assworkbench/domain/AuthoringEngineSuiteTest.kt",
+          "generation": 1
         }
       ],
+      "recurrence_events": [],
+      "legacy_unattributed_recurrence_count": 0,
       "recurrence_count": 0
     }
   ]
