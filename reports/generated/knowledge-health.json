@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-06T19:02:30+00:00",
+  "generated_at": "2026-10-07T06:50:10+00:00",
   "inbox": {
     "bugs": 25,
     "candidates": 140,
@@ -19,14 +19,14 @@
     "note": "Bug records are durable evidence and are not an unresolved-product-bug count."
   },
   "intake": {
-    "pending_total": 253,
-    "pending_unreviewed": 252,
-    "triage_records": 253,
-    "triaged_pending": 253,
+    "pending_total": 286,
+    "pending_unreviewed": 285,
+    "triage_records": 286,
+    "triaged_pending": 286,
     "untriaged_pending": 0,
     "triage_status_counts": {
-      "auto-classified": 48,
-      "needs-review": 201,
+      "auto-classified": 51,
+      "needs-review": 231,
       "ready-for-record": 4
     },
     "proposals_total": 4,
