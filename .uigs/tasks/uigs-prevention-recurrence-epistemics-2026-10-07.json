@@ -6,7 +6,7 @@
   "level": "project",
   "project_id": "uigs-prevention-recurrence-epistemics-2026-10-07",
   "parent_task_id": null,
-  "current_work_unit": "Prevention registry v2, effectiveness Claims, recurrence recorder, and provenance-gap missions",
+  "current_work_unit": "Repair cross-platform visual-evidence determinism blocking final external validation",
   "completed_units": [],
   "next_units": [
     "external validation and merge",
@@ -60,15 +60,19 @@
     }
   ],
   "repository": "11576865/UIGS-Foundry",
-  "branch": "feat/prevention-recurrence-epistemics",
+  "branch": "fix/platform-stable-visual-evidence-ordering",
   "pull_request": 27,
   "last_durable_commit": "17c19522ec0daa23c776cd2c55e3a88ea0f2a87d",
   "external_validation": {
     "ci": "pending"
   },
-  "blockers": [],
-  "notes": [
-    "This is a new project after the completed epistemic rebase; it does not reopen the previous PROJECT_COMPLETE state."
+  "blockers": [
+    "Validate Foundry #406/#407 failed because WindowsPath and PosixPath sort manifest filenames differently; recurrence epistemics tests themselves passed."
   ],
-  "updated_at": "2026-10-07T07:40:00+00:00"
+  "notes": [
+    "This is a new project after the completed epistemic rebase; it does not reopen the previous PROJECT_COMPLETE state.",
+    "External validation blocker is unrelated to recurrence semantics: visual evidence generator used sorted(Path), whose WindowsPath order differs from PosixPath for FONTS vs FONT_REQUIREMENTS.",
+    "Repair uses p.as_posix() as the platform-stable sort key and adds a cross-platform regression test."
+  ],
+  "updated_at": "2026-10-07T18:00:00+00:00"
 }
