@@ -5,56 +5,56 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "default_branch": "main",
-      "head_sha": "41c610bbb6cc9ea56f9442eff60214e4bb11bfe5",
-      "head_commit_date": "2026-10-06T15:08:27Z",
+      "head_sha": "12f7885da1ec88702ce4c20a2503dddb8f06ae25",
+      "head_commit_date": "2026-10-07T06:26:54Z",
       "tracked_workflows": [
         {
           "name": "Android CI",
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "41c610bbb6cc9ea56f9442eff60214e4bb11bfe5",
+          "head_sha": "12f7885da1ec88702ce4c20a2503dddb8f06ae25",
           "head_matches_main": true,
-          "run_id": 37484870635,
-          "run_number": 1030,
+          "run_id": 37581548999,
+          "run_number": 1035,
           "event": "push",
-          "created_at": "2026-10-06T15:08:30Z",
-          "updated_at": "2026-10-06T15:12:15Z",
-          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/37484870635"
+          "created_at": "2026-10-07T06:26:57Z",
+          "updated_at": "2026-10-07T06:30:21Z",
+          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/37581548999"
         },
         {
           "name": "Android Emulator Regression",
           "found": true,
           "status": "completed",
-          "conclusion": "success",
-          "head_sha": "41c610bbb6cc9ea56f9442eff60214e4bb11bfe5",
+          "conclusion": "failure",
+          "head_sha": "12f7885da1ec88702ce4c20a2503dddb8f06ae25",
           "head_matches_main": true,
-          "run_id": 37484870849,
-          "run_number": 655,
+          "run_id": 37581549113,
+          "run_number": 660,
           "event": "push",
-          "created_at": "2026-10-06T15:08:30Z",
-          "updated_at": "2026-10-06T15:20:10Z",
-          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/37484870849"
+          "created_at": "2026-10-07T06:26:57Z",
+          "updated_at": "2026-10-07T06:44:06Z",
+          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/37581549113"
         },
         {
           "name": "Fontconfig renderer native probe",
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "41c610bbb6cc9ea56f9442eff60214e4bb11bfe5",
+          "head_sha": "12f7885da1ec88702ce4c20a2503dddb8f06ae25",
           "head_matches_main": true,
-          "run_id": 37484870665,
-          "run_number": 923,
+          "run_id": 37581549071,
+          "run_number": 927,
           "event": "push",
-          "created_at": "2026-10-06T15:08:30Z",
-          "updated_at": "2026-10-06T15:23:04Z",
-          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/37484870665"
+          "created_at": "2026-10-07T06:26:57Z",
+          "updated_at": "2026-10-07T06:39:44Z",
+          "html_url": "https://github.com/11576865/ASS-Workbench-Android/actions/runs/37581549071"
         }
       ],
-      "pending_intake": 88,
-      "triage_records": 88,
+      "pending_intake": 119,
+      "triage_records": 119,
       "knowledge_records": 20,
-      "source_updated_at": "2026-10-06T15:23:04Z"
+      "source_updated_at": "2026-10-07T06:44:06Z"
     },
     {
       "project": "Character-Voice-Service",
@@ -231,8 +231,8 @@
           "html_url": "https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/37202024996"
         }
       ],
-      "pending_intake": 148,
-      "triage_records": 149,
+      "pending_intake": 150,
+      "triage_records": 151,
       "knowledge_records": 16,
       "source_updated_at": "2026-10-05T13:33:36Z"
     },
@@ -240,36 +240,36 @@
       "project": "UIGS-Foundry",
       "repository": "11576865/UIGS-Foundry",
       "default_branch": "main",
-      "head_sha": "620f4da33a46487339bf4d1a7148d07c22058939",
-      "head_commit_date": "2026-10-06T19:02:32Z",
+      "head_sha": "61164281934024d9854eb9fb5afed53e06a7679e",
+      "head_commit_date": "2026-10-07T06:50:10Z",
       "tracked_workflows": [
         {
           "name": "Validate Foundry",
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "516bdd8e2805e42cf21e56c0a5a882d3d9dce82e",
+          "head_sha": "a5e9503791421c8338da4f496c0bc7cd1f126fe5",
           "head_matches_main": false,
-          "run_id": 37515934582,
-          "run_number": 382,
+          "run_id": 37583713450,
+          "run_number": 396,
           "event": "push",
-          "created_at": "2026-10-06T19:02:24Z",
-          "updated_at": "2026-10-06T19:02:37Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/37515934582"
+          "created_at": "2026-10-07T06:50:04Z",
+          "updated_at": "2026-10-07T06:50:17Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/37583713450"
         },
         {
           "name": "Collect UIGS Outboxes",
           "found": true,
           "status": "completed",
-          "conclusion": "failure",
-          "head_sha": "9a8d1303a38b6443f42784a9f6a9c1c3b4501782",
+          "conclusion": "success",
+          "head_sha": "e1f319a61ae867db2fe1432f1ada27ffba3a3601",
           "head_matches_main": false,
-          "run_id": 37510825444,
-          "run_number": 19,
+          "run_id": 37579205623,
+          "run_number": 20,
           "event": "schedule",
-          "created_at": "2026-10-06T18:22:37Z",
-          "updated_at": "2026-10-06T18:23:01Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/37510825444"
+          "created_at": "2026-10-07T06:00:46Z",
+          "updated_at": "2026-10-07T06:01:08Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/37579205623"
         },
         {
           "name": "Triage UIGS Pending",
@@ -284,14 +284,14 @@
           "found": true,
           "status": "in_progress",
           "conclusion": "",
-          "head_sha": "516bdd8e2805e42cf21e56c0a5a882d3d9dce82e",
+          "head_sha": "a5e9503791421c8338da4f496c0bc7cd1f126fe5",
           "head_matches_main": false,
-          "run_id": 37515934555,
-          "run_number": 26,
+          "run_id": 37583713421,
+          "run_number": 27,
           "event": "push",
-          "created_at": "2026-10-06T19:02:24Z",
-          "updated_at": "2026-10-06T19:02:29Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/37515934555"
+          "created_at": "2026-10-07T06:50:04Z",
+          "updated_at": "2026-10-07T06:50:08Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/37583713421"
         },
         {
           "name": "Capture UI Reference Baselines",
@@ -306,28 +306,28 @@
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "516bdd8e2805e42cf21e56c0a5a882d3d9dce82e",
+          "head_sha": "2b84fe48040d35ede919c2d360349cd07cc3cf43",
           "head_matches_main": false,
-          "run_id": 37515934869,
-          "run_number": 7,
+          "run_id": 37582635703,
+          "run_number": 9,
           "event": "push",
-          "created_at": "2026-10-06T19:02:24Z",
-          "updated_at": "2026-10-06T19:02:37Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/37515934869"
+          "created_at": "2026-10-07T06:38:34Z",
+          "updated_at": "2026-10-07T06:38:42Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/37582635703"
         },
         {
           "name": "Propose UIGS Promotions",
           "found": true,
           "status": "completed",
           "conclusion": "success",
-          "head_sha": "516bdd8e2805e42cf21e56c0a5a882d3d9dce82e",
+          "head_sha": "a5e9503791421c8338da4f496c0bc7cd1f126fe5",
           "head_matches_main": false,
-          "run_id": 37515934698,
-          "run_number": 21,
+          "run_id": 37583713451,
+          "run_number": 22,
           "event": "push",
-          "created_at": "2026-10-06T19:02:24Z",
-          "updated_at": "2026-10-06T19:02:36Z",
-          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/37515934698"
+          "created_at": "2026-10-07T06:50:04Z",
+          "updated_at": "2026-10-07T06:50:14Z",
+          "html_url": "https://github.com/11576865/UIGS-Foundry/actions/runs/37583713451"
         },
         {
           "name": "Review UIGS Promotion",
@@ -341,8 +341,8 @@
       "pending_intake": 0,
       "triage_records": 0,
       "knowledge_records": 15,
-      "source_updated_at": "2026-10-06T19:02:37Z"
+      "source_updated_at": "2026-10-07T06:50:17Z"
     }
   ],
-  "source_max_updated_at": "2026-10-06T19:02:37Z"
+  "source_max_updated_at": "2026-10-07T06:50:17Z"
 }
