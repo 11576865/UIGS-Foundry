@@ -1,23 +1,25 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-07T06:50:10+00:00",
+  "generated_at": "2026-10-07T06:58:21+00:00",
   "summary": {
     "experimental_records": 51,
-    "promotion_candidate": 12,
-    "validation_mission": 37,
+    "promotion_candidate": 0,
+    "validation_mission": 0,
     "challenge_or_narrow": 0,
-    "aggregate_view": 2
+    "aggregate_view": 51
   },
   "items": [
     {
       "record_id": "ARCH.DECLARED_DISCOVERED_RECONCILIATION",
       "path": "domains/architecture/patterns/ARCH.DECLARED_DISCOVERED_RECONCILIATION.json",
       "current_status": "experimental",
-      "classification": "promotion_candidate",
+      "classification": "aggregate_view",
       "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
+        "record already projects one or more Claim refs"
       ],
-      "claim_refs": [],
+      "claim_refs": [
+        "CLAIM.ARCH.DECLARED_DISCOVERED_RECONCILIATION"
+      ],
       "provenance_count": 2,
       "independent_source_groups": [
         "11576865/Character-Voice-Service"
@@ -25,226 +27,19 @@
       "implementation_signals": 1,
       "validation_signals": 1,
       "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
-    },
-    {
-      "record_id": "ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
-      "path": "domains/architecture/patterns/ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP.json",
-      "current_status": "experimental",
-      "classification": "promotion_candidate",
-      "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/Character-Voice-Service"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 1,
-      "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
-    },
-    {
-      "record_id": "OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
-      "path": "domains/operations/policies/OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.json",
-      "current_status": "experimental",
-      "classification": "promotion_candidate",
-      "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
-      ],
-      "claim_refs": [],
-      "provenance_count": 4,
-      "independent_source_groups": [
-        "11576865/HSR-Voice-Archive-Builder"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 3,
-      "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
-    },
-    {
-      "record_id": "OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE",
-      "path": "domains/operations/patterns/OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.json",
-      "current_status": "experimental",
-      "classification": "promotion_candidate",
-      "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
-      ],
-      "claim_refs": [],
-      "provenance_count": 3,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android",
-        "11576865/HSR-Voice-Archive-Builder",
-        "11576865/MKV-Fast-Muxer"
-      ],
-      "implementation_signals": 3,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
-    },
-    {
-      "record_id": "OPS.UIGS.SOURCE_OWNED_UI_INVENTORY",
-      "path": "domains/operations/patterns/OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.json",
-      "current_status": "experimental",
-      "classification": "promotion_candidate",
-      "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
-      ],
-      "claim_refs": [],
-      "provenance_count": 5,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android",
-        "11576865/Character-Voice-Service",
-        "11576865/HSR-Voice-Archive-Builder",
-        "11576865/MKV-Fast-Muxer",
-        "11576865/Quick-Automatic-Hardsub-Encoder"
-      ],
-      "implementation_signals": 4,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
-    },
-    {
-      "record_id": "REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY",
-      "path": "domains/reliability/patterns/REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY.json",
-      "current_status": "experimental",
-      "classification": "promotion_candidate",
-      "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/HSR-Voice-Archive-Builder"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 1,
-      "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
-    },
-    {
-      "record_id": "REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
-      "path": "domains/reliability/patterns/REL.CI.HEAD_COVERAGE_AWARE_REPORTING.json",
-      "current_status": "experimental",
-      "classification": "promotion_candidate",
-      "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
-      ],
-      "claim_refs": [],
-      "provenance_count": 3,
-      "independent_source_groups": [
-        "11576865/MKV-Fast-Muxer",
-        "11576865/Quick-Automatic-Hardsub-Encoder",
-        "11576865/UIGS-Foundry"
-      ],
-      "implementation_signals": 2,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
-    },
-    {
-      "record_id": "TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
-      "path": "domains/reliability/test-patterns/TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.json",
-      "current_status": "experimental",
-      "classification": "promotion_candidate",
-      "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
-      ],
-      "claim_refs": [],
-      "provenance_count": 3,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android",
-        "11576865/UIGS-Foundry"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 2,
-      "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
-    },
-    {
-      "record_id": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
-      "path": "domains/interface-grammar/registry/patterns/UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.json",
-      "current_status": "experimental",
-      "classification": "promotion_candidate",
-      "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
-      ],
-      "claim_refs": [],
-      "provenance_count": 3,
-      "independent_source_groups": [
-        "11576865/HSR-Voice-Archive-Builder"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 1,
-      "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
-    },
-    {
-      "record_id": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
-      "path": "domains/interface-grammar/registry/patterns/UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.json",
-      "current_status": "experimental",
-      "classification": "promotion_candidate",
-      "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
-      ],
-      "claim_refs": [],
-      "provenance_count": 3,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android",
-        "11576865/HSR-Voice-Archive-Builder"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 1,
-      "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
-    },
-    {
-      "record_id": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
-      "path": "domains/interface-grammar/registry/patterns/UIGS.NAVIGATION.CAPABILITY_CATALOG.json",
-      "current_status": "experimental",
-      "classification": "promotion_candidate",
-      "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 1,
-      "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
-    },
-    {
-      "record_id": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
-      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.json",
-      "current_status": "experimental",
-      "classification": "promotion_candidate",
-      "reasons": [
-        "existing provenance includes both implementation/production and validation signals, or multiple source groups"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 1,
-      "recurrence_count": 0,
-      "recommended_action": "Create/attach an atomic Claim and Evidence records, then perform a governed Validated-promotion review; do not auto-promote."
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
     },
     {
       "record_id": "ARCH.NATIVE_RESOURCE_IDENTITY_PRESERVATION",
       "path": "domains/architecture/patterns/ARCH.NATIVE_RESOURCE_IDENTITY_PRESERVATION.json",
       "current_status": "experimental",
-      "classification": "validation_mission",
+      "classification": "aggregate_view",
       "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
+        "record already projects one or more Claim refs"
       ],
-      "claim_refs": [],
+      "claim_refs": [
+        "CLAIM.ARCH.NATIVE_RESOURCE_IDENTITY_PRESERVATION"
+      ],
       "provenance_count": 1,
       "independent_source_groups": [
         "11576865/Quick-Automatic-Hardsub-Encoder"
@@ -252,18 +47,39 @@
       "implementation_signals": 0,
       "validation_signals": 0,
       "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
+      "path": "domains/architecture/patterns/ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/Character-Voice-Service"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 1,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
     },
     {
       "record_id": "ARCH.RUNTIME_ENVIRONMENT_ISOLATION",
       "path": "domains/architecture/patterns/ARCH.RUNTIME_ENVIRONMENT_ISOLATION.json",
       "current_status": "experimental",
-      "classification": "validation_mission",
+      "classification": "aggregate_view",
       "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
+        "record already projects one or more Claim refs"
       ],
-      "claim_refs": [],
+      "claim_refs": [
+        "CLAIM.ARCH.RUNTIME_ENVIRONMENT_ISOLATION"
+      ],
       "provenance_count": 1,
       "independent_source_groups": [
         "11576865/Character-Voice-Service"
@@ -271,18 +87,19 @@
       "implementation_signals": 1,
       "validation_signals": 0,
       "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
     },
     {
       "record_id": "ARCH.STRUCTURED_NATIVE_BRIDGE",
       "path": "domains/architecture/patterns/ARCH.STRUCTURED_NATIVE_BRIDGE.json",
       "current_status": "experimental",
-      "classification": "validation_mission",
+      "classification": "aggregate_view",
       "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
+        "record already projects one or more Claim refs"
       ],
-      "claim_refs": [],
+      "claim_refs": [
+        "CLAIM.ARCH.STRUCTURED_NATIVE_BRIDGE"
+      ],
       "provenance_count": 1,
       "independent_source_groups": [
         "11576865/Quick-Automatic-Hardsub-Encoder"
@@ -290,18 +107,19 @@
       "implementation_signals": 1,
       "validation_signals": 0,
       "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
     },
     {
       "record_id": "ARCH.SYSTEM_GRAPH_INTEGRATION",
       "path": "domains/architecture/patterns/ARCH.SYSTEM_GRAPH_INTEGRATION.json",
       "current_status": "experimental",
-      "classification": "validation_mission",
+      "classification": "aggregate_view",
       "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
+        "record already projects one or more Claim refs"
       ],
-      "claim_refs": [],
+      "claim_refs": [
+        "CLAIM.ARCH.SYSTEM_GRAPH_INTEGRATION"
+      ],
       "provenance_count": 1,
       "independent_source_groups": [
         "11576865/Character-Voice-Service"
@@ -309,18 +127,19 @@
       "implementation_signals": 1,
       "validation_signals": 0,
       "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
     },
     {
       "record_id": "OPS.ANDROID.STABLE_DEBUG_SIGNING",
       "path": "domains/operations/policies/OPS.ANDROID.STABLE_DEBUG_SIGNING.json",
       "current_status": "experimental",
-      "classification": "validation_mission",
+      "classification": "aggregate_view",
       "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
+        "record already projects one or more Claim refs"
       ],
-      "claim_refs": [],
+      "claim_refs": [
+        "CLAIM.OPS.ANDROID.STABLE_DEBUG_SIGNING"
+      ],
       "provenance_count": 2,
       "independent_source_groups": [
         "11576865/Quick-Automatic-Hardsub-Encoder"
@@ -328,18 +147,19 @@
       "implementation_signals": 1,
       "validation_signals": 0,
       "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
     },
     {
       "record_id": "OPS.GHA.ARTIFACT_RETENTION_GUARD",
       "path": "domains/operations/policies/OPS.GHA.ARTIFACT_RETENTION_GUARD.json",
       "current_status": "experimental",
-      "classification": "validation_mission",
+      "classification": "aggregate_view",
       "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
+        "record already projects one or more Claim refs"
       ],
-      "claim_refs": [],
+      "claim_refs": [
+        "CLAIM.OPS.GHA.ARTIFACT_RETENTION_GUARD"
+      ],
       "provenance_count": 2,
       "independent_source_groups": [
         "11576865/ASS-Workbench-Android"
@@ -347,592 +167,7 @@
       "implementation_signals": 1,
       "validation_signals": 0,
       "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL",
-      "path": "domains/operations/patterns/OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/UIGS-Foundry"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "OPS.INTAKE.SOURCE_ENRICHED_TRIAGE",
-      "path": "domains/operations/patterns/OPS.INTAKE.SOURCE_ENRICHED_TRIAGE.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/UIGS-Foundry"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "OPS.PAID_API.PREEXECUTION_BUDGET_GUARD",
-      "path": "domains/operations/policies/OPS.PAID_API.PREEXECUTION_BUDGET_GUARD.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/HSR-Voice-Archive-Builder"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "OPS.RELEASE.NATIVE_BUILD_PROVENANCE",
-      "path": "domains/operations/policies/OPS.RELEASE.NATIVE_BUILD_PROVENANCE.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android",
-        "11576865/Quick-Automatic-Hardsub-Encoder"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "OPS.UIGS.COMPOSABLE_PATTERN_PLANNING",
-      "path": "domains/operations/patterns/OPS.UIGS.COMPOSABLE_PATTERN_PLANNING.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/UIGS-Foundry"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER",
-      "path": "domains/operations/patterns/OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/UIGS-Foundry"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "OPS.UIGS.DETERMINISTIC_PATTERN_RETRIEVAL",
-      "path": "domains/operations/patterns/OPS.UIGS.DETERMINISTIC_PATTERN_RETRIEVAL.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/UIGS-Foundry"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "OPS.UIGS.SHOWCASE_EVIDENCE_LADDER",
-      "path": "domains/operations/patterns/OPS.UIGS.SHOWCASE_EVIDENCE_LADDER.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/UIGS-Foundry"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.ACTIONABLE_ERROR_TAXONOMY",
-      "path": "domains/reliability/patterns/REL.ACTIONABLE_ERROR_TAXONOMY.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/MKV-Fast-Muxer"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.CAPABILITY_PROVEN_BY_OUTPUT",
-      "path": "domains/reliability/patterns/REL.CAPABILITY_PROVEN_BY_OUTPUT.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android",
-        "11576865/Quick-Automatic-Hardsub-Encoder"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.DURABLE_STAGING_FOR_LONG_JOB",
-      "path": "domains/reliability/patterns/REL.DURABLE_STAGING_FOR_LONG_JOB.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/Quick-Automatic-Hardsub-Encoder"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.GENERATION_SAFE_ASYNC_PUBLICATION",
-      "path": "domains/reliability/patterns/REL.GENERATION_SAFE_ASYNC_PUBLICATION.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS",
-      "path": "domains/reliability/patterns/REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/HSR-Voice-Archive-Builder"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.LAST_KNOWN_GOOD_ROLLBACK",
-      "path": "domains/reliability/patterns/REL.LAST_KNOWN_GOOD_ROLLBACK.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/HSR-Voice-Archive-Builder"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.MOBILE.THERMAL_AWARE_PROGRESS",
-      "path": "domains/reliability/patterns/REL.MOBILE.THERMAL_AWARE_PROGRESS.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 3,
-      "independent_source_groups": [
-        "11576865/Quick-Automatic-Hardsub-Encoder"
-      ],
-      "implementation_signals": 2,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.PROVENANCE.PATH_CONTENT_CURRENTNESS",
-      "path": "domains/reliability/patterns/REL.PROVENANCE.PATH_CONTENT_CURRENTNESS.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 3,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android",
-        "11576865/HSR-Voice-Archive-Builder",
-        "11576865/MKV-Fast-Muxer"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.RELEASE_PATH_PARITY",
-      "path": "domains/reliability/patterns/REL.RELEASE_PATH_PARITY.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 1,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.SINGLE_OWNER_LONG_JOB",
-      "path": "domains/reliability/patterns/REL.SINGLE_OWNER_LONG_JOB.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/HSR-Voice-Archive-Builder",
-        "11576865/Quick-Automatic-Hardsub-Encoder"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.UPDATE.CONFLICT_PRESERVING_PLAN",
-      "path": "domains/reliability/patterns/REL.UPDATE.CONFLICT_PRESERVING_PLAN.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/HSR-Voice-Archive-Builder"
-      ],
-      "implementation_signals": 2,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "REL.VERIFY_THEN_PUBLISH",
-      "path": "domains/reliability/patterns/REL.VERIFY_THEN_PUBLISH.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/Quick-Automatic-Hardsub-Encoder"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 1,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "TEST.ANDROID.NATIVE_PAGE_ALIGNMENT",
-      "path": "domains/reliability/test-patterns/TEST.ANDROID.NATIVE_PAGE_ALIGNMENT.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/Quick-Automatic-Hardsub-Encoder"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "TEST.BUDGETED_ADVERSARIAL_PREFLIGHT",
-      "path": "domains/reliability/test-patterns/TEST.BUDGETED_ADVERSARIAL_PREFLIGHT.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "TEST.CONTAINER_SEMANTIC_AUDIT",
-      "path": "domains/reliability/test-patterns/TEST.CONTAINER_SEMANTIC_AUDIT.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/MKV-Fast-Muxer"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 1,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "TEST.DESTRUCTIVE_COMBINATION_MATRIX",
-      "path": "domains/reliability/test-patterns/TEST.DESTRUCTIVE_COMBINATION_MATRIX.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android"
-      ],
-      "implementation_signals": 1,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "TEST.ENCODING_FIXTURE_MATRIX",
-      "path": "domains/reliability/test-patterns/TEST.ENCODING_FIXTURE_MATRIX.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/MKV-Fast-Muxer"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 1,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "TEST.FAIL_CANCEL_RESTART_RECOVERY",
-      "path": "domains/reliability/test-patterns/TEST.FAIL_CANCEL_RESTART_RECOVERY.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/MKV-Fast-Muxer"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 1,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "TEST.RENDERED_EFFECT_DIFFERENTIAL",
-      "path": "domains/reliability/test-patterns/TEST.RENDERED_EFFECT_DIFFERENTIAL.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/Quick-Automatic-Hardsub-Encoder"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "UIGS.INTERACTION.DISCOVERY_OVERLAY",
-      "path": "domains/interface-grammar/registry/patterns/UIGS.INTERACTION.DISCOVERY_OVERLAY.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 3,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android"
-      ],
-      "implementation_signals": 3,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
-      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.SCOPE_TRANSPARENCY.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android"
-      ],
-      "implementation_signals": 2,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
-      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 2,
-      "independent_source_groups": [
-        "11576865/MKV-Fast-Muxer"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
-    },
-    {
-      "record_id": "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
-      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY.json",
-      "current_status": "experimental",
-      "classification": "validation_mission",
-      "reasons": [
-        "independent evidence coverage is limited",
-        "no explicit validation/test/failure-reproduction signal"
-      ],
-      "claim_refs": [],
-      "provenance_count": 1,
-      "independent_source_groups": [
-        "11576865/ASS-Workbench-Android"
-      ],
-      "implementation_signals": 0,
-      "validation_signals": 0,
-      "recurrence_count": 0,
-      "recommended_action": "Define the atomic Claim first, then acquire discriminating independent evidence before promotion."
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
     },
     {
       "record_id": "OPS.GHA.NON_RECURSIVE_BOT_PIPELINE",
@@ -969,6 +204,841 @@
       "provenance_count": 3,
       "independent_source_groups": [
         "11576865/UIGS-Foundry"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL",
+      "path": "domains/operations/patterns/OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/UIGS-Foundry"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "OPS.INTAKE.SOURCE_ENRICHED_TRIAGE",
+      "path": "domains/operations/patterns/OPS.INTAKE.SOURCE_ENRICHED_TRIAGE.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.OPS.INTAKE.SOURCE_ENRICHED_TRIAGE"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/UIGS-Foundry"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "OPS.PAID_API.PREEXECUTION_BUDGET_GUARD",
+      "path": "domains/operations/policies/OPS.PAID_API.PREEXECUTION_BUDGET_GUARD.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.OPS.PAID_API.PREEXECUTION_BUDGET_GUARD"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/HSR-Voice-Archive-Builder"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
+      "path": "domains/operations/policies/OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE"
+      ],
+      "provenance_count": 4,
+      "independent_source_groups": [
+        "11576865/HSR-Voice-Archive-Builder"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 3,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "OPS.RELEASE.NATIVE_BUILD_PROVENANCE",
+      "path": "domains/operations/policies/OPS.RELEASE.NATIVE_BUILD_PROVENANCE.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.OPS.RELEASE.NATIVE_BUILD_PROVENANCE"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android",
+        "11576865/Quick-Automatic-Hardsub-Encoder"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "OPS.UIGS.COMPOSABLE_PATTERN_PLANNING",
+      "path": "domains/operations/patterns/OPS.UIGS.COMPOSABLE_PATTERN_PLANNING.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.OPS.UIGS.COMPOSABLE_PATTERN_PLANNING"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/UIGS-Foundry"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER",
+      "path": "domains/operations/patterns/OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/UIGS-Foundry"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "OPS.UIGS.DETERMINISTIC_PATTERN_RETRIEVAL",
+      "path": "domains/operations/patterns/OPS.UIGS.DETERMINISTIC_PATTERN_RETRIEVAL.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.OPS.UIGS.DETERMINISTIC_PATTERN_RETRIEVAL"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/UIGS-Foundry"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE",
+      "path": "domains/operations/patterns/OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE"
+      ],
+      "provenance_count": 3,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android",
+        "11576865/HSR-Voice-Archive-Builder",
+        "11576865/MKV-Fast-Muxer"
+      ],
+      "implementation_signals": 3,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "OPS.UIGS.SHOWCASE_EVIDENCE_LADDER",
+      "path": "domains/operations/patterns/OPS.UIGS.SHOWCASE_EVIDENCE_LADDER.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/UIGS-Foundry"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "OPS.UIGS.SOURCE_OWNED_UI_INVENTORY",
+      "path": "domains/operations/patterns/OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY"
+      ],
+      "provenance_count": 5,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android",
+        "11576865/Character-Voice-Service",
+        "11576865/HSR-Voice-Archive-Builder",
+        "11576865/MKV-Fast-Muxer",
+        "11576865/Quick-Automatic-Hardsub-Encoder"
+      ],
+      "implementation_signals": 4,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.ACTIONABLE_ERROR_TAXONOMY",
+      "path": "domains/reliability/patterns/REL.ACTIONABLE_ERROR_TAXONOMY.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.ACTIONABLE_ERROR_TAXONOMY"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/MKV-Fast-Muxer"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.CAPABILITY_PROVEN_BY_OUTPUT",
+      "path": "domains/reliability/patterns/REL.CAPABILITY_PROVEN_BY_OUTPUT.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.CAPABILITY_PROVEN_BY_OUTPUT"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android",
+        "11576865/Quick-Automatic-Hardsub-Encoder"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY",
+      "path": "domains/reliability/patterns/REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/HSR-Voice-Archive-Builder"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 1,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
+      "path": "domains/reliability/patterns/REL.CI.HEAD_COVERAGE_AWARE_REPORTING.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.CI.HEAD_COVERAGE_AWARE_REPORTING"
+      ],
+      "provenance_count": 3,
+      "independent_source_groups": [
+        "11576865/MKV-Fast-Muxer",
+        "11576865/Quick-Automatic-Hardsub-Encoder",
+        "11576865/UIGS-Foundry"
+      ],
+      "implementation_signals": 2,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.DURABLE_STAGING_FOR_LONG_JOB",
+      "path": "domains/reliability/patterns/REL.DURABLE_STAGING_FOR_LONG_JOB.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.DURABLE_STAGING_FOR_LONG_JOB"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/Quick-Automatic-Hardsub-Encoder"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.GENERATION_SAFE_ASYNC_PUBLICATION",
+      "path": "domains/reliability/patterns/REL.GENERATION_SAFE_ASYNC_PUBLICATION.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.GENERATION_SAFE_ASYNC_PUBLICATION"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS",
+      "path": "domains/reliability/patterns/REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/HSR-Voice-Archive-Builder"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.LAST_KNOWN_GOOD_ROLLBACK",
+      "path": "domains/reliability/patterns/REL.LAST_KNOWN_GOOD_ROLLBACK.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.LAST_KNOWN_GOOD_ROLLBACK"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/HSR-Voice-Archive-Builder"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.MOBILE.THERMAL_AWARE_PROGRESS",
+      "path": "domains/reliability/patterns/REL.MOBILE.THERMAL_AWARE_PROGRESS.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.MOBILE.THERMAL_AWARE_PROGRESS"
+      ],
+      "provenance_count": 3,
+      "independent_source_groups": [
+        "11576865/Quick-Automatic-Hardsub-Encoder"
+      ],
+      "implementation_signals": 2,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.PROVENANCE.PATH_CONTENT_CURRENTNESS",
+      "path": "domains/reliability/patterns/REL.PROVENANCE.PATH_CONTENT_CURRENTNESS.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS"
+      ],
+      "provenance_count": 3,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android",
+        "11576865/HSR-Voice-Archive-Builder",
+        "11576865/MKV-Fast-Muxer"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.RELEASE_PATH_PARITY",
+      "path": "domains/reliability/patterns/REL.RELEASE_PATH_PARITY.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.RELEASE_PATH_PARITY"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 1,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.SINGLE_OWNER_LONG_JOB",
+      "path": "domains/reliability/patterns/REL.SINGLE_OWNER_LONG_JOB.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.SINGLE_OWNER_LONG_JOB"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/HSR-Voice-Archive-Builder",
+        "11576865/Quick-Automatic-Hardsub-Encoder"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.UPDATE.CONFLICT_PRESERVING_PLAN",
+      "path": "domains/reliability/patterns/REL.UPDATE.CONFLICT_PRESERVING_PLAN.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.UPDATE.CONFLICT_PRESERVING_PLAN"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/HSR-Voice-Archive-Builder"
+      ],
+      "implementation_signals": 2,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "REL.VERIFY_THEN_PUBLISH",
+      "path": "domains/reliability/patterns/REL.VERIFY_THEN_PUBLISH.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.REL.VERIFY_THEN_PUBLISH"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/Quick-Automatic-Hardsub-Encoder"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 1,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "TEST.ANDROID.NATIVE_PAGE_ALIGNMENT",
+      "path": "domains/reliability/test-patterns/TEST.ANDROID.NATIVE_PAGE_ALIGNMENT.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/Quick-Automatic-Hardsub-Encoder"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "TEST.BUDGETED_ADVERSARIAL_PREFLIGHT",
+      "path": "domains/reliability/test-patterns/TEST.BUDGETED_ADVERSARIAL_PREFLIGHT.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.TEST.BUDGETED_ADVERSARIAL_PREFLIGHT"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "TEST.CONTAINER_SEMANTIC_AUDIT",
+      "path": "domains/reliability/test-patterns/TEST.CONTAINER_SEMANTIC_AUDIT.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.TEST.CONTAINER_SEMANTIC_AUDIT"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/MKV-Fast-Muxer"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 1,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "TEST.DESTRUCTIVE_COMBINATION_MATRIX",
+      "path": "domains/reliability/test-patterns/TEST.DESTRUCTIVE_COMBINATION_MATRIX.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.TEST.DESTRUCTIVE_COMBINATION_MATRIX"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "TEST.ENCODING_FIXTURE_MATRIX",
+      "path": "domains/reliability/test-patterns/TEST.ENCODING_FIXTURE_MATRIX.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.TEST.ENCODING_FIXTURE_MATRIX"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/MKV-Fast-Muxer"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 1,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "TEST.FAIL_CANCEL_RESTART_RECOVERY",
+      "path": "domains/reliability/test-patterns/TEST.FAIL_CANCEL_RESTART_RECOVERY.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.TEST.FAIL_CANCEL_RESTART_RECOVERY"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/MKV-Fast-Muxer"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 1,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "TEST.RENDERED_EFFECT_DIFFERENTIAL",
+      "path": "domains/reliability/test-patterns/TEST.RENDERED_EFFECT_DIFFERENTIAL.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.TEST.RENDERED_EFFECT_DIFFERENTIAL"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/Quick-Automatic-Hardsub-Encoder"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
+      "path": "domains/reliability/test-patterns/TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE"
+      ],
+      "provenance_count": 3,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android",
+        "11576865/UIGS-Foundry"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 2,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT"
+      ],
+      "provenance_count": 3,
+      "independent_source_groups": [
+        "11576865/HSR-Voice-Archive-Builder"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 1,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE"
+      ],
+      "provenance_count": 3,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android",
+        "11576865/HSR-Voice-Archive-Builder"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 1,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "UIGS.INTERACTION.DISCOVERY_OVERLAY",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.INTERACTION.DISCOVERY_OVERLAY.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.UIGS.INTERACTION.DISCOVERY_OVERLAY"
+      ],
+      "provenance_count": 3,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android"
+      ],
+      "implementation_signals": 3,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "UIGS.NAVIGATION.CAPABILITY_CATALOG",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.NAVIGATION.CAPABILITY_CATALOG.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.UIGS.NAVIGATION.CAPABILITY_CATALOG"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 1,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android"
+      ],
+      "implementation_signals": 1,
+      "validation_signals": 1,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.SCOPE_TRANSPARENCY.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.UIGS.WORKSPACE.SCOPE_TRANSPARENCY"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android"
+      ],
+      "implementation_signals": 2,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE"
+      ],
+      "provenance_count": 2,
+      "independent_source_groups": [
+        "11576865/MKV-Fast-Muxer"
+      ],
+      "implementation_signals": 0,
+      "validation_signals": 0,
+      "recurrence_count": 0,
+      "recommended_action": "Keep the aggregate record as a view; govern truth/authority at the linked Claim level."
+    },
+    {
+      "record_id": "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
+      "path": "domains/interface-grammar/registry/patterns/UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY.json",
+      "current_status": "experimental",
+      "classification": "aggregate_view",
+      "reasons": [
+        "record already projects one or more Claim refs"
+      ],
+      "claim_refs": [
+        "CLAIM.UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY"
+      ],
+      "provenance_count": 1,
+      "independent_source_groups": [
+        "11576865/ASS-Workbench-Android"
       ],
       "implementation_signals": 0,
       "validation_signals": 0,

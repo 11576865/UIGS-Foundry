@@ -1,0 +1,1716 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-07T06:58:21+00:00",
+  "summary": {
+    "claims": 67,
+    "evidence": 131,
+    "changes": 66,
+    "validation_errors": 0,
+    "review_required": 0,
+    "effectively_quarantined": 0
+  },
+  "validation_errors": [],
+  "claims": [
+    {
+      "id": "CLAIM.ARCH.DECLARED_DISCOVERED_RECONCILIATION",
+      "statement": "运行时 Registry/Graph 描述期望系统，Host Inventory 描述实际可见环境；Reconciliation 将两者对账并把缺失依赖、重复私有所有权、未认领运行时和 PATH 多版本等漂移变成结构化 issue。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.ARCH.DECLARED_DISCOVERED_RECONCILIATION.11576865_Character-Voice-Service"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.ARCH.NATIVE_RESOURCE_IDENTITY_PRESERVATION",
+      "statement": "浏览器 File、Android content URI、持久授权、本机 font pool 等不是同一种资源身份；跨桥接层时应保留原始原生句柄/URI 或受控副本，而不是从显示名称或 JavaScript 路径重建。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.ARCH.NATIVE_RESOURCE_IDENTITY_PRESERVATION.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
+      "statement": "共享同一 GPU/端口/互斥组的运行时不能只按“谁正在运行”处理；Supervisor 只能自动停止自己拥有的进程，对健康但外部拥有的冲突运行时必须拒绝越权终止并要求显式交接。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP.11576865_Character-Voice-Service"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.ARCH.RUNTIME_ENVIRONMENT_ISOLATION",
+      "statement": "多个原生/AI 引擎不共享隐式 shell 环境；每个运行时使用自己的绝对可执行路径、工作目录与受控环境，并通过 registry/supervisor 管理生命周期与互斥资源。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.ARCH.RUNTIME_ENVIRONMENT_ISOLATION.11576865_Character-Voice-Service"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.ARCH.STRUCTURED_NATIVE_BRIDGE",
+      "statement": "Web UI 与本机能力桥接时，前端提交受 schema/allowlist 约束的结构化任务，而不是任意 shell/FFmpeg 命令；bridge 只暴露最小能力并保持来源、文件和执行权限边界。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.ARCH.STRUCTURED_NATIVE_BRIDGE.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.ARCH.SYSTEM_GRAPH_INTEGRATION",
+      "statement": "系统整合不以文件是否共址定义，而以稳定身份、所有权、依赖、生命周期、资源关系、发现与可追溯性定义。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.ARCH.SYSTEM_GRAPH_INTEGRATION.11576865_Character-Voice-Service"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.ASS.RELEASE_PATH_ASYMMETRY",
+      "statement": "For ASS-Workbench-Android, component tests on a fast CI path do not prove that the production APK contains the tested native helper; the release path must verify packaging presence and artifact/build identity for that helper.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "runtime",
+      "support_groups": [
+        "LEGACY.BUG.ASS.RELEASE_PATH_ASYMMETRY.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.HSR.FAILED_REBUILD_PUBLISHED_SET",
+      "statement": "For HSR-Voice-Archive-Builder outputs that together form one published result, rebuild publication/rollback must preserve the set atomically enough that a failed rebuild does not destroy or mix the previous coherent published set.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.BUG.HSR.FAILED_REBUILD_PUBLISHED_SET.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.HSR.SAME_BASENAME_COLLISION",
+      "statement": "For HSR-Voice-Archive-Builder cross-stage media identity, basename alone is not a stable identifier; package-relative/stable member identity must be preserved, and ambiguous fallback must degrade explicitly rather than guess.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.BUG.HSR.SAME_BASENAME_COLLISION.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.HSR.SUBTITLE_AUTOSAVE_RACE",
+      "statement": "For HSR-Voice-Archive-Builder subtitle autosave targeting the same canonical sidecar, persistence writes must have single-writer ordering so a later autosave does not start before the prior write settles.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.BUG.HSR.SUBTITLE_AUTOSAVE_RACE.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.OPS.ANDROID.STABLE_DEBUG_SIGNING",
+      "statement": "临时 CI runner 每次生成不同 debug keystore 会让设备把后续测试 APK 视为不同签名应用。快速测试构建应稳定复用 debug signing identity，而生产 release key 必须保持独立私密。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.ANDROID.STABLE_DEBUG_SIGNING.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.OPS.GHA.ARTIFACT_RETENTION_GUARD",
+      "statement": "将 Actions artifacts 视为短期诊断通道而非归档存储；普通 push/PR 不上传，手工诊断才允许短期上传，长期产物进入 Release，并用 policy-as-code 强制执行。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.GHA.ARTIFACT_RETENTION_GUARD.11576865_ASS-Workbench-Android"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL",
+      "statement": "Intake 自动化应把事实整理成可审查 Proposal：建议记录类型、低成熟度状态、provenance、可能重复项和证据强度；真正落成 typed record 需要显式 accept/reject，且自动路径不得越过 observed/candidate。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.11576865_UIGS-Foundry"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.OPS.INTAKE.SOURCE_ENRICHED_TRIAGE",
+      "statement": "跨仓库 Intake 不应只上传‘CI failed’。源仓库最接近运行现场，应先捕获 workflow/job/step 等低层证据；Foundry 再做确定性分类、关联历史知识和人工复核，从而避免中央系统依赖跨仓库日志权限或凭 workflow 名猜测根因。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.INTAKE.SOURCE_ENRICHED_TRIAGE.11576865_UIGS-Foundry"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.OPS.PAID_API.PREEXECUTION_BUDGET_GUARD",
+      "statement": "在付费请求发出前估算工作量与成本并执行 token/USD 预算；完成批次和 checkpoint 保持可复用；实际 provider usage 仍是权威事实。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.PAID_API.PREEXECUTION_BUDGET_GUARD.11576865_HSR-Voice-Archive-Builder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE",
+      "statement": "项目目录是否由应用完整管理决定了克隆/删除能做什么。自动管理根可整体删除；手工工程根只能删除明确拥有的状态/输出/marker，必须保留未知或用户文件。克隆复制可复用生成输入，但不复制旧输出和运行状态。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.PROJECT.OWNERSHIP_AWARE_LIFECYCLE.11576865_HSR-Voice-Archive-Builder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 4,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.OPS.RELEASE.NATIVE_BUILD_PROVENANCE",
+      "statement": "当发布产物包含受具体 build flags、upstream revision 或许可证组合影响的原生组件时，发布身份必须记录这些构建事实，避免同一版本标签下静默切换能力或许可证语义。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 3,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.RELEASE.NATIVE_BUILD_PROVENANCE.11576865_ASS-Workbench-Android",
+        "LEGACY.EXPERIMENTAL.OPS.RELEASE.NATIVE_BUILD_PROVENANCE.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (2/3)"
+      ]
+    },
+    {
+      "id": "CLAIM.OPS.UIGS.COMPOSABLE_PATTERN_PLANNING",
+      "statement": "复杂 UI 请求通常同时包含布局、控制层级、作用域、绑定、发现等多个语义。Foundry 的检索层应返回一组有证据的 Pattern，并用显式 Composition Recipe/Relation 描述它们能否组合、各自角色、实现与证据缺口。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.COMPOSABLE_PATTERN_PLANNING.11576865_UIGS-Foundry"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER",
+      "statement": "单独检索 Grammar Pattern 只能回答‘这种界面机制叫什么’；单独检索产品 Surface 只能回答‘哪里已经有这个具体界面’。Foundry 应将两者双向连接，再附上组合 Recipe、真实项目实现、Reference Demo/Visual Baseline 和缺失证据，使自然语言请求直接落到可复用语义与可核验具体实现。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER.11576865_UIGS-Foundry"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.OPS.UIGS.DETERMINISTIC_PATTERN_RETRIEVAL",
+      "statement": "将 Pattern 的稳定 ID、双语名称、别名、Intent、Use When、Anatomy、Realization 与 Validation 编入机器可读索引；自然语言请求先由确定性词汇/字符相似度解析到候选 Pattern，再由代理根据上下文选择，而不是靠记忆猜测 Pattern 名称。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.DETERMINISTIC_PATTERN_RETRIEVAL.11576865_UIGS-Foundry"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE",
+      "statement": "Pattern 描述可复用语义，Reference Demo 描述机制，而具体产品如何实现必须单独登记为 Platform Realization。Realization 绑定项目、平台、不可变 commit、源文件 blob、验证文件和限制；报告同时标记该 revision 是否仍等于项目当前 HEAD，避免把历史生产实现静默描述成当前实现。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 3,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.11576865_ASS-Workbench-Android",
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.11576865_HSR-Voice-Archive-Builder",
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.11576865_MKV-Fast-Muxer"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 3,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER",
+      "statement": "可运行 Reference Demo 能证明机制和交互契约，但不能冒充生产 UI 或视觉基线；生产截图/录屏证明某次真实实现，Golden Baseline 才承担受控状态下的视觉回归参照。Foundry 应显式标注这三种证据层级。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER.11576865_UIGS-Foundry"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY",
+      "statement": "数百个具体界面、工具、面板、对话框和工作区不应被强行提升为数百条 Grammar Pattern。产品仓库通过 .uigs/ui-surfaces.json 持有具体 UI 清单；Foundry 按稳定 Surface ID 收集实现位置、实际效果、Pattern 关系、测试和视觉证据，形成派生索引。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 5,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_ASS-Workbench-Android",
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_Character-Voice-Service",
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_HSR-Voice-Archive-Builder",
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_MKV-Fast-Muxer",
+        "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 5,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.REL.ACTIONABLE_ERROR_TAXONOMY",
+      "statement": "将底层日志与异常模式归入稳定错误类别，并为每类错误提供原因、恢复动作与成品是否仍可保存等语义，而不是直接把原始错误文本当产品反馈。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.ACTIONABLE_ERROR_TAXONOMY.11576865_MKV-Fast-Muxer"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.REL.CAPABILITY_PROVEN_BY_OUTPUT",
+      "statement": "硬件编码器、字幕渲染、Native bridge 等能力不能因为 API 名称存在、encoder 被枚举或 FFmpeg 返回成功就视为可用；需要产生并验证真正体现目标能力的输出。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 3,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.CAPABILITY_PROVEN_BY_OUTPUT.11576865_ASS-Workbench-Android",
+        "LEGACY.EXPERIMENTAL.REL.CAPABILITY_PROVEN_BY_OUTPUT.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (2/3)"
+      ]
+    },
+    {
+      "id": "CLAIM.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY",
+      "statement": "昂贵工作检查点只有在 provider/base URL/model/源语言/目标语言等执行路线一致，且单条输入指纹仍匹配时才能安全复用；路线变化或输入变化应失效而不是猜测兼容。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.CHECKPOINT.ROUTE_AND_INPUT_IDENTITY.11576865_HSR-Voice-Archive-Builder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
+      "statement": "存在 paths/path-filter 的仓库中，某工作流最新一次成功运行可能针对旧 commit。跨项目报告必须显示 run head SHA 是否等于当前主分支 HEAD，不能把‘latest success’静默表述成‘当前代码已验证’。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 3,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.11576865_MKV-Fast-Muxer",
+        "LEGACY.EXPERIMENTAL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.11576865_Quick-Automatic-Hardsub-Encoder",
+        "LEGACY.EXPERIMENTAL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.11576865_UIGS-Foundry"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 3,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.REL.DURABLE_STAGING_FOR_LONG_JOB",
+      "statement": "多分钟或多小时的正式任务应把中间/待发布成品放在受控、可恢复的持久 job 目录；启动前检查空间，完成后验证并交付，所有 terminal path 显式清理或保留为可恢复状态。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.DURABLE_STAGING_FOR_LONG_JOB.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.REL.GENERATION_SAFE_ASYNC_PUBLICATION",
+      "statement": "异步计算、渲染、扫描或保存必须携带可验证的 generation/session/epoch 身份；旧任务完成后不得覆盖更新的状态或文件。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.GENERATION_SAFE_ASYNC_PUBLICATION.11576865_ASS-Workbench-Android"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS",
+      "statement": "自动恢复不能只写一个 latest 文件；应校验格式、大小、checksum 和语义身份，保留上一代已知良好副本，并在落盘后重新读取验证精确字节。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS.11576865_HSR-Voice-Archive-Builder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.REL.LAST_KNOWN_GOOD_ROLLBACK",
+      "statement": "会原地替换多份已发布产物的重建流程，应在进入构建前保存最后一套一致发布状态；普通失败时整体回滚，而不是让用户看到新旧文件混杂的半成品。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.LAST_KNOWN_GOOD_ROLLBACK.11576865_HSR-Voice-Archive-Builder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.REL.MOBILE.THERMAL_AWARE_PROGRESS",
+      "statement": "移动设备长时间高负载时吞吐可能显著变化，因此 ETA 应基于滚动实测吞吐而不是初始 FPS 线性外推；热状态是解释性能变化的运行证据，不应被误报为编码器故障。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.MOBILE.THERMAL_AWARE_PROGRESS.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 3,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS",
+      "statement": "不可变 revision 证明历史证据；当前仍适用与否应额外比较声明的实现源文件在当前 HEAD 的 Git blob identity。文档、CI 或 .uigs 元数据等无关提交使 revision != HEAD 时，不应自动把未变化的实现标成 stale。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 4,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS.11576865_ASS-Workbench-Android",
+        "LEGACY.EXPERIMENTAL.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS.11576865_HSR-Voice-Archive-Builder",
+        "LEGACY.EXPERIMENTAL.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS.11576865_MKV-Fast-Muxer"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 3,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (3/4)"
+      ]
+    },
+    {
+      "id": "CLAIM.REL.RELEASE_PATH_PARITY",
+      "statement": "不能只验证某个组件在快速 CI 中可用；正式发布流水线必须实际打包并验证同一被测试实现，否则会产生“测试绿、成品缺组件”的发布路径不对称。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.RELEASE_PATH_PARITY.11576865_ASS-Workbench-Android"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.REL.SINGLE_OWNER_LONG_JOB",
+      "statement": "耗时编码、构建或原生任务应由持久生命周期组件单独拥有；第二个正式任务必须拒绝或排队，所有终止路径都要由同一 owner 清理会话、临时资源和可观察状态。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 3,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.SINGLE_OWNER_LONG_JOB.11576865_HSR-Voice-Archive-Builder",
+        "LEGACY.EXPERIMENTAL.REL.SINGLE_OWNER_LONG_JOB.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (2/3)"
+      ]
+    },
+    {
+      "id": "CLAIM.REL.UPDATE.CONFLICT_PRESERVING_PLAN",
+      "statement": "远程/外部更新不应把“新增、已有、已有但变化、变量、冲突”压成一个下载列表。先形成可审计计划；有冲突或已有对象变化时保留双方证据并转人工审查，自动动作只处理可靠识别的增量。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.UPDATE.CONFLICT_PRESERVING_PLAN.11576865_HSR-Voice-Archive-Builder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.REL.VERIFY_THEN_PUBLISH",
+      "statement": "长任务或媒体输出先写入受控 staging/temporary 位置，经真实解析与完整性检查后再复制/发布到用户目标；FFmpeg return code 或 progress=100% 不是持久成功的充分条件。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.REL.VERIFY_THEN_PUBLISH.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT",
+      "statement": "包含 arm64 原生库的 APK 在发布路径中检查 16 KiB ZIP alignment 和 ELF LOAD segment alignment；不能因为上游构建宣称使用相应 flags 就省略对最终 APK 的验证。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.TEST.BUDGETED_ADVERSARIAL_PREFLIGHT",
+      "statement": "安全扫描器必须能识别超大/极端输入，同时自身也必须有字符、token、数字项等工作预算，避免防御逻辑复制被防御的无界工作模式。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.TEST.BUDGETED_ADVERSARIAL_PREFLIGHT.11576865_ASS-Workbench-Android"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.TEST.CONTAINER_SEMANTIC_AUDIT",
+      "statement": "容器处理 E2E 不只验证文件存在，而用独立 probe 检查 stream codec/order、language/title、Default/Forced、attachments、chapters、format metadata 与预期审计模型一致。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.TEST.CONTAINER_SEMANTIC_AUDIT.11576865_MKV-Fast-Muxer"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.TEST.DESTRUCTIVE_COMBINATION_MATRIX",
+      "statement": "测试不只覆盖单功能 happy path，而以‘领域 + 破坏性组合 + 必须保持的不变量 + 证据层级’组织，从 Raw preservation、编码、撤销、生命周期、容器、异步保存、发布路径等维度主动攻击。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.TEST.DESTRUCTIVE_COMBINATION_MATRIX.11576865_ASS-Workbench-Android"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.TEST.ENCODING_FIXTURE_MATRIX",
+      "statement": "对用户文件格式的编码兼容不能停留在 parser 单测；生成真实 UTF-8/UTF-16LE/UTF-16BE 等夹具，并让浏览器/产品路径实际导入、处理和输出。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.TEST.ENCODING_FIXTURE_MATRIX.11576865_MKV-Fast-Muxer"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.TEST.FAIL_CANCEL_RESTART_RECOVERY",
+      "statement": "任务系统必须证明失败和取消不是终局污染：旧下载、旧 metadata、disabled state、临时 runtime 状态都应清理，紧接着的新任务能成功且不继承旧任务语义。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.TEST.FAIL_CANCEL_RESTART_RECOVERY.11576865_MKV-Fast-Muxer"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.TEST.RENDERED_EFFECT_DIFFERENTIAL",
+      "statement": "当渲染链可能在返回成功的同时静默缺失目标效果时，使用有/无该效果的受控输出进行像素/区域差分，证明效果真的进入最终渲染结果。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.TEST.RENDERED_EFFECT_DIFFERENTIAL.11576865_Quick-Automatic-Hardsub-Encoder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
+      "statement": "对真实 Android APP 的可重复视觉证据，使用 source-owned deterministic fixture 驱动真实生产 Compose 树，在 emulator 中显式安装 app/test APK、运行 instrumentation、由 UiAutomation 捕获最终 display/compositor，再进行 PNG/方向/hash/provenance 校验并注册到 Surface ID。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.11576865_ASS-Workbench-Android",
+        "LEGACY.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.11576865_UIGS-Foundry"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 3,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.ANDROID_CAPTURE.CONNECTED_TEST_ARTIFACT_EXTRACTION",
+      "statement": "For UIGS Android visual capture, successful connected/instrumentation test completion does not prove that a later app-private artifact is still a valid PNG; screenshot creation, extraction, and binary validation must be an explicit capture lifecycle.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "real_sample",
+      "support_groups": [
+        "LEGACY.BUG.UIGS.ANDROID_CAPTURE.CONNECTED_TEST_ARTIFACT_EXTRACTION.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 1,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED",
+      "statement": "For UIGS Android visual capture, declared device/viewport orientation is not evidence of final output orientation; the final PNG must be checked against the capture contract before evidence registration.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "real_sample",
+      "support_groups": [
+        "LEGACY.BUG.UIGS.ANDROID_CAPTURE.DECLARED_ORIENTATION_NOT_ENFORCED.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 2,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE",
+      "statement": "For multi-state UIGS Android evidence capture, already validated early immutable evidence should be persisted by stage before later high-risk states; a late-stage failure must still fail final validation but must not discard earlier valid evidence.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "real_sample",
+      "support_groups": [
+        "LEGACY.BUG.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 1,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION",
+      "statement": "In Foundry shell batch loops driven by while-read input, child tools that may consume stdin (such as adb) must receive isolated stdin so they cannot silently consume the loop protocol.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "real_sample",
+      "support_groups": [
+        "LEGACY.BUG.UIGS.ANDROID_CAPTURE.LOOP_STDIN_CONSUMPTION.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 1,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION",
+      "statement": "For third-party GitHub Actions that execute a script field, the nested shell is part of the action interface contract; Foundry must not use Bash-only semantics unless Bash is invoked explicitly.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "real_sample",
+      "support_groups": [
+        "LEGACY.BUG.UIGS.ANDROID_EMULATOR_RUNNER.SHELL_PIPEFAIL_ASSUMPTION.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 3,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+      "statement": "视觉结果是主任务时，将大预览保持为主表面，把参数、诊断和次级控制压缩到右侧检查器，并在窄屏降级为单列。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.11576865_HSR-Voice-Archive-Builder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 3,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.DERIVED_STATE.GENERATOR_OWNS_EMPTY_SHAPE",
+      "statement": "A deterministic derived artifact must be produced by its authoritative generator even for an empty-data bootstrap state; a hand-written object that is semantically similar but has a different deterministic shape must not be treated as equivalent generated state.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "real_sample",
+      "support_groups": [
+        "INCIDENT.UIGS.VISUAL_EVIDENCE.EMPTY_INDEX_SHAPE.2026-10-02"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.EPISTEMIC.NON_MONOTONIC_AUTHORITY",
+      "statement": "Governance maturity is not irreversible truth: new defeating evidence may remove a Claim's effective default authority without erasing its historical promotion state.",
+      "maturity": "canonical",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "PRIORART.DOYLE.TMS.1979",
+        "PRIORART.NON_MONOTONIC_LOGIC",
+        "USER_DECISION.UIGS.EPISTEMIC_REBASE.2026-10-07"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 3,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.EVIDENCE.LINEAGE_AWARE_INDEPENDENCE",
+      "statement": "Evidence derived from the same upstream decision, rule, experiment, or implementation must not be counted as independent confirmation merely because it appears in multiple downstream artifacts or repositories.",
+      "maturity": "canonical",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "STANDARD.W3C.PROV",
+        "USER_DECISION.UIGS.EPISTEMIC_REBASE.2026-10-07"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.GHA.GITHUB_TOKEN_NON_RECURSIVE_TRIGGER",
+      "statement": "A GitHub Actions workflow that writes a commit with the repository GITHUB_TOKEN must not assume that commit's ordinary push event will trigger a dependent workflow; required deterministic downstream transformations must run in the same workflow transaction or use an explicit supported dispatch mechanism.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "DOC.GITHUB.ACTIONS.GITHUB_TOKEN_TRIGGER_BEHAVIOR",
+        "INCIDENT.UIGS.GITHUB_TOKEN_PUSH_CHAIN_BREAK.2026-10-02"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.GHA.OPTIMISTIC_MULTI_WRITER",
+      "statement": "Multiple GitHub Actions writers updating the same branch must treat remote-ref movement as optimistic concurrency: bounded fetch/rebase/push retry is appropriate for replayable non-overlapping writes, while semantic/rebase conflicts must fail explicitly and derived artifacts should be regenerated from current source state rather than conflict-merged.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "real_sample",
+      "support_groups": [
+        "INCIDENT.UIGS.CONCURRENT_BOT_WRITER_REF_RACE.2026-10-02"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE",
+      "statement": "在参数密集的 Inspector 中保持主要动作和高频基础参数可见，将低频高级参数按语义组折叠/分区，避免一条无限增长的同级参数墙。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.11576865_ASS-Workbench-Android",
+        "LEGACY.EXPERIMENTAL.UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE.11576865_HSR-Voice-Archive-Builder"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 3,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.INTERACTION.DISCOVERY_OVERLAY",
+      "statement": "在视觉预览上提供对象发现、定位和直接操作入口，同时明确该覆盖层只是交互/发现层，不冒充最终渲染器或字形命中权威。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.UIGS.INTERACTION.DISCOVERY_OVERLAY.11576865_ASS-Workbench-Android"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 3,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.UIGS.NAVIGATION.CAPABILITY_CATALOG",
+      "statement": "使用一份机器可读工具元数据作为固定布局、自由 Canvas、搜索和导航的共同目录；目录是检索入口，不复制业务能力。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.UIGS.NAVIGATION.CAPABILITY_CATALOG.11576865_ASS-Workbench-Android"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY",
+      "statement": "For UIGS composition planning, a multi-intent UI request must not be reduced to one global ranking outcome; explicit intent segmentation and merged orthogonal Pattern retrieval are required to preserve independently expressed UI intents.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "real_sample",
+      "support_groups": [
+        "LEGACY.BUG.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 1,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE",
+      "statement": "When a regular expression crosses programming-language string and JSON serialization boundaries in Foundry schemas, validation must check the parsed regex semantics rather than infer correctness from source-level backslash counts.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "runtime",
+      "support_groups": [
+        "LEGACY.BUG.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD",
+      "statement": "A Foundry CI commit guard that decides whether generated outputs changed must account for untracked files; git diff alone is insufficient for first-generation outputs.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "runtime",
+      "support_groups": [
+        "LEGACY.BUG.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 1,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION",
+      "statement": "Cross-project UIGS web capture orchestration must not infer that a Node project has a lockfile or supports npm ci/cache solely from its package manager; install/cache strategy must come from an explicit source contract or observed repository files.",
+      "maturity": "validated",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "real_sample",
+      "support_groups": [
+        "LEGACY.BUG.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION.INCIDENT"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 3,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+      "statement": "让同一种工具可以存在多个实例，每个实例明确绑定到自己的领域对象，而不是通过修改全局 Focus 间接决定写入目标。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "supported",
+      "effective_epistemic_state": "supported",
+      "required_independent_support": 1,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.11576865_ASS-Workbench-Android"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": []
+    },
+    {
+      "id": "CLAIM.UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+      "statement": "在专业编辑器中，让用户在执行修改前能看见当前写入对象、写入层级以及可能影响的对象数量，而不把这层解释 UI 变成新的状态所有者。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.UIGS.WORKSPACE.SCOPE_TRANSPARENCY.11576865_ASS-Workbench-Android"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+      "statement": "在主工作区继续滚动时，让次要但持续相关的状态、检查或操作保持可见。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.11576865_MKV-Fast-Muxer"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 2,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    },
+    {
+      "id": "CLAIM.UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
+      "statement": "将拖动/缩放过程中的临时几何与已提交、可恢复的工作区布局分离，避免旋转、窄视口、手势取消或临时 clamp 污染用户的长期布局。",
+      "maturity": "experimental",
+      "declared_authority": "active",
+      "effective_authority": "active",
+      "stored_epistemic_state": "challenged",
+      "effective_epistemic_state": "challenged",
+      "required_independent_support": 2,
+      "minimum_directness": "static",
+      "support_groups": [
+        "LEGACY.EXPERIMENTAL.UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY.11576865_ASS-Workbench-Android"
+      ],
+      "contradiction_groups": [],
+      "active_support_count": 1,
+      "weak_support_count": 0,
+      "active_contradiction_count": 0,
+      "qualifying_contradiction_count": 0,
+      "weak_or_contextual_contradiction_count": 0,
+      "stale_relation_count": 0,
+      "broken_dependencies": [],
+      "review_required": false,
+      "reasons": [
+        "qualifying independent support below policy minimum (1/2)"
+      ]
+    }
+  ]
+}

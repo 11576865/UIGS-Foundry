@@ -1,0 +1,747 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-07T06:58:21+00:00",
+  "mission_count": 37,
+  "missions": [
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.ARCH.NATIVE_RESOURCE_IDENTITY_PRESERVATION.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.ARCH.NATIVE_RESOURCE_IDENTITY_PRESERVATION",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.ARCH.RUNTIME_ENVIRONMENT_ISOLATION.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.ARCH.RUNTIME_ENVIRONMENT_ISOLATION",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.ARCH.STRUCTURED_NATIVE_BRIDGE.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.ARCH.STRUCTURED_NATIVE_BRIDGE",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.ARCH.SYSTEM_GRAPH_INTEGRATION.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.ARCH.SYSTEM_GRAPH_INTEGRATION",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.OPS.ANDROID.STABLE_DEBUG_SIGNING.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.OPS.ANDROID.STABLE_DEBUG_SIGNING",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.OPS.GHA.ARTIFACT_RETENTION_GUARD.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.OPS.GHA.ARTIFACT_RETENTION_GUARD",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.OPS.INTAKE.SOURCE_ENRICHED_TRIAGE.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.OPS.INTAKE.SOURCE_ENRICHED_TRIAGE",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.OPS.PAID_API.PREEXECUTION_BUDGET_GUARD.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.OPS.PAID_API.PREEXECUTION_BUDGET_GUARD",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.OPS.RELEASE.NATIVE_BUILD_PROVENANCE.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.OPS.RELEASE.NATIVE_BUILD_PROVENANCE",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (2/3 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.OPS.UIGS.COMPOSABLE_PATTERN_PLANNING.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.OPS.UIGS.COMPOSABLE_PATTERN_PLANNING",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.OPS.UIGS.DETERMINISTIC_PATTERN_RETRIEVAL.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.OPS.UIGS.DETERMINISTIC_PATTERN_RETRIEVAL",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.OPS.UIGS.SHOWCASE_EVIDENCE_LADDER",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.ACTIONABLE_ERROR_TAXONOMY.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.ACTIONABLE_ERROR_TAXONOMY",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.CAPABILITY_PROVEN_BY_OUTPUT.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.CAPABILITY_PROVEN_BY_OUTPUT",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (2/3 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.DURABLE_STAGING_FOR_LONG_JOB.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.DURABLE_STAGING_FOR_LONG_JOB",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.GENERATION_SAFE_ASYNC_PUBLICATION.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.GENERATION_SAFE_ASYNC_PUBLICATION",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.LAST_KNOWN_GOOD_ROLLBACK.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.LAST_KNOWN_GOOD_ROLLBACK",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.MOBILE.THERMAL_AWARE_PROGRESS.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.MOBILE.THERMAL_AWARE_PROGRESS",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (3/4 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.RELEASE_PATH_PARITY.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.RELEASE_PATH_PARITY",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.SINGLE_OWNER_LONG_JOB.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.SINGLE_OWNER_LONG_JOB",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (2/3 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.UPDATE.CONFLICT_PRESERVING_PLAN.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.UPDATE.CONFLICT_PRESERVING_PLAN",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.REL.VERIFY_THEN_PUBLISH.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.REL.VERIFY_THEN_PUBLISH",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.TEST.BUDGETED_ADVERSARIAL_PREFLIGHT.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.TEST.BUDGETED_ADVERSARIAL_PREFLIGHT",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.TEST.CONTAINER_SEMANTIC_AUDIT.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.TEST.CONTAINER_SEMANTIC_AUDIT",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.TEST.DESTRUCTIVE_COMBINATION_MATRIX.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.TEST.DESTRUCTIVE_COMBINATION_MATRIX",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.TEST.ENCODING_FIXTURE_MATRIX.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.TEST.ENCODING_FIXTURE_MATRIX",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.TEST.FAIL_CANCEL_RESTART_RECOVERY.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.TEST.FAIL_CANCEL_RESTART_RECOVERY",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.TEST.RENDERED_EFFECT_DIFFERENTIAL.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.TEST.RENDERED_EFFECT_DIFFERENTIAL",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.UIGS.INTERACTION.DISCOVERY_OVERLAY.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.UIGS.INTERACTION.DISCOVERY_OVERLAY",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.UIGS.WORKSPACE.SCOPE_TRANSPARENCY.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.UIGS.WORKSPACE.SCOPE_TRANSPARENCY",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.UIGS.WORKSPACE.STICKY_SUPPORTING_PANE",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    },
+    {
+      "schema_version": 1,
+      "id": "MISSION.CLAIM.UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY.INSUFFICIENT_INDEPENDENT_SUPPORT",
+      "claim_id": "CLAIM.UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
+      "status": "proposed",
+      "priority": "medium",
+      "trigger": "insufficient_independent_support",
+      "objective": "Acquire independent support sufficient to meet the Claim policy (1/2 independent support groups currently active).",
+      "desired_evidence": [
+        "evidence from a causally independent implementation, experiment, or source",
+        "provenance showing the new evidence is not derived from existing support"
+      ],
+      "independence_requirement": "New support must use a distinct causal/provenance lineage unless the mission is explicitly testing replication from the same lineage.",
+      "constraints": [
+        "Do not infer independent confirmation from copied UIGS guidance.",
+        "Preserve assumptions, versions, environment, and source revision.",
+        "Do not automatically restore, demote, deprecate, or supersede the Claim; submit evidence for governed review."
+      ],
+      "created_at": "2026-10-07T06:58:21+00:00"
+    }
+  ]
+}
