@@ -26,5 +26,8 @@
       "evidence_level": "62 concrete source-owned surfaces"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER"
+  ]
 }

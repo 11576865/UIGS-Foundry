@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.20261007",
+  "target_claim": "CLAIM.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.01",
+    "EVID.EXPERIMENTAL.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

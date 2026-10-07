@@ -30,5 +30,8 @@
       "evidence_level": "supporting release provenance mechanism"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.OPS.RELEASE.NATIVE_BUILD_PROVENANCE"
+  ]
 }

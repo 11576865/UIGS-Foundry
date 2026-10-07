@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER.20261007",
+  "target_claim": "CLAIM.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER.01",
+    "EVID.EXPERIMENTAL.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

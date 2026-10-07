@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER",
+  "statement": "单独检索 Grammar Pattern 只能回答‘这种界面机制叫什么’；单独检索产品 Surface 只能回答‘哪里已经有这个具体界面’。Foundry 应将两者双向连接，再附上组合 Recipe、真实项目实现、Reference Demo/Visual Baseline 和缺失证据，使自然语言请求直接落到可复用语义与可核验具体实现。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "challenged",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER; support threshold intentionally exceeds current independent evidence by one group."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER.01",
+    "EVID.EXPERIMENTAL.OPS.UIGS.CROSS_LAYER_EVIDENCE_RESOLVER.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Evidence-insufficient Experimental record modeled without promotion; additional independent evidence is required by policy."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

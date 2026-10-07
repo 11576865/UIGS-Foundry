@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.OPS.UIGS.COMPOSABLE_PATTERN_PLANNING",
+  "statement": "复杂 UI 请求通常同时包含布局、控制层级、作用域、绑定、发现等多个语义。Foundry 的检索层应返回一组有证据的 Pattern，并用显式 Composition Recipe/Relation 描述它们能否组合、各自角色、实现与证据缺口。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "challenged",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record OPS.UIGS.COMPOSABLE_PATTERN_PLANNING; support threshold intentionally exceeds current independent evidence by one group."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.OPS.UIGS.COMPOSABLE_PATTERN_PLANNING.01"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Evidence-insufficient Experimental record modeled without promotion; additional independent evidence is required by policy."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.02",
+  "status": "active",
+  "source": {
+    "type": "manual_decision",
+    "locator": "UIGS operationalization continuation 2026-10-02",
+    "revision": null,
+    "environment_fingerprint": "OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.11576865_UIGS-Foundry",
+  "provenance": {
+    "entity_id": "legacy-experimental:OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL:2",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "manual_decision"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "explicit implementation authorization"
+    }
+  ]
+}

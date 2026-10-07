@@ -23,5 +23,8 @@
       "note": "v0.9-C"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.OPS.PAID_API.PREEXECUTION_BUDGET_GUARD"
+  ]
 }

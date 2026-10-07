@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.ARCH.STRUCTURED_NATIVE_BRIDGE.20261007",
+  "target_claim": "CLAIM.ARCH.STRUCTURED_NATIVE_BRIDGE",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record ARCH.STRUCTURED_NATIVE_BRIDGE; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.ARCH.STRUCTURED_NATIVE_BRIDGE.01"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

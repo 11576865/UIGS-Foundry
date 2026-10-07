@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL",
+  "statement": "Intake 自动化应把事实整理成可审查 Proposal：建议记录类型、低成熟度状态、provenance、可能重复项和证据强度；真正落成 typed record 需要显式 accept/reject，且自动路径不得越过 observed/candidate。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "challenged",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL; support threshold intentionally exceeds current independent evidence by one group."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.01",
+    "EVID.EXPERIMENTAL.OPS.INTAKE.REVIEWABLE_PROMOTION_PROPOSAL.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Evidence-insufficient Experimental record modeled without promotion; additional independent evidence is required by policy."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

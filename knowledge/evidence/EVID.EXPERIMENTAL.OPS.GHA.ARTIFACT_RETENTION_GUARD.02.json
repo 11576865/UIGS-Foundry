@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.OPS.GHA.ARTIFACT_RETENTION_GUARD.02",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/ASS-Workbench-Android:tools/check_artifact_policy.py",
+    "revision": "c7f00bdf4f9035f3f1ef0c5b2de4af05d32b7f93",
+    "environment_fingerprint": "OPS.GHA.ARTIFACT_RETENTION_GUARD"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.OPS.GHA.ARTIFACT_RETENTION_GUARD.11576865_ASS-Workbench-Android",
+  "provenance": {
+    "entity_id": "legacy-experimental:OPS.GHA.ARTIFACT_RETENTION_GUARD:2",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.OPS.GHA.ARTIFACT_RETENTION_GUARD",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "static",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "machine enforcement"
+    }
+  ]
+}

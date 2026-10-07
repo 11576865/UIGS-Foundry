@@ -19,5 +19,8 @@
       "evidence_level": "implemented retrieval architecture"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.OPS.UIGS.COMPOSABLE_PATTERN_PLANNING"
+  ]
 }
