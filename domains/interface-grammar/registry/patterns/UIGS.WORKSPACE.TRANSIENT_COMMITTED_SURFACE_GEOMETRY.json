@@ -58,5 +58,8 @@
   ],
   "showcases": [
     "domains/interface-grammar/showcases/manifests/SHOWCASE.TOOL_CANVAS.WEB_REFERENCE.json"
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY"
   ]
 }
