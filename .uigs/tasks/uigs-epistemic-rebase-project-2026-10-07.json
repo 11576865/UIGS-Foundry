@@ -72,8 +72,8 @@
   ],
   "repository": "11576865/UIGS-Foundry",
   "branch": "feat/project-completion-and-experimental-triage",
-  "pull_request": null,
-  "last_durable_commit": "9466afcf20792e09664a709fff6c45ee5cf4a649",
+  "pull_request": 24,
+  "last_durable_commit": "e1c262fd231cc617f457b57c9cf0a3b2c81e66ae",
   "external_validation": {
     "ci": "pending"
   },
