@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP.20261007",
+  "target_claim": "CLAIM.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Create Claim/Evidence representation for Experimental catalog record ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP without promoting its maturity.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP.01",
+    "EVID.EXPERIMENTAL.ARCH.RUNTIME.EXCLUSIVE_RESOURCE_OWNERSHIP.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

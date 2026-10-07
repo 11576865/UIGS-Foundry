@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.REL.CAPABILITY_PROVEN_BY_OUTPUT",
+  "statement": "硬件编码器、字幕渲染、Native bridge 等能力不能因为 API 名称存在、encoder 被枚举或 FFmpeg 返回成功就视为可用；需要产生并验证真正体现目标能力的输出。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "challenged",
+  "scope": {
+    "repositories": [
+      "11576865/Quick-Automatic-Hardsub-Encoder",
+      "11576865/ASS-Workbench-Android"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record REL.CAPABILITY_PROVEN_BY_OUTPUT; support threshold intentionally exceeds current independent evidence by one group."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.CAPABILITY_PROVEN_BY_OUTPUT.01",
+    "EVID.EXPERIMENTAL.REL.CAPABILITY_PROVEN_BY_OUTPUT.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 3,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Evidence-insufficient Experimental record modeled without promotion; additional independent evidence is required by policy."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

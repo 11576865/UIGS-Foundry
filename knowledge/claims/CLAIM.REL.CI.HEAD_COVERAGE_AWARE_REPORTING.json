@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.REL.CI.HEAD_COVERAGE_AWARE_REPORTING",
+  "statement": "存在 paths/path-filter 的仓库中，某工作流最新一次成功运行可能针对旧 commit。跨项目报告必须显示 run head SHA 是否等于当前主分支 HEAD，不能把‘latest success’静默表述成‘当前代码已验证’。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/MKV-Fast-Muxer",
+      "11576865/Quick-Automatic-Hardsub-Encoder",
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record REL.CI.HEAD_COVERAGE_AWARE_REPORTING; scope is limited to its recorded provenance and original statement."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.01",
+    "EVID.EXPERIMENTAL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.02",
+    "EVID.EXPERIMENTAL.REL.CI.HEAD_COVERAGE_AWARE_REPORTING.03"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 3,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

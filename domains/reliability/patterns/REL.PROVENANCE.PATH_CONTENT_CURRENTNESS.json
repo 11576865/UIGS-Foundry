@@ -31,5 +31,8 @@
       "evidence_level": "metadata-only UI inventory commit advanced HEAD while registered implementation files were unchanged"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.REL.PROVENANCE.PATH_CONTENT_CURRENTNESS"
+  ]
 }

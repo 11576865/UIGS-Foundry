@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.OPS.ANDROID.STABLE_DEBUG_SIGNING",
+  "statement": "临时 CI runner 每次生成不同 debug keystore 会让设备把后续测试 APK 视为不同签名应用。快速测试构建应稳定复用 debug signing identity，而生产 release key 必须保持独立私密。",
+  "kind": "normative",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "challenged",
+  "scope": {
+    "repositories": [
+      "11576865/Quick-Automatic-Hardsub-Encoder"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record OPS.ANDROID.STABLE_DEBUG_SIGNING; support threshold intentionally exceeds current independent evidence by one group."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.OPS.ANDROID.STABLE_DEBUG_SIGNING.01",
+    "EVID.EXPERIMENTAL.OPS.ANDROID.STABLE_DEBUG_SIGNING.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Evidence-insufficient Experimental record modeled without promotion; additional independent evidence is required by policy."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

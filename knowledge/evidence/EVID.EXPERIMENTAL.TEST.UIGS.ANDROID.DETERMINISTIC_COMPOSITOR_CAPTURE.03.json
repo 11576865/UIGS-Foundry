@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.03",
+  "status": "active",
+  "source": {
+    "type": "workflow_run",
+    "locator": "UIGS-Foundry GitHub Actions Capture Production UI Android run 37141141888",
+    "revision": "890185aab22204dfbd730bf976ef4823b756e10f",
+    "environment_fingerprint": "TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE.11576865_UIGS-Foundry",
+  "provenance": {
+    "entity_id": "legacy-experimental:TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE:3",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "report"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "real_sample",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "failure proving stdin-consuming adb truncated the declared instrumentation class loop"
+    }
+  ]
+}

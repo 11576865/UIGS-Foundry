@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.UIGS.NAVIGATION.CAPABILITY_CATALOG.20261007",
+  "target_claim": "CLAIM.UIGS.NAVIGATION.CAPABILITY_CATALOG",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Create Claim/Evidence representation for Experimental catalog record UIGS.NAVIGATION.CAPABILITY_CATALOG without promoting its maturity.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.NAVIGATION.CAPABILITY_CATALOG.01",
+    "EVID.EXPERIMENTAL.UIGS.NAVIGATION.CAPABILITY_CATALOG.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

@@ -46,5 +46,8 @@
       "evidence_level": "source-owned UI inventory"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY"
+  ]
 }

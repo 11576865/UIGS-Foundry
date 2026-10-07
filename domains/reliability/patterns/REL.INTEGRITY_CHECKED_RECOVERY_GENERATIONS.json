@@ -21,5 +21,8 @@
       "evidence_level": "production implementation"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.REL.INTEGRITY_CHECKED_RECOVERY_GENERATIONS"
+  ]
 }

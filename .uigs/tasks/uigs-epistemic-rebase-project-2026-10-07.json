@@ -6,17 +6,17 @@
   "level": "project",
   "project_id": "uigs-epistemic-rebase-project-2026-10-07",
   "parent_task_id": null,
-  "current_work_unit": "Experimental knowledge epistemic triage and operational coverage",
+  "current_work_unit": "Experimental Claim coverage and durable Active Learning reports",
   "completed_units": [
     "epistemic foundation",
-    "validated legacy Claim/Evidence migration"
+    "validated legacy Claim/Evidence migration",
+    "Experimental epistemic triage"
   ],
   "next_units": [
-    "generate and review Experimental epistemic triage",
-    "model promotion-candidate Experimental knowledge as Claims without automatic promotion",
-    "create validation missions for evidence-poor Experimental knowledge",
-    "connect recurrence/counter-evidence to challenge or scope narrowing",
-    "close governance-reporting and active-learning coverage gates"
+    "merge Experimental Claim coverage",
+    "verify validation missions are durably generated for evidence-insufficient Experimental Claims",
+    "perform governed review of 12 promotion candidates without automatic promotion",
+    "close remaining project completion gates only after merged CI/report evidence"
   ],
   "completion_gates": [
     {
@@ -42,38 +42,46 @@
     {
       "id": "experimental_triage",
       "required": true,
-      "status": "in_progress",
+      "status": "passed",
       "description": "Every Experimental catalog record is classified into a governed next action.",
       "evidence": [
-        "tools/generate_experimental_epistemic_triage.py"
+        "PR #24",
+        "reports/generated/experimental-epistemic-triage.json"
       ]
     },
     {
       "id": "experimental_claim_coverage",
       "required": true,
-      "status": "pending",
+      "status": "in_progress",
       "description": "Promotion candidates are modeled at Claim/Evidence granularity or explicitly retained as aggregate views.",
-      "evidence": []
+      "evidence": [
+        "feat/experimental-claim-coverage"
+      ]
     },
     {
       "id": "active_learning_coverage",
       "required": true,
-      "status": "pending",
+      "status": "in_progress",
       "description": "Evidence-poor or challenged Experimental knowledge has actionable validation/challenge work rather than remaining inert.",
-      "evidence": []
+      "evidence": [
+        "knowledge/claims",
+        "tools/generate_validation_missions.py"
+      ]
     },
     {
       "id": "governance_reporting",
       "required": true,
-      "status": "pending",
+      "status": "in_progress",
       "description": "Epistemic state, Experimental triage, missions, and project completion state are durably generated and reviewable.",
-      "evidence": []
+      "evidence": [
+        ".github/workflows/generate-knowledge-health.yml"
+      ]
     }
   ],
   "repository": "11576865/UIGS-Foundry",
-  "branch": "feat/project-completion-and-experimental-triage",
-  "pull_request": 24,
-  "last_durable_commit": "e1c262fd231cc617f457b57c9cf0a3b2c81e66ae",
+  "branch": "feat/experimental-claim-coverage",
+  "pull_request": 25,
+  "last_durable_commit": "8080f74c070fe9004d007dbb09af2985c35e7483",
   "external_validation": {
     "ci": "pending"
   },
@@ -82,5 +90,5 @@
     "Project state supersedes earlier milestone-level uses of status=completed.",
     "A completed milestone or work package must not be reported as PROJECT_COMPLETE while required project gates remain unfinished."
   ],
-  "updated_at": "2026-10-07T14:23:00+08:00"
+  "updated_at": "2026-10-07T15:00:00+08:00"
 }

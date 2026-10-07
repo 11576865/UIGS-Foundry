@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+  "statement": "视觉结果是主任务时，将大预览保持为主表面，把参数、诊断和次级控制压缩到右侧检查器，并在窄屏降级为单列。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/HSR-Voice-Archive-Builder"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT; scope is limited to its recorded provenance and original statement."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.01",
+    "EVID.EXPERIMENTAL.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.02",
+    "EVID.EXPERIMENTAL.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.03"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

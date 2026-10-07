@@ -24,5 +24,8 @@
       "evidence_level": "documented policy"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT"
+  ]
 }

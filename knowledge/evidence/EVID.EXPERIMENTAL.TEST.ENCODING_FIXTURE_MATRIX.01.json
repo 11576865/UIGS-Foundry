@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.TEST.ENCODING_FIXTURE_MATRIX.01",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/MKV-Fast-Muxer:tests/e2e/generate-fixtures.sh",
+    "revision": "a9c9c63da376905a0c95b071e0b1346c9cfecfd6",
+    "environment_fingerprint": "TEST.ENCODING_FIXTURE_MATRIX"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.TEST.ENCODING_FIXTURE_MATRIX.11576865_MKV-Fast-Muxer",
+  "provenance": {
+    "entity_id": "legacy-experimental:TEST.ENCODING_FIXTURE_MATRIX:1",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.TEST.ENCODING_FIXTURE_MATRIX",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "E2E fixture generation"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY.01",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/ASS-Workbench-Android:docs/WORKSPACE_SURFACES_0.27.2.md",
+    "revision": "eac7b951273ba96382de02891b51cb165857f2b8",
+    "environment_fingerprint": "UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY.11576865_ASS-Workbench-Android",
+  "provenance": {
+    "entity_id": "legacy-experimental:UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY:1",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.WORKSPACE.TRANSIENT_COMMITTED_SURFACE_GEOMETRY",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "implemented model/controller + connected regression"
+    }
+  ]
+}

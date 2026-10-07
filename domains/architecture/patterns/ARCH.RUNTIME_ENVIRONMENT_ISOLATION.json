@@ -23,5 +23,8 @@
       "evidence_level": "implemented architecture"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.ARCH.RUNTIME_ENVIRONMENT_ISOLATION"
+  ]
 }

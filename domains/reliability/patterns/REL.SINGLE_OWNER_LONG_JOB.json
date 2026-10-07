@@ -28,5 +28,8 @@
       "note": "Concurrent build creation is rejected."
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.REL.SINGLE_OWNER_LONG_JOB"
+  ]
 }

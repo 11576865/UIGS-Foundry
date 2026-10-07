@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT.20261007",
+  "target_claim": "CLAIM.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "challenged"
+  },
+  "reason": "Create Claim/Evidence representation for evidence-insufficient Experimental record TEST.ANDROID.NATIVE_PAGE_ALIGNMENT; no maturity promotion.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT.01",
+    "EVID.EXPERIMENTAL.TEST.ANDROID.NATIVE_PAGE_ALIGNMENT.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

@@ -46,5 +46,8 @@
       "evidence_level": "failure proving stdin-consuming adb truncated the declared instrumentation class loop"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.TEST.UIGS.ANDROID.DETERMINISTIC_COMPOSITOR_CAPTURE"
+  ]
 }

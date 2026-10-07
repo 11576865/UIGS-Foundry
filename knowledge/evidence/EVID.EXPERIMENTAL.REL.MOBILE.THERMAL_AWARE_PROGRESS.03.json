@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.REL.MOBILE.THERMAL_AWARE_PROGRESS.03",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/Quick-Automatic-Hardsub-Encoder:android-native/app/src/main/java/io/github/quickhardsub/EncodeService.kt",
+    "revision": "3300811cce41f828055bce1272dbd9c0eb9d3d48",
+    "environment_fingerprint": "REL.MOBILE.THERMAL_AWARE_PROGRESS"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.REL.MOBILE.THERMAL_AWARE_PROGRESS.11576865_Quick-Automatic-Hardsub-Encoder",
+  "provenance": {
+    "entity_id": "legacy-experimental:REL.MOBILE.THERMAL_AWARE_PROGRESS:3",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.REL.MOBILE.THERMAL_AWARE_PROGRESS",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "production job evidence"
+    }
+  ]
+}

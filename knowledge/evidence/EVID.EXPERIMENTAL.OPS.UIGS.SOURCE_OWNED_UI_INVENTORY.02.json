@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.02",
+  "status": "active",
+  "source": {
+    "type": "repository",
+    "locator": "11576865/HSR-Voice-Archive-Builder:.uigs/ui-surfaces.json",
+    "revision": "62df3afe483618df11d34fe973a767ab2ae9fd76",
+    "environment_fingerprint": "OPS.UIGS.SOURCE_OWNED_UI_INVENTORY"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.11576865_HSR-Voice-Archive-Builder",
+  "provenance": {
+    "entity_id": "legacy-experimental:OPS.UIGS.SOURCE_OWNED_UI_INVENTORY:2",
+    "activity_id": "experimental-claim-coverage-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "repository"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "static",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "source-owned UI inventory"
+    }
+  ]
+}

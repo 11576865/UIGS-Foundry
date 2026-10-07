@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE",
+  "statement": "Pattern 描述可复用语义，Reference Demo 描述机制，而具体产品如何实现必须单独登记为 Platform Realization。Realization 绑定项目、平台、不可变 commit、源文件 blob、验证文件和限制；报告同时标记该 revision 是否仍等于项目当前 HEAD，避免把历史生产实现静默描述成当前实现。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/ASS-Workbench-Android",
+      "11576865/HSR-Voice-Archive-Builder",
+      "11576865/MKV-Fast-Muxer"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE; scope is limited to its recorded provenance and original statement."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.01",
+    "EVID.EXPERIMENTAL.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.02",
+    "EVID.EXPERIMENTAL.OPS.UIGS.PRODUCTION_REALIZATION_PROVENANCE.03"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 3,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

@@ -71,5 +71,8 @@
   ],
   "showcases": [
     "domains/interface-grammar/showcases/manifests/SHOWCASE.PREVIEW_INSPECTOR.WEB_REFERENCE.json"
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT"
   ]
 }

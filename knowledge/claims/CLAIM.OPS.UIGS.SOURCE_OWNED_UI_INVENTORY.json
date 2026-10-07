@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY",
+  "statement": "数百个具体界面、工具、面板、对话框和工作区不应被强行提升为数百条 Grammar Pattern。产品仓库通过 .uigs/ui-surfaces.json 持有具体 UI 清单；Foundry 按稳定 Surface ID 收集实现位置、实际效果、Pattern 关系、测试和视觉证据，形成派生索引。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/ASS-Workbench-Android",
+      "11576865/HSR-Voice-Archive-Builder",
+      "11576865/MKV-Fast-Muxer",
+      "11576865/Character-Voice-Service",
+      "11576865/Quick-Automatic-Hardsub-Encoder"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record OPS.UIGS.SOURCE_OWNED_UI_INVENTORY; scope is limited to its recorded provenance and original statement."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.01",
+    "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.02",
+    "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.03",
+    "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.04",
+    "EVID.EXPERIMENTAL.OPS.UIGS.SOURCE_OWNED_UI_INVENTORY.05"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 5,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

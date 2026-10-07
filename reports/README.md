@@ -73,3 +73,10 @@ Every catalog record currently at Experimental is assigned a **recommended gover
 - `aggregate_view` — the record already projects one or more Claims and should remain a view rather than duplicate truth state.
 
 This report is intentionally conservative. Promotion remains governed and must not be inferred from the classification alone.
+
+
+## Durable epistemic reporting
+
+The Knowledge Health workflow persists epistemic-state and validation-mission reports alongside health, review-queue, and Experimental triage outputs.
+
+This matters because CI-only generation is transient. Active Learning is considered operational only when its current Claim states and proposed validation missions are durably reviewable from repository state.

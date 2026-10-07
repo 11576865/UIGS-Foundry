@@ -30,5 +30,8 @@
       "evidence_level": "implemented reporting invariant"
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.REL.CI.HEAD_COVERAGE_AWARE_REPORTING"
+  ]
 }

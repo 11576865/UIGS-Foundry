@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MODEL.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.20261007",
+  "target_claim": "CLAIM.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "experimental",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Create Claim/Evidence representation for Experimental catalog record UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT without promoting its maturity.",
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.01",
+    "EVID.EXPERIMENTAL.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.02",
+    "EVID.EXPERIMENTAL.UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT.03"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

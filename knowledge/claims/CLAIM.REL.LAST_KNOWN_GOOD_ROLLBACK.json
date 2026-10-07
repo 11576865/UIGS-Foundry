@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.REL.LAST_KNOWN_GOOD_ROLLBACK",
+  "statement": "会原地替换多份已发布产物的重建流程，应在进入构建前保存最后一套一致发布状态；普通失败时整体回滚，而不是让用户看到新旧文件混杂的半成品。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "challenged",
+  "scope": {
+    "repositories": [
+      "11576865/HSR-Voice-Archive-Builder"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record REL.LAST_KNOWN_GOOD_ROLLBACK; support threshold intentionally exceeds current independent evidence by one group."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.REL.LAST_KNOWN_GOOD_ROLLBACK.01",
+    "EVID.EXPERIMENTAL.REL.LAST_KNOWN_GOOD_ROLLBACK.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 2,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Evidence-insufficient Experimental record modeled without promotion; additional independent evidence is required by policy."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

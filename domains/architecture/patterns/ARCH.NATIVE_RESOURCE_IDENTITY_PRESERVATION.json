@@ -20,5 +20,8 @@
       "note": "SAF lifecycle, URI identity, native font pool, non-seekable providers."
     }
   ],
-  "created": "2026-10-02"
+  "created": "2026-10-02",
+  "claim_refs": [
+    "CLAIM.ARCH.NATIVE_RESOURCE_IDENTITY_PRESERVATION"
+  ]
 }

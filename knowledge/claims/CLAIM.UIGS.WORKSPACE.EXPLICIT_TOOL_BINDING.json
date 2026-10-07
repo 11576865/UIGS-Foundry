@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING",
+  "statement": "让同一种工具可以存在多个实例，每个实例明确绑定到自己的领域对象，而不是通过修改全局 Focus 间接决定写入目标。",
+  "kind": "heuristic",
+  "maturity": "experimental",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/ASS-Workbench-Android"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [],
+    "notes": "Conservative Claim model of Experimental catalog record UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING; scope is limited to its recorded provenance and original statement."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.EXPERIMENTAL.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.01",
+    "EVID.EXPERIMENTAL.UIGS.WORKSPACE.EXPLICIT_TOOL_BINDING.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}
