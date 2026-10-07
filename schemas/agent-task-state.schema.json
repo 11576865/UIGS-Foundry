@@ -19,7 +19,10 @@
   ],
   "properties": {
     "schema_version": {
-      "const": 1
+      "enum": [
+        1,
+        2
+      ]
     },
     "task_id": {
       "type": "string",
@@ -35,6 +38,24 @@
         "in_progress",
         "blocked",
         "completed"
+      ]
+    },
+    "level": {
+      "enum": [
+        "project",
+        "milestone",
+        "work_package",
+        "turn"
+      ]
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parent_task_id": {
+      "type": [
+        "string",
+        "null"
       ]
     },
     "current_work_unit": {
@@ -56,6 +77,47 @@
       "items": {
         "type": "string",
         "minLength": 1
+      }
+    },
+    "completion_gates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "required",
+          "status",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "in_progress",
+              "passed",
+              "blocked",
+              "not_required"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
       }
     },
     "repository": {

@@ -15,6 +15,20 @@ on:
       - 'intake/records/**'
       - 'catalog/**'
       - 'prevention/**'
+      - 'knowledge/**'
+      - 'domains/interface-grammar/registry/patterns/**'
+      - 'domains/operations/patterns/**'
+      - 'domains/operations/policies/**'
+      - 'domains/architecture/patterns/**'
+      - 'domains/reliability/patterns/**'
+      - 'domains/reliability/test-patterns/**'
+      - '.uigs/tasks/**'
+      - 'schemas/epistemic-triage.schema.json'
+      - 'schemas/agent-task-state.schema.json'
+      - 'tools/generate_experimental_epistemic_triage.py'
+      - 'tools/test_experimental_epistemic_triage.py'
+      - 'tools/validate_task_states.py'
+      - 'tools/test_task_state_hierarchy.py'
       - 'governance/BUG-LIFECYCLE.md'
       - 'tools/generate_knowledge_health_report.py'
       - 'tools/test_knowledge_health_report.py'
@@ -47,6 +61,10 @@ jobs:
           python tools/generate_knowledge_health_report.py
           python tools/test_review_queue_report.py
           python tools/generate_review_queue_report.py
+          python tools/test_experimental_epistemic_triage.py
+          python tools/generate_experimental_epistemic_triage.py
+          python tools/test_task_state_hierarchy.py
+          python tools/validate_task_states.py
 
       - name: Validate Foundry
         run: python tools/validate_foundry.py
@@ -55,12 +73,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "$(git status --porcelain -- reports/generated/knowledge-health.json reports/generated/knowledge-health.md reports/generated/review-queue.json reports/generated/review-queue.md)" ]]; then
+          if [[ -z "$(git status --porcelain -- reports/generated/knowledge-health.json reports/generated/knowledge-health.md reports/generated/review-queue.json reports/generated/review-queue.md reports/generated/experimental-epistemic-triage.json reports/generated/experimental-epistemic-triage.md)" ]]; then
             echo "Knowledge-health report unchanged."
             exit 0
           fi
           git config user.name "uigs-foundry-bot"
           git config user.email "uigs-foundry-bot@users.noreply.github.com"
-          git add reports/generated/knowledge-health.json reports/generated/knowledge-health.md reports/generated/review-queue.json reports/generated/review-queue.md
+          git add reports/generated/knowledge-health.json reports/generated/knowledge-health.md reports/generated/review-queue.json reports/generated/review-queue.md reports/generated/experimental-epistemic-triage.json reports/generated/experimental-epistemic-triage.md
           git commit -m "chore(report): refresh knowledge health"
           bash tools/push_with_rebase_retry.sh main 5

@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uigs.local/schemas/epistemic-triage.schema.json",
+  "title": "UIGS Experimental Epistemic Triage Report",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generated_at",
+    "summary",
+    "items"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "experimental_records",
+        "promotion_candidate",
+        "validation_mission",
+        "challenge_or_narrow",
+        "aggregate_view"
+      ],
+      "properties": {
+        "experimental_records": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "promotion_candidate": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "validation_mission": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "challenge_or_narrow": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "aggregate_view": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "record_id",
+          "path",
+          "current_status",
+          "classification",
+          "reasons",
+          "claim_refs",
+          "provenance_count",
+          "independent_source_groups",
+          "implementation_signals",
+          "validation_signals",
+          "recurrence_count",
+          "recommended_action"
+        ],
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "current_status": {
+            "const": "experimental"
+          },
+          "classification": {
+            "enum": [
+              "promotion_candidate",
+              "validation_mission",
+              "challenge_or_narrow",
+              "aggregate_view"
+            ]
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "claim_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "provenance_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "independent_source_groups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "implementation_signals": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "validation_signals": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "recurrence_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "recommended_action": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "task_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "goal": "Complete the UIGS epistemic rebase as an operational, reversible, evidence-governed learning system across the active knowledge lifecycle.",
+  "status": "in_progress",
+  "level": "project",
+  "project_id": "uigs-epistemic-rebase-project-2026-10-07",
+  "parent_task_id": null,
+  "current_work_unit": "Experimental knowledge epistemic triage and operational coverage",
+  "completed_units": [
+    "epistemic foundation",
+    "validated legacy Claim/Evidence migration"
+  ],
+  "next_units": [
+    "generate and review Experimental epistemic triage",
+    "model promotion-candidate Experimental knowledge as Claims without automatic promotion",
+    "create validation missions for evidence-poor Experimental knowledge",
+    "connect recurrence/counter-evidence to challenge or scope narrowing",
+    "close governance-reporting and active-learning coverage gates"
+  ],
+  "completion_gates": [
+    {
+      "id": "epistemic_foundation",
+      "required": true,
+      "status": "passed",
+      "description": "Prior-art-grounded Claim/Evidence/Change model, reversible authority, dependency invalidation, and retrieval enforcement are merged.",
+      "evidence": [
+        "PR #21",
+        "governance/EPISTEMIC-MODEL.md"
+      ]
+    },
+    {
+      "id": "validated_legacy_migration",
+      "required": true,
+      "status": "passed",
+      "description": "All currently Validated legacy catalog records have first-pass Claim/Evidence representation.",
+      "evidence": [
+        "PR #22",
+        "PR #23"
+      ]
+    },
+    {
+      "id": "experimental_triage",
+      "required": true,
+      "status": "in_progress",
+      "description": "Every Experimental catalog record is classified into a governed next action.",
+      "evidence": [
+        "tools/generate_experimental_epistemic_triage.py"
+      ]
+    },
+    {
+      "id": "experimental_claim_coverage",
+      "required": true,
+      "status": "pending",
+      "description": "Promotion candidates are modeled at Claim/Evidence granularity or explicitly retained as aggregate views.",
+      "evidence": []
+    },
+    {
+      "id": "active_learning_coverage",
+      "required": true,
+      "status": "pending",
+      "description": "Evidence-poor or challenged Experimental knowledge has actionable validation/challenge work rather than remaining inert.",
+      "evidence": []
+    },
+    {
+      "id": "governance_reporting",
+      "required": true,
+      "status": "pending",
+      "description": "Epistemic state, Experimental triage, missions, and project completion state are durably generated and reviewable.",
+      "evidence": []
+    }
+  ],
+  "repository": "11576865/UIGS-Foundry",
+  "branch": "feat/project-completion-and-experimental-triage",
+  "pull_request": 24,
+  "last_durable_commit": "e1c262fd231cc617f457b57c9cf0a3b2c81e66ae",
+  "external_validation": {
+    "ci": "pending"
+  },
+  "blockers": [],
+  "notes": [
+    "Project state supersedes earlier milestone-level uses of status=completed.",
+    "A completed milestone or work package must not be reported as PROJECT_COMPLETE while required project gates remain unfinished."
+  ],
+  "updated_at": "2026-10-07T14:23:00+08:00"
+}

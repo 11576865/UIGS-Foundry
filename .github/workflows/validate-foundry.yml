@@ -34,8 +34,16 @@ jobs:
         run: |
           python tools/test_review_queue_report.py
           python tools/generate_review_queue_report.py
+      - name: Unit-test task-state hierarchy
+        run: |
+          python tools/test_task_state_hierarchy.py
+          python tools/validate_task_states.py
       - name: Unit-test epistemic graph
         run: python tools/test_epistemic_graph.py
+      - name: Unit-test Experimental epistemic triage
+        run: |
+          python tools/test_experimental_epistemic_triage.py
+          python tools/generate_experimental_epistemic_triage.py
       - name: Validate epistemic graph
         run: python tools/evaluate_epistemic_graph.py --check
       - name: Generate epistemic state and validation missions

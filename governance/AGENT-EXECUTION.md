@@ -212,3 +212,27 @@ A substantial interactive turn must also have a finite synchronous execution bou
 - broad instructions such as "finish everything" or "一步到位" define the desired end architecture, not a requirement that one interactive session survive the entire project.
 
 This prevents unbounded synchronous action chains: individually reasonable operations whose cumulative latency exhausts the interactive execution window even without polling.
+
+
+## Completion hierarchy
+
+Execution completion has four distinct levels:
+
+1. **Turn Complete** — the current interactive session has safely stopped.
+2. **Work Package Complete** — one bounded deliverable is durably submitted.
+3. **Milestone Complete** — a coherent project phase and its required evidence are complete.
+4. **Project Complete** — every required project-level completion gate has passed or is explicitly not required.
+
+A lower-level completion MUST NOT be reported as a higher-level completion.
+
+Durable task-state schema v2 records:
+- `level`;
+- `project_id`;
+- `parent_task_id`;
+- explicit `completion_gates`.
+
+For a project-level task, `status=completed` is valid only when every required completion gate is `passed` or `not_required`.
+
+A broad instruction such as "一步到位" fixes the **project Definition of Done**. It does not require one turn to remain alive until all gates pass, and it does not permit a completed work package to redefine the project boundary.
+
+Historical v1 task records remain readable, but new multi-stage project work SHOULD use schema v2.
