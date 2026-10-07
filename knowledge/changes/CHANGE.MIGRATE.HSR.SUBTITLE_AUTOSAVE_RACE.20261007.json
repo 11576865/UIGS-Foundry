@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MIGRATE.HSR.SUBTITLE_AUTOSAVE_RACE.20261007",
+  "target_claim": "CLAIM.HSR.SUBTITLE_AUTOSAVE_RACE",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Migrate validated legacy knowledge BUG.HSR.SUBTITLE_AUTOSAVE_RACE into Claim/Evidence form without widening its evidenced scope.",
+  "evidence_refs": [
+    "EVID.HSR.SUBTITLE_AUTOSAVE_RACE.01"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

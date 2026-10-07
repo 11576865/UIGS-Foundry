@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.HSR.SAME_BASENAME_COLLISION",
+  "statement": "For HSR-Voice-Archive-Builder cross-stage media identity, basename alone is not a stable identifier; package-relative/stable member identity must be preserved, and ambiguous fallback must degrade explicitly rather than guess.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/HSR-Voice-Archive-Builder"
+    ],
+    "platforms": [],
+    "versions": [],
+    "environments": [
+      "media indexing",
+      "manifest/override identity"
+    ],
+    "notes": "Scoped to cross-stage identity where same-basename members can coexist."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.HSR.SAME_BASENAME_COLLISION.01"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Conservative migration from validated legacy record BUG.HSR.SAME_BASENAME_COLLISION; statement is bounded to the failure mode and remediation already evidenced by that record."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

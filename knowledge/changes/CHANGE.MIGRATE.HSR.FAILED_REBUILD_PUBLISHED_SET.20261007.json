@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MIGRATE.HSR.FAILED_REBUILD_PUBLISHED_SET.20261007",
+  "target_claim": "CLAIM.HSR.FAILED_REBUILD_PUBLISHED_SET",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Migrate validated legacy knowledge BUG.HSR.FAILED_REBUILD_PUBLISHED_SET into Claim/Evidence form without widening its evidenced scope.",
+  "evidence_refs": [
+    "EVID.HSR.FAILED_REBUILD_PUBLISHED_SET.01",
+    "EVID.HSR.FAILED_REBUILD_PUBLISHED_SET.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

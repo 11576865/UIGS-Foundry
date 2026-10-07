@@ -37,5 +37,8 @@
       "revision": "4c4c59fb45b3883fc55a9cde9c616bd47c1f1a31",
       "evidence_level": "second failing regression isolated missing recipe-required expansion"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.SINGLE_RANKING_COLLAPSES_MULTI_INTENT_UI_QUERY"
   ]
 }

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE",
+  "statement": "When a regular expression crosses programming-language string and JSON serialization boundaries in Foundry schemas, validation must check the parsed regex semantics rather than infer correctness from source-level backslash counts.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [
+      "json-schema"
+    ],
+    "versions": [],
+    "environments": [
+      "serialized regular expressions"
+    ],
+    "notes": "Scoped to Foundry schema regex serialization/validation."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE.01"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "runtime",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Conservative migration from validated legacy record BUG.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE; statement is bounded to the failure mode and remediation already evidenced by that record."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

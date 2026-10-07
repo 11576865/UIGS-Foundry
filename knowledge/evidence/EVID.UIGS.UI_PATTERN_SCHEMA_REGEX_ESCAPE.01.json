@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE.01",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "11576865/UIGS-Foundry:schemas/ui-pattern.schema.json",
+    "revision": "e6d37763754ef2def4f273df2cd35b807e15c629",
+    "environment_fingerprint": "BUG.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE:1",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "file"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "repository defect observed during retrieval implementation"
+    }
+  ]
+}

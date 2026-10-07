@@ -22,5 +22,8 @@
       "evidence_level": "implemented fix",
       "note": "v0.9-M"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.HSR.SUBTITLE_AUTOSAVE_RACE"
   ]
 }

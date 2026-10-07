@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MIGRATE.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE.20261007",
+  "target_claim": "CLAIM.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Migrate validated legacy knowledge BUG.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE into Claim/Evidence form without widening its evidenced scope.",
+  "evidence_refs": [
+    "EVID.UIGS.UI_PATTERN_SCHEMA_REGEX_ESCAPE.01"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}

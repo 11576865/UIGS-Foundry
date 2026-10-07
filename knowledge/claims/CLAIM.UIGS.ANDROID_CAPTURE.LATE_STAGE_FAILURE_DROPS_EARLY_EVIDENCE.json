@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE",
+  "statement": "For multi-state UIGS Android evidence capture, already validated early immutable evidence should be persisted by stage before later high-risk states; a late-stage failure must still fail final validation but must not discard earlier valid evidence.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry",
+      "11576865/ASS-Workbench-Android"
+    ],
+    "platforms": [
+      "android"
+    ],
+    "versions": [],
+    "environments": [
+      "multi-state production visual capture"
+    ],
+    "notes": "Scoped to staged evidence persistence under late failure."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE.01",
+    "EVID.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "real_sample",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Conservative migration from validated legacy record BUG.UIGS.ANDROID_CAPTURE.LATE_STAGE_FAILURE_DROPS_EARLY_EVIDENCE; statement is bounded to the failure mode and remediation already evidenced by that record."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

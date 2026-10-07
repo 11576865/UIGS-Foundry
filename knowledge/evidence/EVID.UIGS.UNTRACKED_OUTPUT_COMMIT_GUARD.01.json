@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD.01",
+  "status": "active",
+  "source": {
+    "type": "repository",
+    "locator": "11576865/UIGS-Foundry:.github/workflows/triage-uigs-pending.yml",
+    "revision": "539fb0896a6dc0b1b17fe1970fca4ae3fb118b68",
+    "environment_fingerprint": "BUG.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD:1",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "repository"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "observed workflow behavior"
+    }
+  ]
+}

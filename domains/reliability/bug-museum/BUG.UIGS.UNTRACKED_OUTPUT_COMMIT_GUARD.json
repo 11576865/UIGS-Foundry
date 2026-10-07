@@ -30,5 +30,8 @@
       "revision": "ed85697d7fcfeae2e973e5e48caa41b7c7f45fa2",
       "evidence_level": "repository state after successful triage run; generated report absent"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD"
   ]
 }

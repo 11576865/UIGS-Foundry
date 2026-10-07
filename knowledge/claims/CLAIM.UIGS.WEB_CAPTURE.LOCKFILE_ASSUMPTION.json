@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION",
+  "statement": "Cross-project UIGS web capture orchestration must not infer that a Node project has a lockfile or supports npm ci/cache solely from its package manager; install/cache strategy must come from an explicit source contract or observed repository files.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry",
+      "11576865/MKV-Fast-Muxer"
+    ],
+    "platforms": [
+      "github-actions",
+      "node"
+    ],
+    "versions": [],
+    "environments": [
+      "cross-project production UI capture"
+    ],
+    "notes": "Scoped to project installation/cache strategy discovery."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION.01",
+    "EVID.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION.02",
+    "EVID.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION.03"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "real_sample",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Conservative migration from validated legacy record BUG.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION; statement is bounded to the failure mode and remediation already evidenced by that record."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

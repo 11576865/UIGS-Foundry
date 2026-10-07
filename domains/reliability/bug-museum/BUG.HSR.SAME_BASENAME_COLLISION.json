@@ -27,5 +27,8 @@
       "evidence_level": "implemented fix",
       "note": "Unreleased/v0.9-M lineage"
     }
+  ],
+  "claim_refs": [
+    "CLAIM.HSR.SAME_BASENAME_COLLISION"
   ]
 }

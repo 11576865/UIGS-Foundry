@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD",
+  "statement": "A Foundry CI commit guard that decides whether generated outputs changed must account for untracked files; git diff alone is insufficient for first-generation outputs.",
+  "kind": "constraint",
+  "maturity": "validated",
+  "authority": "active",
+  "epistemic_state": "supported",
+  "scope": {
+    "repositories": [
+      "11576865/UIGS-Foundry"
+    ],
+    "platforms": [
+      "git",
+      "github-actions"
+    ],
+    "versions": [],
+    "environments": [
+      "generated-output commit guards"
+    ],
+    "notes": "Scoped to detection of generated repository outputs."
+  },
+  "assumptions": [],
+  "evidence_refs": [
+    "EVID.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD.01",
+    "EVID.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD.02"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": null,
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "runtime",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Conservative migration from validated legacy record BUG.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD; statement is bounded to the failure mode and remediation already evidenced by that record."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

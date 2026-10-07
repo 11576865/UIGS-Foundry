@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "id": "EVID.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION.03",
+  "status": "active",
+  "source": {
+    "type": "workflow_run",
+    "locator": "UIGS-Foundry GitHub Actions Capture Production UI Web run 36993078966",
+    "revision": "679425ae4d540849425b8baba983567f0eec9405",
+    "environment_fingerprint": "BUG.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "LEGACY.BUG.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION.INCIDENT",
+  "provenance": {
+    "entity_id": "legacy:BUG.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION:3",
+    "activity_id": "validated-legacy-migration-2026-10-07",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "report"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.UIGS.WEB_CAPTURE.LOCKFILE_ASSUMPTION",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "real_sample",
+      "scope_relation": "within_scope",
+      "assumption_context": [],
+      "notes": "successful corrected capture"
+    }
+  ]
+}

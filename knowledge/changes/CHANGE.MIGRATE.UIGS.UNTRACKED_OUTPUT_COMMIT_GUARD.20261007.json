@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "CHANGE.MIGRATE.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD.20261007",
+  "target_claim": "CLAIM.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD",
+  "operation": "expand",
+  "from": {},
+  "to": {
+    "maturity": "validated",
+    "authority": "active",
+    "epistemic_state": "supported"
+  },
+  "reason": "Migrate validated legacy knowledge BUG.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD into Claim/Evidence form without widening its evidenced scope.",
+  "evidence_refs": [
+    "EVID.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD.01",
+    "EVID.UIGS.UNTRACKED_OUTPUT_COMMIT_GUARD.02"
+  ],
+  "decided_by": "governance",
+  "decided_at": "2026-10-07T00:00:00+00:00",
+  "reversible": true,
+  "replacement_claim": null
+}
