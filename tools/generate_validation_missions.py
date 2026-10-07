@@ -48,6 +48,8 @@ def mission_for(
     claim:dict[str,Any],
     generated_at:str,
 )->dict[str,Any]|None:
+    if state.get("effective_authority") in {"deprecated","superseded"}:
+        return None
     trigger=""
     objective=""
     desired:list[str]=[]
@@ -115,6 +117,42 @@ def mission_for(
     }
 
 
+def prevention_provenance_missions(root:Path, generated_at:str)->list[dict[str,Any]]:
+    path=root/"prevention"/"registry.json"
+    if not path.is_file():
+        return []
+    registry=load(path)
+    out=[]
+    for entry in registry.get("entries",[]):
+        legacy=int(entry.get("legacy_unattributed_recurrence_count",0) or 0)
+        if legacy <= 0:
+            continue
+        cid=str(entry.get("effectiveness_claim_ref",""))
+        if not cid.startswith("CLAIM."):
+            continue
+        out.append({
+            "schema_version":1,
+            "id":f"MISSION.{slug(cid)}.RECURRENCE_PROVENANCE_GAP",
+            "claim_id":cid,
+            "status":"proposed",
+            "priority":"medium",
+            "trigger":"recurrence_provenance_gap",
+            "objective":f"Attribute {legacy} legacy recurrence count(s) for {entry.get('id')} to concrete source events before using them as counter-evidence.",
+            "desired_evidence":[
+                "a dated Bug/incident/workflow/source record identifying each recurrence",
+                "the enforcement generation active when each recurrence occurred",
+                "an Evidence record relating that event to the generation-specific effectiveness Claim"
+            ],
+            "independence_requirement":"Do not infer a recurrence event from the aggregate counter alone; each attributed event needs its own source provenance.",
+            "constraints":[
+                "Do not convert legacy_unattributed_recurrence_count into contradiction Evidence without a source event.",
+                "Do not rewrite historical generation boundaries to make the count fit."
+            ],
+            "created_at":generated_at
+        })
+    return out
+
+
 def generate(root:Path=ROOT)->dict[str,Any]:
     as_of=datetime.now(timezone.utc).replace(microsecond=0)
     report=epistemic.evaluate(root,as_of)
@@ -124,6 +162,7 @@ def generate(root:Path=ROOT)->dict[str,Any]:
         claim=source.get(str(state.get("id")),{})
         m=mission_for(state,claim,report["generated_at"])
         if m: missions.append(m)
+    missions.extend(prevention_provenance_missions(root,report["generated_at"]))
     order={"critical":0,"high":1,"medium":2,"low":3}
     missions.sort(key=lambda x:(order[x["priority"]],x["claim_id"],x["trigger"]))
     return {

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1",
+  "statement": "Prevention generation 1 for destructive optional-input tri-state handling sufficiently covered the documented failure family within its listed ASS Workbench Android controls.",
+  "kind": "capability",
+  "maturity": "experimental",
+  "authority": "superseded",
+  "epistemic_state": "mixed",
+  "scope": {
+    "repositories": [
+      "11576865/ASS-Workbench-Android"
+    ],
+    "platforms": [
+      "android"
+    ],
+    "versions": [],
+    "environments": [],
+    "notes": "Historical generation 1 effectiveness Claim. A documented Search/Replace recurrence exposed a coverage gap and generation 1 was superseded."
+  },
+  "assumptions": [
+    {
+      "id": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1.ASSUMPTION.GENERATION",
+      "statement": "The prevention registry generation encoded by CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1 is the applicable enforcement set.",
+      "status": "active"
+    }
+  ],
+  "evidence_refs": [
+    "EVID.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1.ENFORCEMENT.PR95",
+    "EVID.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1.RECURRENCE.PR99"
+  ],
+  "depends_on": [],
+  "supersedes": [],
+  "superseded_by": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2",
+  "support_policy": {
+    "minimum_independent_support": 1,
+    "minimum_directness": "static",
+    "quarantine_on_active_contradiction": true,
+    "quarantine_on_broken_dependency": true,
+    "max_evidence_age_days": null
+  },
+  "review": {
+    "last_reviewed_at": "2026-10-07T00:00:00+00:00",
+    "next_review_due": null,
+    "approved_by": "governance",
+    "rationale": "Initial generation-specific prevention-effectiveness modeling."
+  },
+  "created_at": "2026-10-07T00:00:00+00:00",
+  "updated_at": "2026-10-07T00:00:00+00:00"
+}

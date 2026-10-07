@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "EVID.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1.RECURRENCE.PR99",
+  "status": "active",
+  "source": {
+    "type": "file",
+    "locator": "inbox/bugs/2026-10-04-invalid-batch-input-broadens-recipe.md",
+    "revision": null,
+    "environment_fingerprint": "PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE:generation-1"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "RECURRENCE.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.SEARCH_REPLACE_PR99",
+  "provenance": {
+    "entity_id": "RECURRENCE.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.SEARCH_REPLACE_PR99",
+    "activity_id": "historical-recurrence-attribution",
+    "agent_id": "UIGS-Foundry",
+    "was_derived_from": [],
+    "was_attributed_to": "11576865/ASS-Workbench-Android"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1",
+      "result": "contradicts",
+      "defeater_type": "rebutting",
+      "directness": "real_sample",
+      "scope_relation": "within_scope",
+      "assumption_context": [
+        "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G1.ASSUMPTION.GENERATION"
+      ],
+      "notes": "The Bug record explicitly documents the same absent/valid/invalid collapse recurring in Semantic Search/Replace after the earlier Batch-oriented correction."
+    }
+  ]
+}

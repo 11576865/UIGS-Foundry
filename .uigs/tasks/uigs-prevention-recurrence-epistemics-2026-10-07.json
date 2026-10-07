@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "task_id": "uigs-prevention-recurrence-epistemics-2026-10-07",
+  "goal": "Make prevention recurrence a provenance-backed, generation-aware epistemic signal that can challenge prevention effectiveness and generate durable validation work without fabricating counter-evidence.",
+  "status": "in_progress",
+  "level": "project",
+  "project_id": "uigs-prevention-recurrence-epistemics-2026-10-07",
+  "parent_task_id": null,
+  "current_work_unit": "Prevention registry v2, effectiveness Claims, recurrence recorder, and provenance-gap missions",
+  "completed_units": [],
+  "next_units": [
+    "external validation and merge",
+    "verify durable epistemic/mission reports after merge",
+    "close project gates"
+  ],
+  "completion_gates": [
+    {
+      "id": "registry_v2",
+      "required": true,
+      "status": "in_progress",
+      "description": "Prevention registry has generation semantics and attributed recurrence events.",
+      "evidence": [
+        "schemas/prevention-registry.schema.json",
+        "prevention/registry.json"
+      ]
+    },
+    {
+      "id": "effectiveness_claims",
+      "required": true,
+      "status": "in_progress",
+      "description": "Every prevention entry points to a current generation-specific effectiveness Claim.",
+      "evidence": [
+        "knowledge/claims"
+      ]
+    },
+    {
+      "id": "recurrence_to_counterevidence",
+      "required": true,
+      "status": "in_progress",
+      "description": "A future active recurrence can atomically create contradiction Evidence against the current generation Claim.",
+      "evidence": [
+        "tools/record_prevention_recurrence.py"
+      ]
+    },
+    {
+      "id": "legacy_provenance_gap",
+      "required": true,
+      "status": "in_progress",
+      "description": "Unattributed historical recurrence counts produce missions rather than synthetic contradiction Evidence.",
+      "evidence": [
+        "tools/generate_validation_missions.py"
+      ]
+    },
+    {
+      "id": "external_validation",
+      "required": true,
+      "status": "pending",
+      "description": "Implementation passes CI, merges, and durable reports regenerate on main.",
+      "evidence": []
+    }
+  ],
+  "repository": "11576865/UIGS-Foundry",
+  "branch": "feat/prevention-recurrence-epistemics",
+  "pull_request": 27,
+  "last_durable_commit": "17c19522ec0daa23c776cd2c55e3a88ea0f2a87d",
+  "external_validation": {
+    "ci": "pending"
+  },
+  "blockers": [],
+  "notes": [
+    "This is a new project after the completed epistemic rebase; it does not reopen the previous PROJECT_COMPLETE state."
+  ],
+  "updated_at": "2026-10-07T07:40:00+00:00"
+}

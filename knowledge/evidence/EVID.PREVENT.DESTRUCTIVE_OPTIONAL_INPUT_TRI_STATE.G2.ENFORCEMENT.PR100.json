@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "EVID.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2.ENFORCEMENT.PR100",
+  "status": "active",
+  "source": {
+    "type": "pull_request",
+    "locator": "11576865/ASS-Workbench-Android#100",
+    "revision": null,
+    "environment_fingerprint": "prevention-generation-2"
+  },
+  "observed_at": "2026-10-07T00:00:00+00:00",
+  "valid_until": null,
+  "independence_key": "PREVENTION.CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2.PR100",
+  "provenance": {
+    "entity_id": "ASS-Workbench-Android#100",
+    "activity_id": "prevention-enforcement",
+    "agent_id": "11576865/ASS-Workbench-Android",
+    "was_derived_from": [],
+    "was_attributed_to": "11576865/ASS-Workbench-Android"
+  },
+  "relations": [
+    {
+      "claim_id": "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2",
+      "result": "supports",
+      "defeater_type": "none",
+      "directness": "runtime",
+      "scope_relation": "within_scope",
+      "assumption_context": [
+        "CLAIM.PREVENT.DESTRUCTIVE_OPTIONAL_INPUT_TRI_STATE.G2.ASSUMPTION.GENERATION"
+      ],
+      "notes": "PR #100 adds validation-gated construction and enforced-main regression coverage for the recurrence path."
+    }
+  ]
+}

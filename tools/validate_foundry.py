@@ -115,9 +115,10 @@ for path in sorted((ROOT/"inbox"/"bugs").glob("*.md")) if (ROOT/"inbox"/"bugs").
 
 prevention=load(ROOT/"prevention"/"registry.json") if (ROOT/"prevention"/"registry.json").is_file() else None
 if prevention:
-    if prevention.get("schema_version") != 1:
-        errors.append("prevention/registry.json: schema_version must be 1")
+    if prevention.get("schema_version") != 2:
+        errors.append("prevention/registry.json: schema_version must be 2")
     seen_prevention=set()
+    seen_recurrence=set()
     for entry in prevention.get("entries",[]):
         pid=str(entry.get("id",""))
         if not pid.startswith("PREVENT."):
@@ -132,6 +133,15 @@ if prevention:
         for ref in refs:
             if not (ROOT/str(ref)).is_file():
                 errors.append(f"{pid}: missing knowledge ref {ref}")
+        generation=entry.get("enforcement_generation")
+        if not isinstance(generation,int) or generation < 1:
+            errors.append(f"{pid}: enforcement_generation must be a positive integer")
+            generation=0
+        effectiveness=str(entry.get("effectiveness_claim_ref",""))
+        if effectiveness not in claim_ids:
+            errors.append(f"{pid}: missing effectiveness Claim {effectiveness}")
+        if effectiveness and not effectiveness.endswith(f".G{generation}"):
+            errors.append(f"{pid}: effectiveness_claim_ref must target current generation {generation}")
         controls=entry.get("enforcement",[])
         if not isinstance(controls,list):
             errors.append(f"{pid}: enforcement must be a list")
@@ -147,9 +157,50 @@ if prevention:
                 errors.append(f"{pid}: enforcement item missing project")
             if not str(control.get("kind","")):
                 errors.append(f"{pid}: enforcement item missing kind")
+            cg=control.get("generation")
+            if not isinstance(cg,int) or cg < 1 or cg > generation:
+                errors.append(f"{pid}: enforcement item has invalid generation {cg}")
+        events=entry.get("recurrence_events",[])
+        if not isinstance(events,list):
+            errors.append(f"{pid}: recurrence_events must be a list")
+            events=[]
+        for event in events:
+            if not isinstance(event,dict):
+                errors.append(f"{pid}: recurrence event must be an object")
+                continue
+            rid=str(event.get("id",""))
+            if not rid.startswith("RECURRENCE."):
+                errors.append(f"{pid}: invalid recurrence event id {rid}")
+            if rid in seen_recurrence:
+                errors.append(f"{pid}: duplicate recurrence event id {rid}")
+            seen_recurrence.add(rid)
+            eg=event.get("generation")
+            if not isinstance(eg,int) or eg < 1 or eg > generation:
+                errors.append(f"{pid}: recurrence {rid} has invalid generation {eg}")
+            source_ref=str(event.get("source_ref",""))
+            if not source_ref or not (ROOT/source_ref).is_file():
+                errors.append(f"{pid}: recurrence {rid} missing source_ref {source_ref}")
+            evid=str(event.get("evidence_ref",""))
+            evidence_path=ROOT/"knowledge"/"evidence"/f"{evid}.json"
+            if not evid.startswith("EVID.PREVENT.") or not evidence_path.is_file():
+                errors.append(f"{pid}: recurrence {rid} missing Evidence {evid}")
+            status=str(event.get("status",""))
+            if status not in {"active","addressed"}:
+                errors.append(f"{pid}: recurrence {rid} invalid status {status}")
+            resolved=event.get("resolved_by_generation")
+            if status=="active" and resolved is not None:
+                errors.append(f"{pid}: active recurrence {rid} cannot have resolved_by_generation")
+            if status=="addressed" and (not isinstance(resolved,int) or not isinstance(eg,int) or resolved <= eg or resolved > generation):
+                errors.append(f"{pid}: addressed recurrence {rid} requires a later valid resolved_by_generation")
+        legacy=entry.get("legacy_unattributed_recurrence_count",0)
         recurrence=entry.get("recurrence_count",0)
+        if not isinstance(legacy,int) or legacy < 0:
+            errors.append(f"{pid}: legacy_unattributed_recurrence_count must be a non-negative integer")
+            legacy=0
         if not isinstance(recurrence,int) or recurrence < 0:
             errors.append(f"{pid}: recurrence_count must be a non-negative integer")
+        elif recurrence != legacy + len(events):
+            errors.append(f"{pid}: recurrence_count must equal attributed events + legacy unattributed count")
 
 catalog=load(ROOT/"catalog/index.json")
 if catalog:
