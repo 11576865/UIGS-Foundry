@@ -5,7 +5,7 @@
   "kind": "heuristic",
   "maturity": "experimental",
   "authority": "active",
-  "epistemic_state": "supported",
+  "epistemic_state": "challenged",
   "scope": {
     "repositories": [
       "11576865/HSR-Voice-Archive-Builder",
@@ -27,7 +27,7 @@
   "superseded_by": null,
   "support_policy": {
     "minimum_independent_support": 2,
-    "minimum_directness": "static",
+    "minimum_directness": "runtime",
     "quarantine_on_active_contradiction": true,
     "quarantine_on_broken_dependency": true,
     "max_evidence_age_days": null
@@ -36,7 +36,7 @@
     "last_reviewed_at": "2026-10-07T00:00:00+00:00",
     "next_review_due": null,
     "approved_by": "governance",
-    "rationale": "Modeled from a triage promotion candidate without changing Experimental maturity."
+    "rationale": "Promotion review retained Experimental maturity. HSR provides executable implementation/test evidence, while the second-project evidence is currently supporting audit material rather than an independently validated realization."
   },
   "created_at": "2026-10-07T00:00:00+00:00",
   "updated_at": "2026-10-07T00:00:00+00:00"
