@@ -36,7 +36,7 @@
     "evidence_level": "production-rendered",
     "browser": {
       "name": "chromium",
-      "version": "153.0.8010.12"
+      "version": "156.0.8078.4"
     },
     "target_url": "http://127.0.0.1:4173/",
     "viewport": {
