@@ -126,3 +126,9 @@ QHE PR #74 introduces `createMultiBranchFrontier`: joins at least two codec-spec
 **Limitations:** scope is current-source/current-runtime/identical-source-resolution and reference-rendering. Cross-resolution, cross-frame-rate and differently processed input references cannot be assumed quality-comparable with the present source-SSIM metric. The envelope is a measured-codec **prototype**, not the full multi-configuration optimum and not a final VBR guarantee.
 
 Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/74. Status at checkpoint: PR open; acceptance pending; Candidate only.
+
+## CQ/VBR evidence contract and output-error feedback — PR #74 (2026-10-10)
+The user asked to implement the remainder. QHE PR #74 proposes gating adoption of a bitrate extrapolated from a CQ/CRF-measured size/quality curve on **independent, native, same-encoder/preset, same-timeline VBR short samples** with raw SSIM validation. CQ and VBR measurements must retain different measurement/decision provenance; an interpolated CQ SSIM is not an observation of VBR execution. A separate full-encode completion readout records planned target bytes, actual output bytes and percentage error. Packet/decode verification still does not establish perceptual quality on all full-length scenes.
+
+Tests have been added for policy, UI verification, Windows sample arguments and actual software FFmpeg VBR samples. These are proposals in an open PR, not evidence of real GPU, HDR/VFR or long-video acceptance. This expands the existing target-size Candidate only; no Canonical promotion. Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/74.
+
