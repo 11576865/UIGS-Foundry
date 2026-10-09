@@ -92,3 +92,16 @@ Documentation commit: `2d504985e8c3fa7b4cc459852a01d3ce29d88acd`
 Current correction: abort a failed `FileSystemWritableFileStream` where possible, **never call `removeEntry()` in this error path**, and explain that a possibly empty filename may require manual inspection before retrying. Tests emulate the foreign empty-file race and foreign populated content on abort. Source-derived tests: 11/11 passed. CI at this correction head remained asynchronous when this section was drafted, so this is not a claim of browser E2E completion on the new head.
 
 Candidate-level reusable distinction: **handle identity is not creation ownership**. When the API does not provide exclusive atomic creation, neither an earlier absence check nor subsequent metadata examination can prove a process authored an entry. Cleanup must not assume ownership from filename, identity or zero-byte length. The original potential leftover placeholder remains a documented limitation, deliberately preferred over accidental deletion of third-party data. No Canonical promotion from this single case.
+
+
+## Integration evidence: PR #64 merged to main
+
+Date: 2026-10-09  
+PR: https://github.com/11576865/MKV-Fast-Muxer/pull/64  
+Validated PR head: `2d504985e8c3fa7b4cc459852a01d3ce29d88acd`  
+Merge commit: `76056cb8e3f04f81a71e4781004587f2ee0dc986`  
+Integration status: **Merged** to `main`; candidate epistemic status **remains Candidate** (not Canonical).
+
+Evidence: the **Browser E2E mux tests** and **Deploy to GitHub Pages / build** workflows for the validated head both completed with `success`. The build job and `chromium-mux` job each completed with success. Codex's third review of the exact head reported no major issues. The three previous review discussion threads were explicitly addressed and marked resolved. GitHub accepted the merge with `expected_head_sha` guard and confirmed `main` at the merge commit above.
+
+**Scope of validation:** Passing CI is repository-specific integration evidence, not proof of production/browser portability or a guarantee of atomic cross-process output publication. The previously superseded conditional-delete claim remains invalid; final code does not delete directory entries after abort, preferring a manual retry after inspecting possible leftovers. No Canonical rule is promoted automatically from one project and one CI run.
