@@ -77,3 +77,18 @@ Reusable Candidate-level observations (not promoted):
 3. Source-shape / legacy helper-name feature assertions are implementation-coupled: API refactors require synchronized test updates. A CI regression caused by an obsolete test must not be described as a functional mux failure.
 
 Deduplication: keep these as added evidence on the same destination-identity Candidate, since the P2 retry trap is part of its output-safety boundary. No Canonical edits.
+
+
+## Review correction: identical handle and empty size do NOT prove creation ownership
+
+Date: 2026-10-09  
+Source: [PR #64 second Codex review, P2](https://github.com/11576865/MKV-Fast-Muxer/pull/64#discussion_r4228642085)  
+Correction branch commit: `334074b72b53bab8e7633f0e5ef164e5c281c70b`  
+Regression commit: `0a30094211eba4086952a249d23adfbb3067fe9f`  
+Documentation commit: `2d504985e8c3fa7b4cc459852a01d3ce29d88acd`
+
+**Explicit supersession of previous Candidate wording:** The preceding section described a guard using `createdHandle.isSameEntry(currentHandle)` and `currentHandle.getFile().size === 0` as conservative evidence supporting conditional removal. On further adversarial review, this does **not establish that the operation created the entry**. Another process could create an empty file after a preflight and before `getFileHandle({create:true})`, so the same handle and empty size would still hold, and `removeEntry()` would destructively delete an unrelated file. This invalidates the proposed cleanup strategy; the old guard must **not** be treated as a validated reusable rule.
+
+Current correction: abort a failed `FileSystemWritableFileStream` where possible, **never call `removeEntry()` in this error path**, and explain that a possibly empty filename may require manual inspection before retrying. Tests emulate the foreign empty-file race and foreign populated content on abort. Source-derived tests: 11/11 passed. CI at this correction head remained asynchronous when this section was drafted, so this is not a claim of browser E2E completion on the new head.
+
+Candidate-level reusable distinction: **handle identity is not creation ownership**. When the API does not provide exclusive atomic creation, neither an earlier absence check nor subsequent metadata examination can prove a process authored an entry. Cleanup must not assume ownership from filename, identity or zero-byte length. The original potential leftover placeholder remains a documented limitation, deliberately preferred over accidental deletion of third-party data. No Canonical promotion from this single case.
