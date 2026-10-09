@@ -36,3 +36,9 @@ A threshold change should invalidate pass/fail, optimum/search continuation and 
 Not a duplicate of `2026-10-03-persisted-derived-evidence-must-carry-all-input-dependencies.md` (that candidate handles unsafe under-keying of measured dependencies). This observation is the complementary risk of *over-keying* on decision-only inputs. Related existing `2026-10-03-calibration-must-optimize-information-gain-per-unit-time.md` and `2026-10-10-diagnostic-curves-are-not-yet-an-optimized-decision-frontier.md` already cover cost and scope; no duplicate created for those.
 
 No Canonical promotion, source modification or device acceptance is claimed.
+
+## Implementation follow-up (PR #73; CI pending)
+
+QHE commit `a98d291ad53e12e9dad557595214bead555d17b7` introduces `measurementKey` (video/sample identity including profile) separately from `calibrationKey` (in-flight search identity including SSIM target and audio). After a completed calibration, target or audio-budget edits re-evaluate point pass/fail and budget projections using retained measurement points; source/encoder/profile changes still clear evidence. During an in-flight calibration, changes conservatively abort the run instead of reusing partially confirmed observations. Browser lifecycle regression has assertions for no new sample calls after these completed changes.
+
+Source PR: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/73. **Status: implemented in open PR, latest-head CI pending; not merged or device-verified.** The candidate rule remains provisional and was not automatically promoted to Canonical.
