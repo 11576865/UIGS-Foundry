@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-08T23:21:36+00:00",
+  "generated_at": "2026-10-09T06:09:43+00:00",
   "summary": {
-    "pending_packets": 288,
-    "triage_records": 288,
-    "needs_review_packets": 233,
+    "pending_packets": 293,
+    "triage_records": 293,
+    "needs_review_packets": 238,
     "needs_review_families": 9,
     "open_proposals": 3,
     "reviewed_packets": 1,
@@ -12,7 +12,7 @@
   },
   "triage_status_counts": {
     "auto-classified": 51,
-    "needs-review": 233,
+    "needs-review": 238,
     "ready-for-record": 4
   },
   "needs_review_families": [
@@ -22,11 +22,11 @@
       "category": "unknown",
       "matched_rules": [],
       "related_records": [],
-      "count": 81,
+      "count": 82,
       "confidence_min": 0.0,
       "confidence_max": 0.0,
       "oldest_at": "2026-10-02T08:20:21+00:00",
-      "latest_at": "2026-10-06T09:22:20+00:00",
+      "latest_at": "2026-10-09T04:31:54+00:00",
       "sample_packet_ids": [
         "ci-11576865-Quick-Automatic-Hardsub-Encoder-36983431516-1",
         "ci-11576865-Quick-Automatic-Hardsub-Encoder-36983484223-1",
@@ -65,11 +65,11 @@
         "ARCH.STRUCTURED_NATIVE_BRIDGE",
         "REL.CAPABILITY_PROVEN_BY_OUTPUT"
       ],
-      "count": 54,
+      "count": 58,
       "confidence_min": 0.68,
       "confidence_max": 0.68,
       "oldest_at": "2026-10-02T11:14:44+00:00",
-      "latest_at": "2026-10-04T09:03:23+00:00",
+      "latest_at": "2026-10-09T04:32:04+00:00",
       "sample_packet_ids": [
         "ci-11576865-Quick-Automatic-Hardsub-Encoder-36999888374-1",
         "ci-11576865-Quick-Automatic-Hardsub-Encoder-37115671933-1",

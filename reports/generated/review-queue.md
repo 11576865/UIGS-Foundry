@@ -1,12 +1,12 @@
 # UIGS Review Queue
 
-Generated: 2026-10-08T23:21:36+00:00
+Generated: 2026-10-09T06:09:43+00:00
 
 ## Summary
 
-- Durable Pending packets: 288
-- Triage records: 288
-- Needs-review packets: 233
+- Durable Pending packets: 293
+- Triage records: 293
+- Needs-review packets: 238
 - Needs-review families after grouping: 9
 - Open promotion proposals: 3
 - Reviewed packets: 1
@@ -17,9 +17,9 @@ Raw Pending count is durable storage. This report narrows review work to unresol
 
 | Count | Repository | Workflow | Category | Matched rules | Related knowledge |
 | ---: | --- | --- | --- | --- | --- |
-| 81 | 11576865/Quick-Automatic-Hardsub-Encoder | Test frontend | unknown | — | — |
+| 82 | 11576865/Quick-Automatic-Hardsub-Encoder | Test frontend | unknown | — | — |
 | 63 | 11576865/ASS-Workbench-Android | Android Emulator Regression | unknown | — | — |
-| 54 | 11576865/Quick-Automatic-Hardsub-Encoder | Windows local smoke | runtime-smoke | runtime-smoke | ARCH.STRUCTURED_NATIVE_BRIDGE, REL.CAPABILITY_PROVEN_BY_OUTPUT |
+| 58 | 11576865/Quick-Automatic-Hardsub-Encoder | Windows local smoke | runtime-smoke | runtime-smoke | ARCH.STRUCTURED_NATIVE_BRIDGE, REL.CAPABILITY_PROVEN_BY_OUTPUT |
 | 13 | 11576865/ASS-Workbench-Android | Android CI | unknown | — | — |
 | 12 | 11576865/ASS-Workbench-Android | Fontconfig renderer native probe | runtime-smoke | runtime-smoke | REL.CAPABILITY_PROVEN_BY_OUTPUT, TEST.RENDERED_EFFECT_DIFFERENTIAL |
 | 4 | 11576865/ASS-Workbench-Android | Fontconfig renderer native probe | release-publication | release | BUG.ASS.RELEASE_PATH_ASYMMETRY, REL.RELEASE_PATH_PARITY |
