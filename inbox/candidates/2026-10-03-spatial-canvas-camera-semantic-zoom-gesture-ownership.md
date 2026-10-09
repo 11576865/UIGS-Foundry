@@ -109,3 +109,11 @@ A second design risk: switching from a live editor to a lightweight semantic car
 Additional recovery: explicit one/two-column arrangement honors layout locks and hidden nodes; `infinite-v2` carries layoutLocked while decoding v1; initial project-scene nodes are not pruned before WorkspaceState hydration; the focused title provides direct navigation instead of requiring birdseye/return cycles.
 
 **Evidence boundary:** code/tests submitted to PR #138 on 2026-10-10; current Android CI, emulator and visual/device acceptance are Pending. This is a Candidate observation with compatibility-test implications, not a new Canonical policy or a claim that the complete 240 UI ledger is closed.
+
+## 2026-10-10 focused-stage reference/editor split — Pending CI
+
+Follow-up engineering observation from ASS Workbench Android PR #138: a semantic-zoom canvas with a single full-screen focused editor is still ergonomically fragmented when users must continuously compare live ASS/video output with text, Style or Position changes. The workbench must preserve **simultaneous observation and authoring**: a real synchronized media preview can coexist with the actual production editor at native control density. Narrow devices stack panels; wide devices use columns; the preview can be collapsed or resized without changing canonical ASS, node geometry or document Undo.
+
+Crucial implementation distinction: toggling between split and unsplit layout can unmount ordinary `remember` editor drafts. The patch uses `movableContentOf` keyed to the editor identity and `rememberUpdatedState` for live callbacks to preserve the editor composition during those pane moves; an Android regression exercises non-saveable draft continuity. The design also temporarily gives keyboard/IME height back to the editor and insets the focused stage beside a resident tool rail instead of allowing its overlay to obscure controls.
+
+**Evidence:** source and new connected test in PR #138, latest-head Android CI/Emulator and device acceptance pending. This does not establish arbitrary dual-writer ToolInstance safety or universal draft survival across sessions; no Canonical change from this single project observation.
