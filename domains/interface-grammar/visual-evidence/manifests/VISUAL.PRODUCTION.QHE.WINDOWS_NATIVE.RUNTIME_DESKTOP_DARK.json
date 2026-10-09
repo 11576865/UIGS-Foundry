@@ -17,13 +17,44 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
   "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-  "source_revision": "899ed59e4ef02ebe568bc20ccac64a964ba86dc1",
+  "source_revision": "2eeaab388851008a72c653aaf9f0f14560262b76",
   "sha256": "06e29e7fe558a6dcd6594dbc4ebf50a21d222eff2e943f319c7dd45abde7a958",
   "image": {
     "width": 1365,
     "height": 900
   },
-  "environment": {},
+  "environment": {
+    "schema_version": 1,
+    "capture_id": "QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK",
+    "surface_ids": [
+      "QHE.SHELL.WORKFLOW_HEADER",
+      "QHE.HELP.RUNTIME",
+      "QHE.DIAGNOSTICS.ENVIRONMENT",
+      "QHE.STATUS.TASK_OVERVIEW"
+    ],
+    "adapter": "windows-runtime-web",
+    "evidence_level": "runtime-backed",
+    "browser": {
+      "name": "chromium",
+      "version": "156.0.8078.4"
+    },
+    "target_url": "http://127.0.0.1:4174/",
+    "viewport": {
+      "width": 1365,
+      "height": 900,
+      "deviceScaleFactor": 1
+    },
+    "color_scheme": "dark",
+    "locale": "zh-CN",
+    "selector": "body",
+    "fixture": {
+      "state": "windows-native-connected",
+      "bridge": "real localhost Windows Native Bridge",
+      "bridge_port": 9347,
+      "token_source": "workflow ephemeral token"
+    },
+    "page_errors": []
+  },
   "capture_contract": {
     "adapter": "windows-runtime-web",
     "route": "/",
@@ -51,13 +82,13 @@
     {
       "source_type": "repository",
       "source": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "revision": "899ed59e4ef02ebe568bc20ccac64a964ba86dc1",
+      "revision": "2eeaab388851008a72c653aaf9f0f14560262b76",
       "evidence_level": "runtime-backed"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/Quick-Automatic-Hardsub-Encoder:ui-visual-capture.json",
-      "revision": "899ed59e4ef02ebe568bc20ccac64a964ba86dc1",
+      "revision": "2eeaab388851008a72c653aaf9f0f14560262b76",
       "evidence_level": "source-owned capture declaration"
     }
   ]
