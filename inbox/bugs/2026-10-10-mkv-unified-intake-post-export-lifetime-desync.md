@@ -35,3 +35,11 @@ On PR #69 the unified mode retains selected files, original-source track edits a
 Root cause is code-grounded and the pre-fix failure was reproduced in a real GitHub Chromium job. Repaired latest-head CI was **in progress** at initial record creation; do not describe the fix as validated until a subsequent successful run is attached. No Canonical update.
 
 Deduplication: Foundry searches for post-export source inventory reset, task lifetime/input adapter persistence, and content-first workbench clear after mux found no matching record. This is distinct from the previous responsive geometry race observation (PR #60); here the DOM really lost its backing `trackState`, not merely momentarily returned 0×0 during CSS reflow.
+
+
+## Fix verification — latest PR #69 head
+
+Corrected head: `0e16632d422dd2ea6550f6bce558cbe7df766910` (still **Draft**, not merged).  
+Browser E2E: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/37984257203 — **completed success**, with **168/168 Node tests passed, zero failed**. Log contains `MKV container-tree source track editing and post-export retention PASS` as well as `MKV container-tree attachment editing PASS`. The test asserts the selected source still exists after mux, the edited title remains in the tree, the 390px view renders nonzero geometry without document horizontal overflow, and the mux action remains available for a revised run. Latest PR Pages build also passed.
+
+Conclusion: **verified fixed on the PR branch by real Chromium E2E**. No merged-main deployment or broad user visual acceptance has yet been claimed. This Bug remains an engineering observation rather than a Canonical policy change.
