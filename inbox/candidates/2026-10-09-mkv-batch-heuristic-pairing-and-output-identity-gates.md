@@ -59,3 +59,21 @@ Correction on the same feature branch:
 Important limit: browser File System Access offers no atomic cross-process `create-if-absent` reservation. A competing writer could create the same filename after the final check. Therefore the improvement is a **conservative best-effort guard**, not a proof of atomic no-clobber publication. Tests on mock DirectoryHandle are not evidence for every filesystem/OEM behavior.
 
 Deduplication: this continues the destination-identity scope in the existing Candidate and does not create a second general record. It also aligns with the previously recorded principle of separating completed artifact identity from current configuration or downstream save state. The Candidate remains non-Canonical.
+
+## PR #64 review-derived hardening: stale assertion and aborted destination entry
+
+Date: 2026-10-09  
+Review evidence: [MKV-Fast-Muxer PR #64](https://github.com/11576865/MKV-Fast-Muxer/pull/64), Codex P1 and P2 findings, head `d7ab8e4f272f446712c3cbb80467acbcbb1ac70e`.
+
+After opening the PR, GitHub Actions exposed a single deterministic `npm test` failure: `tests/features-1.2.test.mjs` asserted the removed helper name `writeBlobToBatchDirectory`. The automated review independently identified the stale source-shape assertion. On the reviewed head, the two independent CI pipelines each recorded 146/147 passing unit tests, with later build / browser tests skipped; this was **not** an engine failure. The replacement checks assert the current safe-writer API, and the subsequent Pages workflow for the correction head completed successfully. Full Browser E2E remains pending at this intake point.
+
+The P2 review highlighted that aborting a File System Access `FileSystemWritableFileStream` does not necessarily remove the new destination directory entry previously created by `getFileHandle(name,{create:true})`. A leftover empty file is subsequently caught by the no-overwrite preflight and prevents retry.
+
+Correction: on a failed write, abort the writer, then **conditionally** remove a created empty destination only when `removeEntry` exists, `createdHandle.isSameEntry(currentHandle)` confirms file identity, and `currentHandle.getFile().size === 0`. Never delete a nonempty entry or mismatched identity; when safe cleanup cannot be shown, surface an explicit manual-inspection warning. These guards reduce accidental cleanup of unrelated artifacts but cannot eliminate a concurrent filesystem time-of-check-to-time-of-use race. Tests cover successful cleanup, writable creation failure, changed identity, nonempty entry, and unavailable remove capability; eleven source-derived executable helper regressions passed.
+
+Reusable Candidate-level observations (not promoted):
+1. When a side-effecting API **creates a filesystem entry before committing contents**, rolling back the writable stream may not roll back the namespace entry; distinguish content rollback from destination-entry rollback.
+2. Cleanup after failure must be narrower than normal write authorization. A conservative identity-and-emptiness guard is preferable to deleting based solely on a filename.
+3. Source-shape / legacy helper-name feature assertions are implementation-coupled: API refactors require synchronized test updates. A CI regression caused by an obsolete test must not be described as a functional mux failure.
+
+Deduplication: keep these as added evidence on the same destination-identity Candidate, since the P2 retry trap is part of its output-safety boundary. No Canonical edits.
