@@ -132,3 +132,17 @@ The user asked to implement the remainder. QHE PR #74 proposes gating adoption o
 
 Tests have been added for policy, UI verification, Windows sample arguments and actual software FFmpeg VBR samples. These are proposals in an open PR, not evidence of real GPU, HDR/VFR or long-video acceptance. This expands the existing target-size Candidate only; no Canonical promotion. Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/74.
 
+
+## Cross-resolution common-reference implementation checkpoint (QHE PR #75)
+
+QHE PR #74 is **merged** on main as `5d9fe3aa812c71dc32c43173b2184a69365329a1`, with Frontend, Windows, Windows Runtime, and UIGS evidence CI green. This establishes bounded calibration, same-resolution multi-codec shared-domain envelope, explicit handoff, VBR short-sample gate, and output-size prediction-error reporting.
+
+The user explicitly requested the remaining cross-resolution stage. PR #75 (https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/75) proposes:
+- A fixed `original-source-bicubic-upscale-ssim-v1` comparison contract: 720p/1080p/original output candidates rendered from the same source/subtitle input, candidate reduced resolution encoded with bicubic filtering, then upscaled to **one original-resolution subtitle-rendered reference** before scoring.
+- Session-only per-resolution evidence (existing persistent CQ record identity lacks output dimensions). One compatible measured-budget upper envelope; explicit user acceptance of a recommendation changes both codec and formal output size; FFprobe verifies encoded output dimensions.
+- Windows Native-only gating, FFmpeg filter smoke, CI tests and fail-closed insufficient-evidence handling.
+
+A code-review error was found and corrected before merge: the reference candidate was initially scaled along with the candidate; the corrected path applies scaling **only** to candidate video while reference stays original resolution. Windows CI smoke needed a PowerShell 5.1 stderr-safe SSIM output fixture; that test is under revision. **PR #75 remains open until latest CI succeeds; no real GPU/crossover case/long-form acceptance.**
+
+Additional remaining work: GitHub Issue #76 covers paired scene-complexity stratification/VOI stopping; Issue #77 is field acceptance on actual GPU/long-form source. These are not satisfied by merged CI. No Canonical promotion.
+
