@@ -37,3 +37,11 @@ Local source-derived V8 results: **8/8** classification/role checks and **6/6** 
 Foundry search for `content-first intake`, `unified asset inventory`, `role after classification`, `import slot category` found no identical intake/role UX case. Existing `2026-10-05-media-import-capability-stages-must-not-collapse.md` already distinguishes parseability, decoding, stream-copy and execution readiness. The new candidate specifically addresses **user-facing import categories vs post-recognition task roles**, a separate information-architecture boundary. `2026-10-02-media-format-support-is-a-compatibility-relation.md` covers compatibility evidence, not the import-gate UX constraint.
 
 The new importer is deliberately incomplete: signatures are bounded, file identity is not equivalent to complete byte hashing, and the internal legacy role input adapters remain. Do not infer arbitrary format support or guarantee that all media containers can serve every role. Keep Candidate-only; no Canonical update based on one draft implementation.
+
+
+## Verified PR #69 CI evidence
+
+Source PR head: `896019e97fca2b8a87d7fc52cde749ed69156850` (Draft / not merged).  
+GitHub Pages **build succeeded**; Chromium Browser E2E workflow `37982837913` **completed successfully**, running the full **163/163 Node tests** (0 failures) followed by real Chromium scenarios. The job log explicitly contains `Unified content-first intake mux PASS` and `Source ambiguity and MKV-only remux PASS`. Review threads and reviews were empty at verification; PR remains Draft and `main` remains at `d5669c6d9bb6ebdd6843ee8c7f651902c80c4d08`.
+
+This upgrades the evidence from source-derived checks to a **green real browser execution/mux audit** of the first intake slice. It does **not** establish completed real-user visual acceptance, fully general codec/container support, audio-only MP4 classification, or source-container track tree presentation in the import list. Do not treat the green CI as a license to declare the whole issue solved or to promote the Candidate to Canonical.
