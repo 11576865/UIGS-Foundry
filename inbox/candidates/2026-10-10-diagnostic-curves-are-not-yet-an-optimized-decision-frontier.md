@@ -44,3 +44,16 @@ Reusable scope-review observation:
 - Do not infer that the user's objection requests code deletion or reversal of all rate-distortion modeling. Scope disposition remains a product decision, not a completed change.
 
 Evidence: user feedback during a 2026-10-10 project-status reassessment; recorded original October 3 user intent; QHE main `2eeaab388851008a72c653aaf9f0f14560262b76`, particularly `src/transcode-calibration-panel.js` and PRs #67–#72. This extension remains **Candidate** and does not alter any Canonical rule.
+
+## Explicit single-curve direction and implementation (2026-10-10)
+
+The user explicitly requested that the exploration curve be merged or removed because the compression workflow should present only one curve. The chosen implementation removes the standalone exploration plots in **both** the manual transcode panel and the guided hard-sub quality panel, while retaining actual CQ/CRF sampling, measurement provenance, and progress/target status. Manual transcode retains one interactive target-size/SSIM frontier; individually tested CQ/CRF settings and adoption controls are available in a collapsed details section under the graph.
+
+- QHE PR: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/73
+- Branch: `fix/single-measured-compression-curve`
+- Commit: `7b4f635d97e45422717a27d5c3c975f70ad95319`
+- State at submission: PR open; CI pending; not merged; no hardware/device acceptance.
+- Reusable boundary: a diagnostic search trace may remain operationally essential without occupying a primary user-facing visualization. Preserve the underlying observations and parameter-selection affordances when collapsing the diagnostic surface.
+- This is one product-specific disposition and does not automatically prescribe a single curve for every application.
+
+This is an update to the existing Candidate, not a new duplicate or Canonical promotion.
