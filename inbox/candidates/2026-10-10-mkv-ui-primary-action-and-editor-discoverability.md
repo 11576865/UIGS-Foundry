@@ -36,3 +36,14 @@ Foundry search terms `icon-only primary action workbench`, `context navigation h
 - `inbox/candidates/2026-10-03-responsive-geometry-assertion-viewport-reflow-observation.md` addresses E2E reflow races and synchronization, not task-entry labeling.
 
 This Candidate should not be promoted to Canonical from one source review and a pending Draft PR.
+
+
+## Product-direction correction — initial UI PR rejected/superseded
+
+The user objected that restoring labels and desktop object-filter navigation preserved the **four category-specific upload boxes**, despite the project's shift toward content identification. This is a substantive **information-architecture mismatch**, not merely an affordance issue. PR #67 was **closed without merge**: https://github.com/11576865/MKV-Fast-Muxer/pull/67. Follow-up specification: https://github.com/11576865/MKV-Fast-Muxer/issues/68.
+
+The previous Candidate's claims about the icon-only action remain source-grounded, but its proposed first UI change **did not adequately address the requested transformation**. Its 10/10 source-derived checks establish only narrow markup/behavior invariants and are not evidence of correct future UI architecture. Do not cite PR #67 as an accepted UI redesign or merged change.
+
+The corrective direction is a content-first asset inventory and explicit primary-source/track role assignment after classification. Four categories can remain *views for editing*, not top-level gates for importing. The current `main.js` also contains a single-job prerequisite `if (!video || !subtitleTracks.length) return;`, so merely unifying the file picker cannot make arbitrary valid container-only remux scenarios executable. Address task schema and execution readiness before interface cosmetics.
+
+**Status: superseded implementation proposal; retained as a narrow Observation/Candidate, not Canonical.**
