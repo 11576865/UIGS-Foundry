@@ -83,3 +83,11 @@ Evidence level: source implementation and proposed JVM/Android regressions,
 large-scene virtualization or universal draft-lifecycle correctness is
 claimed. This note does not change Canonical policy or prescribe fixed
 zoom thresholds for other products.
+
+## 2026-10-09 PR #138 repair follow-up — Pending CI
+
+An Android Emulator run of the spatial-workbench redesign exposed a presentation-native tool access regression: the old entry-point action was removed, while the replacement tool-directory action was placed after an unbounded horizontal list of tool instances. In a narrow viewport, primary creation/navigation actions must remain visible outside an independently scrollable overflow region; merely retaining them in the composition or accessibility tree does not guarantee practical touch reachability. The branch now fixes `spatial-add-tool` before the scrolling instance tabs and adds an explicit visibility assertion.
+
+The same redesign introduces a deferred tool-picker selection transaction. Explicit birdseye/recall navigation must cancel that pending transaction, or a later unrelated active ToolInstance update may unexpectedly steal focus. A new connected regression checks that manual navigation remains authoritative over a stale picker selection.
+
+These are implementation-level hypotheses and regressions in `11576865/ASS-Workbench-Android` PR #138, not confirmed post-fix Android acceptance. Status: **Pending CI**. This follow-up supplements the existing camera/gesture/semantic-zoom candidate and does not modify Canonical requirements.
