@@ -91,3 +91,11 @@ An Android Emulator run of the spatial-workbench redesign exposed a presentation
 The same redesign introduces a deferred tool-picker selection transaction. Explicit birdseye/recall navigation must cancel that pending transaction, or a later unrelated active ToolInstance update may unexpectedly steal focus. A new connected regression checks that manual navigation remains authoritative over a stale picker selection.
 
 These are implementation-level hypotheses and regressions in `11576865/ASS-Workbench-Android` PR #138, not confirmed post-fix Android acceptance. Status: **Pending CI**. This follow-up supplements the existing camera/gesture/semantic-zoom candidate and does not modify Canonical requirements.
+
+## 2026-10-09 offscreen composition and draft ownership — Candidate / Pending CI
+
+The ASS Workbench infinite-canvas redesign initially applied offscreen culling to every live tool. A code review identified an important boundary: removing an Android Compose editor from composition can destroy local non-saveable draft state, even when a `SaveableStateHolder` is present. That holder does not by itself establish draft-lifecycle durability for arbitrary tools.
+
+The implementation therefore limits viewport-driven composition suspension to media evidence/preview (`preview` and `audio`), while leaving potentially draft-bearing subtitle, parameter, and general ToolInstance editors mounted pending explicit restoration/ownership tests. The camera/world intersection predicate uses Double intermediates with a bounded prefetch band. The scene's persisted nodes remain independent of whether production content is currently composed.
+
+This is a **risk containment decision**, not measured performance evidence or proof that every media-side transient state is safe to suspend. Product branch PR #138 includes pure JVM coverage and an Android instrumentation regression, both awaiting this head's CI. A future generalized virtualization pattern would require proof of draft restoration (including transient previews and foreign-owner conflicts) before broader unmounting. Do not promote to Canonical from this observation.
