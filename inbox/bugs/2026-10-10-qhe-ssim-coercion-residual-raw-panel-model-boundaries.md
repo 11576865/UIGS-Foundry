@@ -30,3 +30,9 @@ Fabricated endpoints and threshold-passing/failing statuses; artificial low/high
 Related existing bug: `inbox/bugs/2026-10-09-qhe-numeric-coercion-invents-missing-measurement-evidence.md`, marked fixed-verified for three entry points (`exploreQuality`, `summarizeCalibrationEvidence`, `buildExplorationPlot`) in PR #72. This new record documents previously unverified **different boundaries** (upstream panel's coercion and direct model entry), without contradicting the earlier scoped fix or declaring a verified runtime failure.
 
 Do not promote to Canonical. No source code was changed in this intake.
+
+## Proposed correction in PR #73 (latest-head validation pending)
+
+QHE commit `a98d291ad53e12e9dad557595214bead555d17b7` applies shared strict measurement parsing to `hooks.calibrationSample` raw SSIM/duration/video-byte ingress before any `Number()` coercion, and hardens `rate-distortion-model.js` numeric acceptance to typed, nonblank finite numbers. Tests now include boolean/whitespace model inputs, legitimate SSIM 0/1, raw-ingress inputs, and a real-browser lifecycle case with a boolean native SSIM. The defect is **addressed in an open PR**, but no latest-head CI or device result was obtained at intake; retain an unverified/pending-fix status rather than claiming fixed-verified. Existing PR #72 earlier-boundary bug remains distinct.
+
+Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/73. No Canonical modification.
