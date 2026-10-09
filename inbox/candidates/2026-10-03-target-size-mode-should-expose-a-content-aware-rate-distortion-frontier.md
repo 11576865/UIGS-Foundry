@@ -119,3 +119,10 @@ This implementation reinforces the earlier Candidate: the decision curve should 
 
 The current implementation remains single-branch and SSIM-based. It does not yet justify Canonical promotion.
 
+
+## QHE multi-codec upper-envelope checkpoint — PR #74 (2026-10-10)
+QHE PR #74 introduces `createMultiBranchFrontier`: joins at least two codec-specific measured R–D models **only when their evidence scope is identical**, restricts the visual/decision size domain to the **intersection** of measured ranges, compares conservative lower-quality estimates at fixed budget, applies an incumbent hysteresis (0.003 SSIM), and requires **explicit user acceptance** of an encoder switch. The interface still presents one interactive target-size/quality curve; codec switching is not implicit.
+
+**Limitations:** scope is current-source/current-runtime/identical-source-resolution and reference-rendering. Cross-resolution, cross-frame-rate and differently processed input references cannot be assumed quality-comparable with the present source-SSIM metric. The envelope is a measured-codec **prototype**, not the full multi-configuration optimum and not a final VBR guarantee.
+
+Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/74. Status at checkpoint: PR open; acceptance pending; Candidate only.
