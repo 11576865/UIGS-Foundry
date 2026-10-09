@@ -54,3 +54,32 @@ It does not prescribe:
 - a particular coordinate precision strategy.
 
 Do not promote to Canonical from this observation alone.
+
+
+## 2026-10-09 implementation follow-up — validation pending
+
+Source: \`11576865/ASS-Workbench-Android\`, branch
+\`redesign/infinite-canvas-workbench-v2\` (reviewable implementation; **not** evidence of passed CI or device acceptance).
+
+A previous scaled-live-surface UI made tool typography and touch targets
+dependent on camera zoom. The replacement separates three representations
+while retaining one ToolInstance/Binding/Domain authority:
+
+- Spatial overview uses lightweight identity and binding-summary cards.
+- Close-up board restores multiple live Composables at native control density.
+  Camera position and surface footprint change, but individual slider/text
+  touch targets are not geometrically scaled by the camera.
+- A focused native-density edit stage gives a narrow-screen tool a stable
+  touch area; video and transparent audio retain explicit layered composition
+  and passthrough behavior.
+
+This extends the earlier semantic-zoom candidate with a **two-plane working
+surface** hypothesis: composition and spatial organization need not require
+permanent downscaling of production controls. It also preserves explicit
+gesture ownership and separation of camera history from ASS Undo.
+
+Evidence level: source implementation and proposed JVM/Android regressions,
+**Pending CI**. No measured device ergonomics, renderer performance,
+large-scene virtualization or universal draft-lifecycle correctness is
+claimed. This note does not change Canonical policy or prescribe fixed
+zoom thresholds for other products.
