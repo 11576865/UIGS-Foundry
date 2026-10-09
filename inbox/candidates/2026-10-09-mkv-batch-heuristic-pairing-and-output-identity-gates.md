@@ -41,3 +41,21 @@ A source-derived V8 logic smoke for the exact branch version passed, and modifie
 Related prior evidence: `BUG.HSR.SAME_BASENAME_COLLISION` and `CLAIM.HSR.SAME_BASENAME_COLLISION` already establish that display basenames are not stable cross-directory identities and that ambiguous fallback should not guess. This candidate does **not** reassert that as a new general law. It adds concrete batch-plan tie semantics, a distinct destination-identity guard and the UI/execute-time enforcement boundary. Related orchestration: `inbox/candidates/2026-10-02-batch-execution-async-preflight-readiness-race.md`.
 
 No Canonical promotion is requested from this single implementation.
+
+## Follow-up: pre-existing destination protection and artifact retention (same Candidate)
+
+Date: 2026-10-09  
+Project branch: `11576865/MKV-Fast-Muxer:fix/batch-ambiguous-pairing-output-collisions`
+
+Further source review identified a distinct destination-side hazard: the existing browser File System Access write routine used `getFileHandle(filename, {create:true})` followed by `createWritable()`, without checking whether a previous output file or matching report was already in the selected directory. The earlier batch-internal collision guard did not protect **pre-existing** user artifacts.
+
+Correction on the same feature branch:
+- `src/batch-output.js` provides directory-content preflight for the planned MKV + JSON report names, including Unicode NFKC / casefold equivalence, read/permission error fail-closed behavior, and repeat checks just before writing.
+- `src/main.js` blocks execution for pre-existing output or unknown directory state, revalidates at the click boundary, and retains download links if optional directory persistence fails after successful mux.
+- Added isolated directory-handle regression fixtures for existing files, case/Unicode collisions, unreadable directories, directory-vs-file conflicts and failed writable abort.
+- Browser E2E scenarios cover pre-existing reports preventing Start, and completed mux results remaining downloadable after simulated directory write failure.
+- Source-derived V8 execution of **7 directory-helper regression fixtures passed**. Six touched JS files passed V8 parsing. Node and real browser test execution remain **Pending CI**.
+
+Important limit: browser File System Access offers no atomic cross-process `create-if-absent` reservation. A competing writer could create the same filename after the final check. Therefore the improvement is a **conservative best-effort guard**, not a proof of atomic no-clobber publication. Tests on mock DirectoryHandle are not evidence for every filesystem/OEM behavior.
+
+Deduplication: this continues the destination-identity scope in the existing Candidate and does not create a second general record. It also aligns with the previously recorded principle of separating completed artifact identity from current configuration or downstream save state. The Candidate remains non-Canonical.
