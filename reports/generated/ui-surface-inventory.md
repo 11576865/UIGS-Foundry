@@ -12,7 +12,7 @@ Surfaces with production visual evidence: 0
 | Character-Voice-Service | 11576865/Character-Voice-Service | d818bee338 | available | 0 |
 | HSR-Voice-Archive-Builder | 11576865/HSR-Voice-Archive-Builder | 5dde8e3d8a | available | 11 |
 | MKV-Fast-Muxer | 11576865/MKV-Fast-Muxer | 9eb28679fd | available | 12 |
-| Quick-Automatic-Hardsub-Encoder | 11576865/Quick-Automatic-Hardsub-Encoder | 899ed59e4e | available | 16 |
+| Quick-Automatic-Hardsub-Encoder | 11576865/Quick-Automatic-Hardsub-Encoder | 46315ea21e | available | 16 |
 
 ## Boundary
 
