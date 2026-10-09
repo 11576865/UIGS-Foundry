@@ -34,3 +34,16 @@ This addresses lifetime retention across successive batches, **not** the inheren
 ## Deduplication
 
 Searched UIGS-Foundry for Object URL / Blob cleanup and artifact lifetime; no matching URL-lifecycle Candidate was identified. Related record `inbox/candidates/2026-10-09-mkv-batch-heuristic-pairing-and-output-identity-gates.md` covers filename identity, filesystem persistence, and ownership of output paths, **not** URL handle lifetime. Keep evidence separate to avoid conflating filesystem entry ownership with in-memory resource ownership. This is a Candidate, with no Canonical modification requested.
+
+
+## PR #65 integration evidence
+
+Date: 2026-10-09  
+PR: https://github.com/11576865/MKV-Fast-Muxer/pull/65  
+Validated PR head: `319f338bc5d7784622c12c46db7b6f9a34174989`  
+Merged commit: `d5669c6d9bb6ebdd6843ee8c7f651902c80c4d08`  
+Integration state: **Merged to main**; epistemic state remains **Candidate**.
+
+The PR-level **Browser E2E mux tests** (`chromium-mux`) and **Deploy to GitHub Pages** (`build`) check suites both completed successfully. The browser job ran the repository Node unit suite, generated real fixture media, built the app, and executed browser end-to-end mux tests. PR review was completed and there were no inline findings or active review threads at merge time. GitHub reported `mergeable_state=clean` and accepted the merge with an expected-head-SHA guard. Confirmed `main` at `d5669c6`.
+
+At this integration checkpoint the new **main-push** Pages deployment and Browser E2E are still asynchronous (`in_progress`), and their ultimate results must not be inferred from PR-level checks. This record documents a code-path lifetime correction and passing CI, **not** a measured heap reduction or a browser-wide memory guarantee. A Blob URL associated with a still-visible large artifact is intentionally retained. No Canonical update requested.
