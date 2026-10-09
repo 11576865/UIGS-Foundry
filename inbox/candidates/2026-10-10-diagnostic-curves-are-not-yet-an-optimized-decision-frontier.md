@@ -31,3 +31,16 @@ A decision-facing surface should declare:
 
 ## Verification boundary
 The review is based on current-main code and PR metadata, not a field test on the user's actual machine. This is a Candidate, not a Canonical rule.
+
+## Scope and user-intent review (2026-10-10)
+
+The user explicitly challenged the introduction of two separately exposed “exploration” and “efficiency” charts in Quick-Automatic-Hardsub-Encoder: they had requested a target-size/quality decision curve and eventual cross-resolution/codec comparisons, not necessarily two manual-transcode diagnostic charts. Available historical discussion supports the original draggable target-size/quality decision surface and cross-branch optimization intent; it does **not** establish an explicit request for the two separately named diagnostic surfaces. Absence of a located authorization record should be reported as an evidence gap, not proof that none ever existed.
+
+Reusable scope-review observation:
+- Distinguish a user-requested *decision abstraction* from an engineering-chosen *diagnostic presentation*. The fact that search traces and single-branch measurements exist does not authorize elevating each internal representation into a prominent user workflow.
+- For each new primary UI surface, retain a concrete chain: source user task or explicit approval -> decision/operation enabled -> necessary user interaction -> implementation and validation evidence. Technical usefulness, CI success, and merged PR status do not themselves establish demand.
+- Investigate less intrusive realizations first: preserve accurate measured evidence and optional diagnostics, but favor concise actionable recommendations and progressive disclosure when detailed search traces are not needed for the primary task.
+- Evaluate opportunity cost against unresolved higher-priority user constraints: bounded calibration time, representative sampling, and cross-configuration upper-envelope decision-making.
+- Do not infer that the user's objection requests code deletion or reversal of all rate-distortion modeling. Scope disposition remains a product decision, not a completed change.
+
+Evidence: user feedback during a 2026-10-10 project-status reassessment; recorded original October 3 user intent; QHE main `2eeaab388851008a72c653aaf9f0f14560262b76`, particularly `src/transcode-calibration-panel.js` and PRs #67–#72. This extension remains **Candidate** and does not alter any Canonical rule.
