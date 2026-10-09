@@ -9,9 +9,13 @@ INDEX=ROOT/"domains"/"interface-grammar"/"visual-evidence"/"index.json"
 COVERAGE=ROOT/"domains"/"interface-grammar"/"visual-evidence"/"coverage.json"
 SURFACES=ROOT/"domains"/"interface-grammar"/"inventory"/"index.json"
 def load(p:Path)->Any:return json.loads(p.read_text(encoding="utf-8"))
+def stable_path_sort(paths):
+    """Sort manifest paths identically on Windows and POSIX."""
+    return sorted(paths,key=lambda p:p.as_posix())
+
 def build()->tuple[dict[str,Any],dict[str,Any]]:
     rows=[];by_surface={}
-    for p in sorted(MANIFESTS.glob("*.json")) if MANIFESTS.exists() else []:
+    for p in stable_path_sort(MANIFESTS.glob("*.json")) if MANIFESTS.exists() else []:
         d=load(p);row={"id":d["id"],"evidence_level":d["evidence_level"],"platform":d["platform"],"capture_id":d["capture_id"],"surface_ids":d["surface_ids"],"patterns":d.get("patterns",[]),"entrypoint":d["entrypoint"],"source_repository":d["source_repository"],"source_revision":d["source_revision"],"sha256":d["sha256"],"image":d["image"],"change_status":d.get("change_status"),"path":p.relative_to(ROOT).as_posix()}
         rows.append(row)
         for sid in d["surface_ids"]:by_surface.setdefault(sid,[]).append(row)

@@ -1,6 +1,7 @@
 # Bug: Numeric coercion can invent measurement evidence
 
 Status: fixed-verified
+Lifecycle: regression-verified
 Date: 2026-10-09
 Source project: 11576865/Quick-Automatic-Hardsub-Encoder
 Domains: evidence-validation, media-processing, data-visualization
