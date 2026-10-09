@@ -99,3 +99,13 @@ The ASS Workbench infinite-canvas redesign initially applied offscreen culling t
 The implementation therefore limits viewport-driven composition suspension to media evidence/preview (`preview` and `audio`), while leaving potentially draft-bearing subtitle, parameter, and general ToolInstance editors mounted pending explicit restoration/ownership tests. The camera/world intersection predicate uses Double intermediates with a bounded prefetch band. The scene's persisted nodes remain independent of whether production content is currently composed.
 
 This is a **risk containment decision**, not measured performance evidence or proof that every media-side transient state is safe to suspend. Product branch PR #138 includes pure JVM coverage and an Android instrumentation regression, both awaiting this head's CI. A future generalized virtualization pattern would require proof of draft restoration (including transient previews and foreign-owner conflicts) before broader unmounting. Do not promote to Canonical from this observation.
+
+## 2026-10-10 v2 usability and interaction recovery — Pending CI
+
+ASS Workbench PR #138 exposed a design/regression risk when replacing a viewport-constrained live-surface workspace with a semantic-zoom board plus native focused editor. Although camera and touch-target models improved, the replacement dropped previously usable actions (layout lock, domain-instance close/duplicate, binding controls and immediate tool entry from the default focused stage). Restoring those actions requires forwarding commands through existing ToolInstance/Binding capability declarations, not cloning domain state inside the host.
+
+A second design risk: switching from a live editor to a lightweight semantic card can **unmount the editor even when the node remains visually represented**. `rememberSaveable` does not generally preserve ordinary `remember` drafts. The follow-up keeps draft-bearing editor composition present but visually masked by a compact card, while allowing explicitly scoped offscreen media virtualization. Instrumentation introduces a non-saveable draft preservation test across zoom out/in.
+
+Additional recovery: explicit one/two-column arrangement honors layout locks and hidden nodes; `infinite-v2` carries layoutLocked while decoding v1; initial project-scene nodes are not pruned before WorkspaceState hydration; the focused title provides direct navigation instead of requiring birdseye/return cycles.
+
+**Evidence boundary:** code/tests submitted to PR #138 on 2026-10-10; current Android CI, emulator and visual/device acceptance are Pending. This is a Candidate observation with compatibility-test implications, not a new Canonical policy or a claim that the complete 240 UI ledger is closed.
