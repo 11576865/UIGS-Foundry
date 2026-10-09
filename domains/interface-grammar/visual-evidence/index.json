@@ -174,26 +174,6 @@
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EVENT_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
-      "id": "VISUAL.PRODUCTION.ASS.FONTS_TOOL.FIXTURE_LANDSCAPE",
-      "evidence_level": "production-rendered",
-      "platform": "android",
-      "capture_id": "ASS.FONTS_TOOL.FIXTURE_LANDSCAPE",
-      "surface_ids": [
-        "ASS.TOOL.FONTS"
-      ],
-      "patterns": [],
-      "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.FONTS_TOOL.FIXTURE_LANDSCAPE.png",
-      "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
-      "sha256": "bc89c054cc8d219b12c6de1e8f64c7e20a05ccfeb15cdd298efd3a01d55d5f30",
-      "image": {
-        "width": 1600,
-        "height": 1000
-      },
-      "change_status": "changed",
-      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONTS_TOOL.FIXTURE_LANDSCAPE.json"
-    },
-    {
       "id": "VISUAL.PRODUCTION.ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE",
       "evidence_level": "production-rendered",
       "platform": "android",
@@ -212,6 +192,26 @@
       },
       "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE.json"
+    },
+    {
+      "id": "VISUAL.PRODUCTION.ASS.FONTS_TOOL.FIXTURE_LANDSCAPE",
+      "evidence_level": "production-rendered",
+      "platform": "android",
+      "capture_id": "ASS.FONTS_TOOL.FIXTURE_LANDSCAPE",
+      "surface_ids": [
+        "ASS.TOOL.FONTS"
+      ],
+      "patterns": [],
+      "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.FONTS_TOOL.FIXTURE_LANDSCAPE.png",
+      "source_repository": "11576865/ASS-Workbench-Android",
+      "source_revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
+      "sha256": "bc89c054cc8d219b12c6de1e8f64c7e20a05ccfeb15cdd298efd3a01d55d5f30",
+      "image": {
+        "width": 1600,
+        "height": 1000
+      },
+      "change_status": "changed",
+      "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONTS_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
       "id": "VISUAL.PRODUCTION.ASS.FRAMES_TOOL.FIXTURE_LANDSCAPE",
