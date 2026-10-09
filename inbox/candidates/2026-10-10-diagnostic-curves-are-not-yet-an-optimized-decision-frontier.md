@@ -57,3 +57,9 @@ The user explicitly requested that the exploration curve be merged or removed be
 - This is one product-specific disposition and does not automatically prescribe a single curve for every application.
 
 This is an update to the existing Candidate, not a new duplicate or Canonical promotion.
+
+## Follow-up implementation: single curve plus evidence integrity (2026-10-10)
+
+The user requested continued implementation. QHE PR #73 now has a second commit `a98d291ad53e12e9dad557595214bead555d17b7`: the existing single-curve design remains while completed sample measurements are reusable across decision-only threshold/audio-budget changes. Live sampling still rejects changed run identities; source/encoder/sample-profile changes remain incompatible. Pure tests, browser lifecycle regression, and documentation were extended. PR remains open; latest-head CI pending.
+
+This concretizes the distinction between a primary decision surface and internal diagnostics; it does **not** establish a global upper envelope or measured VBR equivalence. No Canonical promotion.
