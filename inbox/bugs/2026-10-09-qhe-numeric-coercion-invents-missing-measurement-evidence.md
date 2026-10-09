@@ -1,6 +1,6 @@
 # Bug: Numeric coercion can invent measurement evidence
 
-Status: implemented-pending-ci
+Status: fixed-verified
 Date: 2026-10-09
 Source project: 11576865/Quick-Automatic-Hardsub-Encoder
 Domains: evidence-validation, media-processing, data-visualization
@@ -23,7 +23,7 @@ Five new regression tests were run red before implementation. Follow-up local ve
 PR: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/72
 Commit: 2373ec71a490146263fc9320081f27122902e5d7
 
-The same PR moves target-label text outside the data area and adds browser geometry checks; browser CI was pending at intake time.
+The same PR moves target-label text outside the data area and adds browser geometry checks; standard CI subsequently passed both desktop and narrow-screen geometry checks. PR #72 merged as `2eeaab388851008a72c653aaf9f0f14560262b76`; release verification is separate.
 
 ## Deduplication and limits
 
