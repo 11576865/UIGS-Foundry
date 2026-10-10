@@ -58,3 +58,13 @@ PR #82 adds:
 At intake time PR #82 is still Draft and its current CI/Emulator/Fontconfig runs are pending. This record therefore remains Candidate and must not be treated as validated Canonical guidance.
 
 The observation also does not claim that retaining component identity is always preferable. Replacing a subtree can be correct when the semantic tool changes, lifecycle reset is intentional, resource ownership differs, or state migration is explicitly defined.
+
+## 2026-10-10 complementary inverse: end editor-draft ownership at session boundary — Pending CI
+
+Source: ASS-Workbench-Android [PR #140](https://github.com/11576865/ASS-Workbench-Android/pull/140), merged into the **unmerged** UI redesign PR #138 branch at `92ccaba3cb1d36eea6cbc31144d14d464aff3e15`.
+
+The continuity rule has an inverse: preserve a UI draft while the semantic workspace owner remains stable, but do **not** allow that draft to cross into a new project session just because the new project reuses the same Event ID. An unkeyed root `rememberSaveableStateHolder()` cached InlineEventEditor buffers under ToolInstance/Event-ID keys rather than project/session identity. Reusing those identifiers across documents could inadvertently resurrect a previous project's unsaved buffer.
+
+The submitted patch keys the holder on `workspaceSessionId` and adds an instrumentation regression using two sessions with the same Event ID. It also annotates the existing orientation/tablet-size regression with stage-specific draft-payload and Apply-button checks. A previous emulator run `37984011960` reported a failure in `inspectorDraftSurvivesToolSwitchAndRotation` without diagnostic XML content and included `adb: device offline`; that failure is **not** proven to originate from session collision or draft loss. The related non-diagnostic emulator evidence boundary is already documented in `inbox/observations/2026-10-04-android-emulator-offline-before-code-change.md` and is not duplicated here.
+
+**Evidence:** project source patch and proposed tests only; latest Android CI, emulator and real-device acceptance **Pending External Validation**. No Canonical promotion.
