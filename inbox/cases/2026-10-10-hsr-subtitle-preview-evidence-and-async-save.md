@@ -135,3 +135,23 @@ The HSR voice archive's source audio timeline and the exported subtitle display 
 Existing related Foundry cases and candidates on preview identity, asynchronous save ownership and evidence levels already describe generic aspects of the problem. This is an **additional concrete Case** on derived-output time ownership, not a new Canonical principle or an automatic policy promotion. It does not claim that full video editing, source-audio retiming, event splitting/merging or timeline waveform dragging is implemented.
 
 Reference: `11576865/HSR-Voice-Archive-Builder` PR #132; `app/subtitle_timing.py`, `app/subtitles.py` and `docs/subtitle-style-workbench-v15.md`.
+
+
+## Continued Case: direct manipulation of derived subtitle events in a bounded timeline (2026-10-10)
+
+### Observation / implementation
+
+After persistent ASS/SRT-only time overrides were added, numeric start/end controls were functionally correct but did not provide spatial context for neighboring events. A new HSR subtitle event timeline puts the same **derived display data** on a common time scale and delegates pointer and keyboard edits to the existing timing-draft state rather than adding an independent persistence mechanism.
+
+- The editor can pan and zoom through event boundaries (12–300-second windows); cue selection and viewport position are independent states.
+- Start/end drag handles change only the selected cue's unsaved draft. An explicit Save still owns the server transaction, project identity and optimistic concurrency. Adjacent cues are never changed implicitly, even when snapping to their edges.
+- Snapping is optional and limited to nearby pixel proximity; it is not an assertion of error-free subtitle spacing. Overlap is represented in limited visual lanes and noted as density, rather than silently suppressed.
+- A project with many events cannot render an unbounded DOM on each interaction; only items in the current time viewport are considered, with at most 140 displayed. The timeline reports truncated density instead of claiming full visibility.
+- The preview playhead is derived from the current ASS trial-time percentage. It is **not** synchronized video-frame playback or a program-wide audio waveform.
+- Selected items, source-clock conflicts, unsaved time drafts and source identity constraints remain authoritative in both the numeric editor and the event timeline.
+
+### Evidence / disposition
+
+Implementation: HSR-Voice-Archive-Builder PR #132, integrated HTML/CSS/JS time event timeline beneath the real preview stage; tests/test_subtitle_continuous_timeline.py exercises the production interaction logic with a deterministic project corpus and deferred persistence. Source and functional tests exist; exact-head CI, production-browser visual and device evidence remain independently scoped.
+
+**UIGS Intake:** Deduplicated against the existing preview-identity, async ownership and derived-time Case and the interactive-preview backpressure Candidate. Append to the existing Case; do not automatically promote to Canonical.
