@@ -56,3 +56,18 @@ Evidence: source projection unit checks **5/5 passed**; latest GitHub Actions No
 The initial E2E attempt `37983860309` failed after export because legacy mux success cleared hidden file adapters and `trackState` while the persistent imported-asset inventory remained visible. This was a real cross-lifecycle defect, not a mere responsive test flake; root cause/fix recorded separately in `inbox/bugs/2026-10-10-mkv-unified-intake-post-export-lifetime-desync.md`, now fixed on PR #69 and verified by latest E2E.
 
 Limits remain: the old source editor is still a secondary presentation; order and advanced flags are not duplicated into the tree. Only already-verified MKV main-source internals render as editable tree; generic container streams, multi-container role composition, batch unification and screenshot/human visual acceptance remain future work. PR is still **Draft/unmerged**; do not promote to Canonical.
+
+
+## Phase 3 — ordered edits, advanced flags, and real viewport observation (2026-10-10)
+
+Source PR #69 head `c6354abaea9d598342ce75cca57640f80f8722df` passed GitHub Actions Chromium workflow `38022985204` with **169/169 Node tests (zero failed), full Browser E2E PASS**, and Pages build success. The E2E specifically produced and inspected a real MKV after in-tree reorder of two audio streams and mutation of source `original`, `comment` and subtitle `hearing_impaired` dispositions. The browser also checked legacy editor ↔ tree reverse synchronization, and advanced-disclosure state retention across DOM list updates. The new tree is a view over the existing `trackState`, and no new independent edit state was created.
+
+Workflow artifact ID `11658369977`, `mkv-ui-container-tree-viewports`, contains the **populated source-tree** screenshots at 1440px desktop and 390px phone, generated from synthetic media fixtures. Visual inspection of both images found the tree and controls legible enough to locate and operate, but also uncovered two UX defects **not captured by prior source checks**:
+1. The imported source row still said `需进一步验证` despite a successful real MKV internal stream scan. This conflated the earlier file-header identity stage with the later container-content verification stage.
+2. The phone screenshot used very small text for track properties/flags, increasing reading effort despite no horizontal overflow.
+
+A follow-up branch revision advanced the selected scanned source label to `内部结构已扫描` only when the matching `trackState.fileKey` exists, increased the control/metadata text scale under mobile CSS, and added a browser assertion for the truthful post-scan label. **Final follow-up CI and updated screenshot review are still pending** as of this note. None of these screenshots are a substitute for real-user usability testing.
+
+Reusable candidate: **content identity, probe verification and task-role readiness are independent claims and should be reflected as distinct UI states**; user-entered metadata should have one canonical domain owner across multiple projections; two-way synchronization should not remount the active text input or collapse advanced disclosures. Ordering is both a UI presentation property and an output-mapping operation, therefore output `ffprobe` is necessary evidence, not merely the reordered DOM.
+
+Related Foundry Candidate: `2026-10-04-container-inventory-stable-identity-diff.md` already covers stable identities and before/after verification in another media editor. Do not duplicate or promote either Candidate to Canonical solely on the present PR.
