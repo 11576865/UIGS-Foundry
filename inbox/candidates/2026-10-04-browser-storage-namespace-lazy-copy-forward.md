@@ -78,3 +78,37 @@ Candidate extension:
 - Evidence at intake: static code finding + implementation and regression submitted; asynchronous CI and user-browser acceptance **Pending**
 - Deduplication: extends this existing lazy-copy-forward Candidate instead of introducing a separate generalized migration rule. The observation is not independent cross-project validation.
 - Status remains **Candidate**, without Canonical promotion.
+
+## Async commit-time ownership boundary (2026-10-10)
+
+The same CVR migration family revealed a second failure mode beyond a legacy
+read resurrecting a tombstone: a long-running offline download can acquire a
+book row, await network/cryptographic operations, and subsequently write a
+stale snapshot over a newer deletion or download.
+
+Candidate extension (not yet a cross-project invariant):
+
+- Cancellation alone is insufficient because network requests may ignore
+  AbortSignal or complete after cancellation. A persisted operation token
+  must be checked against the current destination record *inside the same
+  transaction* that commits the produced artifact and its progress metadata.
+- Deletion should fence outstanding writes and clear associated data
+  atomically when the storage engine supports multi-store transactions.
+- A newer operation for the same destination may supersede an older one;
+  stale completions must be rejected rather than presented as success.
+- A visible cancel control and source-switch cleanup improve immediate UX,
+  but do not replace cross-tab durable ownership checks.
+- Test delete-vs-late-result, overlapping writes, and cancellation with an
+  upstream operation that ignores AbortSignal; retain partial verified work
+  for explicit retry when safe.
+
+Evidence at intake: implementation and regression tests submitted in
+[CVR PR #11](https://github.com/11576865/Character-Voice-Reader/pull/11),
+with test-fixture repair at `80f5823129365ade19ead6b5ca3927c3e8a45a66`.
+Initial CI exposed a simulated IndexedDB aborted-upgrade rollback defect;
+the repair is committed, final asynchronous CI **Pending**. This is one
+project's implementation evidence, not independent confirmation or a reason
+for Canonical promotion.
+
+Scope exclusion: this record does not assert that all browser engines,
+cross-tab UI updates, or every cancellation timing have been field-tested.
