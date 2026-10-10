@@ -32,3 +32,12 @@ Before model/engine comparison is interpreted as evidence, make the evaluation i
 ## Dedup check
 
 Repository search on 2026-10-10 for benchmark dataset, evaluation corpus, split leakage, dataset fingerprint and provenance did not find an equivalent existing Candidate. Related asset-provenance and input-identity records are adjacent but do not cover frozen evaluation partitions/reference contamination.
+
+## Follow-up implementation evidence — 2026-10-10
+
+- CVS [PR #15](https://github.com/11576865/Character-Voice-Service/pull/15) is stacked on PR #14 and implements this Candidate's previously proposed downstream evaluation linkage.
+- v1.1 evaluation records declare an immutable `model_revision`, opaque `generation_revision`, frozen `dataset_sha256`, complete held-out test IDs and one served voice reference mapped to a non-test source item.
+- The promotion gate rejects schema v1.0 records (retained for historical reads), missing/stale manifest fingerprints, wrong model revisions, incomplete held-out coverage and reference/test contamination.
+- Cross-project nuance: a `generation_revision` derived from a chosen reference must not be reused across multiple distinct reference choices. Current v1.1 intentionally uses one reference per evaluation record.
+- Targeted regression tests and source changes are committed; CI and real-audio/real-device acceptance remain **Pending**. This is **declared provenance consistency**, not attestation of generated audio quality.
+- The entry remains **Candidate**. This is follow-up evidence for an existing hypothesis, not an automatic Canonical promotion or a second duplicate Candidate.
