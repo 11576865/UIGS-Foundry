@@ -148,3 +148,11 @@ The same log exposed distinct product-state risks: (a) a masked non-saveable edi
 One Android regression on plain `remember` editor drafts had an `EditableText` payload with the expected raw text while an `assertTextContains` semantics assertion failed. The test guard now inspects native editable semantics instead of weakening the draft retention requirement. This distinguishes a test-node property mismatch from confirmed loss of the draft.
 
 Reusable Candidate: retiring a competing UI should simultaneously migrate visual evidence and invariant tests to the remaining product navigation. Explicit user-visible spatial mutations should publish their new state at the action boundary; continuous gesture saves may use a different cadence. A single tool-run failure or project patch does not authorize Canonical promotion.
+
+## 2026-10-10 stale activity focus after opening native tool directory — Candidate / Pending CI
+
+ASS Workbench Android PR #138 exposed an async navigation race: the infinite canvas opens a native ToolInstance directory but may still observe the *previous* active ToolInstance ID before the parent publishes directory activation. Treating that stale ID as a fresh directory selection steals focus immediately and makes the directory appear broken. The repair records the active ID at picker invocation and only accepts a different activated tool (or the same tool after the directory's own activation was observed), while still accepting genuinely newly created instance IDs. An Android connected test covers the stale-ID interval and subsequent explicit activation.
+
+The same CI cycle exposed a separate **instrumentation compilation** issue: the current Compose SemanticsConfiguration does not expose the invoked `getOrNull` at the test call site. The assertion now accesses the required `EditableText` semantics property through the supported `config[key]` indexer; absent editable semantics is a legitimate regression rather than a silently missing assertion.
+
+**Evidence boundary:** latest confirmed old-head Android CI + Fontconfig PASS, emulator failed before executing tests due to the Kotlin test compile error; corrected source and regression were committed to PR #138. **Current-head CI/Emulator pending**, and no full-product or device PASS can be inferred. Preserve as Candidate; do not update Canonical based on one occurrence.
