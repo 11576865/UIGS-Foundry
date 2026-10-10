@@ -164,3 +164,39 @@ object keys. Older rollback DB remains untouched.
 
 Dedup: appended to the existing browser-storage migration Candidate, not
 a new Canonical rule. No independent product confirmation yet.
+
+## Advisory storage budget and resumable downloads (2026-10-10)
+
+CVR [PR #19](https://github.com/11576865/Character-Voice-Reader/pull/19)
+identified an accounting error at the boundary between browser storage
+estimates and resumable media synchronization. The Reader previously compared
+`navigator.storage.estimate().quota - usage` with
+`offlineManifest.totalBytes` and rejected a download if estimated free bytes
+were lower. However `totalBytes` includes clips that may already be stored
+and SHA-256 verified. The browser estimate is origin-wide and approximate,
+not the exact incremental budget for this download.
+
+Candidate implication:
+- Do not treat a total artifact manifest as the amount of **new** storage
+  required on a resume path. A conservative-looking hard preflight can
+  incorrectly reject a fully safe incremental transfer.
+- Treat `StorageManager.estimate()` and `persist()` as advisory/best-effort
+  interfaces. Unsupported APIs or denied persistence should not themselves
+  prevent the actual storage write from being attempted.
+- For a real `QuotaExceededError`, preserve committed, verified partial
+  artifacts and show an actionable **user-controlled** cleanup/retry path.
+  Never automatically delete user-selected offline media to recover space.
+- Keep the evidence layers explicit: a mocked estimate with genuine
+  browser IndexedDB writes verifies reuse; a deliberately thrown quota
+  exception verifies recovery UI; neither creates a real disk-full browser
+  nor proves all eviction and quota-pressure behavior.
+
+CVR PR #19 adds an on-demand origin storage estimate display plus actionable
+quota-recovery UI, scoped tests, and a Service Worker cache-key bump.
+Evidence at intake: head
+`deffa31b3002c5d160b7bc503ac30bfa0ef349b9`;
+normal Reader and Chromium CI **Pending**. Product behavior and validation
+should be updated after completed latest-head CI.
+
+Dedup: this is an extension to the existing browser persistence/ownership
+Candidate rather than a new Canonical standard. No automatic promotion.
