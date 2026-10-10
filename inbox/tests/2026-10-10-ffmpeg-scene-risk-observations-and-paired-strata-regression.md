@@ -45,3 +45,14 @@ This test validates decoded signal plumbing and risk-informed window planning on
 The equivalent local FFmpeg fixture and Node assertion were executed successfully on 2026-10-10. The repository version was submitted in QHE PR #80 with a Windows Actions check; CI result and merge are pending at intake.
 
 No Canonical promotion.
+
+
+## CI completion and mainline status (2026-10-10)
+
+QHE PR #80 passed the Windows CI job, including the exact named step `Decode real dark, motion and temporal-noise risk fixtures`, as well as existing Windows acceptance steps; UIGS Evidence Coverage passed. PR #80 was squash-merged into `main` as `bec45f9795a4ca6a1470f79abee34ff36ee1fb27`.
+
+This confirms execution of the synthetic decoded-content smoke on the GitHub Windows runner, not on the user's actual GPU, full-length media or complex ASS production corpus. The test remains a regression fixture, not evidence that scene-risk features are perceptually calibrated.
+
+Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/80
+
+No Canonical promotion.
