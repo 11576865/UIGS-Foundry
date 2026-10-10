@@ -155,3 +155,34 @@ After persistent ASS/SRT-only time overrides were added, numeric start/end contr
 Implementation: HSR-Voice-Archive-Builder PR #132, integrated HTML/CSS/JS time event timeline beneath the real preview stage; tests/test_subtitle_continuous_timeline.py exercises the production interaction logic with a deterministic project corpus and deferred persistence. Source and functional tests exist; exact-head CI, production-browser visual and device evidence remain independently scoped.
 
 **UIGS Intake:** Deduplicated against the existing preview-identity, async ownership and derived-time Case and the interactive-preview backpressure Candidate. Append to the existing Case; do not automatically promote to Canonical.
+
+
+## Continued Case: cross-tab text optimistic concurrency and deliberate draft reconciliation (2026-10-10)
+
+Originally cue timing was protected by expected start/end, while the cue
+text editor lacked an equivalent expected-current-value check. Two browser
+tabs could submit different `final_chs` for the same ID and let the later
+request silently overwrite earlier human work. Comparing only the ID
+is insufficient when rebuilding archives migrates cue indices.
+
+HSR PR #132 now sends optional `expected_final_chs` and
+`expected_source_member_id` from the first-class cue editor. The service
+resolves the effective saved subtitle text via the same source-member-aware
+override rules as ASS/SRT generation; it compares preconditions and rejects
+stale or ambiguous cues before modifying any override/review/export file.
+Legacy bulk clients not sending the preconditions remain supported.
+
+The *post-refresh* interaction is equally important. When a server update
+arrives and the local cue has an unsaved draft, the editor preserves the
+draft, updates its server baseline, blocks Save and offers two explicit
+choices: **adopt server text** or **confirm keeping the local draft**.
+Only the latter permits an intentional subsequent save based on the newly
+loaded text. Without this rebase UI, a warning that says "refresh" can
+leave an old cached baseline unchanged and trap the user in repeated
+optimistic concurrency failures.
+
+Evidence includes real ASS/SRT writer and overlay tests
+(`tests/test_subtitle_integrated_export.py`) plus production-JS
+`tests/test_subtitle_cue_editor.py` coverage. This is an instance-level
+Case update linked to existing async-save ownership knowledge; Canonical
+guidance is not automatically changed.
