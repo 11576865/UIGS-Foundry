@@ -1,6 +1,7 @@
 # Bug: Persistent import inventory stranded by legacy post-export state reset
 
 Status: **Bug / reproduced in browser CI; fix under revalidation**  
+Lifecycle: repair-evidenced  
 Date: 2026-10-10  
 Project: `11576865/MKV-Fast-Muxer`  
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/69  

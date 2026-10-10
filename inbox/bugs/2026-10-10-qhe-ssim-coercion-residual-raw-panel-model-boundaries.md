@@ -1,6 +1,7 @@
 # Bug: Strict SSIM input validation is bypassed by intermediate numeric coercion
 
 Status: Open — code-inspected, regression/runtime reproduction pending
+Lifecycle: validation-pending
 Date: 2026-10-10
 Source project: 11576865/Quick-Automatic-Hardsub-Encoder
 Source main: `2eeaab388851008a72c653aaf9f0f14560262b76`
