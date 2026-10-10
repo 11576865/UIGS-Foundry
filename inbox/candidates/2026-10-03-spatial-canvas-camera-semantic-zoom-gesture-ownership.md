@@ -138,3 +138,13 @@ The unified ASS Workbench infinite canvas needs a reversible navigation contract
 For visible world nodes that are entirely offscreen, the same canvas now groups direction cues into at most four left/right/top/bottom touch targets. Each cue picks the nearest node in its direction and shows how many others share that side. It excludes hidden instances and domain BOOKMARKED instances (which have their own recall controls), and uses Double-based projection to handle large signed world coordinates. A cue approaches the actual ToolInstance/scene node without creating a substitute editor.
 
 **Evidence:** JVM model and Android connected regressions submitted on PR #138, currently Pending latest-head CI, device visual/touch confirmation, and interaction validation near screen chrome/docked timeline. This extends the existing camera-navigation candidate rather than introducing a duplicate Canonical policy.
+
+## 2026-10-10 filtered birdseye discoverability and stable map ownership — Pending UI verification
+
+Source: ASS-Workbench-Android [product PR #141](https://github.com/11576865/ASS-Workbench-Android/pull/141), stacked on the unmerged workbench redesign PR #138 (review branch; not main/device acceptance).
+
+Review of the birdseye tool navigator exposed a usability gap: a complete node map and a scrollable ToolInstance list keep distant/hidden tools technically reachable but not practically discoverable when the workspace becomes large. Searching only the list would also create a **hit-target mismatch** if map markers representing nonmatching nodes continued accepting taps.
+
+The product patch adds text search (title, subtitle and stable instance ID), a hidden-only filter, result counts and explicit empty-result recovery. The normalization continues to include all available world nodes, and nonmatching markers become faded spatial landmarks rather than causing every search keystroke to refit the map. Hit testing and list navigation both use the filtered identity set, and the existing focus/recall path reveals a selected hidden node without search itself rewriting tool geometry or ASS domain history.
+
+This extends the existing spatial-camera Candidate with a **discoverability/projection invariant**: narrowing selectable targets must not silently shift the viewer's spatial reference, and rendered nonmatches must not remain active controls. It is a single-project implementation hypothesis, **not** a new Canonical rule. Product PR #141 supplies two JVM tests and two Android instrumentation tests. The exact changed head has **not** passed Android CI, emulator/IME or real-device acceptance. The open PR #138 head's Android CI success, if any, does not validate this stacked patch.
