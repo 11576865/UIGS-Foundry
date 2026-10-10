@@ -37,3 +37,9 @@ For nontrivial transformations, additionally assert:
 Code-generation and patch orchestration must distinguish **literal replacement content** from **replacement-template syntax**. When the replacement text is another programming language, callback-based insertion is the safer default.
 
 Do not promote to Canonical from this single bug record.
+
+
+## Independent reoccurrence and CI prevention — QHE #78 (2026-10-10)
+While inserting PowerShell `Invoke-SceneRiskProbe` using a JS string replacement, a generated regular-expression suffix `$'` was interpreted as JavaScript replacement-template syntax, expanding a ~3.2KB intended insertion into over 40KB of duplicated PowerShell. Windows CI immediately failed the PowerShell parser gate. The file was reconstructed from the clean merged `main` version, applying `source.replace(anchor, () => literalPayload)` so dollar-bearing cross-language source was inserted without reinterpretation, and the repaired branch passed Windows parser/smoke. Evidence: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/78, merged `eb84018d2c33344c6c69a965ec48f2c118c99bb3`.
+
+This is a recurrence of the *existing* documented bug, not a new Canonical rule. The regression reinforces performing size/diff checks **before** pushing and retaining parser CI as an independent final gate.
