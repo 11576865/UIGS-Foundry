@@ -55,3 +55,16 @@ For a shared file journal with fixed staging or target paths:
 - evidence level: observed emulator failure + code-level shared-resource analysis; fix CI pending at capture time
 
 This is a Candidate only. It is not Canonical.
+
+
+## Follow-up: cross-process Model Registry lost-update boundary — CVS PR #20 (2026-10-10)
+
+In `11576865/Character-Voice-Service`, [PR #20](https://github.com/11576865/Character-Voice-Service/pull/20) advances the same shared-resource synchronization principle from in-process recovery journals to a Model Registry that can be written by independent service/CLI processes.
+
+- A uniquely staged, fsynced and atomically replaced `model-registry.json` prevented partial JSON reads, **but did not prevent Lost Update**: two processes could load the same old snapshot and then overwrite each other's independent lifecycle mutations.
+- The repair holds an advisory OS exclusive file lock over the **entire read-modify-write transaction** for `scan_model_root`, `set_status`, `promote_model` and `retire_model`; the scan includes directory discovery and weight verification, not merely its final save.
+- The lock identity is the canonical registry path, and its `.lock` file persists on disk rather than being deleted/recreated. Linux uses `flock`; Windows uses a byte-range lock. Cross-process regression tests use separate Python interpreters and force overlapping model status updates.
+- Lock ownership is cooperative. A direct low-level whole-snapshot overwrite with stale data, an external writer ignoring the lock, or uncoordinated edits to physical model artifacts remain outside this protection.
+- Evidence is **source+test implementation submitted, Pending CI**, not a verified production incident or a passing Linux/Windows workflow. Source PR is stacked on CVS #19; merge reconciliation remains outstanding.
+
+Dedup assessment: this is implementation evidence for the existing shared-resource-scoped synchronization Candidate, not a new generic lock rule. It also relates to the [CVS Model Registry Bug](../bugs/2026-10-10-cvs-model-registry-promotion-identity-integrity-gaps.md) as a concrete project repair. **No Canonical promotion.**
