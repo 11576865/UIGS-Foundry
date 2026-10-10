@@ -71,3 +71,14 @@ A follow-up branch revision advanced the selected scanned source label to `内�
 Reusable candidate: **content identity, probe verification and task-role readiness are independent claims and should be reflected as distinct UI states**; user-entered metadata should have one canonical domain owner across multiple projections; two-way synchronization should not remount the active text input or collapse advanced disclosures. Ordering is both a UI presentation property and an output-mapping operation, therefore output `ffprobe` is necessary evidence, not merely the reordered DOM.
 
 Related Foundry Candidate: `2026-10-04-container-inventory-stable-identity-diff.md` already covers stable identities and before/after verification in another media editor. Do not duplicate or promote either Candidate to Canonical solely on the present PR.
+
+
+## Phase 3 final green validation
+
+Latest PR #69 head: `1b579263d0a2d8393064f67ef27e9041c4a09a9a`, **Draft / open / unmerged**. GitHub Pages build run `38023534209` and Chromium E2E `38023534205` **completed successfully**. Browser job ran **169/169 Node tests**, **0 failures**, and logged `MKV container-tree order and advanced flags PASS`, `Scenario 19 PASS` (ten sequential tasks), and `All browser E2E scenarios PASS`. Artifacts: `mkv-ui-container-tree-viewports`, ID `11659630835`, two real populated container-tree screenshots at 1440px desktop and 390px phone. Output ffprobe validated audio track ordering, titles and advanced stream dispositions.
+
+The previous visual review caught the distinction between recognized container header and scanned internal stream information: once the selected MKV has a matching completed `trackState`, the label now says `内部结构已扫描`, not `需进一步验证`. A new E2E assertion checks that transition. Desktop and phone screenshots after the correction were viewed, and phone tree text/fields were enlarged without a new observed horizontal overflow. This is limited **two-viewport evidence**, not a usability-study signoff or universal responsive guarantee.
+
+CI history was not uniformly green: an intermediate run `38023294968` passed source-tree output tests but failed the existing ten-sequential test because it edited metadata before current subtitle/font preflight finished, capturing a stale/default subtitle title. Updating the test to await **current input identity and enabled current mux action** before editing fixed this testing race; the green latest run confirms it. The semantic readiness rule was already known in `inbox/candidates/2026-10-02-batch-execution-async-preflight-readiness-race.md`, so no redundant new Candidate was created.
+
+Remaining: clean removal of the redundant legacy editor once full editing parity and alternate import sources are supported; true exploratory keyboard/touch visual review across more viewports; stream inventory for non-main-source containers; unified batch ingestion. No MP4 output scope, Canonical promotion, or merge of PR #69.
