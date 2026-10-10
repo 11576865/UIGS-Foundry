@@ -344,3 +344,19 @@ Dedup: searched Foundry for BroadcastChannel, deletion notifications,
 storage-event media revocation, and stale pending offline opening; no
 direct entry. Appended to existing browser-storage Candidate rather than
 automatically altering Canonical rules.
+
+## Cross-tab playback revocation merged evidence (2026-10-10)
+
+CVR [PR #22](https://github.com/11576865/Character-Voice-Reader/pull/22)
+passed Reader tests and real Chromium/IndexedDB multi-tab regression
+at final head `111e41cbf00f17f87612028a9ab2fe639431bb8a`,
+and was merged to main as `a88eb779859d380fa9b569782c7dc72960bd4f3b`.
+Automated evidence includes real WAV playback interrupted after a committed
+other-tab book deletion, media source release and disabled playback, matching
+async pending-open invalidation, no interruption on unrelated deletion,
+and fallback notification through localStorage when BroadcastChannel is
+unavailable.
+
+Evidence remains limited to tested Chromium same-origin tabs and
+controlled browser scenarios, not Safari/Firefox physical device testing
+or cross-device revocation. Candidate only; no Canonical promotion.
