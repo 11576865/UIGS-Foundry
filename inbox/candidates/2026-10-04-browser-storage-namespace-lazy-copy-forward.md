@@ -259,3 +259,34 @@ migration case to *automated Node and Chromium tests passed*. Real browser
 coverage included clip-first migration from the legacy DB and cross-tab
 delete-first tombstone safety; it does not establish Safari/Firefox or
 physical Android/iOS field acceptance. The Candidate remains non-Canonical.
+
+## Atomic owner-and-media read snapshot across browser tabs (2026-10-10)
+
+CVR [PR #21](https://github.com/11576865/Character-Voice-Reader/pull/21)
+found a read-side check/use timing gap: `getClip()` checked a book's live
+status in a `books` transaction, then read the related blob in a separate
+`clips` transaction. Another browser tab could delete or replace the
+book between those operations. Therefore each operation could be correct
+individually while the combined authorization/media observation was not
+from one coherent IndexedDB state.
+
+Candidate implication: when a dependent media record is readable only
+while its owner is live, validate the owner and read the dependent record
+in **one multi-object-store readonly transaction**. After a legacy-owner
+migration, repeat that atomic current-store read; do not rely on a
+stale check made before an awaited migration. Keep a distinct transactional
+live-owner fence for legacy media import writes.
+
+Evidence boundary: one readonly transaction gives a linearizable read
+snapshot relative to conflicting readwrite transactions; it does not
+revoke an audio Blob already returned by a prior legal read or interrupt
+an ongoing media element in a different tab. Live revocation/notification
+requires an independent cross-tab protocol. Product PR #21 tests native
+transaction scope, post-delete read rejection, physical clip absence,
+and explicit re-add in Chromium, supplemented by Node scope assertions.
+
+At intake: CVR head `e51d2a7672578093df8fe561728b991944935ab8`,
+Reader and Chromium CI **Pending**. This is a related extension to this
+existing namespace/migration Candidate, not an automatic Canonical
+promotion. Search for multi-store read snapshot and cached-media TOCTOU
+found no separate direct duplicate.
