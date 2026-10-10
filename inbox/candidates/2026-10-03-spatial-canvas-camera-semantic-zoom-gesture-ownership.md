@@ -130,3 +130,13 @@ Reusable candidate: distinguish a **presentation route** from an **interaction c
 
 
 Follow-up source evidence: PR #138 later deleted obsolete full-screen experimental presentation implementations from ModernEditorScreen while retaining shared native tools and the object-picker component. Latest-head CI and device acceptance remain pending; do not promote Canonical.
+
+## 2026-10-10 filtered birdseye discoverability and stable map ownership — Pending UI verification
+
+Source: ASS-Workbench-Android [product PR #141](https://github.com/11576865/ASS-Workbench-Android/pull/141), stacked on the unmerged workbench redesign PR #138 (review branch; not main/device acceptance).
+
+Review of the birdseye tool navigator exposed a usability gap: a complete node map and a scrollable ToolInstance list keep distant/hidden tools technically reachable but not practically discoverable when the workspace becomes large. Searching only the list would also create a **hit-target mismatch** if map markers representing nonmatching nodes continued accepting taps.
+
+The product patch adds text search (title, subtitle and stable instance ID), a hidden-only filter, result counts and explicit empty-result recovery. The normalization continues to include all available world nodes, and nonmatching markers become faded spatial landmarks rather than causing every search keystroke to refit the map. Hit testing and list navigation both use the filtered identity set, and the existing focus/recall path reveals a selected hidden node without search itself rewriting tool geometry or ASS domain history.
+
+This extends the existing spatial-camera Candidate with a **discoverability/projection invariant**: narrowing selectable targets must not silently shift the viewer's spatial reference, and rendered nonmatches must not remain active controls. It is a single-project implementation hypothesis, **not** a new Canonical rule. Product PR #141 supplies two JVM tests and two Android instrumentation tests. The exact changed head has **not** passed Android CI, emulator/IME or real-device acceptance. The open PR #138 head's Android CI success, if any, does not validate this stacked patch.
