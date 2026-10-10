@@ -54,3 +54,13 @@ CVS [PR #16](https://github.com/11576865/Character-Voice-Service/pull/16) adds a
 Evidence: 18 local mocked-HTTP tests passed and source/CLI/docs were committed. Full CVS CI and real GPT-SoVITS/IndexTTS runtime or private original WAV acceptance are **Pending**. No Canonical promotion.
 
 Dedup: the prior Candidate already covers frozen corpus and reference provenance; related Foundry records cover request-identity fencing and artifact identity in other domains. These are follow-up engineering observations for the existing Candidate, not evidence for creating another overlapping rule.
+
+## Audited A/B execution comparison — 2026-10-10
+
+CVS [PR #17](https://github.com/11576865/Character-Voice-Service/pull/17) adds an offline, fail-closed paired-run audit above the existing dataset freeze/serving-identity workflow. It rejects incomplete runs, missing or changed original/output WAVs, incomplete held-out coverage, different reference source bytes, speed or voice, malformed PCM and inconsistent measured RTF.
+
+A pair can be compared descriptively when both executions share the frozen test inventory, original reference item/hash and speed; model/engine versions may differ. The derived report records per-output hashes/request IDs, elapsed time and generated duration, and aggregate/median RTF. It deliberately labels quality as `not_performed`. This **does not** provide controlled-hardware performance ranking, voice similarity, MOS, WER or human preference, and the report is not signed or attested.
+
+Local isolated validation: 36 pytest cases passed (including generation/recovery and pairwise audit tests) and Python compilation succeeded. Full repository CI, real-engine runs and private-corpus evaluation remain **Pending**. The distinct crash-window bug and two-phase recovery repair are recorded in [the CVS publication-gap bug](../bugs/2026-10-10-cvs-wav-output-checkpoint-publication-gap.md); do not duplicate it here.
+
+This is additional implementation evidence for this existing **Candidate**, **not** an automatic Canonical change.
