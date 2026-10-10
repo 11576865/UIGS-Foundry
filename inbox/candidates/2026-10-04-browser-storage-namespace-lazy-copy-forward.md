@@ -200,3 +200,20 @@ should be updated after completed latest-head CI.
 
 Dedup: this is an extension to the existing browser persistence/ownership
 Candidate rather than a new Canonical standard. No automatic promotion.
+
+## Quota recovery verification status (2026-10-10)
+
+CVR [PR #19](https://github.com/11576865/Character-Voice-Reader/pull/19)
+was merged to main at
+`f5660cc9a1e66a303ac1823e0e7c6b2001c62c10`, after the final head
+`deffa31b3002c5d160b7bc503ac30bfa0ef349b9` passed
+**Reader tests** and the separate **real Chromium/IndexedDB regression**.
+Browser validation confirmed that a low synthetic quota estimate did not
+block an incremental download using a valid pre-existing clip, that
+StorageManager.persist denial did not abort a download, and that a controlled
+QuotaExceededError surfaced manual recovery/retry without erasing the book.
+
+Keep evidence boundaries: the test injected the quota exception rather
+than filling actual physical storage. It does not validate all browser
+eviction policies, quota exhaustion in other engines or device behavior.
+Single-product Candidate remains Candidate; do not promote to Canonical.
