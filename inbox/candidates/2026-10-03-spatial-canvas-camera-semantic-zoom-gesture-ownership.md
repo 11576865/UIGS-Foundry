@@ -130,3 +130,11 @@ Reusable candidate: distinguish a **presentation route** from an **interaction c
 
 
 Follow-up source evidence: PR #138 later deleted obsolete full-screen experimental presentation implementations from ModernEditorScreen while retaining shared native tools and the object-picker component. Latest-head CI and device acceptance remain pending; do not promote Canonical.
+
+## 2026-10-10 viewpoint history and offscreen direction cues — Candidate / Pending CI
+
+The unified ASS Workbench infinite canvas needs a reversible navigation contract once birdseye, focus, quick recall and auto-arrange can move the camera thousands of world dp. PR #138 introduces an explicit, bounded (16-frame), independently saved camera-history stack with back/forward and forward-branch invalidation. History records intentional navigation (including explicit zoom buttons) and captures the position reached by free pan/pinch only at the next named jump; it does not record every gesture frame and never writes document Undo/Redo or node geometry.
+
+For visible world nodes that are entirely offscreen, the same canvas now groups direction cues into at most four left/right/top/bottom touch targets. Each cue picks the nearest node in its direction and shows how many others share that side. It excludes hidden instances and domain BOOKMARKED instances (which have their own recall controls), and uses Double-based projection to handle large signed world coordinates. A cue approaches the actual ToolInstance/scene node without creating a substitute editor.
+
+**Evidence:** JVM model and Android connected regressions submitted on PR #138, currently Pending latest-head CI, device visual/touch confirmation, and interaction validation near screen chrome/docked timeline. This extends the existing camera-navigation candidate rather than introducing a duplicate Canonical policy.
