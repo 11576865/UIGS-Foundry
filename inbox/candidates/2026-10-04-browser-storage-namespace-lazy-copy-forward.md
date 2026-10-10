@@ -391,3 +391,19 @@ Evidence at intake: PR #23 HEAD
 Reader/Chromium CI **Pending**. De-duplicated against the existing
 storage-migration and cross-tab deletion Candidate. This entry remains
 Candidate, with no Canonical promotion.
+
+## BFCache pending-open revalidation verified (2026-10-10)
+
+CVR [PR #23](https://github.com/11576865/Character-Voice-Reader/pull/23)
+was merged into `main` as `b56f41768e4457488bc8616f355b2323f8a5dda5`
+after final head `f48d5f37d9e02faf42c0f75ab8299a0f70d14cc3`
+passed Reader tests and the dedicated native Chromium IndexedDB suite.
+The new regression tests source-generation invalidation on simulated
+`pagehide`, new durable-state reads on `pageshow`, deletion during
+the closed-listener interval, correct reopening of a surviving book, and
+priority of a later manual-source selection.
+
+The browser test fires *synthetic* `PageTransitionEvent` callbacks and
+therefore does not establish that an actual document was resident in
+BFCache or that browser/OS freeze scheduling behaved identically.
+Evidence remains Candidate-level; no Canonical promotion.
