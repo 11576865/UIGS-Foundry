@@ -65,3 +65,9 @@ Related:
 - applied to compression calibration strategy for `11576865/Quick-Automatic-Hardsub-Encoder`
 
 This is a Candidate only. It is not Canonical.
+
+
+## QHE paired-scene reinforcement, PR #79 (2026-10-10)
+The QHE Compression Decision Engine now proposes a one-step ambiguous-frontier refinement that explicitly **tests all active branches at the same added scene** and discards the *entire* batch if any branch cannot produce valid evidence. It keeps historical source/metric/sample-window fingerprints and refuses incomparable stale points. The rank leader is *not* declared robust if any lower-ranked challenger retains an observed upper quality bound that overlaps the leader's lower quality. A deterministic three-branch counterexample protects this rule. The experimental design supports conditional retention rather than eliminating candidates from one easy scene.
+
+Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/79. Status at intake: PR open, latest-head CI pending; no real heterogeneous-scene field acceptance, no confidence intervals and no Canonical change.
