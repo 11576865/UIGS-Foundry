@@ -134,3 +134,33 @@ older one; cancellation and verified partial-download resume.
   field acceptance
 - Dedup: scoped extension to this existing migration candidate, rather than
   a new standalone principle; no Canonical authority change
+
+## Physical storage reclamation versus logical deletion (2026-10-10)
+
+A deletion tombstone prevents logical reappearance of old data, but it does
+**not** prove that dependent media blobs have been physically reclaimed.
+In CVR, `removeBook` originally deleted only audio segments referenced by
+the book's *current* manifest. After redownloading a revised manifest, audio
+for old segment IDs could remain in the IndexedDB `clips` store even though
+`getClip` correctly hid the deleted book.
+
+Candidate-level implication: deletion acceptance for revisioned artifacts
+needs two different assertions:
+1. **Logical fence:** tombstone/ownership checks block reads and stale
+   asynchronous writers.
+2. **Physical reclamation:** query the actual persisted backing store and
+   demonstrate that obsolete or orphaned artifact keys were purged, not just
+   that the API no longer returns them. Ensure cleanup excludes neighboring
+   owners and is atomic with the logical tombstone when possible.
+
+Evidence: CVR [PR #13](https://github.com/11576865/Character-Voice-Reader/pull/13)
+implements `getAllKeys` physical prefix-key reclamation and adds both
+in-memory and Chromium real-IndexedDB direct backing-store assertions.
+Submitted head `ee8cb6b8bfab853ca301fc440c705aa5fd4adb4e`;
+CI **Pending** at intake. Key-prefix matching here relies on the verified
+server-side ID contract (`b-` + 24 hex digits; no colon delimiter). This
+contract should be reverified before generalizing the algorithm to arbitrary
+object keys. Older rollback DB remains untouched.
+
+Dedup: appended to the existing browser-storage migration Candidate, not
+a new Canonical rule. No independent product confirmation yet.
