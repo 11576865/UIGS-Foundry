@@ -113,3 +113,45 @@ The general failure mode is **false affordance through collapsing model capabili
 This observation reinforces existing Foundry knowledge on editor ownership and evidence levels and is recorded as an additional Case, not a duplicate Candidate or a Canonical rule. Full production-rendered screenshot testing, browser/device acceptance and frame-accurate timing editing remain separately unverified/unimplemented.
 
 Source: `11576865/HSR-Voice-Archive-Builder`, PR #132, cue editor implementation and tests as of 2026-10-10.
+
+
+## Continued Case: subtitle-only display retiming as a derived, recoverable layer (2026-10-10)
+
+### New observation
+
+The HSR voice archive's source audio timeline and the exported subtitle display timeline have different data ownership. Exposing a numeric start/end editor directly on source `manifest.json` would conflate them and risk destructive rewrites of sound evidence. The same control may safely become functional if it edits an independently versioned, validated **derived timing layer** consumed only by subtitle outputs.
+
+### Implementation and proof boundaries
+
+- **Derived data:** `subtitle_timing_overrides.json` schema v1, per cue start/end millisecond boundaries + originating source audio member and clock. Original manifest positions and continuous FLAC samples are not rewritten.
+- **Output integration:** post-build subtitle artifact refresh uses the overlay to construct ASS and SRT adapters, with all project subtitle GET rows describing both original and effective display boundaries.
+- **Validation:** bounded ±5 s movement from each source boundary, finite numeric inputs, ≥100 ms display duration, project-root fence and optimistic expected-current-time precondition. Late edits and concurrent text/timing writes have independent ownership.
+- **Stale-source recovery:** rebuilding an archive may change its source sample positions. An old timing override is then held as a conflict rather than reattached to a different source event; corpus navigation still works and explicit source-time Reset clears the derived record. This is not permission to apply the stale result.
+- **Alignment provenance:** when the display timing changes, previous word timing is no longer treated as verified for karaoke. The edited cue must be realigned before prior word-level time claims are restored.
+- **Tests:** filesystem/SRT/ASS-adapter and production-JS regressions plus FastAPI timing route tests are added to HSR PR #132. Final CI, actual libass render, device visual evidence and human timing audition remain separate proof obligations.
+
+### Intake disposition
+
+Existing related Foundry cases and candidates on preview identity, asynchronous save ownership and evidence levels already describe generic aspects of the problem. This is an **additional concrete Case** on derived-output time ownership, not a new Canonical principle or an automatic policy promotion. It does not claim that full video editing, source-audio retiming, event splitting/merging or timeline waveform dragging is implemented.
+
+Reference: `11576865/HSR-Voice-Archive-Builder` PR #132; `app/subtitle_timing.py`, `app/subtitles.py` and `docs/subtitle-style-workbench-v15.md`.
+
+
+## Continued Case: direct manipulation of derived subtitle events in a bounded timeline (2026-10-10)
+
+### Observation / implementation
+
+After persistent ASS/SRT-only time overrides were added, numeric start/end controls were functionally correct but did not provide spatial context for neighboring events. A new HSR subtitle event timeline puts the same **derived display data** on a common time scale and delegates pointer and keyboard edits to the existing timing-draft state rather than adding an independent persistence mechanism.
+
+- The editor can pan and zoom through event boundaries (12–300-second windows); cue selection and viewport position are independent states.
+- Start/end drag handles change only the selected cue's unsaved draft. An explicit Save still owns the server transaction, project identity and optimistic concurrency. Adjacent cues are never changed implicitly, even when snapping to their edges.
+- Snapping is optional and limited to nearby pixel proximity; it is not an assertion of error-free subtitle spacing. Overlap is represented in limited visual lanes and noted as density, rather than silently suppressed.
+- A project with many events cannot render an unbounded DOM on each interaction; only items in the current time viewport are considered, with at most 140 displayed. The timeline reports truncated density instead of claiming full visibility.
+- The preview playhead is derived from the current ASS trial-time percentage. It is **not** synchronized video-frame playback or a program-wide audio waveform.
+- Selected items, source-clock conflicts, unsaved time drafts and source identity constraints remain authoritative in both the numeric editor and the event timeline.
+
+### Evidence / disposition
+
+Implementation: HSR-Voice-Archive-Builder PR #132, integrated HTML/CSS/JS time event timeline beneath the real preview stage; tests/test_subtitle_continuous_timeline.py exercises the production interaction logic with a deterministic project corpus and deferred persistence. Source and functional tests exist; exact-head CI, production-browser visual and device evidence remain independently scoped.
+
+**UIGS Intake:** Deduplicated against the existing preview-identity, async ownership and derived-time Case and the interactive-preview backpressure Candidate. Append to the existing Case; do not automatically promote to Canonical.

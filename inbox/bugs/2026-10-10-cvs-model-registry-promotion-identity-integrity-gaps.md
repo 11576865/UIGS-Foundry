@@ -1,6 +1,7 @@
 # Bug: CVS Model Registry could promote stale assets and accept ambiguous model identities
 
 Status: **Bug / repair submitted; CI Pending**
+Lifecycle: validation-pending
 Date: 2026-10-10
 Source project: `11576865/Character-Voice-Service`
 Source fix PR: https://github.com/11576865/Character-Voice-Service/pull/18

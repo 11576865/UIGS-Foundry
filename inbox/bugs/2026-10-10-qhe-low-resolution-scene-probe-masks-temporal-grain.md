@@ -1,7 +1,6 @@
 # Bug: Low-resolution scene-risk probes can erase the signal being evaluated
 
 Status: implementation fixed; broader field validation pending  
-Lifecycle: validation-pending  
 Date: 2026-10-10  
 Domain: media-processing, adaptive-testing, signal-processing, engineering-evidence  
 Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/82  
