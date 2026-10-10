@@ -57,3 +57,30 @@ This is a verified code-level Bug with a concrete repair and regression proof.
 Generic asynchronous save ownership and UI evidence distinctions already exist
 in HSR-related Foundry Cases; this adds the **durable edit vs. derived export**
 failure boundary. No automatic Canonical rule change.
+
+
+## Continuation: failed export status must survive reload (2026-10-10)
+
+A second failure surfaced after separating commit and artifact statuses: the first
+repair held `layoutCueExportNeedsRetry` only in browser session state.
+After an application reload, the original override stayed committed but
+the warning and retry command disappeared. Existing stale ASS/SRT could look
+valid even though the previous refresh had failed.
+
+HSR PR #132 now writes `subtitle_export_receipt.json` in the output
+directory. It marks **pending** before regenerating files and **current** or
+**failed** afterward. On the next subtitle GET, an input/output SHA-256
+fingerprint check distinguishes **current**, **stale**, **pending**,
+**failed**, **unverified** (legacy/corrupt receipt) and **not-built**.
+The browser exposes status in the workbench and offers retry without
+resubmitting text or retiming mutations. A receipt is an output freshness
+check, not a claim of actual libass/video-frame correctness.
+
+Additional proof: `tests/test_subtitle_export_status.py` mutates source
+overrides and generated files after a recorded success;
+`tests/test_subtitle_export_recovery_ui.py` uses actual production JavaScript
+to simulate reopening a project with a persisted failed receipt.
+Old files are never assumed valid simply because they still exist.
+
+Intake classification remains **Bug**, not a Canonical rule. This is an
+incremental, deduplicated improvement to the same durable-save issue.
