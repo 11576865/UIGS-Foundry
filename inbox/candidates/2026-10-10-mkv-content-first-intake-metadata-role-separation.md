@@ -45,3 +45,14 @@ Source PR head: `896019e97fca2b8a87d7fc52cde749ed69156850` (Draft / not merged).
 GitHub Pages **build succeeded**; Chromium Browser E2E workflow `37982837913` **completed successfully**, running the full **163/163 Node tests** (0 failures) followed by real Chromium scenarios. The job log explicitly contains `Unified content-first intake mux PASS` and `Source ambiguity and MKV-only remux PASS`. Review threads and reviews were empty at verification; PR remains Draft and `main` remains at `d5669c6d9bb6ebdd6843ee8c7f651902c80c4d08`.
 
 This upgrades the evidence from source-derived checks to a **green real browser execution/mux audit** of the first intake slice. It does **not** establish completed real-user visual acceptance, fully general codec/container support, audio-only MP4 classification, or source-container track tree presentation in the import list. Do not treat the green CI as a license to declare the whole issue solved or to promote the Candidate to Canonical.
+
+
+## Phase 2 — live MKV source-container tree and verified CI
+
+Implementation head: `0e16632d422dd2ea6550f6bce558cbe7df766910`, Draft PR #69. The imported MKV source row now expands after the real source scan into nested sections for source video/audio/subtitle/data streams, attachments, chapters and selected global metadata. The editable audio/subtitle track and attachment inputs write **the same trackState objects** already used by the original MKV editor, with no duplicated independent data model. Import inventory remains the entry point; unverified non-source containers receive no imaginary track tree.
+
+Evidence: source projection unit checks **5/5 passed**; latest GitHub Actions Node suite **168/168 passed**; Chromium run `37984257203` **succeeded**, including actual MKV artifact probes after in-tree audio keep/remove, title, Forced changes and original attachment rename/remove, plus Chapters retention. The browser also validated post-export task state preservation and mobile 390px tree visibility after viewport reflow. Pages build succeeded.
+
+The initial E2E attempt `37983860309` failed after export because legacy mux success cleared hidden file adapters and `trackState` while the persistent imported-asset inventory remained visible. This was a real cross-lifecycle defect, not a mere responsive test flake; root cause/fix recorded separately in `inbox/bugs/2026-10-10-mkv-unified-intake-post-export-lifetime-desync.md`, now fixed on PR #69 and verified by latest E2E.
+
+Limits remain: the old source editor is still a secondary presentation; order and advanced flags are not duplicated into the tree. Only already-verified MKV main-source internals render as editable tree; generic container streams, multi-container role composition, batch unification and screenshot/human visual acceptance remain future work. PR is still **Draft/unmerged**; do not promote to Canonical.

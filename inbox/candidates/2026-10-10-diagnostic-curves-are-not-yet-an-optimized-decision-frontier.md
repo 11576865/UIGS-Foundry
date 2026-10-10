@@ -63,3 +63,8 @@ This is an update to the existing Candidate, not a new duplicate or Canonical pr
 The user requested continued implementation. QHE PR #73 now has a second commit `a98d291ad53e12e9dad557595214bead555d17b7`: the existing single-curve design remains while completed sample measurements are reusable across decision-only threshold/audio-budget changes. Live sampling still rejects changed run identities; source/encoder/sample-profile changes remain incompatible. Pure tests, browser lifecycle regression, and documentation were extended. PR remains open; latest-head CI pending.
 
 This concretizes the distinction between a primary decision surface and internal diagnostics; it does **not** establish a global upper envelope or measured VBR equivalence. No Canonical promotion.
+
+## Single-curve baseline merged; next decision module pending (2026-10-10)
+QHE PR #73 is **merged** into main after Frontend, Windows and UIGS evidence CI passed. Merge SHA: `7b6cddfe766a9a0f70fd67442bf14170cd9438e8`. Its single-curve interaction and strict raw calibration evidence are now the mainline baseline, not merely a proposed PR.
+
+The next multi-codec envelope and VBR validation implementation is tracked separately at https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/74 and was **unmerged, CI/device acceptance pending** at this checkpoint. No Canonical promotion.

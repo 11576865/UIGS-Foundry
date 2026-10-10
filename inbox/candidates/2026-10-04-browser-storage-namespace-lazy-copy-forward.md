@@ -44,3 +44,37 @@ New writes use `cvr.*` / `character-voice-reader-*`; legacy `cvs.*` / `cvs-*` re
 - deduplication: searched Foundry for localStorage/IndexedDB namespace migration and lazy copy-forward equivalents; no direct duplicate found
 
 This is a Candidate only. It is not Canonical.
+
+## Negative-state boundary: deleted records must not be lazily restored (2026-10-10)
+
+A lazy copy-forward migration has a second, distinct edge case: when the old
+namespace is deliberately retained for rollback, deleting a migrated record
+from the new namespace makes it appear *absent*, so a later fallback can
+resurrect it from the old namespace. Absence cannot represent both “never
+migrated” and “explicitly deleted.”
+
+Candidate extension:
+
+1. Persist an explicit negative state (for example, a tombstone) in the new
+   namespace for a user-requested deletion while the legacy namespace remains
+   readable.
+2. Make legacy restoration conditional on that negative state, including a
+   recheck inside the destination write transaction; merely checking before an
+   asynchronous migration is susceptible to delete/import races.
+3. Apply the same rule to dependent assets (e.g., clips associated with a
+   deleted offline book), and exclude tombstones from normal user inventories.
+4. Permit deliberate re-add through an explicit write, rather than treating
+   legacy fallback as a user-authorized restore.
+5. Keep rollback behavior explicit: an older application reading only the
+   legacy database may still display the old record. This is different from
+   guaranteeing that the *new* application respects deletion.
+
+### Additional provenance and evidence boundary
+
+- Project: `11576865/Character-Voice-Reader`
+- Code PR: [#10](https://github.com/11576865/Character-Voice-Reader/pull/10)
+- Submitted revision: `f877c115b3b1bfe7dade2b75b832cbeb06b26f9d`
+- Changed code: `web/js/offline.js`; Node regression: `tests/test_offline.mjs`
+- Evidence at intake: static code finding + implementation and regression submitted; asynchronous CI and user-browser acceptance **Pending**
+- Deduplication: extends this existing lazy-copy-forward Candidate instead of introducing a separate generalized migration rule. The observation is not independent cross-project validation.
+- Status remains **Candidate**, without Canonical promotion.

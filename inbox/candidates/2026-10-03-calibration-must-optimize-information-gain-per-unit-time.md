@@ -67,3 +67,8 @@ This Candidate focuses on calibration cost and stopping policy.
 - observed constraint: calibration itself has a diminishing-return curve and must not dominate short encode jobs
 
 This is a Candidate only. It is not Canonical.
+
+## QHE implementation checkpoint — PR #74 (2026-10-10)
+The user explicitly directed completing the outstanding Compression Decision Engine implementation. QHE PR #74, branch `feat/compression-decision-next-stage`, implements a **cost-aware** CQ/CRF search using per-trial observed encodeSeconds; when a projected next sample exceeds a bounded soft budget, search stops and reports partial/insufficient evidence instead of extrapolating. A Windows Native FFmpeg short-sample **encoder-process timeout** was also added. Neither rule is yet a whole-process wall clock bound: reference preparation, SSIM, startup and scheduling overhead can still overrun. The strategy does **not yet measure expected regret/value of information** or select representative scene positions by visual complexity; it is a partial implementation of the Candidate, not demonstrated optimal stopping.
+
+Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/74. CI/real hardware acceptance were pending at this checkpoint; no Canonical change.
