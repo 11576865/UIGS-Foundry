@@ -181,3 +181,30 @@ Dedup: extended the existing CVR offline-first shelf Candidate rather than
 creating a competing Canonical rule. Prior Foundry search found related
 destructive confirmation and async rendering records but no exact shelf
 search/async-refresh combination.
+
+## Post-CI implementation evidence: recoverable resume and shelf discovery (2026-10-10)
+
+The previously pending candidate extensions are now supported by completed
+automated checks and main-branch merges in the source repository:
+
+- CVR [PR #17](https://github.com/11576865/Character-Voice-Reader/pull/17)
+  was merged at `f6b90c3121c9366cf1808cff87679c26ab249dc8`.
+  Final test head `565d54aad19891c8335aa669aa7072726c8a2fc6` passed
+  normal Reader tests and actual Chromium media regressions.
+  During validation an initial browser assertion read the stale error
+  message immediately after the media element resumed; the UI queue state
+  had not yet completed its asynchronous transition. The final regression
+  waits for both playing state and cleared error message, rather than
+  weakening the functional check.
+- CVR [PR #18](https://github.com/11576865/Character-Voice-Reader/pull/18)
+  was merged at `1bbb3074c751b3350e3268e55e4826224703ad62`.
+  Final test head `9dce0d8ccdb8023d6536f7ce111805637d31bbc8`
+  passed Reader tests and the dedicated Chromium/IndexedDB workflow.
+  Browser regression covers search/sort/filter, no-result recovery,
+  delayed refresh without flashing old cards, Escape cancellation of
+  deletion, and confirmed deletion.
+
+Evidence level: source implementation + headless Chromium regression,
+not physical Android/iOS UX or assistive-technology acceptance. These are
+still Candidate-level examples, not grounds for automatically altering
+Canonical standards.
