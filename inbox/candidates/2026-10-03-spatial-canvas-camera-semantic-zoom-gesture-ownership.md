@@ -156,3 +156,9 @@ ASS Workbench Android PR #138 exposed an async navigation race: the infinite can
 The same CI cycle exposed a separate **instrumentation compilation** issue: the current Compose SemanticsConfiguration does not expose the invoked `getOrNull` at the test call site. The assertion now accesses the required `EditableText` semantics property through the supported `config[key]` indexer; absent editable semantics is a legitimate regression rather than a silently missing assertion.
 
 **Evidence boundary:** latest confirmed old-head Android CI + Fontconfig PASS, emulator failed before executing tests due to the Kotlin test compile error; corrected source and regression were committed to PR #138. **Current-head CI/Emulator pending**, and no full-product or device PASS can be inferred. Preserve as Candidate; do not update Canonical based on one occurrence.
+
+## 2026-10-10 docked bookmark rail owns hit regions — Candidate / Pending CI
+
+The merged-infinite-canvas pattern permits a persistent right-side ToolInstance bookmark rail while a real editor is focused. A review identified that rendering the rail above the full-width editor without reserving its footprint can cover native sliders, fields and other end-aligned touch targets. The PR #138 fix explicitly insets focused production content by the rail width when bookmarks are present, and extends the connected side-bookmark regression to assert non-overlapping root bounds.
+
+**Reusable Candidate:** spatial overlay freedom must not imply hit-region overlap with authoritative editor controls. A dock/rail that is intended to remain interactive should participate in layout reservation or an explicit input-arbitration contract, with geometry/semantics assertions; visual existence alone is inadequate. Current-head emulator and device acceptance Pending; no Canonical change.
