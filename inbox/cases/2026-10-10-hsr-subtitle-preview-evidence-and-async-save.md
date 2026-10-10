@@ -113,3 +113,25 @@ The general failure mode is **false affordance through collapsing model capabili
 This observation reinforces existing Foundry knowledge on editor ownership and evidence levels and is recorded as an additional Case, not a duplicate Candidate or a Canonical rule. Full production-rendered screenshot testing, browser/device acceptance and frame-accurate timing editing remain separately unverified/unimplemented.
 
 Source: `11576865/HSR-Voice-Archive-Builder`, PR #132, cue editor implementation and tests as of 2026-10-10.
+
+
+## Continued Case: subtitle-only display retiming as a derived, recoverable layer (2026-10-10)
+
+### New observation
+
+The HSR voice archive's source audio timeline and the exported subtitle display timeline have different data ownership. Exposing a numeric start/end editor directly on source `manifest.json` would conflate them and risk destructive rewrites of sound evidence. The same control may safely become functional if it edits an independently versioned, validated **derived timing layer** consumed only by subtitle outputs.
+
+### Implementation and proof boundaries
+
+- **Derived data:** `subtitle_timing_overrides.json` schema v1, per cue start/end millisecond boundaries + originating source audio member and clock. Original manifest positions and continuous FLAC samples are not rewritten.
+- **Output integration:** post-build subtitle artifact refresh uses the overlay to construct ASS and SRT adapters, with all project subtitle GET rows describing both original and effective display boundaries.
+- **Validation:** bounded ±5 s movement from each source boundary, finite numeric inputs, ≥100 ms display duration, project-root fence and optimistic expected-current-time precondition. Late edits and concurrent text/timing writes have independent ownership.
+- **Stale-source recovery:** rebuilding an archive may change its source sample positions. An old timing override is then held as a conflict rather than reattached to a different source event; corpus navigation still works and explicit source-time Reset clears the derived record. This is not permission to apply the stale result.
+- **Alignment provenance:** when the display timing changes, previous word timing is no longer treated as verified for karaoke. The edited cue must be realigned before prior word-level time claims are restored.
+- **Tests:** filesystem/SRT/ASS-adapter and production-JS regressions plus FastAPI timing route tests are added to HSR PR #132. Final CI, actual libass render, device visual evidence and human timing audition remain separate proof obligations.
+
+### Intake disposition
+
+Existing related Foundry cases and candidates on preview identity, asynchronous save ownership and evidence levels already describe generic aspects of the problem. This is an **additional concrete Case** on derived-output time ownership, not a new Canonical principle or an automatic policy promotion. It does not claim that full video editing, source-audio retiming, event splitting/merging or timeline waveform dragging is implemented.
+
+Reference: `11576865/HSR-Voice-Archive-Builder` PR #132; `app/subtitle_timing.py`, `app/subtitles.py` and `docs/subtitle-style-workbench-v15.md`.
