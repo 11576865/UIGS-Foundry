@@ -39,3 +39,18 @@ Observed outcomes on the Windows runner:
 The test uses synthetic **software** H.264 on a CI Windows runner. It is **not** real NVIDIA NVENC, HDR/VFR, 4K60, multi-hour content, complex subtitles, multiple audio tracks, OS crash recovery or full export/reopen UI acceptance. Strict mode checks **container byte bound**, not a guarantee of acceptable full-film visual quality or an exact-byte encoder. Extra retries/quality adjustment are not implemented. For real footage, ensure cancellation, crash-safe cleanup, post-encode decode validity and performance receive independent field Cases; QHE #85 and #77 remain open.
 
 This evidence supports an existing staged-publication Candidate but must **not** promote Canonical from one controlled fixture.
+
+
+## Post-completion strict-size revalidation regression — QHE PR #87
+
+Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/87  
+Merged: `3dc38d08e1aad99013be7654e3d17acc8622c692`  
+CI: Windows Native smoke, Windows Runtime and UIGS Evidence Coverage passed.
+
+A completed two-pass task can remain in private staging before the user saves it. The initial byte-ceiling check in PR #86 did **not** guarantee that a later staged artifact was still within that limit. A stale `completed` response could remain exportable after the staged file changed.
+
+PR #87 introduces `Test-GuidedStrictBudget` and calls it both immediately after native encode finalization and on **every subsequent completed-job status query**. The export path also rechecks status after the modal destination selector, then rechecks source status and actual **copied private-temp bytes** (positive, ≤ strict ceiling, equal to the freshly checked source size) before `Publish-VerifiedOutput`. Failure cleans up the unpublished private temp file. This avoids publishing an oversized file merely on the authority of a previous success.
+
+**Actual Windows Bridge mutation test:** a synthetic software H.264 two-pass output first completes under an explicit **5,000,000 byte** limit. The test then expands the completed staged MKV to **5,000,001 bytes**. A new production localhost `GET /api/jobs/{id}` must return `failed`, delete the oversized stage, and the subsequent `POST /api/jobs/{id}/export` must reject before save dialogue. This ran successfully in Windows CI.
+
+**Evidence limits:** the real Bridge test covers post-completion stage tampering and rejection at export precondition. It does **not** exercise a graphical Windows Save File Dialog or a mutation occurring between post-dialog copy and publication; those protection checks are implemented but lack a GUI timing/fault-injection acceptance. A byte ceiling is not a cryptographic integrity or visual-quality guarantee. Owner-closed QHE #85 remains closed; hardware/long-form field work remains #77.
