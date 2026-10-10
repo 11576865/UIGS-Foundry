@@ -39,3 +39,16 @@ Neither file belonged to the spatial-reflection-fade feature. They were stale tr
 - status rationale: reusable engineering-process candidate; not enough cross-project evidence for Canonical
 
 This is a Candidate only. It is not Canonical.
+
+
+## Additional stacked-branch regression observation — CVS PR #18 (2026-10-10)
+
+A different integration window was observed in `11576865/Character-Voice-Service`:
+
+- The source branch of [PR #15](https://github.com/11576865/Character-Voice-Service/pull/15) contained a late amendment to the Evaluation Registry: schema v1.1 permits **one** reference per `generation_revision`.
+- Descendant PR #16 was created from a **specific earlier commit** of that branch, before the amendment. PR #17 inherited the stale Evaluation Registry file. Code inspection showed the actual file in #15 enforcing `len(references) == 1`, while #16 and #17 still allowed arbitrary nonempty reference lists.
+- [PR #18](https://github.com/11576865/Character-Voice-Service/pull/18), stacked on #17, restores the omitted contract and adds write-time plus read-time regression coverage.
+
+This is a distinct source-level example of **branch ancestry being a snapshot, not a live dependency**. A PR targeting an upstream feature branch does not mean its head automatically receives later commits to that branch. Before merging a stack, audit changed contract files and replay necessary upstream fixes into descendants or reconcile the branches explicitly.
+
+The fix is submitted but full CI and final merge reconciliation are Pending. This augments the existing Candidate about branch-delta auditing; no new Canonical rule or duplicate Candidate is created.
