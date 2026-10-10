@@ -1,7 +1,6 @@
 # Bug: CVS voicebench WAV publication could outrun its durable checkpoint
 
 Status: **Bug / repair submitted; CI Pending**
-Lifecycle: validation-pending
 Date: 2026-10-10
 Project: `11576865/Character-Voice-Service`
 Source PR: https://github.com/11576865/Character-Voice-Service/pull/17
