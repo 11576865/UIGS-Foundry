@@ -217,3 +217,33 @@ Keep evidence boundaries: the test injected the quota exception rather
 than filling actual physical storage. It does not validate all browser
 eviction policies, quota exhaustion in other engines or device behavior.
 Single-product Candidate remains Candidate; do not promote to Canonical.
+
+## Dependent-record first access during lazy migration (2026-10-10)
+
+CVR [PR #20](https://github.com/11576865/Character-Voice-Reader/pull/20)
+uncovered a gap in multi-store lazy migration: its migration strategy
+correctly restored an old book on `getBook()` / `listBooks()`, and its
+audio migration correctly refused to write clips without a live owning
+modern book. But a caller that invoked `getClip()` **before the book
+was ever listed or read** could retrieve a valid old audio blob and still
+get `undefined` because the required owning book row had never migrated.
+
+Candidate implication: test **every externally available first-access
+path** through dependent storage, not just the most common parent-first
+user flow. Where migration of a child record requires an owner record,
+restore the owner first, with an atomic current-state/tombstone check,
+then use a transactional live-owner guard when writing the child.
+A deleted legacy owner must not be revived through a child read; orphan
+children must not be copied into the new namespace. Keep the old
+namespace intact if rollback compatibility requires it.
+
+Product PR #20 adds Node tests and real Chromium two-tab IndexedDB
+regressions checking child-first owner restoration, physical clip copy,
+cross-tab tombstone rejection, orphan audio exclusion, and untouched
+rollback data. Evidence at intake: product head
+`0018b86c49ce50752eb2c2d13ad2658d074d5188`;
+latest Reader and Chromium CI **Pending** at intake.
+No claim of physical mobile-browser acceptance or Canonical change.
+
+Dedup: extended the existing browser-storage namespace lazy-copy-forward
+Candidate rather than creating a new overlapping storage rule.
