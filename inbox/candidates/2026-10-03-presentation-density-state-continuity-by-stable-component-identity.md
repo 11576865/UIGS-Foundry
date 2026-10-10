@@ -58,3 +58,13 @@ PR #82 adds:
 At intake time PR #82 is still Draft and its current CI/Emulator/Fontconfig runs are pending. This record therefore remains Candidate and must not be treated as validated Canonical guidance.
 
 The observation also does not claim that retaining component identity is always preferable. Replacing a subtree can be correct when the semantic tool changes, lifecycle reset is intentional, resource ownership differs, or state migration is explicitly defined.
+
+## 2026-10-10 fixed-inspector tablet relayout: dirty draft reparenting — Pending CI
+
+Source: ASS-Workbench-Android [PR #144](https://github.com/11576865/ASS-Workbench-Android/pull/144), merged into the **unmerged** Draft UI redesign PR #138 at `800a662e892be84293b53431ca6b85f0cf108429`. Connected evidence: [Android emulator run 38050733194](https://github.com/11576865/ASS-Workbench-Android/actions/runs/38050733194).
+
+**Observed defect, not a hypothetical UI guideline:** Within one document session, an uncommitted Event #1 text buffer survived TEXT→EFFECTS→TEXT and initial phone-landscape configuration. After the test changed Android display size to 1920×1200 and density to 160, the three-pane inspector displayed the unmodified canonical `Recovered line` instead of the uncommitted `Recovered line WORKBENCH`. The failure occurred at `tablet-landscape` before Apply; data continuity, not merely navigation, was lost. The run reported 16 tests / 2 failures; its interrupted coverage must not be equated to a full earlier 120-test run.
+
+**Source mechanism under investigation:** `FixedWorkspace` invoked one semantic inspector from three distinct Compose composition branches (COMPACT, DUAL_PANE, THREE_PANE). A plain composable lambda can be disposed and recreated across a profile switch, even though both the inspector and document-session owner remain the same. The repair remembers one `movableContentOf<Modifier>` inspector identity and calls it from each layout branch; `rememberUpdatedState` supplies current tool/Event callbacks. A strict existing connected test additionally checks the unchanged workspace session ID, distinct from draft survival.
+
+**Evidence boundary:** PR #144's new-head Android CI, Emulator Regression and native probe are **Pending External Validation** (runs `38061223365`, `38061223380`, `38061223374`). The cause and patch are code-grounded, but not yet emulator-verified. No ASS canonical Event, domain ToolInstance or Undo history is mutated by the layout change. This extends the existing stable-component-identity Candidate; it must not be promoted to Canonical from one observation. Remaining viewport-history/IME/visual tests are independent.
