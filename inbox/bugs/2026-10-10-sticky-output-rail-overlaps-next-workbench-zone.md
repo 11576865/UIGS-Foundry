@@ -23,3 +23,12 @@ The CSS/geometry revision is source-confirmed, but its **latest-head Chromium CI
 A sticky primary-action sidebar that looks correct in a viewport screenshot may physically overlay **later independent workflow regions** in full-page or element screenshots. Visual evidence must include scrolled boundary crossings, not just page top and horizontal overflow. Real geometry assertions should cover inter-region occlusion separately from task correctness.
 
 Dedup: searched UIGS Foundry for `sticky sidebar overlaps following section grid`, `sticky output rail batch section`, `position sticky next grid row overlay`, and `scroll capture overlapping workbench sections`. No existing Bug/Case duplicate was found. Candidate for future UI contract review only; do not alter Canonical standards from this observation.
+
+
+## Verified fix — latest Draft PR evidence
+
+Fixed-head PR #69 `59add37a9765ebf823a24aa2fe3f14b7e82b7608`; latest Chromium run [`38051694757`](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38051694757) **green**, including an explicit geometry assertion that `outputHubRect.bottom <= batchWorkspaceRect.top + 2` at 1440px. All **182/182 Node tests** and complete real batch and single MKV mux E2E pass. Pages run `38051694767` also green.
+
+The final [screenshot artifact `11669673885`](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38051694757/artifacts/11669673885) was downloaded and visually inspected. Its `mkv-container-tree-batch-desktop-1440.png` no longer contains the single-task output rail overlay at the top-right batch controls; the prior artifact `11668769770` had shown the overlap. The verified patch returns the single-task output rail to normal grid flow, removing the cross-task sticky positioning.
+
+**Disposition: verified fixed on Draft PR head, not merged or production-deployed.** This is one confirmed defect and a reusable visual/geometry testing observation, not a blanket ban on all sticky sidebars and not a Canonical rule change.
