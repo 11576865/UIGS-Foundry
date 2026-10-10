@@ -19,7 +19,7 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
   "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-  "source_revision": "533d650f86c9618134ba2e14dcdad26b20f90eb7",
+  "source_revision": "7774777b36d57ea8c31f484dad7e8ba6573e70e4",
   "sha256": "d5af353b366fa341eb60db5a9d18fa7fc6bc87b4a71e80acb46035f3e8dd2ca7",
   "image": {
     "width": 1365,
@@ -83,13 +83,13 @@
     {
       "source_type": "repository",
       "source": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "revision": "533d650f86c9618134ba2e14dcdad26b20f90eb7",
+      "revision": "7774777b36d57ea8c31f484dad7e8ba6573e70e4",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/Quick-Automatic-Hardsub-Encoder:ui-visual-capture.json",
-      "revision": "533d650f86c9618134ba2e14dcdad26b20f90eb7",
+      "revision": "7774777b36d57ea8c31f484dad7e8ba6573e70e4",
       "evidence_level": "source-owned capture declaration"
     }
   ]
