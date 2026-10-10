@@ -2,6 +2,7 @@
 
 Date: 2026-10-10
 Status: Bug / fixed on product PR branch; final CI pending
+Lifecycle: validation-pending
 Project: 11576865/Character-Voice-Reader
 
 ## Observed failure

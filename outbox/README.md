@@ -13,3 +13,16 @@ This keeps GitHub-side CI/project events durable even when the ChatGPT to GitHub
 Boundary: a fact that exists only inside a chat while every external write path is unavailable cannot be made durably cross-chat by this repository alone. Such a fact must be reported as Pending until an external durable write succeeds.
 
 Automatic collection never performs Canonical promotion.
+
+## Collector consistency and failure boundaries
+
+The collector's `--dry-run` reports proposed changes but does not write Pending,
+Receipt or report files. One malformed packet does not block the remaining
+packets in its repository. A Receipt whose Pending payload is missing or
+identity-mismatched is a reported integrity error, not an already-collected success.
+
+An interrupted run can adopt a byte-equivalent immutable Pending JSON object
+after a previous crash, but refuses to overwrite a conflicting payload.
+Collected successes are written even if another source or packet fails, and
+the workflow remains red on any reported partial error. Downstream Git push
+and review completion remain separate asynchronous evidence boundaries.
