@@ -37,3 +37,48 @@ New tests are **committed, not reported as passed**: full pytest/Windows CI and 
 A useful cross-project principle is to bind a promotion/activation decision to the **current physical asset's identity**, not to historic registry metadata alone; reject ambiguous physical identities even if file bytes agree.
 
 Foundry was searched for model promotion integrity, duplicate model ID, registry atomicity, model manifests. Related entries address composite resources and persistent derived evidence, but none covered this CVS-specific **model lifecycle and physical identity** failure. This is an observed code-path bug, **not a Canonical rule**.
+
+
+## Follow-up repair: import-time immutable asset publication — PR #19
+
+Source PR: https://github.com/11576865/Character-Voice-Service/pull/19  
+Status: **Submitted; Linux/Windows CI and real local-GPT-SoVITS import Pending**
+
+The same Model Root identity and integrity boundary also had concrete
+**import-time** code-path risks, distinct from the promotion-time checks
+repaired in PR #18:
+
+- The source-weight-derived model ID was constructed with a hash suffix
+  and then truncated to the 127-character ID limit. A sufficiently long
+  descriptive prefix could truncate away the suffix, so different actual
+  weight pairs could collapse onto the same ID **without a cryptographic
+  digest collision**. The repair reserves the complete fingerprint suffix
+  *before* truncating only the descriptive prefix.
+- The original import copied weights directly to their final destination
+  with `shutil.copy2`. An interrupted copy could expose partial final
+  bytes and an existing destination symlink might be followed. The repair
+  stages bytes under unique exclusive names, checks SHA-256 both during
+  and after the copy, fsyncs, and publishes via create-only hard links.
+  The manifest uses the same create-only pattern; child symlinks and
+  paths escaping Model Root are rejected.
+- Reimport of a model with matching artifact IDs but changed
+  name/language/serving parameters could silently keep the old
+  immutable manifest. The repair compares the complete manifest except
+  for intentionally variable `lifecycle.created_at` and refuses drift.
+- Failure injection and idempotence tests cover source mutation,
+  interrupted second-weight publication, symlinked artifacts/manifest,
+  metadata drift, and a very long ID. Windows Python 3.12 regression
+  coverage is added to the existing CI workflow; its outcome is not
+  yet observed.
+
+**Limits:** Publication is create-only **per physical file**; an
+interrupted multi-file import may leave a valid orphan weight without a
+manifest and then resume safely, not roll back the whole import.
+`os.link` requires a compatible local filesystem; no overwrite-based
+fallback. The path guard does not eliminate hostile local filesystem
+races, and model-asset directories must be administratively controlled.
+
+This follow-up is kept in the **existing CVS model integrity Bug** after
+deduplication against model manifest, immutable artifact and staged
+publication topics. It is neither a new Canonical rule nor a claim that
+full production verification has passed.
