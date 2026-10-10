@@ -39,3 +39,8 @@ These tests demonstrate the isolated CSS module and enhanced navigation have not
 Foundry searches for CSS authority, cascade override isolation and sticky aria-current navigation did not locate a specific duplicate. Existing `inbox/candidates/2026-10-10-mkv-content-first-intake-metadata-role-separation.md` concerns import identity and task-role-owned editing, while `inbox/candidates/2026-10-03-adaptive-layout-semantic-context-reentry.md` concerns semantic context after responsive layout changes. This candidate specifically addresses **explicit stylesheet authority and native URL/viewport-driven section current state**.
 
 Next validations: computed-style snapshot/diff before and after CSS extraction at tablet/coarse pointer and at extreme desktop widths; touch and keyboard smoke tests for the sticky task bar; progressive removal of superseded base selectors by source ownership rather than regex deletion. Never automatically modify Canonical from this single observation.
+
+
+## Final documented-head CI confirmation
+
+The documentation-only successor head `e1e5f1a2e1d613e363eb673efa94c6ed0de79855` was also validated: [Chromium workflow #38033905034](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38033905034) **success**, **177/177 Node tests passed**, zero failures and all Browser E2E scenarios passed. [Pages workflow #38033905073](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38033905073) **success**. Synthetic UI screenshot artifact `11663048742` uploaded. The PR remains Draft/open and not merged; no Canonical promotion.
