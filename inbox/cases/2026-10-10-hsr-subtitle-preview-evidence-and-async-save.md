@@ -87,3 +87,29 @@ A design review of HSR PR #132 exposed that extra provenance labels and responsi
 **Validation boundary:** updated code and tests are committed; exact-head asynchronous CI, production screenshots and target-device runtime acceptance must be tracked separately. Visual-composition fixtures are not production screenshots.
 
 **Intake deduplication:** related to the Foundry Candidates on task-centered workflow continuity, UI resource projections and verified evidentiary semantics. Recorded as an extension to this Case rather than a duplicate Candidate or a Canonical update.
+
+
+## Case continuation: real cue editing versus simulation affordances (2026-10-10)
+
+### Context
+
+The HSR workbench's earlier three-pane layout provided corpus exploration, global style editing and layout QA, but lacked a clear per-subtitle **source → draft → save → regenerated artifacts** transaction. Adding visual time controls without a capable backend would have advertised a misleading nonpersistent feature.
+
+### Implementation evidence
+
+HSR-Voice-Archive-Builder PR #132 now introduces a first-class stage-adjacent cue editor with:
+
+- Source/target text and immutable source start/end/duration metadata. The segment-relative seek scrubber only adjusts the actual ASS preview timestamp. It is not represented as an editable source-timecode control.
+- Per-item, session-scoped draft ownership. Switching corpus rows preserves independent unsaved translations; quick preview text edits detach from the selected project cue rather than implicitly updating data.
+- An explicit `final_chs` save to the real backend subtitle override pipeline, with submitted-snapshot identity, single-flight submission, project-root guard and draft preservation on failure or post-submit edits.
+- A `persistable` API capability field distinguishing manifest-backed editable subtitles from fallback demonstration rows. The UI disables persistent Save when only examples exist.
+- Authenticated source WAV audition with optional browser-decoded wave visualization and positional seeking; a fallback player remains when waveform decoding fails. WAV samples are not falsely presented as synchronized final-video waveform evidence.
+- Separate validation: production-JS regression for deferred per-cue save, draft navigation and waveform seeking; FastAPI route coverage for project identity and unbuilt preview-only rows.
+
+### Reusable knowledge and limits
+
+The general failure mode is **false affordance through collapsing model capabilities**: a previewable example is not necessarily writable; a timing scrubber is not necessarily a retiming editor; a source WAV is not the final mixed-media timeline; a successful save request is not proof that newer draft bytes have been saved.
+
+This observation reinforces existing Foundry knowledge on editor ownership and evidence levels and is recorded as an additional Case, not a duplicate Candidate or a Canonical rule. Full production-rendered screenshot testing, browser/device acceptance and frame-accurate timing editing remain separately unverified/unimplemented.
+
+Source: `11576865/HSR-Voice-Archive-Builder`, PR #132, cue editor implementation and tests as of 2026-10-10.
