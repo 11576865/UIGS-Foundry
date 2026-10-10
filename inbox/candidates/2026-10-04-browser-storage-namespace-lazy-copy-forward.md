@@ -259,3 +259,104 @@ migration case to *automated Node and Chromium tests passed*. Real browser
 coverage included clip-first migration from the legacy DB and cross-tab
 delete-first tombstone safety; it does not establish Safari/Firefox or
 physical Android/iOS field acceptance. The Candidate remains non-Canonical.
+
+## Atomic owner-and-media read snapshot across browser tabs (2026-10-10)
+
+CVR [PR #21](https://github.com/11576865/Character-Voice-Reader/pull/21)
+found a read-side check/use timing gap: `getClip()` checked a book's live
+status in a `books` transaction, then read the related blob in a separate
+`clips` transaction. Another browser tab could delete or replace the
+book between those operations. Therefore each operation could be correct
+individually while the combined authorization/media observation was not
+from one coherent IndexedDB state.
+
+Candidate implication: when a dependent media record is readable only
+while its owner is live, validate the owner and read the dependent record
+in **one multi-object-store readonly transaction**. After a legacy-owner
+migration, repeat that atomic current-store read; do not rely on a
+stale check made before an awaited migration. Keep a distinct transactional
+live-owner fence for legacy media import writes.
+
+Evidence boundary: one readonly transaction gives a linearizable read
+snapshot relative to conflicting readwrite transactions; it does not
+revoke an audio Blob already returned by a prior legal read or interrupt
+an ongoing media element in a different tab. Live revocation/notification
+requires an independent cross-tab protocol. Product PR #21 tests native
+transaction scope, post-delete read rejection, physical clip absence,
+and explicit re-add in Chromium, supplemented by Node scope assertions.
+
+At intake: CVR head `e51d2a7672578093df8fe561728b991944935ab8`,
+Reader and Chromium CI **Pending**. This is a related extension to this
+existing namespace/migration Candidate, not an automatic Canonical
+promotion. Search for multi-store read snapshot and cached-media TOCTOU
+found no separate direct duplicate.
+
+## Atomic media read verification and merge (2026-10-10)
+
+CVR [PR #21](https://github.com/11576865/Character-Voice-Reader/pull/21)
+passed latest-head Reader tests and the real Chromium/IndexedDB regressions
+on `e51d2a7672578093df8fe561728b991944935ab8`. The resulting
+main merge commit is `e245d19a44544c077e4eff34bb7dd338433bbffa`.
+
+Evidence: production multi-store readonly transaction plus direct native
+Chromium transaction-scope test, cross-tab committed deletion, physically
+absent deleted clip, and clean explicit re-add; existing offline migrations,
+audio and UI tests remained green. This confirms the tested same-snapshot
+ownership guarantee, not invalidation of already returned Blobs or
+immediate remote-tab media stopping. No other browser engines or physical
+mobile devices were accepted by this regression.
+
+The evidence is recorded at Candidate level without Canonical promotion.
+
+## Committed deletion versus already-acquired media in other tabs (2026-10-10)
+
+CVR [PR #22](https://github.com/11576865/Character-Voice-Reader/pull/22)
+extends the atomic owner-and-audio read snapshot in PR #21 to a distinct
+life-cycle boundary: one Reader tab may already hold a valid `Blob` and
+be playing it when another tab deletes the IndexedDB-backed book.
+No database read fence can retroactively pause that pre-existing media
+element. Persisted deletion and session/playback invalidation must be
+treated as separate concerns.
+
+Candidate-level implementation:
+- Publish a same-origin `book-deleted` invalidation event only **after**
+  the tombstone and audio purge transaction commits. BroadcastChannel is
+  preferred; cross-tab localStorage `storage` events are a fallback.
+- On another tab, match the book ID against both the current offline
+  document and any **pending async open**. Stop queue playback, release the
+  already-created media URL, fence earlier async reads, clear the invalid
+  document, disable Start, and refresh the local shelf. An unrelated
+  deletion must not interrupt current playback.
+- BFCache/pagehide may suspend listeners: reinstall them on pageshow and
+  check that an active cached book still exists, so missed messages can
+  be reconciled against persistent state.
+- Notifications are best-effort for same-origin live contexts and do not
+  replace authoritative IndexedDB checks, cross-device synchronization,
+  or guarantee revocation of a Blob already returned by a completed read.
+
+Evidence at intake: CVR PR #22, head
+`111e41cbf00f17f87612028a9ab2fe639431bb8a`, Reader tests and
+real Chromium suite **Pending**; new Chromium cases exercise actual WAV
+playback on two Reader tabs, non-matching deletion, delayed stale open,
+and localStorage-event fallback.
+
+Dedup: searched Foundry for BroadcastChannel, deletion notifications,
+storage-event media revocation, and stale pending offline opening; no
+direct entry. Appended to existing browser-storage Candidate rather than
+automatically altering Canonical rules.
+
+## Cross-tab playback revocation merged evidence (2026-10-10)
+
+CVR [PR #22](https://github.com/11576865/Character-Voice-Reader/pull/22)
+passed Reader tests and real Chromium/IndexedDB multi-tab regression
+at final head `111e41cbf00f17f87612028a9ab2fe639431bb8a`,
+and was merged to main as `a88eb779859d380fa9b569782c7dc72960bd4f3b`.
+Automated evidence includes real WAV playback interrupted after a committed
+other-tab book deletion, media source release and disabled playback, matching
+async pending-open invalidation, no interruption on unrelated deletion,
+and fallback notification through localStorage when BroadcastChannel is
+unavailable.
+
+Evidence remains limited to tested Chromium same-origin tabs and
+controlled browser scenarios, not Safari/Firefox physical device testing
+or cross-device revocation. Candidate only; no Canonical promotion.

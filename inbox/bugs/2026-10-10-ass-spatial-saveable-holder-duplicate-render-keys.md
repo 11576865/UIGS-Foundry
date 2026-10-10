@@ -24,3 +24,7 @@ The product correction names saveable providers by their presentation role (`BOA
 **Pending External Validation:** CI was queued for the merged repair head `faf660dd5bff6777aa69b1abe6c6257bebc1a027` (runs 38032991968 / 38032991970 / 38032992080). No emulator PASS, full draft continuity guarantee, device touch acceptance or 240 UI completion is asserted. In particular, distinct saveable keys avoid the duplicate-registration exception but do not prove continuity of ordinary unsaveable `remember` state across board↔focused role replacement.
 
 This is one product's reproducible Bug evidence and candidate implementation test, not grounds for automatically changing Canonical UI policy.
+
+## 2026-10-10 post-fix result: duplicate-key crash no longer reported; remaining failures Pending
+
+On exact product head `faf660dd5bff6777aa69b1abe6c6257bebc1a027`, Android CI and Fontconfig passed; [Emulator Regression 38032992080](https://github.com/11576865/ASS-Workbench-Android/actions/runs/38032992080) executed 120 tests and reported 12 failures (previous run 38027904104: 22 failures). The new failure records did **not** contain the earlier `SaveableStateHolder` "Key ... was used multiple times" errors. This is evidence consistent with the submitted fix for the key collision class, **not** proof the full workbench is stable; editor draft switching, viewport back/forward, touch injection and visual acceptance remained red. Bug stays `validation-pending` pending broader regression/device acceptance.
