@@ -43,3 +43,10 @@ When no specialised ASS replacement is needed, Track import remains a one-pass r
 This is one implementation pattern, not a requirement to use filesystem staging. An in-memory pipeline, transactional database, object store, or streaming graph may provide the same semantic boundary.
 
 Do not promote to Canonical from this evidence alone.
+
+
+## QHE size-ceiling publication test checkpoint — PR #86 (2026-10-10)
+
+A **second project** provides a distinct implementation context for private staging and publish-only-after-verification. QHE PR #86, merged as `7774777b36d57ea8c31f484dad7e8ba6573e70e4`, runs explicitly selected two-pass software H.264 on the real Windows Native Bridge. Pass one creates only private encoder statistics and a null output; pass two produces the staged Matroska. A user-selected **strict** ceiling rejects the *actual completed container bytes* if greater than the declared limit: the job becomes failed, staged output is removed and the existing export operation refuses to publish anything. A Windows synthetic Native API test proved a **1,024-byte strict failure** and a **5,000,000-byte strict success** (73,585-byte output).
+
+This reinforces the Candidate's *private intermediate / only verified final publication* transaction boundary. It is a bounded software CI example, not user GPU/multi-hour/export-dialog field acceptance. The existing Candidate rule is unchanged, not promoted to Canonical. Separate Test: `inbox/tests/2026-10-10-guided-native-two-pass-verified-byte-ceiling.md`.
