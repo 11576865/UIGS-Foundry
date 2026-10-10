@@ -130,3 +130,29 @@ Reusable candidate: distinguish a **presentation route** from an **interaction c
 
 
 Follow-up source evidence: PR #138 later deleted obsolete full-screen experimental presentation implementations from ModernEditorScreen while retaining shared native tools and the object-picker component. Latest-head CI and device acceptance remain pending; do not promote Canonical.
+
+## 2026-10-10 camera-fit centering and finite-offset zoom — Pending CI
+
+Source: [ASS Workbench Android stacked PR #139](https://github.com/11576865/ASS-Workbench-Android/pull/139), based on open redesign PR #138 head `e0ce553da2754dbed18e41bcea6de58d23f10880`.
+
+A focused source review found two distinct camera-level UI issues:
+
+- An `overview/approach` fit computed appropriate scale but pinned the
+  bounding box to the top-left margin rather than centering it in the viewport
+  area left after top/bottom workspace chrome.
+- Anchored zoom performed `anchor - cameraOffset` in Float, so two opposite
+  finite Float offsets could overflow even when the final camera position
+  was representable. The presentation operation was silently rejected.
+
+The patch centers within reserved chrome (16dp horizontal, 72dp top and 88dp
+bottom), computes anchor-affine intermediates in Double, and applies a final
+Float representability guard. Two JVM model regressions are submitted.
+Camera motion remains workspace presentation state and does not mutate nodes,
+ASS domain values or Undo. No claim that Android CI, emulator or device
+acceptance has run for this stacked PR: the existing workflow targets PRs
+against main, while #139 targets #138's open branch.
+
+This is additional scoped numerical/UI evidence for the existing spatial
+camera Candidate, **not** a new Canonical requirement. The separate red
+`inspectorDraftSurvivesToolSwitchAndRotation` emulator case from PR #138
+remains unresolved and is not claimed repaired.
