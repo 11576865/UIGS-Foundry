@@ -56,6 +56,23 @@ class CollectorTests(unittest.TestCase):
             self.assertFalse((root / "outbox").exists())
             self.assertFalse((root / "reports").exists())
 
+    def test_dry_run_simulates_duplicate_receipts_in_memory(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            sources = root / "sources.json"
+            receipts = root / "outbox" / "receipts.json"
+            sources.write_text(json.dumps({"sources": [{"repository": "owner/repo"}]}), encoding="utf-8")
+            tree = [{"type": "blob", "path": "packets/ci-first.json", "sha": "first"},
+                    {"type": "blob", "path": "packets/ci-second.json", "sha": "second"}]
+            payloads = {"first": packet("ci-first", "incident:shared"),
+                        "second": packet("ci-second", "incident:shared")}
+            with mock.patch.object(c, "fetch_source_tree", return_value=tree), mock.patch.object(
+                c, "fetch_blob_json", side_effect=lambda repo, sha, token: payloads[sha]
+            ):
+                changed, errors = c.collect(sources, receipts, dry_run=True, root=root)
+            self.assertEqual((changed, errors), (2, []))
+            self.assertFalse((root / "outbox").exists())
+
     def test_invalid_packet_does_not_block_valid_sibling_and_retry(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)

@@ -87,6 +87,9 @@ def check_receipt_storage(receipts: dict[str, Any], key: str, root: Path = ROOT)
     entry = receipts["items"][key]
     if not isinstance(entry, dict):
         raise PacketError(f"invalid receipt entry: {key}")
+    if entry.get("_dry_run_only"):
+        # A simulated receipt exists only in this invocation's memory.
+        return
     disposition = entry.get("disposition")
     if disposition == "duplicate":
         owner = str(entry.get("canonical_receipt", ""))
@@ -126,6 +129,8 @@ def apply_packet(packet: dict[str, Any], expected_repository: str, origin_path: 
             "origin_path": origin_path, "ingested_at": now, "disposition": "duplicate",
             "canonical_receipt": existing
         }
+        if dry_run:
+            receipts["items"][key]["_dry_run_only"] = True
         return "duplicate", key
     pending_path = root / "outbox" / "pending" / sanitize_component(expected_repository) / f"{packet_id}.json"
     if pending_path.exists():
@@ -139,6 +144,8 @@ def apply_packet(packet: dict[str, Any], expected_repository: str, origin_path: 
         "origin_path": origin_path, "ingested_at": now, "disposition": "pending",
         "pending_path": pending_path.relative_to(root).as_posix()
     }
+    if dry_run:
+        receipts["items"][key]["_dry_run_only"] = True
     return "pending", key
 
 def api_json(url: str, token: str | None) -> Any:
