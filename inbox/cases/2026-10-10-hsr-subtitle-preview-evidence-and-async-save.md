@@ -68,3 +68,22 @@ Added regressions exercise the production sample-loader JS with delayed response
 Source: `11576865/HSR-Voice-Archive-Builder`, PR #132, development checkpoint `9a70dabe02b6e9927913fa8963fc8c1575efb5dc`.
 
 **Deduplication:** Continues the existing HSR case, consistent with the Foundry preview/backpressure Candidate and live-editor-rerender Bug. Does not overwrite those records or promote Canonical.
+
+
+## Additional case: task-centered subtitle workspace versus parameter-only Inspector (2026-10-10)
+
+A design review of HSR PR #132 exposed that extra provenance labels and responsive CSS did not make a global style form into a functional subtitle authoring environment. A concrete extension now adds a first-class corpus explorer, explicit sample selection, search, sequential navigation, bounded large-dataset pagination, session-level style Undo/Redo, and geometry QA based on the existing solver.
+
+**Source implementation:** `11576865/HSR-Voice-Archive-Builder`, same PR #132, checkpoint `3b30f6cebd8749642e887f1557dc44f1f052bd3d`.
+
+**Design/engineering distinctions retained:**
+- Estimated text pressure is an exploration heuristic; it is **not** a verified collision or an actual FFmpeg/libass result.
+- The bounded audit reports exact coverage of up to 60 filtered rows per execution; unchecked rows never inherit a checked status.
+- Long corpora paginate visible navigation instead of rendering every row to the DOM.
+- History for live style controls is not the same transaction as source-text edits, settings persistence, or ASS export.
+- On mobile, the preview is promoted above the navigation list; the corpus browser remains available through a collapsed, explicit reveal control.
+- This is still style/layout workbench capability, not a fully implemented frame-accurate subtitle timeline.
+
+**Validation boundary:** updated code and tests are committed; exact-head asynchronous CI, production screenshots and target-device runtime acceptance must be tracked separately. Visual-composition fixtures are not production screenshots.
+
+**Intake deduplication:** related to the Foundry Candidates on task-centered workflow continuity, UI resource projections and verified evidentiary semantics. Recorded as an extension to this Case rather than a duplicate Candidate or a Canonical update.
