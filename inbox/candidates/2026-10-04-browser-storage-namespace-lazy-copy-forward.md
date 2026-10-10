@@ -360,3 +360,34 @@ unavailable.
 Evidence remains limited to tested Chromium same-origin tabs and
 controlled browser scenarios, not Safari/Firefox physical device testing
 or cross-device revocation. Candidate only; no Canonical promotion.
+
+## Pending-source reads across BFCache pagehide/pageshow (2026-10-10)
+
+CVR [PR #23](https://github.com/11576865/Character-Voice-Reader/pull/23)
+found a remaining cross-tab deletion race outside PR #22's live-book
+revalidation. The Reader checked the active offline book on `pageshow`,
+but a `getBook()` still pending at `pagehide` had not yet set offline
+mode. A frozen page missing a deletion notification could then consume
+the old, already-fetched book after restoration and open deleted content.
+
+Candidate-level implication: asynchronous **pending source reads** are
+distinct from already established active session state. On suspension,
+advance the request-generation fence for pending work, retain only an
+identifier for a possible restart, and on restoration **re-read durable
+state** before accepting the source. A later explicit user selection
+must clear the restoration intent so the old source does not overwrite
+the most recent one. The persisted deletion tombstone remains the
+authority, not the delivery of a best-effort notification.
+
+Validation planned in CVR PR #23: native Chromium IndexedDB with delayed
+old `getBook()` results and synthetic `PageTransitionEvent` callbacks;
+cases cover deleted pending book, surviving pending book, and newer
+manual-text selection. A synthetic lifecycle event is *not* proof of
+true back/forward-cache residency or browser freezing and scheduling
+behavior. Real BFCache, Safari/Firefox and mobile remain separate checks.
+
+Evidence at intake: PR #23 HEAD
+`f48d5f37d9e02faf42c0f75ab8299a0f70d14cc3`;
+Reader/Chromium CI **Pending**. De-duplicated against the existing
+storage-migration and cross-tab deletion Candidate. This entry remains
+Candidate, with no Canonical promotion.
