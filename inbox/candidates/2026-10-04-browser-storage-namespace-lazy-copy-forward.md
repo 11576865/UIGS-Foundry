@@ -247,3 +247,15 @@ No claim of physical mobile-browser acceptance or Canonical change.
 
 Dedup: extended the existing browser-storage namespace lazy-copy-forward
 Candidate rather than creating a new overlapping storage rule.
+
+## Clip-first migration verified merge evidence (2026-10-10)
+
+CVR [PR #20](https://github.com/11576865/Character-Voice-Reader/pull/20)
+passed its latest-head `0018b86c49ce50752eb2c2d13ad2658d074d5188`
+Reader tests and real Chromium IndexedDB regressions, and was merged into
+`main` at `ca3582070e4a6df8a15319931ea41558e200ce98`.
+This upgrades the prior *Pending CI* evidence for this single-product
+migration case to *automated Node and Chromium tests passed*. Real browser
+coverage included clip-first migration from the legacy DB and cross-tab
+delete-first tombstone safety; it does not establish Safari/Firefox or
+physical Android/iOS field acceptance. The Candidate remains non-Canonical.
