@@ -152,3 +152,12 @@ The corresponding desktop and phone batch screenshots were downloaded and actual
 The earlier failed run `38051094510` already passed the real batch mux and output audit but its test incorrectly demanded a formed pairing after explicitly clearing the legacy subtitle input. The corrected regression first verifies old adapter inputs are cleared, asserts no executable job without matched subtitles, then supplies a matching legacy subtitle and verifies the old plan reactivates. This is a **test contract correction**, not a relaxation of the application's pairing safety rules.
 
 Status remains **Candidate only**; no Canonical changes. PR #69 remains Draft/unmerged; standalone audio append in the batch workflow is explicitly unsupported, and all container headers still require authoritative probing.
+
+
+### Phase 8 — keyboard focus continuity when asset-list DOM is replaced
+
+In PR #69, single-job and batch inventories replace their entire row DOM when removing a classified file. The old focused Remove button is destroyed, and without explicit restoration keyboard users can be returned to the document rather than a meaningful next action. A change to the active main-source radio also replaces the old focused control. This issue is distinct from the existing selected **track-inspector** focus restoration: it concerns **imported-asset action controls**, including the newly unified batch workflow.
+
+The implementation now shares `src/inventory-focus.js`: after executing the real adapter and plan synchronization, it locates the surviving resource at the same row index (or last surviving), or the import dropzone when the inventory becomes empty. Main-source selection instead locates its radio by stable content identity. It applies `focus({preventScroll:true})` and never mutates task roles itself. Four direct unit tests passed in a source-derived V8 check. The latest Chromium scenario adds keyboard Enter for single/batch deletion and Space for source selection, checking `document.activeElement` **after the UI rerender**, not merely button labels.
+
+Deduplication searches for `inventory removal focus restoration`, `keyboard focus after deleting resource list item`, `dynamic file inventory focus update`, `focus restore after DOM recreation` found no independent matching Candidate. This extends the existing shared-domain-inventory Candidate rather than creating a new Canonical principle. **Full latest-head CI is pending at the time this update was authored**; successful E2E evidence must be attached separately before upgrading its status.
