@@ -1,12 +1,12 @@
 # UIGS Knowledge Health
 
-Generated: 2026-10-10T04:09:32+00:00
+Generated: 2026-10-10T04:19:57+00:00
 
 ## Intake and knowledge inventory
 
 | Metric | Count |
 | --- | ---: |
-| Bug records | 30 |
+| Bug records | 32 |
 | Candidates | 148 |
 | Observations | 20 |
 | Cases | 10 |
@@ -25,8 +25,8 @@ Bug records are historical/reusable evidence. Their count is **not** the count o
 
 - recorded: 9
 - regression-verified: 4
-- repair-evidenced: 13
-- validation-pending: 4
+- repair-evidenced: 14
+- validation-pending: 5
 
 ## Prevention coverage
 
