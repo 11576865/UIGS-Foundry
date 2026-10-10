@@ -290,3 +290,20 @@ Reader and Chromium CI **Pending**. This is a related extension to this
 existing namespace/migration Candidate, not an automatic Canonical
 promotion. Search for multi-store read snapshot and cached-media TOCTOU
 found no separate direct duplicate.
+
+## Atomic media read verification and merge (2026-10-10)
+
+CVR [PR #21](https://github.com/11576865/Character-Voice-Reader/pull/21)
+passed latest-head Reader tests and the real Chromium/IndexedDB regressions
+on `e51d2a7672578093df8fe561728b991944935ab8`. The resulting
+main merge commit is `e245d19a44544c077e4eff34bb7dd338433bbffa`.
+
+Evidence: production multi-store readonly transaction plus direct native
+Chromium transaction-scope test, cross-tab committed deletion, physically
+absent deleted clip, and clean explicit re-add; existing offline migrations,
+audio and UI tests remained green. This confirms the tested same-snapshot
+ownership guarantee, not invalidation of already returned Blobs or
+immediate remote-tab media stopping. No other browser engines or physical
+mobile devices were accepted by this regression.
+
+The evidence is recorded at Candidate level without Canonical promotion.
