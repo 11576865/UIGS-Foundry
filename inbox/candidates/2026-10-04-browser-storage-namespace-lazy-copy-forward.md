@@ -112,3 +112,25 @@ for Canonical promotion.
 
 Scope exclusion: this record does not assert that all browser engines,
 cross-tab UI updates, or every cancellation timing have been field-tested.
+
+## Real-browser transactional evidence boundary (2026-10-10)
+
+A simulated IndexedDB adapter is useful for controlled scheduling and
+failure injection, but it does not itself validate browser-native transaction
+lifetimes, versionchange rollback, or same-origin cross-tab ordering.
+Treat emulator/unit tests and real browser IndexedDB tests as distinct
+evidence levels.
+
+CVR [PR #12](https://github.com/11576865/Character-Voice-Reader/pull/12)
+introduces a path-filtered headless Chromium + Playwright runtime regression,
+with production `web/js/offline.js` executing against actual browser storage:
+cross-tab delete during an in-flight download; newer write superseding an
+older one; cancellation and verified partial-download resume.
+
+- Head SHA at intake: `59a2c9bae301f0ea7dd4e0e4fa31c175fc68fde1`
+- Status: implementation submitted; external browser CI **Pending**
+- Scope: this constitutes an added validation method, not yet a claim that
+  the cases passed in Chromium, and not a substitute for mobile browser
+  field acceptance
+- Dedup: scoped extension to this existing migration candidate, rather than
+  a new standalone principle; no Canonical authority change
