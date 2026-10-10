@@ -120,3 +120,34 @@ both dedicated Chromium and Reader CI **Pending**. No Canonical promotion.
 Dedup: extended existing CVR offline-first UI Candidate after searching for
 real audio decoding, HTMLAudioElement testing and codec-neutral diagnostics;
 no directly matching prior Foundry entry was found.
+
+## Recoverable media resume rejection must be visible (2026-10-10)
+
+CVR [PR #17](https://github.com/11576865/Character-Voice-Reader/pull/17)
+identified a user-observable gap after real media tests were added: the queue
+already retained `paused` and `snapshot.error` when a browser rejected an
+explicit `HTMLMediaElement.play()` resume (for example `NotAllowedError`),
+but the Reader's paused state copy always said only “已暂停”. An actionable
+retry existed but the user could not tell why Continue had failed.
+
+Candidate-level implication: UI rendering must distinguish **intentional
+pause** from **paused after failed resume**, even if both share a recoverable
+state in the playback machine. Preserve media position, display the actual
+error with a retry path, and clear the transient error only after a successful
+resume. Verify this using both fake-player state tests and browser
+HTMLAudioElement-backed tests where the next `play()` is rejected once.
+An injected browser error proves the UI state handling, not any particular
+real-device autoplay policy.
+
+Related rollout issue: changing cached reader script behavior requires
+updating the HTML asset revision *and* Service Worker cache key together.
+Product PR #17 advances both to v8 and retains Reader namespace version
+contract tests.
+
+Evidence at intake: PR #17 head
+`fcab6dc03ea00087d6a53f2e6f78d9c46bd3df1d`,
+normal Reader CI and real Chromium CI **Pending**. This extends existing CVR
+UI Candidate rather than changing Canonical. Dedup searched Foundry for
+media resume, autoplay NotAllowedError, playback retry and Service Worker
+revision; the earlier async playback abort/revision Candidate covers stale
+writes, not this paused-error UX.
