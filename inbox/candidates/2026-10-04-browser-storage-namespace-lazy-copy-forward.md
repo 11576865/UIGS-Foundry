@@ -307,3 +307,40 @@ immediate remote-tab media stopping. No other browser engines or physical
 mobile devices were accepted by this regression.
 
 The evidence is recorded at Candidate level without Canonical promotion.
+
+## Committed deletion versus already-acquired media in other tabs (2026-10-10)
+
+CVR [PR #22](https://github.com/11576865/Character-Voice-Reader/pull/22)
+extends the atomic owner-and-audio read snapshot in PR #21 to a distinct
+life-cycle boundary: one Reader tab may already hold a valid `Blob` and
+be playing it when another tab deletes the IndexedDB-backed book.
+No database read fence can retroactively pause that pre-existing media
+element. Persisted deletion and session/playback invalidation must be
+treated as separate concerns.
+
+Candidate-level implementation:
+- Publish a same-origin `book-deleted` invalidation event only **after**
+  the tombstone and audio purge transaction commits. BroadcastChannel is
+  preferred; cross-tab localStorage `storage` events are a fallback.
+- On another tab, match the book ID against both the current offline
+  document and any **pending async open**. Stop queue playback, release the
+  already-created media URL, fence earlier async reads, clear the invalid
+  document, disable Start, and refresh the local shelf. An unrelated
+  deletion must not interrupt current playback.
+- BFCache/pagehide may suspend listeners: reinstall them on pageshow and
+  check that an active cached book still exists, so missed messages can
+  be reconciled against persistent state.
+- Notifications are best-effort for same-origin live contexts and do not
+  replace authoritative IndexedDB checks, cross-device synchronization,
+  or guarantee revocation of a Blob already returned by a completed read.
+
+Evidence at intake: CVR PR #22, head
+`111e41cbf00f17f87612028a9ab2fe639431bb8a`, Reader tests and
+real Chromium suite **Pending**; new Chromium cases exercise actual WAV
+playback on two Reader tabs, non-matching deletion, delayed stale open,
+and localStorage-event fallback.
+
+Dedup: searched Foundry for BroadcastChannel, deletion notifications,
+storage-event media revocation, and stale pending offline opening; no
+direct entry. Appended to existing browser-storage Candidate rather than
+automatically altering Canonical rules.
