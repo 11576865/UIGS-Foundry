@@ -86,3 +86,37 @@ PR #15 submitted, Reader and Chromium CI **Pending** at intake.
 Do not claim verified live-device acceptance.
 Dedup: appended to existing CVR offline-first UI Candidate rather than
 creating a competing UI Canonical or redundant Candidate.
+
+## Browser media acceptance beyond button admission (2026-10-10)
+
+The earlier PR #14 Chromium UI check proved that opening an offline cached
+book could enable the Start button without an online voice catalog, but that
+assertion by itself was not evidence of actual audio decoding, time
+advancement or lifecycle completion.
+
+CVR [PR #16](https://github.com/11576865/Character-Voice-Reader/pull/16)
+adds a distinct real-media acceptance tier: generate valid 16 kHz mono
+16-bit PCM WAV blobs, persist them through the production IndexedDB adapter,
+and initiate playback via the real Reader UI. Assertions cover duration,
+increasing HTMLAudioElement.currentTime, pause-hold/resume, two-segment
+auto-advance, completion/progress, and media source release on Stop.
+A separate Chromium simulated 360px touch viewport checks horizontal
+overflow, manual-source selection and auxiliary playback disclosure.
+
+Observations/Candidate distinctions:
+- A button becoming enabled is **input admission**, not playback acceptance.
+  Real media should be tested with a playable file and the browser's actual
+  decoder/HTMLAudioElement, not only fake player APIs and dummy media blobs.
+- Error copy should not silently identify a single codec when the service
+  supplies multiple formats: the prior AudioPlayer error incorrectly claimed
+  every decoding failure was a WAV problem despite CVR downloading MP3.
+- Headless Chromium playback and touch emulation add runtime evidence, but
+  are not a physical Android/iOS device test or a guarantee against mobile
+  autoplay policies; retain that boundary explicitly.
+
+Evidence at intake: CVR PR #16, latest head
+`92a6cb2abc9fff42212b5510546a31727929257e`,
+both dedicated Chromium and Reader CI **Pending**. No Canonical promotion.
+Dedup: extended existing CVR offline-first UI Candidate after searching for
+real audio decoding, HTMLAudioElement testing and codec-neutral diagnostics;
+no directly matching prior Foundry entry was found.
