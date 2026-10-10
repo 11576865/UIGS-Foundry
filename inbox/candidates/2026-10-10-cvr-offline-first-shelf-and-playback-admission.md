@@ -151,3 +151,60 @@ UI Candidate rather than changing Canonical. Dedup searched Foundry for
 media resume, autoplay NotAllowedError, playback retry and Service Worker
 revision; the earlier async playback abort/revision Candidate covers stale
 writes, not this paused-error UX.
+
+## Shelf discovery versus asynchronous persistence (2026-10-10)
+
+CVR [PR #18](https://github.com/11576865/Character-Voice-Reader/pull/18)
+adds title/author search, downloaded/partial filter, sort and clear-filter
+recovery to an IndexedDB-backed offline library with asynchronous refresh.
+The key interaction distinction is between fast **view projection** of the
+most recently loaded library snapshot and an explicit **persistence refresh**
+that may await disk/legacy migration: filtering should not perform a database
+request per keystroke, nor should Refresh blank the entire book list while
+a new asynchronous result is pending.
+
+Related recoverable-state checks:
+- Distinguish an empty underlying library from a non-empty library with zero
+  matches for a search/filter, including a one-click reset.
+- Show visible/total counts so the user understands why cards disappear.
+- Preserve the last completed view on a failed refresh and explain that its
+  contents may be stale; version/fence concurrent list requests.
+- For a two-step destructive confirmation, support `Escape`/Cancel without
+  persistent mutation and restore focus to the initiating control. Guard
+  refresh-control reenablement if deletion invalidates a pending list read.
+
+Evidence at intake: CVR PR #18 head
+`9dce0d8ccdb8023d6536f7ce111805637d31bbc8`, implementation and
+Chromium test submitted; final CI **Pending**. The candidate has not
+been validated on physical mobile devices or screen readers.
+Dedup: extended the existing CVR offline-first shelf Candidate rather than
+creating a competing Canonical rule. Prior Foundry search found related
+destructive confirmation and async rendering records but no exact shelf
+search/async-refresh combination.
+
+## Post-CI implementation evidence: recoverable resume and shelf discovery (2026-10-10)
+
+The previously pending candidate extensions are now supported by completed
+automated checks and main-branch merges in the source repository:
+
+- CVR [PR #17](https://github.com/11576865/Character-Voice-Reader/pull/17)
+  was merged at `f6b90c3121c9366cf1808cff87679c26ab249dc8`.
+  Final test head `565d54aad19891c8335aa669aa7072726c8a2fc6` passed
+  normal Reader tests and actual Chromium media regressions.
+  During validation an initial browser assertion read the stale error
+  message immediately after the media element resumed; the UI queue state
+  had not yet completed its asynchronous transition. The final regression
+  waits for both playing state and cleared error message, rather than
+  weakening the functional check.
+- CVR [PR #18](https://github.com/11576865/Character-Voice-Reader/pull/18)
+  was merged at `1bbb3074c751b3350e3268e55e4826224703ad62`.
+  Final test head `9dce0d8ccdb8023d6536f7ce111805637d31bbc8`
+  passed Reader tests and the dedicated Chromium/IndexedDB workflow.
+  Browser regression covers search/sort/filter, no-result recovery,
+  delayed refresh without flashing old cards, Escape cancellation of
+  deletion, and confirmed deletion.
+
+Evidence level: source implementation + headless Chromium regression,
+not physical Android/iOS UX or assistive-technology acceptance. These are
+still Candidate-level examples, not grounds for automatically altering
+Canonical standards.

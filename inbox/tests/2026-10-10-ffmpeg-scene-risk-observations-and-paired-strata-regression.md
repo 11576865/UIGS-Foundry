@@ -56,3 +56,16 @@ This confirms execution of the synthetic decoded-content smoke on the GitHub Win
 Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/80
 
 No Canonical promotion.
+
+
+## Real CRF decision reversal and grain-risk resampling (QHE PR #82)
+
+A separate real-encoding test now covers a **different failure mode** from the original scene metadata smoke. In a four-second synthetic *single-source* FFV1 reference (first two seconds testsrc2 motion, following two seconds seeded temporal noise), real libx264 `preset=medium` CRF 22 and CRF 28 short encodes are compared on matching reference windows using FFmpeg SSIM and **ffprobe video packet bytes**, rather than artificial quality values. The reference source, codec, preset, windows and quality threshold are held fixed. Under a SSIM target of 0.970, motion-only evidence accepts CRF 28 (~0.986), but the additional noisy window fails CRF 28 (~0.929), requiring CRF 22 to meet the threshold (~0.982 on noise). This is an **observed rate-control selection reversal**, not a proven cross-codec or cross-resolution envelope reversal.
+
+At the original `fps=2,scale=160:90` analysis size, motion vs temporal grain frame-difference metadata was unexpectedly similar (~6.36 vs ~6.79 mean YDIF), even as output packet size and quality differed dramatically. A bounded, aspect-preserving maximum-320px-longest-edge preflight raises the noise signal (~22.6 YDIF vs ~6.73 motion on the tested fixture); the measured preflight then ranks this noisy window above normal motion. The production sampling fingerprint was versioned to `paired-scene-strata-v2` to prevent treating old v1 risk-derived sample plans as comparable.
+
+The new Windows CI test `scripts/check-risk-codec-ffmpeg.mjs` and adapted existing FFmpeg scene smoke passed with Frontend, Windows, Windows Runtime and UIGS Evidence Coverage in QHE PR #82, squash-merged as `2ba584183dcabad0183dda62527c1a6027ce2d77`.
+
+**Strict limits:** software synthetic video and one measured CRF threshold example, not statistical perceptual validity, grain coverage for high-resolution real footage, reliable codec selection, HDR/VFR or actual NVENC/long-video field acceptance. QHE Issue #76 remains open for genuine content-specific decision cases and calibrated cost/utility estimates; #77 remains field-pending. Neither this observation nor any synthetic CI result promotes a Canonical principle.
+
+Source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/82
