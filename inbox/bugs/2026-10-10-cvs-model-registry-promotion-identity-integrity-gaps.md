@@ -82,3 +82,42 @@ This follow-up is kept in the **existing CVS model integrity Bug** after
 deduplication against model manifest, immutable artifact and staged
 publication topics. It is neither a new Canonical rule nor a claim that
 full production verification has passed.
+
+
+## Follow-up repair: cross-process lost-update prevention — PR #20
+
+Source PR: https://github.com/11576865/Character-Voice-Service/pull/20  
+Status: **Submitted; Linux/Windows CI Pending**
+
+PR #18 introduced unique temporary files, fsync and atomic replacement for
+Model Registry snapshots, but this was insufficient to guarantee serial
+**read-modify-write** operations. Multiple processes calling
+`scan_model_root`, `set_status`, `promote_model` or `retire_model`
+could still load the same old registry state, commit independently and erase
+each other's updates. A slow scan could also publish a stale Model Root
+inventory after a later scan.
+
+PR #20 holds a registry-path-scoped OS lock from discovery/validation or
+lifecycle-state read through atomic registry publication, with
+`fcntl.flock` on POSIX and `msvcrt.locking` on Windows. The lock file
+persists; process termination releases OS ownership. Lock-file aliases are
+canonicalized for both lock ownership and final snapshot IO. A 120-second
+bounded acquisition fails with `TimeoutError`.
+
+Eight subprocess-backed regression test cases are committed for forced
+overlapping state updates, contention, abnormal process termination, scan
+isolation, alias identity, exception safety and independent registries.
+The Windows test workflow now includes this suite. **No successful CI
+result is claimed before actual workflow evidence exists.**
+
+**Limit:** a caller using raw `save_registry` with an already stale
+full snapshot still risks overwriting later changes; business mutators must
+use the full critical section, and external writers must cooperate. Slow
+weight hashing during a Model Root scan holds the lock; administrators must
+retry after timeout, never delete an apparently stale lock file. Atomic
+replace is not a distributed transaction and does not protect against
+out-of-band model-file mutations.
+
+This complements the existing CVS model integrity Bug. Foundry's
+`shared-file-journal-resource-scope-locking` Candidate captures the reusable
+cross-project principle; no duplicate Candidate or Canonical change.
