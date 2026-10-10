@@ -78,3 +78,12 @@ PR #60 updates the scenario to wait until the expected jobs and subtitle summari
 Reusable refinement: semantic readiness applies not only to command execution but also to **derived read models** such as plans, summaries, previews, validation panels and computed metadata. Tests must await the derived state they intend to inspect.
 
 This is additional evidence for the existing Bug candidate and is not promoted to Canonical.
+
+
+## Additional test evidence — ten-sequential source UI readiness (2026-10-10)
+
+While expanding UI-first MKV source container editing in Draft PR #69, existing Chromium `scenarioTenSequential` intermittently wrote the **inferred subtitle title** (`中文 · ASS`) instead of the test's `Loop 1`. Workflow `38023294968` had already passed the new tree-order, disposition and artifact E2E scenarios; the failure arose in the older 10-task loop. The test set video/subtitle/font input files and immediately filled `data-new-sub-field="title"` without ensuring current asynchronous subtitle identity and mux readiness had converged. This was a **test orchestration race**, not proof of a newly introduced mux failure.
+
+The scenario now waits for the active `subInput.files[0].name` to match the requested current subtitle, the title field to exist/enabled, and `muxBtn` to be enabled before filling title and executing. Subsequent latest-head Chromium workflow `38023534205` passed this scenario, all remaining browser cases, and **169/169 Node tests**.
+
+Reuse the existing contract: a change event or populated input control is not proof that asynchronous identity/derived track editors are ready to accept programmatic edits. Tests must synchronize on the current *task identity* and semantic readiness, not arbitrary delays or a stale previous-row selector. This evidence **adds to**, and does not create or promote, the existing Candidate.
