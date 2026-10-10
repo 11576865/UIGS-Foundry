@@ -41,3 +41,16 @@ Repository search on 2026-10-10 for benchmark dataset, evaluation corpus, split 
 - Cross-project nuance: a `generation_revision` derived from a chosen reference must not be reused across multiple distinct reference choices. Current v1.1 intentionally uses one reference per evaluation record.
 - Targeted regression tests and source changes are committed; CI and real-audio/real-device acceptance remain **Pending**. This is **declared provenance consistency**, not attestation of generated audio quality.
 - The entry remains **Candidate**. This is follow-up evidence for an existing hypothesis, not an automatic Canonical promotion or a second duplicate Candidate.
+
+## Runtime evidence implementation — 2026-10-10
+
+CVS [PR #16](https://github.com/11576865/Character-Voice-Service/pull/16) adds a bounded synthesis runner, stacked after dataset freezing (#14) and the evaluation provenance gate (#15).
+
+- **Declared reference mapping vs live reference identity:** a frozen mapping from `reference_id` to a reference corpus item does not by itself prove the engine is using the matching bytes. The runner uses a protected local CVS endpoint and checks the **live reference WAV SHA-256** against the frozen source hash before any generation.
+- **Run identity fence:** pin immutable model revision, opaque generation revision, voice/reference, runtime/binding identity, dataset SHA and current output hashes. Per-sample resolve and returned speech headers must agree with the pinned identity. Resume rejects input, live reference, runtime or prior artifact drift.
+- **Measurement is not evaluation:** valid output PCM, HTTP success, elapsed seconds and real-time factor are **generation-path evidence**, not correctness of speech, voice similarity, naturalness or promotability. Output is explicitly `quality_evaluation: not_performed`.
+- **Isolation:** local loopback-only generation and admin token transport, sequential single writer, exclusive output artifacts and durable per-item checkpoints. A failed sample leaves partial—not successful—status.
+
+Evidence: 18 local mocked-HTTP tests passed and source/CLI/docs were committed. Full CVS CI and real GPT-SoVITS/IndexTTS runtime or private original WAV acceptance are **Pending**. No Canonical promotion.
+
+Dedup: the prior Candidate already covers frozen corpus and reference provenance; related Foundry records cover request-identity fencing and artifact identity in other domains. These are follow-up engineering observations for the existing Candidate, not evidence for creating another overlapping rule.
