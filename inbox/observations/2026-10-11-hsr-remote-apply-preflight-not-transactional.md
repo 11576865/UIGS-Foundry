@@ -173,3 +173,8 @@ provider origin, real multi-process races, power-loss persistence and
 physical Android/Termux integration remain unproven. A damaged new WAV
 can be rolled back only when prior source/index/Manifest checks still
 pass. No automatic rollback or speculative data deletion.
+
+
+## Exact latest-head CI closure — WAV attestation (2026-10-12)
+
+HSR PR #133 documentation-only latest head `9caeeb30a833686f00f213c0d3a604f86e8f5eec` also passed [Python 3.11/3.12/3.13 + Termux Lite](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38163392092) (4 successful jobs) and [Chromium UI + libass](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38163392097) (2 successful jobs). This closes the exact-head CI checkpoint, not the unverified live multi-process/power-loss or real-audio integrity acceptance. No Canonical promotion.
