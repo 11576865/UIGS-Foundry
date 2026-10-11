@@ -121,3 +121,26 @@ The preceding PR #96 **Pending** case is superseded by verified evidence for the
 Frontend screenshot evidence artifact: `media-workspace-screenshots`, ID `11699272986`, contains `media-workspace-studio-intake-320.png`, `media-workspace-studio-phone-150pct-text.png` and `media-workspace-studio-produce-320.png`. The snapshots were extracted and reviewed: one live backend status remains visible on phone, visible focus border was present on the source picker after focusing its visually hidden file input, and long metadata wraps instead of causing horizontal document overflow under a 320px viewport with 24px root font (representing 150% of the 16px default). Actual browser tests measured the focus outline, computed type sizes and responsive geometry.
 
 **Boundary:** CSS root font enlargement is not identical to physical Android system font-size settings. Real Android screen-reader behavior, on-device safe-area and touch ergonomics have **not** been tested. Windows smoke was not rerun for this CSS/test-only PR; previous PR #95 Windows smoke remains valid only for its own exact head. QHE physical GPU/HDR/VFR/long-form #77 is still FIELD-PENDING. This remains one Case-level observation without any Canonical promotion.
+
+
+## Professional-workbench references and Studio v3 structural redraw
+
+Date: 2026-10-11
+Status: **Candidate implementation / source committed / latest-head CI and screenshot acceptance Pending**
+Product: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/97
+Source head at intake: `a8874900600d6af4107cde459a94089b7b5a8a58`
+Design basis: official Apple Compressor guide on viewer/batch/inspector distinctions; official HandBrake workflow and setting sections; Linear's 2026 design refresh emphasizing that secondary navigation must not compete with the task.
+
+**Concrete critique:** QHE's preceding #93/#95/#96 iterations repeatedly reduced text and equalized card decoration but left a long vertical queue of asset/input, preview, strategy, output plan, audio and execute blocks in its desktop main column, with the video viewer much less prominent than it ought to be. This did not satisfy the user's explicit request for design quality on par with mature applications. The mistake is one of **information architecture and area allocation**, not merely colors.
+
+**New product-side implementation** (keeps the application's own identity and controls; no third-party copyrighted assets):
+- The existing `media-mode-switcher` is reparented into one top-level `#studioModeDock` without copying the nav, breaking event ownership, or remounting Native state.
+- On desktop `workflow-main` is recomposed into actual source controls on the left, large preview and planning in the central stage, with the already-existing current-task inspector on the right. The default blank stage is explicitly labeled as no media; it is **not a generated or fabricated video preview**, is excluded from phone/tablet and copy/transcode contexts, and yields to the real `subtitleCard` once visible.
+- Actual source, preview, plan, audio/container, task cancellation, logs and source checks remain in their original functional DOM.
+- A new presentation layer `src/studio-v3.css` draws the intended composition; baseline compatibility styles are retained for bounded migration rather than unreviewed deletion.
+- A dedicated source invariant test `src/studio-v3.test.mjs` and Playwright real-browser geometry checks cover top-level mode ownership, actual source vs viewer vs inspector bounds at 1280px, and screenshot `media-workspace-studio-v3-desktop.png`. Existing 320–1280px viewport and 150%-root-font checks remain.
+- UIGS visual capture source dependency registers the new stylesheet. A durable QHE task record states the pending validation and device/GPU blockers.
+
+**Distinction:** this is the first explicitly reference-led structural workbench redesign in this QHE sequence, not another screenshot rendering or style palette. Validated acceptance cannot be claimed before latest-head frontend CI + actual Chromium screenshots; even a green browser test does not validate physical Android screen reader and touch experience or #77 Windows GPU/HDR/VFR long-film field use. No Canonical promotion on a single product iteration.
+
+Cross-project reusable learning: professional-tool visual quality is strongly affected by spatial ownership and display priority. UI assessment should measure whether the working object (media viewer) is allocated a first-class region, whether inputs and inspector are stable navigational zones, and whether "same-level cards with less text" merely preserve the original cognitive overload. Preserve actual functional control ownership across layout movement.
