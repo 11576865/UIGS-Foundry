@@ -591,3 +591,35 @@ admission, and macOS/iOS Safari are separate evidence scopes.
 Dedup search matched this existing browser-storage Candidate's
 cross-engine and virtual-sink guidance. Extended it rather than
 creating an overlapping Canonical entry.
+
+## WebKit IndexedDB Blob serialization abort and byte-container fallback (2026-10-11)
+
+While extending CVR to Linux Playwright WebKit in
+[PR #26](https://github.com/11576865/Character-Voice-Reader/pull/26),
+the native IndexedDB `books+clips` write transaction aborted while
+storing the first audio Blob. The browser-reported failure was
+`UnknownError: Error preparing Blob/File data to be stored in object store`.
+This was observed by attaching native IndexedDB transaction listeners;
+without this diagnostic the download Promise appeared simply to hang.
+The same WebKit build could not even insert a raw Blob fixture into a
+legacy database. Do not infer a defective audio codec from this error.
+
+Candidate remediation in PR #26:
+- Serialize new audio as a structured-clone-safe record containing
+  `ArrayBuffer` bytes, MIME type and a format tag; reconstitute `Blob`
+  at the public read boundary. Retain raw Blob reads for old records.
+- Perform asynchronous `Blob.arrayBuffer()` conversion **before**
+  opening IndexedDB transactions. Retain owner/token/tombstone checks
+  inside the single atomic readwrite transaction so a deletion during
+  conversion cannot silently resurrect data.
+- Keep raw legacy Blob migration tests on engines that can actually seed
+  old Blobs (Chromium/Firefox); in this WebKit CI, use a separately
+  identified byte-container fixture for ownership/tombstone invariants,
+  not an unsubstantiated claim that historical raw Blob migration passed.
+- Record storage representation, browser engine, observed transaction
+  abort reason and test fixture deviations. Avoid turning a single
+  Linux WebKit-specific error into a universal Safari compatibility claim.
+
+Evidence status: production patch + Node tests submitted; WebKit full CI
+**Pending** at this intake. This extends the existing cross-engine
+browser storage Candidate after deduplication; not Canonical.
