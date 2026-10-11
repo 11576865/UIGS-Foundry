@@ -76,3 +76,40 @@ Reusable candidate insight: cleanup of a finished native process
 must not erase failure evidence, and a per-request on-demand startup
 policy needs a bounded failure circuit breaker. Do not promote to
 Canonical based on this one project/source observation.
+
+
+## Follow-up: Windows CI exposed expired-cooldown test assumption (2026-10-11)
+
+PR #23 initial GitHub Actions run `38116430882`: Linux `test`
+**success**; Windows `windows-script-audit` **failure** with 88 passed
+and 1 failed test.
+
+The one failing test expected each request immediately after an intentional
+child crash to see `restart backoff active`. Windows' slower health probes
+allowed the real **5-second** cooldown to expire before that assertion.
+The next attempt was then correctly permitted to launch, failed with the
+same code 17, and caused a mismatched-regex assertion. This is **not**
+evidence that the runtime exited with the wrong code, nor proof that the
+real crash-loop limiter had been bypassed.
+
+Source-level secondary performance gap: during cooldown,
+`ensure_ready()` probed the failing health URL with its normal timeout
+(1.5s) *before* dispatching to `start()`, which probed again. This
+both amplified request latency and consumed the short intended cooldown.
+
+The fix now short-circuits cooldown requests into the managed `start()`
+admission path, whose health probe has a **0.2s bounded timeout** during
+active backoff; it still lets an actually healthy endpoint take
+precedence. Tests use a **test-only widened cooldown** in the slow-system
+concurrent refusal scenario; the independent policy test retains
+production 5/10/20/40/60-second timing. Two more regression tests verify
+short probe and healthy-endpoint preservation.
+
+Latest PR head after the fix:
+`5c0d31f8ae78748b663f066ed11aa07adec090f9`.
+It is main-based, GitHub says mergeable, and its main-relative
+files are limited to five expected paths. **Fresh Windows CI is Pending**;
+no successful rerun result or production GPU acceptance is claimed.
+
+Dedup: this is further evidence for the existing **CVS runtime crash-loop
+Bug**, not a new Candidate or Canonical standard.
