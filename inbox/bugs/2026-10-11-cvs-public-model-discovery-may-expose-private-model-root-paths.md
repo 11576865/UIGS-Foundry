@@ -84,3 +84,30 @@ targeted CI were **in progress** in run `38160208039` at intake.
 This extends the previously filed concrete Bug rather than creating
 a duplicate; actual external exploitation is not claimed.
 No Canonical change or real GPU/Supervisor acceptance is implied.
+
+
+## PR #35 verified and integrated (2026-10-12)
+
+Final [CVS PR #35](https://github.com/11576865/Character-Voice-Service/pull/35)
+head `c896744d9fe5e50b40a1d594069f2df5c362f36e` passed
+GitHub Actions `38160208039` with Linux `test` **success**
+and Windows `windows-script-audit` **success**, including
+PowerShell parse and discovery/doctor smoke tests. The branch
+had `behind_by=0`, six intended files and `mergeable=true`.
+The PR merged into CVS `main` at
+`06244f71f5d962ace3922b94f9e8f12456858cf5`.
+
+The source-level public filesystem-path disclosure for
+`GET /v1/models`, top-level Registry errors, and reflected
+voice validation/selection exceptions is repaired. Health output
+now uses an allowlist that excludes arbitrary backend diagnostics
+and internal request IDs while retaining basic public status.
+Actual temporary Model Root deletion/corruption/mutation regressions
+and path injection tests passed CI.
+
+The prior Windows Pending snapshot is superseded. This is a
+verified, merged source/test remediation for these public
+diagnostic paths, **not a full API security audit or evidence of
+a real information leak on a deployed host**. Other public routes,
+network policies, real GPU/speaker identity and external Supervisor
+field verification remain separate work. No Canonical promotion.
