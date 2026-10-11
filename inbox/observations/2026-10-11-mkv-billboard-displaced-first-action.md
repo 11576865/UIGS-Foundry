@@ -26,3 +26,14 @@ The existing file input IDs, source inspector, original stream editor, preview, 
 For task-centric creation tools, measure whether the first actual user action is immediately visible and whether the current objects and next consequential action can be located without reading expository text. Put rare format/capability information into request-driven disclosure while retaining safety warnings, action labels, unsupported-file feedback and audit evidence in context. Do not substitute icon-only ambiguous actions for prose.
 
 This refines the QHE low-copy experience with independent MKV first-fold visual evidence, but is one observed UI regression and remains an Observation. No automatic Canonical promotion.
+
+
+## Verified screenshot follow-up — PR #74
+
+2026-10-11: PR #74 head `c5ce99eba938af0fb2b4898a3530583121f3f6bd` passed both Pages build and full Chromium mux E2E ([38132508661](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38132508661), [38132508666](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38132508666)). The browser run uploaded six real CJK-rendered screenshot artifacts `11699228516`, which were extracted and inspected: 1440x900 desktop first viewport, 390x844 phone first viewport, full pages and desktop/phone batch captures.
+
+Visual result: **the file-picker and folder-picker actions are present in the phone's first viewport** below the compact jump navigation; the billboard is gone. Desktop source inventory / active track inspector / output controls form distinct columns, with the MKV action in the visible output rail; no evident horizontal overflow or navigation overlay in the six captures. This independently validates the prior code-only first-fold hypothesis at the captured widths, not universal design quality.
+
+A remaining issue was detected only by screenshot inspection: routine imported batch assets still carried long, duplicated content-classification caveats in each card. Additional PR #74 runtime rendering edits now show a short `待预检` state for supported assets while retaining `entry.detail` for unsupported/unknown input and visible reasons for standalone audio incompatibility. These **later** edits require a fresh exact-head CI and screenshot review and are not covered by the earlier green run.
+
+Observation-only evidence: first action placement and provenance/capability status density should be separately inspected in product-rendered views; do not promote to Canonical.
