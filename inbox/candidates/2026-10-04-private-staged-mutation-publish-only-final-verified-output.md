@@ -73,3 +73,10 @@ QHE [PR #88](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/88
 Original strict fingerprint PR #90 could not be trivially merged after #88 touched the same Bridge and regression file. PR #90 now contains an explicit semantic two-parent merge of #88's mainline and the original digest guard, plus a follow-up correction to preserve the *entire* equal-size mutation fixture. Latest head `56535f5cf5b78fab207c41885fbe813984ac015f` is **Pending CI**; earlier individually green branch results cannot be reused as proof of the reconciled tree.
 
 The reusable candidate observation is distinct lifecycle ownership: a user's cancelled operation has no guarantee that the UI will poll again, so confirmed-stopped native processes must finalize private staging at the cancellation boundary; published user output is a different resource lifetime. Still Candidate, no Canonical promotion.
+
+
+## QHE PR #90 merged integration evidence
+
+Follow-up to prior Pending CI checkpoint: reconciled PR #90 head `56535f5cf5b78fab207c41885fbe813984ac015f` completed **four successful GitHub workflow runs** (UIGS Evidence Coverage, Frontend, Windows local smoke, Windows Stream Plan v4 runtime). It subsequently **merged to QHE main** as `c1c7872016dbee4d0c199522a5ab7bfcf77d4665`.
+
+This confirms the submitted synthetic tests and mainline integration. It still does not prove physical multi-hour/NVIDIA/HDR/VFR integrity or eliminate all file-system race windows. Maintain Candidate status; no automatic Canonical change.
