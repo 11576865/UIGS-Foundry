@@ -407,3 +407,35 @@ The browser test fires *synthetic* `PageTransitionEvent` callbacks and
 therefore does not establish that an actual document was resident in
 BFCache or that browser/OS freeze scheduling behaved identically.
 Evidence remains Candidate-level; no Canonical promotion.
+
+## Real BFCache admission must be demonstrated separately from lifecycle events (2026-10-11)
+
+CVR [PR #24](https://github.com/11576865/Character-Voice-Reader/pull/24)
+adds an additional evidence level beyond PR #23's synthetic `pagehide` /
+`pageshow` tests. Standard Playwright Chromium launches disable BFCache
+with `--disable-back-forward-cache`; dispatching `PageTransitionEvent` in
+a real Chromium page only tests application event handlers, **not**
+browser-managed BFCache residency.
+
+Candidate implication: a browser BFCache acceptance test must explicitly
+enable the feature in its isolated browser launch, perform actual history
+away/back navigation, and assert **both** that the original document
+instance survived and that a native `pageshow.persisted === true` fired.
+If a navigation produces a newly loaded document, reject it as evidence of
+BFCache restoration even if the visible Reader state looks correct.
+For failures, record browser cache-ineligibility diagnostics such as
+`PerformanceNavigationTiming.notRestoredReasons` when available.
+
+The CVR scenario holds a `getBook()` result pending, navigates away,
+deletes the book from a different same-origin tab, and returns through actual
+browser history; a second case checks an already-open book deleted while
+the Reader is cached. Both complement, rather than replace, controlled
+synthetic scheduling tests for pending request precedence.
+
+Evidence at intake: CVR PR #24 head
+`3ab0a6b3ca3d36aeb122b177ba52d6a9777f3839`,
+Reader + dedicated Chromium CI **Pending**. This is an extension to the
+existing IndexedDB/BFCache Candidate, not a Canonical change. Dedup search
+found previous synthetic page-transition guidance but no actual BFCache
+admission validation entry. Physical device and cross-engine acceptance
+remain out of scope.
