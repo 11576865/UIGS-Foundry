@@ -209,3 +209,23 @@ No merge or physical GPU-field acceptance is claimed here.
 Deduplication: further process-lifetime fault-injection evidence for
 this existing concrete Bug and the shared-resource scope Candidate,
 not a new Canonical rule.
+
+
+## PR #28 cross-platform verification and merge
+
+The final PR #28 head `1e53dcd56ecc93fcc20d1cdfd1da12704e5f87b6`
+passed both Linux `test` and Windows `windows-script-audit` jobs in
+GitHub Actions run `38130752048`. GitHub reported a clean, mergeable
+five-file delta and merged it into CVS `main` as
+`d0c3d3871713400bdb657dda9e786145052ffa00`.
+
+The tests really killed an independent CVS mock controller while its
+mock engine and worker survived; they demonstrated that a freed parent
+lease does not permit a second controller to override a live durable
+owner receipt. Windows executed the Job Object path and Linux the
+POSIX session path. The Linux-only procfs tests confirmed unknown
+visibility fails closed, unlike a vanished PID.
+
+This supersedes the earlier PR #28 Windows CI Pending snapshot.
+**Real TTS GPU memory reclamation and actual System Supervisor
+interoperability remain FIELD-PENDING**; no canonical promotion.
