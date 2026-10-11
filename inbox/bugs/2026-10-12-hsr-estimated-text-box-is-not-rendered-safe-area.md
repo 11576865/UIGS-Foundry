@@ -66,3 +66,10 @@ Validation responses declare `scope=bounded_sampled_timestamps_only` and `full_i
 ### Exact-head automated validation outcome for 577b2c0 (2026-10-12)
 
 Both workflows for head `577b2c0bdf27a3ff6a6dfcb109307b7f52901905` completed **success**: [Python 3.11/3.12/3.13 and Termux Lite](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38171331084) and [Chromium plus actual FFmpeg/libass](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38171331071). The libass-artifact job log shows the fractional-timestamp `\\move` real-render test executed and passed (not skipped), alongside bounded interval sampler unit tests. Supersedes the previous `Pending CI` note **only for this exact head**. Real multi-frame project acceptance, full-time safety, device-font identity and physical Android verification remain pending. Bug is not closed; Canonical remains unchanged.
+
+
+## 2026-10-12: export artifact binding now implemented, final full-time Bug remains open
+
+[HSR #134](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/134), SHA `14d7293e724aba3724c1efb063e90124de8f1944`, introduces a durable export-specific libass evidence sidecar bound to exported ASS + export receipt + saved style policy SHA-256. On-demand verification reads a snapshot of the actual exported subtitle, selects bounded dialogue midpoints, compares dual-background pixels and records unexamined windows. Existing job infrastructure supports project-scoped cancellation, FFmpeg subprocess termination/timeouts and state journal. Both standard server and Termux Lite expose endpoints. User interface remains inside the single subtitle style workbench.
+
+This mitigates **preview/export identity confusion** but does not establish whole-timeline ink bounds or pixel-perfect equivalence to final muxed video. Stale hashes refuse verified status and `full_interval_verified=false` is fixed. Exact-head GitHub CI pending at initial write. Bug remains OPEN; Canonical unchanged.
