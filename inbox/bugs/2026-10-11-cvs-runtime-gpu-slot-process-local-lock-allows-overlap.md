@@ -63,3 +63,41 @@ general shared-resource synchronization and CVS IndexTTS crash Bugs,
 but no matching CVS-specific independent-interpreter engine-start
 race. Record the concrete defect as **Bug**, and link the reusable
 principle to the existing shared-resource locking Candidate.
+
+
+## Follow-up: parent crash releases lock while child may survive — CVS PR #25 (2026-10-11)
+
+PR #24 passed Linux and Windows workflow `38117627282` and merged
+into CVS `main` at `4a55200e357649b727195dc37e8231857b2892da`.
+That verifies the cooperative cross-process locking implementation in
+the automated test environment, **not** the absence of orphaned GPU
+workers after a parent crash.
+
+The earlier evidence explicitly noted the unresolved ownership split:
+the GPU group lease is held by the CVS **parent**. OS cleanup releases
+that lease even if its TTS **child** remains alive or has not exposed an
+HTTP health endpoint. A future CVS process could therefore observe a
+free lock and mistakenly attempt to start a replacement engine.
+
+[CVS PR #25](https://github.com/11576865/Character-Voice-Service/pull/25)
+adds a durable `<exclusive_group>.owner.json` launch receipt to the same
+shared slot scope, under the OS lock. It publishes `starting` before
+`Popen` and `running` with PID and OS process-creation identity after
+the child is created. A later process may clear a previous receipt
+automatically only after proving the exact child has exited or the PID
+identity has changed. Incomplete intents, live matching PIDs, inaccessible
+identities, malformed receipts and unreadable files **fail closed** rather
+than advertising the slot as safe.
+
+The implementation uses Linux `/proc` start ticks or Windows
+`GetProcessTimes` creation FILETIME for PID reuse protection, with
+atomic staged/fsynced JSON publication. Administrative diagnostics
+show `ownership-unresolved`. Nine fake-engine/subprocess tests are
+committed and Windows CI coverage is wired in. **PR #25 CI Pending**;
+no live GPU parent-crash drill has been performed.
+
+Boundaries remain: only the immediate child PID is tracked, not all
+possible descendants; separate System Supervisor or launchers without
+the same data root/protocol are not participants; an ambiguous receipt
+may require deliberate manual reconciliation. This is a follow-up under
+the existing concrete Bug, not a new Canonical requirement.
