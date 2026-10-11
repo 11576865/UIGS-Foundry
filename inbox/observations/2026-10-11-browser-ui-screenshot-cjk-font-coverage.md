@@ -1,7 +1,7 @@
 # Observation: screenshot CI must prove script-specific glyph coverage
 
 Date: 2026-10-11
-Status: **Observed visual evidence defect; correction CI pending**
+Status: **Verified corrected on PR #73; merged to main**
 Source: [MKV-Fast-Muxer PR #73](https://github.com/11576865/MKV-Fast-Muxer/pull/73)
 Observed successful head: `94bcea940023c49970bfb767ca89a1f06d5f1ce3`
 Observed E2E: [run 38120405869](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38120405869), [artifact 11695471162](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38120405869/artifacts/11695471162).
@@ -43,3 +43,23 @@ font coverage for the languages used by the actual UI, capture
 populated states, then inspect the pixels before granting a visual gate.
 This single observed defect is an Observation, not an automatic
 Canonical change.
+
+
+## Verified correction and closure (2026-10-11)
+
+The final PR-head [Chromium run 38128807086](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38128807086)
+and [Pages run 38128807027](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38128807027)
+both **succeeded** at `f4ae5c1b7d896eebe21a5c4dd830acb7f59cf2e2`.
+The first CJK-fixed complete Chromium run,
+[38128420956](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38128420956),
+supplied six legible screenshots, verified by direct inspection.
+The final run generated [artifact 11698626440](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38128807086/artifacts/11698626440),
+whose 390px batch view was directly inspected: Chinese copy was readable
+and the sticky navigation was fully opaque above scrolling content.
+No horizontal clipping was apparent in reviewed 1440px and 390px shots.
+
+[PR #73 was merged](https://github.com/11576865/MKV-Fast-Muxer/pull/73)
+to `main` with merge commit `60d41336ed7d6df5a422001289824510ea823d9e`.
+Post-merge main-branch CI was starting at the time of this update.
+The Observation concerns correctness of multilingual screenshot evidence,
+not a product defect in every browser configuration. No Canonical change.
