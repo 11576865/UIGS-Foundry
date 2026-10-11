@@ -6,11 +6,11 @@
   "declared_empty_ui": [
     "11576865/Character-Voice-Service"
   ],
-  "total_surfaces": 64,
+  "total_surfaces": 63,
   "by_project": {
     "ASS-Workbench-Android": 24,
     "HSR-Voice-Archive-Builder": 11,
-    "MKV-Fast-Muxer": 13,
+    "MKV-Fast-Muxer": 12,
     "Quick-Automatic-Hardsub-Encoder": 16
   },
   "by_kind": {
@@ -25,7 +25,7 @@
     "input": 1,
     "inspector": 1,
     "mode-switcher": 1,
-    "navigation": 5,
+    "navigation": 4,
     "overlay": 1,
     "plan": 1,
     "planner": 1,
@@ -89,7 +89,6 @@
     "MKV.STAGE.BATCH",
     "MKV.STAGE.INPUT",
     "MKV.STAGE.OUTPUT_HUB",
-    "MKV.STAGE.OVERVIEW",
     "QHE.DIAGNOSTICS.ENVIRONMENT",
     "QHE.ENCODE.ACTION_CARD",
     "QHE.HELP.RUNTIME",
