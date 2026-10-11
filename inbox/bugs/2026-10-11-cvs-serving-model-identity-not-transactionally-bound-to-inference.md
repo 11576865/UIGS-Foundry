@@ -101,3 +101,48 @@ rule does not assert per-synthesis model consistency. This belongs in
 **Bug**, not a change to Canonical.
 
 Status remains **OPEN / reproduction and repair Pending**.
+
+
+## Proposed bounded repair — CVS PR #32 (2026-10-11)
+
+[CVS PR #32](https://github.com/11576865/Character-Voice-Service/pull/32)
+implements a cooperative per-backend **cross-process serving transaction**:
+
+- Freeze GPT-SoVITS endpoint URLs once per request.
+- Use the existing OS file-lock primitive under a separate endpoint-hashed
+  `inference-transactions` namespace for the entire
+  `/set_sovits_weights` -> `/set_gpt_weights` -> `/tts` sequence,
+  rejecting a conflicting second CVS process with HTTP 503
+  rather than interleaving model switches.
+- Discard the old assumption that process-local cached weight paths
+  attest backend state. Reapply both weights for **every managed
+  synthesis**, including after backend restart, at the cost of extra
+  model-switch traffic and latency.
+- Persist a pending serving request/endpoint/model identity
+  **before** backend operations; do not automatically clear a
+  pending transaction after timeout, I/O failure or controller death.
+  If CVS dies while GPT-SoVITS continues synthesizing, the OS
+  lock is released but the durable receipt blocks unsafe takeover.
+- New tests use **two distinct CVS Python interpreters and a real
+  test-only HTTP backend**, with A inference held in-flight while
+  B attempts different weights. A second test kills CVS A
+  mid-inference and checks B cannot bypass the durable receipt.
+- `tests/test_gpt_sovits.py` verifies stale weight caches after a
+  simulated backend restart and timeout/replay refusal. The
+  Windows targeted suite now explicitly includes
+  `tests/test_gpt_sovits.py`,
+  `tests/test_gpt_sovits_transactions.py` and
+  `tests/test_contract.py`.
+
+**Initial CI for PR #32 head
+`7cf2ecacaac8d5927addf50fd31cf7cbfe47747b` is Pending.**
+This is not yet a verified production repair or a real GPU test.
+
+Critical remaining limits: a non-cooperating external/direct client
+may still switch backend weights; independent CVS instances that
+use different data roots do not share the transaction lock; the
+external/unmanaged model path is not backend-attested. Another
+`exclusive_group` engine can still be stopped while a synthesis
+is in flight because lifecycle admission/drain is a distinct
+unrepaired boundary. GPT-SoVITS response bytes still lack strict
+WAV validation. No Canonical promotion.
