@@ -25,3 +25,12 @@ Latest source-verified repair head: `490221e3fba947e64ebd5bbf80207308172a4692`. 
 ## Candidate relation
 
 Deduplicated against `inbox/candidates/2026-10-04-replay-stale-feature-branch-as-semantic-delta.md`. Test-layer evidence only. Do not auto-promote Canonical.
+
+
+## Second observed UI test interference and bounded isolation correction (2026-10-11)
+
+The first attempted fix (`490221e3fba947e64ebd5bbf80207308172a4692`) restored `[name=end]`, `start`, selected videos and range policies after the Stream Plan v4 case. The keyframe alignment assertion consequently advanced, but **Frontend CI `38117809648` still failed**: Playwright `page.click('#taskInspect')` timed out because the button existed but was **not visible** (`scripts/check-media-ui.cjs:384`). This indicates the original added case had altered more of the shared browser/workspace UI lifecycle than resetting a few form values restored. The exact hidden-parent mechanism is **not proven** by that log; do not label a product visibility bug based solely on this test.
+
+A more bounded test-only repair moves the entire new two-stream E2E to the **end** of the original Playwright smoke, after all pre-existing assertions. The original suite receives its original single-video mock setup, the original sample-run count expectation is restored to `4`, and only the last new E2E scenario adds the two-video mock metadata and exercises the UI-to-task boundary. New QHE PR #65 head: `f7d9ef96834e757b909cb037a94912aa77826591`. Frontend run `38118095158` was **in_progress** on the single allowed initial external status read; CI result **Pending External Validation**, not passed and not merged.
+
+Reusable testing observation: adding an end-to-end scenario to a shared, stateful browser workflow can invalidate later assertions in ways that survive partial form-value reset. Prefer a truly fresh page/mount fixture or run independent add-on assertions after existing shared-session tests; preserve an explicit failure trace. Do not promote this single observation to Canonical. No real GPU/long-form hardware test was performed.
