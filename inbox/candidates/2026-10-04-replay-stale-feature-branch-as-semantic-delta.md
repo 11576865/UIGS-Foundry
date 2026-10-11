@@ -136,3 +136,12 @@ This is Candidate-level supporting evidence, **not** Canonical promotion.
 - QHE [PR #65](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/65) reconciled head `c89492c2f62b84b7d1acd50981ed28d1d53588c8` **failed** Playwright after the new test leaked `end=0:03` into an unrelated keyframe-snap test that needed to place IN at 8:00. `media-workspace.js` legitimately clamps the requested IN to the current OUT. This failure was not proof of a production keyframe defect. Branch repair now resets the form and mock-media fixture after its new multi-stream assertion, retaining the current main changes as a semantic merge. New #65 head `490221e3fba947e64ebd5bbf80207308172a4692`, based on main `5ea28881b5bb8d3aa16d0726c9d57d7867a11e21`; Frontend CI run `38117809648` **queued / Pending** when submitted. Do **not** claim this stale PR cleanup is complete or merge it before successful new CI.
 
 This adds a reusable failure mode: a new browser E2E case can alter persistent UI state and make a later unrelated assertion fail despite correct production clamping. Restore scenario state before handing control back to a shared fixture. Candidate only, not Canonical.
+
+
+## QHE final #65 cleanup / draft PR merge boundary
+
+The legacy QHE [PR #65](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/65) ultimately reached a passed, source-verified Frontend/Playwright test head `f7d9ef96834e757b909cb037a94912aa77826591` (workflow `38118095158`). The last test-only generation ran original shared browser tests before the independent multi-video E2E, eliminating the persistent-form/workspace interference without modifying production. The PR was additionally **Draft** and could not be merged via REST (HTTP 405), so it was promoted to **Ready for review**, rechecked for head and mergeability and merged as `2260227d0c2b1d191833e38f59af9900fca22391`.
+
+At merge verification, QHE main was `2260227d0c2b1d191833e38f59af9900fca22391` and the open PR list was empty. Earlier Pending entries are superseded by this evidence for PR #65. 48 repository branches remain, but branch name or PR closure alone is insufficient justification for deleting their refs. Functionally distinct open issues #76, #77 and #85 remain.
+
+Reusable insights: semantic replay onto authoritative main must preserve proven behavior, shared Playwright fixtures should isolate scenario lifetimes, and a verified Draft PR still needs an explicit Ready transition before merge. **Candidate**, no Canonical promotion.
