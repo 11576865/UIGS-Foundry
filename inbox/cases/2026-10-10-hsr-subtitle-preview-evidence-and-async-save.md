@@ -236,3 +236,8 @@ This case extends previous human-cue optimistic concurrency and data ownership
 work; it does **not** define new Karaoke on translated Chinese, editable
 official source text, universal multilingual forced-alignment accuracy, or
 canonical release acceptance. No UIGS Canonical promotion.
+
+
+## Audit correction: read-only source is not automatically an officially sourced transcript (2026-10-11)
+
+A review of `app/builder.py` (primary text can originate in the normalized bilingual index, or the package's same-member .lab for non-English languages) and `app/quick.py::_remote_rows` (provider label can be `AI-Hobbyist EN.xlsx`) shows the UI/source layer's "read-only" contract and its *documented provenance* must be separated. Immutable-within-editor source data can still come from a third-party index, not an independently authenticated official HSR transcript. The assistant's repeated use of “official EN/JA/KO source text” was overbroad. Reusable distinction: authority/provenance flags are independent of mutability; UI should display the real source type and any verification state without granting editing privileges. This is a review observation, not a demonstrated malicious or corrupted source. No Canonical change.
