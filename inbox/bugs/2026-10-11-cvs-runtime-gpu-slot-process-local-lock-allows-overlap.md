@@ -172,3 +172,40 @@ Evidence is **verified CI for simulated processes**, not a physical GPU
 allocation/driver guarantee, external Supervisor adoption, or a proof
 against deliberate process group/job escape. The earlier Pending note
 above is a historical capture only. No Canonical promotion.
+
+
+## Actual CVS parent-kill fault injection — PR #28 (2026-10-11)
+
+Earlier cross-process tests modeled a dead CVS parent by manually
+releasing its OS lease. [CVS PR #28](https://github.com/11576865/Character-Voice-Service/pull/28)
+adds a **real second Python interpreter** running RuntimeSupervisor,
+launching a disposable HTTP engine and a long-lived child worker.
+The test forcibly kills the CVS controller process without shutdown,
+checks the OS GPU slot lease becomes acquirable while the engine and
+worker survive, and verifies a new independent controller with the
+same `exclusive_group` and shared receipt refuses replacement launch.
+
+Another real-controller fault injection stops the first controller
+after `starting` intent publication but **before engine Popen**;
+a replacement controller must preserve ambiguous evidence and refuse
+automatic restart. This distinguishes a known-empty test fixture from
+real production ambiguity (no automated stale-intent removal).
+
+During audit, Linux `_live_posix_group_members` was also found to
+silently skip all `OSError` conditions when reading procfs entries.
+An unreadable process entry due to permissions could have belonged to
+the target session; treating it as absent could falsely authorize GPU
+lease release. The proposed fix distinguishes transient disappearance
+(`FileNotFoundError`) from unreadable entries (`PermissionError`
+and other I/O errors), returning unknown and failing closed when
+process-tree emptiness cannot be established. Two Linux regression
+tests inject both cases.
+
+PR #28 head `1e53dcd56ecc93fcc20d1cdfd1da12704e5f87b6`:
+Linux full tests **success** in workflow `38130752048`;
+Windows targeted CI was still in progress at this intake.
+No merge or physical GPU-field acceptance is claimed here.
+
+Deduplication: further process-lifetime fault-injection evidence for
+this existing concrete Bug and the shared-resource scope Candidate,
+not a new Canonical rule.
