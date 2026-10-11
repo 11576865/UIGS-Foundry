@@ -103,3 +103,41 @@ QHE Windows Native previously used a stronger output contract for manual tasks (
 Source check after #89: the Windows Guided finalization path verified stream count, duration and a full **packet remux-to-null** scan, but the production UI text claimed "packet scan + full decode passed". A stream-copy scan is not frame-by-frame decoder acceptance; treating one as proof of the other is an evidence-to-presentation contract mismatch. The reconciled [PR #90](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/90) (`56535f5cf5b78fab207c41885fbe813984ac015f`) changes the UI completion claim to the exact verification scope, and caches the verified Guided duration so later long-movie completed-status requests do not repeatedly start FFprobe.
 
 Status: source-verified defect and submitted correction / **Pending integrated-branch CI**. This does not claim all long movies can be decoded or that packet checks replace full decode. Existing Candidate only; no Canonical promotion.
+
+
+## Re-audit: CVS green lifecycle CI did not prove voice/model/audio identity (2026-10-11)
+
+The October 11 CVS foundation re-audit found a **stronger
+cross-boundary invariant gap** than the earlier token-bootstrap risks:
+
+- `server/backends/gpt_sovits.py` uses a Python-process-local
+  `threading.Lock` and a cached pair of weight paths. Two CVS
+  processes sharing one GPT-SoVITS endpoint do not share the mutex;
+  a restarted backend can have a new model state while an old CVS
+  process's weight cache remains unchanged. The runtime OS GPU lease
+  protects model process **launch**, not model switching plus in-flight
+  inference.
+- `RuntimeSupervisor::_enforce_exclusive_group` may stop another
+  owned engine in the group without checking whether it is serving
+  an active synthesis request. A healthy URL also does not attest
+  serving model identity.
+- The public speech API emits requested-model provenance and
+  `audio/wav` success metadata even though the GPT-SoVITS adapter
+  reads upstream HTTP bytes without verifying WAV decodeability;
+  existing tests explicitly treat `b"wav-data"` as successful
+  audio and use `b"RIFF....WAVE"` in contract mocks.
+
+These are source-confirmed missing guarantees, not real wrong-voice
+GPU field incidents. Concrete records:
+
+- [Serving model identity transaction Bug](../bugs/2026-10-11-cvs-serving-model-identity-not-transactionally-bound-to-inference.md)
+- [Speech WAV success contract Bug](../bugs/2026-10-11-cvs-audio-wav-success-lacks-payload-validation.md)
+
+**Reusable test boundary**: A green process-lifecycle/HTTP/status
+suite does not prove semantic integrity of a response. Require
+`selected model/reference -> backend serving epoch -> inference
+admission -> decodeable output -> provenance` to be verified across
+independent clients and backend restarts. Existing source CI did not
+establish this chain; regression design and hardware tests are still
+Pending. This is a deduplicated Candidate extension, **not
+Canonical promotion**.
