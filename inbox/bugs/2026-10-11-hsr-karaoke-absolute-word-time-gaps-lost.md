@@ -47,3 +47,9 @@ An independent local FFmpeg/libass synthetic probe confirmed `\\kt` timing behav
 Static audit of HSR PR #133 showed a second offset issue beyond word gaps: with audio-aware kinetic entrance, the ASS event's Start can precede the source WAV Start. Per-source word alignments remain WAV-relative. If the writer emits \k, \kf or clip times without applying the actual render event pre-roll, highlights trigger early. The project writer now shifts each word's render-only start/end by the computed pre-roll and does not mutate cached alignments. Added synthetic regression for two adjacent cues with a 200 ms entrance pre-roll, all three Karaoke modes, and unchanged input word timing.
 
 This is **related to the same relative/absolute timing family** as the existing bug, not a new Canonical rule. Source-level repair is submitted in HSR PR #133; exact-head CI was still in progress at intake and must be followed separately.
+
+
+
+## CI evidence for original-language Karaoke role/pre-roll correction (2026-10-11)
+
+HSR PR #133 exact HEAD `83248e831b2440f1b8581d1f82f5dcebfc4a6547` passed [tests run 38119628856](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38119628856): Python 3.11/3.12/3.13 and Termux Lite dependency-surface; and [subtitle evidence run 38119628853](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38119628853): Chromium UI and FFmpeg/libass fixture tests. CI does not establish real official Japanese/Korean forced-alignment accuracy or physical-device acceptance. This PR remains unmerged and dependent on #132. No Canonical promotion.
