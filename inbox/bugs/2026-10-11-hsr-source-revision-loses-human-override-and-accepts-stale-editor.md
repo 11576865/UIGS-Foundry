@@ -14,6 +14,9 @@ Head reviewed: a0d4b95712bf2fa320584224c49099afd0c2c80f
 
 3. `_official_source_sha256` lines 75–78 hashes `"".join(source.split())`, so English `"now here"` and `"nowhere"` share the same source fingerprint. The hash algorithm is not cryptographically broken; the input normalization collapses semantically different texts before hashing. Version detection must preserve linguistically meaningful word boundaries while normalizing only safe formatting differences, with multilingual fixtures.
 
+
+4. Review confirmation has a separate identity-reuse bug: `subtitle_review_state.json` is a simple ID→boolean mapping, and `get_project_subtitles` uses `bool(review_state.get(str_id, False)) and not translation_override_stale`. After an archive reindex, the same ID can refer to a different WAV member/source line with **no stale override to trigger the mask**, so that entirely different entry is shown as reviewed/confirmed. Confirmation must bind to immutable source-member and transcript identity, not the display row index. Add regression for two reordered members with a saved old confirmation but no human text override.
+
 ## Remediation tests and outcome requirements
 
 - Simulate original-text revision with same source member and same Chinese base text; submit a stale editor draft and assert rejection without sidecar or export mutations.
