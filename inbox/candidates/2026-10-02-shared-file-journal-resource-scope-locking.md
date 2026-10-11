@@ -230,3 +230,16 @@ At intake the PR #28 Linux full suite had succeeded, but Windows
 CI was Pending. Tests use disposable mock processes, not GPU hardware
 or external System Supervisor. Append to the existing Candidate
 without promoting Canonical.
+
+
+### Confirmed CI and integration — PR #28
+
+CVS [PR #28](https://github.com/11576865/Character-Voice-Service/pull/28)
+head `1e53dcd56ecc93fcc20d1cdfd1da12704e5f87b6` passed independent
+Linux and Windows jobs in GitHub Actions `38130752048` and merged as
+`d0c3d3871713400bdb657dda9e786145052ffa00`.
+Both OSes exercised a genuinely killed mock CVS parent. This confirms
+the cooperative durable receipt and process-scope acceptance tests,
+not physical GPU process/driver cleanup or an external Supervisor
+consumer. The earlier Pending CI status above is historical.
+No Canonical promotion.
