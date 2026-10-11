@@ -538,3 +538,28 @@ CVR PR #25 with PulseAudio enabled. Final latest-head Reader, Chromium
 and Firefox CI pending at this intake; do not report merged or
 fully accepted until the final run completes. This extends the existing
 browser-storage/media Candidate without automatic Canonical changes.
+
+## Firefox offline/media acceptance verified and merged (2026-10-11)
+
+CVR [PR #25](https://github.com/11576865/Character-Voice-Reader/pull/25)
+merged to main at `51f2b54f81259b297c25dc162757956e45c19cec`
+after the **final** product head
+`bc0bcbe4b26ce851f13d58d04d73a792955ebdba` passed
+all three workflows: Reader tests, real Chromium/IndexedDB regressions,
+and new Firefox offline regressions.
+
+Firefox CI runs Playwright Firefox 142.0.1 with a PulseAudio
+`module-null-sink` as its isolated headless audio-output fixture. The
+shared scenarios still test actual PCM WAV play/pause/resume, completion
+and URL release plus true IndexedDB ownership/tombstones and cross-tab
+deletion. The audio output failure was captured as native
+`MediaError.code=3`, `message="OnMediaSinkAudioError"`, while independent
+metadata decode succeeded. The product now presents output-device
+remediation for this precise sink error and ignores media errors
+unrelated to its active Blob URL. The virtual sink is not a substitute
+for real hardware speakers, Firefox mobile, WebKit/Safari, or
+Android/iOS acceptance.
+
+Evidence level upgraded from planned Firefox CI to **actual tested
+headless Firefox and Chromium CI passing**. No Canonical rule has been
+changed; the generalization remains a de-duplicated Candidate.
