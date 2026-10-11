@@ -60,3 +60,20 @@ There may also be a **batch inspection/audit/export** family where input sources
 This Candidate adds a **legacy capability survival and generalized queue contract**. It is not a new Canonical rule or proof of a working new batch executor.
 
 Public references: https://ffmpegwasm.netlify.app/docs/faq/ ; https://developer.mozilla.org/en-US/docs/Web/API/Window/showDirectoryPicker ; https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation
+
+
+## 2026-10-12 refinement: Batch Composition Workbench, not merely a queue (Candidate-only)
+
+The user asked what *form* the future batch experience should have, beyond preserving its old execution loop. A reviewed UI/product proposal is:
+
+- The primary pre-execution object is an **output-target matrix**: one row per planned output `ContainerDocument`; columns contain target identity, mapped sources, planned contents, inherited/overridden rules, output destination, and readiness/evidence. A queue of execution progress is only the runtime projection after plans have been approved.
+- One batch `Recipe` derives many candidate output documents (e.g., legacy episode ASS/font matching); the selected row opens the **same container inspector** used in single-document work. Sources can be imported to a shared inventory, with an explicit mapping confidence/reason and an ambiguity state. Do not make implicit filename heuristics equivalent to user consent.
+- Scope precedence should distinguish `Recipe default → current batch rule → per-job override`. Display effective values and their origin. If a batch rule changes, pending plans regenerate while valid per-job overrides survive; running jobs use a frozen `JobPlan` revision. No silent loss of per-row exceptions.
+- Separate three meanings often conflated as “batch”: many sources to **one** composed MKV; one document **bulk edit**; many independent target document plans to **many** output artifacts. Only the third requires a multi-job queue. One source may later have explicit multiple output variants, but there should be no automatic cross-product of sources and variants.
+- Batch UI has a compact recipe bar, dominant dense task matrix, contextual selected-job inspector, and stable execution/progress rail. Source library is an on-demand drawer once files exist. Avoid many expanded job cards, long page scroll, four A/B/C/D task tabs, and duplicated per-job editable track models.
+- “Run ready only” should be a visibly scoped, explicitly confirmed subset action whenever unresolved jobs remain; do not silently exclude blocked jobs, or let an ambiguous row silently choose its candidate. Standard run-all must honor whole-batch preflight gates.
+- Each output keeps independent mux, audit, and save/publish results. Completed-but-unsaved differs from mux failed; after cancel or browser closure, only persisted plans and independently saved verified outputs may be considered durable. No assertion that a partly written MKV can resume at an arbitrary percentage.
+
+Comparable existing patterns: HandBrake Queue makes source→job explicit and avoids output collisions; Adobe Media Encoder binds presets to queued jobs and can produce multiple output instances from sources. These are interaction reference cases, not evidence that an MKV browser app can copy desktop watch-folder or background-process behavior. https://handbrake.fr/docs/en/1.9.0/advanced/queue.html ; https://helpx.adobe.com/media-encoder/desktop/encoding-and-exporting/encode-export-video-audio.html
+
+Proposed acceptance tests: 4-episode fixture with one ambiguous subtitle; change a batch rule with one per-job override; verify unchanged override and selected-row focus; consent to run exactly 3 verified outputs leaving 1 unresolved; no implicit skipping; cancel during an active job; preserve earlier saved outputs, separate audit/save statuses, and verify default single-job state is untouched. Scope: user-directed architectural proposal, not implemented/visually validated; no Canonical promotion.
