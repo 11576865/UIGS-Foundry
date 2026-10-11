@@ -69,3 +69,20 @@ uncertainty but does not prove deployment success.
 Deduplicated against existing CVS external activation Bug and the
 shared-resource synchronization Candidate; store as **Observation**,
 not a new Canonical rule or premature general requirement.
+
+
+## CI acceptance and main integration — PR #30 (2026-10-11)
+
+Final PR #30 head `8d2b9ca977b078900f5a20b652fa5a2ce21978ad`
+passed GitHub Actions run `38133437202` with both Linux `test`
+and Windows `windows-script-audit` concluding **success**. Main-relative
+diff comprised 5 intended files with `behind_by=0`, GitHub reported
+`mergeable=true`, and the PR merged into CVS `main` as
+`2d842f8e64ef199532cea61685da0179ffa6ccfd`.
+
+This supersedes the earlier Windows Pending snapshot. Tests verified
+the no-write/no-import-side-effect CLI contract, cross-platform path
+checks, receipt/command mismatches, local HTTP probe and redirect
+refusal; they did **not** exercise an installed System Supervisor
+consumer or GPU hardware. Thus the field acceptance gap stays
+FIELD-PENDING. Retain as Observation; do not promote to Canonical.
