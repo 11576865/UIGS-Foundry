@@ -29,3 +29,12 @@ Windows localhost Bridge + real FFmpeg synthetic two-pass H.264 execution:
 **This test is not yet reported passed**; it was newly submitted with PR #90. Stage-time stamp checks are a performance optimization, not a cryptographic integrity guarantee. Hashing the copy protects its match to the verified staged content at that check, but does not impose a permanent OS-level file lock across publication. Full decode, GPU/HDR/VFR/long-form performance and real user save-dialog acceptance remain separate.
 
 Related Candidate: `inbox/candidates/2026-10-04-private-staged-mutation-publish-only-final-verified-output.md`. No Canonical promotion.
+
+
+## Long-encode integration checkpoint
+
+- #88 cancellation/staging cleanup: merged main `5bbc6a81a18694399a9fd3a298e29bd6cdbba117`, real Windows smoke/runtime CI on #88 head successful.
+- #90 reconciled with #88: PR head `56535f5cf5b78fab207c41885fbe813984ac015f`. Two parents capture the prior original strict fingerprint head and current #88-integrated main.
+- Retains the equal-length under-ceiling mutation fixture and both cancellation-phase fixtures; adds duration reuse for repeated Guided completed status, fixes unsupported "full frame decode passed" message, and completes missing-output cleanup.
+- **Latest integrated PR #90 Windows CI: Pending; not yet a passed evidence record.** Prior separate #88 and #90 green workflows are not interchangeable with the new combined tree.
+- Real physical multi-hour/GPU/HDR/VFR acceptance remains QHE #77.
