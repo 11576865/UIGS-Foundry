@@ -15,8 +15,8 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.RENDERER_POSITION.RUNTIME_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
-  "source_revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
-  "sha256": "2d92e1bbe7be35067c735287381a49ad560b80f98ca1ab7b21cc0a3c1be823c5",
+  "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
+  "sha256": "fee2a3a2f898e1f7d5fc1223678ea6cac64f39b52276a147f821ec4fc5b41b10",
   "image": {
     "width": 1600,
     "height": 1000
@@ -73,7 +73,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "10297b6924a7145f4fa05418aa2d861ab99f7280c13e970a3b1e8a533aee1ad9",
+  "previous_sha256": "2d92e1bbe7be35067c735287381a49ad560b80f98ca1ab7b21cc0a3c1be823c5",
   "limitations": [
     "Uses a deterministic still image to exercise the real libmpv/libass renderer and interaction overlay without depending on hosted-emulator H.264 decoder liveness.",
     "This is runtime-backed renderer evidence, but it does not prove the video-decoder path; decoder/device coverage remains separate DEVICE evidence.",
@@ -83,13 +83,13 @@
     {
       "source_type": "repository",
       "source": "11576865/ASS-Workbench-Android",
-      "revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
+      "revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
       "evidence_level": "runtime-backed"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/ASS-Workbench-Android:ui-visual-capture.json",
-      "revision": "1f88268c6d615b2b20bb736cd21dd85c0fe285e0",
+      "revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
       "evidence_level": "source-owned capture declaration"
     }
   ]
