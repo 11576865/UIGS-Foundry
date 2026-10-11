@@ -48,3 +48,29 @@ At the single immediate status read, PR #93 latest-head runs were queued:
 **Pending external CI**, not green, not merged. No latest-head screenshot review, Android device, physical Windows hardware, GPU or long-film acceptance is claimed. A passing CI later would not itself prove that the redesigned information hierarchy satisfies the user's visual preference.
 
 Case-level evidence only; **do not promote a single project redesign to Canonical**.
+
+
+## Final UI CI, visual evidence and merge acceptance — 2026-10-11
+
+The earlier Pending-only report is superseded by a **merged, source-backed QHE UI implementation**:
+
+- QHE PR: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/93
+- Final PR head: `3f2d51c2a7610be1aee2239919fb83757143096d`
+- Main merge commit: `68a4ebe387f925d0c736dea9875edcca2733ac21`
+- Final GitHub Actions evidence (all **success**): Frontend + Playwright run `38129084062`, Windows local smoke `38129084064`, UIGS Evidence Coverage `38129084169`.
+- The last CI captured actual Chromium browser screenshots as artifact `media-workspace-screenshots`, id `11699001128` under Frontend run `38129084062`. Generated screenshots include guided/manual desktop at 1280 px, guided/manual mobile at 390 px, Windows Native simulated desktop, Copy and timeline snapshots. These are browser layout evidence, **not physical device/GPU validation**.
+
+### Visual defects found and corrected in real rendered pages
+
+1. **Split CSS grid track gap:** Initial Chromium screenshot of the first PR #93 version placed `taskOverviewRail` near the top right but the runtime/platform cards much further down, leaving a large empty right gutter. Root cause: two independent right-hand grid rows next to the main column spanning both; intrinsic main height influenced grid row sizing. Replaced with one `.support-rail` wrapping the existing components, without remounting their JavaScript-owned contents. Latest browser smoke checks actual computed desktop two-column grid, rail width, adjacent vertical gap and right-edge alignment. Actual screenshot review confirmed no long gap.
+2. **Premature expanded audio controls:** Previously, bitrate/channels/sample-rate occupied the screen before the guided encode plan. Moved the shared output mount **after** guided plan and **before** execute; kept audio strategy and output container visible, moved optional audio tuning into an expandable `media-output-audio-details`, and preserved all form bindings. Latest Playwright checks control visibility and disclosure.
+3. **Mobile target mode clipped:** A 390 px Chromium screenshot displayed only the first and second of three guided target tabs, hiding target-size offscreen in a horizontal tab row. Replaced with a three-column phone grid preserving all three named actions, removing secondary descriptions in that specific narrow tab row only. Latest Playwright evaluates each tab's actual bounds and rejects any hidden/clipped third option; screenshot review confirmed all three visible.
+4. **Long copy recreated dynamically:** Shortened initial static labels and runtime/mode-switch JavaScript updates. Kept succinct semantics for recommended-parameter fallback, native capability probing and the fact that a source timeline is not before/after image-quality verification. Existing source tests were updated to assert semantic requirements rather than old paragraphs.
+
+### Acceptance boundary
+
+**Accepted:** committed, merged and green automated source/FFmpeg/Windows smoke/browser visual checks; actual Chromium screenshot reviewed for 1280 px desktop layout and 390 px guided phone target tabs. **Not accepted/not claimed:** physical Windows GPU/NVENC long-form, real Android device screenshots, arbitrary viewport visual sign-off, HDR/VFR field test, perceptual usability testing, or completion of QHE issue #77.
+
+This supports a Case-level lesson, not single-observation promotion to Canonical: avoid independent CSS grid rows for related support cards beside a tall main column, do not let screen compaction hide the only target-mode affordance, and reserve explicit primary actions while progressively disclosing advanced nonrequired parameters.
+
+No Canonical change.
