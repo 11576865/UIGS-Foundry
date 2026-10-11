@@ -145,3 +145,12 @@ The legacy QHE [PR #65](https://github.com/11576865/Quick-Automatic-Hardsub-Enco
 At merge verification, QHE main was `2260227d0c2b1d191833e38f59af9900fca22391` and the open PR list was empty. Earlier Pending entries are superseded by this evidence for PR #65. 48 repository branches remain, but branch name or PR closure alone is insufficient justification for deleting their refs. Functionally distinct open issues #76, #77 and #85 remain.
 
 Reusable insights: semantic replay onto authoritative main must preserve proven behavior, shared Playwright fixtures should isolate scenario lifetimes, and a verified Draft PR still needs an explicit Ready transition before merge. **Candidate**, no Canonical promotion.
+
+
+## QHE historical branch retention audit after PR closure
+
+After QHE main became `2260227d0c2b1d191833e38f59af9900fca22391`, the REST open-PR list was empty; an earlier branch listing had shown 48 total refs, but a later branch comparison returned 404 for the just-merged `test/stream-plan-v4-ui-to-task` ref, consistent with a post-merge deletion (the complete current branch count was **not re-verified**).
+
+Eight named refs were selected for a bounded ancestry spot-check. Seven returned `diverged` (both main-ahead and branch-only commits): `fix/strict-budget-export-reverification` (26 main ahead, 2 branch unique), `feat/stream-plan-v4` (94/9), `feat/windows-bink2-import-adapter` (155/30), `feat/windows-bink2-import-adapter-v3` (91/5), `test/android-stream-plan-v4-emulator-acceptance` (91/5), `feat/budgeted-paired-refinement` (33/9), and `uigs-outbox` (380/191). The eighth was not found after merge.
+
+These counts **do not prove** unmerged feature content: semantic merges can incorporate behavior without making older branch commits ancestors of main. They do show that blanket branch deletion is unjustified. Repository branch deletion is not available through the presently exposed GitHub mutation actions. **Remaining branch-reference audit and any explicit deletion are Pending**, not claimed completed. Keep product branch retention separate from CI-green PR closure and preserve traceability of divergent unreviewed work. No Canonical promotion.
