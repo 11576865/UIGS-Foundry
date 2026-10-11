@@ -188,3 +188,14 @@ The first PR #73 test run on head `8073997d4defebffb9a5545d7da364db41ce7e97` was
 The repair retained the capability guidance in the **new visible content-first intake** (including source-content classification and subtitle format list), replaced removed-category-card assertions with a positive unified-intake + required hidden-adapter contract, and added secondary text styling. Nine targeted source assertions passed locally, but **new-head Node/Browser CI was Pending** at this intake.
 
 Reusable testing boundary: in a UI architecture migration, classify failing tests by **user-visible interaction contract** versus incidental structure/wording. Update obsolete selectors without deleting assertions of underlying capability or assuming a green source test proves rendered UI behavior. Retain failing-run evidence and verify the new exact head independently. No Canonical promotion is justified.
+
+
+### 2026-10-12: project output composition separately from imported resource identity
+
+The user's review of the completed content-first intake and unmerged MKV PR #74 made an important distinction: correctly recognizing input files still does **not** define the primary editing object. The UI was repeatedly showing the same source stream under an input tree, an active property inspector and a detailed output plan. Removing tutorial text or changing mobile tabs did not solve this duplication.
+
+[MKV issue #75](https://github.com/11576865/MKV-Fast-Muxer/issues/75) proposes the **resulting Matroska composition** as the primary user-facing object. As an independently bounded precursor, PR #74 now has a pure `src/output-composition.js` view projection driven by existing `trackState`, `externalAudioState`, `newSubtitleState`, selected fonts, source identity and unsafe inputs. It does not own editable state or write mux commands. Stable source track identities use verified FFprobe stream indices, new assets derive IDs from file identity; the projection distinguishes *pending input identity* from verified streams, append-only retention from selective removal, and original attachments from new fonts. Discarded tracks remain visible for recovery while counts cover only included rows. Eight source-model test scenarios were added.
+
+**Evidence boundary:** this is an initial, durable source model and test layer, **not yet a fully integrated UI, nor visually or browser-verified on the latest head**. The old PR #74 rendered UI remains subject to the acceptance gate. No Canonical change.
+
+Candidate refinement: separate at least three authorities—*bytes/asset identity*, *mutable stream/attachment edit state*, and *derived output-composition representation*. Do not infer stream existence from file headers, use editable list indexes as durable IDs, or silently mutate domain models inside the UI projection.
