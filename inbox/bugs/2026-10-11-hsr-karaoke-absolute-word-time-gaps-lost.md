@@ -40,3 +40,10 @@ The proposed repair is now committed on HSR branch `feat/hsr-archive-audit-karao
 `subtitle_layout/ass_writer.py` emits ASS `\\kt` word onset anchors when word start differs from the preceding word end; it retains `\\k` / `\\kf` per-word active durations. Multiple rendered lines can retain karaoke where each source word maps wholly to a displayed line; splitting a word falls back to plain text. Tests cover onset gaps and multi-line mapping.
 
 An independent local FFmpeg/libass synthetic probe confirmed `\\kt` timing behavior, but PR #133 exact-head GitHub Actions is **Pending CI** at submission, and no physical device/full real archive acceptance is claimed. The implementation is **proposed repair**, not yet merged/main nor an audited production release. Canonical unchanged.
+
+
+## Further boundary: audio-aware ASS pre-roll shifts every source word's event-relative time (2026-10-11)
+
+Static audit of HSR PR #133 showed a second offset issue beyond word gaps: with audio-aware kinetic entrance, the ASS event's Start can precede the source WAV Start. Per-source word alignments remain WAV-relative. If the writer emits \k, \kf or clip times without applying the actual render event pre-roll, highlights trigger early. The project writer now shifts each word's render-only start/end by the computed pre-roll and does not mutate cached alignments. Added synthetic regression for two adjacent cues with a 200 ms entrance pre-roll, all three Karaoke modes, and unchanged input word timing.
+
+This is **related to the same relative/absolute timing family** as the existing bug, not a new Canonical rule. Source-level repair is submitted in HSR PR #133; exact-head CI was still in progress at intake and must be followed separately.
