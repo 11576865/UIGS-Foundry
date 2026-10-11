@@ -102,3 +102,28 @@ Latest PR #31 head at this observation:
 The new Linux and Windows GitHub CI jobs were **in progress** at the
 time of this appended evidence. Continue to treat field tests as
 distinct from CI and do not promote to Canonical.
+
+
+## Verified CI and main integration — PR #31
+
+Final [CVS PR #31](https://github.com/11576865/Character-Voice-Service/pull/31)
+head `cdb4bc68534f5fa3cc010cd9d9618f25ea535a8e` passed
+GitHub Actions run `38134318310`: Linux `test` and Windows
+`windows-script-audit` both **success**. GitHub indicated
+`mergeable=true`, `behind_by=0`, with five intended files;
+the PR was merged into `main` at
+`184d481c8cae911643a3a059211bbd71cbece20e`.
+
+The final implementation does **not** merely use O_EXCL: both the
+creator and every reader obtain the same persistent OS bootstrap lock,
+and an eighth test verified that a reader cannot accept a token while
+an independent writer process holds the lock with only half the token
+content published. All eight security tests were in Linux and Windows
+CI; POSIX-only permission/symlink cases are skipped as specified on
+Windows, not claimed as Windows ACL proofs.
+
+This supersedes earlier CI Pending snapshots. The repaired default
+bind is local loopback; unauthenticated public synthesis, the absence
+of request budgets/rate limits, unpinned dependencies, and real
+System Supervisor/GPU acceptance are **not resolved** by PR #31.
+The source audit report remains the risk register. No Canonical change.
