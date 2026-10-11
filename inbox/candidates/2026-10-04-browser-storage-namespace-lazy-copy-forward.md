@@ -499,3 +499,42 @@ not physical Android/iOS or Safari/WebKit acceptance.
 Dedup: existing browser-storage Candidate contains only Chromium and
 BFCache evidence. Appending cross-engine test-method evidence to that
 Candidate, not changing Canonical on one project observation.
+
+## Firefox audio sink versus codec decode evidence (2026-10-11)
+
+CVR [PR #25](https://github.com/11576865/Character-Voice-Reader/pull/25)
+initially failed an otherwise passing multi-engine regression on
+Firefox 142.0.1 in headless Ubuntu: an offline PCM WAV Blob was valid,
+and a separate `HTMLAudioElement` could decode its metadata, but
+actual `play()` produced a `MediaError` with `code=3` and
+`message="OnMediaSinkAudioError"`. The application's original generic
+message incorrectly grouped this with unsupported codecs. The test
+environment had no usable Firefox audio sink; an explicit PulseAudio
+`module-null-sink` allowed the real media-playback, pause, resume,
+cross-segment, and cleanup assertions to succeed while preserving
+real media elements.
+
+Candidate-level engineering inference:
+- Metadata decoded successfully **does not** prove actual audio output is
+  operational. A headless Firefox CI without an audio sink can report
+  `MEDIA_ERR_DECODE` for an output-device fault.
+- Keep a minimal independent codec/metadata control separate from the
+  actual playback test; never mark the latter passing based solely on the
+  former.
+- If `MediaError.message` reports an audio-sink failure, present an
+  output-device remediation message, not a format/corruption message.
+- Media error events can be asynchronous relative to source cleanup:
+  validate the current media `error` object and its `currentSrc`
+  against the active Blob, and do not call `load()` gratuitously when
+  no source ever existed.
+- In headless browser CI, a silent virtual output sink is an
+  **environment fixture**, not a mock of media decoding or playback;
+  tests must still assert actual playback time, media lifecycle and
+  sound-source release. It does not qualify physical speaker/earphone
+  hardware or mobile browser autoplay behavior.
+
+The Playwright Firefox dedicated job passed an intermediate head of
+CVR PR #25 with PulseAudio enabled. Final latest-head Reader, Chromium
+and Firefox CI pending at this intake; do not report merged or
+fully accepted until the final run completes. This extends the existing
+browser-storage/media Candidate without automatic Canonical changes.
