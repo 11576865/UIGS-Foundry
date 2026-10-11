@@ -64,3 +64,33 @@ The closed PR threads were annotated with the semantic successor/equivalence evi
 This reinforces the test boundary: `ahead_by > 0` means automated deletion must stop, but it does **not** mean the branch should automatically be re-landed. A human/agent reconciliation must determine whether the semantic capability is absent, already represented by a successor, or intentionally obsolete.
 
 No Canonical promotion.
+
+
+## MKV 2026-10-11 exact PR-head audit
+
+A new MKV-Fast-Muxer branch consolidation request revealed an important
+false-positive deletion rule. At the source inventory snapshot there were
+**40** remote branches. **33** branch tips exactly matched the recorded
+head SHA of a same-repository PR merged into `main`. This looked like a
+convenient deletion set, but checking each branch against the actual current
+`main` found **all 33 had `ahead_by > 0`**. The history is commonly
+consistent with squash merging: semantic source work may be on main while
+the original commit graph remains distinct. Four other historical branches
+had no exact matching merged-PR record.
+
+The project already contained
+`.github/workflows/branch-hygiene.yml`, which uses
+`compare(default...branch).ahead_by == 0` as its automatic deletion
+gate. The proposed exact-merged-PR-head deletion shortcut was **not**
+landed. The same-repo and merged-head checks can support a future
+bounded *manual semantic reconciliation*, but they do **not** replace the
+ancestry gate in the existing automation.
+
+Source: `11576865/MKV-Fast-Muxer`, October 11, 2026, main
+`966d387526ce189dc874c8b27dd60adef0089a49`; PR #70 includes
+`docs/branch-hygiene-audit-2026-10-11.md` as an evidence record.
+Branches were not deleted as a result of this audit; cleanup remains
+**Pending Review**.
+
+This reinforces the existing Test without changing its contract or
+promoting it to Canonical.
