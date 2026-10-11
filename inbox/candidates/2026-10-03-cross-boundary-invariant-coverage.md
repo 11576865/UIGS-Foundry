@@ -96,3 +96,10 @@ This is a Candidate only.
 QHE Windows Native previously used a stronger output contract for manual tasks (stream counts, duration, packet scan) than Guided hard-sub (video stream header plus strict-mode byte ceiling). This is a cross-workflow verification gap even when both share the same Bridge. [PR #89](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/89) submits a guided final-output validation step requiring one video stream, expected audio count where supplied, nonzero/near-expected duration, and FFmpeg stream-copy packet scan **before** completed/exportable state. The Native test fixture now carries two real audio tracks to exercise copy preservation under software two-pass and strict under-limit policies.
 
 **Status: implementation submitted, Pending CI; no full decoding, physical Windows hardware or long-form acceptance inferred.** This extends the existing cross-boundary Candidate rather than creating a duplicate or promoting Canonical.
+
+
+## Long-form Guided verification claim correction — QHE PR #90 (2026-10-11)
+
+Source check after #89: the Windows Guided finalization path verified stream count, duration and a full **packet remux-to-null** scan, but the production UI text claimed "packet scan + full decode passed". A stream-copy scan is not frame-by-frame decoder acceptance; treating one as proof of the other is an evidence-to-presentation contract mismatch. The reconciled [PR #90](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/90) (`56535f5cf5b78fab207c41885fbe813984ac015f`) changes the UI completion claim to the exact verification scope, and caches the verified Guided duration so later long-movie completed-status requests do not repeatedly start FFprobe.
+
+Status: source-verified defect and submitted correction / **Pending integrated-branch CI**. This does not claim all long movies can be decoded or that packet checks replace full decode. Existing Candidate only; no Canonical promotion.
