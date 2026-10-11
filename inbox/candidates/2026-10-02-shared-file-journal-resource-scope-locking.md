@@ -157,3 +157,16 @@ At intake PR #26 has implementation and 15 fake-engine / OS-lock
 regression tests submitted, with **Linux/Windows CI Pending** and real
 System Supervisor interoperability FIELD-PENDING. Append to the
 existing Candidate after deduplication, **not Canonical**.
+
+
+### Validation update — CVS external activation single-flight
+
+Final [CVS PR #26](https://github.com/11576865/Character-Voice-Service/pull/26)
+head `7e31f88a31e7d0ffbf6264ee939b648603ed536b` passed both Linux
+and Windows jobs in GitHub Actions `38120009311` and merged into
+`main` at `568f2cc6643dbae9b35e9632488d4575b5423227`.
+
+This verifies the implemented file-based control and OS-lock test
+contracts, not real external System Supervisor request/response
+interoperability, GPU lifecycle authority or exact request-correlated
+acknowledgment. Candidate evidence only; no Canonical promotion.
