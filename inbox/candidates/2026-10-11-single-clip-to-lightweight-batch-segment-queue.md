@@ -60,3 +60,14 @@ Windows local smoke was not originally triggered by changes to `src/media-worksp
 Exact final feature head successfully completed Frontend/Playwright `38142116055`, Windows local smoke `38142116010`, and UIGS Evidence Coverage `38142116077`. The prior green Frontend head `a635c66fcec2df58baeabff419492a00d0b6bf49` produced the actual 390px two-segment queue screenshot, archive artifact `11702799151`, which was extracted and reviewed. The final-head delta adds Windows path triggers and visual capture dependencies; it does not alter the queue UI or backend execution. The actual browser workflow verifies two distinct compiled copy-only ranges, distinct filenames, and serial Native export acknowledgement blocking the second job.
 
 Boundaries: the browser-based Native export test uses a simulated event and **does not** establish physical Windows Native save-dialog or Android SAF batch export success; field acceptance is **Pending**. Actual keyframe-cut correctness across long videos and real GPU/HDR/VFR also remain pending. The implementation is now merged, but this **Candidate** is *not* promoted to Canonical from one product experience. Update only after additional observations/evidence.
+
+
+### In-place queued clip edit (QHE PR #101)
+
+2026-10-12. Intake result: **new source-backed UX defect / bounded product fix committed / latest-head CI Pending**. QHE PR https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/101, source head `dbfad1bc0c7f841fe794ff2920da92eaad770dc2`.
+
+The original multi-clip queue displayed a `载入` control that copied a row's IN/OUT into the live inputs. However the primary button remained `加入片段`, which unconditionally appended a new row. This meant users could not edit an existing unsaved row in place despite the apparent row-edit affordance. The issue was confirmed by reading the real source and browser test flow; it is not a physical device observation.
+
+Product fix: unsaved rows now show `编辑`; the selected row is visually marked, the primary action becomes `更新片段`, and explicit `取消编辑` leaves the original unchanged. Modifying a row replaces the same interval and restores `queued` state, with duplicate detection excluding only that row. Delete/clear/source-change and Copy mode exit invalidate selection safely. During a pending edit, `导出全部` is disabled. Already exported rows show `复用` and can only create an additional independent clip; their saved output status is immutable. Screen-reader button accessible labels identify row indices. Browser regression verifies the updated first range reaches the actual compiler and that cancelling another edit and reusing a saved interval preserve the original row state.
+
+**Validation pending on exact PR #101 head**: Frontend/Playwright, Windows local smoke, UIGS and actual 390px screenshot. This Candidate is not a Canonical rule. Physical Android SAF/Windows Native UI export dialog field validation remains separately pending; no new device evidence.
