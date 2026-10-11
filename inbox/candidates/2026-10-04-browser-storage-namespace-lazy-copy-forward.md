@@ -623,3 +623,28 @@ Candidate remediation in PR #26:
 Evidence status: production patch + Node tests submitted; WebKit full CI
 **Pending** at this intake. This extends the existing cross-engine
 browser storage Candidate after deduplication; not Canonical.
+
+## Shared localStorage without cross-tab storage events in WebKit (2026-10-11)
+
+CVR [PR #26](https://github.com/11576865/Character-Voice-Reader/pull/26)
+exposed a second Linux WebKit compatibility gap when deliberately disabling
+`BroadcastChannel`: the sender committed its IndexedDB deletion, wrote
+an invalidation message to `localStorage`, and the receiving same-origin
+tab could read the same value, yet that receiver observed **zero native
+`storage` events**. This is a notification-delivery difference, not
+evidence of failed IndexedDB or localStorage persistence.
+
+Candidate-level recovery: keep native storage-event handling but
+supplement it with low-frequency comparison of the localStorage message
+value when BroadcastChannel is unavailable. Also recheck on
+`focus` / `pageshow`, initialize the observer from the current value
+to prevent replay of older deletions, and release polling/listeners on
+unsubscribe. Background throttling means eventual reconciliation,
+not real-time delivery. Persisted IDB ownership/tombstones remain the
+source of truth; notification never substitutes for transactional checks.
+
+At intake this fallback was submitted to CVR PR #26; latest WebKit
+and cross-engine CI are **Pending**. One controlled Linux WebKit finding
+does not justify a universal claim that Safari never delivers storage
+events. Dedup: extension to the existing cross-browser storage Candidate,
+no Canonical modification.
