@@ -25,3 +25,12 @@ Head reviewed: a0d4b95712bf2fa320584224c49099afd0c2c80f
 - Test `now here` vs `nowhere`, plus harmless line-ending variations separately.
 
 Tests/CI passing on the reviewed PR only demonstrate the current checked fixtures. No report of actual user data loss is claimed. This is a Bug intake; Canonical unchanged.
+
+
+## Repair checkpoint and remaining limitations (2026-10-11)
+
+HSR PR [#133](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/133) now stores old human Chinese corrections into the append-first `subtitles_override_history.jsonl` journal before replacing/resetting them or reassigning a numeric key. Both existing subtitle editor save surfaces submit original transcript revision preconditions; the backend validates them with source-member and final-text baseline before writing. Source fingerprints retain whitespace *boundaries* (`now here` ≠ `nowhere`). Review receipts now bind confirmed state to source member plus transcript fingerprint; legacy unbound boolean confirmation cannot automatically attest a reindexed record. Stale fingerprinted human overrides now block newly certified ASS/SRT publication until manual review; no Chinese Karaoke or source transcript editor was added. Human history is included in verified recovery packages, including manual-only projects without an AI translation checkpoint, and a human-only import preserves the full package without automatically reapplying stale edits.
+
+Targeted tests cover source version drift, changed and unchanged Chinese baseline, history after replace/reset, numeric-ID reassignment, review status reuse, English fingerprint collision, and export fail-closed. Exact code/test SHA `731b65a65a3c57595a05cb2a45ab34634a6dfeb4` passed [Python+Termux CI](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38135714940) and [Chromium+libass CI](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38135714983).
+
+**Residual:** pre-fingerprint legacy Chinese overrides have no historic transcript identity and remain a compatibility path, not a proven source revision. Full crash/multiprocess and real HSR package acceptance are unverified. Manual-only backup import is evidence-preserving, not an automatic human correction restoration to the active project. Bug repair proposed on PR, not Canonical promotion.
