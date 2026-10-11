@@ -74,3 +74,12 @@ The earlier Pending-only report is superseded by a **merged, source-backed QHE U
 This supports a Case-level lesson, not single-observation promotion to Canonical: avoid independent CSS grid rows for related support cards beside a tall main column, do not let screen compaction hide the only target-mode affordance, and reserve explicit primary actions while progressively disclosing advanced nonrequired parameters.
 
 No Canonical change.
+
+
+## Post-merge responsive follow-up — PR #94
+
+QHE real UI refinement continued after #93 merged. [PR #94](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/94) fixed the wide-tablet task-overview visibility contract and added a nine-viewport Playwright acceptance matrix. Final UI branch head `5714004a3323b92a697effd0f9dc3a808acf91c3`; successful Frontend `38130794916` and UIGS `38130794896`; merged into main at `840aaef17891cccbfd2cb252c5e5dfd96d8f4ed5`. Current QHE bookkeeping commit `8afdb474478a248fbca4d5fc1224e982991f3f64` records #94 completion and remaining field limits.
+
+Visual screenshots were generated and inspected for 320px phone and 1024px tablet. Browser tests covered 320, 390, 640, 768, 919, 920, 1024, 1180 and 1280px; 320px main modes remain on-screen and wide-tablet task status returns in its right column. Two initial red checks were test harness errors (nonexistent DOM ID, then viewport resize shell state read too early), corrected prior to passing the latest head. Full test detail: `inbox/tests/2026-10-11-qhe-phone-tablet-responsive-matrix.md`.
+
+**Scope:** browser visual and responsive behavior only. Native Windows smoke was not rerun by the UI-only changes; physical Android or NVIDIA GPU/long-film field acceptance remains unverified. This refines an existing Case, without Canonical promotion.
