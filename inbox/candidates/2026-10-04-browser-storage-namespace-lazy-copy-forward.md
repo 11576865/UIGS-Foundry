@@ -648,3 +648,35 @@ and cross-engine CI are **Pending**. One controlled Linux WebKit finding
 does not justify a universal claim that Safari never delivers storage
 events. Dedup: extension to the existing cross-browser storage Candidate,
 no Canonical modification.
+
+## WebKit storage/audio and cross-tab compatibility verified (2026-10-11)
+
+CVR [PR #26](https://github.com/11576865/Character-Voice-Reader/pull/26)
+merged into `main` at
+`f25b14b811c78fd068e4f0223f04f3aed3bc322d`,
+after **all four required workflows** passed on final product head
+`9bf6d6fba9968b2942227ad9977b9e67ec0cd06b`:
+Reader tests, real Chromium IndexedDB regressions, Firefox offline
+regressions and the new real Linux WebKit offline regression.
+
+Confirmed browser evidence:
+- WebKit first failed on native IndexedDB `Blob` serialization abort;
+  ArrayBuffer byte container + MIME restored reliable commit and the
+  same public Blob contract. Existing legacy raw Blob read code retained
+  and independently tested with Chromium/Firefox; WebKit's old-book
+  fixture uses a distinct binary container because the CI browser
+  cannot persist a raw legacy Blob at all.
+- When BroadcastChannel was disabled, WebKit could read the shared
+  localStorage deletion message but emitted no native storage event.
+  Low-frequency message polling plus focus/pageshow catch-up preserved
+  invalidation; test also verifies observer unsubscription stops
+  delivery and releases the poll loop.
+- Real stored audio playback, ownership/migration, deletion tombstones,
+  download cancellation/recovery and shelf UI completed on the
+  current Ubuntu headless WebKit regression, with virtual PulseAudio
+  output for actual media progression.
+
+Evidence scope: verified three headless browser engines plus Node,
+not macOS Safari, iOS/Android browsers, physical speaker hardware,
+or WebKit actual BFCache admission. Store this as Candidate evidence
+only; a single product finding is not an automatic Canonical change.
