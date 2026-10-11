@@ -191,3 +191,13 @@ Bounded product correction: use already-owned optional `videoIdentity()` and `me
 Regression work: existing Chromium smoke asserts no-input Copy and Transcode Start is disabled; in an isolated task fixture it transitions no video → selected/unprobed → probed/ready via the real event and then continues through existing task completion, cancellation, save/export and retry behaviors. Source/CSS tests were added, while keeping the current phone/tablet layout matrix.
 
 **Validation limits:** new PR #98 Frontend/Playwright, Windows local smoke and UIGS CI are Pending on exact current head, and no repaired screenshot has been reviewed. This is a source-backed bug and regression test, **not** acceptance of physical Android, screen reader or Windows NVIDIA GPU/HDR/VFR/long-film hardware. Add further acceptance evidence before changing this status. This stays in the existing QHE Case as a related observation; no Canonical promotion.
+
+
+### PR #98 first red CI triage and bounded test repair
+
+QHE PR #98 branch head after one repair: `8dd888a6ed55346d57fd698c40e9fc0a6d9e61e0`. The first source-readiness change's test suite initially returned red, and the causes were separated using actual GitHub job logs instead of treating all CI failures as the same product regression:
+
+- Frontend workflow run `38134970979` reached the new Playwright readiness transition, then failed its **test-side string assertion**, expecting `开始硬字幕压制`. The actual long-standing manual hard-sub `runButtonLabel()` returns `使用当前参数开始硬压`. The bounded repair updates only this expectation, without removing readiness checks or modifying encode behavior.
+- Windows smoke run `38134970959` stopped at its first FFmpeg-dependent step because Chocolatey failed fetching `ffmpeg` package 9.0.2 with **HTTP 504 Gateway Timeout**. Despite the installer step being marked success, `ffmpeg` was absent in the job environment. This is an external install prerequisite failure, not evidence of a codec regression, and is not silently waived.
+
+Repair source and UIGS task checkpoint were committed to the same PR. **Latest-head CI Pending External Validation**. Separate planned lightweight multi-segment queue remains **not implemented** and must not be represented as a completed feature. Reusable Case-level test practice: distinguish assertions on exact user-facing copy from semantic readiness assertions; diagnose external binary installation before attributing failures to production code. No Canonical promotion.
