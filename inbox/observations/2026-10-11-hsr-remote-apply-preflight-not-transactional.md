@@ -18,3 +18,12 @@ Head reviewed: a0d4b95712bf2fa320584224c49099afd0c2c80f
 Bind a committed update plan to archive and input-package revisions; recheck at publication. Introduce a per-project mutation lock covering build and remote apply. Write generated audio/index/report to versioned staging; publish only on success, preserve rollback provenance and a recoverable previous source config. Require explicit selection acknowledgment rather than advertising automatic full-selection as selective review. Validate concurrency, interrupted job, provider data changes and realistic multi-chapter WAV package.
 
 This is a source-based Observation, not demonstrated user data corruption or a production acceptance failure. Canonical unchanged.
+
+
+## Repair checkpoint — immutable per-update publication (2026-10-11)
+
+HSR PR #133 now defaults to **empty** remote selection, revalidates Manifest and selected candidates *again* inside the asynchronous job before touching persistent source/index, and serializes active build and remote Apply jobs for a shared project root in the existing in-process jobs framework. FastAPI and Termux Lite no longer delete the existing `.generated/combined_audio`; each Apply stages a fresh `.generated/combined_audio_versions/combined-<version>` tree and `quick_index_incremental_<version>.csv`. The new project configuration points at those files only after both exist, keeping previous source resources available following failures. The recovery package also captures the active index.
+
+Synthetic tests cover job concurrency and static publication contracts; exact code/test checkpoint `731b65a65a3c57595a05cb2a45ab34634a6dfeb4` passed [Python](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38135714940) and [Chromium/libass](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38135714983).
+
+**Open:** no tested atomic transaction across multiple OS processes or external filesystem mutations; config switch, final user build and provider source revisions are not one atomic commit. Old version directories are not garbage-collected automatically. Crash-injection and large real archive data remain pending. Keep as Observation, not Canonical.
