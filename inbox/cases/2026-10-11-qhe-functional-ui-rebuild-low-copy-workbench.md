@@ -201,3 +201,21 @@ QHE PR #98 branch head after one repair: `8dd888a6ed55346d57fd698c40e9fc0a6d9e61
 - Windows smoke run `38134970959` stopped at its first FFmpeg-dependent step because Chocolatey failed fetching `ffmpeg` package 9.0.2 with **HTTP 504 Gateway Timeout**. Despite the installer step being marked success, `ffmpeg` was absent in the job environment. This is an external install prerequisite failure, not evidence of a codec regression, and is not silently waived.
 
 Repair source and UIGS task checkpoint were committed to the same PR. **Latest-head CI Pending External Validation**. Separate planned lightweight multi-segment queue remains **not implemented** and must not be represented as a completed feature. Reusable Case-level test practice: distinguish assertions on exact user-facing copy from semantic readiness assertions; diagnose external binary installation before attributing failures to production code. No Canonical promotion.
+
+
+## Queued Stream Copy: verified Native save failure requires save-only retry
+
+Date: 2026-10-11 · **Merged + exact-head browser/Windows/UIGS CI passed** · QHE PR https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/100
+Product source head: `7b26c4fd2242b6de234287fa771b00ef4ea22c6d`
+Merge commit: `133e0e16ae30810866f4a5fbe98c27cac7343f70`
+QHE durable task checkpoint: `e02b3d2445e752edaeff64f0973cd5286fa8dc93`
+
+**Observed source-backed failure after #99:** The multi-clip queue correctly serializes real copy jobs and Native save acknowledgments, but a verified clip whose asynchronous Native export failed became a generic "failed" queue row. The queued "export remaining" path refused to override an unsaved verified artifact, leaving a dead end: neither save-only retry from the row nor safe discard was available. The first PR #100 Frontend browser regression also exposed that generic catch/status copy replaced the intended no-reencode recovery guidance. This was addressed in the final head rather than waiving the user-facing assertion.
+
+**Bounded fix:** Retain the completed verified artifact and its original Native `jobId`; hold a per-queue `clipAwaitingSave` reference. Render `待重试保存` with the actionable `重试保存` row control. Route retries through the same existing `#taskSave` export hook. Only a relevant Native export-result event settles the pending row as saved; failed/cancelled saves preserve its artifact for another retry. Disallow deletion, clearing, source invalidation, mode changes, or normal form submissions that would overwrite it. No new encoder path or output concatenation.
+
+**Evidence:** Frontend/Playwright exact-head run `38143257105` success; Windows local smoke `38143257110` success; UIGS Evidence Coverage `38143257131` success. Actual Chromium artifact `11703821648` shows the compact 390px two-clip queue without horizontal overflow. A scripted browser scenario covers another clip's failed Native save, an unrelated job event not satisfying the pending save, save-only retry, a matched success, and **no repeat encoding**. PR merged and no open QHE PRs at closure.
+
+**Boundary:** Native event simulation is not a real Windows save-picker or Android SAF dialog. On-device failures, cancellations, duplicated/missing job identifiers, file-naming collisions and long-video output verification still warrant physical testing. Keep them FIELD-PENDING; do not promote this one product Case into Canonical.
+
+Reusable pattern: a completed compute artifact and an unfinished export form separate lifecycle phases. An asynchronous export failure should preserve the artifact and offer an export-only retry, while guarding against destructive source/task changes until the artifact is saved or explicitly discarded under an approved workflow.
