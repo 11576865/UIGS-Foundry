@@ -439,3 +439,32 @@ existing IndexedDB/BFCache Candidate, not a Canonical change. Dedup search
 found previous synthetic page-transition guidance but no actual BFCache
 admission validation entry. Physical device and cross-engine acceptance
 remain out of scope.
+
+## Full-Chromium BFCache admission verification and merge (2026-10-11)
+
+CVR [PR #24](https://github.com/11576865/Character-Voice-Reader/pull/24)
+was merged into `main` as
+`7a29ea0712e7d9cc8c6eb1bccaafd5ed692faadf`
+after **Reader tests** and **real Chromium/IndexedDB regressions**
+passed on final head `6dee0c021f4a7293e80ec8483a62da77edf9ec8b`.
+
+The first strict BFCache test correctly failed in Playwright's default
+Chromium headless-shell configuration: `page.go_back()` created a new
+document (`token: null`, no recorded `pageshow.persisted`) and Chrome
+reported `notRestoredReasons: [{reason: "masked"}]`.
+Do **not** call this a product defect on that evidence. A separate full
+Chromium launch with `channel="chromium"` (new headless) and
+`ignore_default_args=["--disable-back-forward-cache"]` plus a plain HTML
+control page made the test environment's own BFCache capability explicit.
+At the final head, the control page and **both Reader** real
+away/back navigation cases succeeded with the original document
+instance and native `pageshow.persisted === true`: an in-flight offline
+getBook rechecked a deleted book rather than accepting its old result,
+and an active book removed by another tab was invalidated on restore.
+
+Evidence level now includes actual headless Chromium BFCache admission
+on CI, not solely manually dispatched lifecycle callbacks. However,
+this is still one browser engine on an isolated CI environment. It does
+not assert identical behavior for Safari/Firefox, real Android/iOS or
+device-level memory eviction. This remains Candidate evidence, and
+does not promote any Canonical rule.
