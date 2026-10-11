@@ -89,3 +89,10 @@ This implementation is evidence for the Candidate; it does not promote the rule 
 - status rationale: reusable testing architecture candidate; not Canonical
 
 This is a Candidate only.
+
+
+## Guided output verification parity checkpoint — PR #89 (2026-10-11)
+
+QHE Windows Native previously used a stronger output contract for manual tasks (stream counts, duration, packet scan) than Guided hard-sub (video stream header plus strict-mode byte ceiling). This is a cross-workflow verification gap even when both share the same Bridge. [PR #89](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/89) submits a guided final-output validation step requiring one video stream, expected audio count where supplied, nonzero/near-expected duration, and FFmpeg stream-copy packet scan **before** completed/exportable state. The Native test fixture now carries two real audio tracks to exercise copy preservation under software two-pass and strict under-limit policies.
+
+**Status: implementation submitted, Pending CI; no full decoding, physical Windows hardware or long-form acceptance inferred.** This extends the existing cross-boundary Candidate rather than creating a duplicate or promoting Canonical.
