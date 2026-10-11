@@ -43,3 +43,10 @@ For target-budget workflows:
 - observation: a 30 MB target can be dominated by audio-track budget long before video quality is considered
 
 This is a Candidate only. It is not Canonical.
+
+
+## Guided target-size integer-boundary implementation checkpoint — PR #89 (2026-10-11)
+
+QHE [PR #89](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/89), head `b6feb839a10e22f669eae39ec7e0078976f57668`, submits a real Guided UI implementation of this existing Candidate: `assessGuidedBudget` decomposes audio payload and container reserve, computes a minimum planned byte target under an explicit executable bitrate floor, and displays a numeric shortfall with corrective actions. It inverts the **actual floor-based** planner by integer binary search, instead of trusting only a continuous floating-point inverse near the one-byte feasibility boundary. Below-minimum plans are rejected before encoding; this is **capacity feasibility under planning assumptions**, not a quality or target-size-success guarantee.
+
+Two Node boundary tests are committed (below-minimum/at-minimum, audio reduction, fixed-vs-percent container reserve and invalid values). **Validation status: Submitted / Pending CI; not a passed runtime claim.** The historical Candidate is updated in place to avoid duplication; no Canonical promotion.
