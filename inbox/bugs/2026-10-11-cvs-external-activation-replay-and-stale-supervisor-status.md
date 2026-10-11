@@ -128,3 +128,23 @@ Source PR not yet merged at this observation.
 De-dup: adds direct producer-consumer acceptance evidence to this
 existing external activation Bug, not a new unrelated issue or
 Canonical rule.
+
+
+## PR #29 independently executing consumer test: verified and merged
+
+Final [CVS PR #29](https://github.com/11576865/Character-Voice-Service/pull/29)
+head `05b04b0e7e0b2d55a7a87f183f674d2ea5d6d615` passed both
+Linux `test` and Windows `windows-script-audit` in GitHub
+Actions run `38132656247` and merged to CVS `main` at
+`62e438dcc1d7588d4f08c03aaa2f001c52f37027`.
+
+The independent *test-only* consumer read the real top-level activation
+file, started a loopback health endpoint and wrote an observational
+status file. The suite passed delayed consumer health, refused replay
+after timeout and real producer-process kill with recovery by a
+replacement CVS. This proves the simulated producer/consumer file
+protocol under CI; it does **not** prove deployed System Supervisor
+consumer interoperability or request-correlated acknowledgement.
+
+The earlier Pending CI snapshot is now historical; live System
+Supervisor and GPU acceptance remain FIELD-PENDING. No Canonical change.
