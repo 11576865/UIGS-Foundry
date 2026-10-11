@@ -144,3 +144,18 @@ Design basis: official Apple Compressor guide on viewer/batch/inspector distinct
 **Distinction:** this is the first explicitly reference-led structural workbench redesign in this QHE sequence, not another screenshot rendering or style palette. Validated acceptance cannot be claimed before latest-head frontend CI + actual Chromium screenshots; even a green browser test does not validate physical Android screen reader and touch experience or #77 Windows GPU/HDR/VFR long-film field use. No Canonical promotion on a single product iteration.
 
 Cross-project reusable learning: professional-tool visual quality is strongly affected by spatial ownership and display priority. UI assessment should measure whether the working object (media viewer) is allocated a first-class region, whether inputs and inspector are stable navigational zones, and whether "same-level cards with less text" merely preserve the original cognitive overload. Preserve actual functional control ownership across layout movement.
+
+
+## Studio v3 visual regression: copy and transcode editor reparenting
+
+Date: 2026-10-11
+Status: observed browser layout regression / product repair committed / external revalidation Pending.
+QHE PR: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/97
+Original passing-head screenshot evidence: Frontend run 38133524314, media-workspace-screenshots artifact 11699659325.
+Repair head: e5964e9dda37cbbfa77197bba6e192eea694567b.
+
+Visual defect: Actual 1280px Chromium screenshot media-workspace-copy.png showed an approximately 250px-wide copy timeline/codec editor inside the source shelf; nearly the entire central editing column was unused. This source-backed issue occurred because syncHardsubStrategyChrome() reparented the live non-hardsub mediaWorkspace after inputCard, which Studio v3 now places in the narrow left shelf. Transcode uses the same branch. The previous passing automated desktop check validated hard-sub preview source/stage/inspector geometry but did not switch to copy/transcode and assert their editor locations. Green tests therefore did not establish three-mode desktop composition acceptance.
+
+Bounded correction: change the non-hardsub reparenting to put the original live section into hardsubManualMount (central production editor) as hardsub manual already does, with old fallback when the mount is absent. Keep task compiler, DOM events, form IDs and phone prepare-stage semantics. Add Playwright 1280px geometry checks for separate transcode and copy modes: editor visible, parent the central mount, editor to the right of source shelf, and editor >=400px wide. Capture screenshot for each. Add phone 320px reachability tests after the same move. Separately suppress the audio/container panel during the unprepared desktop hard-sub empty viewer state.
+
+Evidence boundary: the source repair has been pushed; latest-head Frontend/Playwright, Windows smoke and UIGS checks and screenshots are Pending. Do not treat original head green CI as validating repair. The lesson is Case-level only: mode-dependent DOM reparenting and breakpoint layout changes require a mode x viewport test matrix, not only checking the default mode. No Canonical promotion.
