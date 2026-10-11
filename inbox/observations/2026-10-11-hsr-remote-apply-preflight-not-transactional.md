@@ -73,3 +73,28 @@ or automatic old-version pruning. Journal metadata does not prove provider
 origin content is trustworthy or actual downstream final archive rebuild
 success. This is project-specific Observation evidence, **not a new Canonical
 rule**.
+
+
+## Synthetic end-to-end Apply and rollback acceptance (2026-10-12)
+
+Beyond static code checks and helper-level fault injection, HSR PR #133 now
+has an end-to-end FastAPI Apply→rollback **synthetic local WAV** regression
+(`tests/test_remote_apply_integration.py`). It uses the actual API job,
+source directory merge, combined WAV staging, generated index writer,
+revision journal publication, revision-status route, and explicit rollback
+route, while mocking only external Hugging Face metadata/audio retrieval.
+A second path injects publication failure and proves the prior on-disk
+project configuration and CSV index remain intact.
+
+Latest exact head `6298f0a1d12fb163b030288efb9adcf35e04c5ff` passed
+[Python 3.11/3.12/3.13, Termux Lite](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38160022203)
+and [Chromium/libass](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38160022198)
+(six successful jobs total). The Termux Lite API surface shares the
+backend helper and passes its surface checks, but a complete live Termux
+network-download plus update round-trip was not exercised.
+
+**Unverified**: genuine game WAV corpus, live provider audio, multiple
+writer OS processes, abrupt power removal, physical Android/Termux
+acceptance, and a comprehensive downstream rebuild after Apply. Keep
+Observation level; do not claim full cross-process transaction correctness
+or promote Canonical from this fixture evidence.
