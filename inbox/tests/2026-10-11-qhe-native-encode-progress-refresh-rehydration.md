@@ -39,3 +39,8 @@ Links to existing Candidates: `inbox/candidates/2026-10-03-cross-boundary-invari
 Frontend, Windows smoke, and UIGS Evidence Coverage all passed on the pre-integration #91 head `402a095ebded23261e617931e8910cb293ea4892`. Subsequently, #90 merged into QHE main as `c1c7872016dbee4d0c199522a5ab7bfcf77d4665`. Since both changed `src/main.js`, #91 was semantically reconciled with a two-parent commit `7d3121958c1f693ce3c43227743bcf6b6b6be60f`, preserving both the strict-output verification wording and the refresh progress-state tests. **The reconciled head has its own CI pending**; earlier #91 green results do not certify the new combined tree.
 
 Real long-film refresh and GPU evidence remains FIELD-PENDING. No Canonical promotion.
+
+
+## Latest merged acceptance checkpoint
+
+PR #91 reconciled head `7d3121958c1f693ce3c43227743bcf6b6b6be60f` completed **three successful workflows**: Frontend, Windows local smoke, UIGS Evidence Coverage. GitHub merged PR #91 into QHE main at `8508545cc0c35408dbfb53a520e04c11001e2825`. The prior pending integrated-head CI status is superseded by this observed success. Full physical multi-hour Windows refresh/real NVENC acceptance remains **FIELD-PENDING** under QHE #77. No Canonical promotion.
