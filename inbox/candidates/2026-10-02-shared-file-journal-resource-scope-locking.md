@@ -116,3 +116,14 @@ Evidence remains implementation-plus-regression tests under PR #25,
 **CI Pending** at intake, no real orphan GPU acceptance. Append as
 incremental evidence to this existing Candidate; do not generalize to
 Canonical based on this one incident-free source audit.
+
+
+### Validation update — CVS PR #25
+
+The durable launch receipt follow-up above passed Linux and Windows
+GitHub Actions run `38118913441` and merged to CVS `main` as
+`1d333d90ca36e0349f983a4b9278a8fcaae0da60`.
+This verifies mocked Linux/Windows process-identity and receipt
+regressions, **not** physical GPU-orphan recovery. The original Pending
+note is historical; the hardware/independent-supervisor gap remains.
+Candidate only, no Canonical promotion.
