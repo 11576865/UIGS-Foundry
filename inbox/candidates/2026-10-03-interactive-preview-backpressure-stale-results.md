@@ -66,3 +66,29 @@ Validation:
 This is distinct from the existing requested-vs-realizable-boundary Candidate. That record concerns semantic honesty about constrained edit values. This record concerns the asynchronous execution topology needed to make interactive previews safe and responsive when the backing operation is expensive.
 
 This is a Candidate only. It is not Canonical.
+
+
+## Follow-up: fixed-concurrency speech inference backpressure (2026-10-11)
+
+Related implementation: [Character Voice Service PR #22](https://github.com/11576865/Character-Voice-Service/pull/22), [CVS IndexTTS hang Bug](../bugs/2026-10-11-cvs-indextts-inference-hang-unbounded-wait-and-supervisor-diagnostic-lock.md).
+
+IndexTTS's Sidecar advertises `max_concurrency=1` and no cancellation, but
+its original **blocking** inference mutex allowed arbitrary incoming HTTP
+workers to queue behind a single hung native/GPU call. The submitted repair
+changes the backend admission decision from unbounded waiting to immediate,
+explicit `503` + `Retry-After`, with live `busy` and active-duration
+health observability. A configurable process watchdog forcibly exits the
+dedicated engine if the in-flight native inference exceeds its deadline;
+there is no unsupported claim of safe per-request cancellation.
+
+This broadens the Candidate's evidence from cursor-driven high-frequency
+preview traffic to fixed-concurrency speech generation: **serializing work
+alone does not bound the queue or ensure failure recovery**. An engine
+health status should distinguish a responsive, occupied service from one
+that can admit more work.
+
+Tests have been committed (mocked engine HTTP concurrency, subprocess
+watchdog, and Runtime Supervisor startup lock diagnostics) but their
+Linux/Windows CI is **Pending** at intake. No real GPU stall was reproduced.
+This is follow-up observation under the existing Candidate, not a new
+overlapping Candidate or a Canonical promotion.
