@@ -22,3 +22,7 @@ Tests in `tests/test_remote_update_guard.py` cover ambiguous members, existing-n
 ## Generalizable lesson / intake
 
 A persistent download staging directory is not an execution transaction. The set of committed input files must derive from the actual current successful outputs and pass independent identity preflight, not from a directory sweep. Reusable for any append/merge archive pipeline; keep as Bug candidate pending exact-head evidence, do not alter Canonical automatically.
+
+## Exact-head CI verification (2026-10-11)
+
+HSR PR #133 head `bd272bc957130a0773fcaeedd8290bf548d86e08` passed [tests run 38118776948](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38118776948) — Python 3.11/3.12/3.13 and Termux Lite dependency-surface checks — and [browser evidence run 38118776884](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38118776884) — Chromium UI fixture and FFmpeg/libass artifact checks. These are code/fixture/CI results, not proof of a production archive migration, Android physical-device use, or a merged release. Canonical remains unchanged.
