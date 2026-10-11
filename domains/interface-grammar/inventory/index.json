@@ -16,7 +16,7 @@
       "project": "Character-Voice-Service",
       "platform": "service-no-built-in-ui",
       "default_branch": "main",
-      "head_sha": "a8fb0fea30739d2238fbd7ffbf51c631f31699a1",
+      "head_sha": "b80cd78ee24493ce7d01f2a1f6e948f2d633b642",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
       "surface_count": 0
@@ -36,23 +36,23 @@
       "project": "MKV-Fast-Muxer",
       "platform": "web",
       "default_branch": "main",
-      "head_sha": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "head_sha": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
-      "surface_count": 12
+      "surface_count": 13
     },
     {
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "project": "Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
       "default_branch": "main",
-      "head_sha": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "head_sha": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
       "surface_count": 16
     }
   ],
-  "surface_count": 63,
+  "surface_count": 64,
   "surfaces": [
     {
       "id": "ASS.PREVIEW.VIDEO",
@@ -918,7 +918,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -940,7 +940,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -962,7 +962,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -984,7 +984,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1006,7 +1006,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1035,7 +1035,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1057,7 +1057,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1086,7 +1086,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1108,7 +1108,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1117,8 +1117,8 @@
       "name": "批量工作区",
       "group": "BATCH",
       "status": "implemented",
-      "intent": "对多输入执行批量封装。",
-      "implementation_effect": "批量来源按视频、字幕、字体分 cluster，和单任务三阶段流分离。",
+      "intent": "在统一批量导入清单中识别媒体资源，自动配对并审计输出。",
+      "implementation_effect": "批量输入使用与单任务一致的内容识别清单；旧分类文件输入仅为不可视执行适配器，配对设置和批处理状态保留。",
       "source_refs": [
         {
           "path": "index.html",
@@ -1130,17 +1130,17 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
       "id": "MKV.STAGE.INPUT",
       "kind": "stage",
-      "name": "输入",
+      "name": "统一媒体导入与资源清单",
       "group": "FLOW",
       "status": "implemented",
-      "intent": "选择视频、字幕、字体等输入资源。",
-      "implementation_effect": "作为三阶段层级的第一阶段，输入资源与后续调整/封装分离。",
+      "intent": "对导入文件做内容识别，呈现主容器、字幕、音频、字体及不能使用的项目，再允许选择源和编辑对象。",
+      "implementation_effect": "只呈现统一资源导入与结构化清单；分类文件输入仅作为隐藏执行适配节点保留。",
       "source_refs": [
         {
           "path": "index.html",
@@ -1152,7 +1152,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1184,7 +1184,36 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "0bf9d5cfd265875cbc82e40fafa2d1d386fcc48c",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
+      "inventory_path": ".uigs/ui-surfaces.json"
+    },
+    {
+      "id": "MKV.STAGE.OVERVIEW",
+      "kind": "navigation",
+      "name": "统一工作流程概览",
+      "group": "FLOW",
+      "status": "implemented",
+      "intent": "在资源导入前明确展示本地执行、Stream Copy 和 MKV-only 输出约束，并提供识别→编辑→验证的任务心智模型。",
+      "implementation_effect": "语义化独立 overview 区域采用响应式步骤结构；原生区段锚点与键盘导航保持独立可用。",
+      "source_refs": [
+        {
+          "path": "index.html",
+          "anchor": ".workspace-overview"
+        },
+        {
+          "path": "src/workbench.css",
+          "anchor": ".workspace-overview"
+        }
+      ],
+      "patterns": [],
+      "tests": [
+        "tests/workbench-shell.test.mjs"
+      ],
+      "visual_evidence": [],
+      "project": "MKV-Fast-Muxer",
+      "repository": "11576865/MKV-Fast-Muxer",
+      "platform": "web",
+      "source_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1213,7 +1242,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1242,7 +1271,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1264,7 +1293,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1289,7 +1318,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1315,7 +1344,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1344,7 +1373,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1373,7 +1402,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1402,7 +1431,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1431,7 +1460,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1460,7 +1489,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1485,7 +1514,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1510,7 +1539,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1539,7 +1568,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1568,7 +1597,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1593,7 +1622,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1624,7 +1653,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "5ea28881b5bb8d3aa16d0726c9d57d7867a11e21",
+      "source_head": "2c4ee1db6513a9778a6a4b08228cc9b93088b910",
       "inventory_path": ".uigs/ui-surfaces.json"
     }
   ]

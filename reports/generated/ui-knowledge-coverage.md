@@ -5,12 +5,12 @@
 | Reusable Patterns | 8 |
 | Composition Recipes | 2 |
 | Source-owned project inventories | 5/5 |
-| Concrete product surfaces | 63 |
-| Concrete surfaces linked to Patterns | 20/63 |
+| Concrete product surfaces | 64 |
+| Concrete surfaces linked to Patterns | 20/64 |
 | Pattern production-realization coverage | 8/8 |
 | Pattern reference-demo coverage | 8/8 |
 | Pattern visual-baseline coverage | 8/8 |
-| Concrete surfaces with production visual evidence | 63/63 |
+| Concrete surfaces with production visual evidence | 63/64 |
 | Realization source content current | 1/3 |
 | Realization revision exactly equals repo HEAD | 0/3 |
 
