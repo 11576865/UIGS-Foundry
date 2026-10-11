@@ -34,3 +34,10 @@ The first attempted fix (`490221e3fba947e64ebd5bbf80207308172a4692`) restored `[
 A more bounded test-only repair moves the entire new two-stream E2E to the **end** of the original Playwright smoke, after all pre-existing assertions. The original suite receives its original single-video mock setup, the original sample-run count expectation is restored to `4`, and only the last new E2E scenario adds the two-video mock metadata and exercises the UI-to-task boundary. New QHE PR #65 head: `f7d9ef96834e757b909cb037a94912aa77826591`. Frontend run `38118095158` was **in_progress** on the single allowed initial external status read; CI result **Pending External Validation**, not passed and not merged.
 
 Reusable testing observation: adding an end-to-end scenario to a shared, stateful browser workflow can invalidate later assertions in ways that survive partial form-value reset. Prefer a truly fresh page/mount fixture or run independent add-on assertions after existing shared-session tests; preserve an explicit failure trace. Do not promote this single observation to Canonical. No real GPU/long-form hardware test was performed.
+
+
+## Final CI and mainline acceptance for QHE PR #65
+
+The last bounded correction `f7d9ef96834e757b909cb037a94912aa77826591` **passed** the Frontend GitHub Actions workflow `38118095158`, including the repo's Playwright UI smoke. The added two-stream E2E was run after baseline tests with its own media fixture, preserving the pre-existing workflow. The PR had remained Draft, so GitHub's first merge attempt returned HTTP 405 ("Pull Request is still a draft"); it was then explicitly marked **Ready for review**, confirmed mergeable with an unchanged head, and successfully **merged** as `2260227d0c2b1d191833e38f59af9900fca22391`.
+
+QHE main at this checkpoint equals `2260227d0c2b1d191833e38f59af9900fca22391`, with **zero open PRs**. The prior "Pending CI" entries above are superseded for this exact head. This is frontend/Playwright contract evidence only; #77 physical GPU, long-film, HDR/VFR and Android field acceptance is still Pending. A single case does not change Canonical.
