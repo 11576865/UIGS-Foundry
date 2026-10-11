@@ -249,3 +249,20 @@ collection (future-import ordering in a modified test), and
 the corrected second run was pending. Audio content,
 speaker identity and real GPU field tests remain unproven.
 Candidate evidence only; no Canonical promotion.
+
+
+### Final CVS PR #34 WAV contract verification (2026-10-11)
+
+[PR #34](https://github.com/11576865/Character-Voice-Service/pull/34)
+head `a6cccf87f84a443b84baf22f25558f9cbfddfcbc` passed
+Linux full suite (**297 passed**) and Windows targeted/PowerShell
+jobs in Actions run `38142612530`, and merged into main as
+`b80cd78ee24493ce7d01f2a1f6e948f2d633b642`.
+
+This is evidence that the project now checks the **actual WAV
+payload** rather than only success metadata and fake RIFF
+test markers. The first CI failed due to import ordering in
+an existing test file; the corrected final run passed.
+Physical GPU validation, audio quality, speaker identity and
+cross-platform longest real workload checks remain FIELD-PENDING.
+Retain at Candidate level; do not update Canonical.
