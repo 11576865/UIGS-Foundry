@@ -99,3 +99,20 @@ At intake, code and tests are submitted but PR #24 CI and real
 hardware acceptance are Pending. Record as a cross-project evidence
 extension of this existing Candidate, **not a new Candidate or
 Canonical rule**.
+
+
+## Follow-up: parent-owned lease must not imply child-owned resource absence (2026-10-11)
+
+The CVS GPU group [PR #24](https://github.com/11576865/Character-Voice-Service/pull/24) cross-process OS lease passed Linux and Windows CI and merged. Its ownership boundary nevertheless ends at the CVS **parent process**. If the parent dies while its managed TTS child survives, the lock can be acquired by another CVS process even though the GPU is still occupied.
+
+[CVS PR #25](https://github.com/11576865/Character-Voice-Service/pull/25) proposes a complementary **durable launch intent / process-identity receipt** under the same resource-scoped lock: write `starting` before spawn, change to `running` after obtaining PID plus creation identity, and require affirmative proof of process disappearance or PID reuse before auto-clearing. Unknown, inaccessible and partially published states block admission and are shown in admin diagnostics.
+
+This illustrates a distinct boundary in shared-resource coordination:
+**the lifetime of a synchronization holder is not necessarily the
+lifetime of the resource it launched**. Lock release can be correct
+without meaning the GPU or its descendants are free.
+
+Evidence remains implementation-plus-regression tests under PR #25,
+**CI Pending** at intake, no real orphan GPU acceptance. Append as
+incremental evidence to this existing Candidate; do not generalize to
+Canonical based on this one incident-free source audit.
