@@ -94,3 +94,27 @@ The repair commit on #22 changes both subprocess-based watchdog tests to redirec
 Because CVS [PR #21](https://github.com/11576865/Character-Voice-Service/pull/21) merged the separate Model Registry infrastructure into `main`, #22 also received a reviewed two-parent reconciliation commit `21439209b3704fee8410bef07eb9d61137a17641`, preserving both the model-registry Windows test suite and new IndexTTS targeted Windows test suite. The PR's main-relative delta is now only 10 expected files, `behind_by=0`, mergeable according to GitHub at inspection.
 
 **Verification of this follow-up commit remains Pending CI** and real IndexTTS/GPU recovery remains FIELD-PENDING. No canonical promotion; this is added evidence within the existing Bug, not an independent generalization.
+
+
+## Watchdog root-cause evidence and merged follow-up — 2026-10-11
+
+After the earlier pipe-capture change, PR #23 still failed Windows
+`test_inference_watchdog_terminates_stalled_child_process` (run
+`38116628298`, Linux success, Windows one failure). The newer traceback
+waited directly on the child **process handle** with a regular temporary
+log file, ruling out the previously suspected PIPE EOF issue as an
+adequate explanation.
+
+The implementation's actual bug was a one-shot timer deadline race:
+a timer thread could wake slightly *before* monotonic elapsed time reached
+the deadline, return from `_terminate_stalled_inference`, and never check
+again. The repair waits out any remaining fractional deadline before
+re-checking that the original request still owns inference. A dedicated
+subprocess regression forces an eager callback before the deadline.
+
+Final PR #23 head `210a1605b66b4553f4336b4c7fdb92eff07167f6`,
+GitHub Actions `38117245421`: both Linux and Windows **success**;
+merged at `a8fb0fea30739d2238fbd7ffbf51c631f31699a1`.
+
+This strengthens the existing Bug's evidence; it does not establish
+real GPU hang recovery. Do not promote to Canonical.
