@@ -37,3 +37,16 @@ When a narrowly differentiated product broadens to a general container/document 
 Source/documentation comparison only. Does not establish competitor UX quality, the claim that MKV-Fast-Muxer is best-in-class, an attachment-only mkv writer implementation, or exact font/render compatibility. The product's PR #74 merges a composition-first UI projection but does not upgrade the general video-centric mux executor. A one-file attachment-only output should be treated as a standalone specification, writer and reader acceptance test.
 
 No Canonical promotion.
+
+
+## Further normative distinction: document validity, filename profile and writer support
+
+Follow-up analysis on 2026-10-12, based on current official specification:
+- RFC 9559 §6.1 requires `Info` as the only REQUIRED Matroska Segment top-level element. For a **playable** Matroska document it additionally requires `Tracks` and `Cluster`. This leaves room for a syntactically conforming non-playback Segment with attachments and no media tracks, contingent on observing the complete EBML/Matroska constraints. https://datatracker.ietf.org/doc/html/rfc9559#section-6.1
+- The Matroska FAQ associates `.mkv` with at least one video track, `.mka` with audio-only, `.mks` with subtitles-only, and `.mk3d` with stereoscopic video. There is no dedicated, documented conventional extension for an attachments-only Matroska. Therefore output filename convention is a **third** distinct axis beyond structural validity and writer/reader support. https://www.matroska.org/faq.html
+- The product currently rejects a main source without a video stream and uses `mainInputPath` as its mux execution anchor. Neither deleting this gate nor turning a single image into video should be presented as an attachment-only implementation. That scenario requires an independently tested writer and at least two independent readers or structural validators.
+- The attachment class is semantically generic but optimized for ancillary resources connected to multimedia; the project should not infer that Matroska is a universal archive replacement.
+- When product direction is not yet selected, keep candidate routes as *options*, not a Canonical decision or evidence-backed implementation assertion.
+
+Potential cross-project applicability: document formats with independently varying structural validity, output-profile naming and runtime implementation support.
+Evidence level: RFC/official docs plus static project code; no attachment-only output fixture executed.
