@@ -84,3 +84,21 @@ This adds an important distinction to cleanup priority step 2:
 The audit annotated the relevant closed PR threads so future continuation work has a durable successor trail.
 
 This remains Candidate evidence; no Canonical promotion.
+
+
+## 2026-10-11 MKV post-merge branch classification
+
+[MKV-Fast-Muxer PR #73](https://github.com/11576865/MKV-Fast-Muxer/pull/73) was merge-committed to `main` (`60d41336ed7d6df5a422001289824510ea823d9e`), and [branch hygiene run 38129064307](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38129064307) succeeded, removing exactly the current merged UI feature branch. Independent post-merge main Chromium E2E (38129064341) and Pages deployment (38129064270) both succeeded, 199/199 Node tests passing.
+
+The same audit still found four **closed, unmerged, divergent** historical PR heads with unique commits relative to the verified main:
+
+| Retained historical head | Ahead/behind main | Closed PR | Successor/evidence |
+|---|---:|---|---|
+| `docs/seo-discovery-metadata-20260930` | +7 / −336 | [#25](https://github.com/11576865/MKV-Fast-Muxer/pull/25) | PR body explicitly says superseded and replayed in merged [#27](https://github.com/11576865/MKV-Fast-Muxer/pull/27) |
+| `ui/mobile-tablet-density-20260930` | +4 / −336 | [#26](https://github.com/11576865/MKV-Fast-Muxer/pull/26) | PR body explicitly says responsive changes replayed in merged #27 |
+| `feat/font-content-identity` | +13 / −85 | [#57](https://github.com/11576865/MKV-Fast-Muxer/pull/57) | Identically titled successor [#58](https://github.com/11576865/MKV-Fast-Muxer/pull/58) is merged; main contains `src/font-identity.js`; exact semantic parity **not yet proven** |
+| `ui/mkv-workbench-action-hierarchy` | +6 / −54 | [#67](https://github.com/11576865/MKV-Fast-Muxer/pull/67) | PR marked superseded by content-first architecture; [#69](https://github.com/11576865/MKV-Fast-Muxer/pull/69) and #73 merged; exact semantic parity **not yet proven** |
+
+These are **not** ancestry-contained branches: deleting them simply because newer features exist would risk dropping unique history. The safe next cleanup is a separate evidence/tag-based retirement review, not part of the completed #73 release. `maintenance/archive-reviewed-merged-pr-refs` is ancestry-contained but explicitly exempt from automated cleanup; `uigs-outbox` is an independent data branch and must not be mistaken for a feature branch.
+
+This supports the existing Candidate's two-gate distinction: Git ancestry decides automatic deletion eligibility, while semantic supersession requires separate verification and a durable archive before pruning divergent history. Do not promote to Canonical from this alone.
