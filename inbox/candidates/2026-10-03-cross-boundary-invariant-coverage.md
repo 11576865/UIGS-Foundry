@@ -221,3 +221,31 @@ it does not prove physical GPU process quiescence, external
 Supervisor cooperation, accurate real-model voice identity
 or valid WAV output. Keep this as Candidate evidence without
 Canonical promotion.
+
+
+## Actual audio bytes as a mandatory contract gate (CVS PR #34, 2026-10-11)
+
+[CVS PR #34](https://github.com/11576865/Character-Voice-Service/pull/34)
+addresses the long-standing mismatch between a green HTTP/API
+contract test and actual usable audio. Previously several tests
+used a fake `RIFF....WAVE` prefix or arbitrary `wav-data` as
+successful synthesized audio. The submitted change creates
+decodeable PCM WAV fixtures and requires the shared synthesis
+dispatcher and final public HTTP endpoint to verify the complete
+RIFF/WAVE container, uncompressed frame data, size and duration
+before returning a successful `audio/wav` result.
+
+Reusable invariant: **a transport success code, response content
+type, file extension and provenance header cannot substitute for
+validating the actual deliverable**. Make the binary artifact
+contract executable using independently generated positive
+fixtures and targeted invalid counterexamples. Preserve
+inference/lifecycle state correctly: a complete but invalid
+HTTP response is a 502 *result* failure, not proof the GPU
+is still running.
+
+At intake the first Linux/Windows run failed at test
+collection (future-import ordering in a modified test), and
+the corrected second run was pending. Audio content,
+speaker identity and real GPU field tests remain unproven.
+Candidate evidence only; no Canonical promotion.
