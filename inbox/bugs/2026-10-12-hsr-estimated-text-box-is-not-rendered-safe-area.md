@@ -45,3 +45,10 @@ HSR PR [#134](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/134) is
 - Collision-width checks now use the font path resolved for line breaking. A time scrubber can request a real FFmpeg/libass frame at the selected percentage without creating a second editor/state model.
 
 **Status:** mitigation code submitted in Draft PR, exact-head CI / libass pixel-mask validation / target-device acceptance pending. The core Bug about comparing actual rendered ink against the true SafeArea over effect-relevant time remains **OPEN**. No Canonical promotion or new duplicate Candidate. Existing HSR async-preview Case is related but remains separately recorded.
+
+
+## 2026-10-12 follow-up: sampled rendered-ink validation submitted
+
+HSR [PR #134](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/134) now includes commits `9e30e3f257879e522a83ba7b97c5e94ca2df1852` and `440c1bab4b7704ac3c5ba41b36c88bc875977a73`. The FastAPI/Termux Lite action `/api/subtitle-layout/inspect-rendered-ink` renders the same unsaved ASS trial at the requested fractional timestamp on black and white backgrounds and estimates the actual visible-pixel bounding box with a documented RGB contrast threshold 16. It compares against the single SafeArea and reports single-frame evidence separately from geometric validity. UI clears stale evidence when the trial payload changes.
+
+The original geometry bug is **partially mitigated, not closed**. The current method is a *single-time sample*, not a complete scan of Karaoke/kinetic states. Effects fainter than the threshold may be missed. Fully clipped offscreen glyph geometry cannot be reconstructed from the framebuffer, and final media configuration/device/font differences remain independent. No exact-head CI result or field pixel acceptance is inferred. Future work: bounded temporal sampling/full relevant timeline validation, explicit coverage reporting, and final saved-artifact identity. No Canonical promotion.
