@@ -205,3 +205,19 @@ were submitted. **Linux/Windows CI pending at intake**;
 actual IndexTTS/GPT-SoVITS inference and GPU drivers not
 tested. This is a deduplicated Candidate extension to
 cross-boundary invariants, **not Canonical**.
+
+
+### PR #33 validated group activity + lifecycle admission
+
+Final CVS PR #33 head
+`9171399a2037831ad289cad7ed5ce32114a9c7c6`
+passed Linux and Windows jobs in Actions run
+`38140671243` and merged into `main` as
+`1aa568047b2564e5f1e5eebacfa3fb2fc7ea66f8`.
+
+The evidence exercises cooperating CVS activity leases, durable
+inference receipts and mock cross-process group stop/switch refusal;
+it does not prove physical GPU process quiescence, external
+Supervisor cooperation, accurate real-model voice identity
+or valid WAV output. Keep this as Candidate evidence without
+Canonical promotion.
