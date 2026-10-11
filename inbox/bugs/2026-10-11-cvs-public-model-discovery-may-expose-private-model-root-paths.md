@@ -53,3 +53,34 @@ and `public model discovery leaks file paths` found no matching
 CVS Bug. Store as concrete **Bug**; source path confirmed, external
 network exploit or data exposure not field-tested.
 No Canonical change. Status **OPEN / tests and remediation Pending**.
+
+
+## Proposed repair and expanded public diagnostics audit — PR #35 (2026-10-12)
+
+[CVS PR #35](https://github.com/11576865/Character-Voice-Service/pull/35)
+head `c896744d9fe5e50b40a1d594069f2df5c362f36e` adds a
+bounded public-diagnostics response contract:
+
+- `list_models()` no longer copies raw FileNotFoundError/manifest
+  errors into anonymous discovery JSON. It reports a fixed
+  `model metadata unavailable` message with a stable
+  `model-metadata-unavailable` error code.
+- The public Registry 500 response omits the raw path-bearing
+  exception detail.
+- The public `/health` output uses an allowlist for engine ID,
+  normalized short status, boolean busy, finite active time and
+  short precision instead of forwarding arbitrary third-party
+  Sidecar health keys, host/model paths, internal request IDs or
+  raw exception texts.
+- Public profile/selection error strings no longer echo internal
+  validation or lookup exceptions.
+
+New tests create a real temporary Model Root, register a manifest,
+then delete/corrupt/mutate it to confirm that unauthenticated
+discovery never leaks its absolute path; they also inject malformed
+health payloads and host path errors. Linux full and Windows
+targeted CI were **in progress** in run `38160208039` at intake.
+
+This extends the previously filed concrete Bug rather than creating
+a duplicate; actual external exploitation is not claimed.
+No Canonical change or real GPU/Supervisor acceptance is implied.
