@@ -80,3 +80,14 @@ Product fix: unsaved rows now show `编辑`; the selected row is visually marked
 The actual 390px Chromium queue screenshot, `media-workspace-copy-segment-queue-390.png` in artifact `11709509544`, was extracted and reviewed. The first requested interval changed **in-place** from 0:00–2:05 to 0:00–2:04, the second remained 2:10–2:15, and the list stayed at two rows. Playwright additionally established edit cancellation preserved original row data, the revised IN/OUT reaches the compiled copy task, exported rows remain immutable when ranges are re-used, and prior Native mocked-save failure/retry did not re-encode.
 
 The product repair is accepted at exact-head **browser+CI level**. It does **not** demonstrate physical Windows Native or Android SAF file-dialog behavior, keyframe-boundary accuracy across real videos, or long-form GPU/HDR/VFR field tests. Those remain FIELD-PENDING. This is still a **Candidate** / source-backed Case-level insight, not an automatically promoted Canonical requirement.
+
+
+### PR #102 observed phone queue reachability
+
+Date: 2026-10-12. Status: **Browser-observed layout problem; targeted product correction committed, CI Pending**. Product PR https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/102, source head `3df7c7cccba494ace858a31f4d97847d9e350111`.
+
+The prior, actually captured PR #101 390px tall Chromium screenshot `media-workspace-copy-segment-queue-390.png` (artifact `11709509544`) showed IN/OUT at the very top of the workbench and the queued clip list below the expanded audio waveform, keyframe preview and two separate frame images, approximately 1,500+ vertical pixels away. For the task “set range → add a second/third clip”, that long control-to-result distance introduces repeated scrolling and hides the batch concept even though the feature itself passes all previous automated function tests. This is a **separate UI placement / task proximity defect**, not another task-engine bug.
+
+Bounded design change: reparent the *same* queue panel beside IN/OUT (ahead of the optional advanced timeline), preserving all original buttons/event ownership and single-clip path; increase visible queue buttons to minimum 44px and add real Chromium geometry tests for 390px mode plus 320px/24px-root-font (150% root scaling) with horizontal overflow and button hit-target checks. The test captures a new 320px queue screenshot. The 24px root simulation cannot substitute for physical Android OS scaling, touch, accessibility, or SAF export acceptance.
+
+Latest-head Frontend/Playwright, Windows smoke, UIGS CI and actual changed screenshot **Pending External Validation**; do not merge if red. This is a Candidate/Case-level example of reducing interaction distance between a primary input and its task action, not a new Canonical rule.
