@@ -113,3 +113,17 @@ This strengthens the Candidate with a complete execution sequence:
 `diverged stale branch -> semantic replay on authoritative main -> unrelated-diff elimination -> current-main invariant preservation -> green CI across unit/native/emulator lanes -> ready-for-review boundary`.
 
 This remains Candidate evidence, not Canonical policy.
+
+
+## QHE legacy PR #65 / #66 semantic replay — 2026-10-11
+
+QHE had two open, stale contributions dating from 2026-10-06:
+
+- [#65](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/65): browser Stream Plan v4 UI-to-execution E2E test, old head `a63c7b32921b13e7cb33fce01aef8defe7bbe547`, old Frontend CI **failed** at a later snap-to-keyframe assertion (`check-media-ui.cjs:345`); this failure is not a rejection of its multi-stream test intent. Its exact multi-video and independent audio/video time-policy assertions were transplanted into the current main source tree, and a semantic two-parent integration commit `c89492c2f62b84b7d1acd50981ed28d1d53588c8` was pushed to the original PR branch. **New CI pending**; not merged.
+- [#66](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/66): standalone product-side `AGENTS.md` UIGS execution protocol. Current QHE main had no `AGENTS.md`; original protocol text alone was replayed on current main in two-parent commit `06653c8d1f897179bb12294f786a9073465898e8`. **Review/CI pending**; not merged.
+
+Both reconciliations use the latest authoritative main tree as the base, retain old head ancestry for auditable provenance, and avoid overwriting unrelated later product changes. Pending validation is distinct from a finished cleanup; neither old PR should be closed or declared implemented until integrated CI and review are acceptable.
+
+Separately, QHE [#90](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/90) passed four workflow checks and merged as `c1c7872016dbee4d0c199522a5ab7bfcf77d4665`; [#91](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/91) required replay atop that new main to preserve its UI progress recovery and #90 integrity work. #91 new head `7d3121958c1f693ce3c43227743bcf6b6b6be60f` remains **Pending integrated-head CI**; its prior `402a095e` workflow suite had passed.
+
+This is Candidate-level supporting evidence, **not** Canonical promotion.
