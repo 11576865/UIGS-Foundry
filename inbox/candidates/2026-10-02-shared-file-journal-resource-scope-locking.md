@@ -243,3 +243,28 @@ the cooperative durable receipt and process-scope acceptance tests,
 not physical GPU process/driver cleanup or an external Supervisor
 consumer. The earlier Pending CI status above is historical.
 No Canonical promotion.
+
+
+## Follow-up: producer-consumer E2E as a stronger verification boundary (2026-10-11)
+
+[CVS PR #29](https://github.com/11576865/Character-Voice-Service/pull/29)
+extends the previous external file-bridge single-flight implementation
+with an **independently launched test-only command consumer**. Unlike
+unit tests that monkeypatch HTTP health to return success, this
+process must read the actual top-level activation command and then
+bind a real loopback `/health` endpoint before CVS can reconcile the
+pending request. Fault injection delays the consumer's health until
+after CVS times out or kills the producing CVS controller; no duplicate
+activation command may be emitted.
+
+Reusable method: an apparent state transition is not sufficient proof
+of a cross-process protocol; test the **source artifact -> independent
+consumer -> observable effect -> durable reconciliation** chain.
+The actual external System Supervisor is absent from this repository,
+so the fixture cannot establish deployed interoperability or exact
+request-id acceptance. No real GPU was available or exercised.
+
+At the initial intake, Linux Actions succeeded on PR #29 head
+`05b04b0e7e0b2d55a7a87f183f674d2ea5d6d615`,
+Windows CI and merge still Pending. This augments the existing
+Candidate after duplicate search; do not promote to Canonical.
