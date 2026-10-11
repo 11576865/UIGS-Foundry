@@ -68,3 +68,34 @@ In `11576865/Character-Voice-Service`, [PR #20](https://github.com/11576865/Char
 - Evidence is **source+test implementation submitted, Pending CI**, not a verified production incident or a passing Linux/Windows workflow. Source PR is stacked on CVS #19; merge reconciliation remains outstanding.
 
 Dedup assessment: this is implementation evidence for the existing shared-resource-scoped synchronization Candidate, not a new generic lock rule. It also relates to the [CVS Model Registry Bug](../bugs/2026-10-10-cvs-model-registry-promotion-identity-integrity-gaps.md) as a concrete project repair. **No Canonical promotion.**
+
+
+## Follow-up: cross-process GPU engine slot ownership — CVS PR #24 (2026-10-11)
+
+Related project Bug: [CVS GPU slot process-local lock](../bugs/2026-10-11-cvs-runtime-gpu-slot-process-local-lock-allows-overlap.md).
+
+The same resource-scoped mutex principle applies beyond mutable files.
+CVS Runtime Supervisor can start a single-concurrency model engine assigned
+to a GPU `exclusive_group`. An `RLock` guarded only one Python server;
+two independently launched CVS interpreters could both see unhealthy
+engine endpoints during boot and start competing GPU workloads.
+
+[CVS PR #24](https://github.com/11576865/Character-Voice-Service/pull/24)
+adds a **persistent OS lease** per GPU group, kept open from before child
+creation until the owned child exits. Cooperative contenders fail
+immediately instead of starting another engine. Tests exercise two real
+Python interpreters, aborted lock owner, distinct groups and mock HTTP
+engine lifecycles. The relevant resource scope is the **shared GPU group**,
+not the individual HTTP endpoint, Python interpreter or model ID.
+
+**Important counterexample to overgeneralization:** the lease is held
+by the CVS **parent**. When that parent dies and a child remains alive,
+the OS releases the lease while the GPU is potentially still in use.
+External supervisors and unrelated processes that do not share the
+protocol also remain outside the lock. Therefore this is cooperative
+process-lifetime serialization, not proof of physical GPU ownership.
+
+At intake, code and tests are submitted but PR #24 CI and real
+hardware acceptance are Pending. Record as a cross-project evidence
+extension of this existing Candidate, **not a new Candidate or
+Canonical rule**.
