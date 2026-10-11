@@ -35,3 +35,10 @@ Actual production implementation now includes the optional Stream Copy range que
 Acceptance strategy: Node `src/clip-queue.test.mjs` plus Playwright source readiness, Copy-only queue, duplicate rejection, two range plans, unique filenames, Native result acknowledgment fence. Existing one-clip flow preserved by design. Latest-head frontend/Windows/UIGS CI, screenshots and physical Android SAF / Native dialog acceptance **Pending External Validation**; no product quality claim until evidence. External screens/FFmpeg GPU remain separate.
 
 Reusability hypothesis: model repeated sub-ranges as independent sequential tasks, preserve source identity, and explicitly fence asynchronous export confirmation between tasks. This is not sufficient for Canonical promotion without repeat observations and field acceptance.
+
+
+### First CI regression and test-contract repair
+
+PR #99 first post-checkpoint Frontend run `38140978460` failed in `src/studio-v3.test.mjs` before Playwright because the existing source contract required the `mediaInfoListener` declaration to contain exactly the original three functions. The implementation had correctly added `clearClipQueueOnSourceChange()` and `syncClipQueue()` to the same listener. The source test was too brittle; browser/runtime acceptance was **not reached**.
+
+A single bounded repair `bf9db1e877aa005378f134f2c57f2e8e63b104cb` replaces that exact-function-body regular expression with a contract that still requires `syncTaskActions()`, source invalidation and clip list refresh, but does not prohibit new correct work. Latest repair-head CI, actual export behavior and screenshot review remain **Pending External Validation**. No merge and no Canonical promotion.
