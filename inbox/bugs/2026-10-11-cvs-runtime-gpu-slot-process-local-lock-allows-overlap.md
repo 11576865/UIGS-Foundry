@@ -151,3 +151,24 @@ The scope excludes deliberately escaping descendants, outside process
 owners, driver/kernel issues and real GPU/IndexTTS workloads. Do not
 assert the process group or Windows job guarantee total GPU cleanup,
 and do not promote this single-project observation to Canonical.
+
+
+## PR #27 verified integration — 2026-10-11
+
+The final source PR #27 head
+`f2454aa9964df85a16773c173e0c371e60a54515` passed independent
+Linux `test` and Windows `windows-script-audit` jobs in GitHub Actions
+run `38128862977`, after correcting a first-run fake engine fixture
+(`TEST_PORT` was missing). The PR merged into CVS `main` as
+`0bc7fa8a15ecc30ef8962c6611d4eae30179c9b5`.
+
+Cross-platform tests exercise a disposable HTTP engine spawning a
+long-lived child. The POSIX test also covers the direct leader exiting
+while the descendant survives, the retained GPU lease and durable owner
+receipt, refused auto restart and explicit tree-wide cleanup. The
+Windows job tests cover the actual kill-on-close wrapper lifecycle.
+
+Evidence is **verified CI for simulated processes**, not a physical GPU
+allocation/driver guarantee, external Supervisor adoption, or a proof
+against deliberate process group/job escape. The earlier Pending note
+above is a historical capture only. No Canonical promotion.
