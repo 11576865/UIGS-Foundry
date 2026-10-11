@@ -211,3 +211,29 @@ claim field acceptance, real GPU process correctness, or
 noncooperating external System Supervisor coverage. This
 extends this previously filed serving-identity Bug rather
 than creating a duplicate or changing Canonical.
+
+
+## PR #33 merged after cross-platform in-flight lifecycle regression (2026-10-11)
+
+Final [CVS PR #33](https://github.com/11576865/Character-Voice-Service/pull/33)
+head `9171399a2037831ad289cad7ed5ce32114a9c7c6` passed
+GitHub Actions run `38140671243` (Linux `test` **success**,
+Windows `windows-script-audit` **success**). The branch had
+`behind_by=0`, eight intended files and was mergeable.
+It merged into CVS `main` at
+`1aa568047b2564e5f1e5eebacfa3fb2fc7ea66f8`.
+
+The nine added regressions prove that cooperating CVS inference
+admission prevents cross-process admin stop and same-group managed
+sibling handoff while mock synthesis is in flight. A killed mock
+inference controller leaves a durable pending group receipt and
+prevents blind new lifecycle actions even though its OS lock is
+released. The tests also verify local 400 rejection cleans its
+own receipt and same-thread nested startup works without bypassing
+an admitted inference.
+
+This replaces the earlier CI Pending snapshot, **but does not close
+the full serving-identity Bug**: noncooperating external owners and
+actual loaded speaker/model attestation remain unverified; real
+GPU/IndexTTS/GPT-SoVITS field tests and valid WAV acceptance are
+also outstanding. No Canonical change.
