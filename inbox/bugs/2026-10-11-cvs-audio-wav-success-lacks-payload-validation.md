@@ -109,3 +109,35 @@ constraints match the proposed 128 MiB/15-minute limits.
 No hardware acceptance is claimed. Do not close the Bug or
 update Canonical until actual final-head CI passes and
 remaining field evidence is separately tracked.
+
+
+## Final verification and merge — PR #34
+
+Final CVS PR #34 head
+`a6cccf87f84a443b84baf22f25558f9cbfddfcbc`
+passed GitHub Actions run `38142612530` with Linux
+`test` **success** (**297 passed, 1 warning**) and
+Windows `windows-script-audit` **success**.
+GitHub confirmed a mergeable 15-file scoped change
+with `behind_by=0`; the PR merged into CVS `main` at
+`b80cd78ee24493ce7d01f2a1f6e948f2d633b642`.
+
+The initial CI failure at test collection was repaired by
+moving the WAV fixture import below the module's
+`from __future__ import annotations`. The final CI
+success is attached to the **corrected commit**, not
+the failed predecessor.
+
+The source-level HTTP 200 -> arbitrary `audio/wav`
+contract gap is **repaired in the merged code and tested**
+with real PCM fixtures and invalid-body counterexamples.
+The shared dispatcher and public response gate now reject
+invalid complete WAV bytes before success, while bounded
+upstream reads prevent unlimited audio buffering.
+
+Remaining FIELD-PENDING: actual IndexTTS / GPT-SoVITS /
+third-party Sidecar output validation on real GPU hosts,
+the compatibility of 128 MiB / 900s limits with maximum
+supported workloads, and request-to-real-speaker/model
+identity. Do not reinterpret binary integrity CI as real
+audio quality/voice attestation. No Canonical promotion.
