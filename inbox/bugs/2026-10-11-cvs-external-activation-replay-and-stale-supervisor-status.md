@@ -77,3 +77,18 @@ failure mechanism. Related shared-resource locking Candidate covers
 the general multi-process coordination boundary. This record belongs
 under **Bug** and may extend the existing Candidate without changing
 Canonical from a single project observation.
+
+
+## Verification update — PR #26 merged
+
+Final PR #26 head `7e31f88a31e7d0ffbf6264ee939b648603ed536b`
+passed GitHub Actions run `38120009311`: Linux `test` and Windows
+`windows-script-audit` both **success**. It was merged into CVS
+`main` at `568f2cc6643dbae9b35e9632488d4575b5423227`.
+
+The previously Pending CI assertion above is now superseded by this
+observed result. Source CI covered simulated external health, file
+activation and two Python interpreters contending for the same lock.
+Live System Supervisor consumer interoperability, correlated
+request acknowledgments and real GPU process management remain
+FIELD-PENDING. No Canonical change.
