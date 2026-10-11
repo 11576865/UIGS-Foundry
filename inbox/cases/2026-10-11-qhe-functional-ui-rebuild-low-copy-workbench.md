@@ -175,3 +175,19 @@ QHE Studio v3 repaired head `e5964e9dda37cbbfa77197bba6e192eea694567b` achieved 
 Frontend screenshot artifact `11700645709` (media-workspace-screenshots) was reviewed for the corrected Copy and Transcode 1280px central editor placement, alongside hard-sub default source/viewer/inspector. Browser assertions confirm actual geometry and retention of the 320px mode reachability path. This settles PR #97 browser/CI acceptance only; do **not** claim that professional visual design quality has been universally established, or that physical Android accessibility, real NVIDIA GPU, HDR/VFR, long-video processing and QHE #77 field acceptance were completed.
 
 UIGS lesson remains at **Case** level: mode-dependent DOM reparenting in an editor-style responsive layout needs cross-mode geometry evidence; a green default-mode CI can conceal high-impact non-default-mode layout collapse. No automatic Canonical modification.
+
+
+## Studio v3 empty-source execution affordance — PR #98
+
+Date: 2026-10-11. Status: **Product fix committed / external validation Pending**, not merged.
+QHE: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/98
+Source commit: `6eda22a36bcfedbb5a647296958c85c1aec337fe`
+Previous stable main: `54cd4a92009425e0c3b099db117f4d4c23cd3b6a`
+
+A real Studio v3 1280px Chromium screenshot for **Copy** (`media-workspace-studio-v3-copy-desktop.png`) showed a green enabled **开始视频流复制 / 剪辑** button next to the source shelf's **未选择视频** state. Inspection of the actual `src/media-workspace.js` confirmed `syncTaskActions()` only disabled this primary action during busy/saving; there was no source/probe readiness gate. The UI's visual promise therefore contradicted the task's prerequisites. The backend still validated at submit, but that did not justify an apparently runnable primary action.
+
+Bounded product correction: use already-owned optional `videoIdentity()` and `mediaSnapshot()` hooks in `syncTaskActions()` to map three states: no video (disabled, **先选择视频**), selected but not probed (disabled, **先读取视频参数**), and ready (existing mode-specific Start label). Keep these optional to preserve isolated tool consumers, and preserve existing successful-output save/retry/cancel policy. Listen to the existing `quick-hardsub-media-info-changed` event to refresh the button; Windows-native file picker and selection recovery now dispatch this same event. Explicit disabled UI styling prevents the previous bright green action from appearing runnable.
+
+Regression work: existing Chromium smoke asserts no-input Copy and Transcode Start is disabled; in an isolated task fixture it transitions no video → selected/unprobed → probed/ready via the real event and then continues through existing task completion, cancellation, save/export and retry behaviors. Source/CSS tests were added, while keeping the current phone/tablet layout matrix.
+
+**Validation limits:** new PR #98 Frontend/Playwright, Windows local smoke and UIGS CI are Pending on exact current head, and no repaired screenshot has been reviewed. This is a source-backed bug and regression test, **not** acceptance of physical Android, screen reader or Windows NVIDIA GPU/HDR/VFR/long-film hardware. Add further acceptance evidence before changing this status. This stays in the existing QHE Case as a related observation; no Canonical promotion.
