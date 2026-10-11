@@ -148,7 +148,7 @@
           "path": "index.html",
           "expected_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2",
           "verified": true,
-          "current_blob_sha": "d4e37fbbe56e7fcc9e0f30e9945da1c79dbab7e4",
+          "current_blob_sha": "b01d1814a8b5c8f197952a0b29ca5fdf4ca210ec",
           "current": false,
           "actual_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2"
         },
@@ -156,7 +156,7 @@
           "path": "src/style.css",
           "expected_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4",
           "verified": true,
-          "current_blob_sha": "cbc40b2475293d847fa6eca93522dca767f97e40",
+          "current_blob_sha": "d6259f81304309252a631e81171c39bc406ad96a",
           "current": false,
           "actual_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4"
         }
@@ -174,13 +174,13 @@
           "path": "tests/desktop-layout.test.mjs",
           "expected_blob_sha": "2d22cda166cf235da744c4a9ef07cf5a00b0c087",
           "verified": true,
-          "current_blob_sha": "a435adf87f8683ded5c8b022f3aa442f3ee68eae",
+          "current_blob_sha": "2d1b476e6718ed7ba80094141d35f960ed21dd3f",
           "current": false,
           "actual_blob_sha": "2d22cda166cf235da744c4a9ef07cf5a00b0c087"
         }
       ],
       "source_verified": true,
-      "current_head": "d5669c6d9bb6ebdd6843ee8c7f651902c80c4d08",
+      "current_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
