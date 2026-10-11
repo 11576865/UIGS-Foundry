@@ -149,7 +149,7 @@ Reusable insights: semantic replay onto authoritative main must preserve proven 
 
 ## QHE historical branch retention audit after PR closure
 
-After QHE main became `2260227d0c2b1d191833e38f59af9900fca22391`, the REST open-PR list was empty; an earlier branch listing had shown 48 total refs, but a later branch comparison returned 404 for the just-merged `test/stream-plan-v4-ui-to-task` ref, consistent with a post-merge deletion (the complete current branch count was **not re-verified**).
+After QHE main became `2260227d0c2b1d191833e38f59af9900fca22391`, the REST open-PR list was empty; an earlier branch listing had shown 48 total refs, but a later branch comparison returned 404 for the just-merged `test/stream-plan-v4-ui-to-task` ref, consistent with a post-merge deletion (a subsequent direct branch-list verification confirmed **47 total refs**, **0 open PRs**, and absence of `test/stream-plan-v4-ui-to-task`).
 
 Eight named refs were selected for a bounded ancestry spot-check. Seven returned `diverged` (both main-ahead and branch-only commits): `fix/strict-budget-export-reverification` (26 main ahead, 2 branch unique), `feat/stream-plan-v4` (94/9), `feat/windows-bink2-import-adapter` (155/30), `feat/windows-bink2-import-adapter-v3` (91/5), `test/android-stream-plan-v4-emulator-acceptance` (91/5), `feat/budgeted-paired-refinement` (33/9), and `uigs-outbox` (380/191). The eighth was not found after merge.
 
