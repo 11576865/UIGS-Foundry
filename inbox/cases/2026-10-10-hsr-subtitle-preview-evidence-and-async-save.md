@@ -186,3 +186,10 @@ Evidence includes real ASS/SRT writer and overlay tests
 `tests/test_subtitle_cue_editor.py` coverage. This is an instance-level
 Case update linked to existing async-save ownership knowledge; Canonical
 guidance is not automatically changed.
+
+
+## Case continuation: explicit source/translation Karaoke boundary (2026-10-11)
+
+The HSR writer could previously apply source-language timing to the CHS target when source_language began with zh. Users clarified the product contract: official source text (English/Japanese/Korean) is read-only; the editorial Chinese translation is the editable field; Karaoke effects attach only to source-language Primary text, not to translated Chinese. Even a Chinese-only archive should not produce CHS Karaoke through the translation layer. The revision removes all CHS Karaoke/clip paths and preserves existing Primary behavior for non-Chinese source languages. It also labels editable Inspector original-language *trial sample* as preview-only, and differentiates immutable archived source from remote third-party index text comparison (while keeping CURRENT/REMOTE tokens).
+
+The validation matrix contains EN/JA/KO × discrete/smooth/clip and Chinese-only fallback, plus event-relative timing compensation. This updates the existing HSR Case about source ownership and preview evidence rather than creating a duplicate user-interface rule. No Canonical promotion or claim of actual speech forced-alignment quality.
