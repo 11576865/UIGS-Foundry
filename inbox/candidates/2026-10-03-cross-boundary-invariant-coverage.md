@@ -141,3 +141,26 @@ independent clients and backend restarts. Existing source CI did not
 establish this chain; regression design and hardware tests are still
 Pending. This is a deduplicated Candidate extension, **not
 Canonical promotion**.
+
+
+## Submitted CVS repair: make model serving an indivisible inference transaction (2026-10-11)
+
+[CVS PR #32](https://github.com/11576865/Character-Voice-Service/pull/32)
+extends the previous source audit with a cooperating multi-process
+endpoint-scoped model-switch/inference OS lock. A durable pending
+transaction survives an abrupt CVS controller death, because that
+process's OS lock can release while the actual backend keeps
+generating. With no backend model/epoch attestation, the repair
+explicitly reasserts both managed weights on every request rather
+than treating a client-side path cache as model residency evidence.
+
+New acceptance fixtures use an independent HTTP mock backend and
+two independent CVS interpreters to force model-switch races and
+controller death during inference; Windows CI now runs the
+previously omitted GPT-SoVITS and public API contract tests.
+
+**PR #32 is Pending CI at intake.** These are not real audio content,
+GPU, noncooperating backend clients or coordinated sibling-runtime
+teardown tests; source-correctness and test selection are distinct
+from field acceptance. Added here after deduplication, not to
+Canonical.
