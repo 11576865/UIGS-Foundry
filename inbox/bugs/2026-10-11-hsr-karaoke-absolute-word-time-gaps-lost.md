@@ -31,3 +31,12 @@ The `clip` implementation instead reads the absolute `start/end` timestamps, exp
 ## Intake disposition
 
 Bug candidate for HSR-specific repair. Do not promote a one-off finding into UIGS Canonical. 
+
+
+## Implementation update — HSR PR #133 (2026-10-11)
+
+The proposed repair is now committed on HSR branch `feat/hsr-archive-audit-karaoke-v1`, PR https://github.com/11576865/HSR-Voice-Archive-Builder/pull/133, exact submitted HEAD `cd695d76eac48b13827aa7ddb7c51d0982c4c6cf`.
+
+`subtitle_layout/ass_writer.py` emits ASS `\\kt` word onset anchors when word start differs from the preceding word end; it retains `\\k` / `\\kf` per-word active durations. Multiple rendered lines can retain karaoke where each source word maps wholly to a displayed line; splitting a word falls back to plain text. Tests cover onset gaps and multi-line mapping.
+
+An independent local FFmpeg/libass synthetic probe confirmed `\\kt` timing behavior, but PR #133 exact-head GitHub Actions is **Pending CI** at submission, and no physical device/full real archive acceptance is claimed. The implementation is **proposed repair**, not yet merged/main nor an audited production release. Canonical unchanged.
