@@ -33,3 +33,15 @@ The UI labels geometric estimation as safety clearance. Real glyph pixels and ef
 Related HSR case `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md` covers asynchronous preview provenance, but not the geometry/visible-ink distinction. Existing experimental `domains/reliability/test-patterns/TEST.RENDERED_EFFECT_DIFFERENTIAL.json` concerns verifying actual rendered effects and may support future testing; it does not already specify this Safe Area contract. Distinct Bug intake, not a Canonical amendment.
 
 Evidence level: source inspection and user screenshot, **not** instrumented libass pixel reproducer. Status Pending fix; Canonical unchanged.
+
+
+## 2026-10-12 continuation: mitigations submitted for review (not verified production fix)
+
+HSR PR [#134](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/134) is stacked on #133 → #132 and now proposes a source implementation at branch `feat/hsr-layout-safety-ratio-karaoke-preview` (initial commit `5ed706eae6f2f14921b5faee5bdbd1ef010ec4d0`, follow-up badge correction `6cdf8abb0e20cbe8a3f4f6ec546d8c0e702b66db`).
+
+- Defines a configurable `primary_region_ratio` (default 0.60) with project persistence, preview/export parity and UI slider, instead of the formerly hard-coded split.
+- The geometry diagnostic boxes and central-gap helper are off by default, while the single explicit SafeArea remains visible. The green pass explicitly says “几何估算通过 · 像素待验证” rather than claiming final pixel safety.
+- For explicitly positioned CHS/Primary `\\pos` events, ASS style MarginL/Right/V are set to zero to avoid potentially compounding layout SafeArea and style margins; original intake correctly did **not** establish that both had been applied, so the new change must be verified against libass output rather than described as a confirmed defect fix. Archive HUD retains margins.
+- Collision-width checks now use the font path resolved for line breaking. A time scrubber can request a real FFmpeg/libass frame at the selected percentage without creating a second editor/state model.
+
+**Status:** mitigation code submitted in Draft PR, exact-head CI / libass pixel-mask validation / target-device acceptance pending. The core Bug about comparing actual rendered ink against the true SafeArea over effect-relevant time remains **OPEN**. No Canonical promotion or new duplicate Candidate. Existing HSR async-preview Case is related but remains separately recorded.
