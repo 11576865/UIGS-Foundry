@@ -57,3 +57,10 @@ UIGS Intake: Bug. No promotion to Canonical.
 ## Audit re-open: direct same-ID legacy override bypasses basename ambiguity (2026-10-11)
 
 Review of HSR PR #133 exact head `a0d4b95712bf2fa320584224c49099afd0c2c80f` shows an adjacent unresolved entry path in `app/subtitles.py::_override_for_entry` (lines 133–144). When an old override has the same numeric item ID and filename but no `source_member_id`, the direct-ID clause accepts it even if the current manifest has multiple same-basename WAVs. The later fallback correctly uses `ambiguous_filenames`, but the direct clause runs first and does not check it. Therefore the previous fix is partial. Code-path evidence, not a runtime user-data corruption report. Recommended regression: two members `female/dup.wav` and `male/dup.wav`, legacy ID=1/filename=dup.wav with missing member identity, ensure no override is applied merely because an ID is reused. Do not update Canonical; triage before PR merge.
+
+
+## Repair checkpoint — direct identity fallback re-audited (2026-10-11)
+
+The same PR now disallows the direct same-ID bypass when a legacy record's filename or logical ID is ambiguous, and refuses completely identity-less old row-ID overrides on modern source-member-aware entries. Existing member identity must match when provided. Reset/replace also carries full manifest duplicate awareness; a reused numeric key is journaled as historical evidence before assignment to a different source. Tests cover same-basename chapter siblings and legitimate stable-member rebuild migration. Exact SHA `731b65a65a3c57595a05cb2a45ab34634a6dfeb4` passed [Python CI](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38135714940) and [browser evidence](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38135714983).
+
+Legacy overrides without identity cannot be proven against an old source revision; they are a separate migration risk, not proof that all historical data is validated. No Canonical promotion.
