@@ -101,3 +101,19 @@ possible descendants; separate System Supervisor or launchers without
 the same data root/protocol are not participants; an ambiguous receipt
 may require deliberate manual reconciliation. This is a follow-up under
 the existing concrete Bug, not a new Canonical requirement.
+
+
+## Verified integration: PR #25 (2026-10-11)
+
+The source PR #25 head
+`8136fce26f38179145997e97a99db2f2e6e623d5` passed GitHub
+Actions `38118913441`: both Linux `test` and Windows
+`windows-script-audit` concluded **success**. PR #25 was then merged
+into CVS `main` at `1d333d90ca36e0349f983a4b9278a8fcaae0da60`.
+
+This updates the previous `CI Pending` snapshot above. Cross-platform
+tests verified the durable receipt behaviors with disposable child
+processes, not with a real GPU, multi-generation TTS process tree, or
+independent external System Supervisor. The orphaned-child and
+manual-reconciliation limitations remain **FIELD-PENDING**. No
+Canonical promotion.
