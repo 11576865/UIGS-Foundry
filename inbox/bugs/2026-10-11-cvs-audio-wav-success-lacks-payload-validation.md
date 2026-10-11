@@ -63,3 +63,49 @@ Bug. The existing cross-boundary-invariant Candidate is relevant; do
 not duplicate a general Candidate or update Canonical.
 
 Status **OPEN / targeted regression and fix Pending**.
+
+
+## Submitted fix: unified PCM WAV boundary (CVS PR #34, 2026-10-11)
+
+[CVS PR #34](https://github.com/11576865/Character-Voice-Service/pull/34)
+introduces a **pure-Python bounded PCM/IEEE-float RIFF/WAVE
+validator** with exact file/chunk framing, format and sample
+parameters, positive complete audio frames, 128 MiB maximum
+upstream read and 900-second maximum reported duration.
+
+The existing GPT-SoVITS, IndexTTS and generic Sidecar adapters
+now use a bounded audio response read rather than blindly
+buffering arbitrary HTTP response bytes. The shared engine
+dispatcher verifies the WAV **after completing a confirmed HTTP
+synthesis and retiring its GPU activity receipt**, so a fully
+returned malformed result is classified as 502 Bad Gateway and
+is not confused with a backend still performing an inference.
+The public `/v1/audio/speech` route validates again before
+`save_wav` or successful provenance metadata is emitted.
+
+Existing contract tests that treated `b"wav-data"` and
+`b"RIFF....WAVE"` as successful synthesis output were
+replaced with genuinely decodeable PCM WAV fixtures. Tests
+also check JSON/HTML error bodies, truncation, invalid
+frame boundaries, wrong RIFF sizes/codecs, duration limits,
+and every engine dispatch path. The Windows suite now runs
+`tests/test_audio_validation.py`.
+
+**Initial PR #34 GitHub Actions run `38142518969` failed
+both OS jobs during test collection** because the newly
+added WAV fixture import in
+`tests/test_runtime_inference_admission.py` accidentally
+preceded its `from __future__ import annotations` statement.
+This was a test syntax failure, **not** evidence that audio
+validation itself passed or failed. Commit
+`a6cccf87f84a443b84baf22f25558f9cbfddfcbc`
+moved that import after the future statement. New run
+`38142612530` was in progress at this intake.
+
+The validator checks structural uncompressed WAV integrity,
+not whether the samples correspond to the requested character,
+whether they are audible, or whether real GPU and TTS model
+constraints match the proposed 128 MiB/15-minute limits.
+No hardware acceptance is claimed. Do not close the Bug or
+update Canonical until actual final-head CI passes and
+remaining field evidence is separately tracked.
