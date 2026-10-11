@@ -146,3 +146,26 @@ external/unmanaged model path is not backend-attested. Another
 is in flight because lifecycle admission/drain is a distinct
 unrepaired boundary. GPT-SoVITS response bytes still lack strict
 WAV validation. No Canonical promotion.
+
+
+## PR #32 CI verification and merge (2026-10-11)
+
+Final CVS PR #32 head
+`7cf2ecacaac8d5927addf50fd31cf7cbfe47747b`
+passed GitHub Actions run `38139136194` with both Linux
+`test` and Windows `windows-script-audit` concluding **success**.
+The seven-file main-relative change had `behind_by=0`, was
+mergeable, and merged to CVS `main` at
+`7d2ecd1d4e91b1aac77384c1729c2619475e3c8c`.
+
+The cooperative model switch/inference protocol and durable
+post-crash unknown-outcome behavior have now been verified with
+two real CVS Python processes and a disposable fake HTTP backend.
+No actual GPT-SoVITS weights, measured GPU activity, backend
+model-epoch attestation, unrelated/non-cooperating client, or
+in-flight shared-GPU sibling engine handoff was exercised.
+The last item remains a correctness hazard and must be addressed
+with a separate lifecycle admission/drain protocol.
+
+CI proven for this limited boundary; do **not** close the overall
+model identity correctness Bug or promote Canonical.
