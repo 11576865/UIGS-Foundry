@@ -199,3 +199,40 @@ The validation matrix contains EN/JA/KO × discrete/smooth/clip and Chinese-only
 ## CI evidence for original-language Karaoke role/pre-roll correction (2026-10-11)
 
 HSR PR #133 exact HEAD `83248e831b2440f1b8581d1f82f5dcebfc4a6547` passed [tests run 38119628856](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38119628856): Python 3.11/3.12/3.13 and Termux Lite dependency-surface; and [subtitle evidence run 38119628853](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38119628853): Chromium UI and FFmpeg/libass fixture tests. CI does not establish real official Japanese/Korean forced-alignment accuracy or physical-device acceptance. This PR remains unmerged and dependent on #132. No Canonical promotion.
+
+
+## Case continuation: source-revision-gated human translation retention (2026-10-11)
+
+HSR PR #133 continues the existing source/translation ownership contract
+under a more demanding archive-update scenario: the same original source
+WAV member is still present after a rebuild, but the archived official
+EN/JA/KO transcript has changed. An existing human `final_chs` correction
+must remain recoverable without silently being certified as translating
+the new source text. The original transcript is still strictly read-only.
+
+The implementation persists a normalized SHA-256 of the official source
+transcript **only in newly saved human Chinese override sidecars**. If
+the official source changes, the prior Chinese override is retained but
+excluded from new derived ASS/SRT, the previous review-confirmed state is
+not displayed as confirmed, and the proofreader displays old Chinese text
+as read-only comparison evidence with a revision warning. A human can save
+a newly reviewed Chinese translation, binding it to the new source text.
+Legacy human corrections without old fingerprints remain supported because
+prior releases never recorded that evidence.
+
+`translation_override_stale` and previous old human text are computed only
+for the API/proofreading view and **never** introduced as Manifest fields.
+Tests cover source-change detection, old sidecar byte retention, no
+canonical-source modification, stale final-CHS exclusion from SRT, re-review,
+whitespace-only normalization, legacy migration and UI warning visibility.
+
+Code+test checkpoint
+`f78f27ee79ad4c666af4e0ecf7b4da01e1f7a346` passed
+[Python/Termux CI](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38132938938)
+and [Chromium/libass CI](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38132938954).
+Subsequent documentation-only changes must be verified at their exact head.
+
+This case extends previous human-cue optimistic concurrency and data ownership
+work; it does **not** define new Karaoke on translated Chinese, editable
+official source text, universal multilingual forced-alignment accuracy, or
+canonical release acceptance. No UIGS Canonical promotion.
