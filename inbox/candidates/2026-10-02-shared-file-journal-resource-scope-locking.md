@@ -127,3 +127,33 @@ This verifies mocked Linux/Windows process-identity and receipt
 regressions, **not** physical GPU-orphan recovery. The original Pending
 note is historical; the hardware/independent-supervisor gap remains.
 Candidate only, no Canonical promotion.
+
+
+## Follow-up: file-command idempotency for external runtime activation (2026-10-11)
+
+[CVS PR #26](https://github.com/11576865/Character-Voice-Service/pull/26)
+applies the shared-resource-scoped synchronization principle to a
+**file-based command inbox** owned by an external System Supervisor.
+
+Before this repair, CVS could concurrently publish several
+`activate-engine` messages for the same service from independent
+processes, and a timed-out activation left no durable identity blocking
+later duplicate submission. The submitted change scopes the OS lock to
+the canonical request directory plus exact `service_key`, and persists
+a pending request identity **before** publishing the command. Concurrent
+or subsequent callers do not replay while outcome is unconfirmed.
+Internal pending state is kept outside the top-level `*.json` command
+inbox, so a consumer cannot mistake it for a command. Live health
+observations, rather than an asynchronous stale status file, decide
+whether the external endpoint is actually ready.
+
+This is an example of **single-flight admission plus durable uncertain
+outcome**, not an exactly-once guarantee from the external consumer:
+only a correlated System Supervisor acknowledgment could establish
+that a particular `request_id` was acted on. A failed or interrupted
+publication can conservatively require operator reconciliation.
+
+At intake PR #26 has implementation and 15 fake-engine / OS-lock
+regression tests submitted, with **Linux/Windows CI Pending** and real
+System Supervisor interoperability FIELD-PENDING. Append to the
+existing Candidate after deduplication, **not Canonical**.
