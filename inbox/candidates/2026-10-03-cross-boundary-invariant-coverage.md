@@ -180,3 +180,28 @@ backend restart stale-cache avoidance and fail-closed durable
 unknown-inference-state after CVS death. Physical voice/GPU correctness,
 noncooperating clients, and active-request-aware GPU sibling
 handoff remain unproved. Candidate only; no Canonical promotion.
+
+
+## GPU group handoff must share inference admission (CVS PR #33, 2026-10-11)
+
+[CVS PR #33](https://github.com/11576865/Character-Voice-Service/pull/33)
+extends the serving transaction correctness work after PR #32:
+per-backend model-weight locks cannot prevent a **different**
+managed GPU engine from auto-stopping the entire process that
+currently serves an inference. A one-shot health/busy check is
+also subject to a check-then-act race.
+
+The proposed implementation uses a single cross-process
+**group activity lease** for beginning inference and all
+managed lifecycle operations, with a durable inference-pending
+receipt when the controller dies mid-request. It explicitly
+distinguishes this from both the persistent process lifetime
+lease and the endpoint weight-switch transaction lock.
+A locally rejected request does not permanently poison the group.
+
+Nine tests with a disposable live managed HTTP runtime, real
+interpreter-held group lease and controlled controller death
+were submitted. **Linux/Windows CI pending at intake**;
+actual IndexTTS/GPT-SoVITS inference and GPU drivers not
+tested. This is a deduplicated Candidate extension to
+cross-boundary invariants, **not Canonical**.
