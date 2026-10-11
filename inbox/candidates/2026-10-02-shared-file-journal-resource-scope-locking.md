@@ -190,3 +190,17 @@ to missing `TEST_PORT` test fixture setup; subsequent CI is Pending.
 Actual GPU, intentional process escape and external System Supervisor
 cases remain FIELD-PENDING. This is a deduplicated Candidate extension,
 not Canonical.
+
+
+### CI evidence update — CVS managed process-tree containment
+
+Final [CVS PR #27](https://github.com/11576865/Character-Voice-Service/pull/27)
+head `f2454aa9964df85a16773c173e0c371e60a54515`
+passed GitHub Actions `38128862977` on Linux and Windows and merged
+to main at `0bc7fa8a15ecc30ef8962c6611d4eae30179c9b5`.
+
+The first CI failure was a missing fake-engine `TEST_PORT` fixture,
+not a verified process tree design failure. This second CI run exercises
+mock TTS-descendant teardown, Linux orphan session checks and Windows
+Job Object execution. Real GPU, external lifecycle owners and process
+escape scenarios remain FIELD-PENDING; no Canonical change.
