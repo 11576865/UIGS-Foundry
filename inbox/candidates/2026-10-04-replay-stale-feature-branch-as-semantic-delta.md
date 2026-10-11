@@ -127,3 +127,12 @@ Both reconciliations use the latest authoritative main tree as the base, retain 
 Separately, QHE [#90](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/90) passed four workflow checks and merged as `c1c7872016dbee4d0c199522a5ab7bfcf77d4665`; [#91](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/91) required replay atop that new main to preserve its UI progress recovery and #90 integrity work. #91 new head `7d3121958c1f693ce3c43227743bcf6b6b6be60f` remains **Pending integrated-head CI**; its prior `402a095e` workflow suite had passed.
 
 This is Candidate-level supporting evidence, **not** Canonical promotion.
+
+
+## QHE legacy cleanup acceptance update — 2026-10-11
+
+- QHE [PR #91](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/91), semantic refresh-progress recovery head `7d3121958c1f693ce3c43227743bcf6b6b6be60f`, passed all three integrated Frontend, Windows local smoke and UIGS checks; **merged** into main at `8508545cc0c35408dbfb53a520e04c11001e2825`.
+- QHE [PR #66](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/66) added only the standalone product-side `AGENTS.md`; after file-delta review it was **merged** into main at `5ea28881b5bb8d3aa16d0726c9d57d7867a11e21`. This is a repository protocol addition, not real-world media acceptance.
+- QHE [PR #65](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/65) reconciled head `c89492c2f62b84b7d1acd50981ed28d1d53588c8` **failed** Playwright after the new test leaked `end=0:03` into an unrelated keyframe-snap test that needed to place IN at 8:00. `media-workspace.js` legitimately clamps the requested IN to the current OUT. This failure was not proof of a production keyframe defect. Branch repair now resets the form and mock-media fixture after its new multi-stream assertion, retaining the current main changes as a semantic merge. New #65 head `490221e3fba947e64ebd5bbf80207308172a4692`, based on main `5ea28881b5bb8d3aa16d0726c9d57d7867a11e21`; Frontend CI run `38117809648` **queued / Pending** when submitted. Do **not** claim this stale PR cleanup is complete or merge it before successful new CI.
+
+This adds a reusable failure mode: a new browser E2E case can alter persistent UI state and make a later unrelated assertion fail despite correct production clamping. Restore scenario state before handing control back to a shared fixture. Candidate only, not Canonical.
