@@ -45,3 +45,16 @@ Some current failure may be an incorrect CSS breakpoint or an outdated E2E expec
 Research context (not a mandate to copy): MKVToolNix GUI associates source files, tracks and mux options with project configurations; LosslessCut exposes an accessible Tracks editing entry and export overview. Their interaction constraints differ from browser-local FFmpeg and ASS preview.
 
 No Canonical promotion.
+
+
+### 2026-10-12 implementation integration checkpoint
+
+Product PR #74 now contains a bounded, **submitted but not yet browser-verified** implementation of the composition-first Candidate:
+- A pure projection `src/output-composition.js` (13+ Node safety cases in product CI previously exercised) becomes a visible `#outputCompositionPanel` containing one output-row collection. It derives from the existing scanned stream and edited track state, external subtitle/audio state and selected fonts. IDs are stable; removed tracks remain inspectable and do not count toward output.
+- Row selection routes back to the existing source stream inspector, external subtitle/audio metadata controls or font controls, rather than creating new writable state. The populated-state dropzone collapses; the full source/tree/recognition evidence remains in native `#sourceFilesDetails`, which auto-opens for unrecognized input or ambiguous main source. Full mux-plan rows are behind another explicit `<details>`, while important plan warnings remain independently visible.
+- Phone source/editor work areas get buttons that call the existing `#muxBtn` and mirror its disabled state. This reduces mandatory source→edit→output tab hopping but is **not yet equivalent to the proposed single-screen contextual editor sheet**, so visual acceptance is open.
+- Product source and browser assertions were added for output projection, external audio/subtitle navigation, original inspector identity and secondary-source disclosures. The exact-head CI and new CJK screenshots are **Pending**, so no claim of UI acceptance or shipped behavior follows.
+
+Observed prior product CI failure: a desktop test measured `#assetInspectorHost` while the editor was hidden before selecting an output object (zero rectangle); the assertion has been moved after explicit selection. This only resolves an outdated test precondition; it does not prove actual geometry until the new browser run succeeds.
+
+This adds implementation evidence under the existing Candidate and **does not change Canonical**.
