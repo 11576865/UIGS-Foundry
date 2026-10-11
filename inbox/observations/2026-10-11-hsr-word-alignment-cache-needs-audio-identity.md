@@ -31,3 +31,12 @@ This is a stale-cache risk inferred from code, not a demonstrated production fai
 ## Intake disposition
 
 Observation, not yet a confirmed runtime Bug or a Canonical UIGS requirement.
+
+
+## Implementation update — HSR PR #133 (2026-10-11)
+
+The proposed improvement is now committed on HSR PR https://github.com/11576865/HSR-Voice-Archive-Builder/pull/133 (submitted head `cd695d76eac48b13827aa7ddb7c51d0982c4c6cf`).
+
+`app/word_alignment.py` stores `source_audio_sha256` with new imported word-alignment records, and requires it to match the current manifest SHA-256 when the manifest carries a valid hash. Records without this new evidence become stale rather than silently reusing timings after unchanged text/duration. A new regression changes the audio identity without changing the text/duration. The initial migration intentionally treats legacy entries lacking this hash as stale under new manifests; fallback for legacy manifests without WAV hash retains limited text/duration validation.
+
+The separate HSR archive audit (same PR) reports provenance coverage by group but is explicitly structural only: it does not recompute WAV hashes. Status: **submitted, Pending CI**, not mainline-merged or physically verified. Canonical unchanged.
