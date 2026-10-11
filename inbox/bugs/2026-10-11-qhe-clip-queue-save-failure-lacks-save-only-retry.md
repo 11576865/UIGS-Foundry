@@ -23,3 +23,10 @@ Source-based diagnosis at QHE main `2c4ee1db6513a9778a6a4b08228cc9b93088b910`. N
 ## UIGS Intake boundary
 
 Dedup queries `QHE multi clip save failure verified retry`, `QHE Native save dialog queue jobId failed output`, `无损剪切 多片段 保存失败 重试` found the prior design Candidate and general QHE Case but no bug specifically covering failed per-clip Native Save recovery. Record as Bug; do not promote to Canonical based on this single source-backed case. Latest-head Frontend, Windows smoke and UIGS acceptance remain **Pending External Validation** at intake.
+
+
+## First CI evidence and bounded repair
+
+PR #100 first head `6ecfbe59c03b28833389c7c3a9766335eae27ff8` completed Windows local smoke `38143033963` SUCCESS and UIGS Evidence Coverage `38143033965` SUCCESS. Frontend/Playwright `38143033916` entered the new failed-save workflow, then failed with **Failed Native save lacked recovery guidance**. The product defect was that the outer catch replaced the specific save-only instruction with a generic message after `clipAwaitingSave` had already been set; the test correctly exposed real user-facing copy drift. It did not reach the subsequent save-only retry assertions.
+
+The bounded follow-up `7b26c4fd2242b6de234287fa771b00ef4ea22c6d` preserves explicit **重试保存，无需重新剪切** text when a verified copy job's save fails. It also blocks a programmatic `form.requestSubmit()` while verified output is pending, supplementing disabled buttons. Browser smoke includes an assertion that this direct submit does not start any new encoder job. **Latest-head Frontend, Windows and UIGS CI Pending External Validation**. Do not merge on prior success or promote to Canonical.
