@@ -52,3 +52,8 @@ permits fallback only when the stronger identifier was never present and
 its uniqueness is established; do not substitute a different voice file.
 
 UIGS Intake: Bug. No promotion to Canonical.
+
+
+## Audit re-open: direct same-ID legacy override bypasses basename ambiguity (2026-10-11)
+
+Review of HSR PR #133 exact head `a0d4b95712bf2fa320584224c49099afd0c2c80f` shows an adjacent unresolved entry path in `app/subtitles.py::_override_for_entry` (lines 133–144). When an old override has the same numeric item ID and filename but no `source_member_id`, the direct-ID clause accepts it even if the current manifest has multiple same-basename WAVs. The later fallback correctly uses `ambiguous_filenames`, but the direct clause runs first and does not check it. Therefore the previous fix is partial. Code-path evidence, not a runtime user-data corruption report. Recommended regression: two members `female/dup.wav` and `male/dup.wav`, legacy ID=1/filename=dup.wav with missing member identity, ensure no override is applied merely because an ID is reused. Do not update Canonical; triage before PR merge.
