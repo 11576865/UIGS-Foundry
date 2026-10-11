@@ -27,3 +27,49 @@ HSR PR #133 now defaults to **empty** remote selection, revalidates Manifest and
 Synthetic tests cover job concurrency and static publication contracts; exact code/test checkpoint `731b65a65a3c57595a05cb2a45ab34634a6dfeb4` passed [Python](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38135714940) and [Chromium/libass](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38135714983).
 
 **Open:** no tested atomic transaction across multiple OS processes or external filesystem mutations; config switch, final user build and provider source revisions are not one atomic commit. Old version directories are not garbage-collected automatically. Crash-injection and large real archive data remain pending. Keep as Observation, not Canonical.
+
+
+## Journaled two-phase remote publication and guarded rollback (2026-10-12)
+
+The existing HSR source-review Observation has advanced from *versioned
+resource staging only* to a bounded recoverable publication protocol on
+[PR #133](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/133):
+
+- `app/remote_update_publish.py` records original project-config, index,
+  and Manifest SHA-256 snapshots and validates all three again immediately
+  before config publication. Published selected WAVs must match exactly
+  one row each in the new index with correct `source_member_id`; the files
+  must be present in the new version directory.
+- An atomic `incremental_revisions/<uuid>.json` **prepared** journal
+  precedes project config replacement, preserving the complete original
+  project settings and the hashes of both old and intended new config.
+  The later **committed** journal is not itself trusted as evidence:
+  read-only inspection compares hashes of the actual disk config.
+  If power/process termination occurs between config replacement and
+  final journal marking, it reports `applied_unfinalized`.
+- An explicit preview→confirmed rollback API/UI action is allowed only
+  if the relevant version is still active, its project SHA has not changed
+  since preview, the Manifest is unchanged, and the prior source/index still
+  exist. It restores the prior config atomically but retains all resources.
+  The rollback job is serialized with build and incremental Apply in-process.
+- FastAPI and Termux Lite share the same publication helper and
+  `/api/update/revisions` plus `/api/update/rollback` routes. Termux
+  Lite's incremental CSV now includes the same explicit `source_member_id`
+  column and duplicate member protection as FastAPI.
+
+`tests/test_remote_update_publish.py` injects failure before config save
+and between config replacement and journal finalization, tests inspection
+and guarded rollback, changed Manifest/config/index denial, and incomplete,
+duplicate or member-mismatched selected WAV/index combinations. Additional
+tests cover same-project rollback/build exclusion and route parity.
+Code+tests SHA `3b777564170ea651f373e38be33b7f22198c8d9d` passed
+[Python 3.11/3.12/3.13 + Termux surface](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38159748776)
+and [Chromium/libass browser evidence](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38159748801).
+Documentation-only commit after this checkpoint must be checked separately.
+
+**Still open:** No cross-process commit lock, complete multi-file ACID
+transaction, live power-loss test, real large HSR archive integration,
+or automatic old-version pruning. Journal metadata does not prove provider
+origin content is trustworthy or actual downstream final archive rebuild
+success. This is project-specific Observation evidence, **not a new Canonical
+rule**.
