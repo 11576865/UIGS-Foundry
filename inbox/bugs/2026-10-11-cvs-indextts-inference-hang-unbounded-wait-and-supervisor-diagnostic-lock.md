@@ -78,3 +78,19 @@ refusal and a recovery policy, not merely a mutex; diagnostics must stay
 responsive when lifecycle operations are slow.
 
 This record is classified **Bug**, not Canonical.
+
+
+## Windows CI failure and follow-up — 2026-10-11
+
+The initial [PR #22](https://github.com/11576865/Character-Voice-Service/pull/22) workflow `CVS tests`, run `38115596012`, completed with:
+
+- Linux `test`: **success**.
+- Windows `windows-script-audit`: **failure** — 22 passing targeted tests and one failing `test_inference_watchdog_terminates_stalled_child_process`, raising `subprocess.TimeoutExpired` after four seconds while `subprocess.run(..., capture_output=True)` was awaiting process/pipe completion.
+
+The traceback showed a process object with `returncode=1` while Python was still waiting for a redirected pipe reader thread to finish. This is evidence of a Windows-specific **test/process-output wait defect or abnormal exit**, but **does not itself prove** the underlying cause is an inherited pipe handle or that the engine watchdog succeeded. Avoid converting this test failure into a runtime cancellation claim.
+
+The repair commit on #22 changes both subprocess-based watchdog tests to redirect stdout/stderr into an ordinary temporary file, asserting the exact process return code and reading the recorded log *after* `wait` has returned. This distinguishes actual watchdog failure from waiting indefinitely for a captured PIPE EOF and yields diagnostics if the exit code is wrong.
+
+Because CVS [PR #21](https://github.com/11576865/Character-Voice-Service/pull/21) merged the separate Model Registry infrastructure into `main`, #22 also received a reviewed two-parent reconciliation commit `21439209b3704fee8410bef07eb9d61137a17641`, preserving both the model-registry Windows test suite and new IndexTTS targeted Windows test suite. The PR's main-relative delta is now only 10 expected files, `behind_by=0`, mergeable according to GitHub at inspection.
+
+**Verification of this follow-up commit remains Pending CI** and real IndexTTS/GPU recovery remains FIELD-PENDING. No canonical promotion; this is added evidence within the existing Bug, not an independent generalization.
