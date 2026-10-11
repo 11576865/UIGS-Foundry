@@ -166,3 +166,16 @@ Deduplication searches for `inventory removal focus restoration`, `keyboard focu
 **Phase 8 verified evidence (latest Draft head `9596b2606f77a4dd2ee1a5e62f54f9873799dfa4`):** GitHub Actions [Chromium run #38060726820](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38060726820) **completed success** with **186/186 Node tests, zero failures, all Browser E2E scenarios PASS**. The browser suite explicitly performs Enter-triggered removal of the last unsupported resource in both the single and batch inventories, verifies focus moves to the neighboring surviving item, and Space-triggered radio source selection with focus restored by stable asset key. Pages run #38060726823 succeeded on the same head. Artifact #11672494573 carries fixture-backed interface screenshots (not newly inspected in this phase).
 
 This upgrades the preceding focus-continuity proposal from source-derived checks to **tested keyboard behavior in real Chromium**; it does not prove screen-reader announcements, assistive-tech compatibility or human usability. Draft PR remains unmerged; no Canonical change.
+
+
+## Phase 9 — retire categorized legacy presentation without removing live execution adapters (2026-10-11)
+
+Source: [MKV-Fast-Muxer PR #73](https://github.com/11576865/MKV-Fast-Muxer/pull/73), branch `ui/unified-workbench-redraw-legacy-cleanup`.
+
+The integrated content-first UI from PR #69 still carried a hidden four-category single-task picker plus a **visible, manually expandable categorized batch intake** for backward compatibility. This created two competing user-visible ingress models even though the audited executor already supported one content-first inventory.
+
+PR #73 removes both historical **presentation surfaces**, including associated batch visual styles and user-facing legacy instructions, while keeping the exact underlying file input IDs in `hidden inert` runtime adapter containers. It renames the still-functional source-track bulk editor from “传统轨道批量工具” to “高级轨道工具” rather than falsely treating a reachable advanced capability as dead code. The workbench redraw adds a first-class Discover → Inspect/Edit → Verify/Export overview, local/Stream Copy/MKV-only contract labels, responsive visual tokens, and explicit native task navigation.
+
+**Reusable boundary:** when migrating an input architecture, a legacy *presentation affordance* may be removable earlier than the executor's legacy *input adapter*. Removing a visible path must not be conflated with removing the dependency. Keep adapters nonvisual, explicit and regression-covered until domain-state-to-executor migration is proven. The relevant safety test is that there is only one public import model while controlled adapter injection still honors readiness, resource isolation and output audit semantics.
+
+Evidence at intake: code and test changes are pushed in PR #73; its exact-head Node/Chromium CI, real populated viewport screenshots and Pages deployment were **Pending**. No claim of successful visual acceptance, mux regression or full adapter removal is made at this stage. This refines the existing Candidate and does not authorize a Canonical promotion.
