@@ -166,3 +166,12 @@ Evidence boundary: the source repair has been pushed; latest-head Frontend/Playw
 The repair head e5964e9dda37cbbfa77197bba6e192eea694567b passed Frontend+Playwright run 38134035730 and UIGS Evidence Coverage run 38134035779. The newly captured Frontend artifact media-workspace-screenshots ID 11700645709 was extracted and inspected: media-workspace-studio-v3-copy-desktop.png (1280 x 1930) now shows the live Copy editor in the central pane, not the source shelf; media-workspace-studio-v3-transcode-desktop.png (1280 x 3338) likewise places the full Transcode editor centrally. The fixed DOM and actual browser geometry agree. The original copy screenshot was 1280 x 3272 and predominantly empty to the right of the narrow editor; the repair is a major spatial regression fix, not merely a style adjustment.
 
 Latest Windows local smoke was still in_progress on the first post-repair status read (run 38134035725), so exact latest-head PR #97 merge acceptance stays Pending; no physical GPU/Android field acceptance is claimed. No Canonical promotion.
+
+
+### Final PR #97 merge and exact-head validation closure
+
+QHE Studio v3 repaired head `e5964e9dda37cbbfa77197bba6e192eea694567b` achieved **success on all three exact-head workflows**: Frontend+Playwright `38134035730`, Windows local smoke `38134035725`, UIGS Evidence Coverage `38134035779`. PR [#97](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/97) was successfully **merged** at `a502c7258dc07e81c1722e1ef3e93052e039992d`. Main task checkpoint commit `54cd4a92009425e0c3b099db117f4d4c23cd3b6a` reconciles earlier Pending labels.
+
+Frontend screenshot artifact `11700645709` (media-workspace-screenshots) was reviewed for the corrected Copy and Transcode 1280px central editor placement, alongside hard-sub default source/viewer/inspector. Browser assertions confirm actual geometry and retention of the 320px mode reachability path. This settles PR #97 browser/CI acceptance only; do **not** claim that professional visual design quality has been universally established, or that physical Android accessibility, real NVIDIA GPU, HDR/VFR, long-video processing and QHE #77 field acceptance were completed.
+
+UIGS lesson remains at **Case** level: mode-dependent DOM reparenting in an editor-style responsive layout needs cross-mode geometry evidence; a green default-mode CI can conceal high-impact non-default-mode layout collapse. No automatic Canonical modification.
