@@ -119,3 +119,14 @@ Dedup: existing records cover stacked-PR collapse, content-equivalent
 ancestry merge and post-sync diff auditing; this is an incremental
 **Observation** about exact full-tree identity and a fresh main parent,
 not a new Canonical rule. No Canonical promotion.
+
+
+## Confirmed integration completion and successor reconciliation — 2026-10-11
+
+The previously Pending CVS consolidation [PR #21](https://github.com/11576865/Character-Voice-Service/pull/21) has now passed both GitHub workflow jobs (Linux `test` and Windows `windows-script-audit`), was reported mergeable, and merged into `main` at `fdf1c88e2b49e38cfb8e457785d8d18f30095617`. The original stacked PRs #14–#20 were each annotated as **superseded by #21** and closed **unmerged**, preserving truthful review provenance.
+
+A separate, meanwhile-developed [IndexTTS hang PR #22](https://github.com/11576865/Character-Voice-Service/pull/22) still branched from the old main and overlapped the main's `README.md` and `.github/workflows/test.yml`. The repair branch was reconciled by constructing a Git tree from the **new main**, carrying over its eight nonoverlapping files and semantically combining both sides of README and the Windows test matrix. A two-parent merge commit `21439209b3704fee8410bef07eb9d61137a17641` retained the old PR head and the new main as parents; the branch ref advanced with an expected-SHA check.
+
+Post-reconciliation compare reported `behind_by=0` and only the intended 10-file IndexTTS/runtime/watchdog delta, and GitHub recalculated PR #22 as mergeable. **Fresh PR #22 CI remains a separate gate**, since it had a previous failed Windows subprocess test before this merge commit.
+
+The cross-project method is supported by multiple independent steps: audit exact source tree, consolidate only validated code into main, mark earlier PRs superseded rather than falsely merged, and reconcile later overlapping work using reviewed changes on current main. This is still an **Observation**, not Canonical; no fresh real-GPU acceptance was performed.
