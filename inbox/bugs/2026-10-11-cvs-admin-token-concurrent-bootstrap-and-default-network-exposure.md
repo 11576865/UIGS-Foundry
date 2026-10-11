@@ -77,3 +77,28 @@ Canonical change.
 
 CI for the PR was still Pending at intake. No real network exposure,
 unauthorized access or corrupted host admin tokens are claimed.
+
+
+## Repair refinement: readers must hold the same bootstrap lock (2026-10-11)
+
+During review of PR #31's initial patch, a second source-level race
+was identified: `O_CREAT|O_EXCL` alone prevents a second token writer,
+but a reader may observe a **nonempty, incompletely flushed** token
+while the winner still holds its open file. The patch was corrected to
+use the existing cross-platform `acquire_runtime_slot("admin-token",
+DATA_DIR)` OS lease for **both token creation and token reading**.
+The lock file is persistent and must not be deleted. The creator also
+uses O_EXCL and fsync; the second process waits for release and reads
+the completed shared token. If the only stored token is empty after
+exclusive acquisition, bootstrap fails closed rather than rotating it.
+
+An **eighth** regression test creates a separate process that holds
+the exact bootstrap lock, writes only half an admin token and pauses;
+a second independent interpreter must remain blocked until the
+writer finishes and releases the lock, then read the complete token.
+
+Latest PR #31 head at this observation:
+`cdb4bc68534f5fa3cc010cd9d9618f25ea535a8e`.
+The new Linux and Windows GitHub CI jobs were **in progress** at the
+time of this appended evidence. Continue to treat field tests as
+distinct from CI and do not promote to Canonical.
