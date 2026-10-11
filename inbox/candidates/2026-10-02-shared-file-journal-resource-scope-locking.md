@@ -268,3 +268,18 @@ At the initial intake, Linux Actions succeeded on PR #29 head
 `05b04b0e7e0b2d55a7a87f183f674d2ea5d6d615`,
 Windows CI and merge still Pending. This augments the existing
 Candidate after duplicate search; do not promote to Canonical.
+
+
+### PR #29 CI verification and merge update
+
+Final CVS PR #29 head
+`05b04b0e7e0b2d55a7a87f183f674d2ea5d6d615` passed Linux
+and Windows CI run `38132656247` and merged to main as
+`62e438dcc1d7588d4f08c03aaa2f001c52f37027`.
+Evidence now includes a separate test-only consumer process that
+reads the issued command and launches loopback HTTP health, rather
+than mocked `_health` results alone.
+
+The deployed System Supervisor is still not represented by that test
+fixture; correlated external acknowledgement and actual GPU hardware
+are FIELD-PENDING. Do not promote this Candidate to Canonical.
