@@ -193,3 +193,9 @@ guidance is not automatically changed.
 The HSR writer could previously apply source-language timing to the CHS target when source_language began with zh. Users clarified the product contract: official source text (English/Japanese/Korean) is read-only; the editorial Chinese translation is the editable field; Karaoke effects attach only to source-language Primary text, not to translated Chinese. Even a Chinese-only archive should not produce CHS Karaoke through the translation layer. The revision removes all CHS Karaoke/clip paths and preserves existing Primary behavior for non-Chinese source languages. It also labels editable Inspector original-language *trial sample* as preview-only, and differentiates immutable archived source from remote third-party index text comparison (while keeping CURRENT/REMOTE tokens).
 
 The validation matrix contains EN/JA/KO × discrete/smooth/clip and Chinese-only fallback, plus event-relative timing compensation. This updates the existing HSR Case about source ownership and preview evidence rather than creating a duplicate user-interface rule. No Canonical promotion or claim of actual speech forced-alignment quality.
+
+
+
+## CI evidence for original-language Karaoke role/pre-roll correction (2026-10-11)
+
+HSR PR #133 exact HEAD `83248e831b2440f1b8581d1f82f5dcebfc4a6547` passed [tests run 38119628856](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38119628856): Python 3.11/3.12/3.13 and Termux Lite dependency-surface; and [subtitle evidence run 38119628853](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38119628853): Chromium UI and FFmpeg/libass fixture tests. CI does not establish real official Japanese/Korean forced-alignment accuracy or physical-device acceptance. This PR remains unmerged and dependent on #132. No Canonical promotion.
