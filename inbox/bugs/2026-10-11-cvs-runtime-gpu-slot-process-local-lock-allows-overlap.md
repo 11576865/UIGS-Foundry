@@ -117,3 +117,37 @@ processes, not with a real GPU, multi-generation TTS process tree, or
 independent external System Supervisor. The orphaned-child and
 manual-reconciliation limitations remain **FIELD-PENDING**. No
 Canonical promotion.
+
+
+## Further containment boundary — managed engine descendants (2026-10-11)
+
+[CVS PR #27](https://github.com/11576865/Character-Voice-Service/pull/27)
+audits a remaining source-level hole after PRs #24–#26: the managed
+engine's **direct PID** can exit while independently spawned worker
+processes continue consuming GPU resources. Prior `_clean_exited`
+and normal stop operated only on `Popen`, potentially discarding a
+durable owner receipt and OS lease too early.
+
+The proposed repair places managed GPU-exclusive runtimes in dedicated
+POSIX sessions/process groups and checks surviving members before
+clearing the receipt; explicit stop sends group-wide TERM and then KILL
+with bounded verification. On Windows a Python launcher assigns
+**itself** to a kill-on-close Job Object *before* spawning the real
+engine, so the normal child and descendants inherit OS job ownership.
+The durable receipt carries the kind of process-tree containment;
+old records lacking verifiable tree scope fail closed after the direct
+PID exits. The admin runtime status exposes surviving group evidence
+as `process-tree-unresolved`, preventing automatic replacement.
+
+A cross-platform mock HTTP engine that spawns a separate long-lived
+Python child is included as test evidence. The first Linux PR #27 run
+`38128784706` failed four new tests because the **test fixture**
+omitted the fake engine's `TEST_PORT` environment variable (observed
+traceback `KeyError: 'TEST_PORT'`); a follow-up commit
+`f2454aa9964df85a16773c173e0c371e60a54515`
+supplied this setting. New Linux/Windows CI remains **Pending**.
+
+The scope excludes deliberately escaping descendants, outside process
+owners, driver/kernel issues and real GPU/IndexTTS workloads. Do not
+assert the process group or Windows job guarantee total GPU cleanup,
+and do not promote this single-project observation to Canonical.
