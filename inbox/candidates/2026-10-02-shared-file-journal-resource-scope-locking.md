@@ -204,3 +204,29 @@ not a verified process tree design failure. This second CI run exercises
 mock TTS-descendant teardown, Linux orphan session checks and Windows
 Job Object execution. Real GPU, external lifecycle owners and process
 escape scenarios remain FIELD-PENDING; no Canonical change.
+
+
+## Follow-up: real controller-death injection and incomplete procfs observability (2026-10-11)
+
+[CVS PR #28](https://github.com/11576865/Character-Voice-Service/pull/28)
+extends prior simulated parent-lock release with an actual independent
+CVS Python controller process that is abruptly killed while its
+managed mock engine and worker child survive. The OS lease is correctly
+released by controller death, but a new owner must still reject the
+durable PID/process-identity receipt before spawning competing work.
+A second injected crash occurs between the durable `starting`
+publication and the engine's `Popen`; the intent remains unresolved
+and blocks replacement.
+
+A related Linux audit found that merely skipping an unreadable
+`/proc/<pid>/stat` entry can cause a group scan to claim no remaining
+resource owners. The proposed change treats permission-denied
+observations as **unknown** and distinguishes them from confirmed
+transient process disappearance. This reinforces the Candidate's
+core distinction: **not observing an owner** is not equivalent to
+**proving the resource is unowned**.
+
+At intake the PR #28 Linux full suite had succeeded, but Windows
+CI was Pending. Tests use disposable mock processes, not GPU hardware
+or external System Supervisor. Append to the existing Candidate
+without promoting Canonical.
