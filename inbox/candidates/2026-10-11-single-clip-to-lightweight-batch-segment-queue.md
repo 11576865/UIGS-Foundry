@@ -24,3 +24,14 @@ Stream Copy may snap its actual cut-in to a keyframe preceding the requested IN 
 ## UIGS intake
 
 Search for `multi segment batch export clip queue`, `multi range stream copy UX`, `无损剪切 片段 队列`, and `batch clip intervals timeline` did not return a direct duplicate; adjacent intake metadata candidate was unrelated. This is a **single conversational design proposal**, not observed usability evidence or a Canonical requirement. Do not promote to Canonical without usage observation, interaction design review, implementation and browser/native acceptance.
+
+
+## Product implementation checkpoint — QHE PR #99
+
+2026-10-11: Proposal advanced to **implemented on an open product PR, but not accepted/merged**. QHE PR https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/99, code checkpoint `4267293a7f814c91ec354053eca40d57a109b4a7`, bookkeeping `ae2bd9e16557028021bd7980d5ba53f109cc79b9`. Still a Candidate, not a Canonical rule.
+
+Actual production implementation now includes the optional Stream Copy range queue in `src/media-workspace.js`: add/load/remove/clear IN/OUT ranges; source identity invalidation; per-clip independent compileTask schema-v4 calls; unique output names; sequential execution through the existing Web/Native executor; waiting for **jobId-matched Native export result** (not merely an export request) before proceeding to the next clip; refusal of mismatched full-range audio/subtitle stream policies and unsaved prior result override; stop and retry semantics. `src/clip-queue.js` provides bounded pure range parsing and filenames. CSS `src/media-workspace-ui.css` owns its visual presentation.
+
+Acceptance strategy: Node `src/clip-queue.test.mjs` plus Playwright source readiness, Copy-only queue, duplicate rejection, two range plans, unique filenames, Native result acknowledgment fence. Existing one-clip flow preserved by design. Latest-head frontend/Windows/UIGS CI, screenshots and physical Android SAF / Native dialog acceptance **Pending External Validation**; no product quality claim until evidence. External screens/FFmpeg GPU remain separate.
+
+Reusability hypothesis: model repeated sub-ranges as independent sequential tasks, preserve source identity, and explicitly fence asynchronous export confirmation between tasks. This is not sufficient for Canonical promotion without repeat observations and field acceptance.
