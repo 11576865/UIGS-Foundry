@@ -164,3 +164,19 @@ GPU, noncooperating backend clients or coordinated sibling-runtime
 teardown tests; source-correctness and test selection are distinct
 from field acceptance. Added here after deduplication, not to
 Canonical.
+
+
+### PR #32 verified multi-process serving transaction
+
+CVS [PR #32](https://github.com/11576865/Character-Voice-Service/pull/32)
+head `7cf2ecacaac8d5927addf50fd31cf7cbfe47747b`
+passed independent Linux and Windows jobs in GitHub Actions
+`38139136194` and merged as
+`7d2ecd1d4e91b1aac77384c1729c2619475e3c8c`.
+
+New tests use separate CVS interpreters against a disposable HTTP
+fake backend to exercise cross-process model-switch refusal,
+backend restart stale-cache avoidance and fail-closed durable
+unknown-inference-state after CVS death. Physical voice/GPU correctness,
+noncooperating clients, and active-request-aware GPU sibling
+handoff remain unproved. Candidate only; no Canonical promotion.
