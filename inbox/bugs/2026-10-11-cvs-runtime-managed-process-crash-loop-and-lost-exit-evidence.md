@@ -113,3 +113,22 @@ no successful rerun result or production GPU acceptance is claimed.
 
 Dedup: this is further evidence for the existing **CVS runtime crash-loop
 Bug**, not a new Candidate or Canonical standard.
+
+
+## Verification update: PR #23 merged after early-watchdog repair (2026-10-11)
+
+The final [CVS PR #23](https://github.com/11576865/Character-Voice-Service/pull/23) head `210a1605b66b4553f4336b4c7fdb92eff07167f6` passed GitHub Actions run `38117245421`: Linux `test` **success**, Windows `windows-script-audit` **success**. It merged to `main` as `a8fb0fea30739d2238fbd7ffbf51c631f31699a1`.
+
+The final patch also repaired the previously recurring Windows IndexTTS
+watchdog case. A `threading.Timer` callback was permitted to run a little
+*before* the deadline according to `time.monotonic()` and would simply
+return without scheduling another callback. That could permanently disarm
+the sole watchdog. The repair waits out the residual duration, rechecks
+active request identity and then exits only if that original inference
+is still active. A deterministic **early-trigger timer** subprocess
+regression was added.
+
+Evidence status: Linux and Windows CI of the final commit **passed**;
+actual GPU hang recovery and independent external System Supervisor remain
+FIELD-PENDING. Previously Pending notes above are historical and should
+not be confused with this later, observed merge result. No Canonical change.
