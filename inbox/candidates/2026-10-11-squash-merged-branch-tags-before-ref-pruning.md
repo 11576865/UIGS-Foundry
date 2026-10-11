@@ -58,3 +58,36 @@ and deletion are **not yet claimed** and require later explicit evidence
 
 Status remains **Candidate**. Single-repository engineering evidence is
 insufficient for Canonical promotion.
+
+
+## Verified GitHub execution (2026-10-11)
+
+The originally Pending runtime evidence has now closed for this specific
+one-time allowlist:
+
+- Product PR #72 merged at `68d885fdb8b681e86ed9969c0a76e895be3b6877`.
+- [Archive workflow #38117660994](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38117660994):
+  completed / success.
+- Manifest `docs/branch-archive-allowlist-2026-10-11.json` contained
+  33 exact reviewed source branch SHA / PR-number pairs.
+- Direct GitHub `git/matching-refs/tags/archives/mkv-merged-pr-`
+  inventory returned **33 lightweight tags**. All 33 target SHAs matched
+  their original manifest entries; **zero** mismatches.
+- Direct GitHub branch inventory contained **none** of those 33
+  source branch names after the action. All 33 original commit objects
+  remain addressable through their archive tags.
+- Main Browser E2E #38117661003 and Pages #38117660997 succeeded.
+- Remaining branch count: **7** (main, uigs-outbox, four deliberately
+  unreviewed older refs, and one archive maintenance branch).
+- The maintenance branch had `ahead_by = 0`, but existing generic
+  Branch hygiene deliberately exempts `maintenance/*`. Re-running
+  the generic hygiene run #38117661267 succeeded but correctly did
+  not remove it. This is policy-owned retention, not a failed
+  archive operation.
+
+**Evidence classification:** one real GitHub repository and one
+one-time migration; code, unit checks and external archived-ref results
+are available. This supports implementation-backed Candidate status.
+It does not validate arbitrary Git providers, branch protection setups,
+forks, or every race condition. Do **not** automatically promote
+Canonical or replace the existing ancestry-only Test.
