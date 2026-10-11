@@ -169,3 +169,45 @@ with a separate lifecycle admission/drain protocol.
 
 CI proven for this limited boundary; do **not** close the overall
 model identity correctness Bug or promote Canonical.
+
+
+## Follow-up: same-GPU-group lifecycle can interrupt active synthesis — CVS PR #33 (2026-10-11)
+
+Even after GPT-SoVITS endpoint transaction PR #32, a different
+managed engine's `RuntimeSupervisor::_enforce_exclusive_group` could
+`_stop_owned` an already running sibling without an atomic
+cross-process inference/lifecycle admission boundary. This is a
+distinct correctness risk from switching weights within one backend:
+the whole backend process/tree might be stopped while handling
+a voice generation request.
+
+[CVS PR #33](https://github.com/11576865/Character-Voice-Service/pull/33)
+introduces a shared per-GPU-group **activity OS lock**. Both the
+`server.engines.synthesize()` entry path (including nested
+`ensure_ready` and possible managed startup) and
+`RuntimeSupervisor.start/stop/restart/shutdown_all` use the same
+group scope. Same-thread nesting is permitted only **before**
+inference is admitted; unrelated processes and threads are
+excluded. A durable per-group `inference-pending` receipt
+survives abrupt CVS death after the OS lease releases, so
+other group engines are not started/stopped until backend
+quiescence has been confirmed by an operator. Locally rejected
+pre-backend 400/409 inputs retire the receipt instead of
+indefinitely blocking the group.
+
+Nine new tests employ a real independent Python worker holding
+a group inference lease while a disposable managed HTTP runtime
+is running: an admin stop and sibling auto-switch must be refused
+during active work; normal completion permits subsequent stop
+and group handoff. A forced controller kill must preserve the
+pending receipt and refuse restart despite OS lease release.
+Separate tests exercise the real `server.engines.synthesize`
+adapter call, nested admission, and local input-rejection cleanup.
+
+Initial PR #33 head
+`9171399a2037831ad289cad7ed5ce32114a9c7c6`;
+Linux/Windows CI was in progress at first intake. Do not
+claim field acceptance, real GPU process correctness, or
+noncooperating external System Supervisor coverage. This
+extends this previously filed serving-identity Bug rather
+than creating a duplicate or changing Canonical.
