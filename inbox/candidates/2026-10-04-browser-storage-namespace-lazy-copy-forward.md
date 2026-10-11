@@ -468,3 +468,34 @@ this is still one browser engine on an isolated CI environment. It does
 not assert identical behavior for Safari/Firefox, real Android/iOS or
 device-level memory eviction. This remains Candidate evidence, and
 does not promote any Canonical rule.
+
+## Cross-engine offline storage and real-media contract reuse (2026-10-11)
+
+CVR [PR #25](https://github.com/11576865/Character-Voice-Reader/pull/25)
+extends a previously Chromium-only offline storage/playback evidence
+suite with a separate Playwright **Firefox engine** on GitHub Actions.
+Rather than recoding loose Firefox smoke assertions, the Firefox runner
+imports the same substantive IndexedDB, audio, cross-tab deletion,
+and recovery scenarios as Chromium while keeping browser-specific BFCache
+admission in its own dedicated scenario/launcher.
+
+Candidate-level design principle: multi-engine compatibility should
+reuse a **common behavioral contract** when the expected product
+semantics are shared (transactional storage ownership, committed deletes,
+media pause/resume and object-URL cleanup). Browser-dependent mechanisms,
+such as BFCache admission, autoplay policy, or implementation-specific
+headless startup flags, need clearly separated suites with distinct
+acceptance boundaries. A successful browser launch is not the same as
+successful feature verification.
+
+The PR adds the Firefox workflow to validate real per-origin IndexedDB,
+legacy migration and ownership, download resume/cancellation, PCM WAV
+HTMLMediaElement playback, local book shelf UX and cross-tab invalidation.
+At intake product head `321369d9064eaca88b8ffa3f02f1096831241c50`,
+CI **Pending**. Pending Firefox failures are to be diagnosed, not
+softened into synthetic success. Tests remain Ubuntu headless only;
+not physical Android/iOS or Safari/WebKit acceptance.
+
+Dedup: existing browser-storage Candidate contains only Chromium and
+BFCache evidence. Appending cross-engine test-method evidence to that
+Candidate, not changing Canonical on one project observation.
