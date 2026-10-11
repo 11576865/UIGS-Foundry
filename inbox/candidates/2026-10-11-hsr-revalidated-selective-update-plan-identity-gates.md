@@ -28,3 +28,7 @@ The supplier presently exposes filename-keyed source records, so not every local
 - Existing Foundry search found adjacent stale-batch candidates, but none covering this provider-source identity and Manifest revision gate specifically.
 
 Intake: Candidate. No promotion to Canonical from one observation.
+
+## Exact-head CI verification (2026-10-11)
+
+HSR PR #133 head `bd272bc957130a0773fcaeedd8290bf548d86e08` passed [tests run 38118776948](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38118776948) — Python 3.11/3.12/3.13 and Termux Lite dependency-surface checks — and [browser evidence run 38118776884](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38118776884) — Chromium UI fixture and FFmpeg/libass artifact checks. These are code/fixture/CI results, not proof of a production archive migration, Android physical-device use, or a merged release. Canonical remains unchanged.
