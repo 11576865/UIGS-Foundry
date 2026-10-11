@@ -135,3 +135,41 @@ corpus verification, playable-WAV/audio-decode validation, or downstream
 rebuild acceptance. The old WAV source contents are not cryptographically
 fingerprinted by this rollback guard; index consistency alone does not
 certify their bytes. No Canonical promotion.
+
+
+## Selected-WAV-byte attestation and unknown-provenance distinction (2026-10-12)
+
+Further HSR PR #133 audit found that existing index-to-WAV publication
+checks guaranteed indexed *paths* existed, but not that **newly adopted
+WAV bytes** remained stable between prepare-journal publication and
+atomic config switch. The revision publisher now stores SHA-256 digests
+of each selected new audio member, rechecks these bytes and symlinks
+right before swapping the project config, and exposes actual post-commit
+audio-integrity status from disk reads. A modified/missing new WAV reports
+`new_audio_unchanged: false`; an old journal without audio evidence
+reports `null` (unknown), not false damage.
+
+Separate review found that capturing a new config-file digest while
+using a stale **in-memory** ProjectConfig could bless the wrong source
+snapshot. The boundary now rejects mismatch on stored critical project
+fields (primary source, index, output and language/reference identity)
+until the project is reopened. Synthetic regressions simulate a WAV
+mutation immediately after journal prepare, corruption or symlink
+substitution after commit, missing historical evidence and an external
+edit to disk config before snapshot. The existing revision UI warns
+about confirmed new-WAV damage distinctly from unverifiable old logs.
+
+Source code plus tests exact SHA `72ff7f20284b5d905f886916132f8c48648d0ec9`
+passed [Python 3.11/3.12/3.13 + Termux Lite](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38163315058)
+and [Chromium/libass](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38163315108).
+Documentation-only SHA `9caeeb30a833686f00f213c0d3a604f86e8f5eec`
+has separate asynchronous jobs; their status must be observed on that
+exact head. This records a Candidate/Observation-level general pattern,
+not a Canonical promotion.
+
+**Limits:** the attestation only hashes selected *new* WAV bytes, not
+all inherited prior source bytes; header/decoder validity, trusted
+provider origin, real multi-process races, power-loss persistence and
+physical Android/Termux integration remain unproven. A damaged new WAV
+can be rolled back only when prior source/index/Manifest checks still
+pass. No automatic rollback or speculative data deletion.
