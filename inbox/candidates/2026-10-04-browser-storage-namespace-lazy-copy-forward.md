@@ -563,3 +563,31 @@ Android/iOS acceptance.
 Evidence level upgraded from planned Firefox CI to **actual tested
 headless Firefox and Chromium CI passing**. No Canonical rule has been
 changed; the generalization remains a de-duplicated Candidate.
+
+## WebKit cross-engine offline behavioral acceptance (2026-10-11)
+
+CVR [PR #26](https://github.com/11576865/Character-Voice-Reader/pull/26)
+extends the previous Chromium/Firefox shared offline behavioral contract
+to Playwright's *Linux WebKit* engine. This engine is not the same as
+verifying macOS desktop Safari or iOS Safari on a device.
+
+Candidate-level extension: when a product depends on browser
+IndexedDB ownership, tombstone deletion, WAV media playback and
+cross-tab invalidation, run shared substantive assertions against
+independently installed browser engines. Keep browser-specific
+environment setup and separately defined BFCache admission tests
+explicit. Provide an actual Linux audio output sink (e.g. PulseAudio
+null sink) to avoid confusing headless audio hardware absence with
+media codec or autoplay-policy incompatibility; retain genuine audio
+time progression, pause/resume and media cleanup checks.
+
+PR #26 creates `tests/test_offline_webkit.py` and a dedicated WebKit
+CI workflow. At intake final merge **Pending**: do not infer WebKit
+acceptance from presence of the harness or earlier Chromium/Firefox
+success. Any cross-engine regression must be diagnosed before merge.
+The real device background/tab freeze behavior, WebKit BFCache
+admission, and macOS/iOS Safari are separate evidence scopes.
+
+Dedup search matched this existing browser-storage Candidate's
+cross-engine and virtual-sink guidance. Extended it rather than
+creating an overlapping Canonical entry.
