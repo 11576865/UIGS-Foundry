@@ -170,3 +170,23 @@ This verifies the implemented file-based control and OS-lock test
 contracts, not real external System Supervisor request/response
 interoperability, GPU lifecycle authority or exact request-correlated
 acknowledgment. Candidate evidence only; no Canonical promotion.
+
+
+## Follow-up: process-tree lifetime exceeds direct PID lifetime (2026-10-11)
+
+[CVS PR #27](https://github.com/11576865/Character-Voice-Service/pull/27)
+extends the process-ownership boundary again. A managed GPU engine
+may spawn descendants that outlive its direct `Popen` PID. Releasing
+the resource-scoped GPU OS lease when only that PID dies is therefore
+insufficient. The submitted implementation uses an independent POSIX
+session/group or a Windows kill-on-close Job Object wrapper and ties
+durable receipt clearing to that containment boundary.
+
+This reinforces the Candidate's distinction between **scope of a
+synchronization primitive** and **lifetime of a physical resource
+across descendants**. It is supported by source audit and a fake
+engine that creates a long-lived child. The first Linux CI failed due
+to missing `TEST_PORT` test fixture setup; subsequent CI is Pending.
+Actual GPU, intentional process escape and external System Supervisor
+cases remain FIELD-PENDING. This is a deduplicated Candidate extension,
+not Canonical.
