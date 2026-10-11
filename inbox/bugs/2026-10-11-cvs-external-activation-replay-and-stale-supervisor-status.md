@@ -92,3 +92,39 @@ activation and two Python interpreters contending for the same lock.
 Live System Supervisor consumer interoperability, correlated
 request acknowledgments and real GPU process management remain
 FIELD-PENDING. No Canonical change.
+
+
+## Producer-consumer contract acceptance follow-up — CVS PR #29 (2026-10-11)
+
+Previous CVS PR #26 verified file command publication, concurrency locks and
+health-state handling using mostly stubbed/mocked health responses, but
+**no independent OS process actually consumed the command file**.
+This means a mock health success alone did not prove that a separate
+consumer could use the existing bridge fields to activate an HTTP endpoint.
+
+[CVS PR #29](https://github.com/11576865/Character-Voice-Service/pull/29)
+adds a dedicated **test-only external consumer process** that reads the
+existing top-level `<request_id>.json` file, validates
+`schema_version`, `action`, `engine_id`, `service_key` and file
+identity, and starts a local HTTP health server. Three multiprocess tests
+now cover: (1) producer -> file -> independent consumer -> live health ->
+receipt reconciliation, (2) activation timeout and later recovery
+without a second command, and (3) abrupt death of a different CVS
+controller after the command is published, while a replacement CVS
+must refuse replay until the original consumer goes healthy.
+
+The repository does **not** include the actual deployed System
+Supervisor implementation. The consumer is a fixture and its mock
+`last_request_id` field is **not a protocol-level acknowledgement
+consumed by CVS**; a health endpoint alone cannot attribute startup
+to a particular request ID. Documentation explicitly keeps actual
+System Supervisor integration, TTS weights and GPU behavior FIELD-PENDING.
+
+PR #29 head `05b04b0e7e0b2d55a7a87f183f674d2ea5d6d615`:
+GitHub Actions `38132656247` Linux `test` **success** and Windows
+`windows-script-audit` **still in progress** at first intake.
+Source PR not yet merged at this observation.
+
+De-dup: adds direct producer-consumer acceptance evidence to this
+existing external activation Bug, not a new unrelated issue or
+Canonical rule.
