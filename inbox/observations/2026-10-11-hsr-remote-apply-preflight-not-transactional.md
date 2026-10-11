@@ -98,3 +98,40 @@ writer OS processes, abrupt power removal, physical Android/Termux
 acceptance, and a comprehensive downstream rebuild after Apply. Keep
 Observation level; do not claim full cross-process transaction correctness
 or promote Canonical from this fixture evidence.
+
+
+## Complete index-to-WAV publication fence and index-bound rollback (2026-10-12)
+
+A further review of the HSR PR #133 revisioned publisher found an actual
+**validation coverage gap**. Publication checked one row and one staged WAV
+for each newly selected download, but did not verify that **all inherited**
+index rows still resolved to the new combined WAV tree. A partial or
+corrupted staging merge could therefore switch the project config to a new
+version even while one prior chapter-specific source member was missing.
+
+The project now verifies every published index row's canonical source-member
+path and filename correspondence, ensures no unsafe relative path, duplicate
+casefolded member ID, symlink component, or missing indexed WAV, and retains
+legitimate different-chapter WAVs with identical basenames. Publication
+refuses malformed old rows *before* preparing/committing a revision. The
+rollback guard now checks both previous and new index SHA-256 against the
+prepared journal, verifies the previous configuration snapshot hashes back
+to the actual original project file, and rechecks the staged index and
+rollback inputs after writing prepare markers but before atomic project
+config replacement. UI now explains index/Manifest/resource mismatch
+reasons instead of leaving rollback disabled without context.
+
+HSR exact head `9cfa81ab1a6aae38f054937076ebb47fcbb360dd`
+passed [Python 3.11/3.12/3.13 + Termux Lite](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38161976434)
+(4 successes) and [Chromium UI + libass](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38161976433)
+(2 successes). Synthetic fault-injection regressions exercise missing
+inherited WAVs, wrong/duplicated member identity, unsafe traversal and
+symlinks, chapter-shared basenames, tampered old/new indexes, tampered
+rollback snapshot, and modifications between prepare journal and switch.
+
+Boundary: this is **not** a lock spanning multiple OS processes, actual
+power-loss durability proof, provider authenticity proof, real large HSR
+corpus verification, playable-WAV/audio-decode validation, or downstream
+rebuild acceptance. The old WAV source contents are not cryptographically
+fingerprinted by this rollback guard; index consistency alone does not
+certify their bytes. No Canonical promotion.
