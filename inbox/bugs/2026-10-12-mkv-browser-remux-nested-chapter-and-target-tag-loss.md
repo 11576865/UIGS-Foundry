@@ -44,3 +44,17 @@ The unsafe product-level generalization would be: `preserveAllSourceStreams` / a
 - Re-run legacy subtitle, font and batch regression alongside any proposed guard.
 
 Status: Product fix not implemented. No general cross-project Canonical change authorized; this record is a concrete Bug with attached reproduction evidence.
+
+
+## Independent-backend control — important limitation on attribution
+
+Control workflow https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38195156550 ran a plain `mkvmerge` remux of the *same self-checked source*. The exact same deep oracle reported **no `chapterHierarchy` difference**, but **did report loss of `P0_NESTED_CHAPTER_KEEP` linked to ChapterUID `510011`**. The global `P0_GLOBAL_KEEP` survived.
+
+Therefore:
+- Browser FFmpeg/Wasm writer: confirmed nested chapter/edition/language mutation **and** targeted-tag loss.
+- Plain MKVToolNix mkvmerge writer: nested chapter retained, targeted-tag lost.
+- Neither is yet a proven all-structure preservation solution for this source.
+
+The first browser red was not merely a broken fixture; the independent writer control both supports the distinct nested-chapter loss and reveals an additional cross-writer problem with ChapterUID-targeted tag retention. Avoid concluding that switching to MKVToolNix alone fixes the tag-target relation. The control step is non-gating to allow Browser E2E to run and independently fail with its own red semantic oracle; both JSON evidence files are retained. No Canonical promotion or production fix.
+
+Source product Issue #77 comment documents this refinement.
