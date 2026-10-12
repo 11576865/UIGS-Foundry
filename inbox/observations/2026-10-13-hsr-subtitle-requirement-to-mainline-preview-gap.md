@@ -45,3 +45,16 @@ References:
 - https://github.com/11576865/HSR-Voice-Archive-Builder/pull/133
 - https://github.com/11576865/HSR-Voice-Archive-Builder/pull/134
 - https://github.com/11576865/HSR-Voice-Archive-Builder/blob/main/.uigs/ui-surfaces.json
+
+## Follow-up: concrete duplicate-control ownership and CSS accumulation (2026-10-13)
+
+Source inspected: HSR `main`, commit `88cbadd80229720c88f85903fa3924e6a4fac2a3`, `app/static/index.html`.
+
+- Proofreading workspace has `subFinalEditor` for final Chinese and states that it auto-saves after approximately one second of idle input. Layout workspace has a separate `layoutCueFinalText` editor and explicitly requires `layoutCueSaveBtn`. This is not merely two read-only projections: the same kind of final subtitle text is independently editable through UI with divergent save semantics. A single authoritative final-text write path is preferable, retaining the distinct high-value proofreading context and shared per-cue identity.
+- Proofreading has `subListView` / `subSearchQuery`, while layout has `layoutCorpusList` / `layoutCorpusSearch`; both provide project subtitle navigation. The original WAV is available via `subOriginalAudio` and via layout's `layoutCueAudio` with waveform. A shared item-selection/audio resource component or explicit read-only projections can eliminate duplicate business ownership without eliminating purpose-specific affordances.
+- Layout's `layoutCueScrubber` and karaoke `prevKaraokePreviewTime` are separate time-position controls that need an explicit shared preview-clock contract; they need not be identical controls, but inconsistent clocks or effects are a risk worth testing.
+- The production `index.html` is 8,516 lines / 421,591 characters at inspected main; its CSS contains 945 `!important` uses and repeated layout/workbench selector overrides. This count is a maintainability signal, *not* proof that every override is a defect. A previous HSR #129 explicitly fixed a real old/new CSS layout-authority collision.
+- Proposed acceptance structure: one authoritative cue editor and commit path; per-workspace presentation projections; a distinct typography/layout workspace and motion/Karaoke effects workspace sharing one preview/clock/state; preview-render verification separated from actual moving-video playback; output execution remains in Export. Never silently remove existing actions before an ID→owner→destination parity ledger and regression.
+- This overlaps the existing Foundry MKV two-editor Candidate `inbox/candidates/2026-10-10-mkv-ui-primary-action-and-editor-discoverability.md` and CSS authority Candidate `inbox/candidates/2026-10-10-ui-css-authority-and-native-task-navigation.md`. Treat the HSR facts as project-specific corroboration in this existing Observation, not as a new universal rule. Do not auto-promote Canonical.
+
+Suggested validation: user-visible save behavior across Review/Layout, delayed input vs stale backend response, identical export text/sidecar, cross-workspace focus/preview identity, FFmpeg/libass v. browser still-frame mode, actual video playback, and 390px/768px/1600px responsive captures.
