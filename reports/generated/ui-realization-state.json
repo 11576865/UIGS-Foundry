@@ -148,7 +148,7 @@
           "path": "index.html",
           "expected_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2",
           "verified": true,
-          "current_blob_sha": "b01d1814a8b5c8f197952a0b29ca5fdf4ca210ec",
+          "current_blob_sha": "52b11ed1bd7ddbbbb31346c47d67f7d0fe5ece5d",
           "current": false,
           "actual_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2"
         },
@@ -156,7 +156,7 @@
           "path": "src/style.css",
           "expected_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4",
           "verified": true,
-          "current_blob_sha": "d6259f81304309252a631e81171c39bc406ad96a",
+          "current_blob_sha": "24159069021b1cb2f1eac879e7ded0135e4ddf0e",
           "current": false,
           "actual_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4"
         }
@@ -166,7 +166,7 @@
           "path": "tests/preview-ui.test.mjs",
           "expected_blob_sha": "196e8195a9647623c983b3887fa55ea750b83aef",
           "verified": true,
-          "current_blob_sha": "5d17ce949f856c2529620596c903a779695127c6",
+          "current_blob_sha": "d8884561dbe837b2ccb5097877327de074351c02",
           "current": false,
           "actual_blob_sha": "196e8195a9647623c983b3887fa55ea750b83aef"
         },
@@ -174,13 +174,13 @@
           "path": "tests/desktop-layout.test.mjs",
           "expected_blob_sha": "2d22cda166cf235da744c4a9ef07cf5a00b0c087",
           "verified": true,
-          "current_blob_sha": "2d1b476e6718ed7ba80094141d35f960ed21dd3f",
+          "current_blob_sha": "c4efa9fec18ad4ff7c48db7f8a796b927c7d033d",
           "current": false,
           "actual_blob_sha": "2d22cda166cf235da744c4a9ef07cf5a00b0c087"
         }
       ],
       "source_verified": true,
-      "current_head": "1deb10b1ba1b8510ab97aaabda91480109819d3b",
+      "current_head": "8c3de2e86173693b936009c3210d4a4ee30eb6ab",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
