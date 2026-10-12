@@ -163,3 +163,14 @@ This modifies an existing Candidate to avoid duplicated observations, not a new 
 
 ### Final exact-head automation status for PR #103
 QHE `913d571570429dc86bf18da123d95138bdbc77f8`: Windows local smoke `38253746085` **success**; Test frontend `38253746102` **success**; UIGS Evidence Coverage `38253746081` **success**. PR remains **draft, unmerged** pending independent screenshot review, user-direction acceptance and device-level real-media tests. CI passing is not field acceptance or proof of codec-quality predictions.
+
+
+## QHE PR #103 follow-up: touch-accessible candidate comparison and manual boundary (2026-10-12)
+
+After reviewing the preceding implementation, a design-accessibility gap was identified: SVG dashed candidate-fit `<title>` hover annotations do not reliably allow mobile touch and keyboard users to compare each contender at one selected budget. Incremental changes on QHE PR #103 added an **optional expandable text inspector** under the existing single primary chart. It displays candidate ID, fitted SSIM, conservative sample-range estimate at the exact common selected target bytes; single-branch mode hides the panel, evidence-outside-bounds does not invent results, and branch adoption remains explicit. `textContent` is used for candidate labels. This is a presentation fix, not a new measured or encoded media behavior.
+
+Exact PR head `9d35f1d68ac78b3e755dbfad017683db5cb86a27`: **Test frontend** success `38259561146`, **Windows local smoke** success `38259561177`, **UIGS Evidence Coverage** success `38259560991`. No merge or release, no physical GPU/long-video acceptance, no independent screenshot review.
+
+Source investigation for future manual-transcode reuse: `src/transcode-calibration-panel.js` holds one live `points` and `frontier`, while its `measurementKey` includes current codec, encoder, preset, selected timeline and filter settings. Changing these deliberately invalidates that evidence. The shared `createSizeQualityFrontier` model already exists in Manual, but shared model code is **not** the same as shared measured per-configuration evidence, and ASS-rendered Guided references cannot be treated as identical to no-subtitle Manual references. Next Candidate decision gate: design per-branch measurement identity and comparative same-reference source windows before exposing multi-branch Manual charts. Stream Copy trim does not require rate-distortion curves.
+
+Owner acceptance of the UX is still pending; do not promote this Candidate to Canonical or merge PR solely because CI is green.
