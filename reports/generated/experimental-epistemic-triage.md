@@ -1,6 +1,6 @@
 # Experimental Epistemic Triage
 
-Generated: 2026-10-12T18:55:23+00:00
+Generated: 2026-10-12T18:57:25+00:00
 
 This report recommends governance actions. It does not automatically change maturity or authority.
 
