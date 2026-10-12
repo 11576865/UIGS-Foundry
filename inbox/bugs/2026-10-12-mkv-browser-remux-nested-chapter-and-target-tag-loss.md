@@ -65,3 +65,12 @@ Source product Issue #77 comment documents this refinement.
 A bounded read-only preflight hazard detector has been merged from PR #78 into main at `9c49af8b32bc0b0926a07dfc1bad700627d60787`, with head-specific Node 226/226 and Chromium E2E PASS. It blocks the independently reproduced nested chapter and chapter-targeted-tag source **before** output in both single and mixed batch workflows. It explicitly warns, without claiming preservation, for otherwise common TrackUID/AttachmentUID-targeted Tags; the initial broad hard-block caused a legacy E2E regression and was corrected.
 
 **Bug remains unresolved**: the actual browser FFmpeg/Wasm remux engine still loses nested chapters and UID-targeted tag semantics on that source when executed without guard, as proven by evidence PR #76. The merged safety check is a prevention barrier for recognized inputs, NOT a writer fix, nor proof of complete EBML preservation. Source issue #77 must remain open.
+
+
+## Product copy review — 2026-10-12
+
+Tracking issue: https://github.com/11576865/MKV-Fast-Muxer/issues/80
+
+Despite the confirmed chapter/tag source-semantic loss and only partial safety preflight, `README.md` still promises `完整保留原容器结构，仅追加` for ordinary MKV; `src/main.js` still says `完整保留并追加` / `保留 Chapters 与 metadata` and runtime `正在无损封装 MKV`. Those messages do not distinguish media stream copy from EBML container-semantic preservation. This is a confirmed user-facing claim/technical-capability mismatch, not proof of a new data-loss mechanism. Keep it with the existing Bug as a terminology/claim scope issue; independently update code and documentation with narrow, source-supported behavior and regression tests.
+
+Source issue #77 remains open after partial preflight; this is not Canonical policy change.
