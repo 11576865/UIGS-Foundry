@@ -1,4 +1,5 @@
 # HSR: cancellable ASS evidence job history grows without in-memory bound
+Lifecycle: validation-pending
 
 - **Type:** Bug
 - **Status:** Mitigation committed in Draft PR; exact-head CI initially pending

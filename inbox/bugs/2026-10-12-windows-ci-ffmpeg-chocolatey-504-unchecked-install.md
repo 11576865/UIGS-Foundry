@@ -2,6 +2,7 @@
 
 Date: 2026-10-12
 Status: **FIX PROPOSED in QHE PR #104**, exact-head checks still distinguish independent jobs
+Lifecycle: validation-pending
 Severity: CI test reliability and diagnosis, not a demonstrated product encoding defect
 Related QHE draft PR: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/104
 

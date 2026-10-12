@@ -2,6 +2,7 @@
 
 Date: 2026-10-12
 Status: Confirmed in one reproducible CI fixture / fix pending
+Lifecycle: validation-pending
 Severity: High — silent semantic data loss from source structures in apparently successful output
 Product: `11576865/MKV-Fast-Muxer`
 Issue: https://github.com/11576865/MKV-Fast-Muxer/issues/77

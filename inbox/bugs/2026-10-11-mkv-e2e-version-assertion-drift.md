@@ -1,6 +1,7 @@
 # Bug: hardcoded E2E report-version expectation became stale after provenance fix
 
 Status: **Bug / CI-reproduced; repair submitted, CI pending**
+Lifecycle: validation-pending
 Date: 2026-10-11
 Source repository: `11576865/MKV-Fast-Muxer`
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/70

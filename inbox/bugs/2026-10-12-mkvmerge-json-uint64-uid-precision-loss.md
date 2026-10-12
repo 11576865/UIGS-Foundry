@@ -1,6 +1,7 @@
 # Bug: JavaScript JSON.parse silently rounds MKVToolNix 64-bit Matroska UIDs
 
 Date: 2026-10-12
+Lifecycle: validation-pending
 State: **reproduced in independent GitHub CI, fix submitted, exact-head recheck Pending**
 Product: `11576865/MKV-Fast-Muxer`
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/97

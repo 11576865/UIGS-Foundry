@@ -2,6 +2,7 @@
 
 Date: 2026-10-13 (Asia/Shanghai)
 Status: **Fixed at CI caller; regression tested by real full Native job**
+Lifecycle: validation-pending
 QHE source: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/104 (draft/unmerged)
 Scope: transport in Windows CI; do NOT infer a browser client production bug without separate proof
 Evidence: first full-job CI `38283951323` failed; follow-up `38284134399` passed after UTF-8 bytes fix
