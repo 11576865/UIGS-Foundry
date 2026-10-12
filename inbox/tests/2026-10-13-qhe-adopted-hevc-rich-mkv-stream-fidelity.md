@@ -37,3 +37,17 @@ First rich-MKV Windows full job **red** (`38286010896`), due to AAC pre-roll los
 ## Limits
 
 Still CI-generated 5-second artificial video; no external player validation, subtitle visual rendering, real-world subtitle/attachment/font compatibility, multi-hour material, physical Windows user hardware, strict size ceiling, AV1/NVENC/HDR/VFR, or actual user save-dialog export path. This is a Test/Observation tier, never automatic Canonical promotion.
+
+
+## Automated full PCM CI (stronger than prior local-only replay)
+
+Later exact QHE commit `0feed738042745ace6c031f726a3ad93561e56e8`, Windows Manual paired codec workflow `38287162844` **SUCCESS**. New `scripts/verify-manual-adopted-native-output.mjs` automatically decodes *both* source/output audio streams in Windows FFmpeg 9.0.2 to 48kHz mono s16le and requires identical byte lengths AND SHA-256 for each:
+- FLAC: source/output **240000** decoded samples, SHA256 `4052aa3c9285665291b020a058f8c7987185062f3b9b34431c33dec62125a579`;
+- AAC: source/output **240640** decoded samples, SHA256 `ac1795f1b7b61d528539a02e347f244b8fc1d270ca3b5363f8544f88f2bf5c6c`;
+- both `identical:true` in the machine-readable report;
+- 235/235 FLAC packet hashes, **236/236 AAC including pre-roll**, 2/2 ASS payloads, unchanged ASS codec private and synthetic TTF attachment extradata hashes, two chapters and both language identities;
+- whole MKV still 422802B; full video SSIM 0.999738.
+
+**Cross-FFmpeg decoded sample counts are not a universal invariant:** In local Linux FFmpeg 7.1.5 independent replay, decoded AAC source/output were both **241664** samples, while Windows FFmpeg 9.0.2 pair decoded to **240640**; source vs output equality within the *same specified runtime* is the acceptance criterion, not numerical equality across decoder versions. Packet payload hashes and stream structure were identical across source/output on both checks. Avoid reporting different decoder versions' PCM count as evidence of file damage.
+
+Machine-readable artifact from `38287162844`: `11763144697`, containing generated source `553096B`, actual output `422802B`, independent `full-output-acceptance.json`. The artifact was downloaded into this conversation and its three files and report content inspected. Additional workflows for exact QHE head should be checked separately before a whole-commit green claim.
