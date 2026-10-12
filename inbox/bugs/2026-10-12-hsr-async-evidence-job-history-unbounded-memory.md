@@ -24,3 +24,8 @@ The existing persistent job journal wrote only the last `MAX_PERSISTED_JOBS=100`
 Exact-head [Python 3.11/3.12/3.13 + Termux CI](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38245248441) and [Chromium/real FFmpeg-libass CI](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38245248555). At initial intake, one run was successful and the second was still running. Final outcome must be updated after completion.
 
 Limits: No measured memory residency of thousands of actual FFmpeg jobs in a real game archive, nor Android physical-device validation. This source-level fix is not automatic evidence to change UIGS Canonical.
+
+
+## Final exact-head verification (2026-10-12)
+
+The regression fix is on HSR PR #134 exact SHA `7e3577d5f4ef170ff01b6f1b680e6f324383a1be`. [Python 3.11/3.12/3.13 + Termux Lite run 38245706504](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38245706504) **success** and [Chromium + actual FFmpeg/libass run 38245706585](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38245706585) **success**. The libass runner explicitly exercised four job-history and crash-recovery cases, all `ok`. Mark code-level issue **FIXED IN DRAFT**, not merged or physically device-accepted. Real thousands-of-FFmpeg-jobs residency unmeasured; Canonical unchanged.
