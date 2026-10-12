@@ -20,3 +20,9 @@ Product fix commit `76ec55ea79fdcd2916c89ac65e650fab47bef229` returns the newly 
 Reusable bounded learning (candidate, not Canonical): when re-rendering lists by clearing children before constructing replacement rows, exercise *uncommon warning/error data branches* in a real UI test. An outer catch can mask a rendering exception as a business-domain warning; assert the actual row and warning text, not only the status indicator.
 
 No EBML writer issue, file-byte corruption or MIME sniffing parser defect was identified in this failure. The broader untrusted attachment security Case remains distinct.
+
+## Exact-head verified resolution — 2026-10-12
+
+Fix head `76ec55ea79fdcd2916c89ac65e650fab47bef229` passed **281/281 Node**, Vite Build and all real Chromium Browser E2E scenarios in [workflow 38247044454](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38247044454). The previously failing scenario now logs `P2 R-02 no-track browser extract + MIME mismatch warning PASS` and the combined suite logs `All browser E2E scenarios PASS`. Research steps independently logged `INDEPENDENT_READER_AND_BYTES_MATCH` and `MODEL_AND_INDEPENDENT_ATTACHMENT_BYTES_MATCH` after the shared deterministic fixture refactor.
+
+Product PR [#92](https://github.com/11576865/MKV-Fast-Muxer/pull/92) squash merged as `main@f8ccc15c5d304d2d63034fe1f4f2f53360274c9d`. This **specific DOM-helper return-value bug is verified resolved** in the scoped regression. No claim that all future warning render branches or malformed Matroska cases are safe; no Canonical promotion.
