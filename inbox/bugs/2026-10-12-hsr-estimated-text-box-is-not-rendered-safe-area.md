@@ -78,3 +78,8 @@ This mitigates **preview/export identity confusion** but does not establish whol
 ### Exact-head result for export-bound evidence infrastructure (2026-10-12)
 
 The new HSR export-bound evidence/cancellation continuation reached head `0d35898ca946dda3830cf57af28789874883f5a9`, with [all Python/Termux jobs green](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38172787176) and [Chromium and real FFmpeg/libass jobs green](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38172787236). CI acceptance covers bounded selected event midpoints, SHA-bound artifact receipts, subprocess cancel/timeout plumbing and UI fixtures, not the complete dynamic ASS timeline. Remaining open Bug: the full-time ink guarantee and physical device/true corpus validation. No Canonical promotion.
+
+
+### 2026-10-12 dynamic exported-ASS event evidence (Bug remains open)
+
+HSR PR #134 HEAD `e1eacbf1d69863ee3a4958e14a08422803d99e99` extends actual exported-ass ink checks from 8 chosen Dialogue midpoints to a risk-weighted shared 8/12-frame budget covering declared ASS `\\move`, `\\fad`, `\\fade`, `\\t` and Karaoke timing candidates. It records still-unexamined dynamic windows, truncated effect candidates, and overlapping active Dialogue counts; v2 sidecars refuse to reinterpret earlier midpoint-only v1 proof as dynamic-sampled. A real libass `\\move` overflow regression was added. A first CI regression detected an undisclosed 96-tag cutoff; subsequent fix makes cutoff explicit. Exact-head tests pending at initial note. This is **partial mitigation only**, not all-timeline safety, final-video equivalence, device font parity, or guaranteed correct per-cue attribution. Leave Bug OPEN. Canonical unchanged.
