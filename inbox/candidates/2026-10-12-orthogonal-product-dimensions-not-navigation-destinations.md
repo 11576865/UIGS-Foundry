@@ -46,3 +46,17 @@ Rendering these dimensions as four exclusive pages or independent mutable models
 - Matroska official format spec distinguishes tracks/attachments/chapters/tags and font attachments, so these must not be flattened into a single undifferentiated file list. https://www.rfc-editor.org/rfc/rfc9559
 
 This records a proposed *cross-project classification and layout principle*, not visual validation, Canonical status, or a completed product direction. The user has not approved any implementation from this discussion.
+
+
+## Cross-project extension: source container, stream operations, and output composition (2026-10-12)
+
+In a new user question comparing Quick-Automatic-Hardsub-Encoder and MKV-Fast-Muxer, an existing MKV's embedded video/audio/subtitle/font attachments were correctly recognized as possible **inputs** to hardsub, transcode and stream-copy workflows. This raises a second orthogonality issue beyond navigation: `input container/asset inventory`, `selected source roles`, `per-stream transform`, `resulting stream set`, `target container`, and `physical save destination` are distinct modeling axes.
+
+Source inspection:
+- QHE `src/media-task.js` v4 supports selecting video ordinals, video `hardsub/transcode/copy`, independent audio `copy/aac/libopus/none`, independently scoped `trim/full` for video/audio/subtitles, opt-in copy of embedded subtitles and attachments, metadata/chapters toggles, and a separate output-container resolver. It does **not** prove a completed UX to pick an embedded ASS track and use embedded font attachments as the **burn-in filter inputs**; the current hardsub filter explicitly uses staged `__ASS__` and `__FONTS__`, while `src/main.js` provides distinct ASS and font inputs.
+- QHE `src/media-container.js` currently resolves MP4/MKV, checks the selected stream/codec policies and refuses certain attachments/subtitle/Opus-to-MP4 combinations. QHE native workers stage and verify before user-selected publication; save location is not encoded by MKV itself.
+- MKV-Fast-Muxer `src/mux-command.js` uses `-c copy` for its primary container-assembly workflow, retaining/inserting stream resources without burning subtitles or re-encoding audio/video. It can take QHE output as an input for further soft-subtitle/font/track composition, but that optional two-stage workflow is not proof of automatic app integration. Current soft-mux writer is still video-rooted despite broader no-video document projections.
+
+Tentative reusable recommendation: a cross-project media suite should expose the **same source media as a structured inventory** without equating `MKV input` to `MKV output`, `attachment present` to `font consumed by renderer`, `subtitle track mapped` to `subtitle burned into pixels`, or `output compatible` to `destination saved / player compatible`. Tasks should express stream-level operations; a container composer can own final track/attachment/metadata arrangement without requiring redundant encoding. Avoid an artificial product split that forces the user through a separate mux app for an otherwise straightforward verified native encode.
+
+This extension is a Candidate-level model/integration observation, not an approved QHE feature expansion or implementation, and not a Canonical promotion. Evidence: QHE `src/media-task.js`, `src/media-container.js`, `src/main.js`, `docs/manual-media-workspace.md`; MKV-Fast-Muxer `src/mux-command.js` and `README.md`; user question dated 2026-10-12.
