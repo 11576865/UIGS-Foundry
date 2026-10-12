@@ -58,3 +58,19 @@ Source inspected: HSR `main`, commit `88cbadd80229720c88f85903fa3924e6a4fac2a3`,
 - This overlaps the existing Foundry MKV two-editor Candidate `inbox/candidates/2026-10-10-mkv-ui-primary-action-and-editor-discoverability.md` and CSS authority Candidate `inbox/candidates/2026-10-10-ui-css-authority-and-native-task-navigation.md`. Treat the HSR facts as project-specific corroboration in this existing Observation, not as a new universal rule. Do not auto-promote Canonical.
 
 Suggested validation: user-visible save behavior across Review/Layout, delayed input vs stale backend response, identical export text/sidecar, cross-workspace focus/preview identity, FFmpeg/libass v. browser still-frame mode, actual video playback, and 390px/768px/1600px responsive captures.
+
+
+## Delivery follow-up: three-pass implementation landed to main (2026-10-13 discussion / UTC merge 2026-10-12)
+
+Product: `11576865/HSR-Voice-Archive-Builder`. User explicitly constrained scope to **three processes only** (deduplication, UI workbench division, actual playable preview and acceptance), to prevent feature creep.
+
+- Implemented PR [#135](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/135), source head `4072b8c43098d26512071b4c6e4054ee7e40ed63`, merged **directly to main** at `5e7fa67a2d3285c611390c1e0651ffcf24f5979e`. Verified subsequent main search and main file fetch.
+- Pass 1: Review is the user-facing final Chinese text and original WAV editing/listening owner; Layout projects the selected text as read-only, routes to Review by cue identity; Review draft flush and Layout refresh on navigation. Existing timeline display timing editing remains.
+- Pass 2: separate scoped Style and Effects views share a single project/render config/preview. Bilingual explicitly positioned CHS/Primary ASS styles no longer apply redundant Style margins on top of solver SafeArea. Debug boundary overlays default off.
+- Pass 3: FFmpeg/libass renders **actual video over a generated black background**, 24fps, max 8s; WebM/VP8 chosen for Chromium where H.264 decoder unavailable, MP4/H.264 otherwise. Browser must decode and allows seeking; stale requests discarded. Backend FastAPI and Termux Lite provide protected API. This does **not** contain a user-provided moving video, source WAV synchronized audio, or physical device acceptance, and must not be described as such.
+- Exact-head tests CI [38293666205](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38293666205) `success`; Chromium + libass [38293666354](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38293666354) `success`. The Chromium playback test used independently generated **real VP8 video bytes served by API fixture**; backend FFmpeg/libass actual video encoding/decode-frame difference was tested in a separate job. This scope distinction prevents E2E overclaiming.
+- Maintains important explicit non-claims: complete removal of all duplicate code (legacy handlers remain for compatibility), comprehensive CSS refactoring, production multimedia user-supplied video overlay, and field/device sign-off have **not** been proven. Source-level UI deduplication and two-role projection were delivered; this is a bounded implementation, not full architectural rewrite.
+
+Reusable observation: define and prove **user-facing ownership / product acceptance** separately from source-code deduplication and automated rendering evidence. A three-pass stop rule forced main integration and eliminated unbounded feature expansion, while distinguishing actual playable black-background preview from actual source-footage composite.
+
+Deduplication: retain existing `inbox/observations/2026-10-13-hsr-subtitle-requirement-to-mainline-preview-gap.md`; related records: `inbox/candidates/2026-10-02-ui-requirement-evidence-traceability-ledger.md` and `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md`. Observation only; **Canonical unchanged**.
