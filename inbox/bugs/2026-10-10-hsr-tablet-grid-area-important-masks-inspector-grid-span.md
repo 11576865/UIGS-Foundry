@@ -2,6 +2,7 @@
 
 Date: 2026-10-10
 Status: Bug (fix implemented in unmerged PR; browser regression passed)
+Lifecycle: validation-pending
 Scope: Responsive CSS / grid cascade / interaction layout / browser evidence
 Source: 11576865/HSR-Voice-Archive-Builder PR #132
 

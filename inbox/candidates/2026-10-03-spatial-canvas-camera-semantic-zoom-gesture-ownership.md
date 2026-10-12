@@ -162,3 +162,49 @@ The same CI cycle exposed a separate **instrumentation compilation** issue: the 
 The merged-infinite-canvas pattern permits a persistent right-side ToolInstance bookmark rail while a real editor is focused. A review identified that rendering the rail above the full-width editor without reserving its footprint can cover native sliders, fields and other end-aligned touch targets. The PR #138 fix explicitly insets focused production content by the rail width when bookmarks are present, and extends the connected side-bookmark regression to assert non-overlapping root bounds.
 
 **Reusable Candidate:** spatial overlay freedom must not imply hit-region overlap with authoritative editor controls. A dock/rail that is intended to remain interactive should participate in layout reservation or an explicit input-arbitration contract, with geometry/semantics assertions; visual existence alone is inadequate. Current-head emulator and device acceptance Pending; no Canonical change.
+
+## 2026-10-10 camera-fit centering and finite-offset zoom — Pending CI
+
+Source: [ASS Workbench Android stacked PR #139](https://github.com/11576865/ASS-Workbench-Android/pull/139), based on open redesign PR #138 head `e0ce553da2754dbed18e41bcea6de58d23f10880`.
+
+A focused source review found two distinct camera-level UI issues:
+
+- An `overview/approach` fit computed appropriate scale but pinned the
+  bounding box to the top-left margin rather than centering it in the viewport
+  area left after top/bottom workspace chrome.
+- Anchored zoom performed `anchor - cameraOffset` in Float, so two opposite
+  finite Float offsets could overflow even when the final camera position
+  was representable. The presentation operation was silently rejected.
+
+The patch centers within reserved chrome (16dp horizontal, 72dp top and 88dp
+bottom), computes anchor-affine intermediates in Double, and applies a final
+Float representability guard. Two JVM model regressions are submitted.
+Camera motion remains workspace presentation state and does not mutate nodes,
+ASS domain values or Undo. No claim that Android CI, emulator or device
+acceptance has run for this stacked PR: the existing workflow targets PRs
+against main, while #139 targets #138's open branch.
+
+This is additional scoped numerical/UI evidence for the existing spatial
+camera Candidate, **not** a new Canonical requirement. The separate red
+`inspectorDraftSurvivesToolSwitchAndRotation` emulator case from PR #138
+remains unresolved and is not claimed repaired.
+
+## 2026-10-10 filtered birdseye discoverability and stable map ownership — Pending UI verification
+
+Source: ASS-Workbench-Android [product PR #141](https://github.com/11576865/ASS-Workbench-Android/pull/141), stacked on the unmerged workbench redesign PR #138 (review branch; not main/device acceptance).
+
+Review of the birdseye tool navigator exposed a usability gap: a complete node map and a scrollable ToolInstance list keep distant/hidden tools technically reachable but not practically discoverable when the workspace becomes large. Searching only the list would also create a **hit-target mismatch** if map markers representing nonmatching nodes continued accepting taps.
+
+The product patch adds text search (title, subtitle and stable instance ID), a hidden-only filter, result counts and explicit empty-result recovery. The normalization continues to include all available world nodes, and nonmatching markers become faded spatial landmarks rather than causing every search keystroke to refit the map. Hit testing and list navigation both use the filtered identity set, and the existing focus/recall path reveals a selected hidden node without search itself rewriting tool geometry or ASS domain history.
+
+This extends the existing spatial-camera Candidate with a **discoverability/projection invariant**: narrowing selectable targets must not silently shift the viewer's spatial reference, and rendered nonmatches must not remain active controls. It is a single-project implementation hypothesis, **not** a new Canonical rule. Product PR #141 supplies two JVM tests and two Android instrumentation tests. The exact changed head has **not** passed Android CI, emulator/IME or real-device acceptance. The open PR #138 head's Android CI success, if any, does not validate this stacked patch.
+
+## 2026-10-11 viewport Forward must publish the same durable scene as Back — Candidate / Pending CI
+
+Source: ASS-Workbench-Android [product PR #145](https://github.com/11576865/ASS-Workbench-Android/pull/145) merged into still-unmerged workbench redesign PR #138 at `6edd6a283f3695506bd2b0e4673cb20ac16540d9`. Prior [Emulator Regression 38061223380](https://github.com/11576865/ASS-Workbench-Android/actions/runs/38061223380), source `800a662e892be84293b53431ca6b85f0cf108429`, executed 122 tests with five failures. One regression, `explicitBirdseyeJumpHasIndependentViewportBackAndForward`, found the callback-backed saved camera was still at its starting viewpoint after Forward.
+
+The product's spatial navigation used a separate camera-history stack independent of subtitle/document Undo. Explicit Visit and Back updated local `scene` **and** invoked `onSaveScene(InfiniteCanvasPersistence.encode(...))`. Forward updated `scene` but omitted the matching publication call. The source repair adds that missing callback, and strengthens the existing connected test to require the **exact previously visited destination camera** after Back→Forward, preserved world node geometry, and no ASS Undo activity.
+
+**Reusable Candidate:** reversible presentation navigation must preserve both in-memory navigation history and the externally observed durable scene; two symmetrical UI affordances cannot diverge in publication semantics merely because local composition sometimes synchronizes state asynchronously. Assertion scope should include the externally published snapshot as well as internal navigation state.
+
+**Evidence boundary:** source-level defect diagnosis plus product code and test submitted; exact product merge-head Android CI, Fontconfig and Emulator were queued at initial check (runs `38075737290`, `38075737250`, `38075737389`). This observation does not mark the other four emulator failures closed, establish real-device behavior, or justify promotion to Canonical.

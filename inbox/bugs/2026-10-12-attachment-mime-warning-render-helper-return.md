@@ -2,6 +2,7 @@
 
 Date: 2026-10-12
 Status: Bug / failure reproduced in real Chromium; **fix submitted, exact-head re-verification pending**
+Lifecycle: validation-pending
 Product: `11576865/MKV-Fast-Muxer`
 Product PR: https://github.com/11576865/MKV-Fast-Muxer/pull/92
 Failing exact head: `4c74d74253c1ae3812ecb4463bd30f6ff682c13d`

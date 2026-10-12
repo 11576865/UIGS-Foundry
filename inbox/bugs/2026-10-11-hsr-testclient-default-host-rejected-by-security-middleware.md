@@ -2,6 +2,7 @@
 
 Date: 2026-10-11
 Status: Fixture repair committed on unmerged HSR PR #133; exact new-head CI pending
+Lifecycle: validation-pending
 Product: HSR-Voice-Archive-Builder
 Scope: security middleware / API integration tests / Python FastAPI
 

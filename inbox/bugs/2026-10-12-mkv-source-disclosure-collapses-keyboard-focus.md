@@ -2,6 +2,7 @@
 
 Date: 2026-10-12
 Status: **Bug / Chromium-reproduced / source repair submitted / re-verification Pending**
+Lifecycle: validation-pending
 Project: `11576865/MKV-Fast-Muxer`
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/74
 Failing workflow: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38163292219

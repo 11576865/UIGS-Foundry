@@ -1,6 +1,7 @@
 # Bug: CVS administrator token bootstraps non-atomically across processes; server binds all interfaces by default
 
 Status: **Source-audited Bug / repair PR #31 / CI Pending**
+Lifecycle: validation-pending
 Date: 2026-10-11
 Project: `11576865/Character-Voice-Service`
 Source: https://github.com/11576865/Character-Voice-Service/pull/31

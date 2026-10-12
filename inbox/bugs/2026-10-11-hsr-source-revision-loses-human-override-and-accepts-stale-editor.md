@@ -2,6 +2,7 @@
 
 Date: 2026-10-11
 Status: Open / confirmed source-code paths, targeted regressions pending
+Lifecycle: validation-pending
 Project: HSR-Voice-Archive-Builder
 PR reviewed: https://github.com/11576865/HSR-Voice-Archive-Builder/pull/133
 Head reviewed: a0d4b95712bf2fa320584224c49099afd0c2c80f

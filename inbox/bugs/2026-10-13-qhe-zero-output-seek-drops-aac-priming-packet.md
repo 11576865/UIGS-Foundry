@@ -4,6 +4,7 @@ Date: 2026-10-13 (Asia/Shanghai)
 Project: `11576865/Quick-Automatic-Hardsub-Encoder`
 QHE PR: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/104 — Draft/unmerged
 Status: **Observed and fixed with actual Windows-hosted Native regression; full cross-platform field acceptance pending**
+Lifecycle: validation-pending
 First red Windows run: `38286010896`; diagnostic repeat `38286271487`; first green after fix: `38286715465`, QHE commit `45f5538f714dcd952f03324bffa2e4bf325f73cc`
 
 ## Distinct symptom and exact packet evidence

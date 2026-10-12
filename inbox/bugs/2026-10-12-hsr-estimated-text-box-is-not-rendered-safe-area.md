@@ -2,6 +2,7 @@
 
 Date: 2026-10-12
 Status: Confirmed source-code design/validation gap; no production fix in this intake
+Lifecycle: validation-pending
 Product: 11576865/HSR-Voice-Archive-Builder
 Branch reviewed: feat/hsr-archive-audit-karaoke-v1
 Head reviewed: 741ea4daa56a0944f8926de364a58223cb8af704

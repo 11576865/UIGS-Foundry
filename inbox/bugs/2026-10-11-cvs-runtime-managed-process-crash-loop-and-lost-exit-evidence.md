@@ -1,6 +1,7 @@
 # Bug: CVS managed runtime crash loop loses process exit evidence and has no automatic restart backoff
 
 Status: **Bug / code repair submitted, CI Pending**
+Lifecycle: validation-pending
 Date: 2026-10-11
 Project: `11576865/Character-Voice-Service`
 Source fix PR: https://github.com/11576865/Character-Voice-Service/pull/23

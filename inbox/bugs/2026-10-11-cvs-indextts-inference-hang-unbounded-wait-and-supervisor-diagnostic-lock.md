@@ -1,6 +1,7 @@
 # Bug: CVS IndexTTS inference stall could block following synthesis and lifecycle diagnostics
 
 Status: **Bug / code repair submitted, CI and real GPU acceptance Pending**
+Lifecycle: validation-pending
 Date: 2026-10-11
 Source project: `11576865/Character-Voice-Service`
 Source fix: https://github.com/11576865/Character-Voice-Service/pull/22

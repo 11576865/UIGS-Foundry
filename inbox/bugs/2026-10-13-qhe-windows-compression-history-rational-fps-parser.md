@@ -2,6 +2,7 @@
 
 Date: 2026-10-13 Asia/Shanghai
 Status: **OPEN / observed reproducibly; NOT yet fixed**
+Lifecycle: validation-pending
 Project: `11576865/Quick-Automatic-Hardsub-Encoder`
 Draft PR #104: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/104
 Evidence: hosted Windows Native full real job logs in `38286010896`, `38286271487`, and subsequent complex rich Matroska acceptance after AAC fix.

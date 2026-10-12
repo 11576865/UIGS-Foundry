@@ -1,4 +1,5 @@
 # Bug: QHE multi-clip verified result cannot be retried from the queue after Native Save failure
+Lifecycle: validation-pending
 
 - Date: 2026-10-11
 - Product: `11576865/Quick-Automatic-Hardsub-Encoder`

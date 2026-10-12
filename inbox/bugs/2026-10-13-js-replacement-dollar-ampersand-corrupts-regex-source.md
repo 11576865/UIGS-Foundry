@@ -1,4 +1,5 @@
 # Bug — JavaScript replacement string `$&` expands the match inside authored source code
+Lifecycle: validation-pending
 
 **Observed:** 2026-10-13
 **Scope:** source-code editing / engineering automation / CI validation

@@ -1,6 +1,7 @@
 # Bug: CVS external runtime file activation could replay commands and mislabel health
 
 Status: **Source-audited Bug; repair PR submitted, CI and live integration Pending**
+Lifecycle: validation-pending
 Date: 2026-10-11
 Project: `11576865/Character-Voice-Service`
 Source: https://github.com/11576865/Character-Voice-Service/pull/26
