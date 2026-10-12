@@ -24,3 +24,5 @@ CI writes `p0-attachmenttag-relation-audit.json` even on `DIFFERENCE_DETECTED` o
 - `CHECK_UNAVAILABLE` is test infrastructure/fixture absence, not proven data loss.
 
 Test evidence now confirms this particular attachment-targeted marker remains bound to the same extracted content for the tested source/output, allowing UID renumbering. This does **not** authorize a universal product guarantee or removal of preflight warnings, and Issue #77 remains open. Main post-merge CI requires independent checking. This Test is not Canonical.
+
+**Post-merge exact-head confirmation:** main `0b2d2a502e015374043f0bf664fbacd2cc14b82c` completed [Browser E2E run 38221153051](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38221153051): 229/229 Node tests, all browser scenarios PASS, `P0 track-tag semantic relation: CHECKED_RELATIONS_MATCH` and `P0 attachment tag semantic relation: CHECKED_RELATIONS_MATCH`. [Pages build/deploy run 38221153070](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38221153070) succeeded. These positive controls remain fixture-scoped; known ChapterUID/nested-chapter issue #77 stays open.
