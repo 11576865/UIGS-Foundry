@@ -1,15 +1,15 @@
 # UIGS Knowledge Health
 
-Generated: 2026-10-10T04:26:19+00:00
+Generated: 2026-10-12T18:09:33+00:00
 
 ## Intake and knowledge inventory
 
 | Metric | Count |
 | --- | ---: |
-| Bug records | 32 |
-| Candidates | 148 |
-| Observations | 20 |
-| Cases | 10 |
+| Bug records | 65 |
+| Candidates | 163 |
+| Observations | 34 |
+| Cases | 14 |
 | Durable Pending packets | 293 |
 | Pending packets without review decision | 292 |
 | Pending packets with triage record | 293 |
@@ -26,7 +26,7 @@ Bug records are historical/reusable evidence. Their count is **not** the count o
 - recorded: 9
 - regression-verified: 4
 - repair-evidenced: 14
-- validation-pending: 5
+- validation-pending: 38
 
 ## Prevention coverage
 
