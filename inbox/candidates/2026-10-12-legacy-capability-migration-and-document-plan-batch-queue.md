@@ -77,3 +77,12 @@ The user asked what *form* the future batch experience should have, beyond prese
 Comparable existing patterns: HandBrake Queue makes source→job explicit and avoids output collisions; Adobe Media Encoder binds presets to queued jobs and can produce multiple output instances from sources. These are interaction reference cases, not evidence that an MKV browser app can copy desktop watch-folder or background-process behavior. https://handbrake.fr/docs/en/1.9.0/advanced/queue.html ; https://helpx.adobe.com/media-encoder/desktop/encoding-and-exporting/encode-export-video-audio.html
 
 Proposed acceptance tests: 4-episode fixture with one ambiguous subtitle; change a batch rule with one per-job override; verify unchanged override and selected-row focus; consent to run exactly 3 verified outputs leaving 1 unresolved; no implicit skipping; cancel during an active job; preserve earlier saved outputs, separate audit/save statuses, and verify default single-job state is untouched. Scope: user-directed architectural proposal, not implemented/visually validated; no Canonical promotion.
+
+## 2026-10-12 P1 implementation provenance (Pending CI, Candidate only)
+
+Product branch: `11576865/MKV-Fast-Muxer:feature/container-document-projection-v0-20261012`.
+Boundary: a **read-only source-scoped ContainerDocument v0 projection** has been committed on a product feature branch. It consumes existing owned source track edits and external resource state, projects observable source/data/chapter/tag facts separately from unverified writer preservation, and routes existing composition display through the same legacy editor actions. The existing mux command, P0 preservation preflight and batch executor are not replaced.
+
+A stale UI selection with the same per-stream legacy index must not silently bind to a different source: the branch introduces a source-scope reconciliation helper plus Node regressions. Its file key remains name/path+size+mtime based, not content-authenticated. Duplicate projected IDs are diagnosed; this slice does not establish universally stable asset identity or full `EditIntent` / `JobPlan` authority.
+
+**Evidence status:** code and unit tests submitted to product branch; exact-head Node, Chromium E2E, deployment and user acceptance are Pending CI/not claimed. This updates implementation provenance for the existing candidate instead of manufacturing a new or promoted Canonical rule. The prior batch queue and functional migration constraints remain unmet.
