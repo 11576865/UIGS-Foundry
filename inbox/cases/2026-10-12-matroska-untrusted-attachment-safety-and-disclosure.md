@@ -36,3 +36,9 @@ Product [Draft PR #90](https://github.com/11576865/MKV-Fast-Muxer/pull/90), head
 Regression tests are submitted for `../`, Windows paths, fullwidth separators, reserved names, bidi controls, UTF-8-length collisions, exact caller-provided existing names and immutable/no-write status. **No real browser save or filesystem recheck is implemented here**; `destinationRecheckRequired=true`, `overwriteAuthorized=false`, `readyToWrite=false`, `payloadIntegrity=not-checked`. The actual safe save/rename + user approval work remains future, contingent on PR #89's separate Matroska attachment source reader and independently validated R-02 crosscheck.
 
 At intake, exact-head Node/Vite/Chromium CI is **pending**. Update evidence only after tests, and do not promote Canonical from this one implementation.
+
+## Export name policy exact-head verified and merged — 2026-10-12
+
+Product PR [#90](https://github.com/11576865/MKV-Fast-Muxer/pull/90), exact head `70cdb199c37fbd197c50667267d0528c9ae3feb9`, passed **262/262 Node**, Vite Build, full Chromium E2E and the existing scoped R-02 independent fixture experiment in workflow [38241509099](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38241509099). Squash merged as `main@9bd2108938525997911cbff1f83cb3fe86ff2dad`.
+
+**Verified scope:** immutable export *name proposals* for hostile Matroska FileName metadata, including traversal, Unicode normalization, bidi/control characters, reserved device names, UTF-8 limits and conservative collision suggestions. `declaredMimeType` remains untrusted and `overwriteAuthorized=false`. These tests do **not** establish actual browser save, destination race checks, payload digest, secure preview or source-attachment reader integration. Keep this Case partially unmet and do not promote a generic extraction-security guarantee to Canonical.
