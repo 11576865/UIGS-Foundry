@@ -105,3 +105,21 @@ Integration status: **Merged** to `main`; candidate epistemic status **remains C
 Evidence: the **Browser E2E mux tests** and **Deploy to GitHub Pages / build** workflows for the validated head both completed with `success`. The build job and `chromium-mux` job each completed with success. Codex's third review of the exact head reported no major issues. The three previous review discussion threads were explicitly addressed and marked resolved. GitHub accepted the merge with `expected_head_sha` guard and confirmed `main` at the merge commit above.
 
 **Scope of validation:** Passing CI is repository-specific integration evidence, not proof of production/browser portability or a guarantee of atomic cross-process output publication. The previously superseded conditional-delete claim remains invalid; final code does not delete directory entries after abort, preferring a manual retry after inspecting possible leftovers. No Canonical rule is promoted automatically from one project and one CI run.
+
+
+## Round 1 manual tie arbitration and contextual review (2026-10-13, pending CI)
+
+Related implementation: `11576865/MKV-Fast-Muxer`, branch `feat/round1-batch-review-manual-pairing`, committed through `95cf936fac72ee0bd8e201cf9ba5b629c5558716`.
+
+The original Candidate establishes that heuristic ties must block execution. This round supplies the **separate resolution path**: a human selects one candidate **only from the tied highest-scoring sources**; the very same `buildBatchJobsFromCollected` planner consumes that explicit, session-scoped binding to derive the jobs that the old executor will later freeze and revalidate. There is no secondary editable batch plan and no automatic first-file choice.
+
+Controls and risk boundaries:
+- Present the actual ambiguous subtitle with all tied video candidates. Keep Start disabled while any tie remains.
+- A choice for a missing source or a source outside the tie set is rejected, not silently applied.
+- More decisive filename evidence bypasses an obsolete manual choice; selecting a new batch/import source clears the manual mapping.
+- Review projected job contents and allow revoking the explicit choice; revocation reinstates ambiguity and the Start gate.
+- Revalidate actual source structure, directory collisions, and input identity when the batch is started. The UI is not a writer-authority escalation.
+
+Tests committed: pure planner regression cases (tie, explicit binding, stale/out-of-candidate choice, strong-match precedence), source/UI contract smoke, and an existing Chromium E2E scenario extended to select/revoke a tie. **Execution of CI and real Chromium is Pending at this intake; no success is asserted.**
+
+This is a **follow-up on the existing Candidate**, not a new general rule or a Canonical promotion. Review the specific PR CI before promoting the result's evidence level.
