@@ -515,12 +515,12 @@
       "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.PROJECT.WORKSPACE.DESKTOP_DARK.png",
       "source_repository": "11576865/HSR-Voice-Archive-Builder",
       "source_revision": "5dde8e3d8a1bc32f3553be7f4f17ae6873930d75",
-      "sha256": "d604fb2405c2db29e1923301206cb951d8e4a418e9dd0d90cd5f4d47dcb611b1",
+      "sha256": "b9c3ea34e4dee0aaf9ca15d2640244bd408a9059ae68e09d19c92dfc99007b86",
       "image": {
         "width": 1365,
         "height": 900
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.PROJECT.WORKSPACE.DESKTOP_DARK.json"
     },
     {
@@ -1692,12 +1692,12 @@
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.PROJECT.WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
         "source_revision": "5dde8e3d8a1bc32f3553be7f4f17ae6873930d75",
-        "sha256": "d604fb2405c2db29e1923301206cb951d8e4a418e9dd0d90cd5f4d47dcb611b1",
+        "sha256": "b9c3ea34e4dee0aaf9ca15d2640244bd408a9059ae68e09d19c92dfc99007b86",
         "image": {
           "width": 1365,
           "height": 900
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.PROJECT.WORKSPACE.DESKTOP_DARK.json"
       }
     ],
