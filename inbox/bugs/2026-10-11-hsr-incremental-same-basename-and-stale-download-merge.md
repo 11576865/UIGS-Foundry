@@ -2,6 +2,7 @@
 
 Date: 2026-10-11
 Status: Repair proposed on HSR PR #133, latest exact-head CI pending
+Lifecycle: validation-pending
 Project: HSR-Voice-Archive-Builder
 Categories: audio identity, archive data loss, cumulative output, platform divergence
 

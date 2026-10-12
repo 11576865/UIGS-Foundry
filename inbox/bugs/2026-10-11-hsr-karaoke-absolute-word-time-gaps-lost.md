@@ -2,6 +2,7 @@
 
 Date: 2026-10-11
 Status: Static source-level defect identified; corrective code and runtime regression pending
+Lifecycle: validation-pending
 Product: HSR-Voice-Archive-Builder main 5dde8e3d8a1bc32f3553be7f4f17ae6873930d75
 Categories: subtitle timing, forced alignment, ASS Karaoke, provenance
 

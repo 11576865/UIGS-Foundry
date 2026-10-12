@@ -1,6 +1,7 @@
 # Bug: Sticky single-task output rail overlaps a later batch workspace section
 
 Status: **Bug / screenshot-reproduced, PR fix under Chromium revalidation**  
+Lifecycle: validation-pending
 Date: 2026-10-10  
 Project: `11576865/MKV-Fast-Muxer`  
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/69 (Draft)  

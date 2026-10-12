@@ -2,6 +2,7 @@
 
 Date: 2026-10-10
 Status: Implemented fix on unmerged HSR PR #132; real writer and browser fixtures exercised
+Lifecycle: validation-pending
 Categories: state ownership, durability, async transaction, error recovery, output provenance
 
 ## Observation

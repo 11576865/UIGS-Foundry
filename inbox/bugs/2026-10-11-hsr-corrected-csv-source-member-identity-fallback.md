@@ -2,6 +2,7 @@
 
 Date: 2026-10-11
 Status: Source-level repair proposed on HSR PR #133, code/test CI passed
+Lifecycle: validation-pending
 Product: HSR-Voice-Archive-Builder
 Categories: archive provenance, subtitle edits, member identity, lossless migration
 

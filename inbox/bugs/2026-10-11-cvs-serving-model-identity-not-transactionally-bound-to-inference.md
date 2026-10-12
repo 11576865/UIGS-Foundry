@@ -1,6 +1,7 @@
 # Bug: CVS serving model identity is not transactionally bound to synthesis
 
 Status: **Source-confirmed invariant gap / not yet reproduced on real GPU**
+Lifecycle: validation-pending
 Date: 2026-10-11
 Project: `11576865/Character-Voice-Service`
 Audited main: `184d481c8cae911643a3a059211bbd71cbece20e`

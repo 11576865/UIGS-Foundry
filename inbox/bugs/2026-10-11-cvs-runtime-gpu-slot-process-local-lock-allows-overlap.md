@@ -1,6 +1,7 @@
 # Bug: CVS GPU exclusive group was guarded only within one Runtime Supervisor process
 
 Status: **Bug / source repair submitted / Linux and Windows CI Pending**
+Lifecycle: validation-pending
 Date: 2026-10-11
 Project: `11576865/Character-Voice-Service`
 Source PR: https://github.com/11576865/Character-Voice-Service/pull/24
