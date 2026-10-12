@@ -428,3 +428,13 @@ The strict auditor now checks the writer-provided `cancel_event` and absolute mo
 Deterministic tests: `test_cancel_during_historical_audit_never_advances_checkpoint` sends cancel after the historical receipt bytes have been read; `test_deadline_expires_during_historical_audit_without_commit` advances the monotonic clock mid-scan; both assert that the following batch receipt was not published and the cursor stays unchanged. `test_public_coverage_audit_is_not_limited_by_writer_deadline` guards separate public status semantics.
 
 **Evidence state at intake:** code pushed as `017581d...`; [Python/Termux CI 38286290065](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38286290065) and [Chromium/real FFmpeg-libass CI 38286290039](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38286290039) were running at initial record. No CI green claim until exact-head completion. This is a deduplicated extension of this existing HSR async evidence Case. It does not fix the O(number_of_batches) full scan per append (or cumulative quadratic total), cannot guarantee atomicity against external uncooperative writers, and does not establish complete animation safety. Case only; no Canonical promotion.
+
+ 
+### Cancellable historical ASS audit: exact-head CI evidence (2026-10-13)
+
+The HSR [Draft PR #134](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/134) change at exact SHA `017581d94e6307b6adfca437407fe1693567af00` completed [Python 3.11/3.12/3.13 + Termux Lite 38286290065](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38286290065) **success** and [Chromium + real FFmpeg/libass 38286290039](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38286290039) **success**. Real libass job explicitly executed:
+- `test_cancel_during_historical_audit_never_advances_checkpoint ... ok`
+- `test_deadline_expires_during_historical_audit_without_commit ... ok`
+- `test_public_coverage_audit_is_not_limited_by_writer_deadline ... ok`
+
+The code-level cancellation/deadline behavior is supported for controlled interleavings only. Strict historical scan remains per-append linear in committed batches, cumulative quadratic; no real thousand-batch benchmark, field operating system evidence or full-time ASS ink coverage. Existing HSR Case amended rather than duplicated; no Canonical update and no outstanding Foundry write.
