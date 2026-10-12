@@ -55,3 +55,11 @@ Recommended falsification cases:
 5. VVC: decoder/encoder capability statuses tested separately; do not expose executable policy without native build and mux/reopen fixture.
 
 No QHE code or Canonical spec was changed. The user has not yet chosen a new audio/product strategy.
+
+## Research follow-up: concrete FFmpeg execution and copied-audio size-budget asymmetry
+
+Executed independent local Linux FFmpeg 7.1.5 smoke and saved reproducible Test `inbox/tests/2026-10-12-qhe-per-stream-copy-and-audio-transcode-independent-ffmpeg-smoke.md`: synthetic two-second MKV, H.264 video + jpn FLAC + eng AAC; video and FLAC packet hashes stayed identical after output remux (24/24 and 21/21), while AAC→Opus changed codec and packet hashes. QHE task compiler cannot currently express the per-track mixed codec policy. This is **local FFmpeg test evidence, not QHE platform evidence**.
+
+New concrete source finding: QHE `src/media-planning.js::sizeBudget` blocks `audio==='copy'` in size mode when any audio tracks are present, and blocks preserved attachments, because their sizes are not reliably estimated. It is a deliberate honest limitation in current planning, but a future measured budget can calculate unchanged selected packet payloads and attachment actual bytes as fixed or bounded contributions, with mux overhead and trim/timestamp uncertainty still explicit. This makes exact-user-intent preservation and total-output target planning compatible in principle; **do not claim a hard container byte guarantee from packet size accounting alone**. Guided hard-sub size policy is a separate planner and should be audited for consistent user-visible semantics before changing either.
+
+This refines the existing Candidate, not a request to auto-enable lossy audio reencoding or to implement generic audio editor features. No Canonical promotion.
