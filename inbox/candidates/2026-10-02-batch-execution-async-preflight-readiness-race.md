@@ -87,3 +87,13 @@ While expanding UI-first MKV source container editing in Draft PR #69, existing 
 The scenario now waits for the active `subInput.files[0].name` to match the requested current subtitle, the title field to exist/enabled, and `muxBtn` to be enabled before filling title and executing. Subsequent latest-head Chromium workflow `38023534205` passed this scenario, all remaining browser cases, and **169/169 Node tests**.
 
 Reuse the existing contract: a change event or populated input control is not proof that asynchronous identity/derived track editors are ready to accept programmatic edits. Tests must synchronize on the current *task identity* and semantic readiness, not arbitrary delays or a stale previous-row selector. This evidence **adds to**, and does not create or promote, the existing Candidate.
+
+
+## P0 stale batch snapshot review — 2026-10-12
+
+Source product review: `11576865/MKV-Fast-Muxer` `main@9c49af8b32bc0b0926a07dfc1bad700627d60787`
+Tracked issue: https://github.com/11576865/MKV-Fast-Muxer/issues/79
+
+The merged Matroska EBML source gate added asynchronous `await sniffFileContainer(job.video)` / `await inspectMatroskaPreservation(job.video)` before `batchRunning = true`. The earlier output-directory check uses `batchPlanGeneration` to invalidate stale approval, but the **new preflight loop has no generation recheck** before committing the batch. While it awaits, inputs/rules are editable, so the old local `pairing` can become stale. A second start click may enter the preparation window. This is a code-reviewed transaction-boundary risk; a controlled browser interleaving has not yet been executed.
+
+Distinct refinement of existing readiness bug: **awaiting readiness is necessary but insufficient**; the approved document/job snapshot must remain valid after every `await`, or the UI must lock its identity for the entire prepare→commit phase. Batch execution must acquire an explicit start lock before asynchronous preflight, reject stale plan-generation/destination changes, and test delayed file reads plus mid-preflight edits. Do not auto-promote to Canonical.
