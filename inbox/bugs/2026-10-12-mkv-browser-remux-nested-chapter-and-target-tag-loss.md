@@ -91,3 +91,9 @@ This is verified correction of **misleading product claims**, not a writer or se
 ### Final integrated-main confirmation — 2026-10-12
 
 Main `c01e7411e83ab85d64b7e924d55a82fde6c6a2ea` GitHub Actions [Chromium E2E](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38201136018) passed 227/227 Node tests and full browser scenarios, including delayed source-preflight stale-plan and cancellation tests; main [Pages deploy](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38201136026) passed. Thus #80's accurate copy is integrated with #79's transactional batch-start change and verified on the final merged commit. Product #77 (original Matroska chapter/tag loss under ordinary remux) remains OPEN. No Canonical change.
+
+## Tracker-state discrepancy — 2026-10-12 (Bug remains technically unverified as repaired)
+
+Live product [Issue #77](https://github.com/11576865/MKV-Fast-Muxer/issues/77) unexpectedly reports `state=closed, state_reason=completed, closed_at=2026-10-12T09:49:12Z`. The issue body and last retrievable comments still describe confirmed nested ChapterAtom, language/EditionUID and ChapterUID-targeted Tag loss, and explicitly say the partial P0 preflight is **not** a serializer/backend repair. No independent hard-fixture green post-fix output evidence or replacement writer fix was identified in the reviewed main commits or the #77 comments.
+
+Consequently **tracker closure is only an administrative state**, not verified engineering resolution. Preserve the red independent oracle and distinguish (1) known-unsafe-input *refusal*, (2) positive narrow TrackUID/AttachmentUID controls, (3) actual semantic writer preservation. Do not infer P0 resolved and do not promote Canonical based on a status toggle. An owner decision about re-opening or tracking a follow-up root-cause issue is Pending; no automatic product issue status mutation performed.
