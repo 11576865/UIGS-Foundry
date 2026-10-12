@@ -136,3 +136,21 @@ Grounded repo state checked: QHE `main` `de8bfb476b7f35b952db88bcaf5b4d2c9ed44d3
 This is **not a report of a bug**. "Multi-curve shifting" is ambiguous: moving cursor along a single upper envelope, moving multiple translucent/ghost branch curves graphically, horizontal re-projection after audio or container budget changes, and seamless automatic branch handoff are four different behaviors. When discussing status, name each explicitly and avoid equating the existing aggregate envelope with a multi-curve animated visualization or fully automated plan switch.
 
 Candidate next review: preserve one dominant decision frontier while optionally exposing branch-labeled ghost lines or crossing ranges, separately version fixed-bitrate/audio-budget projection from source encoding evidence; plan transitions remain explicit by default until the owner authorizes true automatic handoff and runtime acceptance supports it. No QHE code, Canonical, or product settings were changed in this intake.
+
+
+## Engineering proposal / PR #103 (2026-10-12): evidence-bounded candidate context paths
+
+After the user instructed continued QHE engineering, submitted **draft, unmerged** PR [QHE #103](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/103) from baseline `de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38` (head at submission `5012eb9d3d11d75cb9e4e86b338c456d886f26aa`).
+
+Implementation:
+- `src/compression-decision.js`: `createMultiBranchFrontier().sampleBranchCurves(count)` returns each independently fitted candidate restricted to the intersection of already measured target-byte domains; refuses incomplete points instead of extrapolating.
+- `src/size-frontier-ui.js`: plot model builds `comparisonPaths`, includes losing candidate samples in the common y-axis domain to avoid clipping, while preserving one upper envelope and one cursor.
+- `src/curve-chart-svg.js` and `src/style.css`: render subtle dashed candidate lines with escaped SVG title identities **beneath one solid primary decision curve**. This is one chart, not many independent competing charts.
+- `src/main.js`: user-facing legend distinguishes candidate fits vs upper envelope; documentation states manual transcode remains a separate single-branch calibration and Stream Copy cutting has no rate-distortion curve.
+- Added Node test assertions in `src/compression-decision.test.mjs` for common domain, model plot validity, one primary line, fallback for single branch and HTML/SVG escaping.
+
+Scope limitations: **not** a generic codec × resolution Cartesian-product optimization, multi-line animated translation, manual-transcode envelope merger or automatic codec/preset handoff. The PR intentionally leaves actual encoder execution, clip cutting, output semantics, and task schema v4 unchanged. The per-branch lines are model fits, not separately validated final files.
+
+Initial GitHub workflows at PR creation: `UIGS Evidence Coverage` success; `Test frontend` and `Windows local smoke` in progress. Exact-head CI and actual measured-branch browser screenshots remain pending. Do not merge or promote to Canonical before external validation; future CI status must be checked separately.
+
+This modifies an existing Candidate to avoid duplicated observations, not a new authoritative specification.
