@@ -58,3 +58,10 @@ Therefore:
 The first browser red was not merely a broken fixture; the independent writer control both supports the distinct nested-chapter loss and reveals an additional cross-writer problem with ChapterUID-targeted tag retention. Avoid concluding that switching to MKVToolNix alone fixes the tag-target relation. The control step is non-gating to allow Browser E2E to run and independently fail with its own red semantic oracle; both JSON evidence files are retained. No Canonical promotion or production fix.
 
 Source product Issue #77 comment documents this refinement.
+
+
+## Partial mitigation deployed (2026-10-12)
+
+A bounded read-only preflight hazard detector has been merged from PR #78 into main at `9c49af8b32bc0b0926a07dfc1bad700627d60787`, with head-specific Node 226/226 and Chromium E2E PASS. It blocks the independently reproduced nested chapter and chapter-targeted-tag source **before** output in both single and mixed batch workflows. It explicitly warns, without claiming preservation, for otherwise common TrackUID/AttachmentUID-targeted Tags; the initial broad hard-block caused a legacy E2E regression and was corrected.
+
+**Bug remains unresolved**: the actual browser FFmpeg/Wasm remux engine still loses nested chapters and UID-targeted tag semantics on that source when executed without guard, as proven by evidence PR #76. The merged safety check is a prevention barrier for recognized inputs, NOT a writer fix, nor proof of complete EBML preservation. Source issue #77 must remain open.
