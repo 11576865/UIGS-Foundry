@@ -68,3 +68,21 @@ This concretizes the distinction between a primary decision surface and internal
 QHE PR #73 is **merged** into main after Frontend, Windows and UIGS evidence CI passed. Merge SHA: `7b6cddfe766a9a0f70fd67442bf14170cd9438e8`. Its single-curve interaction and strict raw calibration evidence are now the mainline baseline, not merely a proposed PR.
 
 The next multi-codec envelope and VBR validation implementation is tracked separately at https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/74 and was **unmerged, CI/device acceptance pending** at this checkpoint. No Canonical promotion.
+
+
+## 2026-10-12 Manual comparable-evidence contract PR #104: actual isolated implementation checkpoint
+
+QHE owner requested continuation after delivery of the 18-page architecture/decision report and draft PR #103. A second **independent draft** [QHE PR #104](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/104) was created from QHE main `de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38`, proposal head `8b5c437809aae3c22524f261c4c9811467737105`. It does not depend on #103.
+
+What exists (CODE + CI; **not** Manual UI or physical FFmpeg proof):
+- `src/manual-transcode-comparison.js` adds a **session-only read-only** `createManualTranscodeComparison` contract. Candidates must identify the same source token, runtime/build token, direct source-SSIM reference protocol, no-filter processing, selected video stream, trim interval, original/reference dimensions, versioned sample plan and exactly paired windows.
+- Every CQ trial must supply at least two distinct valid bitrate points with measured SSIM/duration/bitrate on **all shared sample windows**. Synthetic tests cover rejection of missing, shifted, wrong-duration, invalid-numeric samples and summary values that do not match raw window averages/minima.
+- A complete candidate set reuses QHE's existing `fitRateDistortionModel` and `createMultiBranchFrontier`; the upper envelope is confined to common measured output-budget ranges. Output size planning requires an explicit audio-budget evidence kind, not an unknown copied-audio budget silently treated as zero.
+- The result returns `sessionOnly=true`, `adoptionRequiresNativeVbrVerification=true`: CQ comparison does **not** authorize automatic encoder changes or promise formal VBR/final-size equivalence.
+- `src/manual-transcode-comparison.test.mjs` is wired into `.github/workflows/test-frontend.yml`; documentation `docs/manual-transcode-comparison-evidence.md` distinguishes test fixtures and next-stage acceptance.
+
+Exactly scoped proof: QHE Test frontend GitHub Actions run `38263407888` **success** and UIGS Evidence Coverage run `38263407783` **success** for exact proposal head. The model is tested with synthetic protocol/evidence only, not actual multiple real NVENC/x264/x265 samples, and its source/runtime tokens are assertions rather than cryptographic content verification.
+
+User impact: PR #104 does not modify the Manual interface, source-video FFmpeg execution, the Guided ASS estimator, lossless Stream Copy or the task v4 schema. The already installed Manual single-branch curve continues to work unchanged. PR #104 remains **draft/unmerged**; owner review and real/native comparison acceptance pending.
+
+Reusable boundary: **rate-distortion model code reuse is not comparable measurement reuse**. The cross-branch optimizer should receive *paired, protocol-versioned, same-reference evidence*; it must not repair mismatched evidence by chart interpolation or presenting convenient codec labels. This is an extended Candidate, not Canonical or a claim of existing cross-backend parity.
