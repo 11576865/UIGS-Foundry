@@ -52,3 +52,18 @@ Draft PR #76 now also adds:
 At this update, newer E2E `38194692640` is running after correction of an invalid XML test string. Do not misread the older green result as proving this independent corpus passes. All design knowledge stays Case/Candidate, not Canonical.
 
 References: https://mkvtoolnix.download/doc/mkvmerge.html and https://mkvtoolnix.download/doc/mkvextract.html and https://mkvtoolnix.download/doc/mkvpropedit.html
+
+
+## Positive control: TrackUID-targeted tag semantic preservation (2026-10-12)
+
+Product PR #83: https://github.com/11576865/MKV-Fast-Muxer/pull/83
+Browser CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38202212178
+Merged test-only commit: `096d3a52b3e828175e9430b2ac41761765335ba3`
+
+An independent MKVToolNix fixture with **flat** chapters and one genuine `P0_TRACK_RELATION` custom Tag targeting the actual video `TrackUID` was authored using the UID read via `mkvmerge -J` with Python 64-bit integer safety, and self-checked by `mkvextract`. The actual browser FFmpeg/Wasm no-requested-edit mux path displays its ordinary `UNVERIFIED_REFERENCES` warning and generates output.
+
+`scripts/p0-audit-track-tag-relations.py` resolves the source and output `TagTrackUID` references to a **logical track identity** (type, codec, ordinal), rather than comparing raw UID numbers, which are legitimately reassignable by container writers. It also rejects a missing Tag and an unresolved/dangling target. At source PR head `c75a68a0b7a614436ec06164f4fa8fec397f3b35`, **228/228 Node tests**, full Chromium E2E PASS and `P0 track-tag semantic relation: CHECKED_RELATIONS_MATCH`; machine-readable `p0-trackuid-target-relation-audit` artifact uploaded.
+
+Interpretation: one **positive control** for correctly linked user-defined TrackUID metadata in a simple independent Matroska source. It does **not** support a blanket TrackUID guarantee, nor negate verified nested ChapterUID-target loss from #77/#76. It supports separating confirmed harmful structures from common-but-not-generally-verified metadata instead of globally forbidding all UID targets. Generalizable methodological insight: independent roundtrip oracles should test **referential semantics** and logical target resolution, rather than false failures from mutable surrogate IDs.
+
+This supplements an existing Case, avoids duplicate Candidate creation, and does not update UIGS Canonical.
