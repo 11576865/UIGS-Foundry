@@ -128,3 +128,14 @@ Real browser interaction regression with mocked Native transport: `scripts/check
 Independent screenshot review of a previous iteration found an extra *test fixture chart* still visible above the Manual workbench and single-encoder VBR controls left visible in compare view. Browser fixture and CSS were corrected rather than portraying the two-graph screenshot as product acceptance. Additionally, the original vertical axis legend `平均样本 SSIM` could falsely imply an arithmetic mean despite worst-window/fit-based samples. It was changed to `短样拟合 SSIM` and protected by a test. No observed actual video encode regression is claimed from these UI defects.
 
 **Do not promote** to Canonical: client Native/real film field acceptance, AV1/GPU, subtitle-affecting reference and final VBR codec switch, actual saved output/size and long-form compatibility are all still open. Draft PR #104 not merged.
+
+
+## 2026-10-13 QHE Manual selected-branch VBR check now implemented but formal adoption deferred
+
+Draft QHE PR #104 head `c2f3cbf638aa30caf540aadd468bf5a8c8113bdd` adds a separate explicit Native bitrate-mode confirmation gate for the selected candidate from the existing one-chart CQ envelope. It is an **execution-mode bridge**, not automatic codec adoption: same-source/reference Native `windows-native-exact-vbr-v1` receipts, exact encoder/preset, disabled multipass, requested rate and every paired source window must match; SSIM minimum is checked against the user threshold. Repeating the curve's CQ interpolation or treating CQ receipts as VBR evidence is rejected.
+
+A passing result remains a **short-window attestation**. It does not set formal codec/bitrate, prove full-length quality or output bytes. The GUI's status and graph readout now share one selected-budget/candidate/threshold-bounded VBR result. Independent image review caught and resolved a contradictory “VBR passed” versus “not verified” display. User interaction (keyboard moving volume budget, changing SSIM threshold, changing source) invalidates the prior current selection's VBR pass.
+
+Exact-head CI **all five success**: Windows real Native paired x264/x265 CQ plus x264 VBR (`38278213526`), frontend/browser (`38278213258`), Windows smoke (`38278213254`), Windows v4 (`38278213362`), UIGS coverage (`38278213284`). True VBR path exercised two real FFmpeg windows at 600kbps on one 5-second FFV1 synthetic source. For full evidence/modeled vs real distinction see `inbox/tests/2026-10-13-qhe-manual-native-vbr-gate-and-readout-consistency.md`.
+
+Remaining Candidate question: define atomic `codec + encoder + preset + rateMode + targetVideoBitrate` owner-approved handoff with task recompile, Native revalidation and stale-evidence invalidation, *then* independently verify a formal encoded output. Do not silently merge, auto-adopt, or modify Canonical from this CI or browser fixture alone.
