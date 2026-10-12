@@ -1,10 +1,10 @@
 # Test: Matroska AttachmentUID-targeted tag must resolve to identical attachment payload after remux
 
 Date: 2026-10-12
-Status: Test prepared / CI in progress; **outcome not yet verified**
+Status: **Verified, scoped green** — checked AttachmentUID target relation matched in actual browser remux
 Product: `11576865/MKV-Fast-Muxer`
-Draft PR: https://github.com/11576865/MKV-Fast-Muxer/pull/84
-Initial CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38212101317
+Merged PR: https://github.com/11576865/MKV-Fast-Muxer/pull/84 (main squash commit `0b2d2a502e015374043f0bf664fbacd2cc14b82c`)
+Verified CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38220651710 (229/229 Node tests; full Chromium E2E PASS; `P0 attachment tag semantic relation: CHECKED_RELATIONS_MATCH`). Initial CI https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38212101317 was cancelled during slow apt downloads, before the experiment ran; it is not failure evidence.
 Related P0 cases: `inbox/cases/2026-10-12-mkv-no-edit-preservation-scoped-independent-oracle.md`; `inbox/bugs/2026-10-12-mkv-browser-remux-nested-chapter-and-target-tag-loss.md`.
 
 ## New test dimension
@@ -23,4 +23,4 @@ CI writes `p0-attachmenttag-relation-audit.json` even on `DIFFERENCE_DETECTED` o
 - Red `DIFFERENCE_DETECTED` means a semantic mismatch in the tested warning-and-allow class. Investigate and revise protection only after independently verifying the failure.
 - `CHECK_UNAVAILABLE` is test infrastructure/fixture absence, not proven data loss.
 
-Status should be updated after the PR-head browser run. This Test is not Canonical and is not yet a validated product guarantee.
+Test evidence now confirms this particular attachment-targeted marker remains bound to the same extracted content for the tested source/output, allowing UID renumbering. This does **not** authorize a universal product guarantee or removal of preflight warnings, and Issue #77 remains open. Main post-merge CI requires independent checking. This Test is not Canonical.
