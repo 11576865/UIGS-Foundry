@@ -103,3 +103,8 @@ HSR [PR #134](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/134), e
 ### 2026-10-12: stronger historical receipt audit and honest dynamic effect coverage
 
 HSR PR #134 `8b08477525ccff0436e7636a52141e65069035be` adds full backward batch-receipt chain audit and recomputation of aggregate counters to prevent earlier corrupted evidence being displayed as verified. Also fixes false event-coverage reporting when only generic animation probes were sampled rather than a decoded effect transition (notably unsupported Karaoke `\\kt`), and a workbench request-start race for mutually exclusive evidence job kinds. Exact-head tests pending at initial Foundry write. This improves the evidence integrity story but does not establish entire timeline pixel safety, real device font parity or actual independent per-segment effects. Existing rendered-ink Bug remains **OPEN**, Canonical unchanged.
+
+
+### Bug-fix implementation exact-head CI (2026-10-12)
+
+HSR PR #134 SHA `8b08477525ccff0436e7636a52141e65069035be` passed [Python/Termux](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38243027912) and [Chromium/real libass](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38243027896). This confirms controlled regression and real renderer job execution for the committed chain audit / event coverage / UI job race fixes. It is **not** confirmation of all continuous subtitle frames, complex unknown effects, the muxed media file or on-device fonts. Bug remains OPEN; Canonical unchanged.
