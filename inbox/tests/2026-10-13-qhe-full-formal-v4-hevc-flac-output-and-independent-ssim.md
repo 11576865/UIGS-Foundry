@@ -36,3 +36,17 @@ QHE's independent `Windows Manual paired codec acceptance` workflow has been ext
 ## Remaining scope
 
 The source is only 5s synthetic SDR 8-bit, one FLAC, one video stream, no subtitles/attachments, no external player/physical Windows end-user workstation test; no AV1/NVENC, HDR, VFR, real multi-language audio, realistic scene dynamics or long-duration sampling, no asserted strict whole-container size upper bound, and no Windows save-dialog exported-file acceptance. An observed 358516B whole-file size is **not** a strict video budget guarantee. PR remains Draft/unmerged, Test only; do not promote to Canonical.
+
+
+## Final exact-head five-gate closure and replayable artifact
+
+QHE draft PR head `cbc8345b3670d8195055fa68776f6b247213070a`: **all 5 workflows success** on that exact commit:
+- Test frontend: `38284619884`.
+- Windows Manual paired codec acceptance **with actual formal 5-second HEVC output**: `38284620192`.
+- Windows local smoke: `38284619879`.
+- Windows Stream Plan v4 runtime acceptance: `38284619950`.
+- UIGS Evidence Coverage: `38284619839`.
+
+Workflow `38284620192` uploaded artifact `11762832734`, `manual-native-full-output-evidence` (14-day retention): `synthetic-ffv1-flac-source.mkv` 488831B, `verified-hevc-flac-output.mkv` 358516B, `full-output-acceptance.json` with the exact observed independent metrics. Downloaded the actual artifact in this conversation and checked its three member filenames/sizes. **A second local FFprobe verification of the extracted real media files**, independent from Windows-hosted CI, established source streams FFV1+FLAC, output HEVC+FLAC, 235/235 audio packet SHA256 hashes equal and 358516B actual output size. The full-timeline SSIM=0.999738 and frame-count/length gates remain established by the Windows dedicated verifier; the second local check reran the stream and FLAC-hash/byte subset only. Keep the distinction between these evidence layers.
+
+All metrics are for this CI-generated five-second synthetic fixture. No real-world target-size or playback guarantee is implied. Candidate/Test only; no Canonical change and no merge.
