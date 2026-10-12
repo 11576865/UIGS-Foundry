@@ -47,3 +47,11 @@ and
 `inbox/observations/2026-10-12-browser-native-capability-envelope-container-workbench.md`.
 
 It is a **Test-level evidence record**, not a promotion or rewrite of either Observation and not a change to any UIGS Canonical rule.
+
+## P2 source reader follow-up — 2026-10-12 (Pending exact-head CI)
+
+Product [Draft PR #89](https://github.com/11576865/MKV-Fast-Muxer/pull/89) at initial head `f0c54d1fa1ebffbb42c0b72cae9b950b3634ebe2` adds a session-reference-scoped SourceAsset identity and bounded `Blob.slice` / raw-EBML attachment inspector. The reader observes generic FileName, FileMediaType, FileUID and FileData byte ranges, retains no source File objects in immutable report projections, does not load full FileData during inventory, fails closed on incomplete/unknown-sized child structures, and opens an attachment only as an explicitly requested Blob view. `projectAttachmentCopyTarget` maps selected observed attachment metadata into a separate *non-executable* output draft; no production writer or copy-preservation guarantee was added.
+
+New R-02 crosscheck reads the **same test-only sample** already independently examined with `mkvmerge`/`mkvextract`, and will compare this reader's chosen PNG Blob view hash against the independent extracted PNG hash. The crosscheck remains **non-gating research** and uploads its own JSON verdict; the browser and Node suites remain gating. At intake, the current PR head is queued/running; no new passing result is yet claimed. Any green CI without `MODEL_AND_INDEPENDENT_ATTACHMENT_BYTES_MATCH` is insufficient to promote this crosscheck to verified evidence.
+
+Threat boundary: arbitrary attachment names and MIME are **untrusted metadata**. This P2 API exposes no filesystem save or execution action, and no automatic preview; downstream UI must sanitize/collision-check before exporting and must not take MIME at face value. Existing untrusted attachment Case remains the acceptance reference. No UIGS Canonical promotion.
