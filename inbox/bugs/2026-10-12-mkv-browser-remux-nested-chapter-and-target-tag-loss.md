@@ -74,3 +74,15 @@ Tracking issue: https://github.com/11576865/MKV-Fast-Muxer/issues/80
 Despite the confirmed chapter/tag source-semantic loss and only partial safety preflight, `README.md` still promises `完整保留原容器结构，仅追加` for ordinary MKV; `src/main.js` still says `完整保留并追加` / `保留 Chapters 与 metadata` and runtime `正在无损封装 MKV`. Those messages do not distinguish media stream copy from EBML container-semantic preservation. This is a confirmed user-facing claim/technical-capability mismatch, not proof of a new data-loss mechanism. Keep it with the existing Bug as a terminology/claim scope issue; independently update code and documentation with narrow, source-supported behavior and regression tests.
 
 Source issue #77 remains open after partial preflight; this is not Canonical policy change.
+
+
+## Verified #80 copy correction (2026-10-12)
+
+Product Issue #80: https://github.com/11576865/MKV-Fast-Muxer/issues/80 (closed)
+Product PR #82: https://github.com/11576865/MKV-Fast-Muxer/pull/82 (merged)
+Commit: `c01e7411e83ab85d64b7e924d55a82fde6c6a2ea`
+Integrated pre-merge Chromium CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38200883249
+
+The product formerly exposed `完整保留原容器结构，仅追加`, `正在无损封装 MKV`, and Chapter/metadata output-plan assertions as though `-map 0` / `-c copy` guaranteed complete EBML semantic preservation. In independent #77 evidence this was false. PR #82 changed UI, runtime and README copy to distinguish stream-copy/remux from UID/Chapter/Tag preservation, linked the source-data loss and preflight limitation, and added a static regression check against these absolute promises. The integrated #79 + #80 branch passed **227/227** Node tests and complete Chromium E2E including batch preflight snapshot and cancellation.
+
+This is verified correction of **misleading product claims**, not a writer or serializer fix. Original #77 remains OPEN and independent red source evidence remains intact. No Canonical change authorized.
