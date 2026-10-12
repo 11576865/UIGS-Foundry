@@ -19,3 +19,7 @@ For any future automated source-edit workflow where replacement content can cont
 ## Nonclaim
 
 This edit-tooling failure is not a Matroska parsing, EBML, source-identity or writer correctness defect. Keep the source patch failure distinguished from PR #102's independent compatibility matrix results.
+
+## Revalidation on repaired exact head — 2026-10-13
+
+The original test-file import error was fixed by exact-line replacement. Corrected head `8e2512bef015e287da6aca78355e0ae217d6bbff` passed **338/338 Node**, Vite and full Chromium in [workflow 38285406375](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38285406375), including the independent existing-MKV Void layout matrix `P2_VOID_LAYOUT_CORPUS_INDEPENDENT_ROUNDTRIP_AND_REJECTIONS_MATCH`. PR #102 was squash merged as `main@ec65c26f6affd265aeb693b5c066166132b12c91`. This closes the specific source-patch interpolation defect; it is not evidence of Matroska compatibility beyond the separate stated corpus. Remains Bug-level record only, no Canonical promotion.
