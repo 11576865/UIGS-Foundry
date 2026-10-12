@@ -120,3 +120,19 @@ This adds implementation support for two parts of the Candidate: preserve one co
 
 The implementation is still single-branch. It does not yet provide evidence for automatic branch handoff, hysteresis, or upper-envelope switching, so those parts remain Candidate-level design work.
 
+
+
+## 2026-10-12 implementation boundary: aggregated envelope is not multi-line shifting or automatic handoff
+
+The owner asked whether QHE's “efficiency curve” has completed “multi-curve translation/shift” in the context of keeping independent pure-video-transcode and stream-copy-cut workflows.
+
+Grounded repo state checked: QHE `main` `de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38`; PR #73 merged (single foreground visualization), #74 merged (same-resolution codec envelope), #75 merged (common-reference resolution envelope).
+
+- **Guided ASS target-size:** `src/main.js` exposes "生成当前编码器曲线", "比较可用编码器", "比较当前编码器分辨率". `createMultiBranchFrontier()` compares multiple independently measured models in their common, valid byte-budget range and provides branch ID, alternatives, 0.003 SSIM incumbent hysteresis, and an explicit "采用推荐配置" action. `src/size-frontier-ui.js` and `src/curve-chart-svg.js` render **one** aggregate fitted line/band with all evidence points; per-branch dashed or "ghost" curves, visually translating multiple plotted curves as the slider moves, and automatically committing a new codec/resolution during drag are **not** implemented. The cursor moves in output-budget coordinates; the execution plan is only changed after explicit acceptance.
+- `currentSizeFrontier()` prioritizes `resolutionChoices.length>=2` and otherwise uses codec branches: it does **not** form a general Cartesian-product frontier over all codec × output-resolution × preset choices.
+- **Manual pure transcode:** `src/transcode-calibration-panel.js` constructs only a same-current-encoder/preset/time-range measured curve and requires same-parameter VBR short-sample verification before adopting a budgeted bitrate. It does not incorporate guided multibranch upper-envelope visualization.
+- **Stream Copy cutting:** does not use a rate-distortion curve because the selected video packets are copied, not codec-reoptimized. Its correct evidence includes actual keyframe in-point, PTS/sync, packet preservation, and output integrity.
+
+This is **not a report of a bug**. "Multi-curve shifting" is ambiguous: moving cursor along a single upper envelope, moving multiple translucent/ghost branch curves graphically, horizontal re-projection after audio or container budget changes, and seamless automatic branch handoff are four different behaviors. When discussing status, name each explicitly and avoid equating the existing aggregate envelope with a multi-curve animated visualization or fully automated plan switch.
+
+Candidate next review: preserve one dominant decision frontier while optionally exposing branch-labeled ghost lines or crossing ranges, separately version fixed-bitrate/audio-budget projection from source encoding evidence; plan transitions remain explicit by default until the owner authorizes true automatic handoff and runtime acceptance supports it. No QHE code, Canonical, or product settings were changed in this intake.
