@@ -28,3 +28,11 @@ A browser-local Matroska inspector/author should safely open untrusted source fi
 8. Audit extract->reimport compares raw `FileData` bytes with trustworthy checksums when an exact-copy claim is made; no hash alone proves playback compatibility.
 
 No code execution, codec exploit, or denial-of-service penetration test is claimed here. These are proposed adversarial fixtures, not a guarantee any real browser execution environment is secure. Do not auto-promote to Canonical.
+
+## 2026-10-12 implementation provenance — export policy only (Pending exact-head CI)
+
+Product [Draft PR #90](https://github.com/11576865/MKV-Fast-Muxer/pull/90), head `70cdb199c37fbd197c50667267d0528c9ae3feb9`, implements a **pure, source-reader-independent**, no-write export-name proposal policy. It normalizes untrusted metadata (NFKC), strips path components, replaces control/bidi/unsafe characters, handles reserved Windows device basenames and bounded UTF-8 lengths, and proposes case/Unicode-aware collision suffixes. It keeps the original FileName and declared MIME visible as **unverified metadata**, never trusted MIME/content bytes, direct directory paths or approval to overwrite.
+
+Regression tests are submitted for `../`, Windows paths, fullwidth separators, reserved names, bidi controls, UTF-8-length collisions, exact caller-provided existing names and immutable/no-write status. **No real browser save or filesystem recheck is implemented here**; `destinationRecheckRequired=true`, `overwriteAuthorized=false`, `readyToWrite=false`, `payloadIntegrity=not-checked`. The actual safe save/rename + user approval work remains future, contingent on PR #89's separate Matroska attachment source reader and independently validated R-02 crosscheck.
+
+At intake, exact-head Node/Vite/Chromium CI is **pending**. Update evidence only after tests, and do not promote Canonical from this one implementation.
