@@ -30,3 +30,12 @@ The P0 policy only covers known risks and does NOT guarantee other EBML elements
 Acceptance target: a high-risk source containing a nested chapter and ChapterUID-targeted tag must be refused **before new output**, while existing ordinary single and batch behavior stays functional. Attempting a dangerous new source must not revoke a previously completed download. No universal 'full Matroska preservation' capability claim is permitted.
 
 Do not auto-promote to Canonical from this single project. Source references: RFC 9559 sections 5.1.7, 5.1.8, 24; https://www.rfc-editor.org/rfc/rfc9559
+
+
+## Post-merge verified outcome (2026-10-12)
+
+Production-scope partial mitigation merged in `11576865/MKV-Fast-Muxer` PR #78, squash commit `9c49af8b32bc0b0926a07dfc1bad700627d60787`. PR head `6ef7e973a1278e178e16c0b5e4fb429859ac0bf9` passed **226/226 Node unit tests and complete Chromium E2E**, including independently authored nested chapter+tag single-item refusal and mixed-batch pre-start refusal. Main post-merge workflow was pending at time of this note.
+
+**Important correction from regression:** blanket hard-blocking *all* nonzero UID Tag targets wrongly blocked the legacy FFmpeg-authored `source-with-attachments.mkv`, which had an ordinary TrackUID target. The policy now hard-blocks nested/ordered/multiple chapter structures and nonzero **ChapterUID / EditionUID** targeted Tags; ordinary TrackUID / AttachmentUID targets produce `UNVERIFIED_REFERENCES` with a visible caution, not a preservation certificate. The guarded single-item execution preserves a previous completed output link if the new source is refused. Batch checks all jobs before destroying previous result references.
+
+Neither this candidate nor the merged code claims that otherwise simple Matroska is fully preserved, nor that the original lossy writer was repaired. See still-open source issue #77 and P0 evidence PR #76. This is a single-project Candidate only, not Canonical.
