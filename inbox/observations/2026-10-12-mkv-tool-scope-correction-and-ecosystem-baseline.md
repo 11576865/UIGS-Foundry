@@ -50,3 +50,11 @@ Follow-up analysis on 2026-10-12, based on current official specification:
 
 Potential cross-project applicability: document formats with independently varying structural validity, output-profile naming and runtime implementation support.
 Evidence level: RFC/official docs plus static project code; no attachment-only output fixture executed.
+
+## 2026-10-12 R-02 experiment and general target-model provenance (Pending external audit)
+
+Product [Draft PR #88](https://github.com/11576865/MKV-Fast-Muxer/pull/88), initial head `c267e639ef6058ceb1c1ca0f7401ba8a24af794f`, implements the **model-level** correction: a read-only `projectMatroskaTarget` can describe attachment-only (one PNG, zero video/audio/subtitle Tracks), audio-only, metadata-only, empty and normal video composition; `resolveLegacyTargetCapability` refuses non-video writes under the current video-rooted FFmpeg adapter **without declaring the Matroska format itself invalid**. Seven Node tests were submitted; exact head full CI pending at intake.
+
+A deliberately **test-only** EBML fixture generator constructs a Matroska Header and Segment with Info + exactly one PNG AttachedFile (no Tracks/Cluster). The independent acceptance path uses `mkvmerge -J` to inspect zero Tracks/one attachment, `mkvextract` to compare the attachment's extracted SHA-256 with the original PNG, and logs FFprobe acceptance/rejection separately. CI runs this as a **non-gating** experiment that always uploads JSON evidence; a green CI job is not an R-02 success claim. Normative reference: RFC 9559 §§4.5, 6.1, 21. The experiment does not establish production writer support, cross-player compatibility, or full conformance until independent results are inspected.
+
+This updates an existing Observation on general Matroska and no-video semantics, not a new Canonical rule. Follow-up must inspect the R-02 report and update evidence status; unresolved #77 nested Chapter/Tag loss remains a separate preservation risk.
