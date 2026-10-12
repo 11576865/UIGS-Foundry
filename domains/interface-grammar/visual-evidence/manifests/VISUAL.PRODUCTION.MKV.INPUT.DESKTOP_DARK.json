@@ -12,11 +12,11 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.INPUT.DESKTOP_DARK.png",
   "source_repository": "11576865/MKV-Fast-Muxer",
-  "source_revision": "60d41336ed7d6df5a422001289824510ea823d9e",
-  "sha256": "5c321df6f5bc5450f5c0550139638ae1a138072c41b46c85207c478301f46394",
+  "source_revision": "fee72462c687181348f7f1f2e181816c1dc8d30d",
+  "sha256": "0b3d1598b5173dd6e9f71d183f519d3ba26f572a403c71b4b3ae1aa75c74b640",
   "image": {
-    "width": 975,
-    "height": 349
+    "width": 447,
+    "height": 236
   },
   "environment": {
     "schema_version": 1,
@@ -32,7 +32,7 @@
     },
     "target_url": "http://127.0.0.1:4173/",
     "viewport": {
-      "width": 1365,
+      "width": 1440,
       "height": 900,
       "deviceScaleFactor": 1
     },
@@ -46,7 +46,7 @@
     "selector": ".stage-input",
     "capture_region": "element",
     "viewport": {
-      "width": 1365,
+      "width": 1440,
       "height": 900,
       "device_scale_factor": 1
     },
@@ -58,21 +58,21 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "dcc67477ebd96505b76d0b3a40edaea11eab89931f95d542ef5c7c3a907985b2",
+  "previous_sha256": "5c321df6f5bc5450f5c0550139638ae1a138072c41b46c85207c478301f46394",
   "limitations": [
-    "No user media is loaded; this records the real empty-input production state."
+    "Capture must show add-file action without prior scrolling; verify visually."
   ],
   "provenance": [
     {
       "source_type": "repository",
       "source": "11576865/MKV-Fast-Muxer",
-      "revision": "60d41336ed7d6df5a422001289824510ea823d9e",
+      "revision": "fee72462c687181348f7f1f2e181816c1dc8d30d",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/MKV-Fast-Muxer:ui-visual-capture.json",
-      "revision": "60d41336ed7d6df5a422001289824510ea823d9e",
+      "revision": "fee72462c687181348f7f1f2e181816c1dc8d30d",
       "evidence_level": "source-owned capture declaration"
     }
   ]

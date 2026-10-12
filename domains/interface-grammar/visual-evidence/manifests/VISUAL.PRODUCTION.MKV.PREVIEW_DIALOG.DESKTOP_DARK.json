@@ -12,8 +12,8 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.PREVIEW_DIALOG.DESKTOP_DARK.png",
   "source_repository": "11576865/MKV-Fast-Muxer",
-  "source_revision": "60d41336ed7d6df5a422001289824510ea823d9e",
-  "sha256": "0d5f6ccaa5a208b15301a8f82bf775aa6487d12bfdce76b6ed13860bff7b7571",
+  "source_revision": "fee72462c687181348f7f1f2e181816c1dc8d30d",
+  "sha256": "eb1d36de744ca7a8ca2a90873350ac7ee21be3a2bd34164c9fcbd9d597c997a1",
   "image": {
     "width": 1285,
     "height": 100
@@ -58,7 +58,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "8fd06b401add3ca9767e27c0bf8d0e4008107d44f24df9d3d484c1d00d28ebe8",
+  "previous_sha256": "0d5f6ccaa5a208b15301a8f82bf775aa6487d12bfdce76b6ed13860bff7b7571",
   "limitations": [
     "The capture harness opens the real dialog directly because no preview frame is available without user media; dialog styling and structure are production code."
   ],
@@ -66,13 +66,13 @@
     {
       "source_type": "repository",
       "source": "11576865/MKV-Fast-Muxer",
-      "revision": "60d41336ed7d6df5a422001289824510ea823d9e",
+      "revision": "fee72462c687181348f7f1f2e181816c1dc8d30d",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/MKV-Fast-Muxer:ui-visual-capture.json",
-      "revision": "60d41336ed7d6df5a422001289824510ea823d9e",
+      "revision": "fee72462c687181348f7f1f2e181816c1dc8d30d",
       "evidence_level": "source-owned capture declaration"
     }
   ]
