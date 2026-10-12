@@ -35,3 +35,20 @@ A roundtrip test must:
 - preserve a failing fixture and machine-readable output so a failure changes capability claims instead of being explained away.
 
 This case records a concrete local engineering experiment and pending checks. It is not a generalized UIGS Canonical standard.
+
+
+## Continued P0 execution: basic green, independent hard corpus in CI
+
+Verified from workflow logs at commit `7291eb587a309c62a0a82407251a34c45fd24d13` (run `38192821478`): Node tests 220/220; existing Browser E2E PASS; `P0 preservation comparison: CHECKED_FIELDS_MATCH` for the FFmpeg-authored unedited input with 2 attachments/chapters. Thus **scoped basic preservation was actually verified** but not all Matroska semantics.
+
+Draft PR #76 now also adds:
+- `tests/e2e/generate-independent-matroska-fixture.sh`, independently authoring nested Chapters and a generic attachment with mkvmerge;
+- `mkvpropedit --tags all:<file>` injecting an explicit custom `ChapterUID` target, followed by independent extraction and self-checks;
+- `scripts/p0-summarize-ebml-xml.py` and `scripts/p0-compare-roundtrip.mjs --deep` to compare hierarchical chapters and scoped `P0_*` tag targets;
+- additional isolated unit tests and a real Chromium output test writing `p0-independent-audit.json`.
+
+**Fixture-design observation:** authoritative MKVToolNix docs state that `mkvmerge --global-tags` deliberately removes `Targets` (therefore is not a suitable way to author a chapter-targeted test). Modern `mkvextract` syntax uses explicit XML output paths for chapters/tags. A self-check must independently verify that the fixture actually contains the intended hard structure before any application roundtrip; otherwise a green or red result could be about the fixture generator rather than the product.
+
+At this update, newer E2E `38194692640` is running after correction of an invalid XML test string. Do not misread the older green result as proving this independent corpus passes. All design knowledge stays Case/Candidate, not Canonical.
+
+References: https://mkvtoolnix.download/doc/mkvmerge.html and https://mkvtoolnix.download/doc/mkvextract.html and https://mkvtoolnix.download/doc/mkvpropedit.html
