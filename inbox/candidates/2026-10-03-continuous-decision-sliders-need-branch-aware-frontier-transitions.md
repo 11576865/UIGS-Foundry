@@ -154,3 +154,9 @@ Scope limitations: **not** a generic codec × resolution Cartesian-product optim
 Initial GitHub workflows at PR creation: `UIGS Evidence Coverage` success; `Test frontend` and `Windows local smoke` in progress. Exact-head CI and actual measured-branch browser screenshots remain pending. Do not merge or promote to Canonical before external validation; future CI status must be checked separately.
 
 This modifies an existing Candidate to avoid duplicated observations, not a new authoritative specification.
+
+
+### PR #103 exact-head CI checkpoint and visual evidence scope (2026-10-12)
+- QHE latest proposal head `913d571570429dc86bf18da123d95138bdbc77f8` added `scripts/check-curve-design.cjs` Chromium synthetic two-branch screenshot regression: one decision SVG with one solid upper envelope and two thin dashed candidate fits, at 1280 px and 390 px, no document overflow or SVG label escape in the fixture. Screenshots `media-workspace-branch-context-desktop.png` and `media-workspace-branch-context-mobile.png` are in frontend workflow artifact `11748594402` (run `38253746102`).
+- `Test frontend` exact-head CI: success, including Node curve/model assertions and Playwright script. `UIGS Evidence Coverage` exact-head CI: success (run `38253746081`). `Windows local smoke` (run `38253746085`) still in progress as last checked. Generated screenshots have **not been independently visually inspected**; real GPU/native multibranch and 320 px large-font acceptance are not established.
+- Scope remains a draft proposal for owner review; no main merge, Canonical change or cross-workflow transcode-model migration.
