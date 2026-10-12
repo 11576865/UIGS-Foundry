@@ -97,3 +97,20 @@ Tracked issue: https://github.com/11576865/MKV-Fast-Muxer/issues/79
 The merged Matroska EBML source gate added asynchronous `await sniffFileContainer(job.video)` / `await inspectMatroskaPreservation(job.video)` before `batchRunning = true`. The earlier output-directory check uses `batchPlanGeneration` to invalidate stale approval, but the **new preflight loop has no generation recheck** before committing the batch. While it awaits, inputs/rules are editable, so the old local `pairing` can become stale. A second start click may enter the preparation window. This is a code-reviewed transaction-boundary risk; a controlled browser interleaving has not yet been executed.
 
 Distinct refinement of existing readiness bug: **awaiting readiness is necessary but insufficient**; the approved document/job snapshot must remain valid after every `await`, or the UI must lock its identity for the entire prepare→commit phase. Batch execution must acquire an explicit start lock before asynchronous preflight, reject stale plan-generation/destination changes, and test delayed file reads plus mid-preflight edits. Do not auto-promote to Canonical.
+
+
+## Verified atomic batch-start mitigation (2026-10-12)
+
+Source project: https://github.com/11576865/MKV-Fast-Muxer/issues/79 (now closed)
+Merged PR: https://github.com/11576865/MKV-Fast-Muxer/pull/81
+Main commit: `df7720e3b2d889776df8526ecb0678b8264877dc`
+Head Chromium CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38200486406
+Main Chromium CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38200756917
+
+Confirmed by source review: the initial P0 batch EBML preflight ran async without `batchRunning=true`, without a preserved `batchPlanGeneration` check after source reads; old local `pairing` could outlive changed inputs/rules.
+
+PR #81 adds `batchStartPending` prior to the first `await`; locks the interactive start/source inputs; exposes cancellation; captures plan generation, output directory identity, source/subtitle/font identities and batch rule snapshots; checks these after all awaited preflight operations and immediately before committing `batchRunning=true`; retains earlier result links on refusal; and re-derives button readiness after cancellation/stale rejection.
+
+Real browser E2E deterministically delays a `File.prototype.slice().arrayBuffer()` read during batch startup. When source/subtitle inputs are replaced programmatically, no stale job executes, the plan is invalidated, and the new plan becomes ready. A separate delayed-read cancel scenario verifies no job/output is created and readiness recovers. PR head and postmerge main CI passed all legacy Chromium E2E and 226/226 Node tests.
+
+This adds **post-await snapshot validity and transactional commitment** as a refinement of the already documented async readiness contract, not a new Canonical rule. It does not remove the older UI-driven batch executor or establish generic Matroska preservation.
