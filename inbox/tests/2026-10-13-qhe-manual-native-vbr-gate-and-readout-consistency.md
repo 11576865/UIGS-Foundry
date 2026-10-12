@@ -21,3 +21,14 @@ Previous exact PR head `e5dc43ec1a30e2d66db69a0b441b294fdc6f2b5b`, Windows Manua
 
 ## Acceptance boundaries
 No hidden auto-switch, no automatic adoption of recommended bitrate/codec, no final-size guarantee. The VBR pass attests only the two short measured windows at declared rate, not CQ/VBR equivalence or long-video quality. A subsequent explicit, **atomic codec+encoder+preset+rateMode+bitrate handoff** with final task validation and independent encoded-artifact verification remains necessary before presenting the workflow as complete. Keep Candidate/Test, not Canonical; PR #104 stays draft/unmerged pending owner and device review.
+
+
+## Final exact-head verification checkpoint (after readout-certificate fix)
+
+QHE draft PR #104 SHA `c2f3cbf638aa30caf540aadd468bf5a8c8113bdd`, all five workflows completed **SUCCESS**:
+- Test frontend `38278213258`: Node native VBR admission tests; Playwright real Manual UI with mocked Native transport; one shared SVG, explicit VBR verification action, no `applyQuality`/`applyBitrate` invocation, consistent after-pass readout, and revoked pass after keyboard budget movement.
+- Windows Manual paired codec acceptance `38278213526`: 12 **real** x264/x265 FFmpeg CQ samples plus two **real** x264 VBR samples and Native receipt validation on one FFV1 synthetic source. At requested 600000bps and test threshold .90, VBR SSIM summary minimum approximately .99923 (fixture-specific).
+- Windows local smoke `38278213254`, Windows Stream Plan v4 `38278213362`, UIGS Evidence Coverage `38278213284`: all success.
+- Frontend artifact `11759389135` included standalone 1280px desktop and 390px mobile Manual comparison screenshots. Both independently visually reviewed in this conversation: the former contradictory chart/status VBR state is corrected; there is one chart, visible candidate text and no global horizontal overflow. These are browser-mocked data screenshots, not Windows physical-user transcoding evidence.
+
+This record's CI status is **complete**. Candidate adoption/whole-file validation is still **pending**; PR remains Draft/unmerged.
