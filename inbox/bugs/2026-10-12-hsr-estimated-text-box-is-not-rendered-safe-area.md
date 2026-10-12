@@ -83,3 +83,8 @@ The new HSR export-bound evidence/cancellation continuation reached head `0d3589
 ### 2026-10-12 dynamic exported-ASS event evidence (Bug remains open)
 
 HSR PR #134 HEAD `e1eacbf1d69863ee3a4958e14a08422803d99e99` extends actual exported-ass ink checks from 8 chosen Dialogue midpoints to a risk-weighted shared 8/12-frame budget covering declared ASS `\\move`, `\\fad`, `\\fade`, `\\t` and Karaoke timing candidates. It records still-unexamined dynamic windows, truncated effect candidates, and overlapping active Dialogue counts; v2 sidecars refuse to reinterpret earlier midpoint-only v1 proof as dynamic-sampled. A real libass `\\move` overflow regression was added. A first CI regression detected an undisclosed 96-tag cutoff; subsequent fix makes cutoff explicit. Exact-head tests pending at initial note. This is **partial mitigation only**, not all-timeline safety, final-video equivalence, device font parity, or guaranteed correct per-cue attribution. Leave Bug OPEN. Canonical unchanged.
+
+
+### Risk-aware export sampler latest validation (2026-10-12)
+
+HSR PR #134 head `da02c18ae4461494d54d2e8382a628dc1a0882c1` completed [Python+Termux](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38195897014) and [Chromium+real FFmpeg/libass](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38195897012), both **success**. Actual renderer regression proves sampled incoming `\\move` subtitle can breach SafeArea before its midpoint. Dynamic candidate caps and overlap counts remain declared. Still no exhaustive full-timeline proof, physical device or long-corpus acceptance. Bug remains OPEN, only partially mitigated; Canonical unchanged.
