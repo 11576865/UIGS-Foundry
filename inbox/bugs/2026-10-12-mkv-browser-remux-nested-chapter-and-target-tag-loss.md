@@ -86,3 +86,8 @@ Integrated pre-merge Chromium CI: https://github.com/11576865/MKV-Fast-Muxer/act
 The product formerly exposed `完整保留原容器结构，仅追加`, `正在无损封装 MKV`, and Chapter/metadata output-plan assertions as though `-map 0` / `-c copy` guaranteed complete EBML semantic preservation. In independent #77 evidence this was false. PR #82 changed UI, runtime and README copy to distinguish stream-copy/remux from UID/Chapter/Tag preservation, linked the source-data loss and preflight limitation, and added a static regression check against these absolute promises. The integrated #79 + #80 branch passed **227/227** Node tests and complete Chromium E2E including batch preflight snapshot and cancellation.
 
 This is verified correction of **misleading product claims**, not a writer or serializer fix. Original #77 remains OPEN and independent red source evidence remains intact. No Canonical change authorized.
+
+
+### Final integrated-main confirmation — 2026-10-12
+
+Main `c01e7411e83ab85d64b7e924d55a82fde6c6a2ea` GitHub Actions [Chromium E2E](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38201136018) passed 227/227 Node tests and full browser scenarios, including delayed source-preflight stale-plan and cancellation tests; main [Pages deploy](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38201136026) passed. Thus #80's accurate copy is integrated with #79's transactional batch-start change and verified on the final merged commit. Product #77 (original Matroska chapter/tag loss under ordinary remux) remains OPEN. No Canonical change.
