@@ -1,7 +1,7 @@
 # Bug: browser Stream Copy MKV mux shifts newly added ASS Dialogue timestamps
 
 Date: 2026-10-13
-Status: **REPRODUCED / FIX UNDER CI VALIDATION**, not resolved
+Status: **FIXED for independently verified browser fixture in PR #116; broader source/device cases remain unverified**
 Product: `11576865/MKV-Fast-Muxer`
 PR under verification: https://github.com/11576865/MKV-Fast-Muxer/pull/116
 Baseline before the P3 check: main `15ca805db83e640f867bcbc6e36502d89af25f61`
@@ -33,3 +33,10 @@ Current evidence: controlled 2-second synthetic browser fixture on the specified
 ## Deduplication
 
 Existing Foundry `inbox/candidates/2026-10-02-persistable-semantic-roundtrip-verification.md` concerns valid ASS centisecond persistence normalization; `inbox/candidates/2026-10-13-final-artifact-font-filedata-hash-verification.md` concerns output attachment bytes. Neither records this exact final subtitle packet timeline regression. The test-level tracking entry `inbox/tests/2026-10-13-mkv-finished-ass-event-roundtrip-pending-ci.md` is complementary.
+
+
+## Verified scoped repair — 2026-10-13
+
+The experiment above succeeded on exact-head tests. PR [#116](https://github.com/11576865/MKV-Fast-Muxer/pull/116), head `aaa79341acd780830610a8969cc514c807c75fc1`, was independently checked by the actual full [Chromium E2E run 38373112896](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38373112896) and [Node/build run 38373112879](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38373112879) (417/417 tests). The passing fix is **scoped** to the mux command when new ASS tracks are present: `-copyts` and output `-avoid_negative_ts disabled` are used together. The new final-MKV audit reads delivered ASS Dialogue sequences; an independent system FFmpeg reads the actual downloaded file and finds the expected exact fixture times. The non-ASS command path remains unchanged. PR #116 was squash merged as `45ff4edb847ae164946d3d070a947c80cfd8cbb4`.
+
+**Resolution boundary:** bug verified fixed for the specified synthetic mixed-input browser fixture; no assertion that every Matroska input, negative-timestamp variant, player, or hardware browser is fixed. Additional cases should be separately tested. This remains a Bug record, not a Canonical mandate to use particular FFmpeg flags universally.
