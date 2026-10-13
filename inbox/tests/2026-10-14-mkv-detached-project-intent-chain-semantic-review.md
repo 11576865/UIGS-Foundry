@@ -1,7 +1,7 @@
 # Test: detached MKV ContainerProject edit-intent internal coherence (not replay)
 
 Date: 2026-10-14
-Status: **PASS exact-head Node/build/full Chromium and inspected screenshots; squash merged main (post-merge CI pending)**
+Status: **PASS — exact-head and separate post-merge main Node/build/deploy/complete Chromium, inspected artifact**
 Product: `11576865/MKV-Fast-Muxer`
 Draft PR: https://github.com/11576865/MKV-Fast-Muxer/pull/123
 Base main: `7e1274a70748810463129051e99529dbb1b62fa3`
@@ -40,3 +40,12 @@ The existing strict parser calls this audit before accepting imported drafts. Ac
 - [Merged PR #123](https://github.com/11576865/MKV-Fast-Muxer/pull/123) squash main commit `334596a86c6dd9091d5a5446c9db01132e16235e`.
 
 **This evidence demonstrates internal semantic self-consistency only, never history/authorship authenticity or safe replay.** No Canonical change.
+
+## Post-merge main independently green
+
+Squash merge commit `334596a86c6dd9091d5a5446c9db01132e16235e` was independently verified as current `main` exact SHA.
+
+- [Main Node/build and GitHub Pages 38436633075](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38436633075): **PASS**.
+- [Main complete Chromium E2E 38436632889](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38436632889): **PASS**; actual logs explicitly include `Five-step recipe export/import and capability truthful UI PASS`, `P0/P1 pre-mux safety, unknown-header refusal and source-switch freshness PASS`, `P3 dynamic final-MKV 4 subsecond snapshots and 3 effect negative controls PASS`, and `All browser E2E scenarios PASS`.
+
+No Canonical promotion. Distinguish schema coherence from author provenance, source attestation and any writer eligibility; full P1–P6 theoretical release criteria remain open.
