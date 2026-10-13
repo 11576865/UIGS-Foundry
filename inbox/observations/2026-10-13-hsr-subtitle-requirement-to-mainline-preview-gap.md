@@ -278,3 +278,22 @@ Exact-head success:
 Scope / non-claims: This outputs a still background video (1 fps by default) with selectable dynamic ASS subtitles. It does not provide all-project hardburn of effect animations, multi-audio-language tracks, or chapter metadata. Physical Android/multiple media player attachment-font compatibility is not established. Font import, word-alignment controls and viewport/touch-slider fixes preexisted this PR and should not be falsely credited to it.
 
 Intake duplication: Existing `inbox/candidates/2026-10-11-mkv-composition-as-primary-ui-object.md` covers MKV as composition; `inbox/candidates/2026-10-02-media-format-support-is-a-compatibility-relation.md` covers format semantics. Add case-specific independent evidence here rather than duplicate Candidate or automatically change Canonical. Generalizable constraint: a container-export UI must distinguish *hardburn* from *soft subtitle tracks*, validate stream types and attachment MIME independently, and preserve source artifacts and publication atomicity.
+
+
+## HSR mainline PR #152: user background image becomes genuine dynamic ASS video source (2026-10-13)
+
+Source: [HSR PR #152](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/152), exact test head `1f14e8e2ab5f8d6b2a8563e392bbfc4aeb434bc9`, merged to main `b7a5e6581bd1cd6be80366ac86a77dd9cc900b48` (main tip and renderer verified after merge).
+
+Problem clarified via current main: previous HSR releases had project font import, mobile touch-slider pointer locks, viewport scroll panes, word-alignment JSON and local generation, and a full MKV output bundler. Those features should not be reimplemented as if missing. But the *user-provided still image* was limited to browser geometry staging and already supported in MKV export: the **actual short FFmpeg/libass playable effects preview** accepted only color or local motion video. UI also described video results as black/silent even when a nonblack solid color or source audio was selected.
+
+Implemented:
+- Effects can upload PNG, JPEG or WebP up to **4 MiB** as an alternative source for a genuine 0.5–8 s video preview. Local video takes precedence, else user image, else solid color.
+- Reused the MKV bundler's bounded base64/magic validation, then FFprobe image dimensions (16–3840 by 16–2160), FFmpeg image loop at 24 fps, aspect-preserving scale+pad, real libass ASS overlays; input temporary and not copied into project storage. Both FastAPI and Termux Lite implement the same source/provenance contract. Source video and background image are mutually exclusive inside renderer.
+- Browser validates returned `X-HSR-Preview-Background: background-image` where applicable, identifies real playable output, and avoids the former blanket claims of black backgrounds or always-silent video.
+- New real FFmpeg test synthesizes PNG, renders MP4 with libass, FFprobes video dimensions/duration and decodes RGB to verify a colorful image-backed result. Additional direct renderer/API and checked-out Chromium UI tests cover source selection and exclusion.
+
+Exact-head green evidence:
+- [Python 3.11/3.12/3.13 + Termux Lite #38370835603](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38370835603)
+- [Chromium / real FastAPI-libass and actual image FFmpeg proof #38370835538](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38370835538)
+
+Reusable observation: **a selected preview background in DOM/CSS is not evidence that exported or renderer-produced media contains that source**. Test the actual container's decoded pixels, API source provenance, and frontend data path as separate obligations. This is additive to existing HSR Observation / preview case; not a new candidate and does not modify Canonical. Physical Android and long-form media processing remain unverified.
