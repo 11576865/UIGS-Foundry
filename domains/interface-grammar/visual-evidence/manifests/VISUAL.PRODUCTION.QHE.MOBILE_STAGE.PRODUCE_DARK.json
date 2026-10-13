@@ -69,8 +69,8 @@
       "settle_ms": 800
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "2d81e42f10bae0c15c58a4d31a10fa09e3f93e51186154fbc067a851dc56c410",
+  "change_status": "unchanged",
+  "previous_sha256": "744ed422ea51d8ee280826d58848de0a559f615d67ded4d53943387ea7094e78",
   "limitations": [
     "Mobile production surface only; no encoder job is executed."
   ],

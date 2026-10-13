@@ -68,8 +68,8 @@
       "settle_ms": 800
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "15b9b0dd9bd91417d1fc84ebffb8c780e0a92717a146725bbcd6bf9e6275c581",
+  "change_status": "unchanged",
+  "previous_sha256": "273bbebdead31b794bcd1e050b6ae2ffa673d146d2b93354b8ec28766be22029",
   "limitations": [
     "Production UI rendered in browser-only mode; native backend execution is not active."
   ],

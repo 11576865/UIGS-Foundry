@@ -71,8 +71,8 @@
       "settle_ms": 800
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "53900091c99fe742e76049697747fa2bd410efecc82668a0051e973f4652aed1",
+  "change_status": "unchanged",
+  "previous_sha256": "e8baa8c3fdc5de6465b3c8f66746387becc01e7fa9ce523b89c2f692fe1eb891",
   "limitations": [
     "Cards are revealed through the same deterministic UI state technique used by the repository's browser UI smoke test; no actual encoding job is run."
   ],

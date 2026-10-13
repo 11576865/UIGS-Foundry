@@ -74,8 +74,8 @@
       "settle_ms": 800
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "7069a8b1aed19602c19bea3a4ace5023e0163c3603a3eae30bc9008e7ad6d1cd",
+  "change_status": "unchanged",
+  "previous_sha256": "37c92ba28bab92a867e4e32c5a82f101da9404fcd0860d169958db844bb43e57",
   "limitations": [
     "Backend/native capability values reflect the deterministic browser capture environment, not a runtime-backed native host."
   ],
