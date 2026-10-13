@@ -65,3 +65,15 @@ Product [PR #108](https://github.com/11576865/MKV-Fast-Muxer/pull/108), tested h
 - This is **a safety mitigation and bounded UI acceptance**, NOT a writer that preserves complex nested Chapter/Tag UID structures, general Matroska editing, or a guarantee of unknown EBML preservation.
 
 Single-project Candidate remains non-Canonical; see linked specific Bug for first-sniff-unknown bypass.
+
+
+## Round 5/5 final exact-head acceptance (2026-10-13)
+
+Product PR [#108](https://github.com/11576865/MKV-Fast-Muxer/pull/108) was merged at `main@5b98af3af17269add441c7571d39009848b2e604` after exact PR head `c0ebc77bdbb1db23c6519b0e1d1dd970044b4dad` passed:
+- [Node/build + Pages workflow 38344211490](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38344211490) — **success**.
+- [Full real-Chromium E2E workflow 38344211420](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38344211420) — **success**; **369/369 Node tests**, 0 failures, plus all browser E2E scenarios. Browser log explicitly contains `P0/P1 pre-mux safety, unknown-header refusal and source-switch freshness PASS` and `P0 transient unknown source header fail-closed PASS`.
+- Visual screenshot archive `mkv-ui-container-tree-viewports` was uploaded with nonzero ZIP content (artifact ID `11788282040`), including actual Chromium desktop/tablet viewport evidence; no physical device certification is implied.
+
+The product's safety contract is now more precise than the initial Pending note: an **unknown** header cannot be treated as proof of non-Matroska, the execution boundary re-sniffs the exact source and refuses cached/actual mismatch, and batch preflight rejects unknown containers before any queued output. The original seek-bounded Chapters/Tags preservation gate remains independent. This is an accepted bounded hazard-refusal mitigation, **not** a full structural-preservation writer. Existing arbitrary nested chapter+targeted-tag mutation remains unsupported.
+
+Candidate evidence level updated to *verified in the tested Chromium/fixture scope*. Do not promote Canonical solely from this project.
