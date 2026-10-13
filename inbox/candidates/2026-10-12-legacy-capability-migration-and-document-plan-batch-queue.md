@@ -199,3 +199,15 @@ Engineering slice:
 - Node regression fixture tests full pair, report-only quota error, MKV-first failure, collision without either write, and no deletion. The real Chromium E2E stages a finished mux then injects report-only quota failure; it must inspect a nonempty persisted MKV Blob, absent report Blob, visible download links and truthful per-job/terminal messages.
 
 At Intake the exact PR head `4f43104a6540f281c8edf22d040ec79af602c0a6` Node/build and browser CI are **Pending**. No generalized filesystem transaction atomicity, ownership of files created concurrently, or arbitrary MKV preservation is claimed. Deduplicated with this preexisting batch execution/evidence Candidate; no Canonical promotion.
+
+
+## PR #114 exact-head acceptance: MKV/report partial publication (2026-10-13)
+
+Product [PR #114](https://github.com/11576865/MKV-Fast-Muxer/pull/114), exact tested head `55860a4b1d14e2f4094546dad7b958337bdbc63d`, merged into `main@be5226797a328de4241d7def56eac991e7d5f2de`.
+- [Pages build + 402 Node tests, run 38361472617](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38361472617): **success**.
+- [Full Chromium E2E, run 38361472640](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38361472640): **success**, exact log statements `Batch directory save fallback PASS`, `Batch report-only write failure honest persistence PASS`, and `All browser E2E scenarios PASS`.
+- New browser scenario ran a real one-job mux, then simulated a report-specific filesystem write error. It asserted a nonempty MKV Blob actually committed to the directory map, absence of a committed report Blob, both downloadable fallback URLs, and batch-row/terminal text naming partial persistence.
+- Unit tests cover successful paired output, failing report after valid MKV, failing MKV without writing detached report, Unicode/case normalized report collision **before** any MKV write and refusal of same MKV/report destination identity. Existing low-level writer never removes suspect directory entries on abort.
+- First exact PR run had 401/402 Node tests pass; the one failure was the old `main.js` source-shape test expecting direct `writeNewBatchOutput`. Corrected the integration assertion to require `writeNewBatchArtifactPair` plus the retained underlying no-clobber primitive. Then exact-head Node and real E2E both passed.
+
+Confirmed semantics: no atomic pair transaction or cross-process filesystem lock is claimed; "saved" means both MKV and JSON report committed in the observed browser session. Candidate only; no Canonical promotion from one implementation.
