@@ -74,3 +74,23 @@ Product: `11576865/HSR-Voice-Archive-Builder`. User explicitly constrained scope
 Reusable observation: define and prove **user-facing ownership / product acceptance** separately from source-code deduplication and automated rendering evidence. A three-pass stop rule forced main integration and eliminated unbounded feature expansion, while distinguishing actual playable black-background preview from actual source-footage composite.
 
 Deduplication: retain existing `inbox/observations/2026-10-13-hsr-subtitle-requirement-to-mainline-preview-gap.md`; related records: `inbox/candidates/2026-10-02-ui-requirement-evidence-traceability-ledger.md` and `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md`. Observation only; **Canonical unchanged**.
+
+
+## Delivery follow-up: opt-in local moving footage composite (2026-10-13)
+
+Converged directly on main via HSR PR [#136](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/136), exact source head `e3e2ff874260e56ea0295ab631be4cd2cca1a985`, squash merge `b51cf24e11f095329527ca6594af7199054a6002`; post-merge main tip and test file were verified.
+
+User-facing improvement: the previously black-only animated libass proof now has an **optional** user-selected local moving-video input (with source offset and clear-to-black). The same renderer burns animated ASS over a real moving background. UI represents `video-footage` separately from `video` (generated-black) and displays source provenance. This is not a new production export or second subtitle authoring system.
+
+Implementation and limitations: no user-provided path or URL is accepted by the FFmpeg execution plan; the API accepts only up to **4 MiB** of base64-decoded local bytes, checks actual JSON request length at **8 MiB**, and probes the file for a video stream, source-window duration, and maximum **3840×2160** dimensions. Selected start offset is **0–600 s** and preview output **0.5–8 s**, 960×540, 24fps, without audio. Input is held in a temporary directory and deleted after each render. Termux Lite and FastAPI keep their distinct host implementation but share the renderer.
+
+Exact-head CI:
+- [38326261385](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38326261385): `success` (Python matrix and Termux Lite).
+- [38326261297](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38326261297): `success` (Chromium interactions and actual FFmpeg/libass backend proof).
+- Chromium test picks real WebM bytes via a file control and proves browser decode, state provenance, and seeking. API is fixture-backed for this browser test. A **separate backend test** synthesizes a real moving-video source, compares a rendered ASS overlay against a source-only encode, and decodes actual pixel differences. Do not misreport the Chromium test as an integrated actual backend E2E with real user clips.
+
+Observed edge case: A pixel-comparison control test initially supplied both dialogue fields empty to the ASS writer, which correctly rejects dialogue-less output; test repaired by independently generating a no-subtitle FFmpeg control clip using equivalent frame normalization. This is a **test fixture defect**, not an application regression.
+
+Still out of scope: unbounded/full-length footage, audio synchronization, source-time-aware word highlighting beyond the preview-local interval, large uploads, arbitrary codec/device coverage, end-to-end actual backend Chromium playback, real Android-device validation, or final project export.
+
+Reusable project-specific lesson: a video-effect preview has multiple distinct evidence layers—UI provenance, actual source-byte forwarding, decoder usability, and source-vs-overlay rendered pixel proof. Green at any one layer cannot stand in for the rest. Deduplication: attach to this existing HSR Observation and the related subtitle preview Case rather than creating another overlapping Candidate. **Do not promote to UIGS Canonical from this single project.**
