@@ -52,3 +52,16 @@ Extends this Candidate's **existing** seek-bounded EBML risk classification into
 New Node tests cover exact-source freshness, pending/refused/warning/clear semantics and persistence of the runtime gate. Existing Chromium hard-fixture E2E was extended to verify visible pre-click block, direct event bypass refusal, and safe-source replacement. Responsive UI acceptance expands true browser viewport inspection to 1600 desktop, 768 tablet and 390 phone, with screenshots as CI artifacts; no claim of physical-device acceptance.
 
 Status at intake: product implementation submitted, latest exact-head Chromium CI **Pending**. This is a scoped single-project Candidate supplement, **not Canonical** and not a fix for the FFmpeg writer's lossy nested chapter behavior.
+
+
+## Round 5/5 exact-head CI completed and product merge (2026-10-13)
+
+Product [PR #108](https://github.com/11576865/MKV-Fast-Muxer/pull/108), tested head `c0ebc77bdbb1db23c6519b0e1d1dd970044b4dad`, merged into `main@5b98af3af17269add441c7571d39009848b2e604`.
+- Node + Pages build: [workflow 38344211490](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38344211490) **success**.
+- Full Chromium media + UI E2E: [workflow 38344211420](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38344211420) **success**. Browser artifact `mkv-ui-container-tree-viewports` ID `11788282040` contains round-five screenshots and earlier viewport evidence. This is actual Chromium UI evidence, **not** physical tablet/phone testing.
+- The existing seek-bounded EBML safety test is now projected in the source/composition UI *before* mux. Known nested chapters / chapter-targeted UID tags and unknown source headers block Start with reasons; recognized TrackUID/AttachmentUID references remain unverified warnings instead of false assurance. Exact File identity and generation scope guard late async reads.
+- **Independent runtime gate** re-sniffs the source header at the authorization boundary; unknown or changed cached container identity is refused before the writer. Whole-batch preflight rejects unknown source containers before any output. An adversarial Chromium scenario injects an initial file-header read failure and attempts a test-only forced UI bypass. The final green CI covers the resulting fail-closed behavior.
+- The first attempts were red on real browser regressions/test issues: a misplaced tablet assertion, broken-font same-file recovery, and test-only disabled button dispatch not invoking the executor. The production source preview and exact-source re-sniff were corrected; the bypass test forces a click for the explicit executor oracle rather than silently passing a disabled event.
+- This is **a safety mitigation and bounded UI acceptance**, NOT a writer that preserves complex nested Chapter/Tag UID structures, general Matroska editing, or a guarantee of unknown EBML preservation.
+
+Single-project Candidate remains non-Canonical; see linked specific Bug for first-sniff-unknown bypass.
