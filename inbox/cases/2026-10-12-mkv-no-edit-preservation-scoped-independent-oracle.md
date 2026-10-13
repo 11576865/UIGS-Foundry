@@ -169,3 +169,16 @@ Product [PR #111](https://github.com/11576865/MKV-Fast-Muxer/pull/111), head `e9
 - Node fixtures test two actual EBML attachments plus budget, duplicate, preexisting attachments, insufficient slot refusals. The real Chromium MKVToolNix-authored tagged/nested chapter scenario now tests two attachments and external mkvmerge/mkvextract/FFprobe packet equivalence, in addition to the previous single-file scenario.
 
 **Status: Submitted, exact-head Node/build and full Chromium/E2E Pending.** Previous PR #110 passing evidence is not a substitute for this new multiple-attachment head. All output is experimental, no general existing-MKV writer, prior attachment CRUD, device playback conformance or full FFmpeg adapter decoupling. Deduplicated as another observation in this existing Case; no Canonical promotion.
+
+
+## Exact-head verified: two new attachments in one existing MKV reserved-Void output (2026-10-13)
+
+Product [PR #111](https://github.com/11576865/MKV-Fast-Muxer/pull/111) exact validated head `501747687c3c9f83a925213a30ab2c4819b54138`, merged `main@6eb098e7a44a27d84588b9e5faf8835262d876f9`.
+
+- [Node/build workflow 38349722787](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38349722787): **success**, includes 383/383 Node tests and build.
+- [Full real Chromium workflow 38349722782](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38349722782): **success**, including the exact log assertions `P2-A opt-in existing MKV independent browser writer PASS` and `All browser E2E scenarios PASS`.
+- New true browser scenario uses a MKVToolNix source with nested chapters and targeted tags, selects **two real File objects** in one UI review, creates/downloads an MKV and requires independent external `mkvmerge -J` recognition of **both** actual AttachedFile entries. Both resources are extracted with `mkvextract` and compared byte for byte, source vs output Chapter/Tag XML compares identically, and ordered FFprobe compressed media packets/PTS/DTS/duration/hash compare identically. Original source file size and output equal, original source remains separate.
+- Source already containing attachments and missing/insufficient pre-Info Void remain refused. Single attachment workflow continues passing. Duplicate filenames and payload budget refusals have dedicated Node checks.
+- First CI failures reflected test-fixture overlap (duplicate filenames triggered before intended preexisting-attachments gate) and double-escaped regex in browser inventory assertion; both corrected **without disabling production safety checks**; only final exact-head green run is accepted.
+
+**Bounded scope:** 1–8 new AttachedFile children inside ONE newly placed Attachments master, no existing attachments, source ≤60 MiB, aggregate new bytes ≤4 MiB, all source headers/non-Void EBML elements and offsets unchanged. No arbitrary Matroska editor, no general existing attachment CRUD, no arbitrary device playback certification, no full FFmpeg media-core decoupling. Case evidence only; no Canonical change.
