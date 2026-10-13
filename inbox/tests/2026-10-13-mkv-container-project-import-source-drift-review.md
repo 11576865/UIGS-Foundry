@@ -1,7 +1,7 @@
 # Test: MKV ContainerProject imported draft provenance, diff and writer authority refusal
 
 Date: 2026-10-13
-Status: **PASS at exact PR head + named real-browser artifact; post-merge main CI pending**
+Status: **PASS — exact PR head, named artifact and independently green post-merge main CI**
 Product: `11576865/MKV-Fast-Muxer`
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/121
 Baseline: `main@31af804e5f60ec0da0f8dccf70e11e2551b7e591`
@@ -32,3 +32,11 @@ This is a **non-authorizing detached draft review**; it is not automatic edit-in
 - [Full Chromium E2E 38418128226](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38418128226): **PASS**, named five-step export-import scenario and legacy P0 safety/P3 dynamic ASS render scenarios all passed. Tests actually downloaded project JSON from browser and re-imported, then rejected forged `writerStatus:verified` without mutating `FileList` or starting mux.
 - Named `five-step-container-recipe-workbench-evidence` artifact ID **11824899451** independently downloaded and examined: 2 JSON files and 3 PNG viewport screenshots 1440×900, 1024×768, 390×844. Actual project JSON is a `base.mp4` header-only one-object draft with `authorization=requires-relink` and `execution=requires-fresh-source-authorization`; no byte-hash authorization. Screenshots visually confirm import/review text (desktop and phone inspected).
 - Squash-merged PR #121 to `main@3ec608648b57de6231ae253a561cb9bc82f31d7f`. No Canonical promotion; post-merge checks tracked separately.
+
+## Independent main CI closure
+
+Exact squash-merged `main@3ec608648b57de6231ae253a561cb9bc82f31d7f` re-verified independently after PR merge:
+
+- [Main Node/build/Pages 38418982702](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38418982702): **PASS**.
+- [Main full Chromium E2E 38418982574](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38418982574): **PASS**, logs explicitly contain project export/import scenario, P0/P1 unsafe source fail-closed and P3 four-frame dynamic ASS verdict, as well as `All browser E2E scenarios PASS`.
+- Final status **PASS**, constrained to a detached nonauthorizing project comparison and schema validation. Full editable domain authority, file byte-hash binding, generic EBML safe writer and user-file execution remain outside this test. No Canonical promotion.
