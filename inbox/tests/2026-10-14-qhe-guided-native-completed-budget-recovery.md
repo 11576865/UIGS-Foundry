@@ -27,3 +27,9 @@ Windows local smoke `38436001776` completed its `Exercise real guided Windows Na
 ## Evidence scope
 
 These are hosted tests on CI-generated short software-x264 data. They do not prove Native Bridge process restart (job state is still in the process), a physical Windows workstation, exported-file user playback, arbitrary long-film target-size accuracy or full actual SSIM quality; output stays subject to source/stream and byte validation. A successfully completed non-strict output below target is still not strict delivery verification. This Test is complementary to the source-cost provenance test `inbox/tests/2026-10-13-qhe-windows-guided-ass-source-bound-copy-audio-budget.md`. No Canonical promotion, main merge or release.
+
+## Code exact-head 429de52 confirmation
+
+The QHE source implementation at `429de527dd57b09f5441a7d21f119d5307b15af7` subsequently passed the **entire hosted frontend workflow** `38436582969`, including the native recovery pure/VM tests, source-text UI shell tests, FFmpeg integrations and Chromium browser checks. The same source HEAD's `Windows local smoke` workflow `38436583069` completed **SUCCESS**, including the actual Guide ASS two-pass/strict completed budget receipt and repeated-query consistency step. Windows Manual paired, Stream Plan v4, device fixture, Compile Android and UIGS evidence also passed at that code head. VVC and Android emulator independent runs were still in progress at this observation.
+
+A subsequent ledger-only update `0bb95d855aae231f0c746fc439be1f8947dd3fcd` restarts the nine workflow gates; its exact-head results must be checked independently. Page reload and Native Bridge process restart remain distinct acceptance scenarios.
