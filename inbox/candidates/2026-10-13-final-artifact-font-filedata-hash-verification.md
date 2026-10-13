@@ -1,7 +1,7 @@
 # Candidate: Audit final container FileData against the exact staged attachment bytes
 
 Date: 2026-10-13
-Status: Candidate — implementation and exact-head CI pending
+Status: Candidate — exact-head Node/build and real Chromium output verified (not Canonical)
 Product: [MKV-Fast-Muxer PR #109](https://github.com/11576865/MKV-Fast-Muxer/pull/109)
 Scope: new subtitle/font attachment deliverables; not a generalized writer or preservation standard
 
@@ -30,3 +30,14 @@ A bounded, independent reader can enforce a per-file and aggregate byte budget. 
 ## Evidence limits
 
 This checks **new font attachment FileData** only. It does not prove original attachment preservation, Chapters/Tags UID relation safety, unknown EBML, font license or executable safety, actual glyph shaping/rendering or playback in other media players.
+
+## Exact-head production verification (2026-10-13)
+
+PR [#109](https://github.com/11576865/MKV-Fast-Muxer/pull/109) exact tested head `007d9d0e26ba00d172805512f7b3240adef7b484`, merged into main at `39f73c59ff015cf4aa56c89d3771e3ccef11e52b`.
+
+- [Node tests and Pages build 38345684396](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38345684396) **success**.
+- [Full real Chromium E2E 38345684462](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38345684462) **success**. Scenario 1 validates a deduplicated normal TTF output against actual `audit.fontPayloadAudit.status === pass` and the UI's 1/1 byte-verified text; Scenario 27 verifies the output's actual post-HarfBuzz subset TTF payload; existing P0/batch/attachment and browser fixture tests remain mandatory and green.
+- Bounded negative Node tests: changed staged SHA, missing/duplicate filename, MIME difference, unparseable output and resource budget do not produce a false pass.
+- Newly generated MKV remains downloadable on audit warning; the shared batch result ledger inherits `auditWarning` rather than representing it as fully verified.
+
+Evidence remains bounded to **new font attachment FileData**, and the re-reader is still internal to the product (the external Chromium mux suite verifies actual output and FFprobe semantics, not full external independent EBML relationship equivalence). No promotion to Canonical.
