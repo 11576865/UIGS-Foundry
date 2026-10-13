@@ -168,3 +168,24 @@ Bounded fix:
 Evidence on exact head: [tests 38345986268](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38345986268) and [Chromium/libass 38345986337](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38345986337), both success. New production-source Node regression in `tests/test_hsr_navigation_save_gate.py` checks save-first, save failure, stale navigation and request invalidation. Legacy duplicate-editor tests were updated to assert *read-only* projection and no duplicated text POST, rather than preserving outdated expectations.
 
 Reusable observation (dedup with `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md` and `inbox/bugs/2026-10-10-hsr-durable-subtitle-edit-versus-export-refresh-failure.md`): single visual editing ownership is insufficient if the authoritative writer lacks the conflict checks previously found on the secondary editor; save-first navigation must be measured independently of view-switch animations. No automatic UIGS Canonical promotion.
+
+
+## HSR mainline follow-up: project-scoped cross-workspace subtitle corpus snapshot (2026-10-13)
+
+Source [HSR PR #141](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/141), exact source head `3ea4bfa887cac97d64751828bff702d0092791a9`, squash merged **to main** at `326a87add0779aa94ae89477ddcbcb8577a2f925`; main HEAD and new test checked after merge.
+
+Problem: `fillProject` initiates a Review list request, and Review → Layout initiated another `GET /subtitles?selector=all`. More seriously, an older Review response did not verify project identity or request generation before replacing the current list.
+
+Fix scope: immutable copied, **12-second** candidate snapshot of a clean `selector=all` Review response. On Review → Layout/Effects it is reused only when its project identity, generation, age, and no dirty drafts pass checks; a filtered Review request invalidates it. User-requested explicit Layout refresh does not rely on the snapshot. Successful Review text saves and Layout display-timing saves invalidate it. Project switches invalidate both the snapshot and stale Review requests; stale HTTP failures are not rendered on the new project's UI. The preview and independent timing/word-alignment fetch paths remain.
+
+Exact-head CI success:
+- [tests 38347636287](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38347636287): Python 3.11 / 3.12 / 3.13 and Termux Lite
+- [Chromium/libass 38347636232](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38347636232): real Chromium UI requests with corpus/API fixture, actual FFmpeg/libass regression
+- Chromium counted **1** full-list request for clean Review → Layout, and **3 total** for initial clean Review, later filtered Review, then new unfiltered Layout read. The corpus/backend response is fixture-backed for this request count; it is **not** end-to-end external multi-session freshness evidence.
+- `tests/test_hsr_shared_subtitle_corpus.py` tests project separation, dirty-draft rejection, TTL, copy isolation and mutation invalidation against extracted production source.
+
+Observed regression-test integration pitfall: older timing/timeline Node suites extracted only JS beginning at `let layoutStressSample` and omitted the newly shared invalidation helper, producing misleading timing-save failures. Tests now include the complete relevant production helper. Browser network event test also needs to wait for HTTP **response** rather than just the emitted request before asserting handler request counts.
+
+Known limitations: this is **bounded read reduction** for a valid clean snapshot, not one physical canonical corpus store. Searches, explicit refresh, changed subtitles, expired snapshots, and some other workspace paths still fetch. Cross-session updates within the 12-second window may not be shown immediately, though edits use server optimistic-concurrency guards. Broad historic CSS overrides and Android physical-device usability remain unverified.
+
+Dedup: retain this existing HSR Observation rather than promoting a new Candidate; related `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md` and the prior UI CSS authority candidate. Do not alter UIGS Canonical based on one app.
