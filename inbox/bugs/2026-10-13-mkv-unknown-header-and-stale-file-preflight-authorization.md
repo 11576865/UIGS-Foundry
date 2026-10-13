@@ -25,3 +25,15 @@ In product PR #108:
 Reusable failure mode: **unknown ≠ negative evidence**, and a cached filename/size/timestamp identity must not be a separate authority for a destructive operation. UI safety and executor authorization require independently checked source identities. Preserve the full test oracle; do not treat a green build as a media oracle.
 
 No Canonical promotion. Pending final exact-head Node/Chromium outcomes and source/branch hashes.
+
+
+## Final resolution evidence and test-harness lessons (2026-10-13)
+
+**Correction accepted in scoped product code; closed by verified merge**, PR #108 exact head `c0ebc77bdbb1db23c6519b0e1d1dd970044b4dad`, main merge `5b98af3af17269add441c7571d39009848b2e604`.
+Full Chromium [run 38344211420](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38344211420): **success**. Node/build [run 38344211490](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38344211490): **success**, 369/369 Node tests. The browser log expressly confirms recovery from invalid fonts (`Scenario 13 PASS`), from invalid external audio (`Scenario 9 PASS`), and both high-risk/unknown-header source refusals.
+
+Two additional testing/process observations arose during the fix:
+1. An actual **disabled native button** can suppress a synthetic `click` even if a test dispatches the event. That does *not* exercise runtime authorization. The hard-fixture browser test now deliberately enables the DOM button **only inside the test environment**, synchronously clicks it, and verifies the independent executor still refuses the dangerous source. The source inventory scan must finish first, or `isBusy()` may correctly short-circuit before the intended authorization path.
+2. Introducing an awaited new-source security check after a previous failed task caused a stale error string to remain visible long enough for the existing invalid-audio recovery oracle to report a false continuation failure. The executor now publishes a synchronous **new-task preflight** status *before* the await. Tests remain unchanged as behavioral oracles.
+
+The earlier potential unknown-header bypass was a verified **code-level P1 risk**, not a demonstrated loss through injected failed header reads. The independent Chromium fixture proves rejection at the repaired boundary. This Bug is **resolved for the tested flows**; avoid expanding that claim to all EBML forms or devices. No Canonical promotion.
