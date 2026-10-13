@@ -46,7 +46,7 @@ Exact squash-merged `main@3ec608648b57de6231ae253a561cb9bc82f31d7f` re-verified 
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/122
 Baseline: `main@3ec608648b57de6231ae253a561cb9bc82f31d7f`
 Current candidate head: `4d0ce26e3751fd18e1718a27a079d24d9b068ab5`
-Status: **PENDING Node/build + exact-head complete Chromium E2E, inspected downloaded JSON and post-merge main CI**
+Status: **PASS exact PR head, named browser evidence inspected; post-merge main CI PENDING**
 
 This extends the existing project's *import and drift review* Test instead of duplicating the Test or creating a new Canonical rule.
 
@@ -57,3 +57,10 @@ This extends the existing project's *import and drift review* Test instead of du
 - Candidate unit tests require WebCrypto full hash vs independent Node hash, tampered file, too-large refusal before file read, no-digest old import, strict SHA format and zero runtime authorization. Browser E2E requires independent Node SHA of actual `base.mp4` match to exported JSON, valid explicit re-hash, forged SHA mismatch and preservation of prior P0/P2/P3 safety gates.
 
 Related Candidate `inbox/candidates/2026-10-02-shallow-magic-vs-structural-file-identity.md` already separates display identity from actual bytes. Do not duplicate or promote Canonical based on one implementation.
+
+### PR #122 exact-head acceptance
+
+- Accepted PR head `4d0ce26e3751fd18e1718a27a079d24d9b068ab5`: [Node/build 38428630256](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38428630256) **PASS 457/457**; [full Chromium 38428630328](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38428630328) **PASS**, including user-explicit source SHA-256 match and same-source tampered-JSON digest mismatch, existing P0/P1 unsafe-source refusal and P3 multi-timepoint delivered libass rendering.
+- Named artifact `five-step-container-recipe-workbench-evidence` **ID 11829154330** downloaded, extracted and JSON manually reviewed; 5 entries. Actual detached `base.mp4` draft declares `sources[0].sha256 = a78a0c371584ab404b90c9b7d9b6807550506cedcad8b991013a2cda859f520c`, `authorization=requires-relink`, `execution=requires-fresh-source-authorization`. It has only a header-only `other` object; no claim full track inspection. E2E independently checks source digest against Node digest of the actual fixture bytes. Three PNGs 1440/1024/390 were reviewed, showing visible entry and non-executable draft warnings.
+- PR #122 merged via squash to `main@7e1274a70748810463129051e99529dbb1b62fa3`; **independent main build and Chromium CI awaiting final confirmation**.
+- Scope remains full-file bounded WebCrypto ≤64MiB, untrusted editable JSON comparison, not a signed provenance proof, not an actual media-writing domain owner. No Canonical promotion.
