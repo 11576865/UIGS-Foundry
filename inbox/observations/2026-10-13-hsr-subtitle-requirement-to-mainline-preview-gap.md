@@ -151,3 +151,20 @@ Exact-head green evidence:
 The initial failing CI was an obsolete app-shell snapshot expecting five primary tabs, plus a missing new Effects entry in the UI capture manifest. A later Chromium test incorrectly expected a Layout-only batch-QA button inside Effects. These were corrected by proving intended behavior, not by removing the product-level separation. No blanket CSS rewrite and no separate Effects data model.
 
 **Remaining known debt**: Review and Layout can still make distinct server data queries when arriving from another workspace; compatibility-only hidden cue editing/audio event handlers remain; broad historic inline CSS overrides and physical Android usability are unverified. This is a product-navigation and same-task refetch reduction, **not** wholesale source-code/data-fetch de-duplication. Candidate/general principle overlaps `inbox/candidates/2026-10-10-ui-css-authority-and-native-task-navigation.md`; do not create a redundant new Candidate or alter Canonical based only on HSR.
+
+
+## HSR PR #140: gated Review navigation and optimistic-lock ownership (2026-10-13)
+
+Source [HSR PR #140](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/140), exact source head `95e1734f823f5934f6368b958246c1f4a9e59539`, merged directly into main as `dd5fe10ab476a724f68679bc29a05ad65b5027f6`. Verified main tip and regression file.
+
+Defect: Review was the user-facing authority for `final_chs` but its writer sent only `{id,final_chs}` (missing server-side optimistic-concurrency preconditions). The hidden, duplicated Layout writer had the stronger preconditions. Moreover, switching Review -> Layout/Effects changed the visible workspace **before** awaiting the pending text save, so a failure could leave the user viewing stale subtitle effects with an unsaved draft in Review.
+
+Bounded fix:
+- Dirty Review -> Layout/Effects transition remains on Review until save is confirmed and that cue has no newer dirty edits. Any failure prevents visible navigation and preserves the draft. Navigation-generation checks prevent an earlier async completion from hijacking a later user choice. Leaving the shared layout canvas also invalidates an earlier corpus request generation.
+- Review now sends the prior baseline (`expected_final_chs`), source member (`expected_source_member_id`), and project root (`expected_project_root`) to the existing server's conflict guard. It captures target project identity before an asynchronously serialized write, checks identity again after response, and reports stale edit conflicts without silently overwriting them.
+- The legacy Layout text editor's hidden input/save hotkeys are disconnected and its direct helper refuses read-only/disabled DOM. Distinct subtitle *display timing* editing and the waveform remain supported.
+- Existing code compatibility handlers are not entirely removed; this is a runtime ownership enforcement plus correct authoritative persistence, not a whole-module deletion.
+
+Evidence on exact head: [tests 38345986268](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38345986268) and [Chromium/libass 38345986337](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38345986337), both success. New production-source Node regression in `tests/test_hsr_navigation_save_gate.py` checks save-first, save failure, stale navigation and request invalidation. Legacy duplicate-editor tests were updated to assert *read-only* projection and no duplicated text POST, rather than preserving outdated expectations.
+
+Reusable observation (dedup with `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md` and `inbox/bugs/2026-10-10-hsr-durable-subtitle-edit-versus-export-refresh-failure.md`): single visual editing ownership is insufficient if the authoritative writer lacks the conflict checks previously found on the secondary editor; save-first navigation must be measured independently of view-switch animations. No automatic UIGS Canonical promotion.
