@@ -26,3 +26,10 @@ Development branch: `feat/p1-verified-track-transaction-20261014`
 - Existing Foundry Test `inbox/tests/2026-10-14-mkv-detached-project-intent-chain-semantic-review.md` covers internal JSON coherence **without replay**. This Case adds usable editor delta export, cross-namespace ID mapping, explicit atomic replay, and guarded undo. Do not rewrite the earlier Test as a universal execution authorization.
 - Existing Canonical `governance/AGENT-EXECUTION.md` already establishes branch/PR durable checkpoints and default no-poll async CI. No new Canonical policy is proposed.
 - Keep this product-linked Case until exact-head evidence is observed; do not automatically promote to Candidate/Canonical based on a single implementation.
+
+## Exact-head CI closure and integration (2026-10-14)
+
+- PR #125 head `578c74bcf37b6588182fb4d28cf8b3ea82274673`, Browser E2E run `38448123807`: **completed / success** (Node tests, Vite build, real Chromium fixture flow); Deploy to GitHub Pages run `38448123587`: **completed / success**.
+- PR #125 was subsequently marked ready and **squash-merged** into `main` as `1583570d59234a965c180b22a8fc24707703a24e`.
+- This closes the *PR-level* Pending CI state recorded above. It does **not** prove large-file source restore, real device operation, general EBML writer correctness, or cross-player preservation.
+- Follow-on PR #126 addresses >64 MiB source digest scalability separately, with its own Pending CI.
