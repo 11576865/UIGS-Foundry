@@ -97,3 +97,19 @@ After increasing the HSR source-image cap to 16 MiB, the derived-MKV product rel
 - Product `main` rechecked at `b77fccaa0a5b5a496a0f0d4142a8a79d2c89ef75` after direct-main checkpoints. Static source and test presence verified; **matching push-event CI and physical Android evidence not verified**.
 
 Reusable distinction: **artifact state is scoped to its own provenance and intended use, not automatically inherited from a downstream composite artifact**. The downstream MKV may be blocked while an independent upstream SRT remains usable. Keep this as evidence-backed Observation rather than auto-promoting to Canonical.
+
+
+## Exact-head mainline repair CI and true large-image media evidence (2026-10-14)
+
+Following the user's main-first execution requirement, HSR source and test repairs were pushed directly to the shared `main` branch. Earlier broken checks reflected three different defects in test coverage: `project_summary` fixtures accidentally pointed at default `output/` instead of the explicitly root-based test output; a source test searched the *first literal occurrence* of an MKV route path in the Lite upload-budget table, not the actual request handler; and old 4 MiB threshold/obsolete README assertions were not updated when the product contract changed. Those were corrected in bounded test commits, not by weakening real export preconditions.
+
+A further gate mismatch was confirmed: the real Chromium/libass workflow ran only for PRs or manual dispatch, whereas the user's accepted workflow now publishes on `main` without PRs. Product commit [`4932d250`](https://github.com/11576865/HSR-Voice-Archive-Builder/commit/4932d2503db6b805cebf4eb5ee7a13674ab3e3d9) added scoped `push: main` triggering and stale-run concurrency cancellation. This is a **CI event coverage** defect, not a reason to reinstate feature branches.
+
+The initial 5 MiB picture receipt test only checked a synthetic PNG magic header; product commit [`e0bddc42`](https://github.com/11576865/HSR-Voice-Archive-Builder/commit/e0bddc42d6e24f38bd74b349e219306cc27b7a8a) additionally generates an actual approx. 5.7 MiB RGB PNG, validates the Base64 16 MiB gate, completes FFmpeg image decode and real H.264+FLAC+ASS Matroska mux, reads the preserved picture bytes, and decodes a real MKV video frame. The real-media job executed and passed, not skipped. FFmpeg subprocess pipe warnings in that job prompted a separate bug fix recorded at `inbox/bugs/2026-10-14-hsr-ffmpeg-mux-progress-pipe-resource-leak.md`; fix [`64cab090`](https://github.com/11576865/HSR-Voice-Archive-Builder/commit/64cab090e8983d9e348e9245f625d6db92e915a8) closed child streams on all control paths.
+
+**Verified exact-head evidence**, all on `main@64cab090e8983d9e348e9245f625d6db92e915a8`, with source/main compare `identical`:
+- [Python 3.11/3.12/3.13 and Termux Lite success](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38443474435).
+- [Real FFmpeg/libass and Chromium responsive UI success](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38443474566); real >4 MiB PNG test passed in the `libass-artifact` job with no ResourceWarning.
+- [Pages build and deployment success](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38443473452).
+
+These tests support the 16 MiB input change and accurate *technical* source-output status/track publication. They do **not** prove the user's physical Android playback, subjective H.264 color-banding quality, or multi-hour performance targets; those stay open under HSR Issue #158. Prior `CI unverified` sections above are historical checkpoints now superseded for this exact main commit. No Canonical changes.
