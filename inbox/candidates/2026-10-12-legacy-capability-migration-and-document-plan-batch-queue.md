@@ -187,3 +187,15 @@ Product [PR #112](https://github.com/11576865/MKV-Fast-Muxer/pull/112), exact te
 - **Scope**: direct media-input ownership and independent batch orchestration are now real. Shared mux still renders progress/status and uses a common FFmpeg.wasm instance, so a fully pure, UI-independent media executor and persistent resumable jobs remain unimplemented. The existing constrained Matroska writer's eligibility was not widened by PR #112.
 
 This is evidence-backed refinement of the same Candidate. Do not promote Canonical from a single project.
+
+
+## Batch MKV/report publication evidence (2026-10-13; PR #114 — Pending exact-head CI)
+
+Product [PR #114](https://github.com/11576865/MKV-Fast-Muxer/pull/114) introduces `writeNewBatchArtifactPair`, retaining the independently no-clobber-checked single-file File System Access writer and the frozen BatchRunner. **The filesystem cannot supply an atomic two-file commit**; therefore a successful MKV write followed by a failed JSON report write must be represented as partial persistence, not a failed mux, a complete save or an opportunity to delete a possible foreign directory entry.
+
+Engineering slice:
+- Precheck both normalized output names before writing either file; both individual writes recheck destination identity and permission. Reject same/colliding names. Treat the second-file failure as **report-specific**, preserve a committed MKV and report Blob download fallback.
+- Return `mkvSavedToDirectory`, `reportSavedToDirectory` and a `savedToDirectory` that becomes true only when the full pair was saved; retain independent save error evidence. UI and terminal status name explicitly when the MKV persisted while the report did not.
+- Node regression fixture tests full pair, report-only quota error, MKV-first failure, collision without either write, and no deletion. The real Chromium E2E stages a finished mux then injects report-only quota failure; it must inspect a nonempty persisted MKV Blob, absent report Blob, visible download links and truthful per-job/terminal messages.
+
+At Intake the exact PR head `4f43104a6540f281c8edf22d040ec79af602c0a6` Node/build and browser CI are **Pending**. No generalized filesystem transaction atomicity, ownership of files created concurrently, or arbitrary MKV preservation is claimed. Deduplicated with this preexisting batch execution/evidence Candidate; no Canonical promotion.
