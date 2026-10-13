@@ -1,7 +1,7 @@
 # Test: detached MKV ContainerProject edit-intent internal coherence (not replay)
 
 Date: 2026-10-14
-Status: **PENDING exact-head Node/build/full Chromium and real browser screenshots**
+Status: **PASS exact-head Node/build/full Chromium and inspected screenshots; squash merged main (post-merge CI pending)**
 Product: `11576865/MKV-Fast-Muxer`
 Draft PR: https://github.com/11576865/MKV-Fast-Muxer/pull/123
 Base main: `7e1274a70748810463129051e99529dbb1b62fa3`
@@ -30,3 +30,13 @@ The existing strict parser calls this audit before accepting imported drafts. Ac
 - The production editor remains legacy write authority; full P1 editable domain migration, safe arbitrary EBML writer, device/large-file and P5/P6 exit criteria remain incomplete. Do not promote Canonical from this single case.
 
 **Pending proof**: exact PR head all Node/build and full browser E2E PASS, inspected artifact screenshot(s); after merge confirm separate main-push checks.
+
+## Verified exact-head acceptance and merge
+
+- Exact PR head: `1df4e11cfb62f768f886d9eed85bd353e95bec0b`.
+- [Node and build 38435603584](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38435603584): **PASS 464/464**, production build.
+- [Complete Chromium E2E 38435603563](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38435603563): **PASS**, explicitly logs five-step source/import/recipe workbench and existing P0/P1 source preservation, P3 four-frame actual-MKV ASS/libass evidence; browser test asserts coherent detached inclusion edit preview plus rejecting contradictory final snapshot.
+- Inspected actual CI artifact `five-step-container-recipe-workbench-evidence` **ID 11832582920**: five items (source `container-project-v1` JSON, `batch-recipe-v1` JSON, screenshots at 1440x900, 1024x768, 390x844). Exported draft JSON contains **one header-only source object and zero intents**; browser *separately creates a valid single-intent imported copy* for read-only visual audit. Source hash field exists. Screenshots at 1440 and 390 were opened, showed the imported one-line `是 → 否` change and explicit non-authorizing notice. Not an actual editing operation.
+- [Merged PR #123](https://github.com/11576865/MKV-Fast-Muxer/pull/123) squash main commit `334596a86c6dd9091d5a5446c9db01132e16235e`.
+
+**This evidence demonstrates internal semantic self-consistency only, never history/authorship authenticity or safe replay.** No Canonical change.
