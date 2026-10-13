@@ -29,3 +29,11 @@ This Test is distinct from prior `inbox/tests/2026-10-13-qhe-windows-guided-ass-
 Not verified or intentionally deferred: byte-exact preflight forecasts for arbitrary trim, long-form asynchronous packet scanning, FLAC *re-encoding* cost prediction, Android/Web auxiliary packet sources, arbitrary MKV stream combinations and physical workstation acceptance. No Canonical promotion or initial-version acceptance claim.
 
 CI was queued at this recording, so this evidence must stay **Pending** until the hosted frontend/Windows steps actually pass.
+
+## Hosted observations (2026-10-14)
+
+- QHE frontend run `38439057934` on `7d3b784e8394c8dcf2608d408be2bf971321690b`: the `node --test` block containing `src/trim-copy-audit.test.mjs` completed **SUCCESS**, and the `FFMPEG_INTEGRATION=1` block containing real `whole-file-budget.integration.test.mjs` also completed **SUCCESS**. The complete frontend run was still finalizing browser steps when recorded; distinguish test-step from full-run status.
+- Windows local smoke `38439434090` on `451be2146de01f7ae9f78f98df911b5d3d385d58` completed **SUCCESS**, including the production `Exercise real guided Windows Native two-pass and strict byte ceiling` step. That step now runs a real structured trimmed two-track size task, independently measures its final packets against the cached Native status and source upper bound, and checks a repeated terminal read.
+- Later QHE commit `8027be06c5238f5f2e5eeebe3c3fafac7fadffb9` bounds the synchronous audit to short outputs; `fb07c74b6174d309fa06243805855044b76e7677` permits audit reporting only for verified positive output bytes. Their exact-head CI is still pending at this checkpoint, so do not claim it has passed based on earlier commits.
+
+**Acceptance classification:** B16 short-output observed copied trim cost = measured/automated tests passing for the above actual code stages, with later HEAD regression pending. B16 pre-encode exact trim cost / FLAC encode rate prediction / long-form Android and Web = still Pending.
