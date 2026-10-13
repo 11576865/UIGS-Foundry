@@ -810,7 +810,7 @@
         "width": 1365,
         "height": 1966
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
     },
     {
@@ -833,7 +833,7 @@
         "width": 769,
         "height": 3756
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
     },
     {
@@ -857,7 +857,7 @@
         "width": 390,
         "height": 844
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
     },
     {
@@ -884,7 +884,7 @@
         "width": 1365,
         "height": 900
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
     },
     {
@@ -2357,7 +2357,7 @@
           "width": 1365,
           "height": 900
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       },
       {
@@ -2410,7 +2410,7 @@
           "width": 1365,
           "height": 1966
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -2434,7 +2434,7 @@
           "width": 390,
           "height": 844
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -2460,7 +2460,7 @@
           "width": 390,
           "height": 844
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       },
       {
@@ -2514,7 +2514,7 @@
           "width": 1365,
           "height": 900
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       }
     ],
@@ -2543,7 +2543,7 @@
           "width": 1365,
           "height": 900
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       }
     ],
@@ -2568,7 +2568,7 @@
           "width": 769,
           "height": 3756
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -2593,7 +2593,7 @@
           "width": 769,
           "height": 3756
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -2618,7 +2618,7 @@
           "width": 769,
           "height": 3756
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -2643,7 +2643,7 @@
           "width": 769,
           "height": 3756
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -2669,7 +2669,7 @@
           "width": 390,
           "height": 844
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -2697,7 +2697,7 @@
           "width": 1365,
           "height": 1966
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -2721,7 +2721,7 @@
           "width": 390,
           "height": 844
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -2750,7 +2750,7 @@
           "width": 1365,
           "height": 900
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       }
     ],
@@ -2778,7 +2778,7 @@
           "width": 1365,
           "height": 1966
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -2802,7 +2802,7 @@
           "width": 390,
           "height": 844
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -2830,7 +2830,7 @@
           "width": 1365,
           "height": 1966
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       }
     ],
@@ -2859,7 +2859,7 @@
           "width": 1365,
           "height": 900
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       },
       {
@@ -2912,7 +2912,7 @@
           "width": 1365,
           "height": 1966
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -2939,7 +2939,7 @@
           "width": 1365,
           "height": 900
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.PREPARE_SHELL.DESKTOP_DARK.json"
       },
       {
