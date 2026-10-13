@@ -47,3 +47,13 @@ Product PR [#118](https://github.com/11576865/MKV-Fast-Muxer/pull/118) tested ex
 ### Unchanged limitations
 
 This remains one synthetic 320×180 frame at t=1s, one renamed font, system Linux libass, controlled render background; it does not prove cross-player, subsecond animation, karaoke, all glyph families, arbitrary sources, actual user device, or complex EBML relation fidelity. Product runtime audit does not claim it performs this same visual validation on every user's actual file. No automatic change to Canonical governance.
+
+
+## Post-merge main SHA independent CI result
+
+The squash-merged exact `main@9a19ae02fe63a2113c28624a343cb91b8a1a2d30` also passed **all of its own required checks**:
+
+- [Main build and Pages deployment 38393587382](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38393587382): **PASS**.
+- [Main full Chromium mux E2E 38393587389](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38393587389): **PASS**.
+
+These are separate from the PR's named JSON and PNG artifact acceptance. They do not expand the one-fixture renderer evidence into universal player certification.
