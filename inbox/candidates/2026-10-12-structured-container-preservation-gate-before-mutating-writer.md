@@ -41,3 +41,14 @@ Production-scope partial mitigation merged in `11576865/MKV-Fast-Muxer` PR #78, 
 Neither this candidate nor the merged code claims that otherwise simple Matroska is fully preserved, nor that the original lossy writer was repaired. See still-open source issue #77 and P0 evidence PR #76. This is a single-project Candidate only, not Canonical.
 
 Post-merge CI confirmation: main@9c49af8 Browser E2E run https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38197635917 passed 226/226 Node tests and all Chromium scenarios, including scoped single and batch preservation refusal. Pages deployment https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38197635888 succeeded. Underlying writer bug #77 remains open; Candidate remains non-Canonical.
+
+
+## Round 5/5 pre-click preflight UI, source identity and independent execution gate (2026-10-13; exact-head E2E Pending)
+
+Product [PR #108](https://github.com/11576865/MKV-Fast-Muxer/pull/108), branch `feat/round5-preservation-readiness-responsive-acceptance`.
+
+Extends this Candidate's **existing** seek-bounded EBML risk classification into the actual source→composition→mux interaction. A read-only, source-scoped status projects `NO_KNOWN_HAZARD` vs UID `UNVERIFIED_REFERENCES` vs `BLOCKED_RISK/BLOCKED_UNKNOWN`; only the last groups hard-disable Start. While source structure verification is running, Start is disabled. A new File object (even one with the same name, size and lastModified) cannot inherit an older inspection result: async callbacks check a monotonically increasing generation **and** exact File object reference. Existing mandatory execution-time `inspectMatroskaPreservation` remains unchanged, preventing a bypass through programmatic invocation; frozen batch staging avoids competing UI scans. User-facing verdicts explicitly say that no known risk is not proof of whole-EBML preservation.
+
+New Node tests cover exact-source freshness, pending/refused/warning/clear semantics and persistence of the runtime gate. Existing Chromium hard-fixture E2E was extended to verify visible pre-click block, direct event bypass refusal, and safe-source replacement. Responsive UI acceptance expands true browser viewport inspection to 1600 desktop, 768 tablet and 390 phone, with screenshots as CI artifacts; no claim of physical-device acceptance.
+
+Status at intake: product implementation submitted, latest exact-head Chromium CI **Pending**. This is a scoped single-project Candidate supplement, **not Canonical** and not a fix for the FFmpeg writer's lossy nested chapter behavior.
