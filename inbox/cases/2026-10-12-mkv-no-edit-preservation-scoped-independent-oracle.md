@@ -158,3 +158,14 @@ Product [PR #110](https://github.com/11576865/MKV-Fast-Muxer/pull/110), exact te
 Precise delivery status: **a usable, opt-in, narrow existing-MKV copy writer class** has reached production main; **general existing-MKV editor, preexisting-attachment CRUD, arbitrary chapter/tag mutation, large source support, unknown EBML and a fully independent FFmpeg media core remain unresolved**. This is not proof that every eligible third-party source works or plays correctly in arbitrary clients.
 
 Deduplicated as extension of this existing Case. No new Canonical rule is inferred.
+
+
+## Extension: Multiple new attachments in one existing reserved-Void MKV (2026-10-13; CI pending)
+
+Product [PR #111](https://github.com/11576865/MKV-Fast-Muxer/pull/111), head `e96dfdb902918c8b3e23057f563ce613f4134e02`, extends the exact same bounded and externally checked one-attachment eligibility class rather than declaring generalized Matroska write safety:
+- Encode one Attachments master containing 1–8 new AttachedFile children, unique FileUIDs 1..N, no pre-existing attachments, no orphan AttachmentUID target links, no unsafe top-level/CRC elements; original pre-Info Void space must fit the entire master plus valid remainder. Source ≤60 MiB, aggregate payload ≤4 MiB.
+- Freeze per-file metadata and hashes; refuse unsafe duplicate filename auto-rewriting; after generating the new source-length-preserving MKV Blob, verify every actual attached FileData by unique FileUID, name, declared MIME, size and SHA-256. The actual source and staged files are rehashed before output is exposed.
+- The previously opt-in existing-MKV UI now allows 1–8 selected files, lists proposed names/MIME, requires renewed review, preserves legacy single-file fields, and invalidates cached downloads on source/list/options changes.
+- Node fixtures test two actual EBML attachments plus budget, duplicate, preexisting attachments, insufficient slot refusals. The real Chromium MKVToolNix-authored tagged/nested chapter scenario now tests two attachments and external mkvmerge/mkvextract/FFprobe packet equivalence, in addition to the previous single-file scenario.
+
+**Status: Submitted, exact-head Node/build and full Chromium/E2E Pending.** Previous PR #110 passing evidence is not a substitute for this new multiple-attachment head. All output is experimental, no general existing-MKV writer, prior attachment CRUD, device playback conformance or full FFmpeg adapter decoupling. Deduplicated as another observation in this existing Case; no Canonical promotion.
