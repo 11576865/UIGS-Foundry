@@ -94,3 +94,24 @@ Observed edge case: A pixel-comparison control test initially supplied both dial
 Still out of scope: unbounded/full-length footage, audio synchronization, source-time-aware word highlighting beyond the preview-local interval, large uploads, arbitrary codec/device coverage, end-to-end actual backend Chromium playback, real Android-device validation, or final project export.
 
 Reusable project-specific lesson: a video-effect preview has multiple distinct evidence layers—UI provenance, actual source-byte forwarding, decoder usability, and source-vs-overlay rendered pixel proof. Green at any one layer cannot stand in for the rest. Deduplication: attach to this existing HSR Observation and the related subtitle preview Case rather than creating another overlapping Candidate. **Do not promote to UIGS Canonical from this single project.**
+
+
+## Mainline update: opt-in source audio and live Chromium/libass E2E (2026-10-13)
+
+HSR [PR #137](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/137) merged **directly into main**, exact source head `a24b25889b8b19dfafab6c05492e1edf44a1bd9f`, squash commit `aba42855b32828e12c86b209ff000440e364adc8`. Verified post-merge main tip and the live E2E test file.
+
+Product boundary: extends *existing* Effects workbench, no second editor, no new workbench. Opt-in local source input increases from 4 MiB to **24 MiB** with 36 MiB request-body bound on the preview endpoint only (Lite's other operations retain the 8 MiB request cap). Video output stays **0.5–8s**, source offset **0–600s**, 960×540, 24fps, ephemeral source within the FFmpeg temp dir. This remains Base64 JSON (not an unbounded/streaming full-movie design).
+
+Audio semantics: `include_source_audio` selects the **first audio track of the user-selected video**, if present. It is seeked and clipped in the *same* FFmpeg operation as source picture + libass ASS. MP4 transcodes that audio to AAC; WebM to Opus; opting out or using black input yields silence. This is **not** synchronization with the HSR archive's separate WAV file, nor proof of all audio tracks/encoders/devices.
+
+Exact-head green CI:
+- [38328657466](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38328657466) — Python matrix 3.11/3.12/3.13 + Termux Lite, all success.
+- [38328657467](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38328657467) — real FFmpeg/libass unit proof, responsive Chromium layout tests and **live browser-to-server media request**.
+
+The newly added `tests/browser_live_preview_e2e.py` runs the real FastAPI application through uvicorn, loads the shipped HTML under **production CSP**, selects real synthetically generated WebM video with an Opus tone, and forwards its video-preview API through Playwright's `route.fetch()` to the **actual backend**. It captures that actual response body (not a mock media fixture), delivers those same bytes to Chromium, confirms FFprobe codec and AV start alignment, actually decodes output audio samples, and checks browser decoded video + seeking. Unrelated project/corpus endpoints retain fixtures; real Android/production user-media coverage remains unproven.
+
+Two newly observed testing pitfalls (not automatically Canonical):
+1. The old fixture-only browser suite lacked production Content Security Policy, so `page.wait_for_function` string-expression tests did not catch `unsafe-eval` restrictions. Live test retains CSP and uses `page.evaluate` callable polling, never weakens production policy.
+2. Under Playwright `route.continue_()`, the subsequent page response's `Response.body()` was empty in this CI environment even though it had HTTP 200 and real media headers. The test captures original binary using `route.fetch()` and `APIResponse.body()`, then `route.fulfill(response=upstream, body=payload)`. It does not fabricate rendered media; E2E assertions read verified upstream bytes and confirm the same bytes are playable in Chromium.
+
+Deduplication: recorded as a follow-up to this existing HSR Observation, and complementary to `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md`; do not generate redundant generalized rules from one app. Canonical unchanged.
