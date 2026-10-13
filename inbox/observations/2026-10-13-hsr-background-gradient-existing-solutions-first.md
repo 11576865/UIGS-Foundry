@@ -57,3 +57,14 @@ The production-only evidence gap is now explicitly tracked in [HSR issue #158](h
 ## HSR Issue 158: direct-main technical acceptance checkpoint
 
 A read-only MKV technical acceptance script (`scripts/hsr_mkv_acceptance_probe.py`), tests (`tests/test_hsr_mkv_acceptance_probe.py`), and instructions (`docs/mkv-gradient-backgrounds.md`) have been committed to HSR `main`. Latest product checkpoint: `d9ac8e4b8cf9d64a8d518238072b6c81fc021e2f`. The script examines final MKV H.264/FLAC/ASS tracks and decoded H.264 PNG samples, not source/preview images. The output explicitly keeps real Android playback, visual banding, and multi-hour performance `unverified`; those remain open in Issue #158. CI for these direct-main commits has not been confirmed. This updates the existing Observation only; no Canonical changes.
+
+
+## Direct-main HSR derived-bundle and image-cap repair (2026-10-13)
+
+User feedback identified two gaps after PR #157: HSR displayed a stale complete MKV as merely "available" alongside independent FLAC/SRT/ASS and old black MKV; the advertised uploaded-image cap was still 4 MiB despite a prior recommendation to raise it.
+
+Mainline repair checkpoints culminating in `2015dda5c60834f6aeed84ec8b31910da5a77b7b` address both as one source-aware delivery contract. The bundle status now reports explicit `depends_on`, `prerequisites`, `can_generate`, and `blockers`; old MKV bytes remain recoverable but "stale/unverified" no longer counts as current. The UI puts the derived complete MKV first, keeps FLAC and subtitle sidecars independent, labels the historical black MKV as a legacy compatibility output, and provides source-specific next steps rather than presenting both MKVs as equivalent. The project summary additionally classifies `playback_bundle`, `independent_products` and `legacy_outputs` without breaking `final_products`.
+
+The background image cap is now centrally 16 MiB, and full/Lite JSON requests allow at most 24 MiB for base64 transport. The FastAPI handler checks *actual streamed bytes*, not only Content-Length. Backend receipt persistence/reuse, source export decoder, genuine FFmpeg preview and the optional subtitle-effects still-image preview share the 16 MiB limit while retaining image-format, 8192-per-side/24-million-pixel bundle checks and the separate preview dimension constraints. Regression tests cover >4 MiB replay, 16 MiB acceptance/oversize rejection, streamed FastAPI limits, Termux Lite endpoint-specific body limits and dependency-state transitions.
+
+Evidence status: source commits are pushed directly to HSR `main` for user feedback; **do not claim CI or physical-device acceptance until an actual matching run is observed**. The image-cap portion of Issue #158 has an implementation checkpoint, but Android player behavior, color banding and multi-hour benchmarks remain open. This observation updates an existing finding; no automatic Canonical changes.
