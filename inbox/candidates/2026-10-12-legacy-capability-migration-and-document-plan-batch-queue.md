@@ -106,3 +106,18 @@ UIGS knowledge scope: exact File reference evidence prevents one class of same-p
 ## P1-C exact-head handoff refinement — real-browser interleaving included
 
 The P1-C Draft PR [#87](https://github.com/11576865/MKV-Fast-Muxer/pull/87) advanced beyond its first submitted commit to `2ce950b188b543ce777ecac098f6b6f6058bd5e6`. It now includes the deterministic `scenarioP1SubtitleIntentInvalidation` Chromium E2E: hold a valid Matroska source's EBML preflight with intercepted `File.slice().arrayBuffer()`; programmatically replace the subtitle selection while inputs are disabled; require stale-intent rejection and no fresh artifact. **Exact-head CI Pending** at the time of this intake. This is one source-specific regression implementation, not a new Canonical standard or a claim of arbitrary asynchronous integrity.
+
+
+## Round 2/5 frozen batch authorization + lifecycle projection (2026-10-13; Pending exact-head CI)
+
+Implementation PR: [MKV-Fast-Muxer #105](https://github.com/11576865/MKV-Fast-Muxer/pull/105). Review boundary: `main@0c698623493713bd9686cdcd7a04da6893a31e86`; PR head after branch integration: `b7ad5f65755004f743fb6c9ad6736156a42c2fa8`.
+
+Extends this existing Candidate without reasserting a new Canonical rule:
+- Existing `buildBatchJobsFromCollected()` reviewed pairing is frozen into `batch-job-plan-v1` **after** start preflight, preserving source File references, planned sidecar inputs, output names, group/individual font settings, and generation-scoped task IDs. The snapshot owns batch policies; the legacy mux adapter no longer reads mutable batch rule controls during its job loop.
+- A batch-scoped ledger models `queued / preparing / muxing / saving / succeeded / awaitingSave / saveWarning / failed / cancelled / interrupted` separately. The matrix and selected-job inspector read the ledger but never become a second editable owner of stream properties.
+- Output Blob generated without a persisted destination remains **awaitingSave**, not persisted success; directory write failure is **saveWarning**, not a fabricated mux failure. Lifecycle markers are invalidated on changed batch settings, source binding or output directory.
+- The old `muxBtn.click()` adapter remains. This slice implements a **frozen authorization seam**, not the full independent JobPlan executor, durable batch recipe, verified save transaction or long-lived resume. Scope of the previous design proposal remains larger than implementation.
+
+Regression submissions: Node tests for frozen snapshot integrity, source/sidecar ownership, ambiguity/conflict refusal, legacy fallback, illegal state changes, and save warning; existing Chromium two-job scenario checks `awaitingSave` for unsaved Blob artifacts. **Both Node and Chromium exact-head CI were pending at intake.**
+
+Deduplication: this is evidence for the existing legacy migration + queue Candidate; pairing ambiguity's direct-choice UX is recorded in the separate 2026-10-09 matching/identity Candidate. No Canonical promotion. Further proof must include exact-head CI, real output checks and eliminating the DOM click adapter.
