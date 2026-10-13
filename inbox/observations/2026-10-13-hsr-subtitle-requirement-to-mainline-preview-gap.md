@@ -236,3 +236,19 @@ Evidence, exact PR head:
 The reusable observation overlaps the existing CSS authority/navigation Candidate: when migrating from nested responsive disclosures to a single task-level drawer, remove the obsolete inner state owner and its dependent CSS, not merely hide its control. The visible screen alone does not prove accessible open/close state; test actual focus and `inert` / `aria-hidden` consistency across task changes. **Case-specific corroboration, no automatic Canonical change.**
 
 Boundary: this does not remove the broader legacy inline CSS, solve entire media preview constraints, or constitute physical Android-device acceptance.
+
+
+## HSR PR #145: CSS layout authority must include the legacy state boundary (2026-10-13)
+
+Source: [HSR PR #145](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/145), exact tested head `019aa1e4923435326e7f69a76bcef0310130e6c4`, squash merged **to main** at `580295045781f602d38a6aa78099eed19387eb4d`. Verified post-merge main tip and final CSS.
+
+Observed defect: simply removing six `!important` grid-placement declarations from `app/static/hsr-ui-convergence.css` made Chromium's 1600px desktop Effects timeline narrower than the existing >400px acceptance requirement. The underlying old inline CSS still imposed a forced three-column grid even when the batch QA rail was collapsed. This confirms that downstream CSS cleanup is ineffective while earlier rules retain unconditional authority.
+
+Fix: restrict legacy multi-column desktop/tablet/mobile layout rules to `.preview-workbench.audit-open` (the explicit QA-open state) and remove competing forced default widths from relevant base/media rules. The final separately loaded CSS governs the **default QA-closed** two-column desktop or single-column tablet layout without those six forced `!important` grid declarations; the explicit QA-open arrangement remains independently reachable. Existing hidden/inert rail safety rules remain enforced. UI tests were updated only where they asserted obsolete literal CSS tokens, not to lower geometric thresholds.
+
+Evidence on exact head:
+- [Python/Termux run 38356350753](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38356350753) success, 3.11/3.12/3.13 + Termux Lite
+- [Chromium/libass run 38356350609](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38356350609) success, desktop/touch-size geometry, QA interaction and real media regressions.
+- Prior failed [Chromium run 38355777244](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38355777244) demonstrated the insufficient-width regression; the failure was **not** ignored.
+
+Reusable observation, overlapping the existing `inbox/candidates/2026-10-10-ui-css-authority-and-native-task-navigation.md`: removing `!important` from downstream CSS does not transfer layout authority if upstream declarations remain forced and improperly scoped to a closed/open UI state. The safe remediation is to scope old ownership to the state that actually needs it, then verify both states with computed browser geometry. One project occurrence is not sufficient for Canonical promotion. Remaining historic inline CSS debt, full UI refactor and Android physical-device verification are not completed.
