@@ -41,3 +41,16 @@ PR [#109](https://github.com/11576865/MKV-Fast-Muxer/pull/109) exact tested head
 - Newly generated MKV remains downloadable on audit warning; the shared batch result ledger inherits `auditWarning` rather than representing it as fully verified.
 
 Evidence remains bounded to **new font attachment FileData**, and the re-reader is still internal to the product (the external Chromium mux suite verifies actual output and FFprobe semantics, not full external independent EBML relationship equivalence). No promotion to Canonical.
+
+
+## Extension: original source FileData versus output FileData (2026-10-13; pending exact-head browser oracle)
+
+Product [PR #113](https://github.com/11576865/MKV-Fast-Muxer/pull/113), head `e76093406d89245bfc3c8470c07f85d424c417a6`, adds a second, **separate** preservation claim: source MKV attachment FileData SHA-256 compared with actual output MKV FileData, including explicitly renamed selected source attachments. Existing FFmpeg ffprobe count/MIME checks cannot establish byte equivalence.
+
+The implementation uses two independent seek-bounded EBML attachment inventories (source and final output), requires unique source/output filename correspondence, expected MIME and equal byte length, and checks both actual SHA-256 digests within per-file and total bounded read budgets. It returns pass/warning/unavailable/not-requested, with evidence observations for each verified file. A warning or unavailable result must downgrade otherwise-passing final audit and batch task to review-required **without losing the artifact**. The output inspector shows original payload verification separately from new-font staged/output verification.
+
+**Non-claim:** byte equality does not prove original FileUID or TagAttachmentUID references, Chapters, unknown EBML relations, or generic Matroska fidelity; these continue to require separate evidence. UID retained is only an observed pair, not an asserted relationship graph.
+
+Node tests with real EBML outputs include two matching files, same-length modified bytes, authorized rename, missing name, altered MIME, malformed EBML and bounded budget. The existing Chromium selective-original-attachment scenario now requires pass and SHA evidence in actual downloaded report and UI.
+
+Status: Node/build [38359416355](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38359416355) **success**; full browser [38359416323](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38359416323) **still pending** at intake. No Canonical promotion.
