@@ -40,3 +40,20 @@ Exact squash-merged `main@3ec608648b57de6231ae253a561cb9bc82f31d7f` re-verified 
 - [Main Node/build/Pages 38418982702](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38418982702): **PASS**.
 - [Main full Chromium E2E 38418982574](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38418982574): **PASS**, logs explicitly contain project export/import scenario, P0/P1 unsafe source fail-closed and P3 four-frame dynamic ASS verdict, as well as `All browser E2E scenarios PASS`.
 - Final status **PASS**, constrained to a detached nonauthorizing project comparison and schema validation. Full editable domain authority, file byte-hash binding, generic EBML safe writer and user-file execution remain outside this test. No Canonical promotion.
+
+## 2026-10-14 P1 bounded source byte proof — PENDING exact CI evidence
+
+PR: https://github.com/11576865/MKV-Fast-Muxer/pull/122
+Baseline: `main@3ec608648b57de6231ae253a561cb9bc82f31d7f`
+Current candidate head: `4d0ce26e3751fd18e1718a27a079d24d9b068ab5`
+Status: **PENDING Node/build + exact-head complete Chromium E2E, inspected downloaded JSON and post-merge main CI**
+
+This extends the existing project's *import and drift review* Test instead of duplicating the Test or creating a new Canonical rule.
+
+- Bounded whole-source SHA-256 committed in optional `sources[].sha256` of detached `ContainerProject v1`; WebCrypto must read all selected bytes, refuse files larger than **64 MiB before allocation**, and validate exact File continuity after awaiting hash.
+- Previously exported v1 drafts without this optional digest remain legal imports but cannot claim source byte evidence. Typed parser rejects malformed SHA or hidden source grants.
+- Explicit real UI button computes the current chosen File digest on request and compares with imported JSON; valid match yields only `digest-matches-draft` **without** `executionAuthorized` or `changesApplied`, while a same-name/file-identity draft with changed checksum fails.
+- Hash match proves **relative to an untrusted/user-editable JSON claim**, not authorship, trust in edited object intents or permission to write MKV. It is not a digital signature, a live editable unified domain, continuous streamed multi-gigabyte hashing or a real container writer.
+- Candidate unit tests require WebCrypto full hash vs independent Node hash, tampered file, too-large refusal before file read, no-digest old import, strict SHA format and zero runtime authorization. Browser E2E requires independent Node SHA of actual `base.mp4` match to exported JSON, valid explicit re-hash, forged SHA mismatch and preservation of prior P0/P2/P3 safety gates.
+
+Related Candidate `inbox/candidates/2026-10-02-shallow-magic-vs-structural-file-identity.md` already separates display identity from actual bytes. Do not duplicate or promote Canonical based on one implementation.
