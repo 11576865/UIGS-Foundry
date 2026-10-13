@@ -193,3 +193,12 @@ Observation: The original multi-file UI only displayed File.name and File.type, 
 Node tests validate unsafe/duplicate/case-equivalent output names, invalid MIME, per-item changes, same-metadata source File replacement and byte budgets. Existing Chromium MKVToolNix-authored source scenario additionally tests forbidden duplicate metadata, explicit renamed/MIME-corrected second attachment, revoked old download, and external mkvmerge/mkvextract confirmation of the revised output while Chapter/Tag XML and media packets remain unchanged.
 
 At this Intake: exact-head Node/build [workflow 38365289395](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38365289395) **success**; full Chromium [workflow 38365289426](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38365289426) **Pending**. No claim of external output acceptance until it passes. This is an extension of the existing Case, not a Canonical change.
+
+
+## PR #115 exact-head per-attachment editor, reviewed draft and independent output (2026-10-13)
+
+Product [PR #115](https://github.com/11576865/MKV-Fast-Muxer/pull/115) exact tested head `76c8840b37c69cff536c2316fc0635af3981694c`, merged `main@15ca805db83e640f867bcbc6e36502d89af25f61`. [Node/build 38366083228](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38366083228) **success**; [full Chromium E2E 38366083221](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38366083221) **success**.
+
+The previously landed 1–8 new-attachment writer now has *per-attachment* filename and MIME field editing in the real UI. The pure draft is bound to exact File objects; invalid MIME, duplicate/case-equivalent/unsafe names, stale metadata, over-budget selections and non-reviewed modifications cannot produce a valid downloadable candidate. Every per-item field change invalidates previous review and prepared Blob. Existing single-attachment operation is still supported. Chromium independently verifies the edited fields and exact FileData with mkvmerge/mkvextract, and preservation of original chapters/tags and media packet hashes.
+
+Do not extrapolate this to general existing Matroska CRUD, large unknown layouts or physical-device playback. This is another corroborated product-specific Case detail, **not Canonical**.
