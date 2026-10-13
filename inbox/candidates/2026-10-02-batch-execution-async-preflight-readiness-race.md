@@ -114,3 +114,14 @@ PR #81 adds `batchStartPending` prior to the first `await`; locks the interactiv
 Real browser E2E deterministically delays a `File.prototype.slice().arrayBuffer()` read during batch startup. When source/subtitle inputs are replaced programmatically, no stale job executes, the plan is invalidated, and the new plan becomes ready. A separate delayed-read cancel scenario verifies no job/output is created and readiness recovers. PR head and postmerge main CI passed all legacy Chromium E2E and 226/226 Node tests.
 
 This adds **post-await snapshot validity and transactional commitment** as a refinement of the already documented async readiness contract, not a new Canonical rule. It does not remove the older UI-driven batch executor or establish generic Matroska preservation.
+
+
+## 2026-10-13 observed variant — scanner status label is not executor idle
+
+Source: [MKV-Fast-Muxer PR #119](https://github.com/11576865/MKV-Fast-Muxer/pull/119), corrected exact test head `474fdb997af42e6d9500cfcf953ddddea3ad5ccd`, squashed main `383274ad586719b202d7412a8e812b8d9398781c`.
+
+An existing safety E2E `scenarioP0PreservationBlocksSingle` checks that a programmatic click cannot bypass the Matroska nested-Chapter / UID-targeted Tag runtime authorization. The source scanner emits a visible `轨道扫描完成：` status before its `finally` actually sets `scanning=false` and calls `updateUI()`. The test waited only for this status, manually re-enabled the normally disabled mux button, and clicked it. `executeCurrentMuxTask()` legitimately returned immediately from `isBusy()`, before the runtime safety check; the test then waited 90 seconds for a refusal message that could never appear. **Two consecutive CI attempts** failed at this identical synchronization point even though the new dynamic ASS test had passed.
+
+The correction waits for a **live, observable idle-state projection** `#cancelBtn.disabled === true` after the scanner success status, before the same forced click. Thus the test actually exercises the runtime preflight and continues checking the original danger refuser. [Exact-head complete Chromium run 38398134701](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38398134701) passed P0/P1 safety and all other scenarios, with 434/434 Node tests and build green on the same head.
+
+**Reusable distinction:** a human-facing success string can be emitted before the asynchronous workflow's internal busy/cleanup transition; scripts that verify authorization must await the ability to **start the attempted action**, not only an upstream success label. Do not fix such a test by skipping the authorization check, lowering the block assertion, or increasing a timeout. This is an extension of the existing Candidate, not evidence to create a duplicate Canonical rule.
