@@ -12,11 +12,11 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.INPUT.DESKTOP_DARK.png",
   "source_repository": "11576865/MKV-Fast-Muxer",
-  "source_revision": "fee72462c687181348f7f1f2e181816c1dc8d30d",
-  "sha256": "0b3d1598b5173dd6e9f71d183f519d3ba26f572a403c71b4b3ae1aa75c74b640",
+  "source_revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
+  "sha256": "568c13657766a275b6d4b93fa88278c520835731231c962b28164b2037d8b188",
   "image": {
     "width": 447,
-    "height": 236
+    "height": 581
   },
   "environment": {
     "schema_version": 1,
@@ -58,7 +58,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "5c321df6f5bc5450f5c0550139638ae1a138072c41b46c85207c478301f46394",
+  "previous_sha256": "0b3d1598b5173dd6e9f71d183f519d3ba26f572a403c71b4b3ae1aa75c74b640",
   "limitations": [
     "Capture must show add-file action without prior scrolling; verify visually."
   ],
@@ -66,13 +66,13 @@
     {
       "source_type": "repository",
       "source": "11576865/MKV-Fast-Muxer",
-      "revision": "fee72462c687181348f7f1f2e181816c1dc8d30d",
+      "revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/MKV-Fast-Muxer:ui-visual-capture.json",
-      "revision": "fee72462c687181348f7f1f2e181816c1dc8d30d",
+      "revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
       "evidence_level": "source-owned capture declaration"
     }
   ]
