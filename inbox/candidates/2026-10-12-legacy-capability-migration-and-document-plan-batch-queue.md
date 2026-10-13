@@ -136,3 +136,16 @@ A specific migration seam has been implemented (without claiming full queue sepa
 Important source-coupling regression during migration: prior integration tests asserted literal `muxBtn.click()` and a loop in `main.js`; those must be moved to assertions on the new direct executor and runner module, without removing actual browser output/oracle tests. This is an implementation-coupled test refactor, **not** evidence that functional behavior is correct until E2E passes.
 
 Status: CI on updated PR head **Pending**; do not infer green checks from early subtest results. Same existing Candidate: no new Canonical standard.
+
+
+## Round 3/5 exact-head Chromium acceptance and merge (2026-10-13)
+
+Product PR [#106](https://github.com/11576865/MKV-Fast-Muxer/pull/106), exact tested head `6b87529a2954c34333d7d2ce31c585c3ef40fdd1`, merged into main at `9c527cde58e3b0c8c27809d9573f6c7401cc5a1c`.
+- [Pages build + Node tests](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38328508158): success.
+- [Full Chromium Browser E2E](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38328508144): success. This is browser fixture evidence, not physical-device or arbitrary MKV preservation certification.
+- Direct mux artifact return (MKV Blob, report Blob, hash, audit status) and DOM-free per-job scheduling are now integrated; synthetic mux button click and download-link polling are absent from the batch pipeline.
+- A new guard refuses executor output name drift from the frozen JobPlan before publication; tests simulate mismatched names.
+- Earlier Node failures exposed source-shape tests tied to the old `main.js` loop and button-click event forwarding. Corrected to assert the new runner and direct mux path without deleting real browser output checks.
+- Unfinished: per-job media staging still reuses legacy single-task File inputs and FFmpeg/Wasm operation. This is not yet fully isolated `Executor.execute(JobPlan)`, independent persistent Recipe, arbitrary Matroska writer or cross-device acceptance.
+
+Remains Candidate, not Canonical.
