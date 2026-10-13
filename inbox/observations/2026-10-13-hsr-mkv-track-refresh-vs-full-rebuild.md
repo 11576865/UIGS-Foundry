@@ -36,3 +36,23 @@ The user explicitly noted that the separate **MKV-Fast-Muxer** (软封) project 
 - For unusually long-duration archives, actual performance benchmarks should decide whether video regeneration warrants a specialized optimization. Generalized container remux remains out of HSR's immediate scope.
 
 This updates the **preferred recommendation** of the prior 'Bounded recommendation (not delivered)' section without erasing its recorded technical alternative. No code change or user acceptance is claimed; Canonical unchanged.
+
+
+## Verified delivery — bounded full regeneration with source-aware receipts (2026-10-13)
+
+The user approved HSR's **full MKV regeneration rather than generalized Remux** scope. Product [PR #156](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/156), tested head `3937184c4afb77ab6236b948d0318d2ee32e4437`, was squash-merged directly to `main@eabb5ffd6bf78f326d18ad5b6089d120932b0bea`. GitHub postmerge compare returned `identical`. The divergent initial draft #155 was closed without merge. The reusable choice is product-specific, not a promotion of a universal media packaging standard.
+
+Implementation:
+- `app/pipeline.py` no longer unlinks `HSR_Voice_Archive_Bundle.mkv` after verified FLAC rebuild. The old file remains physically present but the Export interface reports `stale` rather than showing it as a current artifact.
+- `app/archive_bundle_lifecycle.py` defines an explicit project-local receipt `archive_bundle_receipt.json` with source FLAC/ASS/subtitle receipt/font file signatures, MKV artifact signature, saved color, font-attachment preference and optional bounded content-addressed background picture. Saved picture bytes are checked by SHA-256 before reuse; explicit new upload wins, otherwise user can reuse or turn off reuse for pure color. Legacy pre-receipt MKVs are `unverified`.
+- FastAPI and Termux Lite use the same image replay contract. Project summary exposes `bundle_export` states `current`, `stale`, `missing`, `unverified`, and UI shows `重新生成并替换旧 MKV` when needed without erasing current unsubmitted choices during refresh.
+- The actual new video is still encoded from saved or selected still/color background, not copied from the previous MKV. `ArchiveBundleExporter` validates its temporary MKV with FFprobe, then prepares the new image + provenance receipt **before** atomic replacement. A simulated final rename failure restores the previous receipt, with the old media file still intact. This closes the publish-error window discovered after first-pass source review.
+
+Evidence:
+- [Python 3.11/3.12/3.13 and Termux checks 38393291476](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38393291476): success.
+- [Chromium UI and real FFmpeg/libass media checks 38393291438](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38393291438): success.
+- Unit tests exercise missing/corrupt legacy receipt, changed audio/subtitle, tampered image cache, interrupted build, last-known-good background, and old file retention. Actual FFmpeg tests render two complete MKVs across a changed FLAC, verify that old bytes remain until safe replacement, verify color pixels of the image-backed video, and inject failed final rename to verify old MKV/receipt restoration.
+
+Evidence boundary: the routine `size + mtime_ns` source identity is a conservative **operational change signal**, not a cryptographic tamper-proof source seal; subtitle exports independently use checksum-bound provenance. Real player/device and end-user archive-length performance remain unverified. A process crash in the narrow receipt-prepared/pre-replace window conservatively reports a stale old output; this is not full multi-file transactional crash recovery. No AAC/multiple-track features added, no new Remux engine, no Canonical change.
+
+This section **supersedes the earlier 'not delivered' status for persistent background and stale-output management**, while retaining prior exploratory alternatives as historical context.
