@@ -202,3 +202,15 @@ Product [PR #115](https://github.com/11576865/MKV-Fast-Muxer/pull/115) exact tes
 The previously landed 1–8 new-attachment writer now has *per-attachment* filename and MIME field editing in the real UI. The pure draft is bound to exact File objects; invalid MIME, duplicate/case-equivalent/unsafe names, stale metadata, over-budget selections and non-reviewed modifications cannot produce a valid downloadable candidate. Every per-item field change invalidates previous review and prepared Blob. Existing single-attachment operation is still supported. Chromium independently verifies the edited fields and exact FileData with mkvmerge/mkvextract, and preservation of original chapters/tags and media packet hashes.
 
 Do not extrapolate this to general existing Matroska CRUD, large unknown layouts or physical-device playback. This is another corroborated product-specific Case detail, **not Canonical**.
+
+
+## Exact-head acceptance for individually edited multi-attachment metadata (2026-10-13)
+
+Product [PR #115](https://github.com/11576865/MKV-Fast-Muxer/pull/115), accepted head `76c8840b37c69cff536c2316fc0635af3981694c`, merged `main@15ca805db83e640f867bcbc6e36502d89af25f61`.
+- [Node tests + Pages build 38366083228](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38366083228) **success**.
+- [Full Chromium E2E 38366083221](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38366083221) **success**; exact logs `P2-A opt-in existing MKV independent browser writer PASS`, `All browser E2E scenarios PASS` and independently audited one-attachment source state `INDEPENDENT_APPEND_ONLY_EXISTING_MKV_TAG_CHAPTER_MEDIA_AND_ATTACHMENT_MATCH`, `error:null`.
+- The modified external browser oracle tests a *real* existing MKV with nested chapters and targeted tags, generates and downloads a two-attachment output, changes the second attachment to `renamed-second.bin` / `application/x-audit-data`, uses external `mkvmerge -J` to verify the changed output metadata and `mkvextract` to verify both actual FileData bytes. Original/output Chapter XML, Tags XML and ordered FFprobe compressed packet digests/timing compare equal.
+- Duplicate output names refuse before writing with an explicit actionable status; every single- or multi-attachment filename/MIME change revokes the checked risk review. Both `input` and `change` event paths in single-file mode are covered. The download action compares current DOM field values and exact File references against the reviewed immutable metadata snapshot.
+- First Chromium run failed solely because a test regex was double-escaped despite the correct generated output evidence; fixed to a literal text assertion. Automated review then detected two real user-experience issues (single-item approval not reset and invalid-item reasons hidden), both addressed before final exact-head acceptance.
+
+Scope remains the earlier narrowly eligible reserved pre-Info Void writer (≤60 MiB source, ≤4 MiB added bytes, ≤8 additions, no pre-existing attachments), not arbitrary MKV preservation or an extracted UI-free FFmpeg executor. This is Case evidence only; **no Canonical promotion**.
