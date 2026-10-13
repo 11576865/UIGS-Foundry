@@ -189,3 +189,16 @@ Observed regression-test integration pitfall: older timing/timeline Node suites 
 Known limitations: this is **bounded read reduction** for a valid clean snapshot, not one physical canonical corpus store. Searches, explicit refresh, changed subtitles, expired snapshots, and some other workspace paths still fetch. Cross-session updates within the 12-second window may not be shown immediately, though edits use server optimistic-concurrency guards. Broad historic CSS overrides and Android physical-device usability remain unverified.
 
 Dedup: retain this existing HSR Observation rather than promoting a new Candidate; related `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md` and the prior UI CSS authority candidate. Do not alter UIGS Canonical based on one app.
+
+
+## HSR task-boundary regression: Layout-only QA must close on Effects navigation (2026-10-13)
+
+HSR [PR #142](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/142) exact tested head `07f4e7430970067dab089364aebf49992d769476`, squash merged to main as `24e9db70e65339122cb4bd04a11618e3f0e6a09d`; production HTML/CSS and main tip verified after merge.
+
+Observed UI defect: after promoting Effects into a first-class destination, the old layout-only optional batch QA rail still remained visible in Effects if the user first opened it in Layout. An earlier Chromium regression had explicitly **expected** this leak, even though the Layout toolbar was hidden. This is concrete evidence that a green screenshot/geometry suite may fossilize an incorrect task-boundary behavior when UI responsibilities change.
+
+Bounded fix: entering Effects now closes the optional QA drawer and synchronizes `aria-hidden`, `inert`, `aria-expanded` and `audit-open`; keyboard focus located within the rail moves to the visible Effects primary navigation item rather than being stranded inside a hidden control. A scoped CSS fallback prevents the layout-only QA rail from being painted in `data-studio-mode="effects"`. Returning to Layout keeps the drawer closed until explicitly opened. Navigation accent CSS now uses semantic `data-workspace-target` rather than fragile positional `nth-child` styling, and unused nested `.hsr-studio-tabs` styles were removed.
+
+Evidence on exact head: [Python/Termux suite 38349516459](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38349516459) and [responsive Chromium + libass 38349516465](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38349516465), both success. Browser tests examine desktop, tablet, mobile states, actual QA opening in Layout then closing in Effects, accessible state transitions, restored two-column/stacked viewport, and programmatic keyboard-focus recovery. Media playback regressions remain green.
+
+Reusable observation, deduplicated with existing `inbox/candidates/2026-10-10-ui-css-authority-and-native-task-navigation.md`: when a specialist subtool becomes task-scoped, tests must verify **absence** of the tool in other tasks, not merely its availability somewhere in the app; hidden panes must atomically transition visual state, focusability, and ARIA state. This single HSR observation does not justify automatic UIGS Canonical changes. Still unverified: Android physical-device usability and comprehensive historical CSS/source code removal.
