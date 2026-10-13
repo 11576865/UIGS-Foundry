@@ -43,3 +43,12 @@ The first-theorem research is now consumed by a shipped implementation, not just
 - Two important regressions surfaced and were fixed by evidence: `gradients:speed=0` is invalid in the installed FFmpeg (minimum is `0.00001`), so a legal minimum is used while rendering a single still; CSS author display rules overrode the HTML `hidden` attribute on irrelevant background controls. A separate existing workspace auto-collapse initially hid the Archive panel; `archiveCard` is now a primary Export panel.
 
 **Evidence limits:** No physical Android playback, multi-hour throughput benchmarking, or cross-player guaranteed gradient banding elimination. FFmpeg gradient availability remains a runtime compatibility requirement. The previously stated `not implemented` status above is historical and superseded by this section. No Canonical promotion.
+
+
+## Follow-up acceptance tracking #158 / closing audit (2026-10-13)
+
+A postmerge recheck confirmed `main` is exactly `2c2bf0845d1088b194de80c78f17b2f6ba368819` (comparison `identical`), PR #157 remains merged and closed with no unresolved review threads, and all exact-head runs including Python/Termux, Chromium/real FFmpeg, and branch hygiene concluded `success`.
+
+The production-only evidence gap is now explicitly tracked in [HSR issue #158](https://github.com/11576865/HSR-Voice-Archive-Builder/issues/158): real Android FFmpeg/filter support and player behavior, decoded H.264 gradient banding on physical displays, long-duration performance/memory, and separately whether the older 4 MiB *uploaded image* input limit merits future safe-streaming treatment. This issue is non-blocking for merged PR #157; it must not be represented as tests already passed.
+
+**Administrative caveat:** the squash-merged feature ref `feat/hsr-gradient-soft-background-complete-20261013` remained discoverable after the successful branch hygiene sweep because squash merge does not imply the original feature commit is ancestrally contained in `main`. This is consistent with existing Foundry `inbox/tests/2026-10-04-branch-hygiene-deletes-only-ancestry-proven-merged-branches.md` and `inbox/candidates/2026-10-11-squash-merged-branch-tags-before-ref-pruning.md`; do not force-rewrite the feature ref as a workaround. No new Candidate or Canonical modification.
