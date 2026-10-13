@@ -29,3 +29,10 @@ All actual user-facing entry points now go through this command: source-tree ins
 - Extends earlier source-track ownership Case `inbox/cases/2026-10-14-mkv-live-domain-track-authority-with-legacy-mux-projection.md`; unlike it, this Case is specifically about attachment name/MIME/include state and AttachmentUID safety.
 - Complements P0 `inbox/candidates/2026-10-12-structured-container-preservation-gate-before-mutating-writer.md`, which concerns writer authorization and independent structure preservation, **not** editable domain state.
 - No change to Canonical. Next corroboration: complete exact-head CI, verified attachment UID/target Tag relation preservation, and a separate conflict-checked attachment edit-intent replay contract. Chapter/Tag issue #77 remains unresolved.
+
+## PR-level CI closure / successor (2026-10-14)
+
+- Original source attachment live-editor PR #130 at exact head `d2ae0e44e6240111814e327fb3efdbab07f2e97e`: **Browser E2E mux tests success** (GitHub Actions run `38461470168`) and **Deploy to GitHub Pages success** (run `38461469790`).
+- PR #130 was **merged** into `main` as `13968cd141be2790713ae347c364e48e60e6a797`.
+- This closes the PR #130 CI Pending qualifier above. It does **not** certify AttachmentUID graph preservation, arbitrary EBML write fidelity, output compatibility on all players or device acceptance.
+- Later [PR #131](https://github.com/11576865/MKV-Fast-Muxer/pull/131), recorded in `inbox/cases/2026-10-14-mkv-verified-source-attachment-intent-atomic-cross-object-replay.md`, separately implements portable, proof-bound source attachment recovery; its own exact-head CI is Pending and must not inherit #130's green result.
