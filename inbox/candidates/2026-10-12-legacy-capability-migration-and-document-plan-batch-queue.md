@@ -149,3 +149,10 @@ Product PR [#106](https://github.com/11576865/MKV-Fast-Muxer/pull/106), exact te
 - Unfinished: per-job media staging still reuses legacy single-task File inputs and FFmpeg/Wasm operation. This is not yet fully isolated `Executor.execute(JobPlan)`, independent persistent Recipe, arbitrary Matroska writer or cross-device acceptance.
 
 Remains Candidate, not Canonical.
+
+
+## Round 4/5 audit-aware task status (2026-10-13; Pending CI)
+
+Product [PR #107](https://github.com/11576865/MKV-Fast-Muxer/pull/107) adds `auditWarning` as a distinct terminal job state when the independently executed ffprobe audit reports `warning` or `unavailable`. A generated MKV remains downloadable and is still counted as a mux success, but must not be labeled as verified; batch terminal summary counts audit issues separately from mux failures and directory-write failures. The existing `BatchRunner`/frozen plan remains the actual execution path. Behavioral tests cover pass/warning/unavailable across generated output and save conditions.
+
+Status: implementation + tests submitted, exact-head Chromium E2E **Pending** at intake. This is a refinement of the existing batch state/evidence Candidate, not Canonical promotion.
