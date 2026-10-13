@@ -46,7 +46,7 @@ Exact squash-merged `main@3ec608648b57de6231ae253a561cb9bc82f31d7f` re-verified 
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/122
 Baseline: `main@3ec608648b57de6231ae253a561cb9bc82f31d7f`
 Current candidate head: `4d0ce26e3751fd18e1718a27a079d24d9b068ab5`
-Status: **PASS exact PR head, named browser evidence inspected; post-merge main CI PENDING**
+Status: **PASS exact PR head, artifact inspected and independently green post-merge main CI**
 
 This extends the existing project's *import and drift review* Test instead of duplicating the Test or creating a new Canonical rule.
 
@@ -62,5 +62,13 @@ Related Candidate `inbox/candidates/2026-10-02-shallow-magic-vs-structural-file-
 
 - Accepted PR head `4d0ce26e3751fd18e1718a27a079d24d9b068ab5`: [Node/build 38428630256](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38428630256) **PASS 457/457**; [full Chromium 38428630328](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38428630328) **PASS**, including user-explicit source SHA-256 match and same-source tampered-JSON digest mismatch, existing P0/P1 unsafe-source refusal and P3 multi-timepoint delivered libass rendering.
 - Named artifact `five-step-container-recipe-workbench-evidence` **ID 11829154330** downloaded, extracted and JSON manually reviewed; 5 entries. Actual detached `base.mp4` draft declares `sources[0].sha256 = a78a0c371584ab404b90c9b7d9b6807550506cedcad8b991013a2cda859f520c`, `authorization=requires-relink`, `execution=requires-fresh-source-authorization`. It has only a header-only `other` object; no claim full track inspection. E2E independently checks source digest against Node digest of the actual fixture bytes. Three PNGs 1440/1024/390 were reviewed, showing visible entry and non-executable draft warnings.
-- PR #122 merged via squash to `main@7e1274a70748810463129051e99529dbb1b62fa3`; **independent main build and Chromium CI awaiting final confirmation**.
+- PR #122 merged via squash to `main@7e1274a70748810463129051e99529dbb1b62fa3`; **independent main build and Chromium CI verified PASS**.
 - Scope remains full-file bounded WebCrypto ≤64MiB, untrusted editable JSON comparison, not a signed provenance proof, not an actual media-writing domain owner. No Canonical promotion.
+
+### PR #122 independent main CI closure
+
+Squash merged `main@7e1274a70748810463129051e99529dbb1b62fa3` independently verified after merge:
+- [Main Node/build and Pages deployment 38429854419](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38429854419): **PASS**.
+- [Main complete Chromium E2E 38429854426](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38429854426): **PASS**, logs contain named five-step source SHA browser scenario, P0/P1 structural-safety refusal, P3 four-frame dynamic ASS evidence, and final `All browser E2E scenarios PASS`; zero workflow errors.
+
+Status confirmed **PASS** for one bounded, detached, nonauthorizing complete-file SHA-256 equality check. No broader browser stream hashing, full writer, editor-intent replay, device or Canonical claim. No further Pending item.
