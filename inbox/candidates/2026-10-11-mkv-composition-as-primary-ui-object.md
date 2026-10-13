@@ -69,3 +69,10 @@ The primary composition surface now receives a **source-scoped, read-only** proj
 Unit tests and an existing real-browser E2E were extended to check source evidence and compare the workbench's displayed SHA-256 with a downloaded report. At this Intake, exact-head browser CI is **Pending**, so acceptance is not asserted.
 
 The testable reusable insight is a claim-boundary split: source observations, planned mutations, measured output, independent audit and persistence are different evidence states. This refines this Candidate and is **not** a new Canonical norm.
+
+
+## Round 4/5 exact-head evidence and merge (2026-10-13)
+
+Product [PR #107](https://github.com/11576865/MKV-Fast-Muxer/pull/107), tested head `beec8e5339915a2240db15c6e79308381316bcb7`, merged `main@7fcf01841ff7d5169db48019db0ec762d63a4c7b`. [Node/build workflow 38340867580](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38340867580) **success**; [full Chromium E2E workflow 38340867583](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38340867583) **success**. E2E asserts actual ffprobe-observed chapter/tag source rows and hashes from the generated MKV report displayed in the UI; this is not physical-device acceptance or blanket EBML retention evidence.
+
+Product evidence remains a read-only source observation projection and actual artifact audit status. Draft freshness is based on the source key + currently displayed `buildMuxPlan` projection equality, *not* a cryptographic source identity or universal execution-proof revision. No Canonical promotion.
