@@ -1,7 +1,7 @@
 # Test: MKV ContainerProject imported draft provenance, diff and writer authority refusal
 
 Date: 2026-10-13
-Status: **PENDING exact PR-head Chromium E2E, named evidence and main confirmation**
+Status: **PASS at exact PR head + named real-browser artifact; post-merge main CI pending**
 Product: `11576865/MKV-Fast-Muxer`
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/121
 Baseline: `main@31af804e5f60ec0da0f8dccf70e11e2551b7e591`
@@ -23,3 +23,12 @@ Even if projected source IDs and object IDs are exactly the same, the status is 
 ## Limitations
 
 This is a **non-authorizing detached draft review**; it is not automatic edit-intent replay, true source cryptographic verification, full repository serialization with protected binary blobs, a transactionally writable `ContainerProject` or safe generic EBML writer. Do not promote Canonical from a single product test. Maintain explicit Pending if CI or Foundry write cannot be completed.
+
+
+## Verified PR-head delivery
+
+- Tested PR #121 exact head `b99597fc88d650eeb858bc5bd791e6c664b93bf7`, base `main@31af804e5f60ec0da0f8dccf70e11e2551b7e591`.
+- [Node/build 38418128223](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38418128223): **PASS 450/450 tests and production build**.
+- [Full Chromium E2E 38418128226](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38418128226): **PASS**, named five-step export-import scenario and legacy P0 safety/P3 dynamic ASS render scenarios all passed. Tests actually downloaded project JSON from browser and re-imported, then rejected forged `writerStatus:verified` without mutating `FileList` or starting mux.
+- Named `five-step-container-recipe-workbench-evidence` artifact ID **11824899451** independently downloaded and examined: 2 JSON files and 3 PNG viewport screenshots 1440×900, 1024×768, 390×844. Actual project JSON is a `base.mp4` header-only one-object draft with `authorization=requires-relink` and `execution=requires-fresh-source-authorization`; no byte-hash authorization. Screenshots visually confirm import/review text (desktop and phone inspected).
+- Squash-merged PR #121 to `main@3ec608648b57de6231ae253a561cb9bc82f31d7f`. No Canonical promotion; post-merge checks tracked separately.
