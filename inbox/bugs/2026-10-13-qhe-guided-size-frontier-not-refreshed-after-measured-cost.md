@@ -21,3 +21,11 @@ When an input measurement changes an authoritative resource-cost ledger, notify 
 ## Dedup
 Related but not duplicate: `inbox/candidates/2026-10-10-measurement-identity-must-exclude-decision-and-presentation-inputs.md` separates raw measurement identity from budget projection; `inbox/observations/2026-10-13-qhe-guided-manual-intent-handoff.md` covers explicit intent handoff. This Bug records the concrete cross-view notification omission and bounded correction.
 No Canonical change or full initial-version acceptance. End-user browser, Windows Native, long-form and physical device checks remain independent.
+
+## Additional dependency invalidation: user audio edits and restored configurations (2026-10-13)
+
+QHE PR #105 continuation identified the same cross-view invalidation failure for a *different trigger*: Manual form `invalidateCompiledPlan` did not notify Guided when audio strategy, selected track, audio range, bitrate, channels, sample rate or audioPlan changed; `applyConfig` silently changed these inputs too. Source measurement itself could remain valid, but Guided's derived whole-file video bitrate / size projection needed recomputation.
+
+Corrections: QHE `0a4f08ab58a50af65f9435fb892fd5d6364e137e` adds the notification after audio-field invalidation and configuration application. `a41be90e8067826735a2dc7b7a2dcb5591ef5ac8` adds a wiring regression. `deae2bf` / `ee9ab66` extend the production-workspace Chromium fixture to dispatch real DOM audio edits and click configuration restore, asserting notification and no encode side effects. Exact-head hosted CI is pending at the time of intake; do not claim a browser PASS until observed.
+
+Dedup: extend this existing Bug rather than creating a second cross-view refresh Bug. The general rule applies whenever a derived decision projection depends on mutable, user-owned auxiliary inputs—not only on measured-evidence arrival.
