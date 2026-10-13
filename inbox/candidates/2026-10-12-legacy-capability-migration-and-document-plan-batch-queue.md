@@ -156,3 +156,10 @@ Remains Candidate, not Canonical.
 Product [PR #107](https://github.com/11576865/MKV-Fast-Muxer/pull/107) adds `auditWarning` as a distinct terminal job state when the independently executed ffprobe audit reports `warning` or `unavailable`. A generated MKV remains downloadable and is still counted as a mux success, but must not be labeled as verified; batch terminal summary counts audit issues separately from mux failures and directory-write failures. The existing `BatchRunner`/frozen plan remains the actual execution path. Behavioral tests cover pass/warning/unavailable across generated output and save conditions.
 
 Status: implementation + tests submitted, exact-head Chromium E2E **Pending** at intake. This is a refinement of the existing batch state/evidence Candidate, not Canonical promotion.
+
+
+## Round 4/5 exact-head audit-state acceptance (2026-10-13)
+
+Product PR [#107](https://github.com/11576865/MKV-Fast-Muxer/pull/107), tested head `beec8e5339915a2240db15c6e79308381316bcb7`, merge `7fcf01841ff7d5169db48019db0ec762d63a4c7b`: Node/build [38340867580](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38340867580) and full Chromium E2E [38340867583](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38340867583) both **success**.
+
+A mux-successful but ffprobe-audit-warning/unavailable artifact is retained and exposed to the user with `auditWarning` status. Batch summary counts those cases separately from mux failure and directory-save warning. First exact-head CI correctly rejected an omission where only the fatal-error terminal branch included the audit count; fixed all terminal branches before successful rerun. This is scoped evidence for status semantics, not full Matroska validation. Candidate only; no Canonical promotion.
