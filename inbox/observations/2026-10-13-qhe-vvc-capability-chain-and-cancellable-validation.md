@@ -26,3 +26,10 @@ Realization: disabled H.266 option with scoped reason; experimental available st
 Expected effect: no silent encoder fallback or false cross-platform availability.
 Validation: src/vvc-capability.test.mjs, src/vvc-task.test.mjs, scripts/check-vvc-ui.cjs, scripts/check-vvc-native.ps1.
 Known failures: catalog-only capability, CRF treated as QP, legacy path bypass, blocking validation. No Canonical promotion.
+
+
+## Required runtime lane follow-up, 2026-10-13 (Observation; hosted Pending)
+
+Prior exact-head green Windows CI still reported actual VVC UNSUPPORTED: libvvenc absent. Add a separate required-runtime lane; generic smoke may report unsupported, dedicated acceptance must fail if runtime absent. Resolve official BtbN FFmpeg release asset and verify published SHA-256 before running isolated binaries; record release/asset/digest/version. This confirms download integrity relative to upstream metadata, not independent upstream trust or floating-latest reproducibility. Exercise QP and bitrate transcode plus ASS hard-sub through real Bridge, followed by independent FFprobe 24-frame VVC/10-bit and full decode, retaining generated MKVs. No user-toolchain mutation or product distribution.
+
+Local fixture tests RED→GREEN, total Node 213 pass/7 conditional skips, build pass, YAML syntax pass. PowerShell/actual encode/mux/decode Pending hosted workflow. Do not promote to runtime PASS or Canonical before reading actual receipt. Same project lineage; physical/long-form/player/subtitle perceptual fidelity unverified.
