@@ -6,7 +6,7 @@
       "project": "ASS-Workbench-Android",
       "platform": "android-compose",
       "default_branch": "main",
-      "head_sha": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "head_sha": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
       "surface_count": 24
@@ -26,17 +26,17 @@
       "project": "HSR-Voice-Archive-Builder",
       "platform": "web",
       "default_branch": "main",
-      "head_sha": "aba42855b32828e12c86b209ff000440e364adc8",
+      "head_sha": "fd864e05328efd7967c294be6509dee4107c2730",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
-      "surface_count": 11
+      "surface_count": 12
     },
     {
       "repository": "11576865/MKV-Fast-Muxer",
       "project": "MKV-Fast-Muxer",
       "platform": "web",
       "default_branch": "main",
-      "head_sha": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "head_sha": "383274ad586719b202d7412a8e812b8d9398781c",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
       "surface_count": 12
@@ -52,7 +52,7 @@
       "surface_count": 16
     }
   ],
-  "surface_count": 63,
+  "surface_count": 64,
   "surfaces": [
     {
       "id": "ASS.PREVIEW.VIDEO",
@@ -75,7 +75,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -99,7 +99,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -123,7 +123,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -145,7 +145,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -167,7 +167,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -191,7 +191,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -216,7 +216,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -238,7 +238,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -260,7 +260,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -282,7 +282,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -306,7 +306,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -332,7 +332,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -354,7 +354,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -376,7 +376,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -401,7 +401,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -423,7 +423,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -448,7 +448,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -470,7 +470,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -494,7 +494,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -521,7 +521,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -548,7 +548,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -579,7 +579,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -606,7 +606,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -633,7 +633,7 @@
       "project": "ASS-Workbench-Android",
       "repository": "11576865/ASS-Workbench-Android",
       "platform": "android-compose",
-      "source_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "source_head": "288a901e112bb07f35d2cd2e94fc02f53593a740",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -660,7 +660,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "aba42855b32828e12c86b209ff000440e364adc8",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -687,7 +687,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "aba42855b32828e12c86b209ff000440e364adc8",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -714,7 +714,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "aba42855b32828e12c86b209ff000440e364adc8",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -736,7 +736,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "aba42855b32828e12c86b209ff000440e364adc8",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -758,7 +758,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "aba42855b32828e12c86b209ff000440e364adc8",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -780,7 +780,36 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "aba42855b32828e12c86b209ff000440e364adc8",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
+      "inventory_path": ".uigs/ui-surfaces.json"
+    },
+    {
+      "id": "HSR.WORKSPACE.EFFECTS",
+      "kind": "workspace",
+      "name": "字幕特效工作台",
+      "group": "EFFECTS",
+      "status": "implemented",
+      "intent": "通过一级工作区入口处理字幕动画、Karaoke、时间轴和真实视频效果预览，避免排版与特效操作混杂。",
+      "implementation_effect": "独立一级导航，但与排版共用字幕画布、项目状态和服务端数据；body[data-workspace=\"layout\"][data-workspace-task=\"effects\"] 选择特效操作视图。",
+      "source_refs": [
+        {
+          "path": "app/static/index.html",
+          "anchor": "data-workspace-target=\"effects\" / #subtitleLayoutPreviewCard[data-studio-mode=\"effects\"]"
+        }
+      ],
+      "patterns": [
+        "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+        "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE"
+      ],
+      "tests": [
+        "tests/browser_visual_evidence.py",
+        "tests/test_hsr_ui_convergence.py"
+      ],
+      "visual_evidence": [],
+      "project": "HSR-Voice-Archive-Builder",
+      "repository": "11576865/HSR-Voice-Archive-Builder",
+      "platform": "web",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -802,7 +831,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "aba42855b32828e12c86b209ff000440e364adc8",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -830,7 +859,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "aba42855b32828e12c86b209ff000440e364adc8",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -852,7 +881,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "aba42855b32828e12c86b209ff000440e364adc8",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -874,7 +903,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "aba42855b32828e12c86b209ff000440e364adc8",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -896,7 +925,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "aba42855b32828e12c86b209ff000440e364adc8",
+      "source_head": "fd864e05328efd7967c294be6509dee4107c2730",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -918,7 +947,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -940,7 +969,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -962,7 +991,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -984,7 +1013,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1006,7 +1035,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1035,7 +1064,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1057,7 +1086,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1086,7 +1115,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1108,7 +1137,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1130,7 +1159,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1152,7 +1181,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1184,7 +1213,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "9c527cde58e3b0c8c27809d9573f6c7401cc5a1c",
+      "source_head": "383274ad586719b202d7412a8e812b8d9398781c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {

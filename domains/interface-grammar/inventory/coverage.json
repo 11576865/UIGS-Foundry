@@ -6,10 +6,10 @@
   "declared_empty_ui": [
     "11576865/Character-Voice-Service"
   ],
-  "total_surfaces": 63,
+  "total_surfaces": 64,
   "by_project": {
     "ASS-Workbench-Android": 24,
-    "HSR-Voice-Archive-Builder": 11,
+    "HSR-Voice-Archive-Builder": 12,
     "MKV-Fast-Muxer": 12,
     "Quick-Automatic-Hardsub-Encoder": 16
   },
@@ -35,11 +35,11 @@
     "summary": 1,
     "supporting-pane": 2,
     "tool": 18,
-    "workspace": 7,
+    "workspace": 8,
     "workspace-mechanism": 3
   },
-  "with_pattern_links": 20,
-  "pattern_link_count": 26,
+  "with_pattern_links": 21,
+  "pattern_link_count": 28,
   "with_visual_evidence": 0,
   "missing_visual_evidence": [
     "ASS.PREVIEW.VIDEO",
@@ -72,6 +72,7 @@
     "HSR.REVIEW.PROOFREADING_WORKSPACE",
     "HSR.REVIEW.SUBTITLE_EDITOR",
     "HSR.REVIEW.SUBTITLE_SIDEBAR",
+    "HSR.WORKSPACE.EFFECTS",
     "HSR.WORKSPACE.EXPORT",
     "HSR.WORKSPACE.LAYOUT",
     "HSR.WORKSPACE.PROJECT",

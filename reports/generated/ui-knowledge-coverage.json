@@ -10,8 +10,8 @@
     ]
   },
   "concrete_surfaces": {
-    "total": 63,
-    "pattern_linked": 20,
+    "total": 64,
+    "pattern_linked": 21,
     "with_production_visual_evidence": 63
   },
   "production_realization_pattern_coverage": {
@@ -28,7 +28,7 @@
   },
   "realization_currentness": {
     "records": 3,
-    "source_content_current": 1,
+    "source_content_current": 0,
     "revision_equals_head": 0
   }
 }

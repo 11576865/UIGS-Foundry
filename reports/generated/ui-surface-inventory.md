@@ -1,17 +1,17 @@
 # Cross-project UI Surface Inventory
 
 Sources with inventory: 5/5
-Concrete surfaces: 63
+Concrete surfaces: 64
 Declared-empty UI sources: 1
-Pattern-linked surfaces: 20
+Pattern-linked surfaces: 21
 Surfaces with production visual evidence: 0
 
 | Project | Repository | Source HEAD | Status | Surfaces |
 | --- | --- | --- | --- | ---: |
-| ASS-Workbench-Android | 11576865/ASS-Workbench-Android | aab36c875d | available | 24 |
+| ASS-Workbench-Android | 11576865/ASS-Workbench-Android | 288a901e11 | available | 24 |
 | Character-Voice-Service | 11576865/Character-Voice-Service | 06244f71f5 | available | 0 |
-| HSR-Voice-Archive-Builder | 11576865/HSR-Voice-Archive-Builder | aba42855b3 | available | 11 |
-| MKV-Fast-Muxer | 11576865/MKV-Fast-Muxer | 9c527cde58 | available | 12 |
+| HSR-Voice-Archive-Builder | 11576865/HSR-Voice-Archive-Builder | fd864e0532 | available | 12 |
+| MKV-Fast-Muxer | 11576865/MKV-Fast-Muxer | 383274ad58 | available | 12 |
 | Quick-Automatic-Hardsub-Encoder | 11576865/Quick-Automatic-Hardsub-Encoder | de8bfb476b | available | 16 |
 
 ## Boundary
