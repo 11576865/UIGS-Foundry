@@ -12,8 +12,8 @@
           "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/WorkbenchToolCatalog.kt",
           "expected_blob_sha": "26693a044a5d7d541aef99165c723b719e37e5de",
           "verified": true,
-          "current_blob_sha": "26693a044a5d7d541aef99165c723b719e37e5de",
-          "current": true,
+          "current_blob_sha": "8069d2cca7bb0e6a11b9971280e223103314481f",
+          "current": false,
           "actual_blob_sha": "26693a044a5d7d541aef99165c723b719e37e5de"
         },
         {
@@ -62,8 +62,8 @@
           "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/WorkbenchToolCatalogTest.kt",
           "expected_blob_sha": "1ab3e2c98225f3c3bfab303a268574ecb4179698",
           "verified": true,
-          "current_blob_sha": "1ab3e2c98225f3c3bfab303a268574ecb4179698",
-          "current": true,
+          "current_blob_sha": "8c3edea523dab89c2d6a239121953013b7cd8932",
+          "current": false,
           "actual_blob_sha": "1ab3e2c98225f3c3bfab303a268574ecb4179698"
         },
         {
@@ -100,7 +100,7 @@
         }
       ],
       "source_verified": true,
-      "current_head": "aab36c875d1ca2ba8d9922e7c085993718665655",
+      "current_head": "4d592d13debfeaafeadca1e64c8d436adcdec60d",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
@@ -116,8 +116,8 @@
           "path": "app/static/index.html",
           "expected_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf",
           "verified": true,
-          "current_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf",
-          "current": true,
+          "current_blob_sha": "1a783b4b17c18fe0e009376abe54a481814442cc",
+          "current": false,
           "actual_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf"
         }
       ],
@@ -126,16 +126,16 @@
           "path": "tests/test_progress_ui.py",
           "expected_blob_sha": "0d159d9d003f029137d974859579012c7deef115",
           "verified": true,
-          "current_blob_sha": "0d159d9d003f029137d974859579012c7deef115",
-          "current": true,
+          "current_blob_sha": "943dd7af1df2f87e08fd6a530d8ff309b6d33c86",
+          "current": false,
           "actual_blob_sha": "0d159d9d003f029137d974859579012c7deef115"
         }
       ],
       "source_verified": true,
-      "current_head": "5dde8e3d8a1bc32f3553be7f4f17ae6873930d75",
+      "current_head": "7b8c3ca4924da31004e7c27dd852e6bb66af2c8c",
       "head_matches_revision": false,
-      "source_content_current": true,
-      "validation_content_current": true
+      "source_content_current": false,
+      "validation_content_current": false
     },
     {
       "id": "REALIZATION.WEB.MKV_FAST_MUXER.ADAPTIVE_OUTPUT_HUB",
@@ -148,7 +148,7 @@
           "path": "index.html",
           "expected_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2",
           "verified": true,
-          "current_blob_sha": "52b11ed1bd7ddbbbb31346c47d67f7d0fe5ece5d",
+          "current_blob_sha": "a3af39d27b60df2779ddc7b54042c07304485b5a",
           "current": false,
           "actual_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2"
         },
@@ -156,7 +156,7 @@
           "path": "src/style.css",
           "expected_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4",
           "verified": true,
-          "current_blob_sha": "24159069021b1cb2f1eac879e7ded0135e4ddf0e",
+          "current_blob_sha": "b02863c3838dca28cc78a460eb9f460e3ce44de6",
           "current": false,
           "actual_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4"
         }
@@ -180,7 +180,7 @@
         }
       ],
       "source_verified": true,
-      "current_head": "8c3de2e86173693b936009c3210d4a4ee30eb6ab",
+      "current_head": "22255a4130ecf04aaf8a0b494bd107ea1f868777",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
