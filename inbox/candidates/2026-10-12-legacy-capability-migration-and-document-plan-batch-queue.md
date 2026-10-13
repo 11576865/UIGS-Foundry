@@ -163,3 +163,14 @@ Status: implementation + tests submitted, exact-head Chromium E2E **Pending** at
 Product PR [#107](https://github.com/11576865/MKV-Fast-Muxer/pull/107), tested head `beec8e5339915a2240db15c6e79308381316bcb7`, merge `7fcf01841ff7d5169db48019db0ec762d63a4c7b`: Node/build [38340867580](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38340867580) and full Chromium E2E [38340867583](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38340867583) both **success**.
 
 A mux-successful but ffprobe-audit-warning/unavailable artifact is retained and exposed to the user with `auditWarning` status. Batch summary counts those cases separately from mux failure and directory-save warning. First exact-head CI correctly rejected an omission where only the fatal-error terminal branch included the audit count; fixed all terminal branches before successful rerun. This is scoped evidence for status semantics, not full Matroska validation. Candidate only; no Canonical promotion.
+
+
+## Batch frozen media context removes legacy FileList staging (2026-10-13; pending exact-head Chromium)
+
+Product [PR #112](https://github.com/11576865/MKV-Fast-Muxer/pull/112) introduces `createFrozenBatchMuxContext` carrying source File, output identity, content-sniffed header, typed subtitle tracks with the same inferred language/title/default/flag semantics, original or Group-subset content-checked fonts, and frozen per-job preservation/subset policy. The shared mux executor accepts this explicit context while the interactive single-file UI continues using its own selected inputs. The batch no longer repeatedly mutates and restores the single-mux `videoInput/subInput/fontInput/audioInput` `FileList` controls or awaits their UI identity scan promises.
+
+This removes one concrete class of cross-workflow state contamination and is a distinct improvement over Round 3's DOM-free **scheduler**; the FFmpeg media executor still renders status, shares FFmpeg instance, and isn't yet a pure headless `Executor.execute(JobPlan)`.
+
+Node tests now cover frozen context authorization, exact video/track/font provenance, transformed Group-font identity, legacy subtitle metadata defaults and absence of the old batch FileList mutation pathway. Early CI had three source-shape tests expecting the deleted picker staging; assertions migrated to content-derived context without removing real-output Chromium scenarios.
+
+Status: PR submitted, latest exact-head Node/build **success**, full Chromium E2E **pending** at this Intake. Do not report as accepted or merge until the specific head passes browser fixtures. No Canonical promotion.
