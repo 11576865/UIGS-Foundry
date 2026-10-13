@@ -41,3 +41,12 @@ Only 4 discrete frames from one 2s synthetic MKV, one unique TTF and system Linu
 - PR #119 merged via squash into `main` at `383274ad586719b202d7412a8e812b8d9398781c`.
 
 **Limits unchanged:** one controlled 2-second browser-generated MKV, one unique TTF, four discrete fractional times, one Linux system libass. Does not establish continuous animation, all karaoke variants, all ASS builds/players/devices or generalized user runtime rendering. No Canonical promotion.
+
+## Squash-merged main independent CI
+
+Verified squash-merged exact `main@383274ad586719b202d7412a8e812b8d9398781c` with separate required checks:
+
+- [Main build and GitHub Pages deployment 38398822698](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38398822698): **PASS**.
+- [Main full Chromium mux E2E 38398823193](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38398823193): **PASS**, logs explicitly include both `P3 dynamic final-MKV 4 subsecond snapshots and 3 effect negative controls PASS` and `P0/P1 pre-mux safety, unknown-header refusal and source-switch freshness PASS` and `All browser E2E scenarios PASS`. The same main run reports 434/434 Node tests.
+
+This is post-merge independent CI confirmation; no change to the bounded four-timepoint fixture's renderer/player scope.
