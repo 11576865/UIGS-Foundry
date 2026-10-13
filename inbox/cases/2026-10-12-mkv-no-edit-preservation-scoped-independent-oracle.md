@@ -146,3 +146,15 @@ New implementation under review: reuse the strict plan+candidate EBML writer in 
 The new Chromium E2E independently authors a nested-chapter, ChapterUID-targeted Tag source via MKVToolNix/mkvpropedit; exercises review and downloaded output; uses **external** mkvmerge, mkvextract chapter/tag XML, FFprobe packet hashes and physical new attachment extraction. Checks that an existing-attachments source is refused and previous download invalidated. Unit tests cover refusal and size budgets.
 
 Status at intake: exact-head build/Node **success**, full Chromium and external source-output scenario **Pending** at [PR #110](https://github.com/11576865/MKV-Fast-Muxer/pull/110). Never call this a general Matroska writer, universal Chapter/Tag writer fix, source-format-independent behavior or physical-device playback validation. This extends this existing Case; do not promote Canonical from a single product.
+
+## Three-step narrowly eligible writer exact-head production integration verified (2026-10-13)
+
+Product [PR #110](https://github.com/11576865/MKV-Fast-Muxer/pull/110), exact tested head `acf7100839574f4afc40952ce00b5a943b8fed5a`, merged `main@03320d45608d1c3e394df84c2289ade3a253e4a2`.
+- [Node tests and build 38347441776](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38347441776): **success**.
+- [Full Chromium E2E 38347441773](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38347441773): **success**, exact log line `P2-A opt-in existing MKV independent browser writer PASS` followed by `All browser E2E scenarios PASS`. The new browser scenario independently authored a nested-ChapterUID source via MKVToolNix/mkvpropedit, generated & downloaded a new existing-MKV one-attachment candidate in the UI, compared original/output mkvextract Chapters/Tags XML, extracted FileData, and compared all compressed FFprobe packet/timestamp records. Source with preexisting attachments was denied and stale download disabled.
+- The same run's separate P2-A external oracle reported `INDEPENDENT_APPEND_ONLY_EXISTING_MKV_TAG_CHAPTER_MEDIA_AND_ATTACHMENT_MATCH`, `error:null`, and cross-writer/seek matrix `CROSS_WRITER_FFMPEG_LAYOUT_REFUSALS_AND_MKVTOOLNIX_DECODER_SEEK_MATCH`, `error:null`.
+- Source hashing is bounded by source/payload size guards *before reads*. UI output is isolated from the FFmpeg/Wasm and BatchRunner paths, source is never overwritten, and all changes require explicit opt-in review.
+
+Precise delivery status: **a usable, opt-in, narrow existing-MKV copy writer class** has reached production main; **general existing-MKV editor, preexisting-attachment CRUD, arbitrary chapter/tag mutation, large source support, unknown EBML and a fully independent FFmpeg media core remain unresolved**. This is not proof that every eligible third-party source works or plays correctly in arbitrary clients.
+
+Deduplicated as extension of this existing Case. No new Canonical rule is inferred.
