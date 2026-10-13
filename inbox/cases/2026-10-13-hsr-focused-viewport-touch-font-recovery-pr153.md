@@ -53,3 +53,12 @@ Source and Chromium regressions assert one owner for each alignment control, vis
 - Chromium and real FFmpeg/libass / MKV: https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38385947838
 
 **Reusable bounded observation:** A media button's backend completion and a file import's existence do not prove *task-local operation comprehension*. Provenance/phase and prerequisites must be accessible at the affected canvas/action without declaring a playable artifact before browser decoding or fabricating missing timing. Reuse the existing case; no Canonical promotion. Still pending: physical Android UI/device review and merge of PR #153.
+
+
+## Mainline integration and superseded draft resolution
+
+PR [#153](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/153) was promoted from Draft and squash-merged **directly into main** as `5af422cd3fd4c7c2857cd62a13a3cd5b614ea660`. GitHub postmerge metadata: `merged=true`; comparing the merge SHA to `main` returned `identical`. Production HTML on main contains the visible Karaoke control group. Source exact-head Python/Termux and real Chromium/libass/MKV suites were green before merge.
+
+Older optional-focus PR [#149](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/149) remained a divergent Draft, then was closed **without merge** as superseded. No orphaned alternative focus workflow is being treated as authoritative. The implementation now delivered is the default viewport-first task surface with project font import and honest effects/Karaoke status.
+
+**Evidence boundary remains:** automated browser viewports and real media tests are not physical Android-device validation. User-reported improvement is not yet confirmed by new user field observation. Do not promote Canonical.
