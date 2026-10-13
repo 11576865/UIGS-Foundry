@@ -1,7 +1,7 @@
 # Test: detached ContainerProject edit-intent baseline conflict preview
 
 Date: 2026-10-14 (+08:00)
-Status: **PASS — exact-head Node/build, full Chromium E2E, named browser artifact, PR #124 merged; post-merge main CI pending**
+Status: **PASS — exact PR head, named browser evidence and independent post-merge main CI**
 Project: `11576865/MKV-Fast-Muxer`
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/124
 Baseline main: `334596a86c6dd9091d5a5446c9db01132e16235e`
@@ -37,3 +37,11 @@ PR #124 adds a read-only source/old-value comparison:
 - PR [#124](https://github.com/11576865/MKV-Fast-Muxer/pull/124) squash-merged into `main@6d3f88a4ae7c0c67c7c058c3422ac4e32213b235`.
 
 Still **only bounded, read-only comparison**. No automatic edit replay, signed actor provenance, write eligibility, completed P1 single authority or Canonical promotion. Post-merge independent CI still a separate closure condition.
+
+
+## Post-merge main independent confirmation
+
+- Squash-merged `main@6d3f88a4ae7c0c67c7c058c3422ac4e32213b235` verified exact current branch head after merge.
+- [Main Node/build and GitHub Pages 38439611889](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38439611889): **PASS**.
+- [Main full Chromium E2E 38439611735](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38439611735): **PASS**. Actual job logs independently checked: `472/472` Node tests, `Five-step recipe export/import and capability truthful UI PASS`, `P0/P1 pre-mux safety, unknown-header refusal and source-switch freshness PASS`, `P3 dynamic final-MKV 4 subsecond snapshots and 3 effect negative controls PASS`, and `All browser E2E scenarios PASS`.
+- No regressions identified in required suite; no Canonical promotion. This remains bounded read-only comparison without a source-authorized edit replay, writer or fully unified editable domain owner.
