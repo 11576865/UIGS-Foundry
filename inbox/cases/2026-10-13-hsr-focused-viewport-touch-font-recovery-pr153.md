@@ -40,3 +40,16 @@ PR #153 commit `a61d64f1025de7b0869d6453bd29b25c1bc9ef00` passed:
 Before success, first Chromium failure was an obsolete assertion locating the *global* Layout/Effects nav above the fullscreen editor; it was corrected to assert the actual visible focused task nav. A later production-CSP Chromium test tried clicking a global nav element covered by the focused stage, correctly timing out. It was changed to click the visible in-workbench task switch rather than bypassing hit-testing. Both failures demonstrate test/interaction alignment, not a media codec defect.
 
 Tests included real FFmpeg/libass and complex archival bundle checks, but this does not constitute physical Android swipe behavior, accessibility study or long-term user acceptance. Remains Draft/Unmerged pending design and device review. The Canonical system is unchanged.
+
+
+## User-facing effect-feedback and alignment-onboarding follow-up (2026-10-13)
+
+Branch: `fix/hsr-viewport-and-gesture-workbench-20261013`, PR #153, tested head `e4cbb271e4b38302a4832dee164d54a3cd18344f`.
+
+The user reported an inert effects preview and unclear Karaoke prerequisite file. Inspection showed the real preview already generates encoded video, but its primary status and missing Word-Level Alignment controls were buried in the scrolling Inspector or collapsed advanced detail. The new change reuses the existing controls/IDs and backend, surfacing alignment diagnostic/generation/JSON import directly in Effects rather than cloning state; it also displays progress at the stage with distinct preparing / FFmpeg encoding / browser decoding / decoder-confirmed ready / stale / failure states. Audio/subtitle/MKV encoders are unchanged.
+
+Source and Chromium regressions assert one owner for each alignment control, visible generation and upload, disabled local generate when WhisperX unavailable, decoded success rather than HTTP success, and automatic stale-state presentation after background changes. Exact-head green evidence:
+- Python/Termux: https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38385948013
+- Chromium and real FFmpeg/libass / MKV: https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38385947838
+
+**Reusable bounded observation:** A media button's backend completion and a file import's existence do not prove *task-local operation comprehension*. Provenance/phase and prerequisites must be accessible at the affected canvas/action without declaring a playable artifact before browser decoding or fabricating missing timing. Reuse the existing case; no Canonical promotion. Still pending: physical Android UI/device review and merge of PR #153.
