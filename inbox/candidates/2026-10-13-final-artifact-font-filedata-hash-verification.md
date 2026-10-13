@@ -54,3 +54,14 @@ The implementation uses two independent seek-bounded EBML attachment inventories
 Node tests with real EBML outputs include two matching files, same-length modified bytes, authorized rename, missing name, altered MIME, malformed EBML and bounded budget. The existing Chromium selective-original-attachment scenario now requires pass and SHA evidence in actual downloaded report and UI.
 
 Status: Node/build [38359416355](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38359416355) **success**; full browser [38359416323](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38359416323) **still pending** at intake. No Canonical promotion.
+
+
+## Original-attachment production exact-head acceptance (2026-10-13)
+
+Product [PR #113](https://github.com/11576865/MKV-Fast-Muxer/pull/113), exactly tested head `e76093406d89245bfc3c8470c07f85d424c417a6`, merged to `main@a580e85abff924e72767b002325cdd91d235a18a`.
+- [Node tests and Pages build 38359416355](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38359416355): **success**.
+- [Full Chromium E2E 38359416323](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38359416323): **success**, including actual selective source attachment retention with changed filename and MIME. The downloaded report asserts `audit.originalAttachmentPayloadAudit.status === pass` with 1/1 actual source-vs-output bytes verified, and the UI displays that finding.
+- Negative Node tests check same-length altered data, failed rename correspondence, mismatched MIME, malformed EBML, source claims missing filename, and bounded byte budgets. Only recognized uniquely matched source and actual output FileData are compared.
+- In this testable scope, the original attachment payload byte check is now product-integrated, including batch audit-warning propagation. Full source FileUID/TagAttachmentUID graph, Chapters/Tags preservation and arbitrary EBML safety are **not** established by this witness.
+
+This supplements an existing Candidate rather than changing Canonical.
