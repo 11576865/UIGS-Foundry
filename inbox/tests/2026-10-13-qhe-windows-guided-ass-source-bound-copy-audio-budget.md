@@ -25,3 +25,9 @@ Other Test `inbox/tests/2026-10-13-qhe-guided-ass-measured-multiaudio-whole-file
 Corresponding Bug: `inbox/bugs/2026-10-13-qhe-guided-native-copied-audio-cost-receipt-not-validated.md`.
 
 Not verified: 10-bit/HDR, VFR, long movie, FLAC re-encode size, precise trim cost, Android/Web source metering, physical Windows client, final exported file in external players, multi-candidate actual ASS quality or guaranteed arbitrary target-size delivery. No Canonical promotion or release claim.
+
+## Follow-up: do not trust request.expectedAudioTracks for receipt enforcement
+
+QHE `775bf4b6a50d44f1e4a313d4f96c95da3ada0d8c` moves the legacy request's copy-audio receipt gate behind `Get-ProbeMedia`. It requires the declared expected track count to equal the actual selected Native source's `audioTracks` and gates cost receipt on that probed number, preventing the previous client-supplied zero-count bypass. Negative case `Assert-GuidedCopyReceiptRejected $null 'forged zero-track count' ... 0` was added at `f0dbe3c918cc4b9183f844e74794695e28f7b80f`; source-contract assertions updated `ad917ef050f88158b67592c7cd05d5a1dde1cb22`.
+
+Earlier exact-code `09ce78c` had all nine principal GitHub workflow gates SUCCESS, including real Windows output and full two-audio packet hashes. The newer zero-count guard exact-head `ad917ef` CI was in progress at this note update, so do not treat its new negative case as already passed.
