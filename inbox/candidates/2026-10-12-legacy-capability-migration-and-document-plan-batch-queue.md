@@ -121,3 +121,18 @@ Extends this existing Candidate without reasserting a new Canonical rule:
 Regression submissions: Node tests for frozen snapshot integrity, source/sidecar ownership, ambiguity/conflict refusal, legacy fallback, illegal state changes, and save warning; existing Chromium two-job scenario checks `awaitingSave` for unsaved Blob artifacts. **Both Node and Chromium exact-head CI were pending at intake.**
 
 Deduplication: this is evidence for the existing legacy migration + queue Candidate; pairing ambiguity's direct-choice UX is recorded in the separate 2026-10-09 matching/identity Candidate. No Canonical promotion. Further proof must include exact-head CI, real output checks and eliminating the DOM click adapter.
+
+
+## Round 3/5: DOM-free queue orchestration and direct artifact handoff (2026-10-13; Pending CI)
+
+Product PR: [#106](https://github.com/11576865/MKV-Fast-Muxer/pull/106). Early work branch `feat/round3-batch-runner-direct-mux-contract`.
+
+A specific migration seam has been implemented (without claiming full queue separation from media UI adapters):
+- `runFrozenBatchQueue(plan, { prepare, execute, publish, shouldCancel, onResults, ledger })` owns serial ordering and per-job terminal transitions. This module has **no DOM references** and consumes an immutable reviewed plan.
+- The existing single-task FFmpeg mux body is now an awaitable `executeCurrentMuxTask()` returning the *actual* output Blob, JSON report Blob, SHA-256 and audit status. The batch no longer simulates `muxBtn.click()` or polls mutable download links every 150 ms before fetching Blob URLs back into Blob objects.
+- The batch compatibility adapter still stages each job through legacy single-file File input controls. This means `BatchRunner` scheduling is headless, but **media execution is not yet UI-independent**; the migration is not the completed proposed domain `Executor.execute(jobPlan)`.
+- Node tests cover exact serial ordering, job-local failure vs batch-fatal staging, cancellation during and between jobs, terminal unsaved output identity, and mismatch of plan/ledger. Existing production Chromium mux output tests remain the deciding evidence.
+
+Important source-coupling regression during migration: prior integration tests asserted literal `muxBtn.click()` and a loop in `main.js`; those must be moved to assertions on the new direct executor and runner module, without removing actual browser output/oracle tests. This is an implementation-coupled test refactor, **not** evidence that functional behavior is correct until E2E passes.
+
+Status: CI on updated PR head **Pending**; do not infer green checks from early subtest results. Same existing Candidate: no new Canonical standard.
