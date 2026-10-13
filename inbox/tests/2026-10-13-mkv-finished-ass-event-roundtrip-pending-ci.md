@@ -1,7 +1,7 @@
 # Test: MKV soft-subtitle output ASS Dialogue event round-trip
 
 Date: 2026-10-13 (Asia/Shanghai)
-Status: **PENDING CI** — code and tests committed; no passing exact-head Chromium evidence claimed
+Status: **PASS — exact-head Node/build and full Chromium E2E verified; PR #116 merged**
 Product: `11576865/MKV-Fast-Muxer`
 Source branch: `feat/p3-ass-dialogue-output-roundtrip-20261013`
 Source branch head at intake: `acdb8dca95c38530d4ddd6d66697b93c90896f6b`
@@ -31,3 +31,16 @@ Does **not** verify all source-MKV ASS tracks, SSA, SRT, PGS, Style/extradata fi
 Existing Candidate `2026-10-02-persistable-semantic-roundtrip-verification.md` describes the general canonicalized persisted-semantics rule. Existing Candidate `2026-10-13-final-artifact-font-filedata-hash-verification.md` covers exact font attachment FileData hashes. This entry is a narrower **Test** proving a distinct *subtitle event stream* final-artifact property, not a new general Canonical principle.
 
 Do not promote the result or mark PASS without the precise PR head's CI and artifact evidence.
+
+
+## Post-intake exact-head acceptance — verified 2026-10-13
+
+The initial PENDING state above records the submission point, not the final outcome.
+
+- PR [#116](https://github.com/11576865/MKV-Fast-Muxer/pull/116) exact tested head: `aaa79341acd780830610a8969cc514c807c75fc1`.
+- [Node/build workflow 38373112879](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38373112879): **success, 417/417 Node tests and production build**.
+- [Full actual Chromium E2E 38373112896](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38373112896): **success, all scenarios PASS**; source MP4 + AAC, external FLAC, 2 new ASS, uploaded duplicate font were processed in the real browser. Scenario 1 requires `audit.assEventAudit.status = pass` for 2/2 added ASS and independently demuxes downloaded MKV with system FFmpeg `-copyts`; both ordered Dialogue sequences and times match source fixtures.
+- A real **+2-centisecond timestamp drift** was first detected by the new audit and independently reproduced in the browser-written output (red runs 38371164912 / 38371816676 / 38372283002). Merely adding `-copyts` to the readback did not fix it. The passing change applies **`-copyts -avoid_negative_ts disabled` to the mux when NEW ASS tracks are included**, while non-ASS mux input remains on the legacy command path. The test preserves this gate.
+- PR #116 squash merged into `main` as `45ff4edb847ae164946d3d070a947c80cfd8cbb4`.
+
+This is scoped CI fixture evidence, not proven exact Style/extradata fidelity, real user-device playback, every codec/source start-time combination, large-file stability, or arbitrary EBML relationship preservation. Do not promote to Canonical based only on this one implementation.
