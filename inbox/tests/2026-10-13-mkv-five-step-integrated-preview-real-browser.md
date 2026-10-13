@@ -1,11 +1,11 @@
 # Test: five-step Matroska preview — project authority prototype, honest runtime capability, portable recipe, product UI and real-browser exports
 
 Date: 2026-10-13
-Status: **PENDING exact-head full Chromium CI and named artifact**
+Status: **PASS — PR #120 head and independently re-tested main, named browser JSON/PNG artifacts verified**
 Product: `11576865/MKV-Fast-Muxer`
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/120
 Baseline main: `383274ad586719b202d7412a8e812b8d9398781c`
-Current head under review: `fd50fc09c50a816ffcbe97f826f210823639e409`
+Accepted PR head: `ae7d297f1e4c35b9814756dc46be3afe76452f60`
 
 ## Independent Test scope
 
@@ -28,4 +28,11 @@ Five vertical cuts after PR #119, explicitly **not** the complete product archit
 
 The project still lacks whole-product single-writable-authority, generic EBML-safe container writer, durable batch resume/relink, real 20-large-media performance acceptance, cross-device platform & user task efficiency measurements. No Canonical promotion and no claim full P0—P6 completion.
 
-*This Test remains Pending until exact PR head green and actual named output artifact is inspected; merge and post-merge main CI are separate events.*
+## Verified result and scope correction
+
+- Actual accepted PR head `ae7d297f1e4c35b9814756dc46be3afe76452f60`: [Node/build run 38413814638](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38413814638) **PASS 445/445** and production build; [complete Chromium run 38413814542](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38413814542) **PASS** with P0/P1 refusal and P3 dynamic test still enforced.
+- Downloaded and independently inspected named artifact `five-step-container-recipe-workbench-evidence` **ID 11822619407**: 5 files (portable batch recipe, exported versioned project, 1440, 1024, 390 viewport PNGs).
+- Recipe policy `preserveAttachments=false`, `subsetEnabled=true`, `subsetScope=group`; source relink required, no destination access, no completed artifacts. Project snapshot source `base.mp4` was **a header-only, pre-scan placeholder** `kind=other`; this is a *draft* and not a verified typed video track tree or eligible writer. No universal source-relink or import yet.
+- Initial browser red runs exposed an actual UI accessibility defect: the project-export button was inserted in the mobile-only `.composition-actions` region and could not be clicked on desktop. Native instrumentation saw zero click/pointer events. Fix moved the export button to the visible composition header. Final real source-unified intake, downloadable JSON and three viewport images passed.
+- Squash merge PR #120 to `main@31af804e5f60ec0da0f8dccf70e11e2551b7e591`. Independently verified post-merge [main build+Pages 38414919425](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38414919425) PASS and [main full Chromium E2E 38414919676](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38414919676) PASS.
+- No Canonical promotion; still only the bounded five-step incremental prototype described above, not P0–P6 final stable release.
