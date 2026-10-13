@@ -252,3 +252,29 @@ Evidence on exact head:
 - Prior failed [Chromium run 38355777244](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38355777244) demonstrated the insufficient-width regression; the failure was **not** ignored.
 
 Reusable observation, overlapping the existing `inbox/candidates/2026-10-10-ui-css-authority-and-native-task-navigation.md`: removing `!important` from downstream CSS does not transfer layout authority if upstream declarations remain forced and improperly scoped to a closed/open UI state. The safe remediation is to scope old ownership to the state that actually needs it, then verify both states with computed browser geometry. One project occurrence is not sufficient for Canonical promotion. Remaining historic inline CSS debt, full UI refactor and Android physical-device verification are not completed.
+
+
+## HSR PR #151: actual editable-track archival MKV, not black video with external subtitles (2026-10-13)
+
+User-originated product connection: HSR Voice Archive Builder's continuous FLAC and ASS rendering artifacts can be composed as one Matroska deliverable, paralleling the softmux product's *container first* model. The previous `BlackVideoExporter` deliberately produced only H.264 black track + FLAC and reported `subtitles_embedded: false`; it was not a complete subtitle artifact.
+
+Source [HSR PR #151](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/151) exact PR head `e05057ad3fe1bd437e6cbc942ebdb21d281f3efe`, squash merged to **main** at `3673349d03a129ca98e4012d1b9186790c91f778`, main tip verified.
+
+Delivered distinct `HSR_Voice_Archive_Bundle.mkv` (old Black MKV remains):
+- Project `continuous.flac` mapped directly and copied as FLAC audio stream
+- Actual separately selectable `HSR_Voice_Archive.ass` subtitle stream, `-c:s ass`, **not hardburned**
+- Actual H.264 background video track, user-defined #RRGGBB, or ephemeral bounded PNG/JPEG/WebP picture with scale/pad
+- Explicit user choice to attach SFNT project-imported TTF/OTF/TTC files as Matroska attachments with MIME. Attachments are from the project's validated `subtitle_fonts` only; default player behavior is not guaranteed across devices, font redistribution rights stay with user
+- Dedicated FastAPI + Termux Lite job routes, project-root guard, 8 MiB body boundary, max 4 MiB image payload, FFprobe dimensions bound, temp/atomic publication
+- FFprobe acceptance **before publication** requires exactly one video, FLAC audio, ASS subtitle, specified attachment count and MIME, duration bounded to original audio; status and new finished-output card accessible in UI
+- Rebuilding `continuous.flac` invalidates previous complete MKV; build rollback preserves previously published bundle
+- Background picture is a real decoded video image, not CSS-only stage paint; user's original request for long-form effects-encoded footage is a separate unimplemented capability
+
+Exact-head success:
+- [Python 3.11/3.12/3.13 + Termux Lite workflow #38368898712](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38368898712)
+- [Chromium/layout/libass + real MKV FFmpeg/FFprobe workflow #38368898708](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38368898708)
+- New `tests/test_archive_bundle_exporter.py`: generate real 1.6-second FLAC+ASS+optional installed DejaVu font, verify Matroska stream codecs/attachment count/duration, and independently FFmpeg-decode center video pixel from uploaded red PNG background.
+
+Scope / non-claims: This outputs a still background video (1 fps by default) with selectable dynamic ASS subtitles. It does not provide all-project hardburn of effect animations, multi-audio-language tracks, or chapter metadata. Physical Android/multiple media player attachment-font compatibility is not established. Font import, word-alignment controls and viewport/touch-slider fixes preexisted this PR and should not be falsely credited to it.
+
+Intake duplication: Existing `inbox/candidates/2026-10-11-mkv-composition-as-primary-ui-object.md` covers MKV as composition; `inbox/candidates/2026-10-02-media-format-support-is-a-compatibility-relation.md` covers format semantics. Add case-specific independent evidence here rather than duplicate Candidate or automatically change Canonical. Generalizable constraint: a container-export UI must distinguish *hardburn* from *soft subtitle tracks*, validate stream types and attachment MIME independently, and preserve source artifacts and publication atomicity.
