@@ -134,3 +134,20 @@ Change:
 Boundary: this is a **visible functional de-duplication and coherent task navigation** delivery. Old JS compatibility handlers and some duplicate underlying data fetches remain; it does not prove complete source refactoring or erasure of all existing `!important` rules, full-length video input, archive-WAV mixing, or Android physical-device signoff. These must not be marked complete merely because green UI CI is present.
 
 Reusable test observation, overlapping existing Foundry knowledge `inbox/candidates/2026-10-10-ui-css-authority-and-native-task-navigation.md` and `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md`: the **default visible task configuration** (not solely all reachable controls) is a necessary UI acceptance target. Hidden-but-accessible specialist diagnostics can preserve functionality while returning primary screen space to the task, but must remain accessible/keyboard navigable; regression must check closed and open states. Case-specific corroboration only, Canonical remains unchanged.
+
+
+## HSR first-class Effects workspace mainline follow-up (2026-10-13)
+
+Source: [HSR PR #139](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/139), exact head `8c2221ee95650f620711a54ec1701851bede09ba`, squash merged **directly to main** at `ca01ecba6d31c417daf33c635e1ee228dc80d916` (main HEAD and production HTML/capture manifest verified).
+
+New observed correction to PR #138: moving the Layout/Effects local tab pair *above* the Inspector was not enough to fulfill the user's "separate Effects workbench" requirement. The app's primary workspace nav still exposed only "排版", while "特效" was nested in that page. A green UI layout check masked a semantic/navigation ownership gap.
+
+Bounded implementation: the **six-item primary nav** now has separate `排版` and `特效` destinations, removes the second inner task-tab pair, and updates context titles and selected-task evidence. Both destinations project the **same** underlying `#subtitleLayoutPreviewCard` and project/canvas/ASS state. `body.dataset.workspace='layout'` provides compatibility with existing large CSS and layout code; `body.dataset.workspaceTask='effects'` independently names the user task. Switching between these two destinations does not re-fetch the entire subtitle corpus; crossing from Review still invokes its conflict-safe unsaved-text save/refresh path. Layout-only batch QA is not a default Effects control. Updated `.uigs/ui-surfaces.json` to 12 declared surfaces, with Effects visual-capture fixture in `.uigs/ui-visual-capture.json`, and synchronized shell/visual tests.
+
+Exact-head green evidence:
+- [tests run 38343976722](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38343976722): Python 3.11/3.12/3.13, Termux Lite all success
+- [Chromium/libass run 38343976711](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38343976711): desktop, tablet, mobile mode routing, no second corpus fetch during Layout-to-Effects switch, original timeline and real browser/FFmpeg preview regressions all success.
+
+The initial failing CI was an obsolete app-shell snapshot expecting five primary tabs, plus a missing new Effects entry in the UI capture manifest. A later Chromium test incorrectly expected a Layout-only batch-QA button inside Effects. These were corrected by proving intended behavior, not by removing the product-level separation. No blanket CSS rewrite and no separate Effects data model.
+
+**Remaining known debt**: Review and Layout can still make distinct server data queries when arriving from another workspace; compatibility-only hidden cue editing/audio event handlers remain; broad historic inline CSS overrides and physical Android usability are unverified. This is a product-navigation and same-task refetch reduction, **not** wholesale source-code/data-fetch de-duplication. Candidate/general principle overlaps `inbox/candidates/2026-10-10-ui-css-authority-and-native-task-navigation.md`; do not create a redundant new Candidate or alter Canonical based only on HSR.
