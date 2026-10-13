@@ -28,3 +28,10 @@ Evidence archive: Frontend workflow `38130794916` artifact `media-workspace-scre
 Initial red CI was a **test selector mistake**, using nonexistent `#workflowMain` instead of the real `.workflow-main`. After correction, the second red CI at 768px read stale `phone` class immediately after Playwright `setViewportSize`. The acceptance script now waits for `document.documentElement.dataset.uiShell` to reflect the requested breakpoint before comparing computed layouts. The final head is green; these earlier failures are not reported as product defects.
 
 The Matrix tests deterministic Chrome rendering, not real mobile OS window insets, actual Android accessibility, physical Windows GPU/long-form processing, or user-task completion time. No Canonical promotion.
+
+
+## 2026-10-13 recurrence: VVC fixture (Observation, hosted revalidation Pending)
+
+QHE PR #105 frontend run 38340600806 failed the mobile VVC overflow assertion immediately after desktop-to-phone viewport resize. Unlike the existing responsive matrix, this new fixture omitted the uiShell transition wait. Repair waits for uiShell=phone and two animation frames, retaining the original overflow assertion and adding offending-element geometry to failures. This establishes a missing synchronization precondition, not proof that every observed overflow was a false positive: hosted revalidation is Pending. Local regression observed RED then GREEN; 206 Node tests passed, 7 conditional skips; build passed. Same project/upstream lineage as prior evidence, not independent corroboration. No Canonical promotion.
+
+Separate Windows run 38340600773 reported a supposedly deleted oversized manual artifact, but the fixture searched quick-hardsub-job-* while Start-MediaTaskJob owns quick-media-job-*. Correct the namespace, retain file-existence and blocked-export checks; hosted actual staging verification Pending. Scope is test observation provenance, not evidence of a product deletion defect.
