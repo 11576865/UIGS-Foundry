@@ -115,3 +115,22 @@ Two newly observed testing pitfalls (not automatically Canonical):
 2. Under Playwright `route.continue_()`, the subsequent page response's `Response.body()` was empty in this CI environment even though it had HTTP 200 and real media headers. The test captures original binary using `route.fetch()` and `APIResponse.body()`, then `route.fulfill(response=upstream, body=payload)`. It does not fabricate rendered media; E2E assertions read verified upstream bytes and confirm the same bytes are playable in Chromium.
 
 Deduplication: recorded as a follow-up to this existing HSR Observation, and complementary to `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md`; do not generate redundant generalized rules from one app. Canonical unchanged.
+
+
+## Product follow-up: actual visible UI convergence delivered on main (2026-10-13)
+
+HSR [PR #138](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/138), exact head `070f69fe6932f952baf302d135259d6dc9ce2bd3`, merged **directly to main** at `e19794c57e1e3912e7fe3b0450ced32722909472`. Verified main tip and separately loaded `app/static/hsr-ui-convergence.css`.
+
+Specific initial problem: although PRs #135–#137 added functional renderer and partially scoped Style/Effects, the UI still displayed a second full subtitle navigator/search, disabled text editor, manual trial editor, mixed task tabs deep inside Inspector, and overlapping old CSS. That meant a green renderer CI did not satisfy the original task-level product contract.
+
+Change:
+- Layout/Effects navigation promoted above the canvas/Inspector into a top-level task switch; title + Inspector task heading change together.
+- Existing corpus explorer is now a **collapsed, inert, explicitly opened batch layout QA surface** for pressure/issue screening and audit. Review retains the primary searchable subtitle list, Layout Effects retains event timeline; QA behavior remains accessible and is not removed.
+- Layout's second final-text `textarea` is hidden and its content is displayed as a normal read-only paragraph; the user is directed to the Review-owned save editor. Sample/trial text input is behind a collapsed, clearly non-authoritative disclosure.
+- ASS file generation is under a distinct output disclosure instead of competing with the primary style save action.
+- Fixed literal `\\n` in legacy CSS and introduced a new separately maintained responsive CSS file after the inline layer as the single new layout authority rather than appending another inline override. It supplies two-column desktop, single-column tablet, responsive mobile **by default**, with legacy 3-column arrangement available when opening QA.
+- Actual Chromium tests now screenshot and assert the **default collapsed UI** at 1600px, 768px, and 390px before exercising the advanced QA drawer and former drag/edit flows. Both exact-head [tests run 38342430246](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38342430246) and [Chromium/libass run 38342430289](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38342430289) succeeded.
+
+Boundary: this is a **visible functional de-duplication and coherent task navigation** delivery. Old JS compatibility handlers and some duplicate underlying data fetches remain; it does not prove complete source refactoring or erasure of all existing `!important` rules, full-length video input, archive-WAV mixing, or Android physical-device signoff. These must not be marked complete merely because green UI CI is present.
+
+Reusable test observation, overlapping existing Foundry knowledge `inbox/candidates/2026-10-10-ui-css-authority-and-native-task-navigation.md` and `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md`: the **default visible task configuration** (not solely all reachable controls) is a necessary UI acceptance target. Hidden-but-accessible specialist diagnostics can preserve functionality while returning primary screen space to the task, but must remain accessible/keyboard navigable; regression must check closed and open states. Case-specific corroboration only, Canonical remains unchanged.
