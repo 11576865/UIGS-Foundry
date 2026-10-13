@@ -36,3 +36,11 @@ Do not mark PASS until the final exact PR head's Node/build and full Chromium E2
 - PR #117 squash merged into `main` at `22255a4130ecf04aaf8a0b494bd107ea1f868777`.
 
 **Evidence boundary:** independent FFmpeg demux confirms 23 known V4+ Style metadata fields in specific synthetic two-track fixtures; no actual renderer output comparisons, custom Style columns, `[Script Info]` preservation, source MKV partial-edit preservation, large-file field media, or actual end-user device compatibility. The result remains a Test, not Canonical promotion.
+
+## Squash-merged main verification
+
+Main commit `22255a4130ecf04aaf8a0b494bd107ea1f868777` also passed its own post-merge required checks:
+- [Main Node/build and Pages deployment 38387562480](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38387562480): **PASS**.
+- [Main complete Chromium mux E2E 38387562385](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38387562385): **PASS**.
+
+These are separate from the PR exact-head acceptance and are not evidence of real-player libass rendering or universal compatibility.
