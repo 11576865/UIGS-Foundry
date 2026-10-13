@@ -28,3 +28,9 @@ Source inspection confirms original aggregate coupling and the separate-flag fix
 An aggregate health signal for a compound export must **not** be reused as evidence that every independent member of the set is invalid. Publish per-artifact provenance next to aggregate readiness. Combine them only at the delivery operation that actually requires the entire set (here, MKV mux). Maintain old aggregate API semantics for compatibility.
 
 Related to existing HSR Foundry observations about MKV full-regeneration lifecycle and the earlier durable subtitle edit/export gap, but distinct: this defect is a *false invalidation of an unchanged sibling* rather than stale subtitles being incorrectly trusted. One observed defect does not authorize Canonical changes.
+
+## API-level follow-through
+
+HSR main commit `437aae060b3c6059c91e46e9dcbd4f987016ddd5` also makes `project_summary.output_groups.independent_products` expose independent SRT/ASS `current`, `freshness` and `used_in_bundle`, while the lossless FLAC mother track is labelled `ready_for_bundle` for cheap presence preflight but `freshness=unverified` (no claim of independent FFprobe attestation). Corresponding tests and docs: `4dac9eee0d00e91384ceffe78bc7af0d564b7cec`, `a0e6df7a8eb735e223dc9c3c7b85453de9a669fa`.
+
+The principal invariant is now visible on both the HTML output cards and the structured project API: an independently unchanged subtitle remains current; its changed sibling is stale; a combined MKV demanding both remains stale. Exact-head CI/real-device verification remains a separate evidence tier and has not been asserted as passed.
