@@ -24,3 +24,15 @@ Offer a distinct `Update MKV tracks` task that picks authoritative current FLAC/
 Related: `inbox/bugs/2026-10-13-hsr-mkv-stale-ass-and-output-writer-race.md` (freshness + writer isolation, already fixed), `inbox/candidates/2026-10-09-mkv-batch-heuristic-pairing-and-output-identity-gates.md` (destination identity) and `inbox/observations/2026-10-13-hsr-subtitle-requirement-to-mainline-preview-gap.md` (requirement vs actual main delivery). This Observation is specifically about **replace-only track updates versus full video regeneration and transient background selection**; it does not duplicate their prior remedies.
 
 No automatic Canonical promotion; neither the incremental remux nor background-state preservation is implemented or CI-validated.
+
+
+## Subsequent scope recommendation — prefer full regeneration for HSR (2026-10-13)
+
+The user explicitly noted that the separate **MKV-Fast-Muxer** (软封) project already owns the generalized task of replacing media container tracks, and questioned whether HSR should simply regenerate the entire bundle and replace the result. The subsequent engineering recommendation is **yes for HSR's current product scope**, subject to user approval; this is *not* a new implemented feature or an approved Canonical rule.
+
+- HSR is a voice/subtitle archive generator with a trivial synthetic still/color video background (currently 1280×720, 1 fps, ultrafast H.264), whereas MKV-Fast-Muxer is the dedicated general-purpose track-remux/preservation product. Adding arbitrary old-container track update, stream identity reconciliation, duration handling and attachment preservation to HSR would duplicate that ownership and add failure states beyond the primary workflow.
+- Retain the existing deterministic full-build path: latest current FLAC + verified ASS/SRT receipt + project-owned fonts + chosen background → fresh temporary MKV → ffprobe validation → atomic publication. Existing PR #154 freshness and writer isolation remain necessary.
+- **Residual gap distinct from PR #154:** HSR audio rebuild currently deletes the previous bundle once new FLAC is validated, rather than marking it stale and atomically replacing it only after the next bundle export. A safer product workflow should explicitly indicate `MKV needs regeneration`, require/recover the original optional background image, and avoid showing stale output as current. Preserving an old file until replacement requires a clear obsolete/non-authoritative state, not silent use.
+- For unusually long-duration archives, actual performance benchmarks should decide whether video regeneration warrants a specialized optimization. Generalized container remux remains out of HSR's immediate scope.
+
+This updates the **preferred recommendation** of the prior 'Bounded recommendation (not delivered)' section without erasing its recorded technical alternative. No code change or user acceptance is claimed; Canonical unchanged.
