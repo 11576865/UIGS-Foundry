@@ -307,3 +307,14 @@ Reusable observation: **a selected preview background in DOM/CSS is not evidence
 - Scope boundary: `uigs-outbox` is an operational ref and `v0.*` branches are historical provenance, not default source for forced merges. Real Android player/font/banding/long-duration validation remains [Issue #158](https://github.com/11576865/HSR-Voice-Archive-Builder/issues/158) FIELD-PENDING.
 
 Deduplication: existing Foundry Candidates `2026-10-04-replay-stale-feature-branch-as-semantic-delta.md`, `2026-10-04-rebuild-stale-feature-on-current-main.md`, and branch hygiene Tests already capture the general rule. This is **product-specific Observation evidence only**, not a new generic Candidate, new Canonical rule, or a claim all 109 branches are complete.
+
+
+## 2026-10-14: HSR photo pixel-limit mismatch despite 16 MiB upload allowance
+
+Source: [HSR `main` fix `ee81dd2`](https://github.com/11576865/HSR-Voice-Archive-Builder/commit/ee81dd2d624f7370e4349c53c60918f67eaebfcc), regression [`c1c0d14`](https://github.com/11576865/HSR-Voice-Archive-Builder/commit/c1c0d14f1e3b505d8631e17289a054ae0171dc25); exact-head CI pending at intake.
+
+Direct code observation: `MAX_IMAGE_BYTES = 16 MiB` was enforced for dynamic FFmpeg/libass preview and complete-MKV background. However, dynamic preview's `_validate_preview_background_image` still rejected source images larger than 3840×2160, while complete-MKV background preview accepted sources up to 8192 pixels per side and 24 million total pixels. Thus an ordinary 4032×3024 phone photo could be below 16 MiB but fail **only** the dynamic-preview image-dimension gate; the failure was not evidence that an advertised 16 MiB upload limit was ignored. This was inferred from source, not a user-provided failing photograph or log.
+
+Bounded correction: align dynamic still-preview preflight with the existing MKV still-image budget (16–8192 per side and ≤24 million pixels). Preserve the encoded 16 MiB cap, supported PNG/JPEG/WebP magic validation, actual FFprobe and real FFmpeg rendering. Added deterministic boundary regression for 4032×3024 accepted, 6000×4000 accepted, 8192×3000 rejected, 9000×100 rejected and tiny dimensions rejected. Source commit is implemented, but it is not yet a claim of real Android photo acceptance.
+
+Reusable diagnostic: encoded upload bytes, Base64 HTTP body bytes, source decoded pixel dimensions, and resulting media bytes are *different budgets*. Name all relevant limits in the UI/error evidence; acceptance of one does not imply success of the others. Existing Foundry observation about image-backed real renderer versus DOM preview already covers the domain, so attach this as incremental Observation, without promoting Canonical or duplicating a Candidate.
