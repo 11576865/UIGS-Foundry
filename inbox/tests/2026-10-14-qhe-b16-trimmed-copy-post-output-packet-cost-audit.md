@@ -37,3 +37,16 @@ CI was queued at this recording, so this evidence must stay **Pending** until th
 - Later QHE commit `8027be06c5238f5f2e5eeebe3c3fafac7fadffb9` bounds the synchronous audit to short outputs; `fb07c74b6174d309fa06243805855044b76e7677` permits audit reporting only for verified positive output bytes. Their exact-head CI is still pending at this checkpoint, so do not claim it has passed based on earlier commits.
 
 **Acceptance classification:** B16 short-output observed copied trim cost = measured/automated tests passing for the above actual code stages, with later HEAD regression pending. B16 pre-encode exact trim cost / FLAC encode rate prediction / long-form Android and Web = still Pending.
+
+
+## 2026-10-14 continuation: bounded asynchronous long-output observation (Pending)
+
+QHE implementation work branch `feat/qhe-b16-async-trim-audit-20261014`, intended to fast-forward draft PR #105, extends the **same post-output observational evidence domain**. It does not justify a separate full preflight-prediction candidate or Canonical change.
+
+- `windows/trim-packet-audit.ps1`: independent Windows PowerShell FFprobe worker; bounded audio/subtitle packet scan with constant-memory byte accumulation, maximum packet count and timeout, plus atomic private receipt.
+- `windows/native-bridge.ps1::Get-AsyncTrimPacketEvidence`: starts a worker for a completed trim output that exceeds the short-output synchronous boundary, returns nonblocking `running` state, validates receipt stream ordinals and output length/mtime against a job-owned snapshot, then reports `ready` or `unavailable`.
+- `src/main.js` and `src/media-workspace.js`: read-only on-demand receipt refresh via the existing task-report action. It never resubmits the encoding task; pending or unavailable audit is never reported as measured packet evidence.
+- `src/trim-copy-audit.test.mjs`: pure report policy for pending/unavailable, source-level worker/status wiring regression.
+- `scripts/check-guided-budget-native.ps1`: independent invocation of new worker against the real short Windows two-track trim artifact, comparing receipt with existing synchronous post-output bytes and selected file stat. PowerShell syntax gate also includes worker.
+
+**Pending:** exact-head frontend check, Windows PowerShell syntax and real Native worker execution, and actual >180 s or >512 MiB nonblocking background behavior with independent output oracle. Short-fixture direct worker testing alone does not establish long-movie reliability. Existing full-source reserve, strict byte ceiling, save/export, and stage retention are unchanged. Failure of the audit does not mean the completed output failed encoding. No promotion to full B16, initial-version complete, or Canonical.
