@@ -174,3 +174,16 @@ This removes one concrete class of cross-workflow state contamination and is a d
 Node tests now cover frozen context authorization, exact video/track/font provenance, transformed Group-font identity, legacy subtitle metadata defaults and absence of the old batch FileList mutation pathway. Early CI had three source-shape tests expecting the deleted picker staging; assertions migrated to content-derived context without removing real-output Chromium scenarios.
 
 Status: PR submitted, latest exact-head Node/build **success**, full Chromium E2E **pending** at this Intake. Do not report as accepted or merge until the specific head passes browser fixtures. No Canonical promotion.
+
+
+## PR #112 exact-head accepted: direct batch media context (2026-10-13)
+
+Product [PR #112](https://github.com/11576865/MKV-Fast-Muxer/pull/112), exact tested head `c4c3c7f8569789cfbe01c846e736e1783554caaa`, merged `main@f63c03c6cbf3c583ceb859fe31fe262ee090b837`.
+- [Node test and build workflow 38353868320](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38353868320): **success**, 389 tests/389 pass.
+- [Full Chromium E2E workflow 38353868391](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38353868391): **success**. Explicit log verdicts include `Scenario 28 PASS` for two-job batch with separately retained single-task draft and downloaded per-job JSON report, `Scenario 31 PASS` for Group font subset, `P0 whole-batch preservation gate PASS`, `P2-A opt-in existing MKV independent browser writer PASS`, `All browser E2E scenarios PASS`.
+- Removed repeated batch staging/restoration of single editor video/audio/subtitle/font FileList controls; a frozen JobPlan now binds to explicitly checked source header, subtitle descriptors and current font identity, and supplies media inputs directly to shared `executeCurrentMuxTask(context)`. Group-subset fonts retain their post-transformation identities and are not subsetted again.
+- A first Node CI failed three **source-shape assertions** depending on old FileList staging. Updated tests now check actual content-derived context. Review caught two *real* pre-merge risks: a single-task operation could start during async batch preparation, and change counts could leak from the unrelated single editor. Locked single-task FFmpeg ownership for the whole batch and changed batch addition/removal/modification counts to derive from the explicit job. Added direct-context unit assertions and actual browser report/metadata checks.
+- Batch no longer revokes or points the prior single-task MKV/report Object URLs at its own products or rewrites that single-task audit panel; batch outputs remain owned by `batchResultUrls`. The single-task editor and its inputs persist through the batch.
+- **Scope**: direct media-input ownership and independent batch orchestration are now real. Shared mux still renders progress/status and uses a common FFmpeg.wasm instance, so a fully pure, UI-independent media executor and persistent resumable jobs remain unimplemented. The existing constrained Matroska writer's eligibility was not widened by PR #112.
+
+This is evidence-backed refinement of the same Candidate. Do not promote Canonical from a single project.
