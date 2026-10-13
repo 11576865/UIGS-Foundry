@@ -182,3 +182,14 @@ Product [PR #111](https://github.com/11576865/MKV-Fast-Muxer/pull/111) exact val
 - First CI failures reflected test-fixture overlap (duplicate filenames triggered before intended preexisting-attachments gate) and double-escaped regex in browser inventory assertion; both corrected **without disabling production safety checks**; only final exact-head green run is accepted.
 
 **Bounded scope:** 1–8 new AttachedFile children inside ONE newly placed Attachments master, no existing attachments, source ≤60 MiB, aggregate new bytes ≤4 MiB, all source headers/non-Void EBML elements and offsets unchanged. No arbitrary Matroska editor, no general existing attachment CRUD, no arbitrary device playback certification, no full FFmpeg media-core decoupling. Case evidence only; no Canonical change.
+
+
+## Existing-MKV per-AttachedFile metadata editing and plan-freshness (2026-10-13)
+
+Product [PR #115](https://github.com/11576865/MKV-Fast-Muxer/pull/115), head `8719dbc3bfbcf3bc7ac26d18a1de93313a6ba4b7`. Builds on the **already externally verified narrow** existing-MKV 1–8 new attachments / reserved pre-Info Void writer (PR #111) without broadening its capability.
+
+Observation: The original multi-file UI only displayed File.name and File.type, which can be unsafe, conflicting, or incorrect; unlike the single-item path it offered no in-workbench remediation. New product code presents individually editable filename and MIME fields, checks the **same** filename policy as the actual writer (no automatic collision rename), enforces aggregate source limits, and snapshots exact File references plus user-reviewed proposed output metadata. All metadata edits invalidate prior review and the prepared Blob URL. Before a late async result can be published and again before download, the UI compares both the actual current field values and same File identities against the accepted snapshot. The server-independent writer retains its own exact FileData/UID/hash checks.
+
+Node tests validate unsafe/duplicate/case-equivalent output names, invalid MIME, per-item changes, same-metadata source File replacement and byte budgets. Existing Chromium MKVToolNix-authored source scenario additionally tests forbidden duplicate metadata, explicit renamed/MIME-corrected second attachment, revoked old download, and external mkvmerge/mkvextract confirmation of the revised output while Chapter/Tag XML and media packets remain unchanged.
+
+At this Intake: exact-head Node/build [workflow 38365289395](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38365289395) **success**; full Chromium [workflow 38365289426](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38365289426) **Pending**. No claim of external output acceptance until it passes. This is an extension of the existing Case, not a Canonical change.
