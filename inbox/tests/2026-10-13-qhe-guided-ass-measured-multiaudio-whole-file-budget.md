@@ -19,3 +19,7 @@ QHE `0a4f08ab58a50af65f9435fb892fd5d6364e137e` wires audio strategy, selected tr
 Distinct from `inbox/tests/2026-10-13-qhe-full-formal-v4-hevc-flac-output-and-independent-ssim.md`, which independently tests the Windows Native HEVC + FLAC formal bitrate task and real full duration SSIM. Distinct from `inbox/bugs/2026-10-13-qhe-guided-size-frontier-not-refreshed-after-measured-cost.md`, which owns the cross-view invalidation defect. This Test captures actual two-AAC Guided ASS container budget arithmetic and the validation gates, not a new architecture rule.
 
 Open: Windows Native loaded-source measured packet provenance, trim-precise copy payload, FLAC re-encode estimation, Android/Web cost measurement, source-referenced SSIM for the burned ASS output, physical workstation/long movie/media-player acceptance. No Canonical promotion, PR merge, release or full initial-version claim.
+
+## Later exact-code frontend check
+
+The QHE source commit `ee9ab6619b089f1c40c5868d1edea2d4562a6647` has a completed **SUCCESS** frontend workflow `38423311878`: its suite includes the real Linux FFmpeg Guided ASS copied two-AAC budget regression and the production Chromium budget audio-mutability/config-restore/no-encode DOM check. Seven of nine total platform workflows had succeeded as of the latest check; Android emulator and Windows required VVC acceptance were still running. Do not upgrade this Test to physical-device or whole-product acceptance.
