@@ -30,3 +30,13 @@ Code submitted in Draft PR #153. At intake the two workflow runs were started/qu
 This case extends the existing HSR observation `inbox/observations/2026-10-13-hsr-subtitle-requirement-to-mainline-preview-gap.md` (which records user requirement versus implementation and the first user feedback). It does not duplicate its broad product assessment. It focuses on a concrete testable implementation where a task viewport, gesture arming and recovery action must be demonstrated together. Related MKV UI discoverability Candidate and CSS authority Candidate remain unchanged.
 
 No Canonical promotion is justified by a single project or pending workflow.
+
+## Exact-head automated verification follow-up (2026-10-13)
+
+PR #153 commit `a61d64f1025de7b0869d6453bd29b25c1bc9ef00` passed:
+- Python/Termux workflow: https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38375165253
+- Chromium UI / actual libass / archive MKV workflow: https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38375165418
+
+Before success, first Chromium failure was an obsolete assertion locating the *global* Layout/Effects nav above the fullscreen editor; it was corrected to assert the actual visible focused task nav. A later production-CSP Chromium test tried clicking a global nav element covered by the focused stage, correctly timing out. It was changed to click the visible in-workbench task switch rather than bypassing hit-testing. Both failures demonstrate test/interaction alignment, not a media codec defect.
+
+Tests included real FFmpeg/libass and complex archival bundle checks, but this does not constitute physical Android swipe behavior, accessibility study or long-term user acceptance. Remains Draft/Unmerged pending design and device review. The Canonical system is unchanged.
