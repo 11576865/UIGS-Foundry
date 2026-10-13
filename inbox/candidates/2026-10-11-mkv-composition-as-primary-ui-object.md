@@ -58,3 +58,14 @@ Product PR #74 now contains a bounded, **submitted but not yet browser-verified*
 Observed prior product CI failure: a desktop test measured `#assetInspectorHost` while the editor was hidden before selecting an output object (zero rectangle); the assertion has been moved after explicit selection. This only resolves an outdated test precondition; it does not prove actual geometry until the new browser run succeeds.
 
 This adds implementation evidence under the existing Candidate and **does not change Canonical**.
+
+
+## Round 4/5 container-source observations and actual-output audit inspector (2026-10-13; Pending exact-head CI)
+
+Product [PR #107](https://github.com/11576865/MKV-Fast-Muxer/pull/107), branch `feat/round4-container-evidence-and-audit-workspace`.
+
+The primary composition surface now receives a **source-scoped, read-only** projection of ffprobe flat chapters, global tags and other/data streams. It does not add these as editable target tracks or assert preservation of unobserved EBML/UID links. An output-evidence inspector renders data from the actual generated MKV's JSON report: SHA-256, ffprobe audit status/issues, real output name and counts, and a source/plan freshness check. It distinguishes generated output from persisted output and explicitly disclaims unknown EBML/UID preservation. The read-only status is deliberately separate from `ContainerDocument`'s editable target collection.
+
+Unit tests and an existing real-browser E2E were extended to check source evidence and compare the workbench's displayed SHA-256 with a downloaded report. At this Intake, exact-head browser CI is **Pending**, so acceptance is not asserted.
+
+The testable reusable insight is a claim-boundary split: source observations, planned mutations, measured output, independent audit and persistence are different evidence states. This refines this Candidate and is **not** a new Canonical norm.
