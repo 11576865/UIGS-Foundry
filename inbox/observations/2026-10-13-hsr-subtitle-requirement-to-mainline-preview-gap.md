@@ -218,3 +218,21 @@ Evidence for exact PR head:
 - Revised `tests/test_subtitle_cue_audio_waveform.py` proves the production **Review** WAV loader validates a WAV signature, avoids redundant object URLs for the same selection and revokes the URL on release. Browser checks absence of the old duplicate DOM and exactly one audio element while exercising timeline and effect playback. The initial failing unit test misquoted the source fixture's timeline start/end (`8,10` rather than `5,9`), repaired without production rollback.
 
 Evidence boundary: this retires a specific abandoned duplicate subsystem; it is **not** proof that all historical inline CSS, all unused JS, all cross-workspace API loads, full-length movie preview or physical Android UI problems are fixed. The existing CSS authority Candidate and HSR Cases already cover the broader reuse principle: when designating a single visible owner, source-level duplicate listeners and persistence paths may still exist; acceptance should prove negative DOM/handler absence as well as surviving owner behavior. Append to this Observation rather than create redundant Canonical changes.
+
+
+## HSR mobile QA double-toggle elimination and focus handoff (2026-10-13)
+
+HSR [PR #144](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/144), source head `7ca54b8fd6590485dd8e8a8c01c75b3d6f520cf0`, merged directly to main at `75f27f3866b41ddde73ed20ed8c22f2a1367ba44` (verified main tip, production HTML).
+
+Root cause: mobile batch Layout QA retained a legacy inner `layoutCorpusMobileToggleBtn` controlling `.is-open` independently from the new single top-level `layoutAuditDrawerToggle`, which already controlled `.audit-open`, `inert`, `aria-hidden`, `aria-expanded` and the visual availability of the rail. The old mobile CSS could hide the rail's search/list/footer under an expanded parent. The inner button therefore represented **duplicate UI state ownership**, not additional product functionality.
+
+Fix: remove the inner mobile expand button, its event listener and the dead responsive CSS that hid QA content according to that inner toggle. All viewports now use the single outer Layout-only batch-QA disclosure. On switching to Effects, the programmatic transition moves focus to the visible `studioEffectsTab` when focus is either inside the QA rail **or on the soon-to-be-hidden QA opener**. Existing project, timing, libass, and media behavior is preserved.
+
+Evidence, exact PR head:
+- [tests 38354549750](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38354549750): full Python 3.11/3.12/3.13 and Termux Lite, success.
+- [browser + libass 38354549720](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38354549720): Chromium desktop/tablet/mobile interaction and real FFmpeg/libass tests, success. Browser checks opening shows actual QA search, list, and refresh controls at mobile widths; the duplicate toggle is absent; expanded rail is not inert; closing/switching restores ARIA/inert state and visible focus.
+- Two earlier test assertions still expected the removed secondary toggle; they were updated to assert **the sole intended disclosure contract** rather than reinstating the duplicate.
+
+The reusable observation overlaps the existing CSS authority/navigation Candidate: when migrating from nested responsive disclosures to a single task-level drawer, remove the obsolete inner state owner and its dependent CSS, not merely hide its control. The visible screen alone does not prove accessible open/close state; test actual focus and `inert` / `aria-hidden` consistency across task changes. **Case-specific corroboration, no automatic Canonical change.**
+
+Boundary: this does not remove the broader legacy inline CSS, solve entire media preview constraints, or constitute physical Android-device acceptance.
