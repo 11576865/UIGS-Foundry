@@ -1,7 +1,7 @@
 # Test: detached ContainerProject edit-intent baseline conflict preview
 
 Date: 2026-10-14 (+08:00)
-Status: **PENDING exact-head browser CI and merge**
+Status: **PASS — exact-head Node/build, full Chromium E2E, named browser artifact, PR #124 merged; post-merge main CI pending**
 Project: `11576865/MKV-Fast-Muxer`
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/124
 Baseline main: `334596a86c6dd9091d5a5446c9db01132e16235e`
@@ -26,3 +26,14 @@ PR #124 adds a read-only source/old-value comparison:
 - No Canonical change or inferred general authorization.
 
 **Unverified:** project actor/authorship, user consent, arbitrary MKV preservation, writer eligibility, actual replay/undo in live editor, cross-device behavior and full P0–P6 release. PR must pass exact-head full browser CI and post-merge main CI before Test is marked PASS.
+
+
+## Verified exact-head evidence and merge
+
+- Exact tested PR head: `9ea98b721cb098b2a53494f0d5ce9e56d1e63581`.
+- [Node/build run 38438759648](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38438759648): **PASS 472/472 Node tests plus production build**.
+- [Full Chromium E2E 38438759640](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38438759640): **PASS**, explicitly includes five-step source/import workbench, P0/P1 safety and delivered P3 dynamic ASS frame proof.
+- Downloaded and independently inspected named CI artifact `five-step-container-recipe-workbench-evidence` ID `11834935339`: **five files** (real browser-exported project and recipe JSON; 1440, 1024 and 390 PNGs). Original downloaded project is still only **one header-level** object with `base.mp4` SHA-256 `a78a0c371584ab404b90c9b7d9b6807550506cedcad8b991013a2cda859f520c`, not a verified typed track or actual edited source. E2E separately fabricated a coherent one-event imported draft to test conflict UI. Both 1440 and 390 images were opened: they show read-only `是 → 否` and explicit baseline conflict `当前真实轨道尚未扫描`, **even after current source SHA equality**. This correctly refuses conflating byte equality with track/object verification.
+- PR [#124](https://github.com/11576865/MKV-Fast-Muxer/pull/124) squash-merged into `main@6d3f88a4ae7c0c67c7c058c3422ac4e32213b235`.
+
+Still **only bounded, read-only comparison**. No automatic edit replay, signed actor provenance, write eligibility, completed P1 single authority or Canonical promotion. Post-merge independent CI still a separate closure condition.
