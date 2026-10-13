@@ -29,3 +29,11 @@ For planning driven by externally measured resource costs, propagate the measure
 ## Dedup and limits
 
 Existing `inbox/bugs/2026-10-13-qhe-guided-size-frontier-not-refreshed-after-measured-cost.md` addresses stale cross-view projection after updates; this Bug addresses **execution-time native receipt authorization**. Existing `inbox/tests/2026-10-13-qhe-guided-ass-measured-multiaudio-whole-file-budget.md` concerns Linux FFmpeg and browser fixture; this Bug's separate Windows reproduction has its own Test record. Source path/size/ticks are lifecycle checks, not a cryptographic content identity for an adversarial same-size, same-timestamp in-place file replacement. No physical workstation, long movie, rich video, source-referenced ASS SSIM or external player guarantee; no Canonical change or merge.
+
+## Follow-up: client cannot waive receipt by declaring zero audio tracks
+
+Further source inspection showed the legacy request's `expectedAudioTracks` was client-supplied. The initial guard used it to decide if a copied-audio receipt was necessary; a malformed/spoofed zero count could suppress the guard while FFmpeg still maps `0:a?` from a source with audio.
+
+QHE `775bf4b6a50d44f1e4a313d4f96c95da3ada0d8c` now probes Windows's real source stream count before enforcing the receipt, requires the declared count to equal the Native-probed count for Guided size + copy, and requires `Assert-CurrentCopyBudgetEvidence` whenever the *probed* count is positive. The new zero-track negative acceptance case was added at `f0dbe3c918cc4b9183f844e74794695e28f7b80f`; source contract updated at `ad917ef050f88158b67592c7cd05d5a1dde1cb22`. CI exact-head Pending at initial observation.
+
+This is an additional dimension of the same defect, not a separate Canonical rule: the decision to require provenance must be made from trusted runtime source facts rather than a mutable request field.
