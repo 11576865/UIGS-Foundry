@@ -45,3 +45,21 @@ Even a green final head will prove only bounded media+UI regression at tested sc
 - `inbox/cases/2026-10-13-ass-ui-design-freeze-rc-prototype-honesty-and-handoff-gates.md` records a separate offline design/production distinction.
 
 Scope: one product-specific Case. **No Canonical revision**.
+
+## 2026-10-15 continuation: explicit user-authorized UI cutover
+
+The product owner authorized the assistant to choose a new layout and merge the UI into `main` without waiting for additional aesthetic signoff. This is not a declaration of final design approval.
+
+The sole pre-existing PR #153 was revised to make the proposed output composition the dominant desktop region, with an explicit `tracks / attachments / chapters / tags` entry strip, accessible tab selection and clear copy when a dedicated editor is not yet supported. The sidebar continues to rehost live source/asset identity, the right inspector live selected-object state and the bottom dock the original real execution/audit lifecycle. This remains an incremental presentation layer over existing DOM, **not** the fully realized executable-design-source approach proposed in the separate Candidate.
+
+To avoid making unverified future features look operational, unsupported dedicated attachment/chapter/tag composition tabs lead to informational capability panels and a route back to the existing source evidence or track workspace. Such panels do not claim attachment rewrites or UID preservation. Non-UI legacy regression tests explicitly use `?ui=legacy`; a new default-path browser scenario verifies `/` mounts 10.14 and permanently exposes all four navigation entries.
+
+Evidence:
+- Exact pre-merge head `9c9d38335fec2db554a53572a0d2552b330cb43b`.
+- Full Browser E2E **success** https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38646235461 ; browser screenshot artifact https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38646235461/artifacts/11933067038 (desktop 1440, tablet 800, phones 390/360, batch).
+- Pages/build **success** https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38646235688.
+- **Merged** https://github.com/11576865/MKV-Fast-Muxer/pull/153 with squash commit `a1f4e0aa3af33c2459d8a66569b9043e75feec21`. Main was independently read back at this SHA.
+- Post-merge main E2E and Pages workflows were still **in progress** at the time this line was recorded (runs 38647059416 and 38647059252). Do not claim post-merge success until both finish.
+- Independent earlier PR #151 Matroska subtitle timing issue #152 is not addressed by UI cutover; do not infer it is resolved.
+
+This is implementation/evidence evolution of the **same Case**, not a new normative Pattern or Canonical modification. The visual result is a bounded candidate that the owner explicitly deferred further polish on, not a professionally accepted final mockup.
