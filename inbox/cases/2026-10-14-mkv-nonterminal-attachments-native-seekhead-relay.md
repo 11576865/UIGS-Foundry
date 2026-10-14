@@ -1,7 +1,7 @@
 # Case: Original non-terminal Matroska Attachments can be relocated without shifting protected top-level objects by a same-span chained SeekHead
 
 Date: 2026-10-14
-Status: **candidate Case implementation; full real Chromium and independently native MKV output proof PENDING**
+Status: **verified project-specific Case: full real Chromium and independent native MKV output PASS; merged to main; not Canonical**
 Project: [MKV-Fast-Muxer](https://github.com/11576865/MKV-Fast-Muxer)
 Product branch: [PR #139](https://github.com/11576865/MKV-Fast-Muxer/pull/139)
 Classification: Case, **not Canonical**.
@@ -32,3 +32,13 @@ One integrated [PR #139](https://github.com/11576865/MKV-Fast-Muxer/pull/139) in
 ## Deduplication and inference boundary
 
 Search in Foundry for `indexed nonterminal Attachments chained SeekHead relay relocation MKV`, `Matroska original SeekID Attachments to SeekHead same offset byte-span writer`, `source-specific relocation original Cues Cluster immutable seekhead chain` found no duplicate. Previous verified Case concerns **preparing terminal source as a test fixture**, not producing new user-requested non-terminal output. This Case is distinct, provisional and must remain non-Canonical even if one product-head artifact later passes. General SeekHead/Cues rewriting, arbitrary shifts, CRC repair, wider EBML unknown-element preservation, and all-player compatibility remain unproved.
+
+## Final exact-head production evidence (2026-10-14)
+
+[Exact-head full CI #38566327194](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38566327194) succeeded, including **547/547 Node tests, build, all real Chromium E2E tests**. The browser log explicitly records:
+
+`P0/P2-N real ORIGINAL NONTERMINAL Attachments → CHAINED SEEKHEAD → Segment tail variable FileData browser output + independent native Chapter/Tag/UID/Cues-packet audit PASS`
+
+The source was the original independent MKVToolNix/mkvpropedit-authored complex Matroska, not a source pre-transformed by the previous terminal-attachment testing helper. The user-reviewed browser operation generated a real downloaded MKV. Independent native `mkvmerge -J` discovered both original FileUIDs at the appended Attachments master via the chain, `mkvextract` recovered identical nested Chapters and targeted Tags XML and preserved the original tag-linked attachment bytes while reading the new free attachment payload, and `ffprobe` matched all original codec packet SHA/timestamps. The source remained unchanged, including its originally protected media byte ranges.
+
+[PR #139](https://github.com/11576865/MKV-Fast-Muxer/pull/139) merged to `main` at [4db7eee](https://github.com/11576865/MKV-Fast-Muxer/commit/4db7eee026aff7fabed0b566bc38715c3fb45f9c). This verifies one source-indexed nonterminal writer class, **not** arbitrary SeekHead/Cues offset rebuilding, missing-index rescue, CRC repair, non-last AttachedFile modification, unknown EBML, targeted-UID reassignment or broad playback conformance. Keep historical P0 #77 fail-closed behavior. **Case remains non-Canonical.**
