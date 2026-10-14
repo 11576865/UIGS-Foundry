@@ -1,7 +1,7 @@
 # Case: Adjacent reserved EBML Void permits a strictly bounded variable-length attachment edit without moving any original parent or media offset
 
 Date: 2026-10-14
-Status: **Submitted P0/P2 implementation; full exact-head real-browser/native-source audit Pending**
+Status: **Case / verified exact-head real browser and independent native Matroska audit; merged bounded product behavior**
 Source: [MKV-Fast-Muxer PR #137](https://github.com/11576865/MKV-Fast-Muxer/pull/137)
 Evidence: [Actions 38538687371](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38538687371) (Node and Vite already green at initial checkpoint, Chromium Pending)
 Classification: Case, not Canonical.
@@ -31,3 +31,15 @@ Classify writer capabilities by *exact source structural locality and protected-
 ## Deduplication
 
 Foundry search for `variable FileData reserved Void adjacent AttachedFile Matroska`, `non-remux in-place EBML Void offset preservation`, and `P0 P2 variable length attachment content reference graph` found no direct duplicate. The prior Case covers equal-size FileData and the older no-edit case covers preservation plus *new* Attachments in top-level reserved Void. This new Case tracks a different hierarchical source layout with new semantics. **Do not change Canonical on this single work item.**
+
+## Final output evidence — 2026-10-14
+
+[Full Actions #38551049217](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38551049217) completed **SUCCESS** at exact PR head [bfa1be0](https://github.com/11576865/MKV-Fast-Muxer/commit/bfa1be00b670c92bd572b73957c4a1191a06c53c): **542/542 Node**, Vite build, **all Chromium E2E** and a named real-output proof:
+
+`P0/P2-V reserved Void variable-length browser output + independent MKVToolNix/ffprobe chapters, tags, UID, FileData and packet audit PASS`
+
+The independently MKVToolNix/`mkvpropedit`-authored source had two original attachments, an AttachmentUID-targeted first and a free second plus nested Chapters. A test-only change gave the free second a valid directly adjacent reserved Void, with no original outer-byte offset change. The browser enlarged free FileData into that original local capacity and manually downloaded a real MKV; **independent native** `mkvmerge -J`, `mkvextract` chapters/tags/attachments and `ffprobe -show_packets -show_data_hash sha256` confirmed original Chapter/Tag XML, attachment FileUID, linked original FileData, changed new FileData, all media packet hashes/timestamps, unchanged total/source bytes. The [integrated PR #137](https://github.com/11576865/MKV-Fast-Muxer/pull/137) was merged to main as [2e56a85](https://github.com/11576865/MKV-Fast-Muxer/commit/2e56a856f2dc2f58c291e532cb251833b3f54b91).
+
+**Important failure evidence before acceptance:** several full Chromium runs were red *before writer execution* due to an exact UI readiness predicate invocation with positional arguments reversed: declared `current(source, replacement, targetUid, epoch)`, called `current(source, replacement, epoch, targetUid)`. The real check logged correct source, selected UID, review and picker references but falsely concluded `EXACT_FILE_OR_SELECTION_EPOCH_CHANGED`. Correcting the invocation, not dropping file/UID/hash gates, produced exact-head green. The newer separate Bug record addresses this UI integration error without conflating it with EBML correctness.
+
+**No Canonical promotion.** This is bounded to 60 MiB sources, 4 MiB data, valid original adjacent Void with enough budget, unchanged outer sizes/offsets, no referenced-UID edit, no CRC repair/unknown EBML, no no-Void resize or general structural writer. Cross-device player compatibility and large-file streaming remain unverified.
