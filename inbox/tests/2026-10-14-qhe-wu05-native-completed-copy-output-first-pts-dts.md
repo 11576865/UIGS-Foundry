@@ -1,7 +1,7 @@
 # Test: QHE WU05 independent completed-cut output clock receipt
 
 Date: 2026-10-14
-Status: PASS — exact-head Windows hosted B-frame output receipt and Chromium/model at e848e; subsequent start-clock warning CI pending
+Status: PASS — exact-head Windows Native B-frame + Chromium/model + frontend/coverage at cfed326; source mapping/VFR full sync pending
 QHE PR: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/105
 Windows PASS: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/38567583986
 Chromium/model latest PASS at e848e: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/38567583926
@@ -34,3 +34,7 @@ Actual Windows FFmpeg 9.0.2 produced H.264 B-frame/AAC source and used QHE share
 - copiedPacketRange remains null, source mapping and full A/V sync explicitly unverified.
 
 Real Windows run `38567583986` SUCCESS; it followed a test-harness-only error at `38567204535` where PowerShell 5.1 default ANSI Get-Content corrupted the Node-produced UTF-8 JSON formal task. Sending the original UTF-8 JSON bytes fixed transport. This is a bounded B09/A04 product capability, not total A04 closure or universal B-frame/VFR success.
+
+## Exact-head start-clock warning acceptance
+
+The full feature head `cfed326a44412ba9a7f140ae4b39b526c4c3975b` passed Windows real Native B-frame cut receipt `38568220073` and model+actual Chromium `38568219698`; frontend `38568219578` and UIGS Coverage `38568219823` SUCCESS. The task report computes first-video-presented-frame PTS minus first-audio-packet PTS and raises a non-certifying human-review warning if absolute difference exceeds 0.5 seconds. The observed synthetic fixture gap was 1.995 seconds; this must not be advertised as a proven audible video/audio desync without source packet mapping, sample priming, last timestamps, or playback validation. Whole A04 is still incomplete.
