@@ -20,3 +20,9 @@ The latest fix is an informed bounded hypothesis; its own exact-head CI must be 
 An immutable domain owner bound to one browser FileList generation must distinguish ordinary unauthorized mutation from an explicitly authorized **new-task** session boundary. Merely nulling the old domain instance at the first change event can still be insufficient in a UI with asynchronous format/font inspection and multiple sequential file inputs; derive the new authority at a well-defined task commit boundary and preserve exact `File` identity checks. Record as Bug only; do not promote a single recovery attempt into Canonical.
 
 See prior Case `inbox/cases/2026-10-14-mkv-external-assets-live-domain-file-identity-and-stale-form-epoch.md` for the source-neutral editor migration.
+
+## Updated exact evidence (2026-10-14)
+
+- Later bounded new-task repair `4861400920a04c8fea54e319b14e187cba79089d` was validated in [Chromium run 38510905199](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38510905199): **scenario 10 cancel→new task recovery PASS**. This supports the inventory-rebind hypothesis.
+- The same run failed at **scenario 11** due a separate regression: after verifying the external-domain owner, a redundant `syncNewTrackState()` overwrote user-authored second-task title with `English · ASS`. Tracked independently as `inbox/bugs/2026-10-14-mkv-post-verify-external-domain-resync-clobbers-sequential-title.md`.
+- Latest repair `9fe7625993817c0193c8cde1e77e7b2a9e6964eb` retains scenario-10-style one-time inventory rebind, skips duplicate inference on coherent domain state, and awaits its own exact-head full browser gate. **Do not mark PR #133 fully green or merged yet.**
