@@ -1,7 +1,7 @@
 # Bug: absolute Windows paths break libass filtergraph in an independent media verifier
 
 Date: 2026-10-14
-Status: Bug / test-harness failure repaired, exact-head recovery CI Pending
+Status: Bug / test-harness failure repaired, exact-head Windows recovery CI PASS
 Project: Quick-Automatic-Hardsub-Encoder PR #105
 Failing workflow: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/38554057407
 
@@ -17,4 +17,7 @@ QHE commit `1148bcda33bc74f66275eaad73d125e29930b8fb` changes the verifier to us
 
 ## Evidence boundary
 
-At record creation, the new exact-head hosted Windows acceptance has not been confirmed. Keep `PENDING`; do not attribute a completed WU-02 or whole application acceptance to the correction. This is a source-string / filtergraph escaping distinction, not a Canonical rule.
+Verified recovery: QHE exact-head `1148bcda` Windows hosted real ASS/font MKV run `38554433547` SUCCESS. The no-events counterexample executed and decoded frame difference was observed. This does not establish whole-product acceptance. This is a source-string / filtergraph escaping distinction, not a Canonical rule.
+
+
+Final recovery workflow: https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/38554433547
