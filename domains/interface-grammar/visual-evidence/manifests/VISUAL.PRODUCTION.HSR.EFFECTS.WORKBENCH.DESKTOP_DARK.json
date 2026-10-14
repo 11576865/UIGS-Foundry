@@ -9,14 +9,17 @@
   "surface_ids": [
     "HSR.WORKSPACE.EFFECTS"
   ],
-  "patterns": [],
+  "patterns": [
+    "UIGS.COMPOSITION.PREVIEW_INSPECTOR_SPLIT",
+    "UIGS.INSPECTOR.PROGRESSIVE_CONTROL_DISCLOSURE"
+  ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.EFFECTS.WORKBENCH.DESKTOP_DARK.png",
   "source_repository": "11576865/HSR-Voice-Archive-Builder",
-  "source_revision": "b7a5e6581bd1cd6be80366ac86a77dd9cc900b48",
-  "sha256": "05df5754b8f43c66a6585f03992b91f5a9bce67f034aa16cda280aad4ec7356b",
+  "source_revision": "b9d9c0713cd211cbb18e5a61f95d72ed9d3ac841",
+  "sha256": "806ef9a70495aab88643b8539965abf0b007deb71df3624f71f3c2227bd888f0",
   "image": {
     "width": 1169,
-    "height": 818
+    "height": 789
   },
   "environment": {
     "schema_version": 1,
@@ -61,8 +64,8 @@
       "settle_ms": 900
     }
   },
-  "change_status": "new",
-  "previous_sha256": null,
+  "change_status": "changed",
+  "previous_sha256": "05df5754b8f43c66a6585f03992b91f5a9bce67f034aa16cda280aad4ec7356b",
   "limitations": [
     "Production layout UI; not classified as runtime-backed libass evidence.",
     "The capture harness reveals the real production panel when it is normally gated by active-project state; it does not fabricate project data."
@@ -71,13 +74,13 @@
     {
       "source_type": "repository",
       "source": "11576865/HSR-Voice-Archive-Builder",
-      "revision": "b7a5e6581bd1cd6be80366ac86a77dd9cc900b48",
+      "revision": "b9d9c0713cd211cbb18e5a61f95d72ed9d3ac841",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/HSR-Voice-Archive-Builder:ui-visual-capture.json",
-      "revision": "b7a5e6581bd1cd6be80366ac86a77dd9cc900b48",
+      "revision": "b9d9c0713cd211cbb18e5a61f95d72ed9d3ac841",
       "evidence_level": "source-owned capture declaration"
     }
   ]
