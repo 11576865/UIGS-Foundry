@@ -1,7 +1,7 @@
 # Bug: Branch candidate fits leak video-payload x coordinates into whole-file budget plot
 
 Date: 2026-10-15
-Status: FIX-SUBMITTED / exact-head CI pending
+Status: **FIX-VERIFIED (PR exact-head Chromium + Windows 9/9); merged in QHE main**
 Project: [QHE PR #103](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/103)
 Mainline convergence: [#106](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/issues/106)
 Candidate fix SHA: `743c437c7b74a3fbd391c0dec8bffd2e239f0188`
@@ -21,3 +21,7 @@ Whenever a domain wrapper spreads a source object and replaces its primary coord
 
 ## Deduplication / authority
 Searched Foundry for `whole-file-frontier`, candidate curve projection mismatch and cross-coordinate axes; no matching Bug. Related earlier Candidate on one curve and branch comparisons does not record this projected-method leak. Case/Bug only; do not promote Canonical automatically.
+
+## Acceptance update — 2026-10-15
+
+Fixed PR #103 exact head `743c437c7b74a3fbd391c0dec8bffd2e239f0188` passed **9/9 CI** (full Chromium, Windows local smoke, Windows manual paired codec, WU suites, UIGS). It was merged into main as `c66b0658fe2e62259322b4b2e0b6fbd1e797fde1`. The previously failing Manual `#taskCompareCandidates li` browser assertion now passes with proper whole-file candidate x-axis projection. Additional post-merge main push CI is independent and was pending at the time of this update.
