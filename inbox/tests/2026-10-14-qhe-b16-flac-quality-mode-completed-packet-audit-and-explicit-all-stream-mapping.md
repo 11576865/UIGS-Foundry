@@ -29,3 +29,13 @@ Prior Foundry B16 Tests address full-source, isolated copy, FLAC preencode and a
 
 ## No Canonical promotion
 This remains a Test entry, not an automatic Canonical update. Future strict-budget FLAC admission requires matching/owned encoded packet artifacts or a justified executable budget contract, independent real browser/long-form/PTS/media fixtures and complete final-output validation. One matching mixed-mux outcome does not prove another job's bytes.
+
+
+## Exact-head hosted acceptance — confirmed
+
+On product commit `c54a81912db7d06724fa7b7a6f7649165c364ce4`:
+- `Windows B16 runtime acceptance`, run `38515635165`, job `115693681408`: **SUCCESS**. The individual PowerShell 5.1 parser, Node JS receipt suite, real FLAC full+trim packet oracle, real multi-audio/subtitle trimmed-copy oracle, and **Native HTTP FLAC preview/source-ledger invalidation + formal quality-mode dual-FLAC completed-artifact audit** steps all concluded success.
+- `Test frontend`, run `38515634868`: **SUCCESS**.
+- `UIGS Evidence Coverage`, run `38515635024`: **SUCCESS**.
+
+This upgrades the new native source-ledger and finished-mixed-FLAC packet-chain acceptance from Pending to PASS for the bounded synthetic Windows fixture. **Remaining Pending:** real interactive browser/workbench UI, long/VFR/complex formats and source ownership under crash/restart, cross-platform Android/Web and reusable strict-budget FLAC cost authority. No Canonical promotion.
