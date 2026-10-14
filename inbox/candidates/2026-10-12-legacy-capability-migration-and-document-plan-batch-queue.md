@@ -211,3 +211,13 @@ Product [PR #114](https://github.com/11576865/MKV-Fast-Muxer/pull/114), exact te
 - First exact PR run had 401/402 Node tests pass; the one failure was the old `main.js` source-shape test expecting direct `writeNewBatchOutput`. Corrected the integration assertion to require `writeNewBatchArtifactPair` plus the retained underlying no-clobber primitive. Then exact-head Node and real E2E both passed.
 
 Confirmed semantics: no atomic pair transaction or cross-process filesystem lock is claimed; "saved" means both MKV and JSON report committed in the observed browser session. Candidate only; no Canonical promotion from one implementation.
+
+## 2026-10-14 cross-project QHE evidence: single-source recipe matrix
+
+QHE initial-version PR #105 contains a concrete **partial** implementation of the independently frozen plan queue in another domain: `src/output-recipe-matrix.js` snapshots shared schema-v4 hardsub/transcode/stream-copy plans with source, media-stream and hard-sub ASS/font bindings; `src/media-workspace.js` presents a single-source multi-output matrix, serially invokes the existing executor/save hooks, tracks each output separately and preserves save-only retry without a second encode after a save failure.
+
+- Exact tested QHE code SHA `7cdff9dba0c12ce8c52bcd98fac43686d302b46d`; real Chromium/test backend acceptance https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/38558570169 **SUCCESS**; frontend build https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/38558570086 **SUCCESS**.
+- Scope of browser evidence: two frozen x264/x265 task variants, source-change gate, distinct `-variant-XX` names, first save failure prevents the second encode, save-only retry does not rerun the first encode, then independently saves the second.
+- The browser test has a **controlled media execution and save transport**, not actual FFmpeg two-output encoding, physical device or multi-source batch. QHE B21 remains OPEN. The current matrix uses a disclosure below the existing workbench, not the Candidate's ultimate proposed separate professional queue workspace. This is an incremental product slice, not proof of an ideal UI or complete generalized JobSpec.
+
+Transferable incremental evidence: independently owned immutable recipe plans and per-artifact persistence truth can be integrated into an existing single-task UI without immediately replacing the executor. Preserve the difference among `sourceKey`, ASS/font dependency identity, immutable compiled parameters, mutable current editor and actual saved artifact. A per-item save failure should not consume or overwrite already verified output. This strengthens the existing Candidate but does not justify Canonical promotion.
