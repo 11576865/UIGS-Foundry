@@ -29,3 +29,18 @@ No R2 Android code, exact-head Native screenshot, validated runtime test or 240 
 
 ## Dedupe
 Foundry searches for 'ASS UI R2 mockup 18 WorkbenchTool coverage missing advanced panels', 'capability parity cannot be inferred from tool navigation or schematic UI', and 'ASS legacy 8 presentation modes 18 tools R2 layout review' found no exact record. The general principle (capability parity across Hosts) already exists in the 2026-10-13 engineering report and the 2026-10-14 R2 layout candidate. This Observation records the **particular R2-to-18/legacy-8 audit gap**, not a new Canonical requirement.
+
+## User-confirmed direction and execution tracker (2026-10-14)
+
+User clarified the prior open-ended design audit into an explicit product requirement: **only two production-selectable UIs** (default main/FIXED and independent complete infinite canvas/SPATIAL), while **every actually implemented capability from earlier interfaces must have a visible, executable entry in at least one**. The eight retired layouts are not to return as independent UI choices. The source reality of former behavior must be audited, not inferred from 240 experimental status labels.
+
+Current checked product `main` already has:
+- `UiVariantRegistry.entries = [FIXED, SPATIAL_EXPERIMENTAL]`; archive names decode to the canvas (compatibility route, not proof of behavior).
+- `WorkbenchToolCatalog` enumerates all 18 persisted tool IDs.
+- `WorkbenchTaskBar` has grouped tasks, contextual tools and a tool directory button.
+
+Outstanding capability-consumer gaps are documented in `docs/MULTI-UI-CAPABILITY-MIGRATION-2026-10-11.md` and include unconsumed historical docking/minimized/tabGroup state, full four-edge panels, and GlassToolWindow material behaviors. These are source-grounded migration questions, NOT all proven functioning in current Native main.
+
+Concrete product execution issue: [ASS-Workbench-Android #146](https://github.com/11576865/ASS-Workbench-Android/issues/146), containing 18-tool inventory, eight historical interface capability families, Host routing, explicit entries and validation gates. The issue is an **implementation tracker only**: no new product code, tests or verified Native screenshots were delivered by this turn. `FIXED / SPATIAL` shared canonical domain does not make them one visible UI; the second remains its own complete spatial presentation.
+
+Intake treatment: update this existing Observation rather than duplicating its capability-parity lesson or promoting Canonical. User confirmation upgrades the *product requirement authority*, not its implementation evidence.
