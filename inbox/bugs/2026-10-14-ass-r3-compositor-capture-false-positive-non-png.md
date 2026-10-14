@@ -59,3 +59,24 @@ Follow-on PR #148 commits `8c6c6f74`, `46d1e179`, `7f5e2898`, `42ce5f98`, `f2764
 - All remain **Pending exact-head Android CI / Emulator / Native PNG proof** at time of update. This does not establish video/render fidelity or complete historical capability parity; **no Canonical change**.
 
 Transferable evidence rule learned from the second observation: **capture lifetime vs extraction lifetime matters** in instrumentation tests that uninstall packages; recovery channels must preserve bitmap identity across test-runner shutdown. Moreover, valid image bytes and correct viewport are insufficient if a non-product system modal visually occludes the target.
+
+## Third observed failure and revised transport (2026-10-14 late)
+
+Product Draft PR #148 later head `eb5caf5d7cc1b4d04f70093a47554a88f6b4955d` (Android CI and Fontconfig green, emulator run `38566426393` red) improved capture instrumentation:
+- Target Android compositor actually generated a 1600×960 PNG of **163,932 bytes** and R3 focused instrumented test returned **1 test, 0 failures**.
+- After `connectedDebugAndroidTest` returned, app-specific external mirror and `run-as` failed (52-byte non-PNG), consistent with the debug package having been removed.
+- `R3_PNG_BEGIN` declared **79** ordered 2,800-character base64 chunks, but logcat preserved only indices **0–52**, never `R3_PNG_END` (seen across repeated diagnostic log dumps). This is demonstrated missing data, **not** a decoder implementation bug; the strict parser correctly rejected it as incomplete. Logcat transport cannot be treated as reliable for this complete PNG.
+- Full emulator suite timed out independently after focused projection tests succeeded; R3 source-code compile success alone is not an emulator pass.
+
+Product follow-on fix in same PR (commits `d469e2c4`, `f339384e`, `6ca63b6a`, `705f64af`) changes the dedicated screenshot stage:
+1. `gradle :app:assembleDebug :app:assembleDebugAndroidTest`;
+2. `adb install -r -t` both exact-head debug/test APKs;
+3. run exactly one test via `adb shell am instrument -w -e class ... -e r3StrictCapture true`; require **explicit 1-test JUnit pass and instrumentation success marker**, not just shell exit 0;
+4. **before uninstall** retrieve app-private screenshot via `adb exec-out run-as ... cat ...`, then run strict PNG validator;
+5. reset temporary density/orientation; original projection/full suite still run unchanged and remain mandatory.
+
+This is a fix **candidate**, not verified until exact-head emulator output confirms the direct transport and preserves screenshot authenticity. Latest CI head `705f64af28e0fbdade9937fb5a4230db578e30d9` Android CI **success**; Emulator `38579751530` and Fontconfig `38579751484` were in progress at this observation.
+
+Native screenshot thumbnail (decoded from 18 complete `R3_PREVIEW_JPEG` chunks in the failed-run log) shows real R3 three-column blue/cyan layout, but debug fixture contains two subtitle events with renderer disabled, so the video region shows renderer-safe-mode notice and cannot be compared as real media against the city-video R3 reference. **Valid screenshot capture, target app screen, genuine playing media, and design pixel parity remain independent gates.**
+
+Intake: this is a continuation of the same evidence-integrity Bug, **not** a new Canonical or separate duplicated Candidate.
