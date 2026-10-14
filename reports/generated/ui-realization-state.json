@@ -12,7 +12,7 @@
           "path": "app/src/main/kotlin/io/github/assworkbench/app/ui/WorkbenchToolCatalog.kt",
           "expected_blob_sha": "26693a044a5d7d541aef99165c723b719e37e5de",
           "verified": true,
-          "current_blob_sha": "8069d2cca7bb0e6a11b9971280e223103314481f",
+          "current_blob_sha": "e917004eb79651a57f3bee07806584c5630be42e",
           "current": false,
           "actual_blob_sha": "26693a044a5d7d541aef99165c723b719e37e5de"
         },
@@ -62,7 +62,7 @@
           "path": "app/src/test/kotlin/io/github/assworkbench/app/ui/WorkbenchToolCatalogTest.kt",
           "expected_blob_sha": "1ab3e2c98225f3c3bfab303a268574ecb4179698",
           "verified": true,
-          "current_blob_sha": "8c3edea523dab89c2d6a239121953013b7cd8932",
+          "current_blob_sha": "96e3c4b93a14ed7ba39022bbf7fbae4f6f99bffa",
           "current": false,
           "actual_blob_sha": "1ab3e2c98225f3c3bfab303a268574ecb4179698"
         },
@@ -100,7 +100,7 @@
         }
       ],
       "source_verified": true,
-      "current_head": "4d592d13debfeaafeadca1e64c8d436adcdec60d",
+      "current_head": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
@@ -116,7 +116,7 @@
           "path": "app/static/index.html",
           "expected_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf",
           "verified": true,
-          "current_blob_sha": "1a783b4b17c18fe0e009376abe54a481814442cc",
+          "current_blob_sha": "6aebee3bcb74addd149c13f81a3eeef9cab02b62",
           "current": false,
           "actual_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf"
         }
@@ -126,13 +126,13 @@
           "path": "tests/test_progress_ui.py",
           "expected_blob_sha": "0d159d9d003f029137d974859579012c7deef115",
           "verified": true,
-          "current_blob_sha": "943dd7af1df2f87e08fd6a530d8ff309b6d33c86",
+          "current_blob_sha": "f6e7068e068669e68d6fcaa1646d682283ed5c2f",
           "current": false,
           "actual_blob_sha": "0d159d9d003f029137d974859579012c7deef115"
         }
       ],
       "source_verified": true,
-      "current_head": "7b8c3ca4924da31004e7c27dd852e6bb66af2c8c",
+      "current_head": "b9d9c0713cd211cbb18e5a61f95d72ed9d3ac841",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
@@ -148,7 +148,7 @@
           "path": "index.html",
           "expected_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2",
           "verified": true,
-          "current_blob_sha": "a3af39d27b60df2779ddc7b54042c07304485b5a",
+          "current_blob_sha": "a2155eeed8f74954ca82a32862a70babf6c8a078",
           "current": false,
           "actual_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2"
         },
@@ -156,7 +156,7 @@
           "path": "src/style.css",
           "expected_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4",
           "verified": true,
-          "current_blob_sha": "b02863c3838dca28cc78a460eb9f460e3ce44de6",
+          "current_blob_sha": "12a8c8edd098ceb6970cd2527f822cf60bfbda21",
           "current": false,
           "actual_blob_sha": "7a0e293c241cf30a6b515bbef8de095f471a06a4"
         }
@@ -180,7 +180,7 @@
         }
       ],
       "source_verified": true,
-      "current_head": "22255a4130ecf04aaf8a0b494bd107ea1f868777",
+      "current_head": "1f8dcefa7c05b4752399d7160b65392612e78b05",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
