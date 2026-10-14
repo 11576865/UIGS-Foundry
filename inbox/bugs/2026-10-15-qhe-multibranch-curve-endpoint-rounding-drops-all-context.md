@@ -1,22 +1,26 @@
-# Bug: Logarithmic endpoint rounding drops complete candidate context curves
+# Reclassified investigation: #103 Chromium failure was Manual test isolation, not proven candidate-curve endpoint loss
 
 Date: 2026-10-15
-Status: **FIX-SUBMITTED; exact-head Chromium verification PENDING**
+Status: **MISDIAGNOSIS CORRECTED; numerical robustness patch remains provisional / exact-head CI pending**
 Project: [QHE PR #103](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/103)
-Related: QHE [Mainline Convergence #106](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/issues/106)
-First failed full Frontend CI: [run 38641241345](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/38641241345)
-Candidate fix SHA: `31b31654eaad0dafa00146fc23b759214cadd855`
+Run [38641241345](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/38641241345)
 
-## Reproduction
-PR #103 was semantically reapplied on top of merged main PR #105, retaining the single decision envelope and bounded dashed fitted alternatives. Existing Node model tests passed, but the Playwright synthetic x264/HEVC scenario found **zero** `.curve-branch-ghost` paths where two were expected. The envelope itself remained valid and one main curve was visible.
+## Evidence correction (supersedes the initial finding in this entry)
 
-## Causal mechanism / proposed correction
-`createMultiBranchFrontier().sampleBranchCurves(n)` built logarithmically spaced budgets using exact min and max endpoints, called each branch `evaluateTargetBytes`, discarded any non-`within-evidence` point, then discarded the **entire** branch unless all `n` points remained. Small floating-point round-off or branch endpoint differences could make a boundary probe fall just outside the branch's admitted evidence domain. This converted one marginal probe rejection into a missing whole curve.
+An earlier reading of the bare CI failure `0 !== 2` at `scripts/check-curve-design.cjs:159` wrongly attributed it to `.curve-branch-ghost` SVG paths. The *actual assertion* at line 159 was `#taskCompareCandidates li` from the **existing Manual codec comparison**. The newly inserted synthetic candidate-reference SVG test was located earlier and had already passed. This was confirmed by fetching the exact script and its line numbers and by a later run `38641640221` in which the new same-data Node model test also passed but the Manual UI candidate-list assertion still failed.
 
-The candidate patch samples the **interior of the shared measured-domain bins** using `(i+0.5)/n` in log space, without extrapolation or changing the authoritative envelope/evidence bounds; it retains all-point completeness and adds the same asymmetric synthetic fixture to `compression-decision.test.mjs`. Exact-head full Chromium and Windows CI must confirm the fix.
+**There is NO verified evidence from these runs that floating-point endpoint rounding removed candidate context paths.** The prior content overstated cause and must not be used as product Bug confirmation or promoted to Canonical.
 
-## Reusable lessons (Observation/Bug only)
-Numeric graph sampling should not rely on logarithmically reconstructed boundary values being bit-exact when downstream range membership uses strict comparisons. All-or-nothing group filters can hide the whole visualization when one numerical boundary point is rejected. Test asymmetric measurement domains and compare visible plotted-path count, not merely model `ok` or valid primary curve.
+## Engineering changes under investigation
+
+- Candidate defensive change `31b31654eaad0dafa00146fc23b759214cadd855`: bin-center log sampling of fitted alternatives within the common measured evidence interval. This is a reasonable precaution against boundary rounding but is **not shown to have fixed the observed Chromium failure**.
+- Candidate UI-test isolation change `64e048ba40b8978adfe72cd44b678475ddf6e588`: the synthetic candidate reference-curve DOM fixture now runs **after** the complete existing Manual task lifecycle, following fresh page navigation, rather than mutating that fixture's original DOM before Manual tests. Original Manual candidate assertions remain enforced and wait for actual rendered list.
+- Latest exact-head full CI status: PENDING at this entry; no release acceptance inferred.
+
+## Reusable investigative caution
+
+Always resolve the exact failing assertion by checking the current test file at the reported line number. Error numbers without line context cannot establish whether a regression was in a model, visualization, browser lifecycle or test fixture. Source assertions and programmatic mocks may mask lifecycle coupling; isolate independent synthetic visual tests from shared production UI interaction fixtures.
 
 ## Deduplication
-Foundry search located related Candidate `2026-10-03-continuous-decision-sliders-need-branch-aware-frontier-transitions`, which records the feature and evidence intersection, but not this exact observed rounding/strict-completeness failure. This Bug adds the failing example and regression boundary without promoting any Canonical rule.
+
+Foundry Candidate `2026-10-03-continuous-decision-sliders-need-branch-aware-frontier-transitions` describes candidate curve construction; this corrected record is a misdiagnosis/case of CI evidence attribution, not a confirmation of endpoint failure. Keep historical audit trail without changing Canonical.
