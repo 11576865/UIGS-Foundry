@@ -25,3 +25,12 @@ Actual UI adds independent v2 Export, Import, per-output accessible read-only re
 ## Deduplication / nonpromotion
 
 Earlier Foundry batch Candidate describes planning and ledger ownership and remains separate. This Case observes a new trust boundary: a **portable recipe is a proposal; only a reselected whole pairing, actual File-reference pin, explicit human acceptance, and last-moment revalidation can produce executor-facing metadata**. No single implementation is evidence for UIGS Canonical promotion. Existing #77 complex Chapter/targeted Tag/AttachmentUID/unknown EBML remux safety is not relaxed.
+
+
+## Integrated PR #134: source-shape regression and acceptance check (2026-10-14)
+
+After targeting `main` directly as the single combined P1/P3-B acceptance branch, exact-head [run 38518974530](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38518974530) failed **at npm test**, before Vite/Chromium: 532 of 534 Node tests passed and two static integration assertions failed. Both expected one exact whitespace shape for `buildBatchJobsFromCollected(videos, subtitleRecognition, { manualAssignments: batchManualAssignments })`; the production implementation still called that exact semantic pairing operation but split arguments over multiple lines and then projected `projectCurrentBatchTaskMetadata(inferredPairing,currentBatchTaskMetadata)`.
+
+The bounded correction in [115ec796](https://github.com/11576865/MKV-Fast-Muxer/commit/115ec796fddaa2dc2621a41d63121221e7c8db5c) and [4f9c530](https://github.com/11576865/MKV-Fast-Muxer/commit/4f9c530cb49fdccc9d3e63d651f25bfd455ec731) retains the source-pairing safety assertions but allows whitespace variance, while **adding** an assertion that the reviewed metadata projection follows the content-derived/manual-tie pairing. This does not delete a test, skip validation, relax pairing safety or demonstrate the final binary output. A direct source/assertion match passed; new [run 38519457650](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38519457650) was **Pending** at checkpoint.
+
+**Reusable observation (Case-level):** text-matching tests for orchestration boundaries should assert meaningful call structure and downstream ordering, not incidental source whitespace. Such tests can be useful architectural alarms, but a false negative before build masks deeper browser/media tests; fixing only the spelling of an assertion is not evidence the end-to-end feature works. The independent real-output gate remains mandatory. Existing Canonical requirements unchanged.
