@@ -1,0 +1,40 @@
+# Bug — R3 Android screenshot gate falsely accepted a 52-byte non-PNG
+
+Date: 2026-10-14
+Classification: Bug / test-evidence integrity; **not** an Android production UI bug.
+Source: ASS-Workbench-Android Draft PR #148 (run 38522507918, editor-regression job 115715275138).
+Status: Fix candidate committed on `feat/r3-fixed-visual-layout-20261014`; **Pending exact-head CI** and real PNG proof.
+
+## Actual observed failure
+
+For GitHub Actions Emulator Regression on PR #148 head `d88c24423b17194746e78e73f5a5c3f9abf45a90`:
+- Log printed `Override size: 1600x960`, `Override density: 160`.
+- Targeted `UigsVisualCaptureInstrumentedTest#captureR3FixedReferenceWhenExpanded` reported `org.junit.AssumptionViolatedException: R3 three-column reference requires expanded window`.
+- Shell then printed **`R3_NATIVE_CAPTURE_PRESENT: ... size=52`** and **`R3_CAPTURE_EXIT_STATUS=0`**. The 52-byte output was not a real 1600x960 PNG and is not valid screenshot evidence.
+- The earlier full emulator suite timed out (exit 124) and had no XML result, so workflow nevertheless failed; the false-positive R3-capture line would have misled review if read without the context.
+
+## Root conditions
+
+1. `wm size 1600x960` and `user_rotation 1` alone do not guarantee a reported 1180dp+ LANDSCAPE content configuration on the portrait-native Pixel 6 emulator. The Kotlin capture test previously used `assumeTrue`, allowing a skipped test.
+2. Capture script treated a successful shell command or a non-empty redirected output file as proof of a screenshot; `adb exec-out run-as ... cat ...` can emit plaintext failure messages. Original `if ! ... || [[ ! -s output ]] ; then ... else PRESENT` logic additionally had the wrong Boolean semantics.
+
+## Correction committed to product PR #148
+
+- Kotlin capture test explicitly requests `SCREEN_ORIENTATION_LANDSCAPE`, waits for real landscape configuration, and uses a detailed hard `check(...)` if the expanded width/height is absent. No silent assume-skip.
+- Emulator uses 960x1600 portrait-native override, rotates to landscape, sets 160dpi, then restores display metrics.
+- Strict Python validator `tools/verify_r3_png_capture.py` checks PNG signature, IHDR dimensions 1600x960, chunk CRCs, IEND, decompressed pixel size and scanline filters. Fails closed on short, text, corrupt or rotated outputs.
+- `tools/test_verify_r3_png_capture.py` provides five regression cases: valid PNG, 52-byte-ish run-as text, 960x1600 dimensions, damaged CRC and truncated file. Android CI runs these before building.
+- Dedicated screenshot attempt moved **before** the long suite to avoid getting starved by 35-minute workflow budget. The full suite remains a mandatory independent gate.
+- Product commits at least: `ab72453c`, `52c7bfdf`, `f3e81069`, `d82ea7b4`, `dbd4991c`; latest observed exact head `dbd4991c85c0c3958368bb7fef0bd9e4c11a10ba`.
+
+## Evidence levels
+
+A PNG passing file validation proves only that a decodable correctly sized compositor bitmap was collected; **not** that it matches R3 design, carries a genuine playing video, or has preserved all historical capabilities. The existing debug fixture uses two recovered subtitle lines, no video and renderer disabled. Actual R3 visual comparison with reference assets and media still awaits follow-up evidence. PR #148 stays Draft.
+
+## Reusable lesson (Observation from a Bug)
+
+Device geometry must be asserted at the Activity configuration *after* orientation and density changes, and screenshot authenticity requires a parser / decoder rather than non-emptiness or command exit status. Capture condition, artifact integrity and visual similarity are **three distinct gates**; never conflate them.
+
+## Dedupe & promotion
+
+Searched UIGS-Foundry for `R3_NATIVE_CAPTURE_PRESENT 52 size false positive adb exec-out run-as`, `PNG capture test artifact misclassified shell precedence screenshot`, and `emulator wm size landscape orientation pixel6 R3 capture`; no exact duplicate found. Record as Bug with verification pending; no Canonical change based solely on this observation.
