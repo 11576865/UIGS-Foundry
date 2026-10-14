@@ -27,3 +27,17 @@ Queried Foundry for 'R3 ASS Workbench FIXED SPATIAL four design screens', 'R3 UI
 1. User design acceptance/changes: main workbench density, video bounds, SPATIAL tool arrangement, inspector semantics.
 2. Additional professional workflow screens (raw Event, Style shared edit, Karaoke, Vector Clip, QC, font requirements, batch) may be needed before product-wide design coverage can be certified.
 3. Android implementation and CI/device evidence after design approval; no automated Code UI claims from SVGs.
+
+## 2026-10-14 continuation — User-approved code-first R3 under strict visual matching requirement
+
+User explicitly approved beginning Android code against the existing R3 design before further refinements and added a strong acceptance condition that the result must match the supplied reference. Treat this as **visual test gate**, not permission to claim a still-unrendered native screen matches the image.
+
+Product **Draft PR #148**: https://github.com/11576865/ASS-Workbench-Android/pull/148 (branch `feat/r3-fixed-visual-layout-20261014`; latest observed SHA `22e8431703dffcaa0c6502e7cd8266a60229a0d3`). Distinct from partial entry-only PR #147; neither automatically merged.
+
+Source changes introduced R3 only in FIXED expanded Host: navigator left; VideoPreview + real Timeline middle; movable FloatingToolContent right; video aspect first; external 48dp playback bar not obscuring subtitle glyphs; native 56dp app bar, 50dp task bar, dark navy/cyan palette; Event/Binding/Write Scope context header based on real Domain state. SPATIAL remains a separate selectable UI using shared Domain. Preexisting user-selected appearance overrides are preserved; new-install fallback switched to DARK. Narrow/IME policy uses preexisting fallback.
+
+Technical correctness checkpoints: JVM screenshot-based geometry assertions for ratios 267/1600 and 427/1600, aspect 16:9 and alternate video ratios, available timeline minimums; Android instrumented compositor capture only when actual layout has expanded dimensions and semantic pane bounds. Those are newly added tests, **not executed local results**. GitHub Actions Android CI, Emulator Regression, Fontconfig were in progress for exact head when recorded; pending is not pass.
+
+**Known remaining parity and visual deltas**: native screenshot comparison at a grounded 1600x960-equivalent viewport, all R3 interior tool and tab styling, right inspector per-field labels/dirty semantics, professional tool dialogs, Write Review page, SPATIAL appearance/legacy capability parity, embedded video's media frame source and player metrics. Don't count Stage-1 layout code as a completed R3 pixel match. Do not alter Canonical based on this observation.
+
+Intake: append this bounded engineering continuation to the existing R3 evidence observation rather than creating a duplicate general UI redesign principle. Status remains **Pending Native Visual Acceptance and CI**.
