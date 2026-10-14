@@ -17,7 +17,7 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.OUTPUT_HUB.DESKTOP_DARK.png",
   "source_repository": "11576865/MKV-Fast-Muxer",
-  "source_revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
+  "source_revision": "1f8dcefa7c05b4752399d7160b65392612e78b05",
   "sha256": "0f655672fd58b6776b59e64eecef0e69e7c31413a2aef42c8d50cd431b2b1d63",
   "image": {
     "width": 1134,
@@ -74,13 +74,13 @@
     {
       "source_type": "repository",
       "source": "11576865/MKV-Fast-Muxer",
-      "revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
+      "revision": "1f8dcefa7c05b4752399d7160b65392612e78b05",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/MKV-Fast-Muxer:ui-visual-capture.json",
-      "revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
+      "revision": "1f8dcefa7c05b4752399d7160b65392612e78b05",
       "evidence_level": "source-owned capture declaration"
     }
   ]

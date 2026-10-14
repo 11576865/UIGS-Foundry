@@ -12,8 +12,8 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.BATCH.DESKTOP_DARK.png",
   "source_repository": "11576865/MKV-Fast-Muxer",
-  "source_revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
-  "sha256": "fc8c745c6c63155e15bb6de5c387a4516e1fdd253ebcf78a151defc1aed67489",
+  "source_revision": "1f8dcefa7c05b4752399d7160b65392612e78b05",
+  "sha256": "a295ecdbc8f3827b1068306853570667cac4d6ceaf96a5e324de3165af509f91",
   "image": {
     "width": 1321,
     "height": 98
@@ -58,7 +58,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "a295ecdbc8f3827b1068306853570667cac4d6ceaf96a5e324de3165af509f91",
+  "previous_sha256": "fc8c745c6c63155e15bb6de5c387a4516e1fdd253ebcf78a151defc1aed67489",
   "limitations": [
     "No batch inputs are loaded; this records the real empty batch workspace."
   ],
@@ -66,13 +66,13 @@
     {
       "source_type": "repository",
       "source": "11576865/MKV-Fast-Muxer",
-      "revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
+      "revision": "1f8dcefa7c05b4752399d7160b65392612e78b05",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/MKV-Fast-Muxer:ui-visual-capture.json",
-      "revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
+      "revision": "1f8dcefa7c05b4752399d7160b65392612e78b05",
       "evidence_level": "source-owned capture declaration"
     }
   ]

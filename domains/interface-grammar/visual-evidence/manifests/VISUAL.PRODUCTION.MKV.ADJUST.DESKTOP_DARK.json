@@ -16,8 +16,8 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/MKV/MKV.ADJUST.DESKTOP_DARK.png",
   "source_repository": "11576865/MKV-Fast-Muxer",
-  "source_revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
-  "sha256": "766089993b2a9dae7a183cf287086c69b9c2f3f44b9c85b1bee37f21906afd44",
+  "source_revision": "1f8dcefa7c05b4752399d7160b65392612e78b05",
+  "sha256": "1c8bbdfd19e0714c375104ba6c246472827928b2308594e8523a887529a7a73c",
   "image": {
     "width": 975,
     "height": 1310
@@ -66,7 +66,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "1902a7cf7b8f93c8f1daa8cc23a3d9bfd9fe3f35a797b16bd8ad4b336711f8ab",
+  "previous_sha256": "766089993b2a9dae7a183cf287086c69b9c2f3f44b9c85b1bee37f21906afd44",
   "limitations": [
     "No user media is loaded; preview and editor controls are captured in their deterministic empty-state."
   ],
@@ -74,13 +74,13 @@
     {
       "source_type": "repository",
       "source": "11576865/MKV-Fast-Muxer",
-      "revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
+      "revision": "1f8dcefa7c05b4752399d7160b65392612e78b05",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/MKV-Fast-Muxer:ui-visual-capture.json",
-      "revision": "45ff4edb847ae164946d3d070a947c80cfd8cbb4",
+      "revision": "1f8dcefa7c05b4752399d7160b65392612e78b05",
       "evidence_level": "source-owned capture declaration"
     }
   ]
