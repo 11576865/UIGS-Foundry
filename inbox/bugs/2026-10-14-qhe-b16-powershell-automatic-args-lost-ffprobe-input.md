@@ -34,3 +34,8 @@ At product head `a38fc79187d81f2c90d1edbb0675e6080b7391d2`, focused Windows B16 
 Fix head `0bd2381c3f0a85195410e610a3cde89ca033daac`: the FLAC and trim-copy **negative test** subprocesses now use bounded separate `Start-Process` invocation (15s), redirect stdout/stderr to separate files, and assert the *actual child* exit code is nonzero and no receipt was created. Exact-head Windows rerun was in progress when recorded.
 
 Reusable test lesson: a negative-process assertion must treat expected stderr as evidence, not as an unhandled failure of the test harness. Differentiate positive-path runtime regression from harness handling of expected rejection before diagnosing the codec or system. Maintain Test/Bug status; do not promote to Canonical from one fixture.
+
+
+## Final exact-head validation
+
+The third focused Windows B16 run, `38513613921`, on product head `0bd2381c3f0a85195410e610a3cde89ca033daac`, is **SUCCESS**. PowerShell parser, Node evidence suites, real FLAC full/trim dual-track packet oracle, real mixed video/FLAC/softsubtitle mux and real trimmed copy audio/subtitle packet oracle all PASSED. Separate `Test frontend` and `UIGS Evidence Coverage` were SUCCESS. The earlier argv defect and negative stderr harness defect are now **fixed and host-verified in the bounded synthetic fixture**, with long-form and all-platform behavior expressly outside this result.
