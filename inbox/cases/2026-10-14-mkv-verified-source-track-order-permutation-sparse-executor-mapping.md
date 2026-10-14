@@ -29,3 +29,10 @@ The prepared plan converts a verified project-order permutation into a permutati
 ## Deduplication and reuse hypothesis
 
 This is a narrower transferable **Case**, not a new Canonical rule. It extends the above live-order and attachment-recovery records without duplicating them. A source-neutral object model and a writer's numeric positions have different identity semantics; only a proven complete permutation permits their safe translation. Further confirmation requires full exact-head tests and other independent products before promotion.
+
+## Exact-head CI closure and merge (2026-10-14)
+
+- Original PR #132 head `b2a9e32faed85e1174f60aeea592d815d21bd301` failed at new Node test 195 due an obsolete test fixture selector `index===4` after sparse audio index had been changed to `6`; unrelated build/browser stages were skipped. This is separately recorded as `inbox/bugs/2026-10-14-mkv-sparse-source-stream-fixture-wrong-index-replay-test.md`.
+- Fixed head `513a0535cf51f7cf231a50f06f9f743d3011786a`: [Browser E2E workflow 38507877308](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38507877308) **SUCCESS**; [Pages workflow 38507877438](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38507877438) **SUCCESS**.
+- [PR #132](https://github.com/11576865/MKV-Fast-Muxer/pull/132) **merged** to main as `bf75e797700a2f0e14a90a63898e096a94c2ffe8`.
+- New distinct external-asset ownership follow-on [PR #133](https://github.com/11576865/MKV-Fast-Muxer/pull/133) has its own exact-head CI **Pending**. Neither merge certifies generic EBML Chapter/Tag/UID preservation.
