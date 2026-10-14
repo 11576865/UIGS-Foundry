@@ -37,3 +37,11 @@ The previous Case `inbox/cases/2026-10-14-mkv-live-domain-track-authority-with-l
 Transferable hypothesis: use exact input-object identity plus a form-render generation token when an asynchronous resource inspector may rerender or reuse mutable legacy editors. A visual equality key is insufficient to authorize metadata propagation across inputs. A source-neutral semantic domain should remain separate from actual media delivery and File permissions until independent audit proves execution.
 
 Record only as a **Case**, without Canonical promotion from one implementation or unconfirmed CI run.
+
+## Follow-up evidence: stale UI versus actual output plan (2026-10-14)
+
+The first integrated PR #133 run at head `35411ad3`, [Browser E2E 38514430477](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38514430477), had **Node/build pass but Chromium fail** in `scenarioSequentialTasks`: actual second MKV subtitle title was `English · ASS` instead of `Second Task`; cancellation/restart Scenario 10 passed. This is a concrete regression, **not** a passing implementation of the earlier Case.
+
+The unified P1/P3-B PR [#134](https://github.com/11576865/MKV-Fast-Muxer/pull/134) now targets `main` directly. Its branch received one bounded integration patch [3a92e52](https://github.com/11576865/MKV-Fast-Muxer/commit/3a92e52acb439b093d0319b61bd951d68da51249): invalidate prior subtitle form immediately during a newly selected FileList's pending content scan, and preserve authored metadata under inventory-only rebind after validating the exact current File and sidecar references. [7e008c7](https://github.com/11576865/MKV-Fast-Muxer/commit/7e008c7f9030c73fc9f1ce5cff05be4b2d9fa066) adds a browser *pre-execution* assertion: the edited form and actual output plan (`#muxPlan`) must both say `Second Task` **before** invoking the writer; the original independent final `ffprobe` assertion remains mandatory.
+
+**Evidence status:** new integrated PR #134 workflow [38518974530](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38518974530) was queued at checkpoint; no success is asserted. The hypothesis is that separating the form value, actual plan projection, and finished-output observation localizes whether a lost edit originates at the async DOM/domain boundary or later in the media execution. This is a scoped Case update and not Canonical policy.
