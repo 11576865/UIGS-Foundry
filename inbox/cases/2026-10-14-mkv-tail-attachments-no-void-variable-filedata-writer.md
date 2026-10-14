@@ -1,7 +1,7 @@
 # Case: No-reserved-Void Matroska FileData resize via terminal Attachments master and fixed-width parent SIZE updates
 
 Date: 2026-10-14
-Status: **submitted real product block, native-output CI pending**
+Status: **verified real Chromium/native artifact and merged product capability (bounded), not Canonical**
 Project: [MKV-Fast-Muxer](https://github.com/11576865/MKV-Fast-Muxer)
 Product PR: [#138](https://github.com/11576865/MKV-Fast-Muxer/pull/138)
 Classification: Case, not Canonical.
@@ -31,3 +31,20 @@ A first [full CI 38558866210](https://github.com/11576865/MKV-Fast-Muxer/actions
 At least three different source-specific writer classes exist for one business-level action "replace attachment": exact data size, data length financed from an original adjacent Void, and data length paid for by growing a **terminal** EBML hierarchy. They require distinct size/offset/reference audits, but all may preserve original media packets and nested chapter/tag structures without stream remux when their specific eligibility tests pass. This is a testable Case, not permission to build or declare a general EBML writer.
 
 Deduplication: project Foundry search for `final Attachments master Segment size width no Void existing MKV FileData`, `terminal Attachments independent structural resize SeekHead Cues` and `Matroska no Void final attached file size field rewrite` surfaced the two earlier non-equivalent preservation Cases but no direct duplicate. Do not auto-promote to Canonical from this work item.
+
+## Final independently verified acceptance and two negative attempts (2026-10-14)
+
+Actual completed exact-head [Actions 38560282611](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38560282611) returned **SUCCESS: 545/545 Node, Vite build, every real Chromium scenario**. The browser test log contains:
+
+`P0/P2-T tail no-Void FOUR SIZE FIELD real browser output + native MKVToolNix chapters, targeted Tags, FileUID, FileData and ffprobe packet audit PASS`
+
+[PR #138](https://github.com/11576865/MKV-Fast-Muxer/pull/138) merged to main at [c769a847](https://github.com/11576865/MKV-Fast-Muxer/commit/c769a847b7e12023024fd01b4a931e5f6ed61925). The source remained untouched. The independent native output check recovered the original nested Chapters and targeted Tags XML, retained the first TagAttachmentUID-linked FileData and its UID, observed the free last FileUID's new file bytes, and matched all compressed media packet hashes/timestamps with the independently native-parsed input. The actual user-facing writer did not change original SeekHead/Cues or move existing protected top-level byte ranges.
+
+Two earlier exact-head **red browser runs** were part of the same strict acceptance, not successes:
+
+1. [38558866210](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38558866210): the **test-only** source rearrangement tried to encode a final Attachments SeekPosition inside the original MKVToolNix `SeekPosition` field, whose original width was too narrow (`TEST_TAIL_SEEKPOSITION_OVERFLOW`).
+2. [38559509527](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38559509527): a same-sized Void replaced the unrepresentable original Seek entry, but native `mkvmerge -J` then found **zero** attachments. Our internal parser seeing the trailing master was not sufficient to claim externally discoverable valid metadata.
+
+The independently reviewed [test-only final source preparation 45da93c](https://github.com/11576865/MKV-Fast-Muxer/commit/45da93c8d9f90535efd3090d9334d085ed067157) used a **chained SeekHead relay**: the original narrow SeekHead index still targeted the exact original Attachments offset, now occupied by an equal-sized second SeekHead; the second contains a sufficiently wide SeekPosition to the unchanged Attachments master moved to Segment EOF. Native `mkvmerge -J` then recognized the prepared input, and independently verified the browser's real output. This is a *test-source construction workaround* demonstrating a valid index topology; it is **not a shipped general SeekHead relocation implementation**. A source with ordinary non-final Attachments remains refused by production code.
+
+**Reusable evidence-qualified conclusion:** Source-local structural byte proof alone cannot substitute for external semantic discoverability. A spec-legal incomplete index can make an EBML object visible to an in-house exhaustive scanner yet invisible to native consumers; independent native tooling is therefore a separate acceptance oracle. This is one confirmed Case, not sufficient for Canonical promotion. Remaining unverified: arbitrary non-terminal attachment resizing, generic CRC repair, UID retargets, unknown EBML, >60MiB streaming and broad player compatibility.
