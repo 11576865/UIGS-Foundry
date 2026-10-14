@@ -39,3 +39,8 @@ A user can reject an interaction hierarchy after code, test and pixel-proof gree
 Deduplication: Foundry searched `studio stage inspector layout`, `mobile panel workbench task`, `HSR subtitle studio redesign`, `CSS single authority studio`. Reviewed neighboring HSR [PR #153 focused viewport case] and ongoing subtitle requirement-to-mainline Observation. This new Case uniquely records *explicit rejection of a CI-green prior implementation* and V3 DOM reconstruction with exact-head acceptance, so it does not duplicate the older diagnosis.
 
 **Canonical promotion: none.** Device/user visual acceptance: Pending. 
+
+
+## Verified mainline integration (2026-10-15)
+
+The product PR #167 was verified as **merged=true** and **closed**, and the product `main` commit is `a1d833679d299a729f3519c3e02f92c25bb8fda0`. Mainline source fetch confirmed `app/static/studio-v3.css`, `app/static/index.html` with `studio-v3-workbench`, and `tests/test_studio_v3_architecture.py`. Exact pre-merge PR-head Python/Termux and Chromium/FFmpeg workflows remained `success`. A separate branch-hygiene workflow was still in progress at verification. This confirms code landed in `main`, **not** that actual Android/Termux field usability or user aesthetic acceptance has been achieved. No Canonical promotion.
