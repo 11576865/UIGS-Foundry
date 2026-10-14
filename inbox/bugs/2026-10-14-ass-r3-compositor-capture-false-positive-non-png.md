@@ -80,3 +80,16 @@ This is a fix **candidate**, not verified until exact-head emulator output confi
 Native screenshot thumbnail (decoded from 18 complete `R3_PREVIEW_JPEG` chunks in the failed-run log) shows real R3 three-column blue/cyan layout, but debug fixture contains two subtitle events with renderer disabled, so the video region shows renderer-safe-mode notice and cannot be compared as real media against the city-video R3 reference. **Valid screenshot capture, target app screen, genuine playing media, and design pixel parity remain independent gates.**
 
 Intake: this is a continuation of the same evidence-integrity Bug, **not** a new Canonical or separate duplicated Candidate.
+
+## 2026-10-14 · Headless accessibility root false-negative and guarded fallback
+
+New PR #148 exact-head `705f64af28e0fbdade9937fb5a4230db578e30d9`:
+- Android CI run `38579751468` and Fontconfig `38579751484` passed.
+- Emulator `38579751530`, job `115906919972`, failed R3 targeted capture with `R3_NATIVE_SCREEN_OCCLUDED: foreground window belongs to <none>` because `UiAutomation.rootInActiveWindow` was null. This is not evidence of an actual foreign ANR window: it is **insufficient to decide ownership**.
+- Original full suite also had `batchUnknownStyleAndNegativeMarginFailBeforePreview` recorded in its timed/partial XML; exact assertion and baseline attribution not yet established.
+
+Product code fix in commit `5a026b8a3bfb751dcb0e33aecc6ead8c19c8ca97` adds independent `decorView.hasWindowFocus()`, `isShown`, and Activity lifetime checks when and only when the accessibility root is unavailable. If non-null root belongs to another package it is still rejected; a null root with unfocused/hidden target is rejected. Additional regression commit `b9706eed9ce082c2e884153be848d9f9d524971f` tests valid target root, null-root focused fallback, unfocused fallback rejection, foreign launcher overlay rejection, and hidden target rejection.
+
+Separately recovered the **complete earlier Android compositor PNG** from run `38558602308` (74 ordered R3_PNG chunks, 154648 bytes, SHA-256 `3fabb1af9fe79a5155e8104f1938814cb934ed26308954902d7bd223fda8be38`) and reviewed it next to local R3 reference. It contains an actual 1600x960 native three-pane FIXED layout, but black renderer-safe-mode video and two-event test data, not matching the city-video and densely populated event-list design; therefore it cannot certify R3 pixel parity or media operation. This is observational visual evidence, not a product pass.
+
+At this update `b9706eed` Android CI run `38586229141` passed; latest Emulator run `38586228927` and Fontconfig run `38586229417` still in progress. **Status remains Pending exact-head native capture/Emulator and visual diff.** Do not merge PR #148 or promote Canonical based on a passing Kotlin build.
