@@ -1,7 +1,7 @@
 # Case: Same-size FileData replacement is a distinct existing-container editing capability
 
 Date: 2026-10-14
-Status: **Case / implementation submitted; exact-head Node + real Chromium + independent output verification Pending**
+Status: **Case / independently verified in one real-browser and MKVToolNix-authored fixture; merged product scope**
 Product: [MKV-Fast-Muxer](https://github.com/11576865/MKV-Fast-Muxer)
 Feature PR: [#136](https://github.com/11576865/MKV-Fast-Muxer/pull/136)
 Not Canonical.
@@ -31,3 +31,15 @@ Submitted real browser acceptance uses MKVToolNix/mkvpropedit-authored original 
 Writer capability should be typed by **which byte ranges can change without requiring graph-wide structural updates**. An equal-size FileData patch can be independently evidenced without asserting a general EBML editor or relaxing the existing preservation preflight; any length change, UID retargeting, CRC or unknown structure creates a distinct writer class requiring new proofs.
 
 This Case is **not** a duplicate of the previous [source no-edit preservation oracle](https://github.com/11576865/UIGS-Foundry/blob/main/inbox/cases/2026-10-12-mkv-no-edit-preservation-scoped-independent-oracle.md): the prior record concerns no-edit detection and adding new attachment bytes to previously empty Attachments space; this one concerns preserving a pre-existing *attachment inventory and UID graph* during a payload replacement. Never auto-promote to Canonical on a single product observation.
+
+## Verified result (2026-10-14)
+
+**Actual output proof, not just plan submission:** [full exact-head Actions 38535796837](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38535796837) completed successfully with **539/539 Node tests, Vite build and complete real Chromium**. The raw Chromium log explicitly records:
+
+`P0/P2 same-size existing attachment replacement + independent external chapter/tag/UID/packet/FileData audit PASS`
+
+The independent source was `mkvmerge`/ `mkvpropedit`-authored with **two existing attachments, a TagAttachmentUID target to the first and nested Chapters**. The browser refused a wrong-size replacement, disabled the referenced attachment, required fresh review, produced a real downloaded MKV, and separate native `mkvmerge -J`, `mkvextract` chapters/tags/attachments and `ffprobe` packet-data SHA compared output to source, confirming the non-targeted new bytes and unchanged targeted FileData, original structural XML and media packets. Source file size and exact byte commitments were retained.
+
+[PR #136](https://github.com/11576865/MKV-Fast-Muxer/pull/136) was merged to main at [17ff592](https://github.com/11576865/MKV-Fast-Muxer/commit/17ff592ae33e6dc70d3696ea0724577eae649d56), and the artifact/contract documented in [P0/P2 same-size write capability](https://github.com/11576865/MKV-Fast-Muxer/blob/main/docs/P0-P2-SAME-SIZE-EXISTING-MKV-ATTACHMENT-REPLACEMENT-20261014.md).
+
+**Boundaries unchanged:** no general Chapters/Tags/reference rewriting, varint-length modification, SeekHead/Cues recompute, CRC repair, source overwrite, >60MiB real-source testing or multi-player/device compatibility proof. The FFmpeg-preservation regression #77 remains a separate protected risk. **Do not promote this single verified product Case to Canonical.**
