@@ -19,3 +19,7 @@ The independent paired codec test was rerun in workflow `38268364465` and succee
 
 ## Reusable engineering observation
 When external dependency setup can fail transiently and its command exit code is not guarded, subsequent domain steps can falsely carry the blame. Keep toolchain provisioning, domain-test assertions, and hosted environment failures separately diagnosable; accept success only at the exact final commit and per-workflow check results.
+
+## 2026-10-14 distinct FFmpeg PATH propagation recurrence (QHE WU02)
+
+QHE Windows WU02 workflow `38562832920` successfully installed FFmpeg via Chocolatey (exit code success), but immediately launched a separate `powershell.exe` step where Node's `spawnSync ffmpeg` returned `ENOENT`. This differs from the earlier Chocolatey HTTP 504: installation succeeded, yet `PATH` had not been propagated to the next step. The failure occurred **before** rich MKV fixture generation, not during product mux/burn-in, so it is not evidence of a WU02 media regression. QHE CI edit `d6656d6cb8eae5703c5665d93109037d8d551712` resolves FFmpeg/FFprobe binaries beneath the actual Chocolatey install, writes their directory to GitHub Actions `GITHUB_PATH`, and validates both executable lookup commands before media assertions. New workflow verification initially pending; no Canonical promotion.
