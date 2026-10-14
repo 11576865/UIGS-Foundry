@@ -33,3 +33,9 @@ Searched Foundry for coherent feature batches, vertical slices, micro-PRs, integ
 ## Follow-up verification
 
 Observe whether reconciling the existing P1/P3-B branches into one accepted batch workflow reduces duplicate integration, without hiding CI failures, relaxing scope evidence, or regressing safety.
+
+## Observed completed product-block delivery — 2026-10-14
+
+The project reconciled overlapping #133/#134/#135 work into one integrated **PR #134** and merged to `main` as [8155280](https://github.com/11576865/MKV-Fast-Muxer/commit/815528027048e05d0d39660a1c21199d84dcd4d9). The final exact-head [CI 38524496562](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38524496562) succeeded on Node, build and full real Chromium. A previous run independently confirmed two actual outputs and final audit, and the final head repeated the full browser suite. PR #133 and #135 were closed unmerged and documented as superseded; unlike a mechanical merge, the alternate JSON schema from #135 was **not** advertised as supported. Source-resource authority, per-output metadata, explicit Recipe v2 review, frozen queue and real MKV production were accepted as one coherent user-facing unit.
+
+This is a single project-specific observed instance, not controlled evidence that block-level PR strategy always reduces delivery time. A concrete caveat: attempts to rush through the sequence exposed multiple failed exact-head Chromium runs before the actual `EXTERNAL_DOMAIN_INVENTORY_CHANGED` fault was diagnosed and corrected. Keep CI failure localization and fail-closed behavior even when the requested milestone is broad. Next P0/P2 structural writer remains separately gated. Candidate remains **non-Canonical**.
