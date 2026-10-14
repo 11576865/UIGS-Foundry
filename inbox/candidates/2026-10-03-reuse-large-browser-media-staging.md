@@ -36,3 +36,19 @@ Repair commits on `main`:
 - Frontend unit, real FFmpeg integration, build, and UI smoke passed after repair.
 
 This is a Candidate only. It is not Canonical.
+
+## 2026-10-15 counterexample — same metadata does not mean same mounted media
+
+Status: **Candidate correction / product fix submitted / exact-head CI Pending**.
+
+The original 2026-10-03 code used `previousVideo === videoFile || (name, size, lastModified all equal)`. The second branch permits two distinct browser `File` objects with identical metadata but different byte content to reuse the first object's WASM mount. This undercuts the earlier text's assumption that the metadata triple represents a stable *content* identity. It is not a content attestation.
+
+QHE PR #105 existing branch `feat/qhe-five-round-delivery-20261013`:
+- Regression test commit [7a141e7](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/commit/7a141e79eb5d02653f2995d21cfce7303b14c5cc): two distinct same-metadata objects must each be mounted, while the original same-object reuse test remains.
+- Product fix [195df5d](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/commit/195df5d277f03db5efc57eae337cfbcb420cc5dc): limit mounted-source reuse to the exact same `File` object identity, avoiding accidental content substitution. Does not add an expensive full-file content hash, new cache authority, or another staging system.
+- The project's existing `.uigs/invariants.json` (`MEDIA.BROWSER.SOURCE_STAGING_REUSE`) expressly covers the **same immutable File**, not arbitrary same-stat files.
+- Source inspection verifies the old branch is absent at this commit; exact-head GitHub CI was queued/in progress at intake. Neither full Web FFmpeg runtime nor physical-browser long-film acceptance is claimed.
+
+**Narrowed rule:** Reuse an already mounted immutable browser source only with an identity binding that proves it is the same underlying bytes. In this implementation, identical `File` object identity is acceptable; a name/size/mtime tuple is not. Different `File` objects may be restaged, even if that costs extra I/O, unless stronger source-byte identity is independently established.
+
+This amends the earlier Candidate family instead of creating a duplicate. Related existing candidate: `2026-10-03-persisted-derived-evidence-must-carry-all-input-dependencies.md`. No Canonical promotion from this single QHE observation.
