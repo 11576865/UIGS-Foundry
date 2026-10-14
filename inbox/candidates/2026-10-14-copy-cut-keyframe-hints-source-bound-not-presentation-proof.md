@@ -1,7 +1,7 @@
 # Candidate: Copy-cut keyframe hints must be source-bound and not equated with verified presentation time
 
 Date: 2026-10-14
-Status: Candidate / evidence pending exact-head Chromium and model CI
+Status: Candidate / QHE exact-head implementation and Chromium verification PASS; A04 physical packet evidence pending
 Origin: QHE R19 §06, R24 §09, B08/B09/A04; PR #105 WU-04
 
 ## Distinct reusable issue
@@ -22,3 +22,7 @@ QHE draft WU-04 commit `9f812dd5226bb4da171c522916b30ec0313a387a` introduced `sr
 This is a proposal informed by one engineering implementation and already grounded in QHE's theoretical report. It is **not** a Canonical rule, and does not assert actual VFR/B-frame packet integrity or output time-offset correctness.
 
 Dedup rationale: existing QHE source-bound copy budget/evidence Candidates concern payload-cost provenance, not predictive keyframe UI versus decoded presentation semantics; existing QHE trim-copy Full Source Observation concerns cost reservation rather than cut fidelity and user-visible strategy choice.
+
+## 2026-10-14 final exact-head outcome
+
+At QHE `501974713ad6ee3fc184b20bb1fbb2ed93fc5396`, model tests, Vite production workbench and actual Playwright/Chromium interaction PASSED (`38562833192`). A user in copy mode sees an unknown preflight before analysis, a 1.500 s possible keyframe backtrack after inspecting the selected video, and UNKNOWN again when source changes; cancel leaves Stream Copy unchanged, explicit confirm preserves semantic IN/OUT and runs the official schema-v4 transcode task via controlled transport. No actual VFR/B-frame artifact or source-to-output PTS/DTS sign-off is inferred. The discovered eager-status-formatting/form-validity bug is recorded separately as a Bug and resolved in this exact-head run.
