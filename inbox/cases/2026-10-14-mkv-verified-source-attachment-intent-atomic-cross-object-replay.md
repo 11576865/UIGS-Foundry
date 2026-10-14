@@ -30,3 +30,10 @@ A single prepared edit may modify audio/subtitle tracks **and** existing source 
 The adjacent live-owner Case proves only that a user action can safely change a local *semantic edit plan*. This Case adds an independent **portable-restoration** contract. Neither gives a general Matroska writer license: AttachmentUID references, targeted Tags, nested Chapters, unknown EBML elements and issue #77 structural loss remain subject to independently verified writer checks. Source track-order recovery is still unsupported and disclosed separately.
 
 Potential transferable pattern: when a detached document requests a cross-object edit, validate source-byte/object/old-state identity and the whole prepared mutation set before committing any executable projection, and guard the inverse against newer user changes. This is recorded only as a Case while exact-head CI and other project corroboration are pending. Do not promote or edit Canonical.
+
+## CI and integration closure (2026-10-14)
+
+- PR #131 exact head `0003b73b6e946abe06a0f917311f593f19e28630`: **Browser E2E mux tests SUCCESS** (run `38486732486`) and **Deploy SUCCESS** (run `38486732775`).
+- PR #131 **merged** to main as `d1499ed3bb6eb59d05ded614587b3e0df3f0cdf0`. Its attachment recovery feature no longer has CI Pending status.
+- The new source-track ordering extension [PR #132](https://github.com/11576865/MKV-Fast-Muxer/pull/132) has its **own** exact-head Node/build/Chromium **Pending**, independent of #131's already-green proof. Its Case is `inbox/cases/2026-10-14-mkv-verified-source-track-order-permutation-sparse-executor-mapping.md`.
+- No evidence from #131 proves generic Matroska AttachmentUID/tag relation preservation, device compatibility, arbitrary EBML write support or player delivery across all media.
