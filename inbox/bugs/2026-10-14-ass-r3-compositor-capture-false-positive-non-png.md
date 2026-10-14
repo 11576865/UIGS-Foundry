@@ -101,3 +101,18 @@ At newer exact head `b9706eed9ce082c2e884153be848d9f9d524971f`, Android CI run `
 Product PR #148 commits `43111277` and `6166ee53` moved the exact-head debug + AndroidTest APK prebuild to a dedicated GitHub Actions step **before** the emulator is launched, and changed the screenshot stage to install those binaries directly without compiling within a 180-second device budget. This eliminates the identified setup-timeout coupling but must be validated by subsequent exact-head emulator CI. Latest observed head `6166ee53c868c6e977e8103297692e060c4ac8bf` had Android CI `38590886616` **success**, while Emulator `38590886531` and Fontconfig `38590886649` were still running at time of update.
 
 Transferable scope: separate host compilation, emulator start, instrumentation execution, bitmap authenticity, and image-to-design review into independent evidence gates. A failed test-APK setup must not be misreported as a failed visual comparator; the earlier valid debug-fixture compositor image is still not a real-video R3 parity receipt. Existing Bug record extended; Canonical unchanged.
+
+## 2026-10-15 extension: false red from actual terse runner + package signature conflict
+
+Exact-head product PR #148 `6166ee53c868c6e977e8103297692e060c4ac8bf` CI receipts: Android CI `38590886616` success; Fontconfig `38590886649` success; Emulator `38590886531` failure. Detailed emulator job `115945810631` confirmed:
+- Direct `am instrument -w -e class ...#captureR3FixedReferenceWhenExpanded` produced the **actual API 35 terse output** `io.github.assworkbench.app.UigsVisualCaptureInstrumentedTest:.`, `Time: 14.74`, `OK (1 test)`, without the verbose `INSTRUMENTATION_STATUS: test=...` or `INSTRUMENTATION_CODE: -1`. Existing `verify_r3_instrumentation.py` incorrectly rejected it with `the requested R3 test is absent`. Native test logcat independently showed 1/1 tests passed and R3 compositor PNG file approx 163,738 bytes saved on-device, but host had not yet retrieved/validated the full image.
+- After the direct APK instrumentation, subsequent Gradle `connectedDebugAndroidTest` returned `INSTALL_FAILED_UPDATE_INCOMPATIBLE`, because a package with a different signing certificate remained installed. This invalidates the later regression receipt, even though screenshot test itself finished.
+
+Product commits:
+- `3c69e845` enhances validator to accept **exactly one** terse `Class:.` + `Time` + `OK (1 test)` format ONLY for the expected `UigsVisualCaptureInstrumentedTest`, while preserving verbose full-identity validation and failing closed on error markers.
+- `d3d27551` adds real terse format fixture and negative cases (unrelated class, missing dot, missing time, multiple tests); existing verbose negative cases retained.
+- `0b9a27ba` uninstalls the direct test and target APKs **after** screenshot extraction and **before** Gradle's normal reinstallation, avoiding Android signing conflicts and isolating fixture state.
+
+Verification scope: latest exact-head `0b9a27ba8af49bac265963f0818ea30cbbd75f92` Android CI `38604521014` success at last check; Emulator `38604521032` and Fontconfig `38604521029` still in progress. A recovered complete on-device **JPEG thumbnail** from the earlier emulator log shows actual Compose three-column debug fixture with a black media/renderer-unavailable surface, not real video. This enables a preliminary gap audit against the R3 concept but **not** full-size PNG validity, no display-bound calibration, no real-media and no visual acceptance.
+
+Intake: this is the same R3 evidence integrity failure family, append to existing Bug instead of new Canonical or duplicate Observation. Remains Pending exact-head emulator and native image examination.
