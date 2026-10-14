@@ -33,3 +33,14 @@ Related: `inbox/cases/2026-10-13-qhe-report-baseline-cannot-be-replaced-by-scope
 - Verify that self-generated B16 follow-ups cannot displace a higher-priority B01–B25 requirement merely through recency or queue order.
 - Verify that true blocking dependencies can still be performed after explicit root traceability and priority review; the guard must not force artificial refusal of legitimate prerequisites.
 - Do not promote to Canonical from one reported experience and one repo-state observation.
+
+## 2026-10-14 QHE route checkpoint implementation
+
+The previously proposed guard now has a concrete **project-local process implementation**, not just an advisory note:
+
+- QHE docs/qhe-initial-version-route-reanchor-2026-10-14.md traces B01–B25/A01–A10 and separately records verified implementation, hosted validation, field pending and integration state.
+- QHE AGENTS.md adds a per-work-unit root-goal re-anchor check and a mandatory review after at most two consecutive authorized work units.
+- QHE .uigs/tasks/qhe-initial-version-full-report.json preserves 18 former generated next-unit suggestions as non-authoritative history; the executable queue contains only two named units WU-01 (Guided/Manual compile-to-output) and WU-02 (rich-MKV preservation/embedded ASS), both traced to source requirements.
+- QHE branch feat/qhe-five-round-delivery-20261013 at commit dc2e68e98dc4a6f37dc8f8c5241442733004a91f contains the documented checkpoint. No product feature or release was claimed, and these planning edits have not yet proved that direction drift frequency decreases.
+
+Evidence level: process rule implemented in a real repository with task queue transition; effectiveness against a three-step drift recurrence remains TEST-PENDING. This continues to be Candidate, with no Canonical promotion.
