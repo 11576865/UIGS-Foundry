@@ -121,3 +121,14 @@ Distinct direct source findings on main `6a507d57c36beb9a4761453e724faf0798ee12f
 - Add source regressions. At creation, both exact-head Python/Termux and Chromium/libass GitHub runs were `in_progress`; **CI Pending**, **user Android/Termux Pending**.
 
 Reusable scope-bound observation: when the authoritative renderer is unavailable, a fallback preview must continue to communicate user intent *without impersonating final rendering*; input/renderer bounds and press-and-hold behavior must be explicit and tested. No claim of validated 100% pixel parity, end-user acceptance or root-cause elimination without device `fc-match` evidence. Same ongoing HSR Case family; no new Canonical claim.
+
+
+## PR #178: Termux fontconfig-utils provider corrected by physical device log (2026-10-15)
+
+New physical Termux evidence at 15:27 contradicts the earlier package assumption retained in PR #174/#177: `pkg install -y fontconfig` reports `fontconfig is already the newest version (2.18.1)`, yet `command -v fc-match` yields no path, `fc-match -V` says `The program fc-match is not installed. Install it by executing: pkg install fontconfig-utils`, and Python `shutil.which("fc-match")` returns `None`.
+
+This is a **confirmed dependency-provider mismatch** in this Android/Termux environment, not an assumption that an already-running process merely had a stale PATH. Installing core `fontconfig` cannot remedy a missing `fontconfig-utils` executable on the observed package split.
+
+[HSR PR #178](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/178), head `47fe1dbee6d7e2fa806c7e17b2aba7f76d4f8166`, changes both Termux launchers to `pkg install -y fontconfig-utils` if `fc-match` is missing, verifies executable availability before the server starts, updates real-preview and preflight errors/docs, and replaces the previously wrong launcher contract test. Strict project-font and libass verification is preserved.
+
+Dedup: this is a corrective *extension* of the existing HSR imported-font/Termux case family, **not** a new speculative global Fontconfig rule; package ownership may differ on other distributions. Product code PR #178 is submitted, initial exact-head CI **in progress/queued**, user installing the corrected package and repeating true ASS render **Pending**. No canonical change. The prior case's recommendation to install only `fontconfig` must be treated as invalid for this observed Termux environment.
