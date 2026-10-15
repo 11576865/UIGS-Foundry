@@ -807,13 +807,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-      "sha256": "e8baa8c3fdc5de6465b3c8f66746387becc01e7fa9ce523b89c2f692fe1eb891",
+      "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+      "sha256": "c639320ce6d7a851556c52537fc9c7be46c47d753c2548664e705561d7ba64f9",
       "image": {
         "width": 1365,
-        "height": 1966
+        "height": 3296
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
     },
     {
@@ -830,13 +830,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-      "sha256": "273bbebdead31b794bcd1e050b6ae2ffa673d146d2b93354b8ec28766be22029",
+      "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+      "sha256": "54a64d8c08e2a3f325ae7f71647a090dfe220a9352e6ea0b143979a8e14e9bba",
       "image": {
         "width": 769,
-        "height": 3756
+        "height": 4990
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
     },
     {
@@ -854,13 +854,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-      "sha256": "744ed422ea51d8ee280826d58848de0a559f615d67ded4d53943387ea7094e78",
+      "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+      "sha256": "ab71c0769f839d943b56a8d448ee0309200fdaf36bb4faa725f90e528b0b613e",
       "image": {
         "width": 390,
         "height": 844
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
     },
     {
@@ -881,7 +881,7 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+      "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
       "sha256": "37c92ba28bab92a867e4e32c5a82f101da9404fcd0860d169958db844bb43e57",
       "image": {
         "width": 1365,
@@ -906,7 +906,7 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
       "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+      "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
       "sha256": "cef23421e1ed97780327de54989a23ae70a29b226780e732c3e4fc1ec9bf4321",
       "image": {
         "width": 1365,
@@ -2379,7 +2379,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
         "sha256": "37c92ba28bab92a867e4e32c5a82f101da9404fcd0860d169958db844bb43e57",
         "image": {
           "width": 1365,
@@ -2404,7 +2404,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
         "sha256": "cef23421e1ed97780327de54989a23ae70a29b226780e732c3e4fc1ec9bf4321",
         "image": {
           "width": 1365,
@@ -2432,13 +2432,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "e8baa8c3fdc5de6465b3c8f66746387becc01e7fa9ce523b89c2f692fe1eb891",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "c639320ce6d7a851556c52537fc9c7be46c47d753c2548664e705561d7ba64f9",
         "image": {
           "width": 1365,
-          "height": 1966
+          "height": 3296
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -2456,13 +2456,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "744ed422ea51d8ee280826d58848de0a559f615d67ded4d53943387ea7094e78",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "ab71c0769f839d943b56a8d448ee0309200fdaf36bb4faa725f90e528b0b613e",
         "image": {
           "width": 390,
           "height": 844
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -2482,13 +2482,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "744ed422ea51d8ee280826d58848de0a559f615d67ded4d53943387ea7094e78",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "ab71c0769f839d943b56a8d448ee0309200fdaf36bb4faa725f90e528b0b613e",
         "image": {
           "width": 390,
           "height": 844
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       },
       {
@@ -2507,7 +2507,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
         "sha256": "cef23421e1ed97780327de54989a23ae70a29b226780e732c3e4fc1ec9bf4321",
         "image": {
           "width": 1365,
@@ -2536,7 +2536,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
         "sha256": "37c92ba28bab92a867e4e32c5a82f101da9404fcd0860d169958db844bb43e57",
         "image": {
           "width": 1365,
@@ -2565,7 +2565,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
         "sha256": "37c92ba28bab92a867e4e32c5a82f101da9404fcd0860d169958db844bb43e57",
         "image": {
           "width": 1365,
@@ -2590,13 +2590,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "273bbebdead31b794bcd1e050b6ae2ffa673d146d2b93354b8ec28766be22029",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "54a64d8c08e2a3f325ae7f71647a090dfe220a9352e6ea0b143979a8e14e9bba",
         "image": {
           "width": 769,
-          "height": 3756
+          "height": 4990
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -2615,13 +2615,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "273bbebdead31b794bcd1e050b6ae2ffa673d146d2b93354b8ec28766be22029",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "54a64d8c08e2a3f325ae7f71647a090dfe220a9352e6ea0b143979a8e14e9bba",
         "image": {
           "width": 769,
-          "height": 3756
+          "height": 4990
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -2640,13 +2640,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "273bbebdead31b794bcd1e050b6ae2ffa673d146d2b93354b8ec28766be22029",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "54a64d8c08e2a3f325ae7f71647a090dfe220a9352e6ea0b143979a8e14e9bba",
         "image": {
           "width": 769,
-          "height": 3756
+          "height": 4990
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -2665,13 +2665,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MEDIA_WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "273bbebdead31b794bcd1e050b6ae2ffa673d146d2b93354b8ec28766be22029",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "54a64d8c08e2a3f325ae7f71647a090dfe220a9352e6ea0b143979a8e14e9bba",
         "image": {
           "width": 769,
-          "height": 3756
+          "height": 4990
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MEDIA_WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -2691,13 +2691,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "744ed422ea51d8ee280826d58848de0a559f615d67ded4d53943387ea7094e78",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "ab71c0769f839d943b56a8d448ee0309200fdaf36bb4faa725f90e528b0b613e",
         "image": {
           "width": 390,
           "height": 844
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -2719,13 +2719,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "e8baa8c3fdc5de6465b3c8f66746387becc01e7fa9ce523b89c2f692fe1eb891",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "c639320ce6d7a851556c52537fc9c7be46c47d753c2548664e705561d7ba64f9",
         "image": {
           "width": 1365,
-          "height": 1966
+          "height": 3296
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -2743,13 +2743,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "744ed422ea51d8ee280826d58848de0a559f615d67ded4d53943387ea7094e78",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "ab71c0769f839d943b56a8d448ee0309200fdaf36bb4faa725f90e528b0b613e",
         "image": {
           "width": 390,
           "height": 844
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -2772,7 +2772,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
         "sha256": "37c92ba28bab92a867e4e32c5a82f101da9404fcd0860d169958db844bb43e57",
         "image": {
           "width": 1365,
@@ -2800,13 +2800,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "e8baa8c3fdc5de6465b3c8f66746387becc01e7fa9ce523b89c2f692fe1eb891",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "c639320ce6d7a851556c52537fc9c7be46c47d753c2548664e705561d7ba64f9",
         "image": {
           "width": 1365,
-          "height": 1966
+          "height": 3296
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -2824,13 +2824,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "744ed422ea51d8ee280826d58848de0a559f615d67ded4d53943387ea7094e78",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "ab71c0769f839d943b56a8d448ee0309200fdaf36bb4faa725f90e528b0b613e",
         "image": {
           "width": 390,
           "height": 844
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.MOBILE_STAGE.PRODUCE_DARK.json"
       }
     ],
@@ -2852,13 +2852,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "e8baa8c3fdc5de6465b3c8f66746387becc01e7fa9ce523b89c2f692fe1eb891",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "c639320ce6d7a851556c52537fc9c7be46c47d753c2548664e705561d7ba64f9",
         "image": {
           "width": 1365,
-          "height": 1966
+          "height": 3296
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       }
     ],
@@ -2881,7 +2881,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
         "sha256": "37c92ba28bab92a867e4e32c5a82f101da9404fcd0860d169958db844bb43e57",
         "image": {
           "width": 1365,
@@ -2906,7 +2906,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
         "sha256": "cef23421e1ed97780327de54989a23ae70a29b226780e732c3e4fc1ec9bf4321",
         "image": {
           "width": 1365,
@@ -2934,13 +2934,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.GUIDED_PRODUCE.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-        "sha256": "e8baa8c3fdc5de6465b3c8f66746387becc01e7fa9ce523b89c2f692fe1eb891",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+        "sha256": "c639320ce6d7a851556c52537fc9c7be46c47d753c2548664e705561d7ba64f9",
         "image": {
           "width": 1365,
-          "height": 1966
+          "height": 3296
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.QHE.GUIDED_PRODUCE.DESKTOP_DARK.json"
       },
       {
@@ -2961,7 +2961,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.PREPARE_SHELL.DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
         "sha256": "37c92ba28bab92a867e4e32c5a82f101da9404fcd0860d169958db844bb43e57",
         "image": {
           "width": 1365,
@@ -2986,7 +2986,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
         "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-        "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+        "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
         "sha256": "cef23421e1ed97780327de54989a23ae70a29b226780e732c3e4fc1ec9bf4321",
         "image": {
           "width": 1365,
