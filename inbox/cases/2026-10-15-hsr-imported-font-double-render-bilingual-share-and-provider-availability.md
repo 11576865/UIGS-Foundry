@@ -310,3 +310,16 @@ Transferable case insight: an authoring UI should distinguish *candidate-estimat
 - Local V8 execution verified that the SVG line widths/linebox positions match the backend contract and that a verified plan is applied to matching identities but rejected for stale identities. Added repository regression contracts for ink-validated scale capture, HTTP metadata and identity guard. Full host/runtime tests remain unverified.
 
 **Deduplication:** Extends existing HSR font/preview Case and `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md`; no new Candidate or Canonical edit required.
+
+
+## Follow-up: 20px central anchor gap fails libass ink validation at every shrink level (2026-10-15)
+
+**Classification:** Source-grounded HSR Bug + reproduced real FFmpeg ink-probe Case, not Canonical. **Status:** main implementation checked in; target device, exact project fonts and repository regression CI Pending.
+
+- User device evidence: the same bilingual cue passed SVG quick geometry at 100% yet actual ASS failed `LIBASS_CENTRAL_COLLISION` at every 100→25% font shrink.
+- Root cause confirmed in `layout_solver.py` + `libass_ink.py`: solver placed two ASS anchors exactly `min_central_gap=20px` apart, while ink oracle compared actual glyph envelopes against the full 20px minimum. Constant border/blur/shadow bleed at the anchor edges reduces visible separation irrespective of font scale. Independent actual FFmpeg raster probing at outline=3/shadow=2 yielded 12–13px gap across font scale 100/85/50/25%; at outline=10/shadow=6 the separation could become negative.
+- Fix: `central_ink_reserve(outline, shadow, blur, multi-layer)` computes a bounded safety budget. When both language blocks exist, `solve_subtitle_layout` reserves `nominal visible gap + ink reserve` before dividing remaining safe-area height by the unchanged primary/Chinese regional percentage. `ass_writer.py` passes that reserve to both primary and ink-verified reflow solver passes; geometry API, Termux Lite/FastAPI endpoints, and browser quick preview pass actual active style values to the same solver. For single-language subtitles, the additional center gap is not applied. Existing real-ink acceptance is not bypassed.
+- Independent FFmpeg reproduction after correction: at outline=3/shadow=2, actual ink gap was 24–25px for 100/50/25% scales against a 20px minimum; at outline=10/shadow=6, 24–25px as well for that test fixture. These results are from locally available DejaVu Sans, not the user's exact HYRunYuan/HYQiHei assets; no device-specific claim.
+- Added source/model/real-libass regression cases, including explicit ASS anchor y shift and 3-scale collision check, but no complete hosted CI or user-device test was executed. Exact-font/Termux behavior remains **Pending**.
+
+**Deduplication:** supplements the existing HSR font/preview Case in place. No Canonical promotion.
