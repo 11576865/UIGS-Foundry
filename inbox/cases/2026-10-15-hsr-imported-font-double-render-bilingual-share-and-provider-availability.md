@@ -284,3 +284,16 @@ Transferable case insight: an authoring UI should distinguish *candidate-estimat
 - Subtitle artifact receipt state (`unverified`) does not imply automatic export on a style change. Layout's repair action is a manual ASS/SRT refresh; saved subtitle display-time changes may legitimately update SRT timestamps. These operations should remain distinguished from style autosave and real-render preview.
 
 **Deduplication:** Extends this same HSR imported-font/preview Case and the earlier `2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md` Case. No new Canonical rule.
+
+
+## Follow-up: audio-clock ownership, bounded shrink, isolated font proof, ASS-only autosave (2026-10-15)
+
+**Status:** implementation in HSR `main`; source and bounded JS probes completed, hosted CI and target-device validation **Pending**. Remains a Case, not Canonical.
+
+- **Unauthorized editable timing was a domain-ownership defect.** `subtitle_timing_overrides.json` enabled arbitrary +/-5s display-time changes without changing audio. The corrected effective output window comes only from archive audio start/display end (including audio-derived gaps). The legacy JSON remains on disk for provenance but is ignored by UI and both SRT/ASS export. New timing mutations are rejected by the model; Layout/Effects no longer expose editable cue-time controls, while the Effects timeline remains available as read-only navigation.
+- **ASS and SRT have distinct invalidation causes.** Source text/audio changes continue to update SRT, while saved ASS style changes schedule a debounced ASS-only regeneration. The `ass_only` refresh path reads existing manifest/corrections without rewriting SRT, manifest or CSV. Manual recovery is labeled ASS-only, no longer advertises SRT regeneration from the styling workbench. Strict long-file refresh and raw source edits remain separate flows.
+- **Auto-shrink must exhaust its declared safe range.** The previous solver tried only 100/95/90/85 percent. The new bounded search continues in 5-percent steps to 25 percent; successful estimated downscaling and exhaustion are reported in the stage status. The lower bound is a readability constraint, not a guarantee that arbitrarily long text will fit.
+- **Font identity validation must not depend on a stress-test subtitle's length.** Import now requests a short representative FFmpeg/libass font-match proof using the selected project font. A long subtitle failing layout does not cause valid font import to be rejected. The real still preview remains explicit user choice and does not automatically run on parameter changes in either Layout or Effects. Overflow reasons from the temporary report are included in error messages before temp cleanup.
+- **Evidence boundaries:** source-level checks of endpoints/DOM and isolated V8 runs of font-import transaction and ASS-only debouncing passed. Physical Termux with the user's exact HYRunYuan-55W.ttf, large corpus runtime, host Python tests, Chromium UI and independent ASS/SRT byte verification remain **Pending**; do not claim those passed.
+
+**Deduplication:** Extends this existing font/preview HSR Case and the earlier async-preview Case. No Canonical promotion.
