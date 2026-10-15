@@ -40,3 +40,8 @@ The user also requested removal of unrelated arbitrary Fade caps or preset overr
 - `inbox/cases/2026-10-14-ass-native-fade-blur-draft-commit-guards.md` covers transactional draft safety for native ASS fade editing, but not source-audio-derived fade budgets.
 
 **Status remains Candidate. No Canonical changes from this one HSR design discussion.**
+
+
+## Current HSR phase refinement — symmetric Fade (2026-10-16)
+
+The user clarified that during the current HSR implementation stage, Fade-in and Fade-out have **one shared author duration**. This replaces independent parameter editing for now, while retaining separate before-voice and after-voice envelope semantics. The 60% warning / 100% block therefore evaluates `2 × FadeDuration / shortestAdjacentPcmGap`. `app/project.py` normalizes both persisted fields from the common submitted value; FastAPI, Termux Lite, preview and ASS export use the same duration; the inspector displays one number input with an internally mirrored legacy `fade_out_ms` for wire compatibility. This is a product-phase setting decision, **not a generalized UI Canonical rule**. No exact-head CI or physical device acceptance is claimed.
