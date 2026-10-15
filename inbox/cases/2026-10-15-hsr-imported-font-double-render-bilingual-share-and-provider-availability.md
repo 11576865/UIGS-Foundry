@@ -297,3 +297,16 @@ Transferable case insight: an authoring UI should distinguish *candidate-estimat
 - **Evidence boundaries:** source-level checks of endpoints/DOM and isolated V8 runs of font-import transaction and ASS-only debouncing passed. Physical Termux with the user's exact HYRunYuan-55W.ttf, large corpus runtime, host Python tests, Chromium UI and independent ASS/SRT byte verification remain **Pending**; do not claim those passed.
 
 **Deduplication:** Extends this existing font/preview HSR Case and the earlier async-preview Case. No Canonical promotion.
+
+
+## Follow-up: layout-plan fidelity after explicit libass verification (2026-10-15)
+
+**Level:** continuation of existing HSR Case; not Canonical. **Status:** mainline source implementation + isolated V8 geometry/identity checks; exact-head Python/Chromium and target Termux device acceptance **Pending**.
+
+- Failure mechanism: `preview_subtitle_layout()` and `render_ass()` share the initial solver, but actual ASS performs an additional raster-backed ink-validation/reflow stage. The browser then remeasured every solved text line using SVG's font metrics, so both line widths and potentially the number of lines or scale could differ from the actual image.
+- Mainline repair: fast SVG now uses server-supplied per-line `measured_width`, `font_size` and `line_height` (`textLength` and shared linebox alignment) without browser-owned reflow. If browser loading of a selected font fails, UI flags fallback explicitly instead of presenting it as a comparable preview.
+- On explicit still-frame render only, `render_ass()` optionally captures the final *validated* line geometry (after raster-driven shrink/reflow) already computed during the ordinary ASS write. Both FastAPI and Termux Lite return a bounded Base64 JSON provenance header alongside the normal PNG (no extra render). The Layout browser stores it under the exact project/payload identity; switching to fast view with the same identity reuses final lines/scale. Editing parameters invalidates the plan. Effects UI and the optional actual-render trigger are preserved.
+- Limit: before first explicit real render, browser fast preview remains an estimate; even after plan reuse, SVG glyph outlines, fonts and ASS-native effects are not pixel-perfect libass replicas. Do not claim global pixel equivalence. Header provenance is optional and capped to avoid oversized HTTP headers.
+- Local V8 execution verified that the SVG line widths/linebox positions match the backend contract and that a verified plan is applied to matching identities but rejected for stale identities. Added repository regression contracts for ink-validated scale capture, HTTP metadata and identity guard. Full host/runtime tests remain unverified.
+
+**Deduplication:** Extends existing HSR font/preview Case and `inbox/cases/2026-10-10-hsr-subtitle-preview-evidence-and-async-save.md`; no new Candidate or Canonical edit required.
