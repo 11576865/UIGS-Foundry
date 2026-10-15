@@ -65,3 +65,13 @@ One ambiguous real parameter, one missing-font warning, one output blocking erro
 - `/mnt/data/ASS-Workbench-Android_UI宪法_替代版_2026-10-01.txt` observed principle: learning/professional presentation hybrid keeps concepts visible and explanations on-demand; no unvalidated Canonical update.
 
 No code change or visual validation is claimed. This does not promote an assistant design recommendation to a UIGS Canonical rule.
+
+## QHE desktop/tablet Figma design instance (2026-10-16)
+
+Owner supplied reference screenshots reiterating the four icon categories and regional Standard/Compact/Auto label density, then requested an improvement of the existing QHE Figma designs. This is an instantiation of the contract above, not a newly invented or Canonical rule.
+
+Updated the same eight desktop/tablet frames in Figma file FPHdsXxN7xNniLKjZQcVKd, plus static interaction sheet node 16:470. Added source-matched library object/action icons, six toolbar variants (Standard/Compact × Default/Focus/Disabled), and five status variants (Verified/Warning/Blocked/Unknown/Running). Toolbar Label and Icon swap properties retain semantic action identities when visual labels are hidden. Unknown/unconnected uses a neutral question-circle; explanations use Info; warnings/blocks use their own shapes and visible actionable text. Real filenames, track identities and parameter values remain visible. Tablet secondary operations move under More, and object metadata uses two lines when necessary.
+
+The interaction sheet depicts Standard/Compact/Auto presentations, focus-name tooltip, touch help behavior, missing-font warning and blocking corrective action. These are static design states and specifications; screen-reader semantics, keyboard transitions, adaptive settings persistence and actual runtime interactions are NOT implemented or tested by this work. No product runtime files changed.
+
+All eight screens and the interaction sheet were visually reviewed; Figma auto-layout frame-child bound checks returned zero horizontal overflows. Main work area starts at y=176 on desktop/landscape tablet and y=168 on portrait tablet (design coordinates). This is canvas geometry evidence, not measured usability, physical-device evidence, WCAG conformance, or proof that an arbitrary user recognizes every icon. Earlier proposal's no-visual-validation statement describes the original 2026-10-12 checkpoint; this update adds only static Figma visual evidence. Runtime acceptance tests proposed above remain open. No Canonical promotion.
