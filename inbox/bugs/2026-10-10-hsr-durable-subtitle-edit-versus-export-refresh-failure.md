@@ -85,3 +85,11 @@ Old files are never assumed valid simply because they still exist.
 
 Intake classification remains **Bug**, not a Canonical rule. This is an
 incremental, deduplicated improvement to the same durable-save issue.
+
+## Continuation: layout autosave must not schedule artifact publication (2026-10-16)
+
+**New user-observed regression in HSR PR #185/main:** Changing a Layout/Effects inspector value persisted the settings correctly (650 ms debounce) but subsequently called `queueAutoAssRefresh` (1800 ms), posting `ass_only:true`. Under complete-delivery, the handler enqueued `queue_ass_regeneration`, which rebuilt the entire ASS and re-muxed MKV rather than merely refreshing the geometry preview. The user's intended ownership boundary is *persist parameter edits automatically* while *true rendered ASS, full archive production, and explicit libass previews remain user-invoked*. This is separate from the earlier durable-edit versus failed-derived-export problem, so it is logged here as a continuation rather than a duplicate Canonical rule.
+
+**Code proposal, pending exact-head CI:** [HSR PR #186](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/186) removes the browser autosave-to-export timer and uses `mark_ass_style_stale` to invalidate only ASS publication freshness when an effective `subtitle_*` project value changes. SRT remains independently current, and previously generated ASS/SRT/FLAC/MKV bytes are untouched until a separate explicit generation. No-op updates should not invalidate already-certified artifacts; re-export rewrites a current receipt. Regression `tests/test_layout_autosave_export_boundary.py` checks file bytes, receipt semantics and explicit Generate action continuity.
+
+**Important boundary:** A style settings save does not establish a newly correct MKV. It must mark the old container stale without performing automatic re-mux. The previous part of this record remains independently evidenced; the 2026-10-16 continuation is **Pending External Validation**. No Canonical modification.
