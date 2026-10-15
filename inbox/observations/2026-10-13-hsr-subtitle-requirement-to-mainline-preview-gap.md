@@ -369,3 +369,15 @@ Dedup: extends this existing HSR requirement-to-mainline Observation and `inbox/
 - **Semantics:** optional Archive HUD is named as an information overlay, not a general effect composer; preview video is described as bounded real FFmpeg/libass effect acceptance media, not an animation effect or final MKV background setting. Existing manual real-render and ASS-only save/refresh flows remain.
 - **Verification:** structural source review and inline JS syntax checks passed; repository regression tests were updated/added for selectors, higher ranges, fade duration, fixed/whole-cue/width-based Karaoke and actual ASS tag generation. The tests have not been executed end-to-end on this exact head; the remote GitHub connector does not provide an exact-head workflow dispatch and local container cannot access GitHub directly. CI/device verification **Pending**, not `passed`.
 - **Deduplication:** Extends this Observation and the existing ASS v6.2 Karaoke Case. No new generalized Canonical entry and no claimed pixel-perfect SVG/libass parity.
+
+
+### 2026-10-16 follow-up: mode discoverability and speed semantics
+
+**Status:** HSR `main` source changes present; full Python/Chromium and Android field acceptance **Pending**. Continue this Observation (no Canonical promotion).
+
+- Automatic voice-gap Fade intentionally supersedes the manual in/out numbers; the Effects UI now disables those numerical controls while auto is enabled, making the parameter ownership explicit. Manual fade no longer has the hidden 25%-per-edge clamp, but remains bounded by the audio-derived subtitle event duration. Added regression contracts for both modes.
+- A project without active Karaoke now opens the editor in generated fixed-speed mode even if the legacy config's default timing was `aligned`. An already-enabled aligned project retains its saved sync preference; this avoids destructive migration while allowing first-time unsynced Karaoke without WhisperX.
+- Width-based sweep now apportions the entire cue duration proportionally to measured glyph widths when the user selects both `cue` timing and `pixel` units. This avoids describing equal-time-per-character as constant pixel speed. Added a deterministic width-ratio tag test.
+- Isolated execution of the current browser state handler confirmed that fixed speed is enabled with zero alignment and sync-only controls are disabled in the same state. Source contract checks confirmed one shared cue-browser DOM, no visible timeline DOM, backend config propagation, user-triggered FFmpeg, and inline JS parsing. Not a substitute for whole-repository CI or real device behavior.
+
+Deduplication: this extends the 2026-10-16 implementation section above; keep regression/acceptance evidence separated from mere code existence.
