@@ -16,8 +16,8 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.MOBILE_STAGE.PRODUCE_DARK.png",
   "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-  "source_revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
-  "sha256": "744ed422ea51d8ee280826d58848de0a559f615d67ded4d53943387ea7094e78",
+  "source_revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
+  "sha256": "ab71c0769f839d943b56a8d448ee0309200fdaf36bb4faa725f90e528b0b613e",
   "image": {
     "width": 390,
     "height": 844
@@ -69,7 +69,7 @@
       "settle_ms": 800
     }
   },
-  "change_status": "unchanged",
+  "change_status": "changed",
   "previous_sha256": "744ed422ea51d8ee280826d58848de0a559f615d67ded4d53943387ea7094e78",
   "limitations": [
     "Mobile production surface only; no encoder job is executed."
@@ -78,13 +78,13 @@
     {
       "source_type": "repository",
       "source": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+      "revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/Quick-Automatic-Hardsub-Encoder:ui-visual-capture.json",
-      "revision": "de8bfb476b7f35b952db88bcaf5b4d2c9ed44d38",
+      "revision": "e9491ba93c7cfacd4a1c8aa73d8f42c51c0c0d21",
       "evidence_level": "source-owned capture declaration"
     }
   ]
