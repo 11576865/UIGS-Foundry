@@ -256,3 +256,19 @@ Safety/acceptance scope:
 - This is an extension of the same HSR case family, not an independent universal typographic law. Do not change UIGS Canonical based on a single product's CI fixture.
 
 Cross-project transferable observation: distinguish *raster-proven fit* from *estimated shaping/semantic line-break candidates*, use the real renderer only as bounded acceptance oracle and a measured candidate-specific correction, and keep ordinary UI tuning responsive through cached visual states. Integration and deployment must not conflate CI pass and actual user font proof.
+
+
+## PR #184: grouped rendering-preview entry and nonblocking diagnosis (2026-10-15)
+
+User-facing issue: after main #183, top-level **辅助边界** remained outside **画布与诊断**, which separately exposed safe-zone/center-gap/estimated bbox toggles. There was no clearly named **pre-export subtitle preview entry**; the genuine frame trigger was ambiguously named “实际 ASS 渲染”. The prior #182 visual A/B and overlay PR was open on an older base, so none of its capabilities was deployed.
+
+Resolution [HSR PR #184](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/184) was **merged to main** at `bb4a4cadcbd0f64e9803644ea3da1c18723041d9` (exact tested head `3fc56d50c3bb6cdc79123697347d72f67420508c`):
+- Clearly labels the main action **预览当前字幕（不导出）**: it calls actual FFmpeg/libass for current unsaved inspector settings, independently of final ASS export.
+- Moves the former ungrouped “辅助边界” action into a **default-expanded 画布与诊断 · 渲染前布局预估** area as **渲染前预估（仅边界）**, adjacent to safe area, central gap and estimated text bbox controls. The preview estimates use guide rectangles only, never browser glyphs or fabricated font size parity.
+- Carries #182's real FFmpeg decoded-frame ownership, explicitly stale old frame display while new frame is pending, bounded previous-vs-current true-frame comparison, and SVG guide overlay on the true image. Closed #182 as superseded/unmerged after #184 merge.
+- Adds a diagnostic-only redraw entry, consuming a synchronous flag at entry of the unchanged `async function updateLayoutPreview()`, so guide toggles and rapid estimate do not trigger fresh FFmpeg or invalidate in-flight actual rendering. Preserving the production function signature was necessary: initial CI showed concrete regressions in test fixture source extraction when the signature changed. Restore/verify original signature, not weakening existing editor tests.
+- Shows geometry-only preview as neutral unverified (not green “passed”), repairs estimated-bbox checkbox behavior.
+
+Validation: exact-head [Python 3.11–3.13 + Termux-lite + real libass ink CI](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38727029280) **success**; [Chromium UI + libass artifact](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38727029439) **success**; merged main was independently confirmed. User's physical Android browser screenshot and actual repeated fast-preview performance remain **Pending**, not silently promoted to acceptance.
+
+Transferable case insight: an authoring UI should distinguish *candidate-estimate view*, *true renderer preview of unsaved edits*, *A/B of two true renderer outputs*, and *saved/exported artifact*, place each control under the subsystem owning it, and never let non-authoritative diagnostic-only toggles reenter the expensive authoritative pipeline. Real-render comparisons do not eliminate all full-corpus runtime/animated ink acceptance debt under HSR Issue #176. This updates an existing Case after dedup; no Canonical change.
