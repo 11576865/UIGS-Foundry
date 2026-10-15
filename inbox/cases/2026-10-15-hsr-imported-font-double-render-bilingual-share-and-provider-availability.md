@@ -87,3 +87,10 @@ After prior PRs #169-171 passed CI and merged, the user requested continued work
 On Termux missing WhisperX/PyTorch, the action is now hidden (the capability status explicitly explains why) rather than advertised as a disabled generator. This is a product affordance revision; it **does not deliver on-device word forced alignment**, and validated external JSON import remains the honest supported route.
 
 **Evidence boundary:** Source-level old-vs-new family alias issue is supported by inspected logic; real reported HYQiHei bytes are not available. PR #172 exact-head UI/libass CI and physical Android glyph checks remain **Pending** at this intake stage. No automatic Canonical promotion. Dedup: this is a follow-up under the existing HSR user-report Case, not a new one.
+
+
+### PR #172 exact-head acceptance and mainline status
+
+PR #172 exact head `7b354cffd7d16f5e2f09a7cfd283e053fcabba2e` passed [Python 3.11/3.12/3.13 + Termux Lite workflow 38685697807](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38685697807) and [Chromium + actual FFmpeg/libass workflow 38685697813](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38685697813). Initial red checks exposed a partial Node test harness referencing an absent font helper and a literal-escaped PNG signature in a new test; both were repaired without relaxing the actual font rendering or timeline checks. The implementation was **squash merged into product main** at `dac71b0f9cc11a8ced19a7e7cf7f113a90b6d80e`.
+
+Specific verified improvements: same-family reimport leaves a single file eligible for Fontconfig/libass, browser FontFace registration of previous bytes is removed and pending asynchronous loads cannot override a newer import, project switch invalidates the font cache, and committed appearance edits trigger a debounced true libass frame. On-device HYQiHei/HYRunYuan appearance/glyph coverage and native Android word alignment **remain Pending**, not claimed resolved. No Canonical modification.
