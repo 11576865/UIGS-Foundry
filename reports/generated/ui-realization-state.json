@@ -116,7 +116,7 @@
           "path": "app/static/index.html",
           "expected_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf",
           "verified": true,
-          "current_blob_sha": "6aebee3bcb74addd149c13f81a3eeef9cab02b62",
+          "current_blob_sha": "653703f5d6c9ab2abd8c913fb60e5970e3af0692",
           "current": false,
           "actual_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf"
         }
@@ -126,13 +126,13 @@
           "path": "tests/test_progress_ui.py",
           "expected_blob_sha": "0d159d9d003f029137d974859579012c7deef115",
           "verified": true,
-          "current_blob_sha": "f6e7068e068669e68d6fcaa1646d682283ed5c2f",
+          "current_blob_sha": "448d6e1fdf8f8b6dc76cf5362a02d1d61d96ad0c",
           "current": false,
           "actual_blob_sha": "0d159d9d003f029137d974859579012c7deef115"
         }
       ],
       "source_verified": true,
-      "current_head": "b9d9c0713cd211cbb18e5a61f95d72ed9d3ac841",
+      "current_head": "576b7ab596c678ce5115d54a12c35ee7789e80f0",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
@@ -148,7 +148,7 @@
           "path": "index.html",
           "expected_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2",
           "verified": true,
-          "current_blob_sha": "a2155eeed8f74954ca82a32862a70babf6c8a078",
+          "current_blob_sha": "e73f324e02c128645c2cd3d525ab6bb7bc1652c8",
           "current": false,
           "actual_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2"
         },
@@ -180,7 +180,7 @@
         }
       ],
       "source_verified": true,
-      "current_head": "1f8dcefa7c05b4752399d7160b65392612e78b05",
+      "current_head": "a1f4e0aa3af33c2459d8a66569b9043e75feec21",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
