@@ -34,3 +34,9 @@ Immediately after #111, branch inventory dropped from 52 initial refs to **one `
 ## Deduplication
 
 Foundry already has `inbox/tests/2026-10-04-branch-hygiene-deletes-only-ancestry-proven-merged-branches.md`, `inbox/candidates/2026-10-11-squash-merged-branch-tags-before-ref-pruning.md`, and `inbox/candidates/2026-10-04-active-work-branch-budget-and-cleanup.md`. These establish safe deletion and explicit archive practice, but do not capture this observed **all-head multi-parent ancestry→unexpected evidence transport deletion→repair** failure. Case is a single-repository observation; no Canonical promotion.
+
+## Final tail reconciliation — 2026-10-15
+
+The hygiene-fix PR #112 had been **squash merged**, leaving its new source branch at `e7a2ec02c7de32912eeb65719442f9a672829ba5` with 1 historical commit outside `main`. To fulfill the owner's literal all-ref ancestry requirement, a **non-force two-parent, no-tree-change** merge commit was created with current main `2dda8c59772218c88689a5bea1252e015a0b2ab1` first parent and the fix branch head second parent. Final main: **`ad90cb172700e2c182d6697b4b27d9b5d91083c1`**. GitHub compare confirmed both remaining non-main refs, `uigs-outbox` and the hygiene-fix branch, have **0 commits unique relative to final main**. The final source diff from the pre-convergence main has exactly 2 files: this QHE repo's 51-head audit Markdown and the `uigs-outbox` exemption in the hygiene YAML. No product source changed.
+
+At final GET, QHE had **3 refs** (main, preserved `uigs-outbox`, and already merged fix ref), **0 open PRs**. Existing branch-hygiene may delete the redundant fix ref at its next sweep. The outbox should remain due the explicit exclusion; **next sweep with the outbox actually present is still pending independent runtime confirmation**.
