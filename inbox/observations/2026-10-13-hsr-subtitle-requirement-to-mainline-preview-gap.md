@@ -381,3 +381,15 @@ Dedup: extends this existing HSR requirement-to-mainline Observation and `inbox/
 - Isolated execution of the current browser state handler confirmed that fixed speed is enabled with zero alignment and sync-only controls are disabled in the same state. Source contract checks confirmed one shared cue-browser DOM, no visible timeline DOM, backend config propagation, user-triggered FFmpeg, and inline JS parsing. Not a substitute for whole-repository CI or real device behavior.
 
 Deduplication: this extends the 2026-10-16 implementation section above; keep regression/acceptance evidence separated from mere code existence.
+
+
+## 2026-10-16: generated Karaoke cue-duration saturation and alignment request ownership
+
+Status: **Observation / Test** added to the existing HSR subtitle engineering record; Canonical unchanged. Mainline source fixes exist. Full Linux/Termux/Python/Chromium CI and the user's actual font/archive acceptance: **Pending**.
+
+- Whole-cue auto Karaoke previously used `max(unit_count, round(duration_seconds*100))`, forcing at least one centisecond per character. For a short audio-derived subtitle with more characters than centiseconds, generated `\\k`/`\\kf` tags implied progression past the cue end. Now the sum of whole-cue generated durations is exactly the centisecond duration; zero-centisecond tags are permitted when the text outnumbers the available slots. Pixel-weighted quotas also distribute the exact duration without adding a compulsory centisecond per character. New regression covers a 20ms/four-character clip.
+- Mode dependency: the shared cue loader was still fetching a word-alignment document whenever a selected cue had one, even when the user explicitly chose fixed-speed/no-sync Karaoke. It now requests this optional record only in aligned mode. This prevents unnecessary request latency and stops synthetic progression from appearing dependent on external alignment data.
+- Accessible distinction: effects' manual/whole-cue/word-aligned modes and resource-preserving cue selector share persisted settings with FastAPI, Termux Lite, libass preview and ASS export. The visible `\\k` option describes segment switching, not necessarily word switching (it can operate on graphemes).
+- **Scope/evidence:** Static JavaScript parsing and an isolated execution of control-state transitions confirm Fixed and Cue enable without alignment, while Aligned blocks without records. No full repository test suite or Android real frame validation is available in this session. A green repository CI must be independently obtained before declaring engineering acceptance.
+
+Deduplication: Extends the existing parameter ceiling/unsynchronized Karaoke Observation instead of creating a new Canonical standard or duplicate Case.
