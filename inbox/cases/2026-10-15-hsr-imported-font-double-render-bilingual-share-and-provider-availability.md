@@ -203,3 +203,23 @@ Source inspection of `app/static/index.html::importCurrentProjectFont()` proved 
 **Exact head CI passed**: [Python + Termux-lite](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38713640082) and [Chromium UI + actual libass artifact](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38713640121). Physical Android repeated-import acceptance, post-restart field screenshot and saved/actual-exported ASS corpus equivalence remain **pending**. This repair stops a false failure and a non-authoritative competing visualization; it does NOT demonstrate pixel parity between independent renderers or solve the distinct whole-corpus glyph-ink validation task under [HSR Issue #176](https://github.com/11576865/HSR-Voice-Archive-Builder/issues/176).
 
 Deduplication: extension of the existing 2026-10-15 HSR imported-font Case; no automatic Canonical update.
+
+
+## PR #182: keep authoritative libass A/B review while preserving diagnostic overlay (2026-10-15)
+
+User identified a fundamental unresolved correctness/interaction problem: the layout solver uses Pillow character advances with a hardcoded `font_size * 1.25` line height, and earlier SVG typography was visibly larger than actual FFmpeg/libass ink. Removing that misleading preview did **not** correct the writer's approximate line-breaking/region-fit model. It also eliminated quick before/after inspection because changing any inspector setting revoked and hid the previous successful rendered frame.
+
+[HSR PR #182](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/182) exact head `1b00f3cb594dbf80a26a8d0fd447beebd032bde1` is **CI green / open, not merged** at intake:
+- [Python/Termux workflow](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38719029049): success.
+- [Chromium UI / libass artifact](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38719028985): success.
+- A GitHub merge tool action was blocked by host safety checks; no merge or main update occurred. Preserve **Pending: human/authorized merge** rather than claiming release.
+
+Scope delivered on PR branch:
+1. Keep the last decoded genuine FFmpeg/libass frame visible but **explicitly stale** while current-style render is queued; the old frame never proves new settings.
+2. Decode new PNG in a staging `Image` before identity-safe publication, keeping at most two successful same-cue Blob URLs so before/after switching is immediate and requires no extra FFmpeg. Discard comparison on cue/text/timestamp change or later replacement. A Node VM regression executes the production preview state machine for request races, the guide toggle, frame comparison and release.
+3. Draw the existing solver's safe-area/gap/bbox diagnostic guides as a transparent SVG **overlay** over actual libass pixels, never a separate glyph preview. The bbox visibility checkbox is obeyed; labels explicitly identify the text bbox as estimated rather than true ink.
+4. Audit status of prior PR #180–#181 repair: those prevented false import proof and competing SVG captions, but never calibrated the solver's text width to real ink.
+
+Remaining correctness debt explicitly assigned to [HSR Issue #176](https://github.com/11576865/HSR-Voice-Archive-Builder/issues/176): define actual glyph/outline/shadow visible ink boundaries keyed by imported font SHA, precise ASS bytes and preview timestamp; compare ink against safe zones and bilingual overlap; then calibrate or rerender/reject export layout choices using actual evidence, without imposing a guessed global size multiplier. Current interactive overlay is **not** a real glyph measurement. Real Android device, exact exported ASS/video and full-corpus pass remain Pending. No Canonical promotion.
+
+Reusable distinction: retaining a correctly identified *stale genuine image* is useful for authoring A/B comparison and not equivalent to presenting an approximate replacement renderer as fresh current evidence. A live diagnostic overlay can share the same rendered image without becoming another content authority. Source/UI regression alone is not proof of font metrics parity.
