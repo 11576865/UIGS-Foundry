@@ -103,3 +103,21 @@ Product PR [#173](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/173
 Repair commit [`ab92a074`](https://github.com/11576865/HSR-Voice-Archive-Builder/commit/ab92a0741fef808737c7a31218197bd739de2ddf) corrects the **first** evidence assertion to `video-image`, preserving `readyState>=2`, visible decoded playback, and downstream active-video interactions. It does **not** accept an absent/undecoded video or suppress the test. Exact-head [Chromium+libass run 38692052061](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38692052061) and [Python/Termux run 38692052088](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38692052088) completed **successfully**.
 
 Reusable case detail: when renderer source classes evolve from generic `video` to `video-image` or `video-footage`, browser acceptance must assert both actual decode/playability **and provenance identity** consistently throughout the same test. A state mismatch can falsely surface as a time-out; include media diagnostics to distinguish playback failure from stale evidence expectations. This is appended to the existing HSR case rather than creating a duplicate or modifying Canonical. Physical Android/HYQiHei/Karaoke user acceptance remains Pending; passing CI here is not evidence of those device-specific outcomes.
+
+
+## PR #177: missing style feedback during real renderer failure and touch repeat (2026-10-15)
+
+New field screenshots at 15:07–15:08 show an unresolved Termux dependency error ("no fc-match") despite main already containing the launcher bootstrap from PR #174. This is **user-device evidence of missing executable discovery in the *running* HSR process**, not proof that FFmpeg/libass is broken on every Termux installation; updating GitHub or refreshing the browser does not provision packages into an existing Termux environment. A UI project-font success badge remains unearned until the executable is installed and the libass path re-tested.
+
+Distinct direct source findings on main `6a507d57c36beb9a4761453e724faf0798ee12f7`:
+- Browser SVG geometry text stroke was hardcoded to `Math.max(2, font_size * 0.08)`; shadows, Blur, backdrop and multi-outline were absent from the visible geometry layer. A real FFmpeg failure therefore made changing Appearance appear inert.
+- Coarse-touch numeric steppers handled `click` only; no hold-repeat/cancellation/keyboard semantics were implemented.
+- Mobile slider caps 8 / 8 / 2.5 were below the backend preview clamps 12 / 12 / 5, and out-of-range numeric input was silently clamped, without stating this was an implementation constraint rather than an ASS format limit.
+
+[HSR PR #177](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/177) re-lands a coherent repair onto main (initial SHA `e0097771226569a78539881757d169c5796554ed`):
+- Preserve strict fc-match and libass actual-file/face/glyph proof; add executable Termux prefix lookup and explicit install + process-restart diagnostic. Preflight reports missing fontconfig but does not silently install from an HTTP request.
+- Add responsive SVG **approximate** appearance feedback (outline, shadow, Blur, card, multi-outline) while explicitly **refusing** to elevate it to actual ASS visual evidence. True FFmpeg/libass rendering remains the only result authority.
+- Add delayed pointer repeat and cancellation; keep single click/keyboard step; align UI caps to backend and expose input errors rather than silently forcing numeric bounds.
+- Add source regressions. At creation, both exact-head Python/Termux and Chromium/libass GitHub runs were `in_progress`; **CI Pending**, **user Android/Termux Pending**.
+
+Reusable scope-bound observation: when the authoritative renderer is unavailable, a fallback preview must continue to communicate user intent *without impersonating final rendering*; input/renderer bounds and press-and-hold behavior must be explicit and tested. No claim of validated 100% pixel parity, end-user acceptance or root-cause elimination without device `fc-match` evidence. Same ongoing HSR Case family; no new Canonical claim.
