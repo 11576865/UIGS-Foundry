@@ -132,3 +132,21 @@ This is a **confirmed dependency-provider mismatch** in this Android/Termux envi
 [HSR PR #178](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/178), head `47fe1dbee6d7e2fa806c7e17b2aba7f76d4f8166`, changes both Termux launchers to `pkg install -y fontconfig-utils` if `fc-match` is missing, verifies executable availability before the server starts, updates real-preview and preflight errors/docs, and replaces the previously wrong launcher contract test. Strict project-font and libass verification is preserved.
 
 Dedup: this is a corrective *extension* of the existing HSR imported-font/Termux case family, **not** a new speculative global Fontconfig rule; package ownership may differ on other distributions. Product code PR #178 is submitted, initial exact-head CI **in progress/queued**, user installing the corrected package and repeating true ASS render **Pending**. No canonical change. The prior case's recommendation to install only `fontconfig` must be treated as invalid for this observed Termux environment.
+
+
+## PR #179: real-font success reveals geometry-vs-libass authoring divergence (2026-10-15)
+
+At 15:30–15:32, after correcting Termux's `fontconfig-utils` executable dependency, four on-device screenshots for the same HSR Layout studio show a now-successful actual `FFmpeg/libass` frame beside a browser geometry SVG preview whose font weight, vertical occupation, line breaking and visible outline differ substantially. This is a higher-severity authoring correctness case: semantic segmentation and subtitle positioning cannot be approved against an unfaithful renderer.
+
+Direct source findings on `main`:
+- Layout preview is rendered as SVG using browser shaping and an artificial `font-weight=600` while the ASS writer's actual style uses `Bold=0`. Its line positions and bounding boxes are mathematically estimated, with PIL metrics optional and heuristic character widths when unavailable. Even if `solve_subtitle_layout` is shared, **the rasterizers are not semantically identical**.
+- Project Layout initial/default UI shows geometry; `queueLiveRealPreview()` previously only ran when manually armed or certain appearance changes armed it, so day-to-day segmentation might follow geometry rather than actual libass.
+- `subtitle_layout/breaker.py` offered split points immediately after apostrophes, allowing English contractions/possessives to break across lines (e.g. `That's` -> `That'` / `s`).
+
+[HSR PR #179](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/179) initial head `273b7ba086462b1106fe2c3da9de23d0c9283a3f`:
+- Makes an automatically refreshed, input/sample-identity-checked genuine libass still frame the authoritative current-cue Layout authoring surface; honors manual temporary geometry inspection but resumes true render after next edit.
+- Keeps the geometry SVG explicitly marked as unverified auxiliary diagnostics, removes its misleading bold weight and no longer reports an estimated-safe geometry state as actual layout approval.
+- Prevents English apostrophe splitting in candidate breaks, with regression tests for contractions and explicit ASS writer-vs-solver planned breaks.
+- Distinguishes single-cue real render success from **full archive raster coverage**; records pending full-corpus ink bbox, text reflow and timing validation in [HSR Issue #176](https://github.com/11576865/HSR-Voice-Archive-Builder/issues/176).
+
+Epistemic boundary: This is **implementation submitted, exact-head CI Pending**. Field evidence supports successful **one-device real libass frame**, not whole-corpus consistency, final MKV rendering parity across players, or equivalence of SVG and libass. Do not promote a single case to Canonical. Reuse/extend the current HSR case family; avoid creating a parallel overlapping record.
