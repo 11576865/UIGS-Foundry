@@ -80,3 +80,13 @@ The reusable candidate observation is distinct lifecycle ownership: a user's can
 Follow-up to prior Pending CI checkpoint: reconciled PR #90 head `56535f5cf5b78fab207c41885fbe813984ac015f` completed **four successful GitHub workflow runs** (UIGS Evidence Coverage, Frontend, Windows local smoke, Windows Stream Plan v4 runtime). It subsequently **merged to QHE main** as `c1c7872016dbee4d0c199522a5ab7bfcf77d4665`.
 
 This confirms the submitted synthetic tests and mainline integration. It still does not prove physical multi-hour/NVIDIA/HDR/VFR integrity or eliminate all file-system race windows. Maintain Candidate status; no automatic Canonical change.
+
+## QHE Figma v3: static UI projection of the publication gate (2026-10-16)
+
+Design-only observation, not a backend regression: the v2 Figma artifact screen paired pending check text with two visually enabled Save actions. The next design iteration makes those actions Disabled-component instances and states which required check remains incomplete (per-stream preservation difference). It adds Run required checks and Export check report so a disabled Save does not leave a dead end. Optional target-player reopening is explicitly separate from mandatory checks.
+
+Evidence: Figma file FPHdsXxN7xNniLKjZQcVKd, screen node 3:500; structural read confirms save instances 3:582 and 3:629 use QHE/Button/Disabled, opacity 0.55. Visual review confirms the missing-required-check explanation and next action are visible. This does not mean runtime disabled/keyboard semantics, backend gate behavior, or a real output were tested. Existing runtime gate evidence above is independent.
+
+Related design work made output planning the default view, collapsed inactive empty previews, and drew desktop/tablet preview states with 772×434.25 and 596×335.25 viewports (16:9 example). Source display aspect must be derived from actual media, including sample aspect ratio, when implemented. Geometry does not establish usability or device acceptance.
+
+Dedup: this is a static UI projection case attached to the existing verify-before-publication Candidate, not a new universal rule and not Canonical promotion.
