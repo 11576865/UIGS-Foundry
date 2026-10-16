@@ -5,7 +5,7 @@
   "level": "project",
   "goal": "Deliver a source-anchored, self-observing read-only Code Atlas and experimentally validate code, runtime, state, file and regression evidence without inventing causal certainty.",
   "status": "in_progress",
-  "current_work_unit": "Success/failure operation trace comparison CLI submitted; exact-head CI pending",
+  "current_work_unit": "Same-revision success/failure comparison passed Code Atlas source-observation CI; browser comparison remains next.",
   "completed_units": [
     "Python AST self-index and browser code graph",
     "Bounded code relation falsification cases and runtime calls",
@@ -23,7 +23,7 @@
   "pull_request": 38,
   "last_durable_commit": "4fc72b4ec068a8fb06029e2358141a2e05fe3be0",
   "external_validation": {
-    "comparison_ci": "pending",
+    "comparison_ci": "passed",
     "chromium_prior_head": "passed",
     "full_foundry_validation": "blocked"
   },
@@ -33,7 +33,8 @@
   "notes": [
     "Code Atlas is experimental and not merged into main.",
     "Branch latest commit may contain subsequent documentation/task-state commits; last_durable_commit points to functionality/CI contract checkpoint.",
-    "No Canonical promotion."
+    "No Canonical promotion.",
+    "CI verified: https://github.com/11576865/UIGS-Foundry/actions/runs/38930611290 for functionality/CI commit 4fc72b4ec068a8fb06029e2358141a2e05fe3be0; not main."
   ],
-  "updated_at": "2026-10-16T16:16:58.961Z"
+  "updated_at": "2026-10-16T16:17:26.853Z"
 }
