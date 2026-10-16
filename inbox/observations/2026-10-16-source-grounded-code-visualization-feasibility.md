@@ -82,3 +82,17 @@ Implementation head at feature submission: `33b11906872ec6f1b2408b1ffe358effbe8f
 - Implemented experimental CLI in PR #38: opt-in failure trace retention (nonzero process exit remains nonzero; exception type only, message omitted), same-revision comparison of instrumented event sequences and call-site counts, conservative input rejection, and CI synthetic positive/negative examples.
 - Evidence at submission: source, tests and CI workflow committed through 4fc72b4ec068a8fb06029e2358141a2e05fe3be0. Latest-head CI was not yet checked at this observation. Exact-head external verification remains Pending. No independent real-product fault oracle or browser comparison view is claimed.
 - Constraints: identical commit does not imply identical inputs/environment, event time ordering can interleave, and crashes/forced process kills do not produce retained traces. Do not promote Canonical from this bounded exercise.
+
+
+## Proposed first usable product gate — 2026-10-17
+
+Status: proposed product acceptance hypothesis (not approved, not Canonical, not implementation-complete).
+Source: user asked what Code Atlas's first usable deliverable must look like and what problem it should actually solve, after several code-only prototype work units.
+
+The baseline is a browser workbench for navigating **an actual user feature or reproducible failure** from user-facing entrypoint to source anchors and observed behavior, not simply rendering a project-wide function graph. Proposed acceptance gate: (1) select an indexed project/commit; (2) find a known feature/entrypoint and expand bounded multi-level dependencies with real source links; (3) inspect static vs actual runtime vs explicit annotation vs unknown evidence separately; (4) browse two reproducible execution records side by side with a bounded difference list; (5) inspect at least one non-Python product repository beyond UIGS-Foundry; (6) index and inspect Code Atlas's own implementation without granting it authority to certify its own correctness; (7) repeat analysis after a changed commit and make stale or missing evidence conspicuous.
+
+UI proposal: project selector and search, bounded interactive graph at the center, source/evidence inspector on the side, operation/compare timeline underneath. The default view must avoid unreadable whole-repository graph hairballs; no raw state values, secrets or arbitrary repository code execution in the browser. Multi-language semantics need explicit adapters and evidence limits, not unsupported static guesses.
+
+Go/no-go should include actual task usability: a non-code-reading maintainer can locate source of a known feature, explain one confirmed edge and one unknown edge, and differentiate actual run evidence from inference. A bounded real-product failure demonstration plus repeatable checks is needed before presenting Code Atlas as a generally useful engineering debugger. The existing Python-only AST viewer, safe sample traces and synthetic browser CI demonstrate technical feasibility but do not alone satisfy this proposed user-facing product gate.
+
+This is a single-conversation provisional design observation. The user's question is not a final approval of a release contract or scope expansion, and this note does not authorize automatic code changes or Canonical promotion.
