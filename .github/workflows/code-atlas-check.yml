@@ -1,0 +1,50 @@
+name: Code Atlas Source Observation
+
+on:
+  push:
+    paths:
+      - "tools/code_atlas.py"
+      - "tools/code_atlas_web/**"
+      - "tools/test_code_atlas.py"
+      - "docs/code-atlas.md"
+      - ".github/workflows/code-atlas-check.yml"
+  pull_request:
+    paths:
+      - "tools/code_atlas.py"
+      - "tools/code_atlas_web/**"
+      - "tools/test_code_atlas.py"
+      - "docs/code-atlas.md"
+      - ".github/workflows/code-atlas-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-graph-and-self-observation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run source-grounding and self-observation tests
+        run: python -m unittest discover -s tools -p test_code_atlas.py -v
+      - name: Build read-only source graph
+        run: python tools/code_atlas.py --output /tmp/uigs-code-atlas.json
+      - name: Verify serializable graph contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path("/tmp/uigs-code-atlas.json").read_text())
+          assert p["schema_version"] == 1
+          assert p["stats"]["parsed_files"] > 1
+          assert any(n["id"] == "fn:tools/code_atlas.py:index" for n in p["nodes"])
+          assert len(p["nodes"]) == len({n["id"] for n in p["nodes"]})
+          assert all(e["evidence"] in {"ast_definition","ast_import","ast_direct_call"} for e in p["edges"])
+          print("Code Atlas graph contract verified:", p["stats"])
+          PY
