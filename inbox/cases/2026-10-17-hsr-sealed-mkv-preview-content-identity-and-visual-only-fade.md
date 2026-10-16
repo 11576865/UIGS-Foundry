@@ -22,6 +22,22 @@ The user's second request concerned absent Fade animation in preview. `render_as
 4. The browser accepts this explicitly labeled mode and displays a warning that real voice synchronization is unverified. Normal verified voiced previews still report `project`. `require_bound_voice_timeline` continues to reject differing sealed and manifest PCM clocks.
 5. Added Python tests for modified bytes at equal size/restored mtime, legacy timestamps, video-only Fade envelope, absent audio stream, and API audio status.
 
+## Follow-up: repeated failure is not a regression against deployed patch
+
+Second Android screenshot again shows `v0.9-N+01ad440`, the base commit. On 2026-10-17 PR #194 remains **Open/unmerged**, so the user's repeated error is from the original running binary, not evidence that the PR code was tested on-device.
+
+The user additionally reports `生成 ASS` failure after changing selected subtitle cues. Actual code shows `queue_ass_regeneration` calls `verify_internal_ass_audio_source` before mutation in complete-delivery mode. This shares the sealed audio gate with `resolve_effect_voice`; both may fail when complete-mode sealing has retired loose FLAC and MKV identity cannot be verified. Changing cue ID has no authority to repair a broken publication receipt.
+
+New PR #194 follow-up includes:
+- Shared `diagnose_bundle_audio_source` read-only classification: `legacy_stat_mismatch`, `artifact_content_mismatch`, `voice_timeline_mismatch`, `missing_receipt`, verified, etc.; active-project authenticated endpoints for FastAPI and Termux Lite.
+- An explicit user recovery path: independent external ASS remains available without granting false MKV trust, while full archive recreation from original voice data requires an additional manual action.
+- Browser preflight for `生成 ASS（内）`; no repeated job creation when sealed audio is unprovable, and no implicit FFmpeg rebuild / receipt overwrite.
+- An integrated regression contract requiring internal ASS failure to leave the old MKV unchanged while allowing `生成 ASS（外）`.
+
+The old stat-only sealed archive **cannot** be authenticated after a stat mismatch without independent trusted evidence. A rebuild using original sources (or verified recovery evidence) remains required to restore *voiced* playback; silent Fade animation is not a source-repair substitute.
+
+Earlier exact PR head `5325c392` had three PR CI workflows marked successful, but the expanded diagnostic changes are at a newer head with CI pending. Neither result is Android/Termux field evidence.
+
 ## Evidence boundaries
 
 At writing, this is submitted source and static review, not a demonstrated Android fix. Corresponding CI and real-device FFmpeg/libass, browser decode, imported fonts, and authentic large project artifacts have not yet been verified. Existing legacy MKV whose metadata no longer matches its receipt cannot be automatically authenticated: rebuild from trusted sources or independent verification is still required for voiced preview.
