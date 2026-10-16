@@ -54,6 +54,23 @@ class AtlasTests(unittest.TestCase):
             self.assertEqual(len(graph["parse_errors"]), 1)
             self.assertTrue(all(n["url"] is None for n in graph["nodes"]))
 
+    def test_offline_html_export(self):
+        import subprocess
+        import sys
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "example.py").write_text("def target():\n    return 1\n", encoding="utf-8")
+            dest = root / "standalone.html"
+            subprocess.run(
+                [sys.executable, str(Path(__file__).with_name("code_atlas.py")),
+                 "--root", str(root), "--repo", "owner/repo",
+                 "--export-html", str(dest)],
+                check=True, stdout=subprocess.DEVNULL,
+            )
+            html = dest.read_text(encoding="utf-8")
+            self.assertIn("window.__UIGS_ATLAS_GRAPH__", html)
+            self.assertIn("fn:example.py:target", html)
+
     def test_reflexive_index_and_cross_file_link(self):
         root = Path(__file__).resolve().parents[1]
         graph = atlas.index(root)
