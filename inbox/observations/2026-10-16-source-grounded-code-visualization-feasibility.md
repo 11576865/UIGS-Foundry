@@ -96,3 +96,19 @@ UI proposal: project selector and search, bounded interactive graph at the cente
 Go/no-go should include actual task usability: a non-code-reading maintainer can locate source of a known feature, explain one confirmed edge and one unknown edge, and differentiate actual run evidence from inference. A bounded real-product failure demonstration plus repeatable checks is needed before presenting Code Atlas as a generally useful engineering debugger. The existing Python-only AST viewer, safe sample traces and synthetic browser CI demonstrate technical feasibility but do not alone satisfy this proposed user-facing product gate.
 
 This is a single-conversation provisional design observation. The user's question is not a final approval of a release contract or scope expansion, and this note does not authorize automatic code changes or Canonical promotion.
+
+
+## External prior-art challenge to self-built Code Atlas — 2026-10-17
+
+Status: Observation / candidate decision input only. The user expressed concern that the planned atlas would deliver low utility, high use friction and high maintenance. An external source review challenges the earlier assumption that UIGS should build and own a general code graph and browser UI.
+
+Evidence references, as vendor/project claims unless stated otherwise:
+- GitNexus upstream: https://github.com/abhigyanpatwari/GitNexus — prebuilt local code knowledge graph, multi-repo MCP/CLI queries, impact analysis, browser. License PolyForm Noncommercial 1.0; not a permissive OSS foundation for unrestricted incorporation. Maintenance risk illustrated by reported indexing/mapping and large-repo issues: https://github.com/abhigyanpatwari/GitNexus/issues/3474 and https://github.com/abhigyanpatwari/GitNexus/issues/2031 .
+- CodeBoarding: https://github.com/CodeBoarding/CodeBoarding — MIT analysis engine, layered architecture diagrams, PR architecture comparison, standalone analysis.json and browser; LLM provider setup and language server maintenance required. Generated descriptions remain weaker evidence than source anchors/runtime checks.
+- Aider repository map: https://aider.chat/docs/repomap.html — sends ranked concise code context to AI rather than asking human to traverse full dependency graph; important alternative product interaction.
+- dependency-cruiser: https://github.com/sverweij/dependency-cruiser — JS/TS dependency validation and CI graph; narrower scope, stronger actionability.
+- Existing GitHub navigation: https://docs.github.com/en/repositories/working-with-files/using-files/navigating-code-on-github — symbols, definitions and references with no installed UIGS product surface.
+- CodeScene coupling/hotspots: https://helpcenter.codescene.com/articles/1844075-how-to-assess-coupling-health-in-codescene — history-based co-change relationship complements static calls but is correlational, not causal.
+- Runtime: https://docs.sentry.io/product/ai-in-sentry/seer and https://opentelemetry.io/docs/languages/js/ — standard error/trace observability; browser OTel instrumentation remains experimental.
+
+Decision hypothesis: pause feature expansion of bespoke graph engine until a side-by-side trial on one Python and one real non-Python repository measures time to useful diagnosis, precision of cited relationships, user effort and maintenance overhead against GitHub search plus a leading existing analyzer. A no-code evidence bridge into UIGS (source commit, CI run, output artifact, test and negative control) may have higher durable value than an owned multi-language visual platform. Do not silently replace previous proposed Beta contract, merge PR #38, import noncommercial code, or promote this single observation to Canonical.
