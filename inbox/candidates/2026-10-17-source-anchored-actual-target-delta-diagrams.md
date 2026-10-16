@@ -37,3 +37,19 @@ Source evidence:
 ## Dedup and authority
 
 Extends `inbox/observations/2026-10-16-source-grounded-code-visualization-feasibility.md` (source-backed experimental Code Atlas and diagram reliability) and complements `inbox/candidates/2026-10-16-hsr-generation-intent-destination-and-preview-defaults.md` (specific HSR user actions/ownership). This candidate adds **As-Is/To-Be/Delta matching as a migration contract**, not another code-indexer proposal. Do not modify Canonical based on this conversation alone. No implementation or measured effectiveness has been established.
+
+
+## Follow-up — 2026-10-17 external semantic worker when Foundry has no model runtime
+
+**Problem:** UIGS-Foundry and the experimental Code Atlas do not themselves invoke a reasoning model. AST indexing, evidence receipts and browser graphs cannot reliably invent an approved To-Be architecture or interpret cross-domain responsibilities. Do not misrepresent deterministic static analysis as AI semantic comprehension.
+
+**Proposed minimal integration (not automatically installed or authorized):**
+- A model-enabled **external interactive agent** (for example, a ChatGPT session with authorized GitHub read/write access) reads commit-pinned product evidence and existing scoped UIGS knowledge, explains uncertainties, drafts bilingual As-Is / To-Be / Delta relations, and requests confirmation for substantive target choices.
+- Source files and tests remain authoritative in **product GitHub repositories**. The agent writes a bounded, reviewable report or task/PR artifact with revision, code anchors, relation type, confidence/evidence class, proposed target authority, and acceptance checks. A persistent structured artifact is required for continuity; ephemeral conversation text is not the only copy.
+- Foundry/Code Atlas performs **deterministic** indexing, provenance linking, schema checks, evidence validation, graph rendering, drift checks and intake. It neither pretends to invoke the model nor silently promotes Candidate to Canonical.
+- CI and workflows may detect that analysis is needed and create a durable **Pending AI Analysis** request, but without an external model invocation mechanism they cannot execute semantic analysis automatically. A user launches/reviews the interactive agent work. Full unattended execution would need a separately authorized model-capable runner/service and credentials; do not silently introduce those dependencies.
+- GitHub transport does not establish semantic correctness: enforce a narrow source-linked claim/edge contract, user approval for the target, and one executable before/after regression gate.
+
+**Fit with existing Foundry authority:** `governance/AGENT-EXECUTION.md` already states interactive agents are disposable workers and durable state is Git commits/PRs/task-state; `intake/project-adapter-protocol.md` already provides outbox and Pending handoff; `governance/EPISTEMIC-MODEL.md` keeps source artifacts, Evidence, Claims and knowledge views separate. This is an application of those rules to AI-assisted architecture comprehension, not a new foundation.
+
+**Scope and limits:** No claim of a connected autonomous ChatGPT-to-Foundry daemon, no guaranteed scheduled ChatGPT execution, no product-code changes or deployment, and no new Canonical rule. Pilot one HSR action and validate source anchors and usability before expanding.
