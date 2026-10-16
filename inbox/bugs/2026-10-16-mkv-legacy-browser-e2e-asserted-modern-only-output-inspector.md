@@ -62,3 +62,14 @@ The test now used genuine visible current source-tree/Inspector controls, but it
 Bounded E2E-only repair in commits `7480fdadf3a1b73aec18dbbe207f59ec1b2a0b8c` and `081229e100e43dfad2f97941bca356c853ccb472`: capture the scanned source index **before** rename, assert it is decimal, and check the hidden execution-adapter values by `data-attachment-index` after public Inspector updates. The legacy path and actual FFprobe/FileData oracle remain unchanged; source syntax was parsed. **Pending External Validation:** new exact-head CI is not yet observed.
 
 Dedupe: both this and the earlier hidden-control attempts belong to the same current/legacy E2E identity/surface mismatch Bug. Stable source/adapter identity is also covered by existing source-attachment-ownership Cases; no new Candidate or Canonical promotion.
+
+
+## Follow-up: visible inspector drawer but hidden subtitle category (2026-10-17)
+
+The PR #157 head `ffbe3ca5fa298de42b60082dc00564bf29b2fb04` passed build (Pages workflow `38929033764`) and the **618/618 Node unit suite**, while Chromium workflow `38929033832` failed in current-workbench scenario 2 at `select[data-new-sub-field="language"][data-index="0"]`: Playwright resolved a real select but refused to operate because it was invisible. Legacy scenario 2 passed.
+
+Code-grounded cause: selecting the source attachment through the public tree changes the existing `src/object-editor.js` focus to `source`, setting the editor `.config-card.hidden=true`. Merely expanding `#sf14OptionsDrawer` does not change that focus category, so the real new-subtitle form stays hidden. This is an interaction-context transition, **not** permission to bypass the real UI or remove subtitle language/title verification.
+
+Repair commit `187e03d3f5767027d7f57f92408719183cf3754d` adds a public click on `#sf14OptionsDrawer [data-editor-filter="subtitle"]`, asserts `aria-pressed=true`, `data-editor-focus=subtitle` and visible `#newSubtitleList`, then proceeds to the original language/title operations and complete native MKV + FileData output checks. Test JS was syntax-parsed only; full exact-head Browser E2E remains **Pending External Validation**. No production writer, hidden adapter or Canonical grammar changed.
+
+The preceding R2-R5 semantic audit found actual merged-main code and E2E entry calls even where the direct stacked PRs were closed/unmerged; this is separately recorded in PR #157's `docs/theory-1.0/R0-MAINLINE-RECONCILIATION.md`. This record is the same presentation-mode Bug, not an independent Candidate.
