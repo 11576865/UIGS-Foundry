@@ -60,3 +60,10 @@ Next go/no-go gate: extract the exact same slice automatically from a pinned che
 In Code Atlas PR #38, an experimental state probe was added in `tools/code_atlas_causality.py` with a safe example, unit tests, and a browser-inspector distinction. Unlike an unverified `state_write` annotation, a probe independently compares a *caller-selected* JSON-serializable value before and after an explicit operation; its exported result is `changed`, `unchanged` or `unknown`, never the raw value. Error/oversize paths yield `unknown`. Probe callbacks may have their own side effects and must be safe and deterministic; even a real observed difference does not demonstrate causation or completeness.
 
 Implementation head at feature submission: `33b11906872ec6f1b2408b1ffe358effbe8fec18`. Scoped local evidence: 16 Python tests passed and JavaScript syntax check passed. Browser E2E was attempted but Chromium navigation and scripted page loading were blocked in the current environment; full UI acceptance is **Pending**, not passed. CI after this submission is independent and must be reviewed when available. No Canonical rule was modified.
+
+
+## Browser evidence visibility regression / independent E2E gate — 2026-10-16
+- Direct defect: Code Atlas narrow-width CSS hid all .rels sections, including the operation-evidence inspector. The trace JSON can be present yet its proof invisible to the user.
+- PR #38 remediation: keep the inspector relation sections usable at small viewport sizes and add independent Playwright/Chromium tests at 1440x900 and 390x780. The E2E fixture is synthetic; a browser pass only proves interactive presentation, not the reality of any declared state update.
+- Evidence: change submitted in feature branch in commit 1df017b44cb3de909315c807afb344be0e2ecbc4. Local Chromium blocked file and localhost navigation, so local UI E2E is not claimed as passing; exact-head CI remains pending.
+- Reusable check: an observability product must test evidence *reachability* in supported layouts, not merely the collector's JSON. Do not promote one finding to Canonical.
