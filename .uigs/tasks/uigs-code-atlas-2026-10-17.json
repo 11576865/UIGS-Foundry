@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "task_id": "uigs-code-atlas-2026-10-17",
+  "project_id": "UIGS-Foundry",
+  "level": "project",
+  "goal": "Deliver a source-anchored, self-observing read-only Code Atlas and experimentally validate code, runtime, state, file and regression evidence without inventing causal certainty.",
+  "status": "in_progress",
+  "current_work_unit": "Success/failure operation trace comparison CLI submitted; exact-head CI pending",
+  "completed_units": [
+    "Python AST self-index and browser code graph",
+    "Bounded code relation falsification cases and runtime calls",
+    "Explicit operation, selected state and bounded selected-file observations",
+    "Real Chromium desktop/narrow evidence visibility checks",
+    "Opt-in failure retention and same-revision operation evidence comparison CLI"
+  ],
+  "next_units": [
+    "Read exact-head Code Atlas comparison CI, repair any directly caused failures",
+    "Integrate compared runs in browser view only after JSON comparison evidence passes",
+    "Verify real product fault scenarios independently before claiming causal diagnosis"
+  ],
+  "repository": "11576865/UIGS-Foundry",
+  "branch": "feature/uigs-code-atlas-readonly",
+  "pull_request": 38,
+  "last_durable_commit": "4fc72b4ec068a8fb06029e2358141a2e05fe3be0",
+  "external_validation": {
+    "comparison_ci": "pending",
+    "chromium_prior_head": "passed",
+    "full_foundry_validation": "blocked"
+  },
+  "blockers": [
+    "Full Foundry-wide validation contains historical Bug lifecycle metadata debt; independent Code Atlas CI is authoritative for this slice."
+  ],
+  "notes": [
+    "Code Atlas is experimental and not merged into main.",
+    "Branch latest commit may contain subsequent documentation/task-state commits; last_durable_commit points to functionality/CI contract checkpoint.",
+    "No Canonical promotion."
+  ],
+  "updated_at": "2026-10-16T16:16:58.961Z"
+}
