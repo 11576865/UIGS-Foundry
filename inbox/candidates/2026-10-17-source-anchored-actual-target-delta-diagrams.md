@@ -1,0 +1,39 @@
+# Candidate: Source-anchored Actual/Target/Delta diagrams for controlled software evolution
+
+Date: 2026-10-17
+Status: Candidate — design method; no new product implementation or empirical validation
+Domain: Code comprehension, engineering visualization, architecture migration, change impact
+Provenance: User's UIGS discussion of HSR-Voice-Archive-Builder and the actual-vs-ideal relationship.
+
+## User need and distinction
+
+The user wants an assistant not merely to narrate repository source or draw plausible diagrams, but to **correctly comprehend real code** and render both (1) the actual implemented relationships and (2) a simple, precise, comprehensible ideal model. The diagrams must actively support moving existing implementation toward approved goals. Diagrams should be Chinese-primary with English technical terms retained and source identifiers intact.
+
+This is a **three-model requirement**, not a claim that source alone supplies product intent:
+- **As-Is / Actual**: commit-pinned, source-grounded implementation graph, distinguishing verified calls, writes, scheduler paths, static inference, dynamically observed events and unknowns.
+- **To-Be / Ideal**: separately authored target contract derived from product/user requirements and accepted acceptance criteria; not reverse-engineered as an inevitable property of current code and not silently elevated to Canonical.
+- **Delta / Migration**: matched relations classified keep / split / move / remove / add / unknown, with explicit change ownership, prerequisites, compatibility and regression or scenario-based acceptance checks.
+
+A useful diagram is a reasoning/falsification artifact: it should predict which operation updates which state or artifact, what does not change, what is triggered implicitly, and where evidence is missing. A good-looking graph alone is not evidence of semantic correctness.
+
+## Concrete bounded HSR example (source verified, target is only a candidate)
+
+HSR main commit `dea5411312ed3e819864f1915f4f2008f938cba3`: `app/server.py::api_status` (GET `/api/status`) calls `maybe_queue_complete_mkv(config)`, which may enqueue MKV republishing if bundle status/source identity/queue guards permit; `app/server.py::api_output_ass` also offers an explicit command and `app/auto_delivery.py` implements source-generation dedupe/retry/backoff. That means a read-looking status request can participate in write-job scheduling. It is conditional and not every status request causes production.
+
+A **possible, not yet authorized** target separates read-only status-query contract from event-/explicit-command-driven reconciliation, while preserving desired automatic updates and dedupe policy. Delta acceptance would check: status-only polling starts no new jobs; approved update events still produce exactly one valid republish; old verified MKV stays intact on failure; two server runtimes maintain equivalent semantics.
+
+Source evidence:
+- https://github.com/11576865/HSR-Voice-Archive-Builder/blob/dea5411312ed3e819864f1915f4f2008f938cba3/app/server.py#L1005-L1026
+- https://github.com/11576865/HSR-Voice-Archive-Builder/blob/dea5411312ed3e819864f1915f4f2008f938cba3/app/auto_delivery.py#L195-L270
+
+## Minimal acceptance of diagram quality
+
+- Every asserted **actual** node/edge has an exact revision and navigable code anchor; unsupported links are unknown, not invented.
+- The graph distinguishes invocation, reads/writes, data derivation, async scheduling, and publication verification, using brief Chinese labels and English source terms.
+- Each **target** relation has a named intent/requirement provenance, or is explicitly labeled proposal pending confirmation.
+- Each delta is testable on one executable user journey, with before/after artifacts and failures tracked.
+- The diagrams update after implementation; avoid saying a proposed target has landed until checked against actual code and tests.
+
+## Dedup and authority
+
+Extends `inbox/observations/2026-10-16-source-grounded-code-visualization-feasibility.md` (source-backed experimental Code Atlas and diagram reliability) and complements `inbox/candidates/2026-10-16-hsr-generation-intent-destination-and-preview-defaults.md` (specific HSR user actions/ownership). This candidate adds **As-Is/To-Be/Delta matching as a migration contract**, not another code-indexer proposal. Do not modify Canonical based on this conversation alone. No implementation or measured effectiveness has been established.
