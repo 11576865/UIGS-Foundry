@@ -25,3 +25,10 @@ Before interpreting “0 workflow runs” on a stacked PR, inspect the actual wo
 - Follow-up needs authoritative Actions run ID / job logs. If failed, one bounded repair. Emulator visual/IME and real editor draft remain separate pending gates.
 - Closest related Foundry Candidate: `inbox/candidates/2026-10-14-stacked-draft-pr-ci-validation-cadence-and-verified-heavy-cache.md`, which concerns QHE heavy matrix gating and cache cost. This Observation is narrower: event-branch filter mismatch on an Android stacked draft PR.
 - No Canonical changes from a single incident.
+
+
+## Update: target the stacked PR base directly (same day)
+
+After confirming the branch-push run lookup cannot report an authoritative PR conclusion, product work updated the same FIXED validation workflow to include `pull_request.branches: [feat/r3-fixed-visual-layout-20261014]` alongside the original exact-branch push trigger. Source commit `1f6486c32df2c64b15df73ba0e0301545928eac1`; durable checkpoint/PR head `b61de8748872043c9700698df93c127d09ef0f0d`. This does not broaden default Android CI filters or retarget PR #149 to main.
+
+A single immediate PR-triggered workflow/combined status read against the trigger-change SHA returned zero runs/statuses. **No compile success, workflow start, emulator result or reviewer acceptance is asserted.** It is now possible for the new check to attach to PR #149 under the explicitly named R3 base; the next iteration must inspect the actual exact-head result. This extends the same observation and does not constitute a new Canonical rule.
