@@ -27,3 +27,11 @@ HSR project resolves real PCM voice media and duration in `app/effect_voice_prev
 ## Deduplication
 
 Existing ASS preview cases cover frame/time mapping, raw preview parity, aspect ratio, and video intake. None located in filename scan addresses this specific **three-layer audio–duration–browser gesture** completion contract. Keep this as a separate Candidate; do not automatically edit Canonical.
+
+## Continuation — browser fixture must honor the stronger audio contract (2026-10-16)
+
+On [HSR PR #186](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/186), the dedicated seven-ASS workflow passed at head `e99a616`, while Chromium evidence run `38835128320` timed out waiting for the decoded video preview. Source inspection confirmed the browser-test route returned an older **1.5-second silent WebM**, and its mocked response had only a background-origin header. The application now legitimately requires `X-HSR-Preview-Audio: project`, a positive `X-HSR-Preview-Duration`, and a named project cue before reporting sound-backed video success.
+
+A narrow follow-up changes only `tests/browser_visual_evidence.py` fixture to produce a decodable WebM containing both video and a real synthetic tone, with FFprobe stream-type verification, and supplies the asserted preview identity headers; no production guard was relaxed. The browser fixture is **not** evidence that a genuine HSR PCM sample was selected or correctly synchronized; that remains the independent FastAPI/Termux FFmpeg fixture and user-device acceptance. An adjacent Node preview test's fake `document` lacked `document.body` even though the production callback reads `document.body.dataset.workspaceTask`; its correction restores realistic browser context without bypassing image decode checks. Stale auto-preview assertions were replaced with explicit no-auto-render expectations.
+
+**Status:** follow-up commit present on PR #186; exact-head CI and user-device listening still Pending. This is an additional observation under the existing Candidate, not a Canonical amendment.
