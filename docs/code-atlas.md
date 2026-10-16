@@ -17,6 +17,14 @@ To export the graph without the browser:
 python tools/code_atlas.py --output /tmp/uigs-code-atlas.json
 ```
 
+To generate a single standalone HTML file that opens without a server (including on another device):
+
+```bash
+python tools/code_atlas.py --export-html /tmp/UIGS_Code_Atlas.html
+```
+
+A standalone HTML includes one pinned graph snapshot; regenerate after source changes. A CI artifact is downloadable from Code Atlas Source Observation workflow runs.
+
 To inspect another local Python repository, pass `--root /path/to/checkout --repo owner/name`. Run it against UIGS-Foundry itself first. Nothing is pushed and the server exposes only `/`, `/index.html`, and `/api/graph`, binding to `127.0.0.1` by default.
 
 ## What the graph says
