@@ -1,7 +1,7 @@
 # Candidate — Browser fixtures must preserve application project identity across asynchronous status hydration
 
 Date: 2026-10-16  
-Status: Candidate / code submitted / Pending CI  
+Status: Candidate / HSR PR #187 merged / exact-head CI passed / device acceptance pending  
 Scope: browser E2E, visual evidence fixtures, asynchronous project hydration and selection  
 Source: [HSR PR #187](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/187), follow-up to [#186](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/186)
 
@@ -20,9 +20,24 @@ For browser test environments, fixture API responses and UI state must agree on 
 - It preserves deliberate subtitle selection and real user-visible error checks; no project gating was relaxed.
 - The same PR revises obsolete UI assertions after a documented product contract change and makes phone-size cue / preview controls accessible without changing the authoring engine.
 
+## Exact-head CI and integration outcome
+
+PR #187 was merged into HSR main as `348ac1295f91e1ac9ccb4c3d4d10ed998e12c386` from `afba6504bd43ec99fc3507ca56c276d9b3afe9da`. The exact-head checks succeeded:
+- General tests (Python 3.11, 3.12, 3.13): GitHub Actions run `38851017618`
+- Seven ASS requirements: `38851017634`
+- Chromium visual evidence and real FastAPI + FFmpeg/libass preview E2E: `38851017631`
+
+The CI repair uncovered four distinct fixture mistakes without weakening production identity requirements:
+1. A mocked `/api/status` project contradicted a manually injected `currentProject`.
+2. A generic `{"ok":true}` settings-save mock omitted `project`, allowing an autosave to null the active UI identity. The real UI now refuses partial/foreign project receipts and preserves its current project.
+3. An initial Review subtitle fetch after `fillProject` was counted as an explicit Review → Layout duplicate. Tests now wait for initial hydration before measuring workflow-owned requests.
+4. The real video E2E mocked browser project state but never opened a server-side project. Its fixture now persists a temporary ProjectConfig, real decoded FLAC and manifest-backed cue, calls `_set_active`, and requires the API's `X-HSR-Preview-Audio: project` evidence rather than bypassing backend ownership.
+
+The gradient background fixture additionally needed an explicit force-refresh because the chosen project root was already active; production draft-preservation remained intact.
+
 ## Evidence boundary
 
-The previous Chromium run failed with the explicit project-null diagnostic; PR #187 contains the proposed repair but is Pending CI and has no physical Termux/browser device acceptance at time of submission. This is a bounded cause-and-fix hypothesis until an exact-head rerun succeeds. The mock project is **test data**, not production project evidence.
+These results validate the bounded synthetic CI scenarios and artifact checks, **not** physical Android/Termux playback, the user's real voice asset, perceptual sound sync, or the screenshot-specific tactile experience. Candidate remains Candidate pending cross-project corroboration. No Canonical promotion.
 
 ## Deduplication
 
