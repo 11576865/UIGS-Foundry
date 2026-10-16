@@ -126,3 +126,21 @@ Source:
 - https://developers.openai.com/plugins/build/chatgpt-ui (MCP Apps UI bridge)
 
 Recommended delivery choice: (a) immediately prototype a turn-scoped interactive map inside a ChatGPT response using supported response UI without pretending it is a persistent installable plugin; (b) if user has rights, trial a custom MCP app with dedicated server; (c) otherwise provide an independently hosted browser atlas displaying durable precomputed AI analyses, with fresh semantic analyses run by an explicitly started ChatGPT/agent handoff rather than magically invoked in the site. Do not present an ideal ChatGPT sidebar as guaranteed. No deployment or account changes performed.
+
+
+## Follow-up — 2026-10-17 no-inference workbench with durable on-demand ChatGPT handoff
+
+**Need:** The user explicitly requests a workable compromise because a persistent visual product/architecture workbench needs semantic AI, but Foundry has no callable model API and custom ChatGPT-hosted apps may be ineligible or undesirable.
+
+**Candidate architecture (not built):**
+- **Standalone low-dependency browser** reads project-scoped, commit-pinned capability and relationship records, supports semantic zoom, bidirectional UI entry↔actual behavior navigation, actual/approved-target/delta, evidence drill-down and staleness display **without model inference**.
+- Existing UIGS Code Atlas AST index (currently Python-focused and experimental) supplies mechanical source facts; model-curated cross-language UI/JS/FastAPI/business/outputs links remain distinct, source-anchored and explicitly not assumed complete.
+- ChatGPT is **user-invoked** only when an analysis item is unknown/stale/disputed or new design reasoning is requested. Browser prepares a compact task packet containing repo, pinned SHA, capability ID, changed scope, present record, evidence gaps and the owner's question. Initial handoff can be copy/paste; do not claim a standalone webpage can silently invoke the ChatGPT model or safely access ChatGPT private conversations.
+- The AI returns versioned structured records and concise explanatory graph, pushed through permitted GitHub-connected agent operations or reviewed PR. A deterministic validator checks schema, referenced file/link existence, SHA, identity, relation types and completeness labels; **it cannot certify semantic truth**. CI can regenerate HTML/JSON snapshots and mark affected records stale after commits; static host or local file is enough for the first prototype.
+- Prior useful interpretation is durable in repo data rather than hidden model memory. Owner signs off To-Be changes separately. Product source remains the execution authority; Foundry retains governance; no automatic Canonical promotion.
+
+**Minimum viable pilot:** One HSR function group (e.g. subtitle save/preview/internal-vs-external ASS) with 3–6 actual UI actions, full frontend handler→API→job/artifact trace; one reverse capability→entry coverage check; three views (Product Map, Functional Model, Source Evidence), As-Is/To-Be/Delta and one offline browser snapshot; one update to the pinned commit to prove staleness and refresh mechanics. Keep source-side runtime/media evidence separate. Stop if the agent cannot recover and update the graph without hand-editing hundreds of unrelated relationships.
+
+**Limits:** HTML/static map can answer questions already encoded in the records and visualize/filter graph, but **cannot generate new semantic conclusions itself**. Auto-responding AI chat or unattended refresh needs a real model-call bridge (cloud API, local model or supported host), a distinct later architecture requiring consent. Do not publish private-source-derived graphs via public Pages. Offline exported HTML needs a replacement export/import or a local server to see updated records.
+
+**Dedup:** Extends this existing Candidate rather than inventing a second system. Related Foundry records include Code Atlas source-grounded visualization Observation (2026-10-16), durable-agent execution Canonical (2026-10-07) and existing project-adapter outbox. No Canonical or product code changes authorized by this ideation.
