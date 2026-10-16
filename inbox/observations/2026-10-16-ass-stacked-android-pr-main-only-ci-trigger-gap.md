@@ -32,3 +32,14 @@ Before interpreting “0 workflow runs” on a stacked PR, inspect the actual wo
 After confirming the branch-push run lookup cannot report an authoritative PR conclusion, product work updated the same FIXED validation workflow to include `pull_request.branches: [feat/r3-fixed-visual-layout-20261014]` alongside the original exact-branch push trigger. Source commit `1f6486c32df2c64b15df73ba0e0301545928eac1`; durable checkpoint/PR head `b61de8748872043c9700698df93c127d09ef0f0d`. This does not broaden default Android CI filters or retarget PR #149 to main.
 
 A single immediate PR-triggered workflow/combined status read against the trigger-change SHA returned zero runs/statuses. **No compile success, workflow start, emulator result or reviewer acceptance is asserted.** It is now possible for the new check to attach to PR #149 under the explicitly named R3 base; the next iteration must inspect the actual exact-head result. This extends the same observation and does not constitute a new Canonical rule.
+
+
+## Follow-up: source CI green; reuse existing emulator regression for stacked base
+
+On 2026-10-16 the FIXED V1.1 implementation's scoped PR CI actually completed successfully at [run #38892406947](https://github.com/11576865/ASS-Workbench-Android/actions/runs/38892406947) on source checkpoint `b192b61a7499183d84c80e5111bd00cbb944768f`. The run's Android Kotlin and AndroidTest Kotlin compilation step and JVM unit-test step both succeeded. This closes the former *source* CI blind spot; it does not validate runtime behavior.
+
+The existing product [Android Emulator Regression](https://github.com/11576865/ASS-Workbench-Android/actions/workflows/emulator.yml) was then enabled **only on the feature branch** for `pull_request.branches: [main, feat/r3-fixed-visual-layout-20261014]`, preserving the full pre-existing connected instrumentation workflow and mainline trigger. Change commit: `fa757ce455fc3dfbf14f9de83c571c814276de24`; following durable task checkpoint: `a79e8c20ea112cf8c2f3ed9f9c9f1b192be31ab0`.
+
+The one permitted immediate status read at this later exact HEAD returned two **pending** workflows, `FIXED V1.1 Branch Validation #38906758860` and `Android Emulator Regression #38906758867`. These are **queued, not passing**. Existing R3 capture in the emulator script uses **1600×960**, and cannot be passed off as the FIXED V1.1 target-size 1440×900 and 1024×768 design parity. Emulator, IME, draft preservation, media and native screenshot gates remain Pending.
+
+Reusable boundary illustrated by this case: a stacked PR requires appropriate *base-target* workflow event matching to obtain both fast CI and emulator evidence; do not merge into main or alter globally scoped production triggers just to run tests. Reuse the full mature emulator workflow instead of silently substituting a new mock suite. **No Canonical change.**
