@@ -102,3 +102,44 @@ Safety / correctness rules:
   would. Use test fixtures first.
 - The collector observes, but does not independently certify itself. Static
   indexing, runtime collection, and tests are distinct evidence channels.
+
+
+## Correlated explicit operations (experimental)
+
+Code Atlas can now correlate **explicitly instrumented** operation boundaries with real
+Python profile calls. Import the opt-in annotation API in a **safe test script**:
+
+```python
+from code_atlas_causality import operation, mark
+
+with operation("Save draft"):
+    mark("action", "save clicked")
+    # Call test functions here.
+    mark("state_write", "draft updated", subject="subtitle:draft")
+```
+
+This is an *annotation*, not proof that the named state changed. Capture explicitly:
+
+```bash
+python tools/code_atlas_trace.py --root . --repo 11576865/UIGS-Foundry --script tools/code_atlas_causality_demo.py --output /tmp/uigs-operations.json
+python tools/code_atlas.py --runtime-trace /tmp/uigs-operations.json --export-html /tmp/uigs-operations.html
+```
+
+The safe in-repository demo observes one exact call inside an annotated operation.
+Select its function node in the exported browser to see operation events alongside
+the observed call. When there are no annotations, the operation panel stays hidden.
+
+- Operation IDs and parent IDs track nested spans. Asyncio child tasks inherit
+  the operation context by default. Threads do not inherit it automatically.
+- State and side-effect annotations are manually emitted claims; do not interpret
+  them as independently observed writes, complete side-effect capture, or full
+  causal proof. Python function calls are actual profile observations.
+- No code is ever run by the browser, and tracing requires an explicit CLI
+  entrypoint. All execution side effects remain the operator's responsibility.
+- Annotations are capped at 2,000 events (or a lower profile limit) with an
+  explicit truncated flag. An incomplete operation tail must not be represented
+  as a successful operation completion.
+- Static/runtime matching continues to require the same repository and revision;
+  unanchored operation evidence is labeled as such.
+- The experiment does not yet track JavaScript, Kotlin, external processes,
+  actual property writes, lock ownership, distributed traces, or race causation.

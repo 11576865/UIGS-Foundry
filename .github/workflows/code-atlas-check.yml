@@ -5,6 +5,12 @@ on:
     paths:
       - "tools/code_atlas.py"
       - "tools/code_atlas_trace.py"
+      - "tools/code_atlas_causality.py"
+      - "tools/code_atlas_causality_demo.py"
+      - "tools/test_code_atlas_causality.py"
+      - "tools/code_atlas_causality.py"
+      - "tools/code_atlas_causality_demo.py"
+      - "tools/test_code_atlas_causality.py"
       - "tools/test_code_atlas_trace.py"
       - "tools/code_atlas_web/**"
       - "tools/test_code_atlas.py"
@@ -43,6 +49,8 @@ jobs:
         run: python -m unittest discover -s tools -p test_code_atlas.py -v
       - name: Run opt-in Python runtime collector tests
         run: python -m unittest discover -s tools -p test_code_atlas_trace.py -v
+      - name: Test explicit operation annotation and correlation
+        run: python -m unittest discover -s tools -p test_code_atlas_causality.py -v
       - name: Check bounded source-reference accuracy
         run: python tools/check_code_atlas_accuracy.py --output /tmp/code-atlas-accuracy.json
       - name: Upload accuracy evidence
@@ -77,8 +85,36 @@ jobs:
             /tmp/uigs-code-atlas-runtime.json
             /tmp/uigs-code-atlas-observed.json
           retention-days: 14
+      - name: Observe an explicitly annotated safe operation
+        run: |
+          python tools/code_atlas_trace.py --root . --repo 11576865/UIGS-Foundry --script tools/code_atlas_causality_demo.py --output /tmp/uigs-atlas-operations.json
+          python tools/code_atlas.py --runtime-trace /tmp/uigs-atlas-operations.json --output /tmp/uigs-atlas-operations-graph.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path("/tmp/uigs-atlas-operations-graph.json").read_text())
+          ops = data["operation_evidence"]
+          events = ops["annotations"]["events"]
+          calls = ops["calls"]
+          assert data["runtime_trace"]["anchored"], "operation evidence must match HEAD"
+          assert [e["kind"] for e in events] == ["operation_begin", "action", "checkpoint", "operation_end"]
+          assert any(c["from"] == "fn:tools/code_atlas_causality_demo.py:calculate"
+                     and c["to"] == "fn:tools/code_atlas_causality_demo.py:compute_value"
+                     and c["count"] == 1 for c in calls)
+          assert not ops["unmatched_calls"]
+          assert not ops["annotations"]["truncated"]
+          print("Explicit operation events linked to observed real calls:", len(calls))
+          PY
+      - name: Upload correlated operation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: uigs-code-atlas-operation-evidence
+          path: |
+            /tmp/uigs-atlas-operations.json
+            /tmp/uigs-atlas-operations-graph.json
+          retention-days: 14
       - name: Export shareable standalone browser artifact
-        run: python tools/code_atlas.py --runtime-trace /tmp/uigs-code-atlas-runtime.json --export-html /tmp/UIGS_Code_Atlas.html
+        run: python tools/code_atlas.py --runtime-trace /tmp/uigs-atlas-operations.json --export-html /tmp/UIGS_Code_Atlas.html
       - name: Upload browser artifact
         uses: actions/upload-artifact@v4
         with:
