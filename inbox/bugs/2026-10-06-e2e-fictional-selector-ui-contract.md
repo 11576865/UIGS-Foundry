@@ -77,3 +77,12 @@ This is one concrete Browser E2E defect with a submitted repair. It is Bug evide
 - failing job: frontend / job 111790956162
 - repair revision: `a63c7b32921b13e7cb33fce01aef8defe7bbe547`
 - deduplication: Foundry search for stale/nonexistent Playwright selectors and UI-contract equivalents returned no direct match
+
+
+## HSR follow-up: existing content behind a deliberate disclosure (2026-10-16)
+
+HSR PR [#186](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/186) exposed a related but distinct false-red shape: the Playwright browser test required `#layoutCueEditorPanel.is_visible()` immediately after switching back to the Layout task, whereas the actual current subtitle/audio-clock content remained present **inside a deliberately collapsed `<details id="studioV4Timing">`**. The same browser test elsewhere explicitly requires timing details to start collapsed and opens them to inspect the live fields. The original visibility assertion contradicted that declared disclosure interaction, rather than proving missing content.
+
+A bounded test-contract repair asserts that the disclosure summary is visible, the subtitle panel exists exactly once, and the drawer starts closed, then retains later explicit-open, audio-clock and keyboard-focus assertions. Do not make hidden content permanently visible solely to satisfy the old assertion. This evidence is **pending new exact-head Chromium CI**, not a successful UI run.
+
+Related real-FFmpeg finding: an old baseline fixture assumed an unpadded DejaVu-font candidate *must* collide. Font fallback/solver revisions can make it genuinely safe. Its physical pixels, not historical expectation, should decide whether the unpadded candidate collided; the padded candidate must still meet all scale-specific actual-ink spacing thresholds. Separate source test updated, CI pending. No Canonical change.
