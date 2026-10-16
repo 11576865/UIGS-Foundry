@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - "tools/code_atlas.py"
+      - "tools/code_atlas_trace.py"
+      - "tools/test_code_atlas_trace.py"
       - "tools/code_atlas_web/**"
       - "tools/test_code_atlas.py"
       - "tools/check_code_atlas_accuracy.py"
@@ -12,6 +14,8 @@ on:
   pull_request:
     paths:
       - "tools/code_atlas.py"
+      - "tools/code_atlas_trace.py"
+      - "tools/test_code_atlas_trace.py"
       - "tools/code_atlas_web/**"
       - "tools/test_code_atlas.py"
       - "tools/check_code_atlas_accuracy.py"
@@ -35,6 +39,8 @@ jobs:
           python-version: "3.11"
       - name: Run source-grounding and self-observation tests
         run: python -m unittest discover -s tools -p test_code_atlas.py -v
+      - name: Run opt-in Python runtime collector tests
+        run: python -m unittest discover -s tools -p test_code_atlas_trace.py -v
       - name: Check bounded source-reference accuracy
         run: python tools/check_code_atlas_accuracy.py --output /tmp/code-atlas-accuracy.json
       - name: Upload accuracy evidence
@@ -46,8 +52,31 @@ jobs:
           retention-days: 14
       - name: Build read-only source graph
         run: python tools/code_atlas.py --output /tmp/uigs-code-atlas.json
+      - name: Collect real runtime evidence from safe UIGS test entrypoint
+        run: |
+          python tools/code_atlas_trace.py --root . --repo 11576865/UIGS-Foundry --script tools/test_epistemic_graph.py --output /tmp/uigs-code-atlas-runtime.json
+          python tools/code_atlas.py --runtime-trace /tmp/uigs-code-atlas-runtime.json --output /tmp/uigs-code-atlas-observed.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          g=json.loads(Path("/tmp/uigs-code-atlas-observed.json").read_text())
+          assert g["runtime_trace"]["anchored"], "runtime observation must be commit-pinned"
+          assert g["stats"]["runtime_edges"] > 0, "no in-repository runtime edges resolved"
+          assert any(e["from"] == "fn:tools/test_epistemic_graph.py:test_same_lineage_counts_once"
+                     and e["to"] == "fn:tools/evaluate_epistemic_graph.py:evaluate"
+                     and e["evidence"] == "python_profile_observed" for e in g["edges"])
+          print("Real source-matched runtime evidence:", g["runtime_trace"])
+          PY
+      - name: Upload runtime evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: uigs-code-atlas-runtime
+          path: |
+            /tmp/uigs-code-atlas-runtime.json
+            /tmp/uigs-code-atlas-observed.json
+          retention-days: 14
       - name: Export shareable standalone browser artifact
-        run: python tools/code_atlas.py --export-html /tmp/UIGS_Code_Atlas.html
+        run: python tools/code_atlas.py --runtime-trace /tmp/uigs-code-atlas-runtime.json --export-html /tmp/UIGS_Code_Atlas.html
       - name: Upload browser artifact
         uses: actions/upload-artifact@v4
         with:
