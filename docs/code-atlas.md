@@ -143,3 +143,9 @@ the observed call. When there are no annotations, the operation panel stays hidd
   unanchored operation evidence is labeled as such.
 - The experiment does not yet track JavaScript, Kotlin, external processes,
   actual property writes, lock ownership, distributed traces, or race causation.
+
+## Bounded before-and-after state probe (experimental)
+
+Inside an explicit operation, use `observe_state(subject, read_state)` around a safe action. The supplied probe reads a selected JSON-serializable value twice and emits only `state_delta` with `changed`, `unchanged`, or `unknown`. Neither raw values nor probe exception messages are written to evidence. Each snapshot is limited to 64 KiB; errors and excess size fail closed as `unknown`. The probe reader itself must be side-effect-free and deterministic.
+
+This is an independently computed comparison of two selected probe outputs, **not** proof of causation or full state correctness. The browser inspector labels these readings separately from unverified `state_write` annotations. Browser automation in the current execution environment was blocked by Chromium navigation policy; end-to-end browser acceptance remains Pending.

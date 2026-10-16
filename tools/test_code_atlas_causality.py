@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from code_atlas_causality import collect, current_operation, mark, operation
+from code_atlas_causality import collect, current_operation, mark, operation, observe_state
 
 SPEC = importlib.util.spec_from_file_location("atlas_trace", Path(__file__).with_name("code_atlas_trace.py"))
 trace = importlib.util.module_from_spec(SPEC)
@@ -84,6 +84,66 @@ class CausalityTests(unittest.TestCase):
             mark("automatically_proven_correct", "false")
         with self.assertRaises(ValueError):
             with operation(""):
+                pass
+
+
+    def test_probe_changed_and_unchanged(self):
+        state = {"value": [1]}
+        with collect() as rec:
+            with operation("edit"):
+                with observe_state("document", lambda: state):
+                    state["value"].append(2)
+                with observe_state("document", lambda: state):
+                    pass
+        events = [e for e in rec.events if e["kind"] == "state_delta"]
+        self.assertEqual([e["detail"]["verdict"] for e in events], ["changed", "unchanged"])
+        self.assertNotIn("[1,2]", str(rec.report()))
+
+    def test_probe_failure_and_privacy(self):
+        reads = [0]
+        def reader():
+            reads[0] += 1
+            if reads[0] == 2:
+                raise RuntimeError("secret error")
+            return {"secret": "secret value"}
+        with collect() as rec:
+            with operation("task"):
+                with observe_state("doc", reader):
+                    pass
+        delta = [e for e in rec.events if e["kind"] == "state_delta"][0]
+        self.assertEqual(delta["detail"]["verdict"], "unknown")
+        self.assertEqual(delta["detail"]["after_status"], "probe_error")
+        self.assertNotIn("secret", str(rec.report()))
+
+    def test_probe_serialization_and_size_limit(self):
+        with collect() as rec:
+            with operation("task"):
+                with observe_state("unsupported", lambda: object()):
+                    pass
+                with observe_state("oversize", lambda: "x"*70000):
+                    pass
+        results = [e for e in rec.events if e["kind"] == "state_delta"]
+        self.assertEqual([e["detail"]["verdict"] for e in results], ["unknown", "unknown"])
+        self.assertEqual(results[1]["detail"]["before_status"], "size_limit")
+
+    def test_probe_records_after_exception(self):
+        state = {"value": 1}
+        with collect() as rec:
+            with self.assertRaisesRegex(RuntimeError, "stop"):
+                with operation("failure"):
+                    with observe_state("doc", lambda: state):
+                        state["value"] = 2
+                        raise RuntimeError("stop")
+        self.assertTrue(any(e["kind"] == "state_delta" and e["detail"]["verdict"] == "changed" for e in rec.events))
+        self.assertIsNone(current_operation())
+
+    def test_probe_dormant_without_collector(self):
+        def forbidden():
+            raise AssertionError("reader must not run")
+        with observe_state("doc", forbidden):
+            pass
+        with self.assertRaises(TypeError):
+            with observe_state("doc", None):
                 pass
 
 

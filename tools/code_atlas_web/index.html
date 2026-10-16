@@ -20,7 +20,7 @@ main{min-width:0;display:flex;flex-direction:column;position:relative;background
 <header><div class="logo">U</div><strong>UIGS <span style="color:#8eb7fa;font-weight:500">/ Code Atlas</span></strong><span class="muted">代码事实与工程证据观察</span><div class="right"><span id="revision" class="muted">读取中…</span><span class="pill">只读 · AST / Runtime（可选）</span></div></header>
 <aside class="sidebar"><div class="section">工作空间</div><button class="nav on" id="navAll">全部结构</button><button class="nav" id="navFile">模块与文件</button><button class="nav" id="navFn">函数与调用</button><div class="section">证据边界</div><div class="info"><strong>这是可观察的结构，不是正确性证明</strong>普通连线表示 AST 静态关系；绿色虚线仅表示显式运行期间观察到的 Python 调用。未观察到不代表不会执行。<p class="warning">运行证据仅在用户提供追踪文件后显示；不同提交的追踪不会被合并。</p></div><div class="info"><strong>自我观察</strong>UIGS 的索引器与测试也会进入自己的代码地图。它们没有豁免权。</div></aside>
 <main><div class="bar"><div><h1>Source Graph</h1><small id="subtitle">UIGS Foundry · 当前代码快照</small></div><label class="search" aria-label="搜索源码节点"><input id="search" placeholder="搜索文件、函数、模块..." autocomplete="off"></label><button class="b" id="reset">重置</button><button class="b" id="fit">适配视图</button></div><div class="canvas" id="canvas"><div class="dots"></div><div id="stage" class="stage"><svg id="links" class="links" aria-hidden="true"></svg><div id="cards"></div></div><div class="stat"><span><b id="nodesCount">—</b> 显示节点</span><span>·</span><span><b id="edgesCount">—</b> 可视关系</span><span>·</span><span class="warning" id="unknownCount">动态调用未验证</span></div><div class="zoom"><button id="smaller" aria-label="缩小">−</button><button id="percent" aria-label="适配视图">100%</button><button id="bigger" aria-label="放大">+</button></div></div></main>
-<aside class="inspector"><div class="top"><div class="eyebrow">SOURCE INSPECTOR</div><h2 id="name">等待源码数据</h2><span class="tag" id="status">AST 静态证据</span></div><div class="body"><p class="desc" id="description">图节点由代码解析器生成。选择节点以查看精确源码位置和邻接关系。</p><div class="field"><small>FILE / LINE</small><span id="location">—</span></div><div class="field"><small>NODE ID</small><span id="identity">—</span></div><a id="source" class="visit" href="#" aria-disabled="true" target="_blank" rel="noopener noreferrer">前往固定版本 GitHub 源码 ↗</a><div class="rels"><div class="eyebrow">可追溯关系</div><div id="relations"></div></div><div class="rels" id="operationEvidence" hidden><div class="eyebrow">显式操作事件 · 非独立验证</div><div class="count" id="operationSummary"></div><div id="operationEvents"></div></div><p class="desc warning">图不替代运行测试；跨语言分析仍处于待覆盖状态。</p></div></aside>
+<aside class="inspector"><div class="top"><div class="eyebrow">SOURCE INSPECTOR</div><h2 id="name">等待源码数据</h2><span class="tag" id="status">AST 静态证据</span></div><div class="body"><p class="desc" id="description">图节点由代码解析器生成。选择节点以查看精确源码位置和邻接关系。</p><div class="field"><small>FILE / LINE</small><span id="location">—</span></div><div class="field"><small>NODE ID</small><span id="identity">—</span></div><a id="source" class="visit" href="#" aria-disabled="true" target="_blank" rel="noopener noreferrer">前往固定版本 GitHub 源码 ↗</a><div class="rels"><div class="eyebrow">可追溯关系</div><div id="relations"></div></div><div class="rels" id="operationEvidence" hidden><div class="eyebrow">显式操作事件 · 受限探针验证</div><div class="count" id="operationSummary"></div><div id="operationEvents"></div></div><p class="desc warning">图不替代运行测试；跨语言分析仍处于待覆盖状态。</p></div></aside>
 </div>
 <script>
 (()=>{'use strict';
@@ -45,7 +45,14 @@ function inspectOperations(n){
   const ids=new Set(calls.map(c=>c.operation_id));
   const events=(annotations.events||[]).filter(e=>ids.has(e.operation_id)).slice(0,30);
   summary.textContent=ids.size+' 个被标注操作 · '+calls.length+' 条已观察调用'+(annotations.truncated?' · 事件采集截断':'');
-  for(const e of events){const line=document.createElement('div');line.className='field';line.textContent='#'+e.seq+' · '+e.kind+' · '+e.name+(e.subject?' · '+e.subject:'');list.appendChild(line)}
+  for(const e of events){
+    const line=document.createElement('div');line.className='field';
+    const v=e.kind==='state_delta'&&e.detail?e.detail.verdict:null;
+    const status=v==='changed'?'实际探针结果：有变化':v==='unchanged'?'实际探针结果：无变化':v==='unknown'?'实际探针结果：未知':null;
+    line.textContent='#'+e.seq+' · '+e.kind+' · '+e.name+(e.subject?' · '+e.subject:'')+(status?' · '+status:'');
+    if(status)line.setAttribute('data-verdict',v);
+    list.appendChild(line)
+  }
   if(!events.length){list.textContent='未收集到显式操作事件（运行调用本身不能证明状态变化）。'}
 }
 function transform(){stage.style.transform=`translate(${px}px,${py}px) scale(${z})`;byId('percent').textContent=Math.round(z*100)+'%'}

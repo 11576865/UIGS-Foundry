@@ -8,9 +8,6 @@ on:
       - "tools/code_atlas_causality.py"
       - "tools/code_atlas_causality_demo.py"
       - "tools/test_code_atlas_causality.py"
-      - "tools/code_atlas_causality.py"
-      - "tools/code_atlas_causality_demo.py"
-      - "tools/test_code_atlas_causality.py"
       - "tools/test_code_atlas_trace.py"
       - "tools/code_atlas_web/**"
       - "tools/test_code_atlas.py"
@@ -97,7 +94,9 @@ jobs:
           events = ops["annotations"]["events"]
           calls = ops["calls"]
           assert data["runtime_trace"]["anchored"], "operation evidence must match HEAD"
-          assert [e["kind"] for e in events] == ["operation_begin", "action", "checkpoint", "operation_end"]
+          assert [e["kind"] for e in events] == ["operation_begin", "action", "state_delta", "checkpoint", "operation_end"]
+          assert events[2]["detail"]["verdict"] == "changed"
+          assert events[2]["detail"]["method"] == "json_before_after"
           assert any(c["from"] == "fn:tools/code_atlas_causality_demo.py:calculate"
                      and c["to"] == "fn:tools/code_atlas_causality_demo.py:compute_value"
                      and c["count"] == 1 for c in calls)

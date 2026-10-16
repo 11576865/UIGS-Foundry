@@ -7,6 +7,8 @@ that a state or effect was independently verified.
 from __future__ import annotations
 
 from contextlib import contextmanager
+import json
+from collections.abc import Callable
 from contextvars import ContextVar
 from threading import Lock, get_ident
 from time import monotonic_ns
@@ -15,6 +17,7 @@ from typing import Iterator
 _ACTIVE: ContextVar["Recorder | None"] = ContextVar("uigs_atlas_recorder", default=None)
 _OPERATION: ContextVar[str | None] = ContextVar("uigs_atlas_operation", default=None)
 KINDS = frozenset({"action", "state_write", "side_effect", "checkpoint"})
+MAX_SNAPSHOT_BYTES = 65536
 
 
 class Recorder:
@@ -34,7 +37,7 @@ class Recorder:
         self.emit("operation_begin", name, ident, parent)
         return ident
 
-    def emit(self, kind: str, name: str, operation_id: str | None, parent_id: str | None = None, *, subject: str | None = None):
+    def emit(self, kind: str, name: str, operation_id: str | None, parent_id: str | None = None, *, subject: str | None = None, detail: dict | None = None):
         with self._lock:
             if len(self.events) >= self.max_events:
                 self.truncated = True
@@ -44,6 +47,8 @@ class Recorder:
                     "monotonic_ns": monotonic_ns(), "thread_id": get_ident()}
             if subject is not None:
                 item["subject"] = subject
+            if detail is not None:
+                item["detail"] = detail
             self.events.append(item)
             return True
 
@@ -55,6 +60,7 @@ class Recorder:
                     "Async tasks inherit context at creation; threads do not inherit context automatically",
                     "Only explicitly instrumented operations and events appear; missing events do not imply absent effects",
                     "Timestamps are monotonic within one process and are not globally synchronized clocks",
+                    "Only chosen JSON values are compared; no system-wide state/cause proof",
                 ]}
 
 
@@ -107,3 +113,40 @@ def mark(kind: str, name: str, *, subject: str | None = None) -> bool:
     if recorder is None:
         return False
     return recorder.emit(kind, name, current_operation(), subject=subject)
+
+
+@contextmanager
+def observe_state(subject: str, read_state: Callable[[], object]):
+    """Compare two snapshots; emit verdict only (no raw values in evidence)."""
+    if not isinstance(subject, str) or not subject.strip():
+        raise ValueError("state subject must be non-empty")
+    if not callable(read_state):
+        raise TypeError("read_state must be callable")
+    recorder = _ACTIVE.get()
+    if recorder is None:
+        yield None
+        return
+    ident = current_operation()
+
+    def snapshot():
+        try:
+            payload = json.dumps(read_state(), sort_keys=True, ensure_ascii=False,
+                                 separators=(",", ":"), allow_nan=False)
+            if len(payload.encode("utf-8")) > MAX_SNAPSHOT_BYTES:
+                return None, "size_limit"
+            return payload, None
+        except Exception:
+            return None, "probe_error"
+
+    before, before_error = snapshot()
+    try:
+        yield None
+    finally:
+        after, after_error = snapshot()
+        verdict = "unknown" if before_error or after_error else ("changed" if before != after else "unchanged")
+        detail = {"verdict": verdict, "method": "json_before_after"}
+        if before_error:
+            detail["before_status"] = before_error
+        if after_error:
+            detail["after_status"] = after_error
+        recorder.emit("state_delta", "probe comparison", ident, subject=subject, detail=detail)
