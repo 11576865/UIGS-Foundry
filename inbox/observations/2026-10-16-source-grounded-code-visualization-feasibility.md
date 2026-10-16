@@ -38,3 +38,15 @@ After checking the live UIGS-Foundry tree and its actual Python files, a single-
 Critical limits: hand-curated graph data rather than a working automated source indexer; no dynamic trace collection, no CI run verification, no graph relation precision/recall benchmark, and no live deployment. Browser success establishes only that the visualization mechanics can run, not that a general code understanding system works or self-validates. Product repository source files were not modified.
 
 Next go/no-go gate: extract the exact same slice automatically from a pinned checkout and compare to the hand-checked reference; handle false positives/unknown edges explicitly. Do not promote this approach or add an entire standalone governance stack until this gate is passed.
+
+## Implementation experiment — Code Atlas PR #38 (2026-10-16)
+The user explicitly authorized bounded implementation of UIGS-integrated browser code observation and permitted context-dependent scope expansion. This is **execution evidence**, not promotion of the proposal.
+
+- Submitted read-only Code Atlas work in [UIGS-Foundry PR #38](https://github.com/11576865/UIGS-Foundry/pull/38), head `39b08babaaf5a889200a5368c217bfeabbab516c` at submission.
+- Python AST indexer generates file and symbol nodes, static import/call relationships with source lines, and explicit unresolved-call and parse-error counts; unverified dynamic calls are not presented as confirmed edges.
+- Browser UI supports navigation and source inspection; dedicated tests include shadowed import names, nested-function attribution, syntax failures, same-tool self-index, and cross-file UIGS epistemic graph evaluation.
+- An offline standalone HTML export and CI artifact path were included to reduce deployment prerequisites.
+- Local isolated tests and Chromium smoke checks were performed, but this does not substitute for GitHub Actions on the complete repository. At the first immediate read, `Code Atlas Source Observation` and `Validate Foundry` were **in_progress**.
+- The current accepted scope is Python static analysis, no runtime trace, no multi-language semantic coverage, no autonomous correctness assertion; all source authority remains in the product repository.
+
+**Review gate:** confirm CI and real source edge assertions independently before considering the code observer validated; then assess false positives and update cost. Do not create a new knowledge family or promote existing Candidate/Observation to Canonical based solely on this change.
