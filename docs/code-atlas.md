@@ -44,3 +44,20 @@ To inspect another local Python repository, pass `--root /path/to/checkout --rep
 5. Run `python -m unittest discover -s tools -p test_code_atlas.py -v` and test the served browser manually.
 
 **Status:** Python-only experimental slice. No claim of general cross-language understanding, race detection, causal proof, complete coverage, or independent self-certification. Product repository code and CI remain authoritative. UIGS Foundry's Claim/Evidence process is the governance layer; this graph is only a derived read model.
+
+## Bounded accuracy gate (2026-10-16)
+
+Run `python tools/check_code_atlas_accuracy.py --output /tmp/code-atlas-accuracy.json`.
+CI now checks manually specified known edges and *forbidden* false edges, including
+dotted-import lookalikes, module basename collisions, and parameter/local/module
+shadowing. It also checks three real Foundry code anchors in complete checkouts.
+
+This is an intentionally narrow falsification probe: passing does **not** prove
+whole-project recall, dynamic behavior, or correctness on other languages.
+A passing result must report the actual counts, failures, and whether real
+repository fixtures were available. Uncovered paths remain unknown.
+
+Known unrelated blocker: the general Validate Foundry workflow can fail
+because older `inbox/bugs/` records lack required `Lifecycle:` metadata.
+Code Atlas validation is separate; do not manufacture lifecycle states just
+to turn CI green.

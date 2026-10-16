@@ -44,6 +44,37 @@ def source_url(repo: str | None, sha: str | None, rel: str, line: int = 0) -> st
     return f"https://github.com/{repo}/blob/{sha}/{quote(rel, safe='/')}" + (f"#L{line}" if line else "")
 
 
+def bound_names(body: list[ast.stmt]) -> set[str]:
+    """Conservatively detect rebindings without leaking nested scopes.
+
+    An assignment or local import must not be treated as a call to a
+    similarly named symbol imported in an outer scope.
+    """
+    names: set[str] = set()
+    pending: list[ast.AST] = list(body)
+    while pending:
+        item = pending.pop()
+        if isinstance(item, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            names.add(item.name)
+            continue
+        if isinstance(item, ast.Lambda):
+            continue
+        if isinstance(item, (ast.Import, ast.ImportFrom)):
+            for alias in item.names:
+                names.add(alias.asname or alias.name.split(".")[0])
+            continue
+        if isinstance(item, ast.ExceptHandler) and item.name:
+            names.add(item.name)
+        if isinstance(item, (ast.Assign, ast.AnnAssign, ast.AugAssign, ast.NamedExpr, ast.For, ast.AsyncFor, ast.With, ast.AsyncWith)):
+            for node in ast.iter_child_nodes(item):
+                if isinstance(node, ast.Name) and isinstance(node.ctx, ast.Store):
+                    names.add(node.id)
+        if isinstance(item, ast.Name) and isinstance(item.ctx, ast.Store):
+            names.add(item.id)
+        pending.extend(ast.iter_child_nodes(item))
+    return names
+
+
 def index(root: Path, repo: str | None = None, revision: str | None = None) -> dict:
     root = root.resolve()
     if not root.is_dir():
@@ -64,7 +95,6 @@ def index(root: Path, repo: str | None = None, revision: str | None = None) -> d
         if module.endswith(".__init__"):
             module = module[:-9]
         module_aliases[module] = rel
-        module_aliases[module.rsplit(".", 1)[-1]] = rel  # resolution checked for ambiguity below
         try:
             tree = ast.parse(path.read_text(encoding="utf-8-sig"), filename=rel)
         except (SyntaxError, UnicodeError) as ex:
@@ -85,29 +115,38 @@ def index(root: Path, repo: str | None = None, revision: str | None = None) -> d
                     defs(stmt.body, prefix + stmt.name + ".")
         defs(tree.body)
 
-    # Never resolve an ambiguous module tail to an arbitrary repository file.
+    # Bare script imports may name a uniquely located module. Preserve an
+    # exact top-level module even when another package has the same basename.
     tails: dict[str, list[str]] = {}
     for rel, _ in parsed:
         tails.setdefault(Path(rel).stem, []).append(rel)
     for tail, paths in tails.items():
-        if len(paths) > 1:
-            module_aliases.pop(tail, None)
+        if len(paths) == 1 and tail not in module_aliases:
+            module_aliases[tail] = paths[0]
 
     for rel, tree in parsed:
         aliases: dict[str, tuple[str, str | None]] = {}
         for stmt in tree.body:
             if isinstance(stmt, ast.Import):
                 for item in stmt.names:
-                    target = module_aliases.get(item.name) or module_aliases.get(item.name.rsplit(".", 1)[-1])
+                    target = module_aliases.get(item.name)
+                    # `import package.child` binds `package`, not `child`.
+                    if "." in item.name and not item.asname:
+                        target = module_aliases.get(item.name.split(".")[0])
                     if target:
                         aliases[item.asname or item.name.split(".")[0]] = (target, None)
                         edges.append({"from": f"file:{rel}", "to": f"file:{target}", "kind": "imports", "evidence": "ast_import", "path": rel, "line": stmt.lineno})
             elif isinstance(stmt, ast.ImportFrom) and stmt.level == 0 and stmt.module:
-                target = module_aliases.get(stmt.module) or module_aliases.get(stmt.module.rsplit(".", 1)[-1])
+                target = module_aliases.get(stmt.module)
                 if target:
                     edges.append({"from": f"file:{rel}", "to": f"file:{target}", "kind": "imports", "evidence": "ast_import", "path": rel, "line": stmt.lineno})
                     for item in stmt.names:
                         aliases[item.asname or item.name] = (target, item.name)
+
+        # If an imported symbol was assigned in the same module, its current
+        # meaning is not reliably the imported target.
+        module_bindings = bound_names([s for s in tree.body if not isinstance(s, (ast.Import, ast.ImportFrom))])
+        aliases = {name: value for name, value in aliases.items() if name not in module_bindings}
 
         def visit_function(fn: ast.FunctionDef | ast.AsyncFunctionDef, qual: str) -> None:
             src = symbol_index.get((rel, qual))
@@ -119,7 +158,7 @@ def index(root: Path, repo: str | None = None, revision: str | None = None) -> d
                 parameters.add(fn.args.vararg.arg)
             if fn.args.kwarg:
                 parameters.add(fn.args.kwarg.arg)
-            locally_bound = set(parameters)
+            locally_bound = set(parameters) | bound_names(fn.body)
             def walk_body():
                 pending = list(fn.body)
                 while pending:
