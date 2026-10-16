@@ -44,3 +44,17 @@ Corrected head: `0e16632d422dd2ea6550f6bce558cbe7df766910` (still **Draft**, not
 Browser E2E: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/37984257203 — **completed success**, with **168/168 Node tests passed, zero failed**. Log contains `MKV container-tree source track editing and post-export retention PASS` as well as `MKV container-tree attachment editing PASS`. The test asserts the selected source still exists after mux, the edited title remains in the tree, the 390px view renders nonzero geometry without document horizontal overflow, and the mux action remains available for a revised run. Latest PR Pages build also passed.
 
 Conclusion: **verified fixed on the PR branch by real Chromium E2E**. No merged-main deployment or broad user visual acceptance has yet been claimed. This Bug remains an engineering observation rather than a Canonical policy change.
+
+
+## PR #157 regression test adapter-bypass (2026-10-16, pending repair validation)
+
+A later CI event reproduced the **same lifetime boundary from the test side**, not as a newly discovered production regression:
+
+- Exact-head Chromium run: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38888945140; Node **618/618 pass**, Pages/build success, browser failed after real scenario-2 mux and report; `scenarioSelectiveAttachments` modern route observed 0 `.sf14-source-observation` entries instead of two.
+- The new dual-mode test launched the modern UI but set `#videoInput`, `#subInput` and `#fontInput` **directly**. These are legacy role adapters; the current public entry `#unifiedAssetInput` was bypassed, leaving `importedAssetEntries.length === 0`.
+- Production `src/main.js` intentionally preserves a current task after export **only** when the user-facing inventory exists. The legacy adapter-only branch still clears the hidden input and calls `resetTrackState()`; the source-observation projection then truthfully has no current scanned source. The detached mux report can remain valid without implying source-edit context continuity.
+- PR #157 repair commit `22c2bff52410c2810585c551d8ac90d36b2b639b` changes the **modern test route** to import the MKV, ASS and font through `#unifiedAssetInput`, confirms both source observations before output, then requires the exact selected source and object evidence to survive actual output. The legacy route and production cleanup rule are deliberately unchanged.
+
+**Evidence status:** updated test source parsed and core assertions were inspected, but exact-head Node/Chromium after this commit are **Pending External Validation**. This addendum does not claim the current PR is green or that the original MKV's full EBML/UID graph is preserved.
+
+Reusable distinction: integration tests must enter through the user-facing source-identity owner of the presentation mode under test. A hidden execution adapter is not a drop-in substitute for a registered resource inventory when asserting post-export project persistence. This strengthens the existing lifetime Bug rather than generating a new Candidate or modifying Canonical.
