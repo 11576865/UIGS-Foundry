@@ -51,3 +51,14 @@ This is the inverse of the original Bug: launching the modern workbench then dri
 Bounded correction in test-only commit `0ee5d5bf16658cdd0d78adfa9ab0242e88d2ae7d`: current-mode scenario now uses the visible source tree, chooses original font and notes by actual scanned names, excludes one attachment, renames the other and edits MIME via context Inspector; it asserts projection parity with original execution adapter values. Legacy mode retains its old input/control path. Real output, ffprobe and finished-file FileData assertions are untouched.
 
 **Pending External Validation:** corrected head browser E2E not yet checked. This is additive evidence to the same mode/selector-contract Bug, not a new Canonical rule or proof of full Matroska preservation.
+
+
+## Follow-up: mutable-name locator after successful attachment rename (2026-10-17)
+
+PR #157 prior exact head `be7998f68ba1bc7f533a7123c720b1d23d943fe4` again passed 618/618 Node tests and Pages build (run `38906882750`), but Browser E2E `38906882520` failed in current-workbench scenario 2 with a Playwright TimeoutError at `.attachment-item` filtered by old visible text `notes.txt` after renaming the same source attachment to `notes-renamed.txt`.
+
+The test now used genuine visible current source-tree/Inspector controls, but its **read-only parity assertion** still located the hidden adapter by a mutable display name. `src/main.js` already provides stable `data-tree-stream-index` on source rows and `data-attachment-index` on adapter fields. The exact observed failure did not itself prove any media writer bug; the test never reached the real mux in its current route.
+
+Bounded E2E-only repair in commits `7480fdadf3a1b73aec18dbbe207f59ec1b2a0b8c` and `081229e100e43dfad2f97941bca356c853ccb472`: capture the scanned source index **before** rename, assert it is decimal, and check the hidden execution-adapter values by `data-attachment-index` after public Inspector updates. The legacy path and actual FFprobe/FileData oracle remain unchanged; source syntax was parsed. **Pending External Validation:** new exact-head CI is not yet observed.
+
+Dedupe: both this and the earlier hidden-control attempts belong to the same current/legacy E2E identity/surface mismatch Bug. Stable source/adapter identity is also covered by existing source-attachment-ownership Cases; no new Candidate or Canonical promotion.
