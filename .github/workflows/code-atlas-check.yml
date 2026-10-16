@@ -16,6 +16,9 @@ on:
       - "docs/code-atlas.md"
       - ".github/workflows/code-atlas-check.yml"
       - "tools/code_atlas_file_demo.py"
+      - "tools/code_atlas_diff.py"
+      - "tools/code_atlas_diff_demo.py"
+      - "tools/test_code_atlas_diff.py"
       - "tools/test_code_atlas_file_evidence.py"
   pull_request:
     paths:
@@ -32,6 +35,9 @@ on:
       - "tools/code_atlas_causality_demo.py"
       - "tools/test_code_atlas_causality.py"
       - "tools/code_atlas_file_demo.py"
+      - "tools/code_atlas_diff.py"
+      - "tools/code_atlas_diff_demo.py"
+      - "tools/test_code_atlas_diff.py"
       - "tools/test_code_atlas_file_evidence.py"
   workflow_dispatch:
 
@@ -59,6 +65,8 @@ jobs:
         run: python -m unittest discover -s tools -p test_code_atlas_causality.py -v
       - name: Test bounded selected-file change observations
         run: python -m unittest discover -s tools -p test_code_atlas_file_evidence.py -v
+      - name: Test bounded failure capture and operation comparison
+        run: python -m unittest discover -s tools -p test_code_atlas_diff.py -v
       - name: Check bounded source-reference accuracy
         run: python tools/check_code_atlas_accuracy.py --output /tmp/code-atlas-accuracy.json
       - name: Upload accuracy evidence
@@ -155,6 +163,38 @@ jobs:
             /tmp/uigs-atlas-file-operations.json
             /tmp/uigs-atlas-file-graph.json
             /tmp/UIGS_Code_Atlas_File_Observation.html
+          retention-days: 14
+      - name: Compare pinned successful and failed operations
+        run: |
+          python tools/code_atlas_trace.py --root . --repo 11576865/UIGS-Foundry --script tools/code_atlas_diff_demo.py --output /tmp/uigs-atlas-success.json
+          set +e
+          python tools/code_atlas_trace.py --root . --repo 11576865/UIGS-Foundry --record-failure --script tools/code_atlas_diff_demo.py --output /tmp/uigs-atlas-failure.json -- --fail
+          exit_code=$?
+          set -e
+          test "$exit_code" -eq 1
+          python tools/code_atlas_diff.py --baseline /tmp/uigs-atlas-success.json --candidate /tmp/uigs-atlas-failure.json --operation "Code Atlas comparison example" --output /tmp/uigs-atlas-diff.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path("/tmp/uigs-atlas-success.json").read_text())
+          b=json.loads(Path("/tmp/uigs-atlas-failure.json").read_text())
+          d=json.loads(Path("/tmp/uigs-atlas-diff.json").read_text())
+          assert a["revision"]==b["revision"]==d["revision"] and a["revision"], "comparison must be pinned"
+          assert (a["status"],b["status"])==("completed","failed")
+          assert b["exception_type"]=="RuntimeError"
+          assert d["status_changed"] and d["changed_call_sites_total"]>=2
+          assert d["first_observed_event_difference"] is not None
+          assert "deliberate synthetic failure" not in json.dumps(b)
+          print("Comparative trace evidence:", d["changed_call_sites_total"], "call-site changes")
+          PY
+      - name: Upload operation comparison evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: uigs-code-atlas-operation-comparison
+          path: |
+            /tmp/uigs-atlas-success.json
+            /tmp/uigs-atlas-failure.json
+            /tmp/uigs-atlas-diff.json
           retention-days: 14
       - name: Export shareable standalone browser artifact
         run: python tools/code_atlas.py --runtime-trace /tmp/uigs-atlas-operations.json --export-html /tmp/UIGS_Code_Atlas.html

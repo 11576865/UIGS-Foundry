@@ -198,3 +198,35 @@ state probe results and unverified `side_effect` annotations.
 This is a testable *selected-file observation*, not a global side-effect
 auditor, independent state correctness proof, runtime security sandbox, or
 general causal attribution engine.
+
+
+## Same-revision success/failure comparison (experimental; 2026-10-17)
+
+A failed entrypoint previously raised before the collector returned a JSON trace.
+The opt-in flag `--record-failure` now retains a sanitized partial
+trace for handled Python exceptions / nonzero SystemExit. A failing command
+still returns a nonzero exit code. Raw exception messages are excluded. Without
+the flag, the observer preserves its previous exception-raising behavior.
+
+Compare two explicitly collected traces using:
+```bash
+python tools/code_atlas_trace.py --root . --repo 11576865/UIGS-Foundry --script tools/code_atlas_diff_demo.py --output /tmp/good.json
+python tools/code_atlas_trace.py --root . --repo 11576865/UIGS-Foundry --record-failure --script tools/code_atlas_diff_demo.py --output /tmp/failure.json -- --fail
+# The preceding command must return nonzero while leaving failure.json.
+python tools/code_atlas_diff.py --baseline /tmp/good.json --candidate /tmp/failure.json --operation "Code Atlas comparison example" --output /tmp/diff.json
+```
+
+The CLI intentionally rejects different repositories, different commits,
+unanchored checkouts, truncated traces, ambiguous operation names, missing
+operation data and invalid call counts. It compares explicitly annotated
+events and actual Python call-site counts for **one named top-level operation**,
+including nested operation IDs when available. The report gives the first
+observed event mismatch and bounded changed-call summaries; it does not infer
+root cause, give a globally accurate event timeline, or claim state validity.
+
+The comparison is **not yet rendered in the browser**. It is a JSON inspection
+artifact with tests and an opt-in CI demonstration. Profiling cannot preserve
+evidence after uncatchable termination such as process kill or interpreter
+crash. A run that fails outside the explicit trace lifecycle is not captured.
+Retaining the same pinned commit only controls one source of variation; input
+fixtures and environmental differences still affect comparison validity.
