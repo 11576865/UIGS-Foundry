@@ -156,3 +156,45 @@ This is an independently computed comparison of two selected probe outputs, **no
 The independent real-chromium-browser CI job runs the Playwright/Chromium tests in tools/test_code_atlas_browser.py at 1440x900 and 390x780, with screenshots as retained artifacts. It verifies search, selected node inspection, source URL, observed call labels, and changed/unchanged/unknown operation-state results. The narrow layout now keeps the operation evidence inspector reachable instead of hiding every .rels panel.
 
 The browser uses a deliberately synthetic evidence fixture: browser rendering does not certify source-index accuracy, real media processing, causal responsibility, or physical touchscreen behavior. Chromium in the local managed container blocked file and localhost navigation, so this requires an independent GitHub-hosted run. Until exact-head CI completes, the browser result remains Pending.
+
+
+## Bounded explicit file-change probes (experimental)
+
+This opt-in capability observes **one operator-selected ordinary file**, comparing
+its bounded contents before and after an operation. It adds `file_delta` records
+with `created`, `modified`, `removed`, `unchanged`, or `unknown`.
+The resulting JSON includes only a stable, caller-provided subject name and a
+verdict, not the source path, raw bytes, digest, or underlying error text.
+
+```python
+from code_atlas_causality import operation, observe_file
+with operation("Build output (safe local test)"):
+    with observe_file("artifact:test-output", "/tmp/test-output.bin"):
+        run_explicit_test_write()
+```
+
+No browser execution or implicit repository-wide filesystem scan is added.
+The CLI must explicitly invoke the chosen Python script. Only the selected
+file is read, with an upper bound of 1 MiB per snapshot; directories, direct
+symlinks, non-regular files, failures and large files return `unknown`.
+The selected filename is not included in exported evidence. The file probe
+does not itself modify or delete files (the operator's action may do so).
+Symlinked ancestors, operating-system metadata, other files, remote services
+and subprocess effects are outside the claimed observation boundary.
+
+`unchanged` means the selected before/after bytes were equal within the
+bounded probe, **not** that filesystem identity/metadata or all effects were
+unchanged. Different bytes constitute `modified`; this is not proof which
+function caused the modification. Concurrent writes remain a limitation and
+are flagged when detectable, not universally excluded.
+
+Use the safe `tools/code_atlas_file_demo.py` (temporary directory only) to
+produce the first real file delta. CI asserts a `created` event is linked
+to the actual `run_demo() -> make_artifact()` call, with fixed repository
+revision. The optional `UIGS_Code_Atlas_File_Observation.html` artifact is
+a versioned snapshot. The browser shows file verdicts separately from
+state probe results and unverified `side_effect` annotations.
+
+This is a testable *selected-file observation*, not a global side-effect
+auditor, independent state correctness proof, runtime security sandbox, or
+general causal attribution engine.
