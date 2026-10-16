@@ -53,3 +53,25 @@ Extends `inbox/observations/2026-10-16-source-grounded-code-visualization-feasib
 **Fit with existing Foundry authority:** `governance/AGENT-EXECUTION.md` already states interactive agents are disposable workers and durable state is Git commits/PRs/task-state; `intake/project-adapter-protocol.md` already provides outbox and Pending handoff; `governance/EPISTEMIC-MODEL.md` keeps source artifacts, Evidence, Claims and knowledge views separate. This is an application of those rules to AI-assisted architecture comprehension, not a new foundation.
 
 **Scope and limits:** No claim of a connected autonomous ChatGPT-to-Foundry daemon, no guaranteed scheduled ChatGPT execution, no product-code changes or deployment, and no new Canonical rule. Pilot one HSR action and validate source anchors and usability before expanding.
+
+
+## Follow-up — 2026-10-17 owner-readable bidirectional UI-capability map
+
+**Direct product-owner need:** The user cannot make informed product direction or UI decisions because they cannot tell what each button actually invokes, which business outcome it achieves, and which existing capabilities have no discoverable user route. Repeated bug-report-and-fix loops are a poor substitute for inspecting the product as a whole.
+
+**Distinct contribution:** Add an owner-readable **bidirectional join** to the existing As-Is/To-Be/Delta method:
+- Forward: visible button / context -> handler -> API or bridge -> actual domain function / job -> state mutations and published artifacts -> observed/tested user outcome.
+- Reverse: implemented business capability -> reachable UI context(s), CLI/HTTP-only entry or missing/hidden/disabled/deprecated entry -> accessibility and task-flow evaluation.
+- Do not equate an endpoint absent from UI literal search with a product defect. Exclude private diagnostics by explicit intent; dynamic and delegated event handling may defeat static matches. Distinguish source-connected, runtime-demonstrated, hidden by conditions, no intended UI, UI-only/dead, unimplemented, and unverified.
+- Maintain stable business capability identity even if multiple buttons point to one action; two affordances may be justified shortcuts rather than duplicated domain logic. Conversely an accessible endpoint is not evidence of a comprehensible user path.
+- View modes: simple owner-facing product map; drilldown source provenance; capability-entry coverage matrix; approved To-Be arrangement and change/acceptance plan. Prefer concise Chinese-primary labels with English term and actual symbol IDs in drilldown.
+
+**Narrow HSR source evidence** at `dea5411312ed3e819864f1915f4f2008f938cba3`:
+- `app/static/index.html` line ~5986: `overviewBuildBtn` delegates to `buildBtn.click()`, which saves config and POSTs `/api/project/build` at ~5794. Thus two UI controls, one business build invocation; do not automatically delete either.
+- `generateSubtitleAssBtn` and `generateSubtitleExternalAssBtn` at ~3496–3497 map to `startAssExport('internal'/'external')` near ~9810 and API `/api/output/ass` or `/api/output/ass/external` near ~5819. Explicit publication semantics diverge.
+- `app/server.py` exposes `POST /api/project/forget` (~1306) while the examined production `index.html` does not contain that literal API route. **Candidate API-only route**, not established as unwanted or missing UI until business intent and any alternate callers are reviewed.
+- An exploratory regex count found 99 literal `<button>` tags and 55 matched FastAPI route decorators, but these are deliberately not treated as authoritative exhaustive inventory: source contains dynamic controls, delegated handlers and differently formed definitions.
+
+**Acceptance:** For selected product owner workflows, verify exact UI rendering and triggering (not just DOM presence), linked code action, effects, user outcome, absence of overwritten drafts, and source/CI evidence; classify every uncovered capability with an explicit owner decision. Audit across two runtime backends where applicable. No UI modifications authorized by this note.
+
+**Dedup:** Existing `inbox/cases/2026-10-15-softmux-ai-concept-images-feature-catalog-vs-operable-ui.md` already warns against mapping every capability to an always-visible dashboard; `inbox/observations/2026-10-14-ass-r2-18-tools-and-legacy-8-parity-gap.md` addresses 18-tool coverage between Android UI hosts; `inbox/candidates/2026-10-02-ui-requirement-evidence-traceability-ledger.md` handles requirements and evidence. This is a specific **product-owner architecture comprehension + two-way source/UI reachability map** extension of the existing candidate, not a duplicate policy or Canonical promotion.
