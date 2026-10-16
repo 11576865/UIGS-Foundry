@@ -50,3 +50,10 @@ The user explicitly authorized bounded implementation of UIGS-integrated browser
 - The current accepted scope is Python static analysis, no runtime trace, no multi-language semantic coverage, no autonomous correctness assertion; all source authority remains in the product repository.
 
 **Review gate:** confirm CI and real source edge assertions independently before considering the code observer validated; then assess false positives and update cost. Do not create a new knowledge family or promote existing Candidate/Observation to Canonical based solely on this change.
+
+## Follow-up — 2026-10-16 bounded false-positive gate
+In Code Atlas PR #38, a concrete static-resolution defect was identified with an adversarial corpus: 'from foreign.api import run' could be falsely linked to a repository-local 'api.py' (dotted-import basename fallback). Module-name collisions also caused a missed correct link: top-level 'api.py' ceased to resolve when 'pkg/api.py' existed. Local/module-level rebinding, local imports and exception-handler shadowing may cause false positive call edges unless conservatively handled.
+
+A bounded source-reference checker explicitly asserts 3 known positive and 9 forbidden negative synthetic relationships. It also checks three source-inspected Foundry edges on a full checkout. Local partial-checkout results: 3/3 positive and 9/9 forbidden edges passed. Full-checkout CI is Pending on PR #38 at commit 12d0da4b834935fff8a3d112694fd834cf1760e5. The fixture pass counts are NOT general precision/recall, and do not establish dynamic runtime behavior.
+
+Reusable Candidate only: source-code observability needs falsification tests for false edges, not merely proof-of-existence examples. The separate Foundry baseline validation issue arises from already-present Bug markdown lacking Lifecycle fields. No unsupported lifecycle states were invented. No change to Canonical authority.
