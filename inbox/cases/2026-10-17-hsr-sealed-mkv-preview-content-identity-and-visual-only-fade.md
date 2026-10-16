@@ -1,9 +1,9 @@
 # HSR — sealed MKV identity versus visual-only Fade preview
 
 Date: 2026-10-17
-Level: **Case / submitted code + source inspection; Pending CI and physical-device acceptance**
+Level: **Case / merged code + PR CI verified; physical-device acceptance Pending**
 Product: `11576865/HSR-Voice-Archive-Builder`
-Patch branch: `fix/effects-preview-provenance-fade-20261017` (no merge claim)
+Patch branch: `fix/effects-preview-provenance-fade-20261017` — merged PR #194
 Source: Android browser screenshot supplied by project user, coupled with direct GitHub `main` inspection.
 
 ## Observed failure, not a generalized diagnosis
@@ -37,6 +37,14 @@ New PR #194 follow-up includes:
 The old stat-only sealed archive **cannot** be authenticated after a stat mismatch without independent trusted evidence. A rebuild using original sources (or verified recovery evidence) remains required to restore *voiced* playback; silent Fade animation is not a source-repair substitute.
 
 Earlier exact PR head `5325c392` had three PR CI workflows marked successful, but the expanded diagnostic changes are at a newer head with CI pending. Neither result is Android/Termux field evidence.
+
+## Final PR integration evidence (2026-10-17)
+
+- HSR PR [#194](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/194) **merged** into `main`, squash SHA `dea5411312ed3e819864f1915f4f2008f938cba3`.
+- Exact PR head `b60f1be5b116772862d60c5b534ab87091fd6999` passed `tests` run `38935511796`, `HSR seven ASS requirements` run `38935511697`, and `HSR subtitle browser evidence` run `38935511721`. These are repository CI results, not user device/media validation.
+- Main file re-read confirmed `diagnose_bundle_audio_source` and `artifact_sha256` are now present.
+- The user's browser screenshot remains `01ad440` and pre-dates integration. Real Termux deployment requires `git pull --ff-only`, termination of the former server, `bash run_termux.sh`, browser refresh, and actual project reproduction.
+- **FIELD-PENDING:** do not declare the original legacy MKV restored, authenticated, or repaired on-device. If legacy metadata differs and no previously recorded content digest exists, the voiced preview and inner ASS cannot be automatically trusted. Explicit rebuild from original sources or independently proved source restoration is still necessary.
 
 ## Evidence boundaries
 
