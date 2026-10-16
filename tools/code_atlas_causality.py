@@ -7,6 +7,10 @@ that a state or effect was independently verified.
 from __future__ import annotations
 
 from contextlib import contextmanager
+import hashlib
+import os
+import stat
+from pathlib import Path
 import json
 from collections.abc import Callable
 from contextvars import ContextVar
@@ -150,3 +154,100 @@ def observe_state(subject: str, read_state: Callable[[], object]):
         if after_error:
             detail["after_status"] = after_error
         recorder.emit("state_delta", "probe comparison", ident, subject=subject, detail=detail)
+
+
+
+MAX_FILE_PROBE_BYTES = 1024 * 1024
+
+
+def _sample_file(path: Path, max_bytes: int):
+    """Read a selected ordinary file without exporting its content or digest.
+
+    The snapshot is a short-lived internal value; unknown covers unsafe types,
+    races, changed-during-read files and inspection errors.
+    """
+    try:
+        initial = os.lstat(path)
+    except FileNotFoundError:
+        return ("absent", None), None
+    except OSError:
+        return None, "access_error"
+    if stat.S_ISLNK(initial.st_mode):
+        return None, "symlink"
+    if not stat.S_ISREG(initial.st_mode):
+        return None, "not_regular"
+    if initial.st_size > max_bytes:
+        return None, "size_limit"
+    flags = os.O_RDONLY | getattr(os, "O_BINARY", 0)
+    if hasattr(os, "O_NOFOLLOW"):
+        flags |= os.O_NOFOLLOW
+    try:
+        fd = os.open(path, flags)
+    except OSError:
+        return None, "access_error"
+    try:
+        before = os.fstat(fd)
+        if not stat.S_ISREG(before.st_mode) or (before.st_dev, before.st_ino) != (initial.st_dev, initial.st_ino):
+            return None, "file_replaced"
+        if before.st_size > max_bytes:
+            return None, "size_limit"
+        digest = hashlib.sha256()
+        size = 0
+        while True:
+            block = os.read(fd, min(65536, max_bytes + 1 - size))
+            if not block:
+                break
+            size += len(block)
+            if size > max_bytes:
+                return None, "size_limit"
+            digest.update(block)
+        after = os.fstat(fd)
+        if (before.st_size, before.st_mtime_ns, before.st_ctime_ns) != (
+                after.st_size, after.st_mtime_ns, after.st_ctime_ns) or size != after.st_size:
+            return None, "changed_during_read"
+        return ("file", size, digest.digest()), None
+    except OSError:
+        return None, "access_error"
+    finally:
+        os.close(fd)
+
+
+@contextmanager
+def observe_file(subject: str, path: os.PathLike[str] | str, *, max_bytes: int = MAX_FILE_PROBE_BYTES):
+    """Record a bounded before/after file-content verdict for an explicit path.
+
+    This observer does not write the target file, run it, follow initial
+    symlinks, or export its path, bytes, hashes, or error messages.
+    It cannot prove why a change occurred.
+    """
+    if not isinstance(subject, str) or not subject.strip():
+        raise ValueError("file subject must not be empty")
+    target = Path(path)
+    if not isinstance(max_bytes, int) or isinstance(max_bytes, bool) or not 1 <= max_bytes <= MAX_FILE_PROBE_BYTES:
+        raise ValueError("max_bytes must be between 1 and 1048576")
+    recorder = _ACTIVE.get()
+    if recorder is None:
+        yield None
+        return
+    operation_id = current_operation()
+    first, first_error = _sample_file(target, max_bytes)
+    try:
+        yield None
+    finally:
+        second, second_error = _sample_file(target, max_bytes)
+        if first_error or second_error:
+            verdict = "unknown"
+        elif first[0] == "absent" and second[0] == "file":
+            verdict = "created"
+        elif first[0] == "file" and second[0] == "absent":
+            verdict = "removed"
+        else:
+            verdict = "unchanged" if first == second else "modified"
+        detail = {"verdict": verdict, "method": "bounded_sha256_before_after",
+                  "max_bytes": max_bytes}
+        if first_error:
+            detail["before_status"] = first_error
+        if second_error:
+            detail["after_status"] = second_error
+        recorder.emit("file_delta", "file content comparison", operation_id,
+                      subject=subject, detail=detail)
