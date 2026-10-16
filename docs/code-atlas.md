@@ -149,3 +149,10 @@ the observed call. When there are no annotations, the operation panel stays hidd
 Inside an explicit operation, use `observe_state(subject, read_state)` around a safe action. The supplied probe reads a selected JSON-serializable value twice and emits only `state_delta` with `changed`, `unchanged`, or `unknown`. Neither raw values nor probe exception messages are written to evidence. Each snapshot is limited to 64 KiB; errors and excess size fail closed as `unknown`. The probe reader itself must be side-effect-free and deterministic.
 
 This is an independently computed comparison of two selected probe outputs, **not** proof of causation or full state correctness. The browser inspector labels these readings separately from unverified `state_write` annotations. Browser automation in the current execution environment was blocked by Chromium navigation policy; end-to-end browser acceptance remains Pending.
+
+
+## Chromium UI evidence gate (2026-10-16)
+
+The independent real-chromium-browser CI job runs the Playwright/Chromium tests in tools/test_code_atlas_browser.py at 1440x900 and 390x780, with screenshots as retained artifacts. It verifies search, selected node inspection, source URL, observed call labels, and changed/unchanged/unknown operation-state results. The narrow layout now keeps the operation evidence inspector reachable instead of hiding every .rels panel.
+
+The browser uses a deliberately synthetic evidence fixture: browser rendering does not certify source-index accuracy, real media processing, causal responsibility, or physical touchscreen behavior. Chromium in the local managed container blocked file and localhost navigation, so this requires an independent GitHub-hosted run. Until exact-head CI completes, the browser result remains Pending.

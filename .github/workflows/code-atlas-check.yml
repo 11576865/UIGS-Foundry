@@ -10,6 +10,7 @@ on:
       - "tools/test_code_atlas_causality.py"
       - "tools/test_code_atlas_trace.py"
       - "tools/code_atlas_web/**"
+      - "tools/test_code_atlas_browser.py"
       - "tools/test_code_atlas.py"
       - "tools/check_code_atlas_accuracy.py"
       - "docs/code-atlas.md"
@@ -20,6 +21,7 @@ on:
       - "tools/code_atlas_trace.py"
       - "tools/test_code_atlas_trace.py"
       - "tools/code_atlas_web/**"
+      - "tools/test_code_atlas_browser.py"
       - "tools/test_code_atlas.py"
       - "tools/check_code_atlas_accuracy.py"
       - "docs/code-atlas.md"
@@ -133,3 +135,28 @@ jobs:
           assert all(e["evidence"] in {"ast_definition","ast_import","ast_direct_call"} for e in p["edges"])
           print("Code Atlas graph contract verified:", p["stats"])
           PY
+
+  real-chromium-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      UIGS_ATLAS_BROWSER_ARTIFACT_DIR: /tmp/uigs-atlas-browser
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install headless Chromium and Playwright
+        run: |
+          python -m pip install "playwright==1.57.0"
+          python -m playwright install --with-deps chromium
+      - name: Verify source and operation evidence in Chromium
+        run: python -m unittest discover -s tools -p test_code_atlas_browser.py -v
+      - name: Upload Chromium viewport screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uigs-code-atlas-browser-e2e
+          path: /tmp/uigs-atlas-browser/
+          if-no-files-found: ignore
+          retention-days: 14
