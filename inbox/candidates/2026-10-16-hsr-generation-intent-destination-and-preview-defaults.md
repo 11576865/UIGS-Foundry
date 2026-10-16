@@ -27,3 +27,12 @@ This is a durable intent/ownership boundary, not a change to the math of the ASS
 - `inbox/candidates/2026-10-04-imported-resources-fresh-destination-identity.md`: broad destination identity principle; this records product-specific generated-artifact intent and UI trigger distinctions.
 
 Candidate only; **no Canonical change** from one user report and one HSR implementation.
+
+
+## Continuation: live project voice must not overwrite renderer configuration (2026-10-16)
+
+A code-level defect surfaced after selecting authentic project PCM audio for the Effects preview: the FastAPI route first resolved a `SubtitleRenderConfig` from the trial visual controls, then reassigned its local `config` variable to the selected `ProjectConfig` for voice-source lookup. It then passed the project object where `render_ass_preview_video()` requires subtitle renderer settings. The selected audio source and real duration could be correct while actual preview generation failed due to **typed state/provenance aliasing**. This was a concrete source defect, not independently measured device silence.
+
+HSR PR #186 continuation (development commits `cf7bc986` and `55d584a`) keeps `preview_config` separate from `project` and guards an absent cue ID before UI dereference. The focused FastAPI route regression passes a stale 8-second client hint alongside a selected 12-second PCM voice and checks that the server forwards the **12.4-second voice-plus-transition duration**, project audio source, and the genuine `SubtitleRenderConfig`. A separate settings test asserts that changes persist and mark ASS provenance stale **without** changing ASS/SRT/FLAC bytes or enqueueing a full MKV rebuild.
+
+**Validation status:** code and tests committed, current exact-head CI running at intake, real device video/audio playback still pending. This extends the existing source-vs-preview and save-vs-generate distinctions; no new Canonical inference.
