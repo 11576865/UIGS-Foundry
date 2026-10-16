@@ -92,3 +92,25 @@ Extends `inbox/observations/2026-10-16-source-grounded-code-visualization-feasib
 **Narrow verified example:** HSR at `dea5411312ed3e819864f1915f4f2008f938cba3`, UI `generateSubtitleAssBtn` and `generateSubtitleExternalAssBtn` in `app/static/index.html` dispatch to `startAssExport('internal'/'external')` and distinct POST APIs; `app/auto_delivery.py::queue_ass_regeneration` verifies a trusted source in complete mode and repackages the MKV before reporting the internal result complete, whereas external export is separate. A minimal semantic map can retain four verbs — save, real preview, internal regenerate, external export — without displaying the entire code call graph.
 
 **Dedup:** This follow-up belongs to the existing 2026-10-17 actual/target/delta Candidate; complements 2026-10-16 source-grounded Code Atlas Observation and the softmux 2026-10-15 functional-catalog-vs-operable-UI Case. No change to Canonical, no authorization to modify product UI or code, and no general effectiveness evidence.
+
+
+## Follow-up — 2026-10-17 viable model-runtime boundary: ChatGPT-hosted MCP App
+
+**New implementation feasibility clarification:** A browser-native source/product comprehension workbench cannot perform live semantic reasoning with only GitHub, static AST analysis and a web UI. At least one actual model execution environment is mandatory. The previous "external AI worker" formulation was insufficiently specific about interactive invocation.
+
+**Three architectures and selection:**
+1. **ChatGPT-hosted MCP App (preferred no-model-API pilot):** Build a small GitHub-aware MCP service with data/read tools, evidence/graph persistence and a separate render tool returning an interactive MCP Apps UI resource. ChatGPT is the semantic worker. The widget can call deterministic MCP tools via `tools/call` and request a new model-mediated turn via the standard `ui/message` bridge; do not mislabel arbitrary JS click handlers as direct model API invocations. The user runs the workbench inside a supported ChatGPT host, not a standalone website. Requires an accessible/authenticated MCP server and explicit GitHub access for it; GitHub credentials already available to a ChatGPT connector are not automatically delegated to a new MCP server. Richer ChatGPT extensions (sidebar/conversation panel) require compatible host support.
+2. **Standalone web UI + backend model inference:** The service must explicitly connect to a model provider via an API (or equivalent independently available model execution service). ChatGPT subscription billing is separate from OpenAI API billing; do not assume subscription grants programmatic model inference.
+3. **Standalone local inference:** Run a local inference server/model with bounded hardware/context/quality tradeoffs and separate verification. This removes reliance on a paid hosted inference API but still requires model runtime capacity and permissioned source access.
+
+**Concrete minimal interaction contract:** A GitHub-pinned business capability ID and selected node -> UI `ui/message` user-requested analysis -> ChatGPT calls MCP source/evidence tools -> model emits structured `AsIs/ToBe/Delta` claims with typed relationships, per-edge source anchors, uncertainty and approval gates -> MCP tool stores versioned schema-validated result -> UI render tool shows owner-level relationship map -> node selection fetches already known data without a model call; further semantic questions explicitly request another ChatGPT turn. Deterministic tools must not fake semantic conclusions. Persist useful results outside the conversation and independently verify source anchors and regressions.
+
+**Official platform evidence consulted 2026-10-17:**
+- https://developers.openai.com/plugins/build/app-quickstart
+- https://developers.openai.com/plugins/build/chatgpt-ui
+- https://developers.openai.com/plugins/build/extensions
+- https://developers.openai.com/plugins/reference
+- https://help.openai.com/en/articles/9039756
+- https://developers.openai.com/workspace-agents/trigger-runs (agent API trigger can queue a run, but its response cannot currently be fetched through that API, so it does not alone replace interactive model-backed widget messaging).
+
+**Execution/authority boundary:** This is an architectural Candidate, not a deployed integrated app. Do not create servers, credentials, UI, PRs, or automatic analyses without the user's explicit project implementation authorization. Test one HSR functionality first and distinguish UI usability acceptance from real semantic correctness. No Canonical promotion.
