@@ -57,3 +57,20 @@ In Code Atlas PR #38, a concrete static-resolution defect was identified with an
 A bounded source-reference checker explicitly asserts 3 known positive and 9 forbidden negative synthetic relationships. It also checks three source-inspected Foundry edges on a full checkout. Local partial-checkout results: 3/3 positive and 9/9 forbidden edges passed. Full-checkout CI is Pending on PR #38 at commit 12d0da4b834935fff8a3d112694fd834cf1760e5. The fixture pass counts are NOT general precision/recall, and do not establish dynamic runtime behavior.
 
 Reusable Candidate only: source-code observability needs falsification tests for false edges, not merely proof-of-existence examples. The separate Foundry baseline validation issue arises from already-present Bug markdown lacking Lifecycle fields. No unsupported lifecycle states were invented. No change to Canonical authority.
+
+
+## Follow-up — 2026-10-17 bilingual architecture diagrams as an understanding aid
+
+**Direct user feedback:** After several technically detailed but mostly prose-based explanations of HSR-Voice-Archive-Builder, the user reported that the relationship became immediately clear once the assistant supplied diagrams ("有图以后关系突然一目了然"). The user also requested Chinese-first, English-annotated labels because English-only node names were hard to understand. This is a clear **communication comprehension** observation in this conversation, not proof of a general code-atlas product or the analyzer's semantic correctness.
+
+**Distinction from earlier feedback:** The previous rejection concerned a cumbersome Mermaid/YAML/SVG/Figma workflow to produce a general-purpose code map. The new positive result concerns **inline diagrams of one source-inspected architecture**. They are not contradictory: lightweight presentation can be effective, while a costly, manually maintained visualization pipeline may not be.
+
+**Reusable method hypothesis:**
+1. Treat a diagram as an iterative reasoning artifact, not a decorative postprocessing output. Extract entities and typed/directed relations from pinned evidence; make a draft graph; ask counterfactual questions and trace changes; revise edges when contradicted.
+2. Use **Chinese-primary + English technical term**, keep exact source file/function names, and put action semantics on arrows. Distinguish data dependency, call control, state write, and scheduling; don't imply all are one causal chain.
+3. Validate purported understanding operationally: explain who owns a state, what changing it invalidates, what is unaffected, which function actually executes and which evidence can falsify the relationship. Visually coherent diagrams alone cannot certify graph truth.
+4. Label confirmed source edges, derived inferences, and runtime-unknown edges separately. One successful readability observation does not establish universal utility, an AI's subjective understanding, or automatic extraction accuracy.
+
+**Concrete source anchor:** HSR exact main HEAD `dea5411312ed3e819864f1915f4f2008f938cba3`; example: `app/subtitles.py::update_project_subtitles()` persists human text edits; `app/auto_delivery.py::maybe_queue_complete_mkv()` may schedule MKV republishing; `app/timeline.py::resolve_timeline()` owns PCM-derived speech clocks. Changing text alone does not authorize rewriting raw PCM audio.
+
+**Dedup:** Extends this existing code-visualization Observation rather than creating a second diagram-method record; cross-references `inbox/candidates/2026-10-03-spatial-workspace-relation-types.md` for the broader caution that distinct relation types should not be conflated. No Canonical change and no autonomous implementation authorization.
