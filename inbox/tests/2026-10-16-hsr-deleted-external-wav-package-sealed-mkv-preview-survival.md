@@ -32,3 +32,13 @@ The sealed MKV is the lossless **audio bytes** source after temporary `continuou
 ## Deduplication and promotion
 
 Related Foundry items describe source-verified MKV publication, stale ASS and separate voice preview audio. Search did not find a dedicated regression proving *actual deletion of the original external WAV package followed by decoded audible selected-cue preview*. Record as Test. No Canonical update; Android/Termux physical playback still needs acceptance.
+
+## Extension — orphaned working FLAC must not supersede sealed voice (PR #191)
+
+**2026-10-16, source-risk identified and repaired.** In the former resolver, the first nonempty `output/continuous.flac` took priority, even after the project's lossless FLAC had already been sealed into a certified MKV. An interrupted source rebuild could leave a nonempty but truncated, invalid or unrelated loose FLAC; selected voice preview would pick it, failing or using the wrong recording while the completed MKV remained healthy.
+
+Bounded repair: [HSR PR #191](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/191), exact-head `b3169e85991e021ee35df499026d4caac7b13198`, merged `main@1e316aca274f4fb3d3c46d3259172208a7402829`. `bundle_audio_source_status(output, prefer_sealed=True)` chooses a receipt-sealed and identity-matched MKV ahead of a loose FLAC. **Only Effects preview opts in**; source rebuild and internal ASS export retain their existing independent-source preference, without pretending that new audio inputs are automatically certified.
+
+Executable regression adds a nonempty but unparseable leftover `continuous.flac` after real MKV sealing and external source deletion, verifies the selected cue resolves to the same MKV, and actually renders/decodes WebM/Opus via FFmpeg/libass. A focused unit test also confirms the default source selection is unchanged and the optional preview selection takes precedence.
+
+Exact-head CI completed successfully: [Python/Termux workflow 38871379925](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38871379925), [seven ASS requirements 38871379979](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38871379979), [Chromium and real media artifact 38871379931](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38871379931). Physical Android/Termux device file provenance and perceived playback remain pending; never consider an MKV without a matching seal/identity receipt trusted. No Canonical promotion.
