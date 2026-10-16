@@ -35,6 +35,14 @@ jobs:
         run: python -m unittest discover -s tools -p test_code_atlas.py -v
       - name: Build read-only source graph
         run: python tools/code_atlas.py --output /tmp/uigs-code-atlas.json
+      - name: Export shareable standalone browser artifact
+        run: python tools/code_atlas.py --export-html /tmp/UIGS_Code_Atlas.html
+      - name: Upload browser artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: uigs-code-atlas-browser
+          path: /tmp/UIGS_Code_Atlas.html
+          retention-days: 14
       - name: Verify serializable graph contract
         run: |
           python - <<'PY'
