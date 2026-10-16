@@ -112,3 +112,17 @@ Evidence references, as vendor/project claims unless stated otherwise:
 - Runtime: https://docs.sentry.io/product/ai-in-sentry/seer and https://opentelemetry.io/docs/languages/js/ — standard error/trace observability; browser OTel instrumentation remains experimental.
 
 Decision hypothesis: pause feature expansion of bespoke graph engine until a side-by-side trial on one Python and one real non-Python repository measures time to useful diagnosis, precision of cited relationships, user effort and maintenance overhead against GitHub search plus a leading existing analyzer. A no-code evidence bridge into UIGS (source commit, CI run, output artifact, test and negative control) may have higher durable value than an owned multi-language visual platform. Do not silently replace previous proposed Beta contract, merge PR #38, import noncommercial code, or promote this single observation to Canonical.
+
+
+## HSR external-analyzer suitability case — 2026-10-17
+
+Status: source-grounded Observation, not Canonical or product acceptance; HSR product repository was **read-only**.
+
+Source: 11576865/HSR-Voice-Archive-Builder main@01ad440bf77ea6cfec4ba24c494bd38cd8205053, linked project technical report dated 2026-10-16, live open PR #194 (not merged when checked).
+Architecture facts: 210 files (165 Python, 94 under tests), app/static/index.html ~9,752 lines / 489,238 characters including embedded script; server.py ~2,097 lines, lite_server.py ~1,733, pipeline.py ~2,053, quick.py ~1,909. The two servers adapt shared domain services, while JS UI actions trigger HTTP and eventually FFmpeg/libass/MKV file artifacts. Reported browser/static preview, real libass preview, dynamic video and published MKV are distinct evidence scopes.
+
+Concrete current falsification opportunity: HSR PR #194 addresses an Android Effects preview scenario where an MKV's size/mtime-based sealed publication identity differed from its receipt; change introduces bounded content identity checks and a visually labeled silent Fade-only fallback when trusted audio is unavailable. This is a boundary-contract/provenance issue, not one that a cross-file static call edge alone can validate. Existing targeted tests (ass_inner_audio_preflight, effect_voice_and_karaoke_source_only, subtitle_preview, real-browser and FFmpeg workflows) are closer to an independent oracle.
+
+Tool fit hypothesis: GitHub symbol/PR/test navigation and Aider-style ranked repo context have low adoption friction; CodeBoarding or GitNexus may be tried as **optional, read-only** one-shot architecture explorations, but support for giant inline HTML JS must be proven rather than assumed. Existing AST-only Code Atlas cannot capture browser event -> HTTP route -> Python domain -> FFmpeg/verification by itself. Highest ROI for HSR is automated impact-linked API adapter parity, explicit UI draft/preview/export distinction, artifact provenance validation, and browser/real-MKV regression gates, leveraging rather than replacing existing HSR CI.
+
+No analyzer was installed or run against HSR, so this is a source-inspection case and option analysis, **not** a measured benchmark of GitNexus/CodeBoarding. Any next experiment should use one exact PR/fixture, quantify time-to-evidence and false relations, avoid placing user-provided voice files in external services, and leave HSR code untouched without new approval.
