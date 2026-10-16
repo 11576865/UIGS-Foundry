@@ -114,3 +114,15 @@ Extends `inbox/observations/2026-10-16-source-grounded-code-visualization-feasib
 - https://developers.openai.com/workspace-agents/trigger-runs (agent API trigger can queue a run, but its response cannot currently be fetched through that API, so it does not alone replace interactive model-backed widget messaging).
 
 **Execution/authority boundary:** This is an architectural Candidate, not a deployed integrated app. Do not create servers, credentials, UI, PRs, or automatic analyses without the user's explicit project implementation authorization. Test one HSR functionality first and distinguish UI usability acceptance from real semantic correctness. No Canonical promotion.
+
+
+## Correction — 2026-10-17 ChatGPT-hosted app eligibility gate
+
+Official ChatGPT documentation confirms that MCP Apps can render an optional embedded HTML/JS component (iframe) next to the conversation, while the ChatGPT host supplies model reasoning. However, **technical SDK capability is not equivalent to the user's permission to connect or test a custom MCP app**. The current official ChatGPT Help Center eligibility documentation emphasizes custom MCP app creation/testing for Business and Enterprise/Edu web workspaces, with admin/owner authorization and a beta rollout for full write/modify actions. Some earlier/other help pages mention Pro read/fetch developer configurations, but that is not a blanket Plus entitlement and the individual account's enabled features must be checked. Do not promise this route is immediately deployable for a user's plan without verifying controls.
+
+Source:
+- https://help.openai.com/en/articles/12584461-creating-custom-mcp-apps-in-chatgpt (availability/permissions, updated 2026-10)
+- https://developers.openai.com/plugins/build/app-quickstart (embedded iframe implementation)
+- https://developers.openai.com/plugins/build/chatgpt-ui (MCP Apps UI bridge)
+
+Recommended delivery choice: (a) immediately prototype a turn-scoped interactive map inside a ChatGPT response using supported response UI without pretending it is a persistent installable plugin; (b) if user has rights, trial a custom MCP app with dedicated server; (c) otherwise provide an independently hosted browser atlas displaying durable precomputed AI analyses, with fresh semantic analyses run by an explicitly started ChatGPT/agent handoff rather than magically invoked in the site. Do not present an ideal ChatGPT sidebar as guaranteed. No deployment or account changes performed.
