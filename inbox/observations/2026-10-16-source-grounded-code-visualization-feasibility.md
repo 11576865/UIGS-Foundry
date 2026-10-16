@@ -21,3 +21,6 @@ For AI-maintained, poorly understood codebases, attractive diagrams can create u
 - Evidence: user's reported friction and lack of confidence in execution success.
 - Unverified: any automated Figma/code-map integration, visual design, runtime trace fidelity, and reduction in regressions.
 - No architecture canonicalization or code changes authorized by this observation.
+
+## Follow-up — browser-native interactive code map
+The user proposed making the visualization itself an interactive browser page rather than routing intermediate DSL drawings through Figma. Working hypothesis: a web application with a repository index and evidence-backed graph, navigable from UI actions to source code, state writes, execution traces, related tests, and failures; Figma remains the UI design tool, not the implementation-map runtime. Source indexers and runtime observations are distinct evidence sources. Cross-language dynamic calls and implied state ownership must remain explicitly unknown where unverified. Start with one flow and test node/edge accuracy and update cost before expanding. This remains an unverified Candidate-level design hypothesis, not an implemented system or Canonical rule.
