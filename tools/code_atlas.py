@@ -225,8 +225,18 @@ def index(root: Path, repo: str | None = None, revision: str | None = None) -> d
     }
 
 
-def serve(root: Path, repo: str | None, host: str, port: int) -> None:
-    graph = index(root, repo)
+def attach_runtime_trace(graph: dict, trace_path: Path | None) -> dict:
+    """Opt-in runtime evidence with repository and revision guards."""
+    if trace_path is None:
+        return graph
+    from code_atlas_trace import enrich_static
+    trace = json.loads(trace_path.read_text(encoding="utf-8"))
+    return enrich_static(graph, trace)
+
+
+def serve(root: Path, repo: str | None, host: str, port: int,
+          runtime_trace: Path | None = None) -> None:
+    graph = attach_runtime_trace(index(root, repo), runtime_trace)
     html = WEB.read_bytes()
     payload = json.dumps(graph, ensure_ascii=False).encode("utf-8")
 
@@ -259,14 +269,15 @@ def main() -> None:
     p.add_argument("--revision", help="Commit SHA for source anchors (autodetect from git by default)")
     p.add_argument("--output", type=Path, help="Write JSON to this path instead of stdout")
     p.add_argument("--export-html", type=Path, help="Build a standalone, offline-capable interactive HTML")
+    p.add_argument("--runtime-trace", type=Path, help="Overlay explicit opt-in Python runtime evidence (does not run code)")
     p.add_argument("--serve", action="store_true", help="Open local read-only HTTP service")
     p.add_argument("--host", default="127.0.0.1")
     p.add_argument("--port", type=int, default=8765)
     args = p.parse_args()
     if args.serve:
-        serve(args.root, args.repo, args.host, args.port)
+        serve(args.root, args.repo, args.host, args.port, args.runtime_trace)
     elif args.export_html:
-        report = index(args.root, args.repo, args.revision)
+        report = attach_runtime_trace(index(args.root, args.repo, args.revision), args.runtime_trace)
         # Escape HTML-active characters before placing JSON in a script element.
         payload = json.dumps(report, ensure_ascii=True).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
         source = WEB.read_text(encoding="utf-8")
@@ -278,7 +289,7 @@ def main() -> None:
         args.export_html.write_text(output, encoding="utf-8")
         print(f"{args.export_html}: offline HTML with {len(report['nodes'])} nodes")
     else:
-        report = index(args.root, args.repo, args.revision)
+        report = attach_runtime_trace(index(args.root, args.repo, args.revision), args.runtime_trace)
         content = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
         if args.output:
             args.output.parent.mkdir(parents=True, exist_ok=True)
