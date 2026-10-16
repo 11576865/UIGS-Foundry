@@ -67,3 +67,11 @@ Implementation head at feature submission: `33b11906872ec6f1b2408b1ffe358effbe8f
 - PR #38 remediation: keep the inspector relation sections usable at small viewport sizes and add independent Playwright/Chromium tests at 1440x900 and 390x780. The E2E fixture is synthetic; a browser pass only proves interactive presentation, not the reality of any declared state update.
 - Evidence: change submitted in feature branch in commit 1df017b44cb3de909315c807afb344be0e2ecbc4. Local Chromium blocked file and localhost navigation, so local UI E2E is not claimed as passing; exact-head CI remains pending.
 - Reusable check: an observability product must test evidence *reachability* in supported layouts, not merely the collector's JSON. Do not promote one finding to Canonical.
+
+## Selected-file effect observation / content witness — 2026-10-17
+
+- Reusable observation: an opt-in, selected-file before/after witness can distinguish created/modified/removed/unchanged/unknown by bounded content comparisons without exporting raw bytes, digest, absolute path or probe error text. `unchanged` means same observed bytes within the probe, not metadata identity or global immutability.
+- Context: code atlas operation tracing previously recorded `side_effect` only as a software-supplied annotation, not measured I/O. File sampling is separate measurement evidence but still cannot demonstrate causal responsibility for a write.
+- Implementation on Code Atlas PR #38: `tools/code_atlas_causality.py:observe_file`, scoped Python tests, temporary fixture, correlated real Python call trace, and explicit browser evidence label. Probes reject direct symlinks/nonregular/oversized files as unknown; a 1-MiB per-snapshot cap and bounded event count apply.
+- Important residual limits: caller-selectable subject labels can contain identifying information; symlinked ancestor directories, file access-time changes, concurrent writers, child processes and other unselected files are not universally characterized. Treat the evidence as local to the specified file; report `unknown` when a safe sample is impossible.
+- Verification scope: code and tests were durably submitted to feature/uigs-code-atlas-readonly; last observed successful CI precedes this addition. The new exact-head CI and browser artifacts are Pending at this note. Do not promote to Canonical.
