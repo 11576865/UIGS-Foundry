@@ -42,6 +42,8 @@ def example_graph():
                  "subject": "example:untouched", "detail": {"verdict": "unchanged"}},
                 {"seq": 4, "kind": "state_delta", "name": "probe comparison", "operation_id": "op-1",
                  "subject": "example:error", "detail": {"verdict": "unknown"}},
+                {"seq": 5, "kind": "file_delta", "name": "file content comparison", "operation_id": "op-1",
+                 "subject": "example:output-file", "detail": {"verdict": "created", "method": "bounded_sha256_before_after"}},
             ]},
             "calls": [{"operation_id": "op-1", "from": pre + "calculate",
                        "to": pre + "compute_value", "count": 1}],
@@ -104,13 +106,15 @@ class BrowserContract(unittest.TestCase):
         page = self.open_selected(1440, 900)
         try:
             self.assertTrue(page.locator("#operationEvidence").is_visible())
-            rows = page.locator("#operationEvents [data-verdict]")
+            rows = page.locator("#operationEvents [data-kind=\"state_delta\"][data-verdict]")
             self.assertEqual(rows.count(), 3)
             self.assertEqual(
                 [rows.nth(i).get_attribute("data-verdict") for i in range(3)],
                 ["changed", "unchanged", "unknown"],
             )
-            self.assertIn("实际探针结果：有变化", page.locator("#operationEvents").inner_text())
+            self.assertIn("状态探针：有变化", page.locator("#operationEvents").inner_text())
+            self.assertIn("文件探针：已创建", page.locator("#operationEvents").inner_text())
+            self.assertEqual(page.locator('#operationEvents [data-kind="file_delta"][data-verdict="created"]').count(), 1)
             self.assertIn("python_profile_observed", page.locator("#relations").inner_text())
             self.assertIn("blob/" + "a" * 40, page.locator("#source").get_attribute("href"))
             page.locator("#bigger").click()
@@ -123,7 +127,8 @@ class BrowserContract(unittest.TestCase):
         try:
             self.assertTrue(page.locator(".inspector").first.is_visible())
             self.assertTrue(page.locator("#operationEvidence").is_visible())
-            self.assertTrue(page.locator('#operationEvents [data-verdict="unknown"]').is_visible())
+            self.assertTrue(page.locator('#operationEvents [data-kind="state_delta"][data-verdict="unknown"]').is_visible())
+            self.assertTrue(page.locator('#operationEvents [data-kind="file_delta"][data-verdict="created"]').is_visible())
             self.screenshot(page, "code-atlas-narrow.png")
         finally:
             page.close()
