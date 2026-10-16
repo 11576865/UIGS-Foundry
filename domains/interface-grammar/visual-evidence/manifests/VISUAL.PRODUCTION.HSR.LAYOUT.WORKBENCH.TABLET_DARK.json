@@ -18,8 +18,8 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.TABLET_DARK.png",
   "source_repository": "11576865/HSR-Voice-Archive-Builder",
-  "source_revision": "a5be46ce72e10e632d306873a5fedf2370af83e7",
-  "sha256": "163118327a45496f57d6bd8bbaea8d6eb5ec3ebcd4255bd0bff3ca5f321b9b7f",
+  "source_revision": "1e316aca274f4fb3d3c46d3259172208a7402829",
+  "sha256": "426decc74d6c2fceb2174ab61a19234e56fc41b266416b29f12ba6ba438d3eec",
   "image": {
     "width": 1024,
     "height": 900
@@ -71,7 +71,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "90dddfa57bb065b9e071d6e90352e2008e801bb302a51e25bfcd4499ebd7f73d",
+  "previous_sha256": "163118327a45496f57d6bd8bbaea8d6eb5ec3ebcd4255bd0bff3ca5f321b9b7f",
   "limitations": [
     "Tablet layout and editable control hierarchy only.",
     "Not runtime-backed libass verification; no active project data is fabricated."
@@ -80,13 +80,13 @@
     {
       "source_type": "repository",
       "source": "11576865/HSR-Voice-Archive-Builder",
-      "revision": "a5be46ce72e10e632d306873a5fedf2370af83e7",
+      "revision": "1e316aca274f4fb3d3c46d3259172208a7402829",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/HSR-Voice-Archive-Builder:ui-visual-capture.json",
-      "revision": "a5be46ce72e10e632d306873a5fedf2370af83e7",
+      "revision": "1e316aca274f4fb3d3c46d3259172208a7402829",
       "evidence_level": "source-owned capture declaration"
     }
   ]

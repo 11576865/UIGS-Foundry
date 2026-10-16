@@ -18,11 +18,11 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
   "source_repository": "11576865/HSR-Voice-Archive-Builder",
-  "source_revision": "a5be46ce72e10e632d306873a5fedf2370af83e7",
-  "sha256": "4669621fb352b6bdd1e053680aa58a500a5270dcf861c0e3905406c2491d608b",
+  "source_revision": "1e316aca274f4fb3d3c46d3259172208a7402829",
+  "sha256": "156e259d1a863f9b6065e8ca298fc2e21685b895dbdd7ef5b5a53f3edbcfe0cf",
   "image": {
     "width": 1169,
-    "height": 1155
+    "height": 1121
   },
   "environment": {
     "schema_version": 1,
@@ -71,7 +71,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "96f370c8f2669afd605dede8bbd9fb7df5f36b00d212ff791d91588ea91425e2",
+  "previous_sha256": "4669621fb352b6bdd1e053680aa58a500a5270dcf861c0e3905406c2491d608b",
   "limitations": [
     "Production layout UI; not classified as runtime-backed libass evidence.",
     "The capture harness reveals the real production panel when it is normally gated by active-project state; it does not fabricate project data."
@@ -80,13 +80,13 @@
     {
       "source_type": "repository",
       "source": "11576865/HSR-Voice-Archive-Builder",
-      "revision": "a5be46ce72e10e632d306873a5fedf2370af83e7",
+      "revision": "1e316aca274f4fb3d3c46d3259172208a7402829",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/HSR-Voice-Archive-Builder:ui-visual-capture.json",
-      "revision": "a5be46ce72e10e632d306873a5fedf2370af83e7",
+      "revision": "1e316aca274f4fb3d3c46d3259172208a7402829",
       "evidence_level": "source-owned capture declaration"
     }
   ]
