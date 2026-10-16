@@ -1,7 +1,7 @@
 # Bug candidate — HSR single-cue effect preview can declare Fade beyond encoded video tail
 
 Date: 2026-10-16
-Status: Source-confirmed envelope inconsistency; runtime reproduction pending
+Status: Source repaired and CI regression-verified in PR #189; Android device playback pending
 Project: [HSR-Voice-Archive-Builder](https://github.com/11576865/HSR-Voice-Archive-Builder)
 Scope: ASS timeline, selected voice preview, FFmpeg/libass, duration and temporal evidence
 
@@ -31,3 +31,15 @@ Construct real temporary FLAC + manifest with selected cue as the final entry, a
 ## Deduplication
 
 Reviewed `inbox/candidates/2026-10-16-voice-anchored-ass-transition-gap-budget.md`, which already tracks general speech/effect/video-tail clocks and the final archive MKV video-tail extension. This Bug candidate isolates the additional *single-cue preview* inconsistency between its capped `preview_end_margin_ms` and the ASS writer's unconditional outgoing envelope. No Canonical modifications.
+
+## Repair verification — PR #189 (2026-10-16)
+
+HSR [PR #189](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/189), exact tested head `05fc559e5a14ddeb8fdc21c15d99e711b0d50f02`, merged to `main@f417e4794e752c4780bb06d7563614315bde4c6a`.
+
+- `resolve_effect_voice()` now reserves the author-chosen after-voice Fade for the last archive cue as a bounded **video-only tail**, even with no following voice. PCM timing and the source audio samples are not extended.
+- `_voice_fade_windows()` no longer overwrites the bounded preview outgoing margin with the archive-only terminal Fade. A non-preview archive retains its full configured Fade and extends its video as before.
+- Regression tests verify both language ASS Dialogue intervals and native `\\fad(600,600)` for a 4s voice + 600ms/600ms margins (5.2s preview), and a separately constrained tail of 200ms without impossible ASS events.
+- The real-MKV-selected-other-cue FFmpeg/libass preview integration decoded a genuine FLAC track copied from the sealed Matroska and validated the generated WebM/Opus duration and audible PCM.
+- Exact-head GitHub workflows all passed: [unit + Termux](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38866875998), [seven ASS requirements](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38866876011), [Chromium + libass artifact](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38866876020).
+
+**Remaining evidence:** User's physical Android/Termux media, receipt and visual Fade frame progression are not yet inspected. CI proves generated timing/audio properties, not perceptual playback on that device. Do not treat the bug as physical-device accepted or promote to Canonical based on this project.

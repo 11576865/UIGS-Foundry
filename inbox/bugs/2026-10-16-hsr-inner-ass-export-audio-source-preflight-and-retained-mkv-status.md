@@ -29,3 +29,13 @@ There is no on-device evidence showing whether the user's earlier MKV was sealed
 ## Deduplication
 
 Existing `inbox/bugs/2026-10-13-hsr-mkv-stale-ass-and-output-writer-race.md` documents accepting stale ASS and overlapping writers. Existing `inbox/observations/2026-10-13-hsr-mkv-track-refresh-vs-full-rebuild.md` records product preference for full regeneration and retaining the previous artifact. This Bug record isolates the **preflight-before-subtitle-mutation ordering**, the separate audio-source gate and the user-facing distinction between a retained stale MKV and an unverified one. No Canonical change.
+
+## Continuation — Effects preview also needs the shared sealed-audio gate (PR #189)
+
+The user uploaded a further Effects screenshot after rebuilding MKV. Selecting another cue still failed before rendering with the generic missing FLAC / verified MKV warning. The exact on-device artifact/receipt predicate is not exposed by that screenshot, so no device cause can be asserted.
+
+HSR PR #189 unifies `app/effect_voice_preview.py` with `bundle_audio_source_status()` rather than implementing a second, generic receipt check. It now surfaces the exact failed provenance precondition and the selected project's resolved output directory. An existing sealed MKV with matching artifact identity stays reusable for voice preview when a style save makes its subtitle receipts stale.
+
+New real FFmpeg integration: complete MKV with default FLAC → `seal_complete_delivery` discards independent FLAC/ASS/SRT → style receipt marked stale → select a *different* manifest cue → resolve sound from the sealed MKV → produce/decode real WebM video with Opus audio and expected pre/post Fade. This was executed successfully in the `libass-artifact` job of [workflow 38866876020](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/38866876020), exact head `05fc559e`, merged to `main@f417e4794e752c4780bb06d7563614315bde4c6a`.
+
+**Boundary:** This demonstrates that the *normal* sealed path is valid. It cannot explain an Android project's **specific** missing, malformed or mismatched receipt, or project/output path identity. If the real device still reports an untrusted source after updating, inspect that exact diagnosis before any repair of user artifacts. Never adopt an arbitrary MKV as trusted by filename alone.
