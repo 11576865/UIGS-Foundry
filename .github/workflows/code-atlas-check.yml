@@ -29,6 +29,8 @@ permissions:
 jobs:
   static-graph-and-self-observation:
     runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
