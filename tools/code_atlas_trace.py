@@ -19,6 +19,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
 
+from code_atlas_causality import collect, current_operation
+
 MAX_EVENTS = 100_000
 
 
@@ -63,6 +65,7 @@ def observe(root: Path, action: Callable[[], object], *, repo: str | None = None
         raise ValueError("root must exist and max_events must be positive")
     revision_before = clean_revision(root)
     counts: Counter[tuple[str, str, str, int]] = Counter()
+    operation_counts: Counter[tuple[str, str, str, str, int]] = Counter()
     n_events = 0
     unmapped = 0
     truncated = False
@@ -88,14 +91,18 @@ def observe(root: Path, action: Callable[[], object], *, repo: str | None = None
             return
         rel = source.removeprefix("fn:").rsplit(":", 1)[0]
         counts[(source, target, rel, caller.f_lineno)] += 1
+        op_id = current_operation()
+        if op_id and not any("code_atlas_causality.py:" in symbol for symbol in (source, target)):
+            operation_counts[(op_id, source, target, rel, caller.f_lineno)] += 1
 
-    try:
-        sys.setprofile(collector)
-        threading.setprofile(collector)
-        action()
-    finally:
-        sys.setprofile(previous)
-        threading.setprofile(previous_threads)
+    with collect(max_events=min(max_events, 2000)) as annotated:
+        try:
+            sys.setprofile(collector)
+            threading.setprofile(collector)
+            action()
+        finally:
+            sys.setprofile(previous)
+            threading.setprofile(previous_threads)
 
     revision_after = clean_revision(root)
     revision = revision_before if revision_before == revision_after else None
@@ -117,6 +124,12 @@ def observe(root: Path, action: Callable[[], object], *, repo: str | None = None
             "Observed calls are not evidence of correctness or full coverage",
         ],
         "calls": calls,
+        "annotations": annotated.report(),
+        "operation_calls": [
+            {"operation_id": op, "from": src, "to": dst,
+             "evidence": "python_profile_observed", "path": path, "line": line, "count": count}
+            for (op, src, dst, path, line), count in sorted(operation_counts.items())
+        ],
         "stats": {"profile_calls": n_events, "mapped_sites": len(calls),
                   "unmapped_events": unmapped, "truncated": truncated},
     }
@@ -140,7 +153,21 @@ def enrich_static(graph: dict, trace: dict) -> dict:
             known.append(edge)
         else:
             missing.append({"from": edge.get("from"), "to": edge.get("to")})
+    annotated = trace.get("annotations") or {}
+    operation_calls = []
+    unmatched_operation = 0
+    for call in trace.get("operation_calls", []):
+        if call.get("from") in ids and call.get("to") in ids:
+            operation_calls.append(call)
+        else:
+            unmatched_operation += 1
     result = {**graph, "nodes": list(graph["nodes"]),
+              "operation_evidence": {
+                  "annotations": annotated,
+                  "calls": operation_calls,
+                  "unmatched_calls": unmatched_operation,
+                  "interpretation": "explicit_annotations_plus_observed_calls_not_independent_causal_proof",
+              },
               "edges": list(graph["edges"]) + known,
               "runtime_trace": {
                   "observed_at": trace.get("observed_at"),
@@ -152,7 +179,9 @@ def enrich_static(graph: dict, trace: dict) -> dict:
                   "truncated": bool(trace.get("stats", {}).get("truncated")),
               }}
     result["stats"] = {**graph["stats"], "runtime_edges": len(known),
-                       "runtime_unmatched_edges": len(missing)}
+                       "runtime_unmatched_edges": len(missing),
+                       "operation_runtime_calls": len(operation_calls),
+                       "operation_unmatched_calls": unmatched_operation}
     result["limitations"] = list(graph.get("limitations", [])) + list(trace.get("limitations", []))
     return result
 
