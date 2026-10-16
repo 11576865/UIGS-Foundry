@@ -61,3 +61,44 @@ Known unrelated blocker: the general Validate Foundry workflow can fail
 because older `inbox/bugs/` records lack required `Lifecycle:` metadata.
 Code Atlas validation is separate; do not manufacture lifecycle states just
 to turn CI green.
+
+## Opt-in runtime call evidence (Python, experimental)
+
+The browser does **not** execute repository code. Runtime evidence requires
+a separate, explicit operator invocation. The traced Python entrypoint runs
+with its normal effects, so select a safe test or read-only check. For example:
+
+```bash
+python tools/code_atlas_trace.py \
+  --root . --repo 11576865/UIGS-Foundry \
+  --script tools/test_epistemic_graph.py \
+  --output /tmp/uigs-atlas-runtime.json
+
+python tools/code_atlas.py \
+  --runtime-trace /tmp/uigs-atlas-runtime.json \
+  --export-html /tmp/UIGS_Code_Atlas_with_runtime.html
+
+# Or inspect interactively:
+python tools/code_atlas.py --runtime-trace /tmp/uigs-atlas-runtime.json --serve
+```
+
+Observed Python-to-Python `call` events are attached only when both endpoint
+symbols exist in the static AST index. `python_profile_observed` is displayed
+as a visually distinct runtime relationship; AST declarations and inferred
+call edges remain separate. Unmatched observed calls are counted and sampled
+under `runtime_trace`, not invented as resolved edges.
+
+Safety / correctness rules:
+
+- Trace and source graph must match both repository identity and commit SHA.
+  Two unanchored local snapshots may be combined, but are marked `anchored:
+  false`, not treated as reproducible commit-pinned evidence.
+- No tracing is initiated by the Web UI. The script explicitly supplied via
+  `--script` must be inside `--root`; arbitrary script arguments are passed
+  after `--`. No subprocess, C-extension, prior-thread, or full asynchronous
+  coverage is claimed.
+- An event limit is enforced, and truncation is reported. Running the traced
+  script may change files or external state exactly as running it normally
+  would. Use test fixtures first.
+- The collector observes, but does not independently certify itself. Static
+  indexing, runtime collection, and tests are distinct evidence channels.
