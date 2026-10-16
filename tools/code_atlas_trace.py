@@ -54,7 +54,7 @@ def frame_symbol(frame, root: Path) -> str | None:
 
 
 def observe(root: Path, action: Callable[[], object], *, repo: str | None = None,
-            max_events: int = MAX_EVENTS) -> dict:
+            max_events: int = MAX_EVENTS, capture_failure: bool = False) -> dict:
     """Observe one explicit callable, restoring profiling hooks even on error.
 
     Captures current thread and new Python threads only; previous threads,
@@ -95,11 +95,17 @@ def observe(root: Path, action: Callable[[], object], *, repo: str | None = None
         if op_id and not any("code_atlas_causality.py:" in symbol for symbol in (source, target)):
             operation_counts[(op_id, source, target, rel, caller.f_lineno)] += 1
 
+    failure_type = None
     with collect(max_events=min(max_events, 2000)) as annotated:
         try:
             sys.setprofile(collector)
             threading.setprofile(collector)
-            action()
+            try:
+                action()
+            except (Exception, SystemExit) as exc:
+                if not capture_failure:
+                    raise
+                failure_type = type(exc).__name__
         finally:
             sys.setprofile(previous)
             threading.setprofile(previous_threads)
@@ -116,7 +122,8 @@ def observe(root: Path, action: Callable[[], object], *, repo: str | None = None
         "schema_version": 1, "kind": "python_runtime_trace",
         "repository": repo, "revision": revision,
         "observed_at": datetime.now(timezone.utc).isoformat(),
-        "collector": "sys.setprofile", "status": "completed",
+        "collector": "sys.setprofile", "status": "failed" if failure_type else "completed",
+        "exception_type": failure_type,
         "limitations": [
             "Only calls executed during this explicit run are observed",
             "Existing threads, subprocesses and C calls are not traced",
@@ -194,6 +201,8 @@ def main() -> int:
                         help="Explicit Python entrypoint to RUN (may have side effects)")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--max-events", type=int, default=MAX_EVENTS)
+    parser.add_argument("--record-failure", action="store_true",
+                        help="Write sanitized partial trace on handled exceptions and return nonzero")
     args, script_args = parser.parse_known_args()
     script_args = script_args[1:] if script_args[:1] == ["--"] else script_args
     root = args.root.resolve()
@@ -216,11 +225,12 @@ def main() -> int:
             sys.argv = original_argv
             sys.path[:] = original_path
 
-    report = observe(root, action, repo=args.repo, max_events=args.max_events)
+    report = observe(root, action, repo=args.repo, max_events=args.max_events,
+                     capture_failure=args.record_failure)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"runtime evidence: {report['stats']}; written {args.output}")
-    return 0
+    return 1 if report["status"] == "failed" else 0
 
 
 if __name__ == "__main__":
