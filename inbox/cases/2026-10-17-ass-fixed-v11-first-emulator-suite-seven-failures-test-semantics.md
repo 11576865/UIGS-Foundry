@@ -38,3 +38,18 @@ In Compose tests, a tagged structural grouping node may exist but not be an inde
 
 ## Dedup
 Foundry searched: `FIXED V1.1 Android Emulator Regression 38906758867 seven tests failed screenshot sha256`; `FixedV11EventGridInstrumentedTest structural Row assertIsDisplayed PTS assertTextContains semantics`; `ASS Workbench android actual 171 tests 7 failed pinned batch position`. A nearby 2026-10-14 R3 native-evidence Observation exists but does not cover this exact run, latest FIXED regression or two V1.1 test assertions.
+
+
+## Follow-up 2026-10-17: 171/4 emulator and source width correction (not yet validated)
+
+The post-AndroidTest-import FIXED V1.1 source CI #38930055526 **passed** at exact head `90633f8a965b59781fcba40835adfe143561b72e`. Its companion [emulator run #38930055528](https://github.com/11576865/ASS-Workbench-Android/actions/runs/38930055528) executed the full suite: **171 tests, four failures, zero errors**, down from prior seven. Prebuilt APK/native R3 capture and all four projection test families succeeded. The previous timing PTS assertion and tool POSITION / some BATCH case failures were no longer in this run's failing list; do not infer they are globally fixed.
+
+The four remaining failures in this newer run are:
+- `FixedV11EventGridInstrumentedTest.wideGridExposesEventTimesStyleAndTextWithoutAddingEditorState`: the `fixed-v11-grid-text-39` Text was not displayed (now a genuine rendered-cell visibility check, not the earlier structural Row assertion).
+- `EditorRegressionInstrumentedTest.inspectorDraftSurvivesToolSwitchAndRotation`: 5-second timeout in the `hideKeyboard` helper reached via `showFixedSubtitleList`, before proving whether the draft itself survived. Do not label this a proven data loss.
+- `EditorRegressionInstrumentedTest.batchDraftAndReviewedPreviewFollowSameInstanceAcrossMainAndCanvas`: tag `tool-BATCH` not found when opening the tool.
+- `EditorRegressionInstrumentedTest.spatialWorkspaceExposesBoardAndNativeEditorWithoutMovingWorldNodes`: `取消驻留` control not displayed. SPATIAL production UI is explicitly out of scope for this FIXED increment.
+
+Inspection of `FixedV11EventGridRow` showed its second `Row` (subtitle text + QC) had no `Modifier.fillMaxWidth()`, yet its text `Text` used `Modifier.weight(1f)`. This can yield zero-width text when Row measures wrap content. **One bounded production fix** adds `fillMaxWidth()` to give the weighted text definite width, preserving its strict display test and same Event/selection/data state. Product source commit `18f09bf3dbbf285028248dd6061a17eb847bfcce`; task checkpoint `8d91fc36840ec5dadc35594ec6fc06cf729baebc`. This is a hypothesis-backed remedy, **NOT YET confirmed** by a post-repair emulator result. Do not declare regression green or merge PR #149.
+
+UIGS intake dedup queries for this exact 171/4 run, weighted Row issue and remaining IME/BATCH/SPATIAL symptoms yielded no duplicate Foundry case. Extend this existing first-emulator-suite case rather than open a duplicative report. **Canonical remains unchanged.**
