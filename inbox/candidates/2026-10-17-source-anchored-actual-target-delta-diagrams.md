@@ -251,7 +251,7 @@ Expanded selected capability ledger from **9 to 10** by adding effect-preview so
 
 ## Implementation continuation — 2026-10-17 HSR Owner Atlas v0.6: behavioral evidence chain and PR-HEAD CI boundary
 
-**Local, downloadable artifact only:** `UIGS_HSR_工程认知工作台_v0.6.html` SHA-256 `aaeed5173def6ac45b6ed3404daa15b883710cc8bfac6d477a9eadb2813c1015`; full source/test ZIP `UIGS_HSR_工程认知工作台_v0.6_源码与验收.zip` SHA-256 `b076884561f0429587b9d600d68c23596e2eeb2758439a8d1dfeb322fb112af7`. HSR product code, UIGS deployed code, and Canonical were not changed. No site/app deployment.
+**Local, downloadable artifact only:** `UIGS_HSR_工程认知工作台_v0.6.html` SHA-256 `aaeed5173def6ac45b6ed3404daa15b883710cc8bfac6d477a9eadb2813c1015`; full source/test ZIP `UIGS_HSR_工程认知工作台_v0.6_源码与验收.zip` SHA-256 `2fd634675d1ee00deaccbb33f253d3f7e0b69f3cdd03bc15d44cbc2639cf1565`. HSR product code, UIGS deployed code, and Canonical were not changed. No site/app deployment.
 
 **New human-operable feature:** The `行为证据` view connects three bounded PR #194 semantic source hypotheses (internal ASS preflight, byte-identical sealed MKV authenticity, visual-only silent Fade preview) to owner-readable preservation questions, exact implementation anchors, individual test definitions at fixed HSR source SHA, GitHub Actions run-and-job metadata, explicit evidence gates, remaining runtime acceptance, and one-click export/copy of source-grounded next-agent verification task. Cross-thread handoff now includes selected capability's behavior case records without elevating them to approved targets.
 
