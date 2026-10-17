@@ -116,7 +116,7 @@
           "path": "app/static/index.html",
           "expected_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf",
           "verified": true,
-          "current_blob_sha": "e64b6912728881512546dfe34b3496cdf32fec8e",
+          "current_blob_sha": "024a334c6c8b70cbb5c445714a3b03cb00c99c2b",
           "current": false,
           "actual_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf"
         }
@@ -132,7 +132,7 @@
         }
       ],
       "source_verified": true,
-      "current_head": "1e316aca274f4fb3d3c46d3259172208a7402829",
+      "current_head": "dea5411312ed3e819864f1915f4f2008f938cba3",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
@@ -166,7 +166,7 @@
           "path": "tests/preview-ui.test.mjs",
           "expected_blob_sha": "196e8195a9647623c983b3887fa55ea750b83aef",
           "verified": true,
-          "current_blob_sha": "d8884561dbe837b2ccb5097877327de074351c02",
+          "current_blob_sha": "921b91d193c9914feb06da181b2c57cfd30bb3fd",
           "current": false,
           "actual_blob_sha": "196e8195a9647623c983b3887fa55ea750b83aef"
         },
@@ -180,7 +180,7 @@
         }
       ],
       "source_verified": true,
-      "current_head": "f0d6f78bd794844571cb22d089f8075cbd8b27e0",
+      "current_head": "dc481b9c784e9be69e50544ac0fecafd157c6288",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
