@@ -15,13 +15,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.BATCH_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "69879b901cc967ae84740a3284393c914e151d183b960b18ac0d831911023c1e",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "9793e7d350631eeffa108a7949aa49e368f22b8c6caafd8f9075973a136e39f5",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.BATCH_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -59,13 +59,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.CAPABILITIES_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "7fdb7b0b741377313116591e416113002156ed333d965f9b107d4e51d9203b4f",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "ba455547624712f5df911991b1d1c293bbcda4bba7fd712ae96e651a9cf782f1",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.CAPABILITIES_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -79,13 +79,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.COMPATIBILITY_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "343f72219841503a6f6740d4aa7ec48a2ef6513e21ea4bc31f974af89fbe1c76",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "d1cede5ce839a3c9dbae346669bf98b5d4a81a17f5228b23a1ef6db56dde5383",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.COMPATIBILITY_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -99,13 +99,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.DIAGNOSTICS_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "2134ceee7725211b45bfbd659c568aea11a81053a9ed5480912a0884c9bf9549",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "4d5ed5d5dbdee9bf289b4e693da95a9f9809a2820afb9d488062f84718aaeeb2",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.DIAGNOSTICS_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -119,8 +119,8 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "05f1ca370e7ec216f3e94aeccd2ea84cb1f29ef1d0f00816d311beb4fe6b2b2c",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "a8d2a3727bb6a6a89eea69fbd8f94f61bd19f5c325755a53e654caca32c5ba27",
       "image": {
         "width": 1600,
         "height": 1000
@@ -141,13 +141,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EFFECTS_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "efc04c305837db9a1187918bdb6f122046e9bb6fd91a85fb21ddaf927e638469",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "0077c8538dae85cf0c604bf298a29f0ba61c7f81453e1ee71087c7eca44f3fe6",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EFFECTS_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -164,13 +164,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EVENT_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "46658aca160669e5780dc9cd1be6089ecbc4071f157706fe26d6b1d8448127b9",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "27dd067f62f203110594ef0c7958493f91b86d899b479fb4fb76daa4c7a367c1",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EVENT_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -184,13 +184,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.FONTS_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "bc89c054cc8d219b12c6de1e8f64c7e20a05ccfeb15cdd298efd3a01d55d5f30",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "2a51efcd91f3243b090e3041f6171f7629b0e991a66233749afb393342c17d60",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONTS_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -204,13 +204,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "d55dcd43db4f4efcf3ef95ccf4c2ff61fb6530b65249dc1100be053f570dee99",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "7bc2f94da0e65fb6bd11cb7ab024ecfa34a5126f87e002b515bc8d46a65a5966",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -224,13 +224,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.FRAMES_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "d4ee9b0174e1bf236d5639f7772540023558a869730dda56ff60bb3a36f9881e",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "20c6f1b36269bfd2179dc5020169f6141dc203486aa0bc677f4914058a56e092",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FRAMES_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -246,13 +246,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.KARAOKE_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "1586a6f0e77110f11cda5c8fd00d999e5c2944c4134fb7930e18ca5a03a329b3",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "9e3c6198726e080f180abe23fd1df8fc6473827bcc6c64d291c1d4a5ebebdd37",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.KARAOKE_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -270,13 +270,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.POSITION_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "7d026095495eab539a6056c162974ee9b97aee3d2b39ac9a05e9f7605dc82b3e",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "07bbb5a37e693a4f87c7647dd04bcf1cf0dbd0e2b7350af35467d408d5441a96",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.POSITION_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -290,13 +290,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.PROJECT_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "84cd35cafd77ac0f4d1b9949cf5ad5c373adaa56737c3f883679de6a6d1a5ef2",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "b3720cd0e136b5516f3772c90f70e300d52ad70ece9868f1322d1b088b4e009d",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.PROJECT_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -310,13 +310,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.QC_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "3b347834a6ecb022d1c2ea204d5c9f17e10f962316e97071b099028ce056f867",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "e4133bf6610718f919782ddd00099b68200081c4808cb62ad9eecdfd07d0bd41",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.QC_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -359,13 +359,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "dda6f769d62521440d26287be175a60e3f7ff5d5c37ffac41eab16cb6299cc70",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -382,13 +382,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.TEXT_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "57c5e2fc872b72195427a850f894a50e8d8f9a5dd8fdc6f44c75dc102e114852",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "a6d3ba507262d5b3823ab9a2a8cef18979b6395a2b5bf067d033a7a2e2ddb5ec",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.TEXT_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -402,13 +402,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.TIMELINE_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "5d72a9eeec6fe09da4f78e2d785b735a90ae457e27e20916c2ee3de8629c4112",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "83448d9d3462a14dfd8d7b885cfaa6ac536a9eaced3c3523e715e9763cf10e61",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.TIMELINE_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -448,13 +448,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.VECTOR_CLIP_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
-      "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-      "sha256": "c384ac7cd0c08c0c9e657c12cb5339c92bfd0f3edb511be75f2a2c8bc552ca0a",
+      "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+      "sha256": "da982050ad9f9e8eb8fd171eea8e0be5a9cd4ec9614bb70c1b15455c7d0fec16",
       "image": {
         "width": 1600,
         "height": 1000
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.VECTOR_CLIP_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -956,13 +956,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.BATCH_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "69879b901cc967ae84740a3284393c914e151d183b960b18ac0d831911023c1e",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "9793e7d350631eeffa108a7949aa49e368f22b8c6caafd8f9075973a136e39f5",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.BATCH_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -980,13 +980,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.CAPABILITIES_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "7fdb7b0b741377313116591e416113002156ed333d965f9b107d4e51d9203b4f",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "ba455547624712f5df911991b1d1c293bbcda4bba7fd712ae96e651a9cf782f1",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.CAPABILITIES_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1002,13 +1002,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.COMPATIBILITY_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "343f72219841503a6f6740d4aa7ec48a2ef6513e21ea4bc31f974af89fbe1c76",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "d1cede5ce839a3c9dbae346669bf98b5d4a81a17f5228b23a1ef6db56dde5383",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.COMPATIBILITY_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1024,13 +1024,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.DIAGNOSTICS_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "2134ceee7725211b45bfbd659c568aea11a81053a9ed5480912a0884c9bf9549",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "4d5ed5d5dbdee9bf289b4e693da95a9f9809a2820afb9d488062f84718aaeeb2",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.DIAGNOSTICS_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1048,13 +1048,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EFFECTS_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "efc04c305837db9a1187918bdb6f122046e9bb6fd91a85fb21ddaf927e638469",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "0077c8538dae85cf0c604bf298a29f0ba61c7f81453e1ee71087c7eca44f3fe6",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EFFECTS_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1073,13 +1073,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EVENT_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "46658aca160669e5780dc9cd1be6089ecbc4071f157706fe26d6b1d8448127b9",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "27dd067f62f203110594ef0c7958493f91b86d899b479fb4fb76daa4c7a367c1",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EVENT_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1095,13 +1095,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.FONTS_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "bc89c054cc8d219b12c6de1e8f64c7e20a05ccfeb15cdd298efd3a01d55d5f30",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "2a51efcd91f3243b090e3041f6171f7629b0e991a66233749afb393342c17d60",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONTS_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1117,13 +1117,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "d55dcd43db4f4efcf3ef95ccf4c2ff61fb6530b65249dc1100be053f570dee99",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "7bc2f94da0e65fb6bd11cb7ab024ecfa34a5126f87e002b515bc8d46a65a5966",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1139,13 +1139,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.FRAMES_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "d4ee9b0174e1bf236d5639f7772540023558a869730dda56ff60bb3a36f9881e",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "20c6f1b36269bfd2179dc5020169f6141dc203486aa0bc677f4914058a56e092",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FRAMES_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1163,13 +1163,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.KARAOKE_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "1586a6f0e77110f11cda5c8fd00d999e5c2944c4134fb7930e18ca5a03a329b3",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "9e3c6198726e080f180abe23fd1df8fc6473827bcc6c64d291c1d4a5ebebdd37",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.KARAOKE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1189,13 +1189,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.POSITION_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "7d026095495eab539a6056c162974ee9b97aee3d2b39ac9a05e9f7605dc82b3e",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "07bbb5a37e693a4f87c7647dd04bcf1cf0dbd0e2b7350af35467d408d5441a96",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.POSITION_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1211,13 +1211,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.PROJECT_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "84cd35cafd77ac0f4d1b9949cf5ad5c373adaa56737c3f883679de6a6d1a5ef2",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "b3720cd0e136b5516f3772c90f70e300d52ad70ece9868f1322d1b088b4e009d",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.PROJECT_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1233,13 +1233,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.QC_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "3b347834a6ecb022d1c2ea204d5c9f17e10f962316e97071b099028ce056f867",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "e4133bf6610718f919782ddd00099b68200081c4808cb62ad9eecdfd07d0bd41",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.QC_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1261,13 +1261,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "dda6f769d62521440d26287be175a60e3f7ff5d5c37ffac41eab16cb6299cc70",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1289,13 +1289,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "dda6f769d62521440d26287be175a60e3f7ff5d5c37ffac41eab16cb6299cc70",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1314,13 +1314,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.TEXT_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "57c5e2fc872b72195427a850f894a50e8d8f9a5dd8fdc6f44c75dc102e114852",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "a6d3ba507262d5b3823ab9a2a8cef18979b6395a2b5bf067d033a7a2e2ddb5ec",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.TEXT_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1336,13 +1336,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.TIMELINE_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "5d72a9eeec6fe09da4f78e2d785b735a90ae457e27e20916c2ee3de8629c4112",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "83448d9d3462a14dfd8d7b885cfaa6ac536a9eaced3c3523e715e9763cf10e61",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.TIMELINE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1360,13 +1360,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.VECTOR_CLIP_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "c384ac7cd0c08c0c9e657c12cb5339c92bfd0f3edb511be75f2a2c8bc552ca0a",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "da982050ad9f9e8eb8fd171eea8e0be5a9cd4ec9614bb70c1b15455c7d0fec16",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.VECTOR_CLIP_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1382,8 +1382,8 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "05f1ca370e7ec216f3e94aeccd2ea84cb1f29ef1d0f00816d311beb4fe6b2b2c",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "a8d2a3727bb6a6a89eea69fbd8f94f61bd19f5c325755a53e654caca32c5ba27",
         "image": {
           "width": 1600,
           "height": 1000
@@ -1408,13 +1408,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "dda6f769d62521440d26287be175a60e3f7ff5d5c37ffac41eab16cb6299cc70",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1436,13 +1436,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
-        "source_revision": "aab36c875d1ca2ba8d9922e7c085993718665655",
-        "sha256": "dda6f769d62521440d26287be175a60e3f7ff5d5c37ffac41eab16cb6299cc70",
+        "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
+        "sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
         "image": {
           "width": 1600,
           "height": 1000
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
