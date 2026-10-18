@@ -70,8 +70,8 @@
       "settle_ms": 900
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "156e259d1a863f9b6065e8ca298fc2e21685b895dbdd7ef5b5a53f3edbcfe0cf",
+  "change_status": "unchanged",
+  "previous_sha256": "9be9a027d96989bf6091133c8690cd3f58fa61d3e3b41616d3b5d0bf72ad4f27",
   "limitations": [
     "Production layout UI; not classified as runtime-backed libass evidence.",
     "The capture harness reveals the real production panel when it is normally gated by active-project state; it does not fabricate project data."
