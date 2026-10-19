@@ -1,0 +1,45 @@
+# Observation: Strategy + scope + stage gates are not an executable product release contract
+
+Date: 2026-10-20  
+Status: **Observation / single-project owner feedback + documented proposal, not Canonical and not runtime-validated**  
+Source product: [MKV-Fast-Muxer](https://github.com/11576865/MKV-Fast-Muxer)  
+Product proposal: [PR #160](https://github.com/11576865/MKV-Fast-Muxer/pull/160) and `docs/softmux-1.0-product-acceptance-contract-20261020.md`  
+Reference: `main@dc481b9c784e9be69e50544ac0fecafd157c6288` (before PR #160).
+
+## Trigger
+
+The user challenged softmux 1.0 as still "not concrete, ambiguous" after approving a **bounded professional Matroska workbench (scope B)** and an approximately **1 GB** first-release file target. Existing product documentation separately captured:
+
+- D-01—D-10: approved strategy / product identity;
+- R0—R6: engineering/process and release quality gates;
+- scope B: permitted capability boundaries and excluded universal EBML editing;
+- 44 legacy features and 57 historical acceptance items.
+
+None alone provided a bounded, easily falsifiable **customer-visible action → input → output → refusal → independent verification** catalogue. A loose schedule estimate (5–8 weeks, later withdrawn) also substituted duration for an acceptance denominator.
+
+## Reusable observation / proposed test
+
+1. Before declaring a major version well-defined, require three separate source-of-truth layers: **product purpose**, **first-release capability envelope** (including size, platform, operation and negative claims), and **frozen externally observable acceptance tasks**.
+2. Each release task should explicitly enumerate source fixtures, user-visible entry/action, actual writer/backend, expected artifact and independent readback, failure mode, operating environment, and supporting exact-commit evidence.
+3. A capability envelope is **operation-dependent**. A 1 GB ordinary mux target does not promote a 60 MiB research EBML editor or a 64 MiB structure-inspection writer to 1 GB. Distinguish read-only import/inspect, ordinary remux, bounded byte edit, save and native validation.
+4. Negative promises belong in the contract: unsupported object mutation, unknown structured metadata, missing source identity or no File permission must fail with a specific diagnostic rather than silent loss or fake success.
+5. Existing green CI, branch/PR counts, design docs and scope decisions are not a substitute for a frozen testable release denominator. Conversely, historical `unassessed` ledger entries are not proof that functionality is absent.
+6. Do not silently convert an assistant-authored acceptance proposal into a user-approved Canonical product target. Track user-approved scope separately from suggested thresholds, and hold unsettled choices (source-only vs both source+output 1 GB) for owner review.
+
+## Specific action
+
+Product PR #160 added proposed S01—S14 user scenarios and N01—N06 explicit exclusions, then cross-linked the acceptance proposal from the pre-existing 1.0 release contract. This is a **documentation commit on an open PR**, not 1.0 functionality, automated acceptance, user approval of each scenario, or a passed 1 GB media benchmark.
+
+## Dedupe / relationship
+
+Foundry search and file review found:
+- `inbox/candidates/2026-10-14-product-block-delivery-over-pr-fragmentation.md` — feature-block delivery vs micro-PR metrics, does **not** define first-release scope+acceptance separation;
+- `inbox/candidates/2026-10-14-agent-generated-next-units-goal-drift-guard.md` — root-goal traceability and generated work queue control;
+- `inbox/candidates/2026-10-11-mkv-composition-as-primary-ui-object.md` — the composed MKV as primary interface object;
+- `inbox/observations/2026-10-12-browser-native-capability-envelope-container-workbench.md` — runtime capability classification by operation/file size/browser/output.
+
+This entry connects their concerns at **major product-version specification clarity**, rather than promoting or replacing any of them.
+
+## Evidence limitation
+
+This is based on one user evaluation and a proposed product-contract change. It has not been tested whether writing S01—S14 improves actual delivery speed or reduces acceptance disputes, and no runtime 1 GB pass was observed. Retain as Observation; do not promote Canonical from a single occurrence.
