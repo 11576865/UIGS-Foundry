@@ -35,3 +35,14 @@ A composition-first desktop UI can retain a distinct source-provenance drawer, c
 Evidence is product source inspection and official specifications/docs. No multi-browser large-file benchmark, zero-track Matroska writer fixture, or native fallback implementation has been run. This observation is not a product decision, a promise of unlimited web I/O, or grounds for Canonical promotion.
 
 Related existing: `inbox/candidates/2026-10-03-reuse-large-browser-media-staging.md` (reuse of already-mounted source, rather than whole-executor capability).
+
+
+## 2026-10-20 product decision: advisory size warning vs execution hard limit
+
+Source: [softmux PR #160](https://github.com/11576865/MKV-Fast-Muxer/pull/160), documentation commits through `6999fcaf85f095c4a17529b71dd9ca4860afa556`. Status: **user-approved project-specific product boundary / reusable Observation**, not automated implementation/Canonical authority.
+
+The product owner explicitly corrected an assistant-invented 1 GB admission ceiling: **1 GB is a non-blocking triangle warning threshold**, not a maximum MKV size. Ordinary ffmpeg.wasm muxing should remain attemptable after the warning until the **actual configured FFmpeg/Wasm input constraint**; the upstream official FAQ currently lists **2 GB maximum ordinary input size** ([official FAQ](https://ffmpegwasm.netlify.app/docs/faq/)). No separate artificial 1 GB output limit, no mandatory confirmation dialog, no automatic rejection for merely >1 GB. Affected file rows show a `triangle-alert` icon and accessible caution text; batches judge per source rather than sum across jobs.
+
+**Reusable distinction:** risk-notification threshold (soft warning), confirmed engine admission limit (hard gate), stage-specific writer constraints (e.g., P2 60 MiB/64 MiB), and empirical device success capacity **are four distinct values**. Never turn a performance benchmark or risk threshold into an undocumented admission refusal. Conversely, a documented engine maximum is not evidence that memory-intensive `fetchFile`/MEMFS/`readFile` processing will succeed near it. Expose concrete runtime failures accurately; unsafe Matroska operations must still fail closed for structural reasons independent of size warnings.
+
+**Evidence limitation:** the owner approved this product behavior; the product PR changes specifications only. The >1 GB warning UI and 1.2–1.5 GB real file capability have **not** been confirmed implemented or passed on target devices. Do not promote to Canonical from one project decision.
