@@ -67,3 +67,17 @@ At HSR `main@f366f3fc6da47b8c06bb961945d4658da21d6a98`, all four independently t
 - [Pages build/deployment #39462704444](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39462704444)
 
 **Disposition:** HSR code integrated, exact-main CI verified. Ongoing Pending: actual Android/Termux and Windows end-user devices, power-loss timing between two atomic JSON files, test-driven safe tombstone compaction, and very long job retention/supervision. No Canonical promotion.
+
+## 2026-10-21 — PR #199 conservative tombstone compaction under original owner liveness
+
+Deduplicated extension of this HSR Test and the 2026-10-02 shared-resource synchronization Candidate, not a new Canonical rule.
+
+- HSR [PR #199](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/199), final tested head `49ae30ea6e1b722ad5de6d915686f092f8e4f32d`, merged `main@69c6ce92f7356dbd18a32be695e3c8369b266494`.
+- PR #198's v1 deletion ledger contained only job IDs, so a supposedly safe old tombstone could not be proven free of a running stale writer. PR #199 introduces a backward-compatible v2 ledger containing the original `owner_sessions` identity for **new deletions only**; legacy v1 and any tombstone without a valid owner remain uncompactable. A deletion mark can be removed only when its producer session lease is verifiably no longer held.
+- `compact_tombstones` acquires the shared journal mutex, commits the deletion-filtered `jobs.json` **before** publishing a reduced sidecar. Crash injection after the first commit (or before it) proves the old tombstone remains authoritative until safe retry; this is not a general two-file ACID transaction.
+- `jobs._persist_locked` clears local pending IDs only on successful durable publication; otherwise even a safely compacted tombstone could be recreated by the deleting process's own stale `_DELETED_JOB_IDS` set.
+- Controlled `jobs.compact_job_history_tombstones()` plus a single post-recovery startup sweep trigger safe cleanup without polling-time lease scans. Maintenance failure logs a warning and retains the journal view.
+- Independent two-Python-process regression: a producer completes and retains its job in memory; another instance deletes it; compaction declines while producer is alive, accepts once producer exits, and subsequent persistence does not recreate the deleted record. Windows workflow also executes these tests.
+- Exact PR-head [Python matrix / Termux surface / real libass #39465417901](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39465417901), [Windows writer and journal #39465417926](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39465417926), [seven ASS #39465417930](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39465417930) all **success**. Merged-main CI is separate and was in progress at the time of this intake.
+
+**Pending:** v1 unknown-owner entries can grow indefinitely by design, long-lived producer sessions prevent pruning, physical Android/Termux and Windows customer device, deliberate power removal, long-running archival stress, and general cross-user/distributed ownership are unverified. Source-integrated Test with PR-head CI; do not promote Canonical.
