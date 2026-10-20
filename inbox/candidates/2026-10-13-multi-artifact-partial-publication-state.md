@@ -33,3 +33,12 @@ This is a *candidate engineering pattern*, not proof of an atomic filesystem pro
 Existing Foundry Candidate `2026-10-12-legacy-capability-migration-and-document-plan-batch-queue.md` already distinguishes generated artifacts, optional persistence failure and batch identity, while `2026-10-03-completed-artifact-identity-survives-current-setting-changes.md` separates old artifacts from current UI settings. This Candidate adds the independently testable *multi-artifact partial-commit boundary* (MKV saved while paired JSON fails), rather than restating queue or artifact identity principles.
 
 No Canonical promotion is requested.
+
+
+## 2026-10-20 validation: save-only retry and frozen failed-job retry
+
+The original candidate's core persistence distinction is now implemented end-to-end in Softmux **0.1022** [merged PR #163](https://github.com/11576865/MKV-Fast-Muxer/pull/163), `main@2368422dd11dabf9f6ef26532505515400ddd531`, exact integration-head [CI #39391267167](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39391267167) **632/632 Node tests, full native Chromium E2E passing**.
+
+The browser test injects a JSON-report-only write failure after the actual MKV has reached a synthetic DirectoryHandle. It confirms partial persistence, preserves the successful MKV and in-memory fallback downloads, refuses to overwrite a report residue until a simulated user explicitly resolves it, and retries **only missing report save**, with the FFmpeg log unchanged. A second real file scenario deliberately fails only the second frozen batch job at the worker boundary, retains the first MKV/Blob URL and its SHA-256, and re-executes only the previously failed Job ID from the frozen plan with actual media. Independent final MKV subtitle packet PTS is `[100,1550]` ms and native `ffmpeg -copyts` recovered cues match the source exactly.
+
+The implementation separates artifact publication retries (no new FFmpeg) from failed-job execution retries (new bounded mux) and keeps the browser permission boundary explicit. **Scope is current authorized browser session and selected fixtures**; this does not demonstrate 20-job real workload acceptance, actual OS disk crash atomicity or durable FileSystemHandle permission across restarts. Continue to classify this as Candidate, not Canonical. Older stacked PRs #150/#151 were closed unmerged when PR #163 proved their integrated semantics on 0.1021 main.
