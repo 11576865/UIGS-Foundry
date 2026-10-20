@@ -34,3 +34,13 @@ The exact PR head passed:
 - [Chromium/browser subtitle evidence, run 39401140452](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39401140452)
 
 The merged-main workflows are distinct and in progress at writing. `Pending`: real Android/Termux deployment, Windows physical process-lock behavior, multi-hour decode overhead, abrupt power loss, global jobs journal concurrent writes. None are implied by Linux CI. No Canonical modification.
+
+## Post-merge main CI closure
+
+At exact `HSR main@78618a84800dda96b553448f92455d714c593ced`, all four mainline checks completed successfully:
+- [`tests` #39401440546](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39401440546) (Python matrix, Termux Lite surface, real libass)
+- [`seven ASS` #39401440607](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39401440607)
+- [`subtitle browser evidence` #39401440544](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39401440544)
+- [`Pages build/deploy` #39401439267](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39401439267)
+
+Status now: **source-integrated and exact-main automated regression verified**. Remaining Pending: actual Windows lock tests, physical Android/Termux, multi-hour FLAC decode latency, crash/power-loss, globally shared jobs journal. This does not justify a Canonical promotion.
