@@ -43,3 +43,17 @@ HSR `main@7aec0361206c211512aced0e1ef233fe03732a81` passed all four triggered wo
 - [Pages build/deploy #39442240490](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39442240490)
 
 Status: **source integrated, exact-main automated regression verified**. Further Pending: physical Android/Termux and actual Windows customer machine, abrupt power removal, very long-running jobs, cross-process deletion tombstones and stale historical records. One-time CI does not prove these boundaries. Canonical unchanged.
+
+## 2026-10-21 extension — durable deletion tombstones and waitable journal lock, HSR PR #198
+
+Deduplicated against this existing job journal Test and the shared-resource journal Candidate: this adds failure-specific evidence, **not** a new Canonical rule.
+
+- Repair [HSR PR #198](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/198), tested PR head `dcfeee12d6755abf3bad41f05624299a019457ec`, merged to `main@f366f3fc6da47b8c06bb961945d4658da21d6a98`.
+- A completed historical job deleted by one process could be resurrected by another still-live process's stale owned `_JOBS` snapshot. A persistent `jobs.json.deleted.json` sidecar, published before the updated JSON list under the same journal mutex, now vetoes later resurrection. A two-file power failure may temporarily leave a tombstoned row in the raw legacy `jobs.json`; coordinated recovery filters it. Tombstones are retained; compaction remains Pending.
+- Existing services now reconcile dead-owner session leases when serving job status, not only on fresh server startup. Unknown owner state is not equated with proof of death.
+- CI failures on the first PR revisions exposed a distinct generic concurrency issue: the shared journal reused the **nonblocking, fail-fast output-writer lock**. This caused short-lived journal contention to kill a valid child job, later misdiagnosed as `interrupted`. The repair adds a 15-second bounded retry for the journal's short read/merge/write critical section. Media writer admission remains fail-fast. A dedicated independent-process test verifies waiting and eventual success.
+- Fault injection covers a crash-like failure after the deletion ledger is atomically published but before `jobs.json` is rewritten, plus stale-owner replay and malformed-ledger fail-closed semantics.
+- The earlier red workflow runs are real CI evidence for an unsafe assumption and should **not** be counted as passing. Final exact PR head passed [Python/Termux `tests` #39462464890](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39462464890), [seven ASS #39462464379](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39462464379), and [native Windows process safety #39462464420](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39462464420).
+- Post-merge exact-main CI, physical Android/Termux and Windows user device, power cut and tombstone garbage collection still require separate evidence. This repair does not claim a multi-file ACID transaction or cross-user/distributed durability.
+
+**Status:** Test/Observation integrated with automated PR-head evidence; keep field and safe-compaction tasks Pending. Canonical unchanged.
