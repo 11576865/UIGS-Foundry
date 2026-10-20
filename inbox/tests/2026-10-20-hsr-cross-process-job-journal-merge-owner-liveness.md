@@ -115,3 +115,17 @@ The merged source at HSR `main@987dfbe4d17aba8a1e81c01849e22b7ce5d90a49` passed 
 - [Pages build/deploy #39468978519](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39468978519)
 
 **Disposition:** exact-main automated cross-version and abruptly exiting process tests verified. Prior Pending for an *independently executed historical code revision under CI* is now closed. Deployed old+new servers, physical Android/Windows environments, physical power removal, and multi-hour workload remain FIELD-PENDING. No Canonical promotion.
+
+## 2026-10-21 — Sustained shared journal progress, kill recovery, and Windows replace failure, PR #202
+
+Deduplicated addition to this HSR job-journal Test. Product [PR #202](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/202), exact PR-head `451ea47824abfa3f5516e0bbf35fcf75cf8dc708`, merged `main@2d770d2be1bdb7356dc1f459049eb1d1d0bca71c`.
+
+- Two independently launched Python producer processes each issue **180 actual persisted job progress updates** against the same journal. Two independent observer processes concurrently fetch status, assert no progress regression, preserve both task IDs and require eventual `succeeded`.
+- A separate run forcibly kills one producer mid-update and checks its task becomes `interrupted` on live polling; the surviving producer finishes `succeeded`. A fresh Python interpreter reopens the journal and verifies both histories.
+- Fault injection forces the `queued -> running` persistence to fail immediately after successful initial enqueue; a source fix avoids the previous ghost `running` job and prevents executing user callbacks without a recorded running state. Error remains terminal and future builds can be admitted.
+- The first real Windows sustained workflow red, while Ubuntu was green: multiple in-flight jobs encountered `PermissionError WinError 5` from `os.replace(tmp, jobs.json)` despite a cooperating journal mutex. Source of the conflicting OS handle remains unproven. A distinct Bug is recorded at [Windows atomic journal replacement](../bugs/2026-10-21-hsr-windows-atomic-job-journal-replace-winerror5.md).
+- The repair retries only WinError 5/32 at job journal / tombstone atomic-publication boundaries for <=3 seconds. Tests inject temporary, permanent and unrelated errors, covering eventual publication and fail-closed limits.
+- Final PR exact-head runs all succeeded: [sustained Ubuntu/Windows #39472204422](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472204422), [Python / Termux / libass #39472204781](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472204781), [Windows writer #39472204234](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472204234), [pinned old/current matrix #39472204693](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472204693), [seven ASS #39472204166](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472204166).
+- Mainline post-merge CI pending when first recorded. This is a seconds-long repeated-persistence stress test, not an hours-long real FFmpeg/media pipeline soak. Physical Android/Termux, physical power cut, and deployed Windows machines remain FIELD-PENDING.
+
+No Canonical promotion.
