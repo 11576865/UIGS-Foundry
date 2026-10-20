@@ -32,3 +32,12 @@ CI evidence: `.github/workflows/browser-e2e.yml`, artifact `s08-current-workbenc
 - GitHub PR/commit proves **submitted test code and CI registration only**. **Pending CI** means no assertion of green test, verified product fix, saved user-local file, general EBML safety or physical-device acceptance.
 - If CI fails, determine whether it is a real UI source-identity/rebinding bug, selector/test issue, asynchronous timing problem or media error; record the exact observed failure before proposing a correction.
 - On exact-head CI completion, add the run ID, raw acceptance report and observed status. Do not promote this observation to Canonical on one tested fixture.
+
+## First exact-head CI red / scoped test repair
+
+- Product head `379d22cc9984907e35405a7600f41bd9ca0064cd`, Browser E2E workflow [39465515066](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39465515066): **failure**. Build/Pages workflow [39465515079](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39465515079): **success**.
+- Failure occurs immediately at the first `locator.check()`, *before* risky-source classification assertions. Playwright resolved the right radio but it was hidden in the production 1280px tablet layout; after 30 s it timed out. This does **not** establish a product safety regression or an S08 preservation result.
+- Root UI contract: `src/softmux-figma-tablet.css` hides `.sf14-source` between 681–1365px until `#sf14SourceToggle` sets `#sf14Single[data-show-source="true"]`. Production `sourceFilesDetails` is already open on initial mount, but the containing overlay is not visible.
+- Follow-up product test-only commit `d17d923bfd7f2b785c9dfec22ddd2265761e5585` explicitly clicks the actual header 来源 control and verifies the overlay/underlying details and source radio are visible before `.check()`; no production code or permissive safety bypass was changed.
+- **Current status: Pending CI for new head.** Need exact-head execution evidence before marking this test PASS. Do not infer that the downstream runtime-block, source recovery, actual output or native oracle assertions pass.
+- Reusable distinction: test automation must first traverse documented progressive-disclosure/navigation before asserting an interaction, rather than force-clicking a hidden DOM control. This is a scoped observation and duplicates no existing Canonical requirement.
