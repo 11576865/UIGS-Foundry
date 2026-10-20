@@ -1,9 +1,11 @@
 # Observation: A flat source observation may navigate to a stronger writer, but must not become its edit authority
 
 Date: 2026-10-17  
-Status: **Observation / PR submitted, exact-head Chromium/native CI pending**  
+Status: **Observation / 0.1021 integrated; exact-head Chromium/native CI verified**  
 Product: https://github.com/11576865/MKV-Fast-Muxer  
-Implementation PR: https://github.com/11576865/MKV-Fast-Muxer/pull/159  
+Original research PR: https://github.com/11576865/MKV-Fast-Muxer/pull/159 (closed, unmerged due to overlapping 0.1020 mainline)
+Integrated PR: https://github.com/11576865/MKV-Fast-Muxer/pull/162 (merged 2026-10-20, main `7fb34422bfa5a743f0ddbc02eba5d51118b68ea0`)
+Exact integrated-head CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39359223974 (620 Node tests, complete Chromium E2E/native pass)  
 Superseded conflicting pre-R0 PR: #158 (closed; never merged)  
 Authority: 2026-10-12 softmux Matroska theoretical 1.0, without new Canonical edits.
 
@@ -13,7 +15,7 @@ The object-centred UI has genuine `ffprobe`-derived flat Chapters and format-lev
 
 ## Bounded observed implementation
 
-PR #159 replays a small vertical slice onto successfully merged PR #157 main:
+PR #159 prototyped this vertical slice on PR #157 main; PR #162 subsequently re-integrated it onto 0.1020 main and merged on verified 0.1021 exact head:
 
 1. A selected **real scanned** Chapter or Tag observation offers `使用当前来源打开受限章节/标签工具`. The label and adjacent help state that no exact EBML writer field is mapped, even when a displayed name matches.
 2. The source UI sends the exact ephemeral current `File` object, kind and observation ID through a cancelable local navigation intent. The production handler accepts it only if `sourceFile === videoInput.files[0] === scannedSourceFile`, the scan file-key matches, the unified imported-asset inventory still owns the same File under the selected source role, the observation ID exists in the current source projection, and no mux/batch is active.
@@ -27,11 +29,11 @@ In a staged inspector→editor workflow, **navigation identity, observation evid
 
 ## Evidence boundary / dedupe
 
-Current evidence is committed code, exact-main replay and V8 syntax checks for three changed JS sources. The new PR #159 **has not yet completed exact-head Node/build/Chromium/native CI**; implementation maturity is not certified, and there is no new 57-scenario acceptance promotion.
+Original PR #159 exact head passed complete Node/build/Chromium/native CI at [run #39295712227](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39295712227), then PR #162 re-integrated onto the 0.1020 mainline. The integrated exact head passed **620/620 Node tests**, Vite build and full Chromium/native E2E at [run #39359223974](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39359223974), then merged as `7fb34422bfa5a743f0ddbc02eba5d51118b68ea0`. This certifies the scoped handoff, **not** general chapter/tag editing, a full 57-scenario promotion or end-user device field acceptance.
 
 Foundry search included `ffprobe flat chapter metadata TagTarget writer`, `source observation independent bounded writer exact File reinspection`, `read-only source object to edit tool transfer identity` and `metadata source rebind isolated editor not consent` and found no matching handoff-specific record. Related but different:
 - `inbox/candidates/2026-10-02-read-only-source-inspection-must-not-inherit-downstream-gates.md`: read-only inspection availability should not require later execution prerequisites.
 - `inbox/observations/2026-10-16-softmux-source-attachment-result-identity-freshness.md`: current source/plan freshness governs whether **completed output evidence** may be attached to a displayed object.
 This new Observation covers **cross-evidence navigation to an independent writer**, not read-only access or completed-output badge projection. One PR is not enough to promote a universal Canonical rule.
 
-Keep this status PENDING CI; update only with an independently observed exact-head verdict.
+This Observation's integration CI evidence is verified. Keep its generalization bounded; **no Canonical rule or product 1.0 readiness was promoted**.
