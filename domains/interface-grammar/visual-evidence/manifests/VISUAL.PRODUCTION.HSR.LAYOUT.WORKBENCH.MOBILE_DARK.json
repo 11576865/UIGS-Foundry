@@ -18,7 +18,7 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.MOBILE_DARK.png",
   "source_repository": "11576865/HSR-Voice-Archive-Builder",
-  "source_revision": "dea5411312ed3e819864f1915f4f2008f938cba3",
+  "source_revision": "fd9dfca282c7fce7806b37d748261337da3bc831",
   "sha256": "134735a7d4d970ee73c4a5235d88edb9480a833ccf64d72bbd44e6cbd4529a16",
   "image": {
     "width": 390,
@@ -80,13 +80,13 @@
     {
       "source_type": "repository",
       "source": "11576865/HSR-Voice-Archive-Builder",
-      "revision": "dea5411312ed3e819864f1915f4f2008f938cba3",
+      "revision": "fd9dfca282c7fce7806b37d748261337da3bc831",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/HSR-Voice-Archive-Builder:ui-visual-capture.json",
-      "revision": "dea5411312ed3e819864f1915f4f2008f938cba3",
+      "revision": "fd9dfca282c7fce7806b37d748261337da3bc831",
       "evidence_level": "source-owned capture declaration"
     }
   ]

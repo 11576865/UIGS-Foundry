@@ -18,8 +18,8 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.TABLET_DARK.png",
   "source_repository": "11576865/HSR-Voice-Archive-Builder",
-  "source_revision": "dea5411312ed3e819864f1915f4f2008f938cba3",
-  "sha256": "30d4f1a0ecff4b26046ecf6c5053dc7d8f9a932411de1b232142198944aa6433",
+  "source_revision": "fd9dfca282c7fce7806b37d748261337da3bc831",
+  "sha256": "db19f0ebab8f0c8e8c914a165abe0fbb47679d33ef54205ea9ec695e049d0fcf",
   "image": {
     "width": 1024,
     "height": 900
@@ -70,7 +70,7 @@
       "settle_ms": 900
     }
   },
-  "change_status": "unchanged",
+  "change_status": "changed",
   "previous_sha256": "30d4f1a0ecff4b26046ecf6c5053dc7d8f9a932411de1b232142198944aa6433",
   "limitations": [
     "Tablet layout and editable control hierarchy only.",
@@ -80,13 +80,13 @@
     {
       "source_type": "repository",
       "source": "11576865/HSR-Voice-Archive-Builder",
-      "revision": "dea5411312ed3e819864f1915f4f2008f938cba3",
+      "revision": "fd9dfca282c7fce7806b37d748261337da3bc831",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/HSR-Voice-Archive-Builder:ui-visual-capture.json",
-      "revision": "dea5411312ed3e819864f1915f4f2008f938cba3",
+      "revision": "fd9dfca282c7fce7806b37d748261337da3bc831",
       "evidence_level": "source-owned capture declaration"
     }
   ]
