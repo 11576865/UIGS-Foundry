@@ -38,3 +38,7 @@ The exact PR head `451ea47824abfa3f5516e0bbf35fcf75cf8dc708` passed Python 3.11/
 Pending: exact merged-main workflow verification at initial intake, a real Windows end-user machine, Android/Termux hardware, long-duration full media encoding, and physical power interruption. Sustained CI tests involve hundreds of repeated job-journal writes over seconds, **not** a multi-hour production benchmark.
 
 Dedup: journal shared-resource synchronization is already documented in `inbox/candidates/2026-10-02-shared-file-journal-resource-scope-locking.md` and the HSR cross-process Test. This Bug records the distinct **OS-target-replacement denial** and **unhandled job-start journal failure**; do not modify Canonical from one observed CI issue.
+
+## Exact merged-main confirmation
+
+The corrected HSR `main@2d770d2be1bdb7356dc1f459049eb1d1d0bca71c` passed all six application workflows, including [Ubuntu/Windows sustained journal #39472471082](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472471082), [Windows writer safety #39472471080](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472471080), and [Python/Termux/libass #39472471101](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472471101). The earlier Pending exact-main automated validation item is closed. Physical Windows/Android and extended-hours production workload still FIELD-PENDING. Canonical unchanged.
