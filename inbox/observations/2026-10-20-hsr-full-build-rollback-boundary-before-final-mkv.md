@@ -35,3 +35,7 @@ Patch: [HSR PR #195](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/
 ## Main integration (2026-10-20)
 
 HSR [PR #195](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/195) merged via squash to `main@fd9dfca282c7fce7806b37d748261337da3bc831`. Exact PR head `cdc07676b98fef2c01b04e5b0528ead2cdf7a8f2` passed [`tests` #39360131642](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39360131642), [`seven ASS` #39360131709](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39360131709) and [`subtitle browser` #39360131588](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39360131588). Merge-commit CI and deployed / real-device acceptance should be tracked independently. Canonical unchanged.
+
+### Post-merge main CI closure
+
+Exact `main@fd9dfca282c7fce7806b37d748261337da3bc831` succeeded in [`tests` #39360425594](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39360425594), [`seven ASS` #39360425575](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39360425575), [`browser evidence` #39360425570](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39360425570), and [`Pages build/deploy` #39360425088](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39360425088). Real Android/user legacy MKV and abrupt power-loss field tests are still Pending. Canonical unchanged.
