@@ -21,3 +21,9 @@ A failed download can leave a partial file that is accepted on retry, reported a
 
 ## Dedup
 This is different from prior HSR source-revision publication observations: it is an **audio-acquisition completeness predicate** before an otherwise-successful incremental Apply.
+
+## Repair checkpoint — PR #195 (2026-10-20)
+
+`download_resolved_audio` now ignores `.part`/unrelated files, validates audio headers and indexed member suffixes, streams bounded 128 MiB downloads to fsynced temporary files and atomically publishes only after checks. Added regressions for interrupted `.wav.part`, malformed existing media, format mismatch, private URL and download budget. URL checks are defense in depth, not a full DNS-validated outbound networking sandbox.
+
+Patch: [HSR PR #195](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/195) branch `fix/hsr-archive-publish-safety-20261020`. Exact tested head `cdc07676b98fef2c01b04e5b0528ead2cdf7a8f2`: Python 3.11/3.12/3.13, Termux Lite surface, real libass and seven ASS workflow successful; browser workflow still in progress at this writing. Physical Android, actual Hugging Face network and abrupt power-loss runs not performed. Remain at Bug/Observation level; do not update Canonical automatically.
