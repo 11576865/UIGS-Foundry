@@ -47,3 +47,9 @@ CI evidence: `.github/workflows/browser-e2e.yml`, artifact `s08-current-workbenc
 - Product head `d17d923bfd7f2b785c9dfec22ddd2265761e5585`, exact-head browser [CI #39468296942](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39468296942): **S08 browser scenario PASS**, includes forced-click refusal, safe-source recovery, real MKV and native `ffprobe` assertions; JSON plus real MKV artifact `s08-current-workbench-complex-mkv-safety` ID `12286455794`. Node/S10/build steps were successful, but **overall Chromium job failed** at subsequent existing R2 source-title assertion (`Japanese AAC` rather than `R2 Original Source`).
 - Dedup: pre-existing `inbox/bugs/2026-10-20-softmux-r2-source-title-plan-intermittent-integration.md` records two previous exact-head source-title failures and a successful changed-order run, without established root cause. The new red outcome is **further evidence for the existing Pending Bug**, not a new Candidate or proof S08 caused it.
 - Re-run of the same failed workflow job requested to distinguish stability. Until entire exact-head required suite passes, PR #166 stays Draft / not merge eligible.
+
+## S08 product integration result
+
+- PR [#166](https://github.com/11576865/MKV-Fast-Muxer/pull/166) was merged (squash) to `main@fdf87a9710247db35adb041640facad5fa5d6380`.
+- Source head `d17d923bfd7f2b785c9dfec22ddd2265761e5585`; GitHub Actions [#39468296942](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39468296942) **completed success on second attempt**. On first attempt this same SHA failed a previously known R2 source-title regression **after S08 itself passed**, so S08's targeted acceptance is verified within the reported fixture and run, but no broad nonflaky assurance is asserted.
+- This Observation remains an evidence record, not a new canonical safety rule. The separate intermittent R2 problem is tracked in `inbox/bugs/2026-10-20-softmux-r2-source-title-plan-intermittent-integration.md`.
