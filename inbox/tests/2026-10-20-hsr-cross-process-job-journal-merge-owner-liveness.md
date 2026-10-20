@@ -104,3 +104,14 @@ This is an incremental verification of the same job-journal Test, not a new Cano
 - The exact PR head `7e0f4f4522477d03cd81dcd9a55f597132f73804` passed [legacy cross-version matrix run #39468760286](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39468760286) on Ubuntu and Windows, [Python / Termux / libass #39468760113](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39468760113), [Windows journal writer #39468760084](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39468760084), and [seven ASS #39468760213](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39468760213). PR #201 merged to HSR `main@987dfbe4d17aba8a1e81c01849e22b7ce5d90a49`. Exact merged-main CI was pending at intake.
 
 **Evidence upgrade:** an independently executed historical source version is tested alongside the latest code on Linux and Windows CI. **Not yet covered:** a real installed old/new service deployment, every historical HSR revision, Android physical Termux, hardware power failure / storage durability, long-running media workloads, other users or uncooperative processes. Canonical unchanged.
+
+### PR #201 exact-main acceptance (2026-10-21)
+
+The merged source at HSR `main@987dfbe4d17aba8a1e81c01849e22b7ce5d90a49` passed the independently triggered:
+- [actual pinned old/current HSR dual-runner Ubuntu + Windows matrix #39468979396](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39468979396)
+- [Python 3.11/3.12/3.13, Termux Lite surface, libass #39468979801](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39468979801)
+- [Windows writer/journal #39468979280](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39468979280)
+- [seven ASS #39468979425](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39468979425)
+- [Pages build/deploy #39468978519](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39468978519)
+
+**Disposition:** exact-main automated cross-version and abruptly exiting process tests verified. Prior Pending for an *independently executed historical code revision under CI* is now closed. Deployed old+new servers, physical Android/Windows environments, physical power removal, and multi-hour workload remain FIELD-PENDING. No Canonical promotion.
