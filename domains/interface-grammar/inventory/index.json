@@ -26,7 +26,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "platform": "web",
       "default_branch": "main",
-      "head_sha": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "head_sha": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
       "surface_count": 12
@@ -36,7 +36,7 @@
       "project": "MKV-Fast-Muxer",
       "platform": "web",
       "default_branch": "main",
-      "head_sha": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "head_sha": "fdf87a9710247db35adb041640facad5fa5d6380",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
       "surface_count": 12
@@ -660,7 +660,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -687,7 +687,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -714,7 +714,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -736,7 +736,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -758,7 +758,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -780,7 +780,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -809,7 +809,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -831,7 +831,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -859,7 +859,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -881,7 +881,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -903,7 +903,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -925,7 +925,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c",
+      "source_head": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -947,7 +947,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -969,7 +969,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -991,7 +991,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1013,7 +1013,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1035,7 +1035,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1064,7 +1064,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1086,7 +1086,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1115,7 +1115,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1137,7 +1137,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1159,7 +1159,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1181,7 +1181,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1213,7 +1213,7 @@
       "project": "MKV-Fast-Muxer",
       "repository": "11576865/MKV-Fast-Muxer",
       "platform": "web",
-      "source_head": "8a16d1473dc167a56b51ef581889bf3300d67bee",
+      "source_head": "fdf87a9710247db35adb041640facad5fa5d6380",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
