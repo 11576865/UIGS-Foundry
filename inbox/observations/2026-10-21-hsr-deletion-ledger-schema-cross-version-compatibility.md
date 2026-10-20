@@ -24,3 +24,13 @@ For a persistent artifact shared by independently running processes, migration d
 ## Boundaries
 
 Source plus CI tests prove parser-contract compatibility and on-start migration. They do not exercise a real deployed #198 binary running side by side with #200 across process restart, power loss, or partial rollout. These field cases stay Pending, and no single observation modifies Canonical.
+
+## Exact merged-main CI closure
+
+At HSR `main@90a5d6ef77e3323e9d3a6f49d21c6cf0dcc5683c`, all four independent workflows succeeded:
+- [Python 3.11/3.12/3.13, Termux Lite surface, real libass `tests` #39466462336](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39466462336)
+- [Native Windows writer/journal compatibility #39466462356](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39466462356)
+- [Seven ASS requirements #39466462284](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39466462284)
+- [Pages build/deploy #39466461767](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39466461767)
+
+The prior Pending merged-main CI item is now closed; physical simultaneous old/new HSR and power-loss tests remain FIELD-PENDING. No Canonical promotion.
