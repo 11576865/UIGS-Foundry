@@ -33,3 +33,13 @@ The first Windows CI run #39441611983 found an output encoding problem in the ea
 
 ## Dedup and epistemic boundary
 General lost-update law is already in `inbox/candidates/2026-10-02-shared-file-journal-resource-scope-locking.md` (ASS recovery store and CVS model registry). This HSR-specific test records *live owner vs dead owner classification* and two-service journal state continuity, not a new Canonical rule. No Canonical promotion.
+
+## Exact merged-main CI closure (2026-10-20)
+
+HSR `main@7aec0361206c211512aced0e1ef233fe03732a81` passed all four triggered workflows:
+- [Python tests / Termux Lite / real libass #39442235231](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39442235231)
+- [Seven ASS #39442235336](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39442235336)
+- [Native Windows process and journal safety #39442235498](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39442235498)
+- [Pages build/deploy #39442240490](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39442240490)
+
+Status: **source integrated, exact-main automated regression verified**. Further Pending: physical Android/Termux and actual Windows customer machine, abrupt power removal, very long-running jobs, cross-process deletion tombstones and stale historical records. One-time CI does not prove these boundaries. Canonical unchanged.
