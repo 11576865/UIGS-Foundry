@@ -25,3 +25,9 @@ Add a deterministic source+receipt+manifest snapshot assertion for failure injec
 
 ## Dedup
 Existing `inbox/bugs/2026-10-13-hsr-mkv-stale-ass-and-output-writer-race.md` concerns stale source and same-project writer checks at mux admission/publication. This observation concerns **full project-build rollback scope** and distinct failures after the earlier protected stage. No Canonical change.
+
+## Repair checkpoint — PR #195 (2026-10-20)
+
+Full build now keeps `ArchiveBundleExporter.export` and `seal_complete_delivery` inside `preserve_published_archive`, and the rollback list includes `archive_bundle_receipt.json` and `subtitle_export_receipt.json`. A new real-FFmpeg regression in `tests/test_archive_publication.py` injects a final-MKV export failure and asserts byte-identical old manifest, MKV, both receipts, build report and checkpoint, with no leftover build marker.
+
+Patch: [HSR PR #195](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/195) branch `fix/hsr-archive-publish-safety-20261020`. Exact tested head `cdc07676b98fef2c01b04e5b0528ead2cdf7a8f2`: Python 3.11/3.12/3.13, Termux Lite surface, real libass and seven ASS workflow successful; browser workflow still in progress at this writing. Physical Android, actual Hugging Face network and abrupt power-loss runs not performed. Remain at Bug/Observation level; do not update Canonical automatically.
