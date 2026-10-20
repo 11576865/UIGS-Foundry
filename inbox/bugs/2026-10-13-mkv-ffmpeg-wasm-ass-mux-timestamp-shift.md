@@ -40,3 +40,18 @@ Existing Foundry `inbox/candidates/2026-10-02-persistable-semantic-roundtrip-ver
 The experiment above succeeded on exact-head tests. PR [#116](https://github.com/11576865/MKV-Fast-Muxer/pull/116), head `aaa79341acd780830610a8969cc514c807c75fc1`, was independently checked by the actual full [Chromium E2E run 38373112896](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38373112896) and [Node/build run 38373112879](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/38373112879) (417/417 tests). The passing fix is **scoped** to the mux command when new ASS tracks are present: `-copyts` and output `-avoid_negative_ts disabled` are used together. The new final-MKV audit reads delivered ASS Dialogue sequences; an independent system FFmpeg reads the actual downloaded file and finds the expected exact fixture times. The non-ASS command path remains unchanged. PR #116 was squash merged as `45ff4edb847ae164946d3d070a947c80cfd8cbb4`.
 
 **Resolution boundary:** bug verified fixed for the specified synthetic mixed-input browser fixture; no assertion that every Matroska input, negative-timestamp variant, player, or hardware browser is fixed. Additional cases should be separately tested. This remains a Bug record, not a Canonical mandate to use particular FFmpeg flags universally.
+
+
+## 2026-10-20 recurrence: independently recovered SRT is +21 ms (Candidate correction pending)
+
+The prior scoped ASS repair (PR #116) did **not** establish strict SRT cue-time parity for all input codecs. In Softmux 0.1022 batch failed-job retry E2E, the actual newly muxed second SRT has a uniform **+21 ms** start/end offset relative to its source `Batch S01E02.en.srt`:
+
+- Source `00:00:00,100–00:00:01,500`, output `00:00:00,121–00:00:01,521`;
+- Source `00:00:01,550–00:00:01,900`, output `00:00:01,571–00:00:01,921`.
+- Exact real Chromium/native failure: [PR #163 CI #39360187046](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39360187046). The batch process successfully retried only the failed Job, retained the first output and produced a valid SRT stream, but the strict original-vs-extracted cue text assertion correctly failed due to timing.
+
+Independent local native-FFmpeg (7.1.5) reproduction generated the same source type (24-fps MPEG4 video + 48-kHz AAC audio, stream-copy Matroska, `-copyts`, `-avoid_negative_ts disabled`) and precisely recreated +21 ms. First AAC packet shows `pts_time=-0.021333` and `Skip Samples=1024` at 48 kHz. A bounded input `-itsoffset -0.021` applied to **new SRT only** restored both cues to exact source times in that experiment; original video/audio remain stream copy. This is an empirical correlation and tested correction for the fixture, **not** a general AAC/Matroska guarantee.
+
+Current PR #163 introduces an independent staged-source first-packet ffprobe check and only computes a millisecond correction for a single AAC stream in ISO-BMFF/MOV when negative PTS agrees with `Skip Samples / sample_rate`. No unsupported/non-evidenced source gets an assumed 21 ms offset. Exact-head **bundled browser WASM** Node/build/Chromium/native CI on this new code is **PENDING** as of this entry. Retain strict subtitle timestamp equality and do not promote any general FFmpeg workaround to Canonical.
+
+Distinction from the Oct 13 Bug: the earlier fixture verified ASS Dialogue centiseconds and original `-copyts`/negative-ts policy; the new case exposes SRT millisecond-level priming under batch failure retry and tests a **measured packet-proven correction**, not merely a user setting or the host extractor.
