@@ -129,3 +129,9 @@ Deduplicated addition to this HSR job-journal Test. Product [PR #202](https://gi
 - Mainline post-merge CI pending when first recorded. This is a seconds-long repeated-persistence stress test, not an hours-long real FFmpeg/media pipeline soak. Physical Android/Termux, physical power cut, and deployed Windows machines remain FIELD-PENDING.
 
 No Canonical promotion.
+
+### PR #202 merged-main closure — all HSR workflows green
+
+At exact HSR `main@2d770d2be1bdb7356dc1f459049eb1d1d0bca71c`, the independent push-triggered workflows all passed: [sustained progress Ubuntu+Windows #39472471082](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472471082), [Python 3.11–3.13 / Termux Lite surface / libass #39472471101](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472471101), [native Windows project writers #39472471080](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472471080), [actual pinned PR #198 legacy interoperability #39472471149](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472471149), [seven ASS #39472471218](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472471218), and [Pages build/deploy #39472470120](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39472470120).
+
+**Acceptance disposition:** new bounded high-frequency journal stress and crash-owner recovery pass on CI-native Linux/Windows, integrated in main. Unmet field acceptance remains actual physical Android/Termux, installed Windows systems, real media multi-hour soak, and disk power removal. No Canonical promotion.
