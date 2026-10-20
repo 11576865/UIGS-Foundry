@@ -57,3 +57,13 @@ Deduplicated against this existing job journal Test and the shared-resource jour
 - Post-merge exact-main CI, physical Android/Termux and Windows user device, power cut and tombstone garbage collection still require separate evidence. This repair does not claim a multi-file ACID transaction or cross-user/distributed durability.
 
 **Status:** Test/Observation integrated with automated PR-head evidence; keep field and safe-compaction tasks Pending. Canonical unchanged.
+
+### PR #198 exact merged-main CI closure (2026-10-21)
+
+At HSR `main@f366f3fc6da47b8c06bb961945d4658da21d6a98`, all four independently triggered workflows passed:
+- [Python 3.11/3.12/3.13, Termux Lite, real libass `tests` #39462745051](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39462745051)
+- [Native Windows job-journal/process tests #39462745100](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39462745100)
+- [Seven ASS requirements #39462745133](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39462745133)
+- [Pages build/deployment #39462704444](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39462704444)
+
+**Disposition:** HSR code integrated, exact-main CI verified. Ongoing Pending: actual Android/Termux and Windows end-user devices, power-loss timing between two atomic JSON files, test-driven safe tombstone compaction, and very long job retention/supervision. No Canonical promotion.
