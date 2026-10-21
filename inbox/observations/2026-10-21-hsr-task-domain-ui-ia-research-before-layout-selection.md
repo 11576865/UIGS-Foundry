@@ -61,3 +61,16 @@ The new HSR-specific observation is that **the current product navigation combin
 **Unverified / Pending:** the mock has no wired backend, no production interaction handlers, no responsive tablet/mobile variants, no user-approved visual direction, no Figma click-through prototype behaviors, and no on-device acceptance. Sample cue counts/percentages and media states are illustrative, not claims from an actual archive. Product GitHub code remains unchanged.
 
 **Dedup:** this extends the present HSR domain/IA Observation. The pre-existing 2026-10-15 HSR V3/V4 Case already owns the historical user rejection/viewport defect, and the 2026-10-17 Actual/Target/Delta Candidate already owns the general method. No new Canonical; first get owner review of the editable Figma artifact, then use task walkthroughs to test navigation before implementation.
+
+## 2026-10-21 — Native Figma Motion MP4 walkthrough of the experimental HSR UI
+
+**User request:** Produce a demonstration video from the previously created HSR experimental Figma design, not a backend-enabled screen recording.
+
+- Source design: [HSR editable experimental UI](https://www.figma.com/design/UwCJi7ioyIUZbOBN13Z1bx), frames `2:41` archive, `2:43` proofreading, `2:42` subtitle studio, `2:44` delivery/update, `17:14` icon grammar, `10:14` old-to-new essence map.
+- New native top-level Figma Motion timeline: [54.5-second video source node `26:168`](https://www.figma.com/design/UwCJi7ioyIUZbOBN13Z1bx?node-id=26-168), 1600×900 / 16:9. Each scene contains a cloned, editable Figma source screen, a separate Chinese explanatory side rail and manual opacity keyframes. Animated focus frames draw attention to task-specific operations; opening and closing cards are explicitly labeled as an experimental concept demo.
+- Timeline duration 54.5 s; export invoked via Figma `export_video` at 18 FPS and medium quality. The server returned an MP4 `downloadUrl` and `availableUntil: 2026-10-28T06:49:34Z` (time-limited link), rather than permanent storage. Original Figma Motion timeline persists and can be re-exported after URL expiry.
+- Motion verification: `get_motion_context` returned native per-scene opacity tracks, timing percentages and scene transition curves for `26:168`. A separate 3.5-s native Figma animation was successfully exported before composing the full tour.
+- Scope disclosure is mandatory: animated UI frames demonstrate *intended navigation and feature semantics*, but they do not exercise actual HSR APIs, media files, real libass rendering, backend task execution, subtitle writes, or verified MKV output. No narration or actual user interactions. Desktop-only illustration; usability/device acceptance still Pending.
+- Reusable production observation: retain native editable UI frames, create a standalone animated tour frame with Figma Motion tracks, and explicitly label speculative interactions. Figma MP4 exports use temporary signed URLs; the persistent source is the editable timeline file, not the generated asset link. No Canonical update.
+
+Dedup: existing HSR Observation above governs domain and visual IA; separate HSR icon-density Candidate documents semantic role distinctions; this is evidence of an animated design communication output only, not new product functionality.
