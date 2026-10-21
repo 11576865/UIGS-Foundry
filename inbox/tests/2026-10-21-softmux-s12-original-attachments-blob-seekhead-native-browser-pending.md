@@ -1,10 +1,10 @@
 # Test · S12 original Matroska Attachments byte-range reinsertion after independent A/V mux
 
 Date: 2026-10-21
-Status: **Research-only bounded native and Chromium 128/256MiB proof PASS on latest exact head; ordinary full-browser regression pending; no production authorization; NOT Canonical.**
+Status: **Scoped real FFmpeg.wasm / Blob source Attachments 128/256MiB PASS and real Tagged source fail-closed PASS; full ordinary Browser E2E pending; production not authorized; NOT Canonical.**
 Product: `11576865/MKV-Fast-Muxer`
-Research PR: https://github.com/11576865/MKV-Fast-Muxer/pull/175
-Latest head at intake: `a3ddc6a7f897706876adeb2349d5f6553b726d44`
+Research PR: https://github.com/11576865/MKV-Fast-Muxer/pull/176 (supersedes closed #175)
+Latest tested head: `876c026734c4f4fcc6be4c003bbdf0910e6b8198`
 Product main baseline: **softmux 0.1027.0** (unchanged).
 
 ## Deduplication and distinction
@@ -61,3 +61,12 @@ Product main baseline: **softmux 0.1027.0** (unchanged).
 2. Verify preservation of non-attachment Matroska objects, Cues and SeekHead pointer consistency, source Segment CRC variants, unknown-size/encrypted/atypical EBML; an unsupported graph must be blocked rather than silently flattened by FFmpeg.
 3. Complete physical tablet and realistic long A/V packet performance and retained-browser-download memory envelope tests. Check save and output artifact identity in real workflow.
 4. Only then evaluate a named narrow execution route. Do not automatically switch the general softmux FFmpeg attachment writer or declare 1.0 S12 complete.
+
+## 2026-10-22 exact real-tagged-source guard verification
+
+- Exact real-Wasm research head `876c026734c4f4fcc6be4c003bbdf0910e6b8198`, [S12 research CI #39653258553](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39653258553) **all eight jobs SUCCESS**. Two jobs execute genuine Chromium local ffmpeg.wasm `-map 0:v:0 -map 0:a:0 -map 1:s:0` (no original attachment stream mapping), then browser Blob source Attachments/SeekHead CRC reinsert and download, final native ffprobe/mkvmerge/mkvextract original FileData SHA; 128MiB 2×64MiB and 256MiB 4×64MiB fully pass.
+- The last tighter [CI #39652594549](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39652594549) already enforced **bit-exact ordered encoded source/output packet SHA-256 parity** on original video+audio, in addition to attachments and source full SHA-256. Later #39653258553 retains this assertion unchanged.
+- New browser-side `preflightResearchOriginalAttachments(original File)` checks exact finite Matroska Segment, exactly one source Attachments master, and **no original Tags/Chapters** before calling FFmpeg.wasm. After the successful 128MiB original is tested, an actual full-size copy is modified by native mkvpropedit to add genuine global Tags; Chromium selects that different File and must reject `SOURCE_TAGS_OR_CHAPTERS_NOT_REATTACHABLE` **before Wasm executes**, with `wasmExitCode=null`, `evidence=null`; no previous successful artifact is authorized for the newly rejected File. The real negative branch passed on #39653258553.
+- Closed historical [#175](https://github.com/11576865/MKV-Fast-Muxer/pull/175) explicitly superseded by [#176](https://github.com/11576865/MKV-Fast-Muxer/pull/176) because earlier #175's visible head did not catch up with subsequent workflow commit. #176 was created at exact approved research SHA; its own head is accurate.
+- A deduplicated, **NOT Canonical** architecture Candidate is now registered at `inbox/candidates/2026-10-22-softmux-large-original-attachments-media-only-wasm-byte-lane.md`. Its scope is the split media-only execution lane and source-original raw-attachment lane, not universal Matroska replacement. Main product stays 0.1027.0.
+- The ordinary Browser E2E workflow [#39653258175](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39653258175) was still **in progress** at this update; one scoped experimental positive run cannot replace complete product acceptance. Real long media + large originals, UID graph/chapters/Tags, complex SeekHead/Cues/CRC, physical tablet + sustained filesystem saving remain distinct S12 release gates.
