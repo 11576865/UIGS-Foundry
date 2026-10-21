@@ -1,7 +1,7 @@
 # Test · S12 original Matroska Attachments byte-range reinsertion after independent A/V mux
 
 Date: 2026-10-21
-Status: **Scoped native 128/256MiB + browser File/Blob 128/256MiB PASS on prior exact research heads; final safety-negative regression exact head Pending; no production authorization; NOT Canonical.**
+Status: **Research-only bounded native and Chromium 128/256MiB proof PASS on latest exact head; ordinary full-browser regression pending; no production authorization; NOT Canonical.**
 Product: `11576865/MKV-Fast-Muxer`
 Research PR: https://github.com/11576865/MKV-Fast-Muxer/pull/175
 Latest head at intake: `a3ddc6a7f897706876adeb2349d5f6553b726d44`
@@ -36,3 +36,12 @@ Product main baseline: **softmux 0.1027.0** (unchanged).
 - Source Tags, Chapters, TagAttachmentUID / ChapterUID target graph, unrelated CRC masters and Cues/SeekHead diversity must be independently proven or refused. The controlled fixture forbids source Tags/Chapters, not universal metadata preservation.
 - Research-only cap, no full-source JS array, no product dispatcher, no 1.0 S12 overall acceptance, no tablet/realistic long film/direct persistence claim.
 - Only after accepted exact-head binary outputs and negative-matrix evidence could a bounded Candidate be considered. Never auto-promote Canonical.
+
+## Latest exact-head scoped research acceptance, no product merge
+
+- **Accepted exact PR head** `a3ddc6a7f897706876adeb2349d5f6553b726d44`, [S12 native+Chromium research run #39630554698](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39630554698) **completed SUCCESS** on all six jobs: small two-attachment independent native original/negative gate, 128MiB/2×64MiB native, 256MiB/2×128MiB native, 256MiB/4×64MiB native, true Chromium 128MiB/2×64MiB browser File+Blob download and true Chromium 256MiB/4×64MiB browser File+Blob download. Each native/browsed actual candidate passes post-output native ffprobe/mkvmerge/mkvextract and complete original attachment SHA, source MKV SHA unmodified.
+- **Small safety-negative code**: actual ffmpeg-produced original source may carry Tags; the prototype refuses input original Tags/Chapters and never silently recovers only the binary attachment data while losing a reference graph. Native small fixture now uses independent mkvmerge with explicit no-global-tags/no-track-tags/no-chapters. A second actual mkvmerge-authored original containing global Tags exercises an explicit refusal. Absent original attachment source and duplicate originals output refuse before Tags/Chapters, preserving refusal specificity; mutated remuxed SeekHead CRC also refuses.
+- Scoped native output sizes: 128MiB 2×64MiB → **134,261,524 bytes**; 256MiB 2×128MiB → **268,479,253 bytes**; 256MiB 4×64MiB → **268,479,389 bytes**. Browser completed/downloaded the first and third sizes, and both were validated by independent native checks on the downloaded file. CI artifact receipts (IDs) are `12359800107`, `12359765147`, `12359610259`, `12359295514`, `12359265630`, `12358977212`; large binaries are ephemeral runner files, not claimed downloadable artifact evidence.
+- Pages [#39630554770](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39630554770) completed success. Ordinary full Browser E2E [#39630554838](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39630554838) was **still running** at this registration; do not borrow earlier ordinary greens for exact head.
+- Product research [PR #175](https://github.com/11576865/MKV-Fast-Muxer/pull/175) remains **Draft/unmerged**. No `0.1028` release, no UI action, no product batch executor switching, and no Canonical change.
+- **Next genuine capability gate:** for the SAME 256MiB original attachment source, produce the attachment-free audio/video/new subtitle baseline using **browser ffmpeg.wasm** with explicit mapping that skips originals, then combine browser File slices + actual downloaded final MKV and require final original attach IDs/UIDs, file hashes, media timebase/probe and safety-refusal matrix. The current Chromium success only proves File/Blob composition; its baseline is native FFmpeg. Need target device and complex real-world Chapters/Tags/Cues before any wider authorization.
