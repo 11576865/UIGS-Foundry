@@ -1,7 +1,7 @@
 # Test · S12 genuine large Matroska byte-volume execution envelope
 
 Date: 2026-10-21
-Status: **Diagnostic test completed: 64MiB PASS; 512MiB and >1GB FAIL on tested CI environment; S12 NOT accepted; NOT Canonical**
+Status: **Scoped production 0.1027 ≥1GB timed-media PASS; attachment-heavy S12 FAIL; aggregate S12 PARTIAL, NOT Canonical**
 Product PR: https://github.com/11576865/MKV-Fast-Muxer/pull/170
 First PR head: `171682e302f7b92ae3d5166271b6842bb22419a9`
 Corrected fixture/test head: `ef932a3241e68ed164407f343bf959b0a7cbcf08`
@@ -106,3 +106,13 @@ S12 contract: `docs/softmux-1.0-product-acceptance-contract-20261020.md`.
 - **Exact PR head `633e092cc8914ea9129e5a7606827cdf98f4b895`**, [S12 scoped CI #39587924233](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39587924233) **completed success** on all three independent tests: 128MiB original attachment + native extraction SHA, 512MiB genuinely timed PCM packets, and **source >1,000,000,000 bytes** timed PCM packets. Each required Chromium/Wasm actual output, browser download, native media/codec/duration check and unchanged input SHA-256. The 1GB evidence is a repetitive MPEG-4 picture stream plus 7.1 channel 32-bit PCM, not typical compressed feature-film packets.
 - This accepted narrow output proof is **not the aggregate S12 contract**, not proof large attachment-heavy MKV works, and not user hardware acceptance. [Full ordinary Browser E2E #39587923980](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39587923980) still **Pending** at the time of this update; do not merge or mark 0.1027 delivered until full exact-head CI passes.
 - No new Candidate, Test namespace reused; no Canonical promotion. The already merged 0.1026 zero-stream fail-closed scanning safety fix remains intact.
+
+## Final scoped WORKERFS production integration — 0.1027
+
+- Delivery [PR #172](https://github.com/11576865/MKV-Fast-Muxer/pull/172) **merged by squash** to `main@585f4e8e8473e09d0a4c7fa63d66368d9a9f9870`; product package version `0.1027.0`.
+- **Accepted exact PR head:** `633e092cc8914ea9129e5a7606827cdf98f4b895`. [S12 scoped workflow #39587924233](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39587924233) completed **SUCCESS**, all three actual files (128 MiB original attachment, 512 MiB actual timed PCM, >1,000,000,000 B actual timed PCM). Independently verified real FFmpeg.wasm output, browser download, video/audio/added subtitle, input/output duration or original attached bytes as appropriate, and untouched source hashes.
+- Ordinary full Browser E2E [#39587923980](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39587923980) **SUCCESS**, Pages build [#39587924180](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39587924180) **SUCCESS**. No green is borrowed from a different commit.
+- Production feature narrowly uses exact File object, read-only `WORKERFS` for original input files ≥128 MiB, including source scan and formal mux; smaller ones retain their previous MEMFS path, and mounts are operation-local with cleanup. This is an optimization branch decision, **not** a hard admissibility limit.
+- The prior 1GB research run [#39587026817](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39587026817) machine receipt records **1,012,768,569 B source** → **1,012,769,255 B output**, media tracks video/PCM/new subtitle, 654s input/output, true same source SHA, and sampled Chromium RSS sum peak 4,218,472 KiB. Runner huge output is ephemeral; machine reports and hashes are retained in scoped artifacts, not a downloadable 1GB binary.
+- **Aggregate S12 remains PARTIAL / BLOCKED for original attachment-heavy structures:** pressure [PR #170](https://github.com/11576865/MKV-Fast-Muxer/pull/170) intentionally remains Draft, with 256MiB output-Header `Out of memory` and 512MiB decoder abort, plus original ~1GB attachment scan OOM. Physical tablet, realistic compressed film, all chapters/tags/UID preservation and durable filesystem save are not proven. User must not be told blanket '1GB files work'.
+- UIGS Intake deduplicated into this Test and the existing `inbox/observations/2026-10-12-browser-native-capability-envelope-container-workbench.md`; no Canonical modification or invented global size threshold.
