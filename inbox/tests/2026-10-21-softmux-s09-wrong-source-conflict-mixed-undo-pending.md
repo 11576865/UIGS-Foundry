@@ -1,7 +1,7 @@
 # Test candidate: S09 wrong-source rejection and mixed source-track/attachment inverse CAS
 
 Date: 2026-10-21
-Status: **Pending exact-head CI. NOT accepted; NOT Canonical**
+Status: **Scoped S09 Test PASS and merged to main; aggregate S09 still PARTIAL; NOT Canonical**
 Product: `11576865/MKV-Fast-Muxer`
 Product PR: https://github.com/11576865/MKV-Fast-Muxer/pull/169
 First submitted head: `8b2ffb1023ea4043fe3992d39295fa8a95ecd9ff`
@@ -33,3 +33,12 @@ Reference: `docs/softmux-1.0-product-acceptance-contract-20261020.md` S09.
 - Exact S09 adversarial artifact: `s09-conflict-source-attachment-atomic-undo`, artifact ID `12322730990`, contains exported JSON, actual remuxed MKV and bound hash/negative-assertion receipt.
 - A separate candidate version increment to **0.1025.0** and README release note follows; product head `0fe780eeff528997281d0d3160a1387dfe0eef8a` is **Pending exact-head CI**. Do not treat the prior green run as final release-head evidence; no merge claim yet.
 - S09 contract remains **partial**, because universal undo/redo coverage and device/UX testing have not been established. No Canonical changes.
+
+## Final 0.1025 integration and precise evidence
+
+- [PR #169](https://github.com/11576865/MKV-Fast-Muxer/pull/169) merged to product `main@b7d4a4fca5c3329e8654f90277f531a69f10f90f` using squash.
+- **Accepted exact PR head:** `a2955febf6fe454b24ed7c9dd773dcbdecde1c73`. Full Browser E2E [run 39548135801](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39548135801) completed success; Pages build [run 39548135870](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39548135870) also completed success.
+- Exact log: `S09 source/attachment conflicts and atomic inverse + real MKV PASS`; `S10 BATCH20: 20 real jobs / 20 independent MKVs, strict output audit and retention PASS`; `All browser E2E scenarios PASS`.
+- Archived `s09-conflict-source-attachment-atomic-undo` artifact ID `12321869565` with real output MKV, original source project draft and SHA-256-bound negative/positive receipt.
+- Deliverable product-version authority now `0.1025.0`; UI/mux report derive from the same package. This passes the narrow current-Chromium fixture case for wrong-source digest, old-value conflict and mixed inverse atomic refusal. It does **not** prove all possible old-value combinations, arbitrary device behavior, user-local save, or a general infinite-history undo/redo system.
+- No Canonical modification. Follow-on 1.0 release gate remains separate S12 ≥1 GB physical run, S13 tablet device and S14 44 historical capabilities / 57 source scenarios review; S09 overall remains partial pending its unsupported-type and UX matrix.
