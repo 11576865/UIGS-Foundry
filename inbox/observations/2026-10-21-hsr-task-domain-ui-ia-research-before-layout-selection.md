@@ -74,3 +74,15 @@ The new HSR-specific observation is that **the current product navigation combin
 - Reusable production observation: retain native editable UI frames, create a standalone animated tour frame with Figma Motion tracks, and explicitly label speculative interactions. Figma MP4 exports use temporary signed URLs; the persistent source is the editable timeline file, not the generated asset link. No Canonical update.
 
 Dedup: existing HSR Observation above governs domain and visual IA; separate HSR icon-density Candidate documents semantic role distinctions; this is evidence of an animated design communication output only, not new product functionality.
+
+## 2026-10-21 — Figma MP4 signed-link delivery failure; accessible local fallback
+
+**User feedback:** The Figma MP4 presigned link supplied from the earlier Motion export was not accessible. A second `export_video` produced a new signed URL, but the current execution environment could not retrieve raw bytes from `www.figma.com` (DNS resolution failure) and the download helper could not establish the asset. Therefore **no claim is made that the original Figma-exported MP4 has been downloaded or verified**. Prior links should not be represented as reliable deliverables.
+
+**Remediation:** Created a local HSR concept demonstration with six desktop scenes, based on the Figma experimental navigation, state semantics and icon design. The fallback is a *reconstructed video* and explicitly discloses that it is **not a frame-identical copy of the Figma Motion export** and does not exercise HSR backend APIs. Local artifact path `/mnt/data/HSR_Voice_Studio_UI_概念演示_可下载.mp4` was created and verified in the current session, served to the user as a `sandbox:` attachment.
+
+**Evidence:** `ffprobe` reported H.264/yuv420p, 1280×720, 18fps, duration 57.000s and 573,725 bytes; a complete `ffmpeg -i <file> -f null -` decode succeeded. Video includes an opening disclaimer, archive, proofreading, studio, delivery/update, icon language, legacy mapping and closing slate. There is no voiceover, and the reconstructed screens are simpler than the editable Figma original.
+
+**Reusable delivery distinction:** For generated media, successful remote export and a presigned URL are **not** equivalent to verified user-deliverable bytes. When possible, materialize the asset in an accessible conversation file, then validate file existence, metadata and decode before issuing the link. If fetching original bytes is blocked and a replacement is independently rendered, call it a recreation, not a recovered original. Whether the user's client can actually download the new sandbox attachment is still **Pending user confirmation**.
+
+**Dedup:** the earlier section of this same HSR Observation already documents temporary Figma URLs and the persistent editable Motion source; this update records the distinct user-facing delivery failure and verified local fallback. No Canonical promotion.
