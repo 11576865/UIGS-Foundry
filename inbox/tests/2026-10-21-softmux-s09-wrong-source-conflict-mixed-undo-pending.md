@@ -26,3 +26,10 @@ Reference: `docs/softmux-1.0-product-acceptance-contract-20261020.md` S09.
 - Product PR committed, but **no exact-head green evidence yet**. Branch and created test do not prove existing safety logic passes.
 - Scope: one fixture/current Chromium with real binary output; not a general project-wide atomic undo/redo stack, not automatic File access resurrection, not arbitrary EBML metadata write.
 - If red, classify exact failing action against UI progressive disclosure/selection, scan authority, source proof or domain CAS before changing product/assurance code. Never delete strict security assertions just to turn CI green.
+
+## First exact-head Chromium result (functional test head PASS)
+
+- Product PR #169 head `8b2ffb1023ea4043fe3992d39295fa8a95ecd9ff`: [Browser E2E CI 39547270407](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39547270407) **completed success**. Chromium console prints `S09 source/attachment conflicts and atomic inverse + real MKV PASS` and `All browser E2E scenarios PASS`; S10 20 independently inspected real MKV batch also passed.
+- Exact S09 adversarial artifact: `s09-conflict-source-attachment-atomic-undo`, artifact ID `12322730990`, contains exported JSON, actual remuxed MKV and bound hash/negative-assertion receipt.
+- A separate candidate version increment to **0.1025.0** and README release note follows; product head `0fe780eeff528997281d0d3160a1387dfe0eef8a` is **Pending exact-head CI**. Do not treat the prior green run as final release-head evidence; no merge claim yet.
+- S09 contract remains **partial**, because universal undo/redo coverage and device/UX testing have not been established. No Canonical changes.
