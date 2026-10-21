@@ -1,7 +1,7 @@
 # Test (Pending CI) · S09 two distinct source/external drafts across browser reload
 
 Date: 2026-10-21
-Status: **Test candidate submitted; exact-head CI Pending. NOT accepted; NOT Canonical**
+Status: **Scoped Test PASS; product merged to main; full S09 release contract remains PARTIAL; NOT Canonical**
 Product: `11576865/MKV-Fast-Muxer`
 PR: https://github.com/11576865/MKV-Fast-Muxer/pull/168
 First exact product head: `cf47c3e7edfd0bd046c642f0c2a63fed44d8048c`
@@ -44,3 +44,11 @@ Reference: `docs/softmux-1.0-product-acceptance-contract-20261020.md` S09.
 - The same run includes real S10 batch execution, native Matroska fixtures and the full historical suite. Exact S09 uploaded artifact `s09-cross-reload-two-draft-real-mkv` contains the two JSON drafts, finished MKV and SHA-bound receipt; the actual code asserts independently probed original and FLAC title metadata and unchanged source files.
 - PR #168 then advanced the product version authority from `0.1023.0` to `0.1024.0`, plus README scoped release note. **Current PR head `c8b04a5fd1166ee6fea92c6ef4fdeba569cd25eb` is Pending final exact-head full CI.** Do not treat old version-head success as proof that new exact commit passed.
 - This single case proves the two distinct supported recovery paths work together in the tested browser/fixtures. Full S09 across source/attachment/external conflicts and comprehensive undo/redo is still partial. No Canonical changes.
+
+## Final versioned integration — 0.1024
+
+- PR [#168](https://github.com/11576865/MKV-Fast-Muxer/pull/168) merged as `main@072d3a794418c665f16f72c199c961ce9473289d` (squash).
+- Exact accepted PR head `c8b04a5fd1166ee6fea92c6ef4fdeba569cd25eb`; Browser E2E [run 39544828352](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39544828352) **completed SUCCESS**; Pages build [39544828357](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39544828357) **completed SUCCESS**. Product version `0.1024.0`, UI and mux report derive from one package version authority.
+- Exact Chromium log reports `S09 real reload + two explicit consent paths + ffprobe PASS`, `All browser E2E scenarios PASS`, and `S10 BATCH20: 20 real jobs / 20 independent MKVs, strict output audit and retention PASS`.
+- Uploaded artifact `s09-cross-reload-two-draft-real-mkv`, ID `12321158176` (two portable JSON drafts, real finished MKV and SHA-bound receipt).
+- Result: **one bounded S09 integration scenario PASS**, with real source/external assets, actual reload, rebind/consent/independent output inspection; **S09 aggregate remains PARTIAL** until source/attachment conflict cases, broad undo/redo matrix and device evidence are completed. This entry is a Test, not a Canonical requirement.
