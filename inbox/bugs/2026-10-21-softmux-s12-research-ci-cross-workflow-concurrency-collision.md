@@ -1,7 +1,7 @@
 # Bug · S12 cross-workflow concurrency collision cancels research matrix without verdict
 
 Date: 2026-10-21
-Status: **Reproduced GitHub CI scheduling bug; isolated-group correction submitted; corrected exact-head CI Pending; NOT Canonical**
+Status: **Scoped CI scheduling bug resolved: exact-head five-case research matrix executed; no Canonical change**
 Product: `11576865/MKV-Fast-Muxer`
 Clean current-main research PR: https://github.com/11576865/MKV-Fast-Muxer/pull/173
 
@@ -20,3 +20,10 @@ Clean current-main research PR: https://github.com/11576865/MKV-Fast-Muxer/pull/
 
 ## Reusable lesson
 CI concurrency groups are repository-scoped identifiers, not automatically scoped by workflow name. When independent workflows share a ref and `cancel-in-progress: true`, accidental key reuse can suppress an entire class of evidence. Use distinct workflow identity in groups, distinguish cancelled/never-scheduled from test red, and retain exact SHA/runner evidence for outcomes. This is a scoped Observation/Bug and does not amend Canonical standards.
+
+## Resolution verified
+
+- Moved research workflow concurrency group to `s12-attachment-cardinality-${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}`, so it cannot collide with production positive workflow's `s12-real-envelope-${{ github.ref }}-${{ github.event_name }}`.
+- Created clean [PR #174](https://github.com/11576865/MKV-Fast-Muxer/pull/174), exact head `ff2b232de811f3100ba9720e6e6c9761b30a79c9`, based on main `0.1027`. Superseded #173 closed, #170 preserved as historical research.
+- Corrected [CI #39610097982](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39610097982): **all five matrix jobs really ran and finished** (two actual MKV+SHA PASS, three actual OOM red); concurrent scoped [CI #39610097976](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39610097976) completed **SUCCESS** without canceling research. The red research jobs are real product runtime failures, no longer cross-workflow cancellation.
+- Resolution scope is Actions scheduling isolation, not a fix to large original Matroska attachment memory pressure. Canonical remains unchanged. Exact native media outcomes belong to the existing S12 Test, not this Bug.
