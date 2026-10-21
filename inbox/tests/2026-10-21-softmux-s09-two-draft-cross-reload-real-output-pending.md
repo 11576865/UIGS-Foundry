@@ -26,3 +26,8 @@ Reference: `docs/softmux-1.0-product-acceptance-contract-20261020.md` S09.
 - UI change in `src/softmux-10.14-workbench.js` displays these restrictions inside the real recovery disclosure.
 - S09 full contract additionally requires negative conflict tests, supported undo/redo scope and further device/UX acceptance. This PR **alone** cannot make S09 fully PASS.
 - On CI failure capture exact assertion/error before any correction. No Canonical mutation from one fixture.
+
+## First Chromium CI result and correction (2026-10-21)
+- First PR head `cf47c3e7edfd0bd046c642f0c2a63fed44d8048c`, Browser E2E [run 39543164963](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39543164963): **failure inside newly added S09 test before exporting drafts**. Playwright found `#newAudioList [data-new-audio-field="title"]` but the actual shared Inspector had not been switched to the external-audio filter, so the element was hidden for 30 s. This is a **test entry/navigation bug**, not evidence of a broken restore transaction.
+- Exact corrective commit `3e416596c3a83feffe03382a6588ff243868b2cc`: navigate using actual asset resource's `[data-asset-focus-key]` Edit action; verify correct options drawer and visible external title field. No production recovery/authorization change and no weakened assertions.
+- **Next exact-head CI Pending**. Capture and classify any later failures independently; never call S09 accepted before the reload/mux oracle actually completes.
