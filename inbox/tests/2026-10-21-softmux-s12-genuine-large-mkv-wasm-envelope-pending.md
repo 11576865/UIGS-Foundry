@@ -29,3 +29,9 @@ S12 contract: `docs/softmux-1.0-product-acceptance-contract-20261020.md`.
 - No target physical tablet, user-visible filesystem save, all-browser parity, general 2 GB runtime cap, or large-file output longevity claims.
 - The full S12 contract requires 512 MiB, ~1 GB, >1 GB, near-real engine hard-limit, realistic long-video and actual tablet/desktop observations. This PR is a diagnostic test harness toward those outcomes.
 - No Canonical change and no artificial 1 GB writer rejection. If a tier fails, classify its exact stage (fixture/parser, UI, source scan, Wasm ingestion, mux, audit, browser download) rather than treating all failures as one "size limit".
+
+## 2026-10-21 interrupted test-run classification and latest head
+
+- Corrected head `ef932a3241e68ed164407f343bf959b0a7cbcf08` [run 39553162552](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39553162552) generated/validated all three native large MKV fixtures and entered browser execution, but was **cancelled by a newer PR head before terminal browser verdict**. Neither PASS nor FAIL for the real Wasm path is established by those jobs.
+- Test harness follow-up `bb2948ed29a0d895cb447d9c9a9c55ef26179a88` adds an `if: always()` post-step that marks still-IN_PROGRESS receipts as `INTERRUPTED_OR_TIMEOUT`, or records `NOT_RUN_OR_SETUP_FAILED` when no browser receipt was ever written. A deadline/OOM must not look like a successful or completed operation.
+- Latest [actual tiered run 39553878527](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39553878527) is in progress for 512 MiB, decimal >1GB and 1.2GB tiers at this update. **Outcome Pending**. No product engine code is modified in the research branch.
