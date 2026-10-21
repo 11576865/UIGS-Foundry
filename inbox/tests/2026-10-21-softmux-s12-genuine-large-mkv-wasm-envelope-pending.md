@@ -1,7 +1,7 @@
 # Test · S12 genuine large Matroska byte-volume execution envelope
 
 Date: 2026-10-21
-Status: **Test submitted / Pending corrected fixture CI; not S12 PASS; not Canonical**
+Status: **Diagnostic test completed: 64MiB PASS; 512MiB and >1GB FAIL on tested CI environment; S12 NOT accepted; NOT Canonical**
 Product PR: https://github.com/11576865/MKV-Fast-Muxer/pull/170
 First PR head: `171682e302f7b92ae3d5166271b6842bb22419a9`
 Corrected fixture/test head: `ef932a3241e68ed164407f343bf959b0a7cbcf08`
@@ -45,3 +45,14 @@ S12 contract: `docs/softmux-1.0-product-acceptance-contract-20261020.md`.
 - **512 MiB** was still in browser mux at time of these observations; do not assign terminal PASS/FAIL without updated exact job result.
 - Separate production fix [PR #171](https://github.com/11576865/MKV-Fast-Muxer/pull/171) raises `SOURCE_PROBE_EMPTY_STREAMS`, suppresses automatic unbounded same-source retries, and invalidates any earlier bound track editor when a manual rescan fails. It **does not** make 1GB runnable. Its exact head `e1e8181700626b76a59596754503ef7525a08547` Pending CI.
 - S12 release contract **remains BLOCKED/PARTIAL**, not PASS. Valid physical/tablet 1GB+ media output, source-size/performance envelope and save evidence are still absent. These four tiers' long byte volume is intentionally original attachments, not real long-form video packets.
+
+## Exact latest pressure run: stage-specific results and native receipts
+
+- Product test PR [#170](https://github.com/11576865/MKV-Fast-Muxer/pull/170), exact head `2ca8ce6cca2d56611706057b695a94344a1103e3`: [S12 workflow 39558431681](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39558431681) **completed failure** (intentional red tiers); its ordinary Node/browser regression [39558431637](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39558431637) and Pages build [39558431597](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39558431597) **success**.
+- **64MiB actual control PASS**, from prior [39557148027](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39557148027) and newest tier: browser/Wasm scan/mux/download, independent ffprobe/mkvextract, real original attachment full SHA-256, output 67,153,682 B in the first passed run. Current tier readback recorded real output, not a sparse declaration.
+- **512MiB FAIL after successful scanned source**: native input has video/audio and 8 original attachment streams, browser scanned `10 个流 · 8 个附件`. Subsequent real mux failed `媒体结构探测失败，当前任务没有完成`; output absent. Downloaded 512MiB machine receipt on newest run states: `Error initializing the decoder context.\nAborted()\nERROR: Error: FFmpeg 返回错误代码 1`. Peak sum of observed Chromium process RSS `4,858,876 KiB` in that run (not isolated single-process memory or true physical peak).
+- **1,000,000,128 B FAIL during source scan**, native valid video/audio and 15 original attachments but internal ffprobe reports **`Out of memory`**; renderer misleadingly produced zero streams on old main. Observed Chromium process RSS sum peak `5,241,292 KiB` in the reviewed receipt.
+- **1,200,000,000 B FAIL during source scan**, analogous **`Out of memory`** and zero browser-observed streams; peak sampled Chromium sum `5,970,084 KiB`.
+- Machine receipts from real [CI #39558431681](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39558431681) are retained as per-tier artifacts. The 512 MiB failure detector was corrected to catch the actual `媒体结构探测失败` as an immediate failure rather than falsely waiting 480 s; log tails and source/memory/phase evidence are included.
+- Product error-state correction [PR #171](https://github.com/11576865/MKV-Fast-Muxer/pull/171) independently merged at `main@b49c8c125781e2210780de1c99d5d7f423896f88` as **0.1026**; exact head `e1e8181700626b76a59596754503ef7525a08547` had full green [CI #39558127956](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39558127956). This only refuses the previous false success; **does not fix `Out of memory`**.
+- **S12 remains FAIL for these 512MiB and >1GB real attachment-heavy workloads on the tested GitHub Linux/Chromium/FFmpeg.wasm environment.** Results are not a universal threshold and cannot be extrapolated to arbitrary container geometry, long realistic media packet workloads or physical tablet. Follow-on is a bounded WORKERFS/readFile staging comparison with the same exact input identities and native output oracle, not changing a nonblocking warning into a hard gate.
