@@ -4,7 +4,7 @@ Date: 2026-10-21
 Product: `11576865/MKV-Fast-Muxer`
 Reproduction / actual large-source diagnostics: [PR #170](https://github.com/11576865/MKV-Fast-Muxer/pull/170)
 Bounded proposed fix: [PR #171](https://github.com/11576865/MKV-Fast-Muxer/pull/171)
-Status: **Observed browser product defect; candidate fix Pending exact-head CI; NOT Canonical.**
+Status: **Bounded production fix merged and exact-head CI PASS; S12 large-media execution still FAIL; NOT Canonical.**
 
 ## Dedup
 Existing `inbox/observations/2026-10-12-browser-native-capability-envelope-container-workbench.md` documents that native parser, Wasm runtime, admission limits and physical memory success envelopes differ. This record is a narrower **actual product failure**, not a new general Candidate. Foundry search found no existing source MKV zero-stream-success Bug.
@@ -23,3 +23,11 @@ Existing `inbox/observations/2026-10-12-browser-native-capability-envelope-conta
 
 ## Follow-up
 Classify 512 MiB job and >1GB scan behavior by actual browser stage, JavaScript console, native source structure and sampled RSS. Larger realistic high-bitrate/video-stream source plus target desktop/tablet must still be tested. The S12 pressure-run completion and PR #171 product fix have separate merge/release criteria.
+
+## Accepted zero-stream refusal fix (0.1026)
+
+- Exact product PR head `e1e8181700626b76a59596754503ef7525a08547`: [Browser E2E 39558127956](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39558127956) **SUCCESS**, Pages build [39558127959](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39558127959) **SUCCESS**.
+- PR [#171](https://github.com/11576865/MKV-Fast-Muxer/pull/171) merged to `main@b49c8c125781e2210780de1c99d5d7f423896f88`; development version `0.1026.0`.
+- Fix is **fail-closed source authority**: returns clear no-confirmed-tracks diagnosis, suppresses repeated automatic re-probe for same failed source, invalidates previous track editor after failed manual re-scan. Independent attachment-only read-only operation remains separate.
+- Crucial: this prevents false *success-state* assertions, not the engine Out-of-memory condition. In actual S12 attachment-heavy large source tests at [CI #39557148027](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39557148027), 1,000,000,128 B and 1.2 GB FFmpeg/Wasm internal ffprobe logged **Out of memory** before providing streams. 512 MiB source scan succeeded but execution logged `Error initializing the decoder context. Aborted()`, and no output was generated. The 64MiB control uniquely produced a real verified MKV in that run.
+- Aggregate S12 remains not accepted. Follow-on source staging and high-bitrate realistic video + tablet tests must independently prove success; no rule changes to Canonical.
