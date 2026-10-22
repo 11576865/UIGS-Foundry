@@ -28,3 +28,7 @@ Product PR #124 adds explicit matching by **File object reference**, not equal n
 - Test state remains **Pending External Validation** until the exact-head CI/real-browser observation is attached. The source/decode ownership and independently verified product output semantics remain distinct.
 
 No Canonical promotion.
+
+## 2026-10-22 follow-up: full browser coverage, not yet execution proof
+
+The first PR #124 check reported whole-workflow success while GitHub jobs revealed `draft-fast: success`, `frontend: skipped` due to its Draft state. The project has now submitted additional `scripts/check-source-import-entry.cjs` browser assertions for the existing real `main.js` + Windows Native client, mocked `/api/frame` response, empty-audio timeline path, decode error disclosure and successful retry; both Transcode and Stream Copy must route through the same original frame owner. This stronger assertion is **committed but remains unexecuted** until a non-Draft/full frontend workflow runs. It does not upgrade the existing general Candidate or prove physical FFmpeg decoding, device performance or arbitrary-video compatibility.
