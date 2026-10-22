@@ -67,8 +67,8 @@
       "settle_ms": 900
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "a313f590df1e0bb7d7aa67c679057a2cbf4b48635d1ff3134fd4de0677b3fc5e",
+  "change_status": "unchanged",
+  "previous_sha256": "12b3af24dbb97e6f0f64f832487f5d54662ff789931df10ee721a4f5a8e64304",
   "limitations": [
     "Deterministic no-active-project review state.",
     "The capture harness reveals the real production panel when it is normally gated by active-project state; it does not fabricate project data."
