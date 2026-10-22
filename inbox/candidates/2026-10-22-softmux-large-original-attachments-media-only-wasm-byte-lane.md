@@ -4,8 +4,8 @@ Date: 2026-10-22
 Status: **Candidate / bounded positive native+Chromium empirical proof; NOT Canonical; product integration NOT authorized**
 Owner project: `11576865/MKV-Fast-Muxer` S12
 Research PR: https://github.com/11576865/MKV-Fast-Muxer/pull/176
-Exact code head: `876c026734c4f4fcc6be4c003bbdf0910e6b8198`
-Scoped independent CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39653258553
+Latest scoped-tested code head: `f2687f0ab31464e594aae56d1d93adfb37d88f27`
+Latest scoped independent CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724001171
 
 ## Deduplication
 - Existing `inbox/candidates/2026-10-12-structured-container-preservation-gate-before-mutating-writer.md` already requires structure-preservation fail-closed before a lossy remux; unchanged. This Candidate addresses a **different new bounded execution geometry**: separate the engine's A/V writer from large source original AttachedFile/FileData bytes.
@@ -37,3 +37,10 @@ Scoped independent CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/3
 
 ## Disposition
 **Reusable technical candidate established; no general Matroska preservation rule or release capability adopted.** Integrate only if the full acceptance and unsupported-input refusal matrix becomes green on the exact product branch. Keep research PR Draft.
+
+## 2026-10-22 candidate safety evidence refinement
+
+- The project did **not** promote this Candidate or change production 0.1027. A duplicate harness PR #177 was closed as redundant because the canonical scoped research entry remains **Draft [#176](https://github.com/11576865/MKV-Fast-Muxer/pull/176)**.
+- Latest research head `f2687f0ab31464e594aae56d1d93adfb37d88f27` passed all eight [scoped CI #39724001171](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724001171). A genuine native `ChapterAtom` source is now tested alongside genuine Tags: both **refuse at browser source preflight, before wasm execution**, rather than disappear from the authored MKV. The independent tags/chapters cases remain unsupported inputs; no metadata preservation claim.
+- Research page now revokes the previous source's browser object URL and clears the prior success/authorization evidence immediately when a different `File` is selected. It binds a File reference/epoch and rechecks it after async load/mount/exec/read/reattach and before download. The previous successful result is not authority for the new File. **A deliberately timed in-flight source replacement test remains Pending**; having a guard is not equivalent to accepting all races.
+- Full ordinary Browser E2E [#39724001160](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724001160) was pending at intake; if/when it passes, it does **not** remove the outstanding real-device, stream/content diversity, UID graph, SeekHead/Cues/CRC and Save workflows. This remains Candidate, not Canonical or general production permission.
