@@ -1,7 +1,7 @@
 # Candidate · Split media remux from original Matroska attachment byte preservation
 
 Date: 2026-10-22
-Status: **Candidate / bounded positive native+Chromium empirical proof; NOT Canonical; product integration NOT authorized**
+Status: **Candidate / scoped 1GiB original Attachments Chromium-Wasm + Blob PASS; NOT Canonical; product integration NOT authorized**
 Owner project: `11576865/MKV-Fast-Muxer` S12
 Research PR: https://github.com/11576865/MKV-Fast-Muxer/pull/176
 Latest scoped-tested code head: `16c33d9c3c9e9e5af5df1fa29aa397f6fa54ff14`
@@ -58,3 +58,10 @@ Latest scoped independent CI: https://github.com/11576865/MKV-Fast-Muxer/actions
 - Exact [512MiB browser job #39763158201](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39763158201), output `536,915,103 B`, 8 original 64MiB attachments and **10 video/88 audio** packet SHA sequences preserved; full original and each original attachment SHA matched. The research input's original SeekHead may still point to replaced Void and its `archivalValidity` is explicitly UNVERIFIED; it MUST NEVER be presented/saved as a finished MKV. This is stronger than output stream mapping alone, but not proven a general solution for all Matroska layouts.
 - Follow-on [Draft PR #179](https://github.com/11576865/MKV-Fast-Muxer/pull/179) tests 1GiB of physically written original attachment bytes; **PENDING** at this entry, no performance/compatibility claim yet.
 - Design candidate refinement only: before any production route, require safe/verified source graph, valid incoming source SeekHead/Cues when interpreting parser-only media shadow, explicit allowed intent matrix, genuine full real browser and native output oracle, identity/epoch/batch/recovery safeguards, hardware memory and durable-save evidence. No automatic general Matroska writer, no user-facing 512MiB hard threshold, no Canonical promotion.
+
+## 2026-10-22 empirical 1GiB extension — same bounded Candidate, no promotion
+
+- [Research PR #179](https://github.com/11576865/MKV-Fast-Muxer/pull/179), exact head `9ba4c180c58595a98f48564a95d6fa7ca0ec5c2a`: full research [CI #39764079319](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39764079319) **SUCCESS (11/11)**, ordinary Browser E2E [#39764079403](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39764079403) **SUCCESS**, Pages [#39764079382](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39764079382) **SUCCESS**.
+- Real source with 1 GiB = **1,073,741,824 B original attachment bytes (16×64MiB)**, in-browser **temporary same-span EBML Void shadow only as WORKERFS demuxer input**, FFmpeg.wasm media-only mux, full pristine source `Attachments` EBML view inserted with SeekHead/CRC rewrite, actual browser download **1,073,786,559 B**; independent native complete 16 original attachment SHA + ordered video/audio packet digests and original MKV integrity PASS.
+- This isolates a large original-attachment decoder allocation failure **within the fixed fixture class**: direct 512MiB File demux previously aborted while void-shadow 512MiB and 1GiB passed. It does NOT validate source SeekHead references in shadow (stale by design) or imply that temporary view can be archived.
+- Still **not an authorized product route**. Before any promotion: source-class/EBML graph fail-closed detector and no-loss policy for all relevant Tags/Chapters/UID/CRC/Cues; verified selectable user intent, separate actual Media file vs original source identity, cancellation/epoch/reload/batch semantics, output save/large hardware evidence and equivalent real device tests. Do not add an arbitrary 1GiB hard limit or mark S12 general PASS.
