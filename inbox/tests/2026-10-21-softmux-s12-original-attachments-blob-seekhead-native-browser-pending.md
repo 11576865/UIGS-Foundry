@@ -1,10 +1,10 @@
 # Test · S12 original Matroska Attachments byte-range reinsertion after independent A/V mux
 
 Date: 2026-10-21
-Status: **Scoped FFmpeg.wasm + Blob original-attachment 128/256MiB PASS; real Tags and Chapters fail-closed + source reselect invalidation PASS; ordinary current-head Browser E2E pending; production NOT authorized, NOT Canonical.**
+Status: **Scoped FFmpeg.wasm + Blob 128/256MiB PASS; real Tags/Chapters refusal, source switch and real post-exec in-flight source-epoch refusal PASS; ordinary full E2E pending; NOT production, NOT Canonical.**
 Product: `11576865/MKV-Fast-Muxer`
 Research PR: https://github.com/11576865/MKV-Fast-Muxer/pull/176 (supersedes closed #175)
-Latest scoped-tested head: `f2687f0ab31464e594aae56d1d93adfb37d88f27`
+Latest scoped-tested head: `16c33d9c3c9e9e5af5df1fa29aa397f6fa54ff14`
 Product main baseline: **softmux 0.1027.0** (unchanged).
 
 ## Deduplication and distinction
@@ -87,3 +87,10 @@ Product main baseline: **softmux 0.1027.0** (unchanged).
 - Previous scoped head `f2687f0ab31464e594aae56d1d93adfb37d88f27` had [S12 CI #39724001171](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724001171) all 8 success for true 128/256MiB Wasm media-only/Blob native audits, genuine Tags/Chapters preflight refusals and source-switch stale download revocation. Full ordinary Browser E2E on that head [#39724001160](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724001160) was canceled by a newer head; do not count canceled as PASS.
 - Latest exact [S12 workflow #39724601612](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724601612) and ordinary [Browser E2E #39724601599](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724601599) are **Pending**, so the new async barrier check does not have an accepted result at this intake. Pages [#39724601607](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724601607) succeeded.
 - UIGS Intake: amend this existing Test and established `inbox/candidates/2026-10-22-softmux-large-original-attachments-media-only-wasm-byte-lane.md` rather than create duplicate Candidate. Main remains 0.1027; PR remains Draft, no Canonical change.
+
+## Exact bounded async identity test result — 2026-10-22
+
+- Research PR #176, exact head `16c33d9c3c9e9e5af5df1fa29aa397f6fa54ff14`, [S12 native+real-browser research workflow #39724601612](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724601612) **SUCCESS (8/8)**. 128MiB/2×64MiB and 256MiB/4×64MiB actual FFmpeg.wasm media-only mux + browser original Attachments Blob lane, native independent attachment/extracted SHA, video/audio packet SHA, and exact source identity all remain green; no production code/writer changed.
+- In the 128MiB Chrome job, the controlled barrier pauses **AFTER a real `ffmpeg.exec` has returned**, before its result may authorize a browser download. Test then selects a different *real* Chapter-bearing File and releases the barrier. Exact log shows `post-real-wasm-inflight-source-swap-refused` followed by completed test PASS; the test explicitly checks `S12_SOURCE_FILE_CHANGED_DURING_EXECUTION`, no authorized previous output, `wasmExitCode=null` for new File, and zero unexpected download events. This validates the bounded async handoff but is **not** an arbitrary timed crash/worker abort/device restart proof.
+- Real native Tags and real `ChapterAtom` negatives still reject pre-Wasm, retain no Blob download privilege; source reselect clears previous object URL/evidence. Evidence from canceled former head Browser E2E must not be borrowed. The exact current ordinary [Browser E2E #39724601599](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724601599) is **in progress at this record update**; Pages [#39724601607](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724601607) SUCCESS.
+- This is one bounded test extension to the existing S12 Test, not a second Candidate/Canonical promotion, not approval to route actual product muxes through the research Blob writer, and not evidence for arbitrary metadata graphs.
