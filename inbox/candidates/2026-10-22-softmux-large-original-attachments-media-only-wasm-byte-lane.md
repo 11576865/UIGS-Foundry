@@ -4,8 +4,8 @@ Date: 2026-10-22
 Status: **Candidate / bounded positive native+Chromium empirical proof; NOT Canonical; product integration NOT authorized**
 Owner project: `11576865/MKV-Fast-Muxer` S12
 Research PR: https://github.com/11576865/MKV-Fast-Muxer/pull/176
-Latest scoped-tested code head: `f2687f0ab31464e594aae56d1d93adfb37d88f27`
-Latest scoped independent CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724001171
+Latest scoped-tested code head: `16c33d9c3c9e9e5af5df1fa29aa397f6fa54ff14`
+Latest scoped independent CI: https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724601612
 
 ## Deduplication
 - Existing `inbox/candidates/2026-10-12-structured-container-preservation-gate-before-mutating-writer.md` already requires structure-preservation fail-closed before a lossy remux; unchanged. This Candidate addresses a **different new bounded execution geometry**: separate the engine's A/V writer from large source original AttachedFile/FileData bytes.
@@ -44,3 +44,9 @@ Latest scoped independent CI: https://github.com/11576865/MKV-Fast-Muxer/actions
 - Latest research head `f2687f0ab31464e594aae56d1d93adfb37d88f27` passed all eight [scoped CI #39724001171](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724001171). A genuine native `ChapterAtom` source is now tested alongside genuine Tags: both **refuse at browser source preflight, before wasm execution**, rather than disappear from the authored MKV. The independent tags/chapters cases remain unsupported inputs; no metadata preservation claim.
 - Research page now revokes the previous source's browser object URL and clears the prior success/authorization evidence immediately when a different `File` is selected. It binds a File reference/epoch and rechecks it after async load/mount/exec/read/reattach and before download. The previous successful result is not authority for the new File. **A deliberately timed in-flight source replacement test remains Pending**; having a guard is not equivalent to accepting all races.
 - Full ordinary Browser E2E [#39724001160](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724001160) was pending at intake; if/when it passes, it does **not** remove the outstanding real-device, stream/content diversity, UID graph, SeekHead/Cues/CRC and Save workflows. This remains Candidate, not Canonical or general production permission.
+
+## 2026-10-22 actual post-Wasm cross-source race negative verified
+
+- Research [PR #176](https://github.com/11576865/MKV-Fast-Muxer/pull/176) exact head `16c33d9c3c9e9e5af5df1fa29aa397f6fa54ff14`; all 8 [native+true Chromium FFmpeg.wasm S12 CI #39724601612](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39724601612) jobs **SUCCESS**.
+- A new **research-only controlled post-exec asynchronous barrier** lets a genuine completed Wasm A/V+SRT mux reach its handoff, then swaps the selected source to a different actual chapter-bearing File. Source epoch/object mismatch **rejects**, with zero additional download events, no stale evidence or output URL. The same head retains 128/256MiB original attached bytes + ordered source/output A/V packet hash positive oracles and independently real Tags/Chapters no-loss refusal.
+- This is exactly the bounded Candidate's existing "failed/interrupted/changed source must not retain writer authority" condition with new empirical support; not a new Candidate, not generalized to all races, and not a blanket unsafe Matroska authorization. **No product promotion or Canonical change.**
