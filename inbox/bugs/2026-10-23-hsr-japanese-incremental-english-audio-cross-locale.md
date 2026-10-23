@@ -1,6 +1,7 @@
 # Bug — HSR incremental voice application can cross audio locale boundaries
 
 Date: 2026-10-23
+Lifecycle: validation-pending
 Status: **Bug / source-confirmed root cause; user-observed Japanese archive with English incremental voices; field artifact not independently inspected**
 Project: `11576865/HSR-Voice-Archive-Builder`
 Repair PR: https://github.com/11576865/HSR-Voice-Archive-Builder/pull/209
