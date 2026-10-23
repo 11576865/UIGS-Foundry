@@ -4,7 +4,7 @@ Date: 2026-10-23
 Repository: `11576865/HSR-Voice-Archive-Builder`
 Base HSR: `main@6a6410b0181b82e60528fe52f4e807911b430f4d` (PR #203)
 Level: **Bug / deterministic source-path + fault-injection tests**
-Status: **PR #204 under review; mainline not yet merged/accepted**
+Status: **SOURCE-FIXED / PR #204 MERGED / MAIN-CI-PENDING / DEVICE-FIELD-PENDING**
 PR: [#204](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/204)
 
 ## Context and distinct faults
@@ -65,3 +65,9 @@ At final head:
 - [Browser evidence #39895934616](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895934616) in progress at this snapshot.
 
 No merged-main claim at this snapshot. Physical Termux field still Pending, no Canonical change.
+
+## PR #204 merged to main (2026-10-23)
+
+[PR #204](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/204) was merged as squash commit `main@c34bdb59f8a2ceeaed7f8b93f0626a5681b874c7`. All **six** final exact-PR-head workflows passed, including seven real ASS requirements, Python 3.11–3.13/real FFmpeg, native Windows publisher, historical-code interoperability, sustained multi-process journal and browser evidence. The first exact-main workflows were triggered but still running at initial intake. Do not treat source-level and PR-head evidence as physical Android/Termux field confirmation; user must update local code, restart service and retry the same role archive.
+
+**Normative disposition:** project-specific Bug resolved in source, field validation pending, no Canonical edit.
