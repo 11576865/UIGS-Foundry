@@ -168,3 +168,30 @@ Actual native-vs-design review remains incomplete; debug fixtures do not
 establish real video/libass coverage. This is a project-specific repair candidate
 within the existing Bug, not independent cross-project confirmation or Canonical
 promotion.
+
+
+## 2026-10-24 — completed bounded-transport generation, capture correctly rejected
+
+Read the completed results for product source
+`39ffe1a3604d9cbcd3ed12717983800f033bc7f9` (tested merge
+`a0d89ca2be29a37c993db73d0756d2cacae398c7`):
+source/JVM run `39971371387` succeeded; emulator `39971371534` failed.
+
+R3, 1440×900 and 1024×768 screenshot attempts all rejected external accessibility
+root `android`, target decor focused=false/shown=true. The source job's last-ANR
+diagnostic recorded a preceding 14:44:15 UTC input-dispatch timeout with no focused
+window and Pixel Launcher as the recorded resumed Activity. This supports an
+environment-readiness failure; it does not independently determine every cause.
+
+Projection groups passed 9/3/7/3 tests. The full suite timed out and its XML was
+empty, so no full-suite count or improvement from the historical 179/4 receipt
+can be inferred. Both bounded image jobs failed with no complete envelope:
+the foreground gate had accepted no images to transport. This is expected
+fail-closed behavior, not demonstrated image-decoder failure.
+
+Product-side evidence and follow-up inspector work are recorded at
+[`89f69e97`](https://github.com/11576865/ASS-Workbench-Android/commit/89f69e97cd001f7522eea2f45ace5622d4272626)
+and `docs/FIXED-V11-EVENT-INSPECTOR-2026-10-24.md`.
+The new UI package remains Pending Kotlin/Android/native visual validation.
+This refines the same existing foreground/evidence Bug; no separate Candidate
+or Canonical promotion.
