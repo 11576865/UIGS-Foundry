@@ -51,3 +51,17 @@ Exact proposed source head `bcd2ff975ca6a2515481ef660a1cc27704dd480e` passed:
 [Seven ASS contracts #39895331291](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895331291) had not completed by this CI snapshot, still installing real FFmpeg/libass dependencies. PR #204 remains draft/unmerged until accepted by the release gate. PR #203's earlier exact-main ASS run #39893799783 separately finished **success**, which does not substitute for the new PR's own pending result.
 
 User's Android/Termux physical device reproduction and power interruption remain FIELD-PENDING. No Canonical promotion.
+
+## PR #204 final-head CI and installer unblock update
+
+A new final head `ae4debebb1207ae47699e046f76e508d80a4f3dd` modified only the ASS CI dependency setup after the product repair and fault-injection tests were green. The workflow previously ran unconditional `apt-get update` despite common preinstalled FFmpeg/libass/DejaVu on GitHub Ubuntu runners and remained for an extended period in dependency setup. The revised `.github/workflows/hsr-seven-ass-requirements.yml` first probes the actual renderer filter and font availability, uses apt fallback only if necessary, and always runs the same full real ASS media suites. This is a conditional CI-latency improvement, not a lowering of ASS acceptance requirements or proof of the specific Ubuntu mirror root cause.
+
+At final head:
+- [Seven ASS actual FFmpeg/libass #39895934667](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895934667) success.
+- [Full Python 3.11–3.13, real-media and Termux surface #39895934611](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895934611) success.
+- [Native Windows project writer + MKV marker tests #39895934614](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895934614) success.
+- [Sustained process journal #39895934668](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895934668) success.
+- [Pinned real historical interoperability #39895934613](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895934613) success.
+- [Browser evidence #39895934616](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895934616) in progress at this snapshot.
+
+No merged-main claim at this snapshot. Physical Termux field still Pending, no Canonical change.
