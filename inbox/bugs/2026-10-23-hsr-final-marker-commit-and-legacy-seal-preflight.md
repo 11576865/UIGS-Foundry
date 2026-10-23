@@ -38,3 +38,16 @@ The tests use fixture bytes for journal/receipt path behavior, not audio decodin
 This is different from `inbox/bugs/2026-10-23-hsr-build-marker-vs-mkv-seal-verification-deadlock.md`: the previous Bug concerns **the build's own marker blocking internal validation**; this one concerns a **failed final marker removal outside rollback** and **late preflight after data deletion**. Foundry searches for “HSR final build marker unlink rollback failure”, “seal complete legacy black mkv symlink discarded source”, and “HSR file cleanup preflight mark sealed” returned no duplicate.
 
 No Canonical edit or automatic promotion. Update this Bug with exact-PR-head and exact merged-main CI only when actually verified.
+
+## PR #204 exact-head CI snapshot (2026-10-23)
+
+Exact proposed source head `bcd2ff975ca6a2515481ef660a1cc27704dd480e` passed:
+- [Full Python / real-FFmpeg / Termux Lite test matrix #39895331263](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895331263)
+- [Native Windows publisher/journal suite #39895331276](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895331276)
+- [Historical/current code interop #39895331290](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895331290)
+- [Sustained multi-process journal stress #39895331448](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895331448)
+- [Subtitle browser evidence #39895331282](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895331282)
+
+[Seven ASS contracts #39895331291](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39895331291) had not completed by this CI snapshot, still installing real FFmpeg/libass dependencies. PR #204 remains draft/unmerged until accepted by the release gate. PR #203's earlier exact-main ASS run #39893799783 separately finished **success**, which does not substitute for the new PR's own pending result.
+
+User's Android/Termux physical device reproduction and power interruption remain FIELD-PENDING. No Canonical promotion.
