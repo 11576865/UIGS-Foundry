@@ -35,3 +35,11 @@ Existing valid MKV→FLAC→MKV switching still runs.
 Foundry search `FLAC profile switch delete MKV receipt rollback`, `publish_flac_only rollback`, `standalone deliverable cleanup partial unlink` found [the earlier PR #207 Bug](https://github.com/11576865/UIGS-Foundry/blob/main/inbox/bugs/2026-10-23-hsr-flac-only-probe-only-retiring-verified-mkv.md) but no specific prior half-cleanup rollback defect. #207 establishes FLAC content provenance; #208 addresses independently failing multi-file cleanup after successfully verified content.
 
 **Pending:** PR-head and merged-main workflow evidence; physical Android/Termux `evanescia` long project; Windows user-device external-error semantics; hard power-loss replay. Do not promote Canonical from this one repair.
+
+## PR #208 initial regression evidence and test-oracle correction
+
+Initial exact PR head `80e05949348b04905d97dbb99b1c74f89af1d28d` passed genuine seven ASS, Windows publisher, pinned historical interop and sustained multi-process checks. Its browser `libass-artifact` job executed real FFmpeg plus new profile-switch tests; two ordinary I/O fault-injection tests passed, while the new *unrecoverable rollback* case expected `bundle_export_status()["state"] == "stale"`. The actual state was `missing`, correctly reflecting that the MKV itself had been removed when the second injected disk failure prevented its restoration. The old MKV was still available in the retained sibling snapshot, and the busy marker existed. This is a **test-oracle error, not a false claim of current/verified**.
+
+Final candidate head `f06530666a4f5817eae26648453cbada52ba7dd8` corrected the assertion to `missing`, explicitly preserving the intended distinction between *retained recovery bytes* and an *installed current deliverable*. A new exact-head workflow set was triggered, still pending when recorded. No production code change was required for this correction.
+
+**Additional safety boundary:** A second I/O failure can make the current main deliverable truly missing even though an intact backup exists. The UI should never call this `current`, and operator recovery must use the retained snapshot deliberately; no automatic field repair was implemented or claimed.
