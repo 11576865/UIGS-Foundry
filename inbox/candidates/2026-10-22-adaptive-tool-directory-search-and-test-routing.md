@@ -33,3 +33,14 @@ When one task has multiple adaptive presentations of a searchable command catalo
 ## Limits, follow-up and anti-promotion
 
 All observations share one ASS/R3 implementation lineage and do not count as independent cross-project confirmation. The new commit has **no confirmed exact-head emulator result yet**, and the same prior run also failed inspector IME, SPATIAL unpin and shear field lifecycle tests. Those remain separate. Do not use this record to declare FIXED V1.1 complete or update UIGS Canonical rules. Next step is the exact-head branch emulator suite and tablet/device evidence.
+
+
+## 2026-10-23 addition — SPATIAL search result and IME lifetime
+
+Exact head `bb0e2ce3602d38fbcc8ef7de328c6cad9b0cb436` [Emulator Regression #39877625021](https://github.com/11576865/ASS-Workbench-Android/actions/runs/39877625021) completed **172 tests / 5 failures / 0 skipped**, with valid R3 full-size compositor PNG. This is the first discriminating full-suite receipt after the prior foreground/no-XML run. `EditorRegressionInstrumentedTest.invalidEventFieldsExplainErrorsAndCannotCommitAcrossHosts` failed in the **SPATIAL** branch of `openTool`: lookup of `tool-EVENT` failed after searching and calling `hideKeyboard()`.
+
+Production's shared `WorkspaceToolDirectory` does render a filtered LazyColumn entry tagged `tool-EVENT`; the test helper's unguarded `hideKeyboard()` call between search and click may cause an IME/back/dismissal lifecycle transition. **That dismissal is an unproven explanation, not an established product bug.**
+
+The bounded [test helper repair `5be6bc45`](https://github.com/11576865/ASS-Workbench-Android/commit/5be6bc45f486e604d5d578e6f9f9466e5c4ff269) selects the visible real tool result while search IME is still active and preserves the downstream ASS edit assertions. The next exact-head connected emulator run is **Pending**. Other independent failures (IME after rotation, SPATIAL resident rail, batch focus and Transform field disposal) remain unclosed. No production UI changes or Canonical promotion.
+
+**Refined candidate:** searchable modal command results should remain actionable with the IME open; test harnesses should navigate through the current presented route, avoiding incidental keyboard-hide operations that can change transient dialog ownership before the command is invoked. Treat this as one product/test lineage rather than independent confirmations of a new rule.
