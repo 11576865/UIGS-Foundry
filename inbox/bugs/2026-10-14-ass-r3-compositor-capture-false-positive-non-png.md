@@ -131,3 +131,40 @@ Intake: this is the same R3 evidence integrity failure family, append to existin
 **Reusable case refinement:** distinguish *already satisfied idempotent preconditions* (IME hidden) from missing environment readiness (foreground app ownership). A precondition helper may no-op only with positive state evidence; evidence capture and device interaction must remain fail-closed on uncertain or externally owned focus. A cascading test-harness failure without XML is not proof of dozens of independent product regressions.
 
 **Status:** test code committed; new exact-head Android CI and native emulator results **Pending**. This is additional evidence within the existing R3 screenshot/foreground integrity family, not a second independent confirmation. No Canonical promotion.
+
+
+## 2026-10-23 — valid tablet captures but oversized review transport
+
+Same evidence-integrity lineage, deduplicated by search for `logcat PNG`.
+Product [PR #149](https://github.com/11576865/ASS-Workbench-Android/pull/149)
+source `020e20761b024b64502c8ea582c163db86aa2ca9` passed source/JVM run
+`39956067332`. Emulator `39956067357` validated run-as compositor files:
+1440×900, 134758 bytes, SHA256
+`2f8be9e6b8abce36284927958a2e009c6fb4a7c4f40ce3f1ca30852711e9e472`;
+1024×768, 89506 bytes, SHA256
+`1e3460a7a2c9c49af7d8e56871f08423ce4fd61ae317fcadfe45347d591e89ad`.
+Four projection families passed 22 tests; full instrumentation remained failed:
+179 tests, 4 failures, 0 errors, 0 skipped.
+
+The compact evidence job was readable, while downloading the full editor job
+through the GitHub connector repeatedly returned internal/transport errors.
+PNG bytes could therefore not be retrieved for actual design comparison.
+This does not invalidate the recorded file integrity gates, and those gates
+still do not establish visual parity.
+
+Follow-on product commit
+[`39ffe1a3`](https://github.com/11576865/ASS-Workbench-Android/commit/39ffe1a3604d9cbcd3ed12717983800f033bc7f9)
+immediately emits an indexed bounded envelope from the runner-owned, validated
+run-as file, using a distinct prefix from lossy Android logcat. Two separate
+per-size evidence jobs recover the complete PNG, require its original gate
+receipt, and recheck hash, byte length, CRC and decoded dimensions before
+re-emitting it. Source run/attempt/tested merge SHA/head SHA and the original
+regression conclusion remain explicit. Missing, damaged or oversized images
+fail; no thumbnail substitution or weakened suite gate. Seven new defensive
+transport tests pass locally (35 relevant Python checks total).
+
+Status: new Android execution and bounded screenshot retrieval **Pending**.
+Actual native-vs-design review remains incomplete; debug fixtures do not
+establish real video/libass coverage. This is a project-specific repair candidate
+within the existing Bug, not independent cross-project confirmation or Canonical
+promotion.
