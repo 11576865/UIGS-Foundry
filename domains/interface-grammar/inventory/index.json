@@ -26,7 +26,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "platform": "web",
       "default_branch": "main",
-      "head_sha": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "head_sha": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
       "surface_count": 12
@@ -46,7 +46,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
       "default_branch": "main",
-      "head_sha": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "head_sha": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "status": "available",
       "inventory_path": ".uigs/ui-surfaces.json",
       "surface_count": 16
@@ -660,7 +660,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -687,7 +687,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -714,7 +714,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -736,7 +736,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -758,7 +758,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -780,7 +780,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -809,7 +809,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -831,7 +831,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -859,7 +859,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -881,7 +881,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -903,7 +903,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -925,7 +925,7 @@
       "project": "HSR-Voice-Archive-Builder",
       "repository": "11576865/HSR-Voice-Archive-Builder",
       "platform": "web",
-      "source_head": "f08d91e048b06ba978ce349468c121cd5122435f",
+      "source_head": "63cfc2e4e5100ae373b70943a5a7360feafb67bb",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1242,7 +1242,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1271,7 +1271,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1293,7 +1293,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1318,7 +1318,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1344,7 +1344,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1373,7 +1373,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1402,7 +1402,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1431,7 +1431,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1460,7 +1460,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1489,7 +1489,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1514,7 +1514,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1539,7 +1539,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1568,7 +1568,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1597,7 +1597,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1622,7 +1622,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     },
     {
@@ -1653,7 +1653,7 @@
       "project": "Quick-Automatic-Hardsub-Encoder",
       "repository": "11576865/Quick-Automatic-Hardsub-Encoder",
       "platform": "web-plus-native-hosts",
-      "source_head": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "source_head": "4e4e5e1cb71289959082d150031cdd69ab46ef01",
       "inventory_path": ".uigs/ui-surfaces.json"
     }
   ]
