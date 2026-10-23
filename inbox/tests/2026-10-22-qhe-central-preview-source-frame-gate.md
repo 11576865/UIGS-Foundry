@@ -32,3 +32,9 @@ No Canonical promotion.
 ## 2026-10-22 follow-up: full browser coverage, not yet execution proof
 
 The first PR #124 check reported whole-workflow success while GitHub jobs revealed `draft-fast: success`, `frontend: skipped` due to its Draft state. The project has now submitted additional `scripts/check-source-import-entry.cjs` browser assertions for the existing real `main.js` + Windows Native client, mocked `/api/frame` response, empty-audio timeline path, decode error disclosure and successful retry; both Transcode and Stream Copy must route through the same original frame owner. This stronger assertion is **committed but remains unexecuted** until a non-Draft/full frontend workflow runs. It does not upgrade the existing general Candidate or prove physical FFmpeg decoding, device performance or arbitrary-video compatibility.
+
+## 2026-10-23 observed CI counterexample and bounded test-synchronization repair
+
+QHE PR #124 full Frontend run [39754507684](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/39754507684) failed at `check-source-import-entry.cjs:81` with the Copy step expecting a fourth frame request but observing only three at assertion time. A previously successful Transcode frame leaves a populated `data-v3-frame.src`, so waiting on that predicate does **not establish that a new Copy request completed**. This is a precise browser-test synchronization counterexample, not yet independently proven missing product frame generation.
+
+In the one permitted bounded repair generation, the test now registers a Playwright `waitForResponse` for the next `POST /api/frame` **before** the Copy click and awaits it before retaining the exact four-request assertion. No sleeps, relaxed assertion or product decode change. The repaired generation remains **Pending External Validation** until a new exact-head full frontend result; do not upgrade Test to PASS or alter existing Candidates/Canonical.
