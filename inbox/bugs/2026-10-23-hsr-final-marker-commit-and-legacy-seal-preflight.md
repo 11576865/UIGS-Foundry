@@ -4,7 +4,7 @@ Date: 2026-10-23
 Repository: `11576865/HSR-Voice-Archive-Builder`
 Base HSR: `main@6a6410b0181b82e60528fe52f4e807911b430f4d` (PR #203)
 Level: **Bug / deterministic source-path + fault-injection tests**
-Status: **SOURCE-FIXED / PR #204 MERGED / MAIN-CI-PENDING / DEVICE-FIELD-PENDING**
+Status: **SOURCE-FIXED / PR #204 MERGED / MAIN-CI-PARTIAL / DEVICE-FIELD-PENDING**
 PR: [#204](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/204)
 
 ## Context and distinct faults
@@ -71,3 +71,19 @@ No merged-main claim at this snapshot. Physical Termux field still Pending, no C
 [PR #204](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/204) was merged as squash commit `main@c34bdb59f8a2ceeaed7f8b93f0626a5681b874c7`. All **six** final exact-PR-head workflows passed, including seven real ASS requirements, Python 3.11–3.13/real FFmpeg, native Windows publisher, historical-code interoperability, sustained multi-process journal and browser evidence. The first exact-main workflows were triggered but still running at initial intake. Do not treat source-level and PR-head evidence as physical Android/Termux field confirmation; user must update local code, restart service and retry the same role archive.
 
 **Normative disposition:** project-specific Bug resolved in source, field validation pending, no Canonical edit.
+
+## Exact merged-main CI evidence
+
+At HSR `main@c34bdb59f8a2ceeaed7f8b93f0626a5681b874c7`, six independent workflows were green:
+- [Seven ASS actual mux/libass #39896139995](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39896139995)
+- [Native Windows filesystem safety #39896140002](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39896140002)
+- [Pinned real historical code interop #39896140022](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39896140022)
+- [Sustained cross-process tasks #39896139996](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39896139996)
+- [Subtitle browser evidence #39896140005](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39896140005)
+- [Pages delivery #39896139504](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39896139504)
+
+The remaining [`tests` #39896140017](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39896140017) at this snapshot had **passed unit jobs for Python 3.11/3.12/3.13 and Termux Lite**, but its separate `real-libass-ink-evidence` subjob was still running an unconditional `apt-get update`/font install. Hence entire workflow not yet certified; don't conflate the green subjobs with a finished full run.
+
+The seven ASS workflow's same apt latency was addressed in PR #204 with conditional preinstalled prerequisite detection. `tests.yml` still uses unconditional apt and is a distinct CI reliability follow-up Candidate, not evidence of failed libass rendering.
+
+Field Pending unchanged: physical Android/Termux `evanescia` build after pulling fixed main; no hardware disk powerloss acceptance. No Canonical update.
