@@ -98,3 +98,19 @@ Dedup: existing HSR Observation above governs domain and visual IA; separate HSR
 **Limits:** This is a rebuilt concept simulation sourced from saved HSR Figma-design screenshots, not a real wired Figma prototype and not an application-backend recording. Simulated media verification and progress never constitute actual libass/FFmpeg output evidence. The Figma design/HSR product source was not modified.
 
 **Reusable discrimination:** A slideshow encoded as MP4 is still a slideshow. For a UI **interaction animation**, acceptance requires temporally changing controls/object state tied to causally meaningful user input (cursor or gesture, selection, text entry, progress and action feedback), not just camera motion, fades, or scene cuts. Technical playability and fit to the user's requested visual medium require separate checks. This is a single user critique followed by an unaccepted correction: **Observation only**, no Canonical promotion.
+
+## 2026-10-23 — HSR V3 action-linked UI animation extended and re-verified
+
+User's continuation after V2 was treated as an iteration of the **interaction animation**, not permission to change HSR production code or to claim acceptance. This evidence extends the same pre-existing HSR Observation (Foundry search identified it), not a new Canonical rule.
+
+**Produced in active project file runtime:**
+- Full V3 asset: `/mnt/data/HSR_Voice_Studio_操作交互动画_V3_76秒.mp4`; duration 76.000s, 1600×900, 18 fps, 1368 H.264 video frames with an AAC sound track, 4,997,565 bytes.
+- Targeted excerpt: `/mnt/data/HSR_V3_校对与字幕工作室_交互片段_28秒.mp4`; 28.000s, 639,196 bytes.
+- Contact sheet / source-based QA: `/mnt/data/HSR_V3_操作动画_分镜检查.png`; 11 representative timeline snapshots (source Figma-derived screen assets).
+- `ffmpeg` full audio/video decode to null succeeded for the completed 76-second asset; `ffprobe` checked codec, resolution, duration, frame count and stream types. Local links were verified in active container session; client download/user acceptance still **Pending**.
+
+**Substantive V2→V3 work:** Rather than moving among slides, reconstruct per-context UI changes on the Figma-based HSR mock: motion-interpolated mouse navigation and click rings; progressive local source pre-scan; audible UI click and completion cues; visibly moving playback head and in-place final-CHS text entry; durable-draft-style status separation; font-size value change and separate style save; actual click initiation of a **simulated** ASS render with changing progress and a continued true-libass evidence boundary; a **simulated** MKV publish/recheck that keeps previous trusted artifact conceptually valid; and a source-update comparison sheet where a conflicting identity remains blocked for human review. A persistent explanatory rail and explicit `交互模拟 / 非 HSR 后端录屏` disclaimer accompany the animation.
+
+**Key limitation:** This is an authored mock film based on previously saved Figma experimental screen images. It is neither live Figma interactions, real HSR API calls, nor valid libass/MKV success evidence. UI edits in the video don't update project files. The source Figma artifact and GitHub product remained unchanged. The standalone render script is a local build aid; no adoption of a permanent standard from one user critique is authorized.
+
+**Distinct acceptance dimensions:** file accessibility/codec integrity; frame-to-frame movement; state changes causally related to user action; truthful mock-vs-real labeling; and actual user approval must be checked separately. The user has not yet reviewed or accepted V3. No Canonical promotion.
