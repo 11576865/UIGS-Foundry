@@ -50,3 +50,17 @@ Final exact PR-head green:
 **Not yet claimed:** exact post-merge mainline CI (initially pending), physical Android/Termux `evanescia` reproduction and updated build success, physical abrupt power loss, or full-size real-world archive completion. This is a source-fixed bug with real-FFmpeg CI, not a declaration that the user's already-running local HSR server automatically received the patch.
 
 **Intake:** one project-specific Bug, deduplicated against older HSR MKV/media cases; no Canonical promotion.
+
+## Exact merged-main CI snapshot (2026-10-23)
+
+GitHub reports HSR `main@6a6410b0181b82e60528fe52f4e807911b430f4d` (PR #203) with these independent push-triggered workflows **success**:
+- [Python 3.11–3.13, Termux Lite import surface, real libass #39893799736](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39893799736)
+- [Native Windows project output and journal tests #39893799812](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39893799812)
+- [Browser evidence #39893799928](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39893799928)
+- [Pinned legacy/current code interoperability #39893799772](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39893799772)
+- [Sustained concurrent progress #39893799717](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39893799717)
+- [Pages #39893799572](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39893799572)
+
+[Seven ASS main push run #39893799783](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39893799783) was still **in_progress** at final snapshot, in the runner's dependency installation step (its exact PR-head counterpart already passed). Do not report an uncompleted check as passed.
+
+The owner was given the normal README-backed Termux update commands (`git pull --ff-only`, restart launcher) with explicit instruction to preserve project data and not delete the safety marker. Real `evanescia` rerun is still FIELD-PENDING. No Canonical promotion.
