@@ -65,3 +65,13 @@ HSR PR #209 subsequently advanced to head `043b830e2e8d6a81d94a6b33a98137d74925f
 - Existing contaminated archives are not automatically repaired. Any restoration remains **FIELD-PENDING**, requiring verified original Japanese source and independent rebuilt audio acceptance.
 
 Intake: update existing Bug, distinct from older HF `.part` success and publisher concurrency cases. No Canonical promotion.
+
+## Isolated restoration path — source fingerprint + initial-index verification (2026-10-23)
+
+HSR PR #209 now includes `app/japanese_source_recovery.py`, invoked by an explicitly acknowledged `POST /api/update/create-japanese-recovery` on FastAPI and Termux, plus an Update workspace action. It requires project audio/source text languages `ja`, Quick Scan source text `ja`, exact originally recorded SHA-256/tree content fingerprint, and full agreement between original Quick Scan CSV members and source package WAV members.
+
+The procedure creates a new sibling project with its own original-index copy, isolated output/state paths and no old incremental caches, text overrides or MKV, while preserving the existing project. It does not download Japanese audio, replace existing English WAVs, build FLAC/MKV or claim listening acceptance; it merely creates a source-verifiable candidate for a later independent rebuild.
+
+Regression tests cover original-byte preservation, archive tampering, index mismatch, ambiguous language and FastAPI/Termux parity. The first CI execution of the new recovery test failed because `os.replace(staging, destination)` had been placed inside the post-check rejection branch; source was traced to incorrect indentation and fixed at `f5dcc215fddbfea69a1979d41342f6d8b9026f1a`. Exact-head CI and real-user archive acceptance remained pending at writing. This is a proper source-confirmed new implementation defect, repaired in the same PR before merge. No automatic Canonical promotion.
+
+**Evidence boundary:** source fingerprint establishes identity to the original Quick Scan package, not the correctness of that user's chosen audio language. The candidate references the original package, so deletion of the original path would invalidate it. Existing translation/editing changes require deliberate migration rather than blindly importing records from the possibly contaminated archive.
