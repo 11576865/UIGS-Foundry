@@ -42,3 +42,17 @@ The original candidate's core persistence distinction is now implemented end-to-
 The browser test injects a JSON-report-only write failure after the actual MKV has reached a synthetic DirectoryHandle. It confirms partial persistence, preserves the successful MKV and in-memory fallback downloads, refuses to overwrite a report residue until a simulated user explicitly resolves it, and retries **only missing report save**, with the FFmpeg log unchanged. A second real file scenario deliberately fails only the second frozen batch job at the worker boundary, retains the first MKV/Blob URL and its SHA-256, and re-executes only the previously failed Job ID from the frozen plan with actual media. Independent final MKV subtitle packet PTS is `[100,1550]` ms and native `ffmpeg -copyts` recovered cues match the source exactly.
 
 The implementation separates artifact publication retries (no new FFmpeg) from failed-job execution retries (new bounded mux) and keeps the browser permission boundary explicit. **Scope is current authorized browser session and selected fixtures**; this does not demonstrate 20-job real workload acceptance, actual OS disk crash atomicity or durable FileSystemHandle permission across restarts. Continue to classify this as Candidate, not Canonical. Older stacked PRs #150/#151 were closed unmerged when PR #163 proved their integrated semantics on 0.1021 main.
+
+## 2026-10-23 S11 terminal evidence UI correction (Pending exact-head CI)
+
+Product: [Softmux PR #183](https://github.com/11576865/MKV-Fast-Muxer/pull/183), head `e984e02aa7cc7e8d6f2c6fe178093eb21189248a`, derived from main `585f4e8e8473e09d0a4c7fa63d66368d9a9f9870`.
+
+The product's batch executor already distinguished generated Blob, independent audit warning/unavailable and save-to-directory receipt in per-job states. However `formatBatchTerminalStatus()` still counted every `item.ok` as user-facing **“批量完成：成功 N”**, even when the independent audit was unavailable or the result had not been persisted. This is an aggregate **presentation and evidence-semantics gap**, not a discovered FFmpeg mux or file corruption defect.
+
+Bounded proposal submitted in PR #183:
+- Count **generated outputs**, **auditStatus === pass**, **unverified audit (including absent auditStatus)** and **per-job execution failure** separately in the terminal summary.
+- Report fully persisted MKV+JSON directory pairs only for rows with a real directory attempt and `savedToDirectory === true`. Do not equate a browser download URL or an MKV-only partial save with complete directory persistence.
+- Preserve per-result download fallback, separate MKV/report partial-save warnings, cancellation and fatal-interruption precedence.
+- Add Node regressions for warning audit + saved directory, passing audit + failed save, missing audit status and report-only save failure. The new PR does not change the actual mux engine, file writer, audit verifier or version.
+
+**Evidence boundary:** Product code and tests submitted; exact-head Node/build/Chromium results and real hardware/durable FS proof are not available at intake. This note is **Pending CI / Candidate extension**; no claim of complete S11 acceptance, no change to Canonical. Related Foundry queue Candidate already distinguishes generated and audit per job; this extension records the still-problematic **aggregate user-facing success wording**. No duplicate Candidate or Observation was created.
