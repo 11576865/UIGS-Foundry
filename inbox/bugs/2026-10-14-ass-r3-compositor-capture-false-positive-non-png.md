@@ -116,3 +116,18 @@ Product commits:
 Verification scope: latest exact-head `0b9a27ba8af49bac265963f0818ea30cbbd75f92` Android CI `38604521014` success at last check; Emulator `38604521032` and Fontconfig `38604521029` still in progress. A recovered complete on-device **JPEG thumbnail** from the earlier emulator log shows actual Compose three-column debug fixture with a black media/renderer-unavailable surface, not real video. This enables a preliminary gap audit against the R3 concept but **not** full-size PNG validity, no display-bound calibration, no real-media and no visual acceptance.
 
 Intake: this is the same R3 evidence integrity failure family, append to existing Bug instead of new Canonical or duplicate Observation. Remains Pending exact-head emulator and native image examination.
+
+
+## 2026-10-23 — headless emulator foreground/IME evidence (same R3 capture lineage)
+
+**Source:** ASS Workbench Android stacked Draft [PR #149](https://github.com/11576865/ASS-Workbench-Android/pull/149), exact pre-fix head `b4abfff89ffc8e70cc3f9d7d771f3f48cde92735`.
+
+- Source/JVM CI [#39723880966](https://github.com/11576865/ASS-Workbench-Android/actions/runs/39723880966) passed, but Android Emulator Regression [#39723880969](https://github.com/11576865/ASS-Workbench-Android/actions/runs/39723880969) failed.
+- Strict R3 native capture observed `accessibility root=<none>`, target decor `shown=true` and `focused=false`. No valid PNG was accepted.
+- Later instrumentation repeatedly raised `NoMatchingRootException` in the test helper's keyboard-hide precondition. The suite timed out with **NO XML RESULTS**; this run cannot support a complete pass/fail count for individual business tests. Device diagnostic also referenced an input dispatch timeout and Pixel Launcher as top-resumed activity, but a causal launcher defect is not yet independently established.
+- Product-side scoped commits: [`677f504f`](https://github.com/11576865/ASS-Workbench-Android/commit/677f504f6c1663702da0747227583c7793ff82de) accepts missing Espresso focus root as a keyboard-hide no-op **only when Activity window insets positively show the IME is already hidden**; null/visible IME and unrelated exceptions still fail. [`9308195b`](https://github.com/11576865/ASS-Workbench-Android/commit/9308195b44b0d6dfc503083e145b99137eeffec2) allows bounded foreground settling after rotation but rechecks the original strict compositor identity gate before capture. Neither update bypasses a user-facing error or declares the actual GUI foreground-ready.
+- Durable product checkpoint: [`bb0e2ce3`](https://github.com/11576865/ASS-Workbench-Android/commit/bb0e2ce3602d38fbcc8ef7de328c6cad9b0cb436).
+
+**Reusable case refinement:** distinguish *already satisfied idempotent preconditions* (IME hidden) from missing environment readiness (foreground app ownership). A precondition helper may no-op only with positive state evidence; evidence capture and device interaction must remain fail-closed on uncertain or externally owned focus. A cascading test-harness failure without XML is not proof of dozens of independent product regressions.
+
+**Status:** test code committed; new exact-head Android CI and native emulator results **Pending**. This is additional evidence within the existing R3 screenshot/foreground integrity family, not a second independent confirmation. No Canonical promotion.
