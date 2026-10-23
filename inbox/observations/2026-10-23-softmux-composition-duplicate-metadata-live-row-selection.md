@@ -33,3 +33,11 @@ Code inspection demonstrates the preexisting duplicate-key possibility and first
 ## Transferable hypothesis, not Canonical
 
 A display reconciliation key derived from `name|size|mtime` should not be presumed unique within a multi-object UI. Distinguish repeated occurrences, validate that an interaction still addresses its current live row, and keep exact browser File object authority separate from both row position and file metadata. Stronger permanent identity, async list-reordering semantics and end-to-end browser behavior require separate evidence. One implementation does not justify automatic Canonical rule changes.
+
+## 2026-10-23 follow-up: real browser routing regression submitted and a distinct intake caveat
+
+Product PR #182 head moved to `91a6682c246e6341c723fbe6ea25a5a3f3e76fd4` with a direct modern Chromium scenario in `tests/e2e/browser-mux.e2e.mjs`: two distinct browser File instances with **exactly equal** name, byte count and lastModified are selected into the existing subtitle picker alongside a real MP4; after the editor builds two composition rows, clicking the second must focus subtitle title field `data-index="1"`, then clicking the first must focus `data-index="0"`. It asserts the two UI row IDs differ, and does not claim a completed media mux. **Exact-head Chromium verdict Pending** at this record update.
+
+A separate source audit found `src/main.js::importUnifiedAssets` and `importBatchUnifiedAssets` explicitly deduplicate incoming Files using `assetIntakeKey = path|size|lastModified`, before classification. Therefore the **unified intake flow can omit a distinct same-metadata File from its inventory**, regardless of the composition projection repair. The direct-picker test does **not** certify the unified intake collision path. That intake behavior needs its own bounded UX/collision handling and tests; do not misrepresent this PR as solving both. This is an open, unverified-in-browser gap, not silently promoted to a release acceptance PASS.
+
+Dedupe: exact File vs metadata ambiguity is covered by the prior live-domain Case; this addition distinguishes **insertion-time duplicate elimination** from the already documented **display occurrence routing** failure. The Foundry record stays at Observation; no Canonical change.
