@@ -15,8 +15,8 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
   "source_repository": "11576865/HSR-Voice-Archive-Builder",
-  "source_revision": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
-  "sha256": "12b3af24dbb97e6f0f64f832487f5d54662ff789931df10ee721a4f5a8e64304",
+  "source_revision": "16a81eb9ce68c0a9aa2f6a6113e3da1aedfff548",
+  "sha256": "81e3fd5303fe5ea8be1ae387ca6d796e5531d503b5676ae1fc726afaa84ff22a",
   "image": {
     "width": 1169,
     "height": 1021
@@ -67,7 +67,7 @@
       "settle_ms": 900
     }
   },
-  "change_status": "unchanged",
+  "change_status": "changed",
   "previous_sha256": "12b3af24dbb97e6f0f64f832487f5d54662ff789931df10ee721a4f5a8e64304",
   "limitations": [
     "Deterministic no-active-project review state.",
@@ -77,13 +77,13 @@
     {
       "source_type": "repository",
       "source": "11576865/HSR-Voice-Archive-Builder",
-      "revision": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
+      "revision": "16a81eb9ce68c0a9aa2f6a6113e3da1aedfff548",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/HSR-Voice-Archive-Builder:ui-visual-capture.json",
-      "revision": "2d770d2be1bdb7356dc1f459049eb1d1d0bca71c",
+      "revision": "16a81eb9ce68c0a9aa2f6a6113e3da1aedfff548",
       "evidence_level": "source-owned capture declaration"
     }
   ]
