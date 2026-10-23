@@ -42,3 +42,16 @@ The earlier HSR main `d5eaf369...` seven ASS [run #39896683223](https://github.c
 Foundry searches on ContextVar copy, inherited HSR build marker lease, and nested publisher marker return no equivalent prior Bug. The earlier `inbox/bugs/2026-10-23-hsr-build-marker-vs-mkv-seal-verification-deadlock.md` concerns owner marker erroneously blocking *its own* final seal; #206 concerns stale ownership still valid after it should expire.
 
 Pending: exact merged-main independent CI, a genuine parent/child asynchronous HSR production load, physical Termux user archive `evanescia` rerun, and hardware abrupt power interruption. Unit tests prove the copied-context mechanism; not all deployment failure modes have been accepted. Do not alter Canonical based on this one repair.
+
+## Exact merged-main CI follow-up
+
+At confirmed `main@16a81eb9ce68c0a9aa2f6a6113e3da1aedfff548`, five independent push-triggered checks passed:
+- [Python 3.11–3.13, real libass ink, Termux Lite #39908040327](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39908040327)
+- [Windows process output safety #39908040507](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39908040507)
+- [Pinned historical code interoperability #39908040387](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39908040387)
+- [Sustained cross-process job journal #39908040356](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39908040356)
+- [Pages #39908040531](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39908040531)
+
+[Seven ASS exact-main run #39908040355](https://github.com/11576865/HSR-Voice-Archive-Builder/actions/runs/39908040355) was in progress in FFmpeg/libass setup, **not reported as passing** yet. Its PR-head counterpart #39907888415 passed. The earlier #205 merged-main seven ASS #39896683223 was cancelled by 20-min setup timeout on first attempt and **succeeded on manual rerun attempt 2**, showing the actual product suite passes on that commit, but not proving all CI environments are reliable. Host apt/mirror cause not conclusively established. No physical HSR `evanescia` device confirmation.
+
+No Canonical promotion; field acceptance remains Pending.
