@@ -51,3 +51,17 @@ Searched Foundry prior to filing. This is distinct from:
 - `inbox/bugs/2026-10-20-hsr-hf-partial-file-false-download-success.md` (partial `.part` or invalid media classified as downloaded);
 - `inbox/observations/2026-10-11-hsr-remote-apply-preflight-not-transactional.md` (revision binding, task concurrency, publication transaction).
 This bug concerns **which language's otherwise-valid audio is being selected and adopted**. No automatic Canonical change.
+
+
+## Second engineering pass — row identity and legacy-source audit (2026-10-23)
+
+HSR PR #209 subsequently advanced to head `043b830e2e8d6a81d94a6b33a98137d74925fbd4`. Additional repair slices:
+
+- Read-only `app/incremental_locale_audit.py` examines old incremental apply receipts, current/initial source paths, original Quick Scan metadata and initial index; exposes identical `GET /api/update/locale-audit` in FastAPI and Termux, with an Update workspace button. It cannot infer spoken language or certify current source hashes, and it does not mutate files.
+- Critically, a locale-matched `result.json` row number is **not** itself download proof: dataset `/rows` may return a different row if upstream content changes. The downloader now checks row language, in-game path locale and relative file identity before reading `audio.src`.
+- Pre-existing WAV files without recorded row provenance are not accepted as valid locale-bound downloads. Stage/publish copies only the successful files from the current download result (not every file in a shared directory), validates extension/header and download-time SHA-256 before source publication.
+- Tests cover changed row language, changed row identity, old/unknown cache, staging whitelist and digest tampering, historical English receipt and absence/corruption of the original Quick Scan/receipt. Dataset-level (English/Japanese/Chinese/Korean) metadata is an external API assertion, not proof from a locally executed real download.
+- **Validation:** first PR head `1468da8` had successful Python unit (3.11/3.12/3.13) plus Termux, Windows writer, subtitle browser and journal workflows; one Seven ASS workflow was cancelled. Updated head `043b830` workflows were queued when examined. Do not promote this later head as CI green without its exact results.
+- Existing contaminated archives are not automatically repaired. Any restoration remains **FIELD-PENDING**, requiring verified original Japanese source and independent rebuilt audio acceptance.
+
+Intake: update existing Bug, distinct from older HF `.part` success and publisher concurrency cases. No Canonical promotion.
