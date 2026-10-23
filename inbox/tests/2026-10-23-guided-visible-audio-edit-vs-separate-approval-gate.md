@@ -24,3 +24,11 @@ QHE repair `2a14d882cb6184d7538b9da1ca2cfc6e474d32b5` replaces the stale negativ
 ## Evidence and limits
 
 On old exact head, 9 of 10 workflows were SUCCESS, including WU01 true Chromium Guided mixed-audio DOM workflow and CPU handoff, Windows smoke and UIGS Coverage; full frontend failed on this old expectation. The post-repair exact-head full frontend and affected workflows were **not yet evaluated** at the time of this intake. Do not claim the repaired PR merged, real user's Windows→Native single session proven, or B02/B04/B11 complete. No Canonical changes.
+
+## 2026-10-23 repaired-generation CI counterexample: omitted owner button in reduced browser fixture
+
+At QHE PR #130 head `1b09c5ac7838febdbaba189f03c0d3068f185423`, full frontend [run 39953246427](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/39953246427) still **FAILED** at `check-workbench-basic.cjs:58`, but for a new, concrete reason: Playwright's `locator('#guidedMixedAudioConfirm').isChecked()` timed out after 30 seconds. The reduced `/basic-fixture` had `<section id="planCard"></section>` without the production `#guidedToManual` button. The production implementation creates its approval checkbox only as an accessory to that button, so no checkbox could exist in this reduced fixture. This is **missing required fixture DOM**, not a failed Native backend or proof that the production click is absent in the actual app.
+
+One bounded repair committed to QHE as `ffa1ade0de442a4aa6536b0a9fee570342479a4b`: include the real `#guidedToManual` control in the reduced fixture `#planCard`. Keep the exact assertions that an explicit edit reaches the one formal per-stream owner, that consent remains unchecked, and that no task executed. The change does not alter product runtime or relax preservation/budget gates.
+
+Evidence status: **previous exact-head frontend failure observed / repair committed / repaired exact-head CI PENDING**. The prior Windows smoke, audio lock, task matrix and UIGS successes cannot be substituted for post-repair full frontend. No Canonical promotion.
