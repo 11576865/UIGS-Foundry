@@ -29,3 +29,13 @@ A **separate checkbox + Apply click** dispatches the whole recovered external me
 Searched `SHA-256 sidecar recovery explicit consent undo`, `external metadata checkpoint`, `rebind exact File digest user confirmation`, `portable project multi source recovery`. Related exact File identity and source-MKV SHA cases are not duplicate of the **external sidecar + cross-session metadata + consent + CAS undo** test class.
 
 Outside scope: source and external changes combined into one all-or-nothing portable replay; font File regrant; serialized browser handles; durable undo after page refresh; new Chapter/Tag writer. No Canonical promotion.
+
+## 2026-10-25 S09: single portable carrier without combined authority (Pending CI)
+
+Product [PR #202](https://github.com/11576865/MKV-Fast-Muxer/pull/202), head at intake `cc7f1a7dacaf9628d07811af76ace61b0ddb5a37`, adds one `softmux-workspace-recovery-bundle-v1` JSON containing an inert detached source-track/attachment draft and an optional inert external-audio/subtitle/sidecar checkpoint. This addresses the real user burden of separately exporting/importing two checkpoint files for a single workbench session. The bundle delegates parsing of each nested component to its **existing strict standalone parser**, rejecting unknown top-level keys, invalid nested schema, forged SHA/metadata, over-budget content and malformed JSON. Only after BOTH validate does the UI replace either pending-review draft.
+
+**Crucial limit:** A single delivery package is not a single authority or transaction. The actual source File and external File/sidecar objects must be freshly granted after refresh, verified against the nested full-byte hashes, reviewed and explicitly applied **separately** using the pre-existing recovery paths. Neither bundle import nor complete nested parser validation changes the executable mux plan, applies edits, restores fonts, grants writer permission or simulates atomic rollback.
+
+Node regressions cover valid dual packaging, optional external content, malicious unknown fields, false nested SHA, malformed nested content, size and JSON rejection. A real Chromium mixed source+ASS+font workbench scenario exports the bundle, imports it and asserts both scopes remain awaiting independent consent and cannot alter the actual plan; invalid nested external metadata rejects the whole import and retains the prior staged checkpoints. **Exact-head Node/build/Chromium CI is pending at this intake, not accepted evidence.**
+
+**Deduplication:** This extends this existing Test because it composes the same already-recorded external checkpoint with the existing source verified-delta restore; it does not assert or introduce a universal `multi-domain atomically restorable project` rule. No Canonical promotion.
