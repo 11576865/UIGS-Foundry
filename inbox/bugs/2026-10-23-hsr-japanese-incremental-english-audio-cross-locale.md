@@ -88,3 +88,8 @@ The original wrong-language Bug #209 is now **merged** to HSR `main@63cfc2e4e510
 **Acceptance boundaries:** PR #210 at `74cc3768f1f1fb9f35f6ed156453c8aa21bdb2d2` awaits exact-head CI at time of intake. No live audio, user-device playback or full archive rebuild accepted. The new CLI permits a later independent real metadata parity check; running mocked tests is not that check. Even successful metadata parity does not establish spoken Japanese. Existing Canonical entries remain unchanged.
 
 **Dedup:** Retained in this Bug rather than creating another record because the failure is a narrower provenance/row-identity subcase of the same Hugging Face incremental-apply chain. Distinct from the older `.part` false-success Bug, which concerns byte validity not target identity. Lifecycle remains `validation-pending`.
+
+
+### 2026-10-24 Product UI evidence follow-up
+
+HSR PR #210 head `7f3f731c80ddfcb806523bb8408760a91a8ebe5e` adds read-only `POST /api/update/probe-japanese-rows` on both FastAPI and Termux; the Update workspace shows an explicit probe action, metadata parity count and success/failure. It uses a previously cached large `result.json` file and queries Hugging Face row metadata only; missing cache fails explicitly instead of silently downloading WAVs. The `locale-probe` background job fails if sampling is incomplete or any row identity changes, rather than reporting generic task success. The same work improves isolated recovery UI reporting to show the candidate path or failure. Full exact-head CI, live HF metadata checks and actual Japanese listening remain Pending. No Canonical promotion.
