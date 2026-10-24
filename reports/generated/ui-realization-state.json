@@ -116,7 +116,7 @@
           "path": "app/static/index.html",
           "expected_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf",
           "verified": true,
-          "current_blob_sha": "024a334c6c8b70cbb5c445714a3b03cb00c99c2b",
+          "current_blob_sha": "fcdfede9d8c1a8bfeacc3b700b8485c4c084c78f",
           "current": false,
           "actual_blob_sha": "39758a7d248f490c083322e0e7fae9a291fffdbf"
         }
@@ -132,7 +132,7 @@
         }
       ],
       "source_verified": true,
-      "current_head": "16a81eb9ce68c0a9aa2f6a6113e3da1aedfff548",
+      "current_head": "0dac59fdcff6639e2c397ada09cbd49746daf7ab",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
@@ -180,7 +180,7 @@
         }
       ],
       "source_verified": true,
-      "current_head": "2b33a0d0bda4533d8e2d2d064fec963d652906f3",
+      "current_head": "392b4f591bfd0f100d5a74e8b978365f7d2326ce",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
