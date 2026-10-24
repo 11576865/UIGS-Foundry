@@ -33,3 +33,13 @@ An importer's typed-field normalization boundary must distinguish **recognized s
 ## Dedup
 
 Searched Foundry for `ASS Text trim whitespace raw preserve`, `opaque vendor columns`, `AssCodec` and `trim()`. No exact record found. The adjacent 2026-10-24 ASS Compose lazy-directory/IME observation concerns a different interaction failure.
+
+## 2026-10-24 implementation continuation — Android Save/Readback integration
+
+The initial patch's GitHub Actions generation (branch checkpoint `c00c27e2`) failed **before full test execution**. Both [FIXED branch validation run 40080008476](https://github.com/11576865/ASS-Workbench-Android/actions/runs/40080008476) and [Emulator run 40080008481](https://github.com/11576865/ASS-Workbench-Android/actions/runs/40080008481) stopped at `:app:compileDebugAndroidTestKotlin`. Job log pinpoints `EditorRegressionInstrumentedTest.kt:2058`: Kotlin rejects an impossible `ComposeTimeoutException` type check against `Exception` (the Compose timeout is an `AssertionError`). This is an unrelated **test-harness compile blocker**; it is not evidence that the ASS parser repair passed or failed its new assertions.
+
+Repair commit [54489d43](https://github.com/11576865/ASS-Workbench-Android/commit/54489d43a091a3f3ca501b6a01b0b88f6d614720) changes the bounded IME handling to `catch (Throwable)` but only treats the two expected transitional errors (`NoMatchingRootException` / `ComposeTimeoutException`) as acceptable **when current Activity insets prove IME hidden**. Unexpected exceptions and unknown/visible IME remain strict failures. The failure mechanism and the new guard are source-reviewed; new exact-head compilation remains pending.
+
+Added Android instrumented integration in [a457cb9f](https://github.com/11576865/ASS-Workbench-Android/commit/a457cb9f133b73575a106d817aa8532829173a3b): the real `EditorViewModel.applyEventEditReview` performs all five groups with one Undo/Redo; `EditorViewModel.saveTo` invokes production `SafeSubtitleSave` against the existing debug ContentProvider with read-back; the test decodes and reparses the saved bytes, asserting exact `Text` whitespace/ASS tags, custom Event/Style columns, sibling Event, unknown sections, and no false dirty state.
+
+**Status:** test source committed, JVM and Android execution PENDING. No user-file reproduction, emulator success, or Canonical promotion is inferred.
