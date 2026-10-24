@@ -163,3 +163,11 @@ HSR [PR #215](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/215) ad
 **Evidence status at intake:** HSR PR #215 final-head CI/merge pending. Real user original voice archive, real Japanese playback and complete semantic mapping remain unavailable. Keep this existing Bug's `Lifecycle: validation-pending`; no Canonical change.
 
 **Dedup decision:** extend existing Japanese source-recovery chain Bug instead of a separate bug/candidate. Reusable principle is separating original-source provenance, builder output checks, current final-media equality, and human semantic/language judgment.
+
+### Exact-head CI, real FFmpeg proof and merge closure — 2026-10-24
+
+HSR PR #215 final head `57d8bdf9eb17a63ee84c48591372c75cdd0fe09e` passed all six workflow gates, including Python 3.11/3.12/3.13, Termux Lite, browser/libass, Windows job journal and sustained concurrent safety. The media-capable runner explicitly executed **24 real FFmpeg tests** (rather than skipping FFmpeg-dependent tests), including full-stream FLAC assembled PCM match, valid-but-wrong FLAC rejection, actual Matroska remux, and real two-FLAC MKV continuous-first/default-track choice and swapped chapter-primary rejection. Head squash-merged into HSR `main@0dac59fdcff6639e2c397ada09cbd49746daf7ab`.
+
+Initial PR branch had a temporary invalid multiline import in both web servers, caught by Python compile/Termux CI and corrected before green exact-head merge. This demonstrates why even small changes to shared adapter import structures must pass full compile gates.
+
+**Boundary:** this closes programmatic final-PCM continuity verification for an attested candidate but cannot recognize acoustic Japanese or independently verify that indexed dialogue labels match speech. User's actual source archive and listening review have not been examined. Retain `Lifecycle: validation-pending`; no Canonical promotion.
