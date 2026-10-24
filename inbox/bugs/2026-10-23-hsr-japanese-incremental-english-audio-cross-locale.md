@@ -127,3 +127,9 @@ HSR [PR #213](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/213) im
 **Status at intake:** PR #213 exact-head Python 3.11–3.13, Termux Lite and media unit tests passed (synthetic Japanese-text WAV tone samples; tones do not establish spoken Japanese). Full six-workflow CI and merge still pending. No user source archive or actual Japanese listening review available, so Lifecycle stays validation-pending. No Canonical changes.
 
 **Dedup:** attached to existing HSR Japanese contamination/recovery Bug rather than creating a separate source-audio Bug. Reusable pattern: field-level claims need side-by-side input/output playable evidence and explicit human sign-off, separate from cryptographic structural validity. Treat as observation only until independently applied in another project.
+
+### 2026-10-24 exact-head CI closure and merge — Japanese listening pack
+
+HSR PR #213 final head `bdd3c151095f8b3cc888e94c5372d13370c521d4` passed **all six** exact-head CI workflows, including Python 3.11/3.12/3.13, Termux Lite, actual FFmpeg source/final audio pairing test, non-silent decoded final PCM, browser/libass, Windows safety, Seven ASS, pinned legacy and concurrent journal tests. Merged into HSR `main@b81818331122cadc179dde7c71490a275b1b9c77`.
+
+A stale pack is rejected from the active candidate if its source archive, build Manifest or final media changes. A completed human review checklist remains separate from this automated proof: **NO real user's Japanese WAV was heard, NO human listening decision was collected, and no acoustic Japanese-language acceptance can be asserted**. Keep lifecycle `validation-pending`; no Canonical updates.
