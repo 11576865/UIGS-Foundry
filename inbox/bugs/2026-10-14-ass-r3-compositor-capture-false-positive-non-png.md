@@ -195,3 +195,31 @@ and `docs/FIXED-V11-EVENT-INSPECTOR-2026-10-24.md`.
 The new UI package remains Pending Kotlin/Android/native visual validation.
 This refines the same existing foreground/evidence Bug; no separate Candidate
 or Canonical promotion.
+
+
+## 2026-10-24 — full bounded tablet capture transport verified; design gaps observed
+
+For product source `89f69e97cd001f7522eea2f45ace5622d4272626`,
+emulator run `40016179217`, both bounded visual jobs succeeded.
+Complete ordered runner envelopes were reconstructed locally and independently
+SHA256-checked and PNG-decoded:
+1440×900, 143771 bytes,
+`7f244ee4e7176b6af5d74eb1d3d69299f7e012374b87907908f4581388e07f6c`;
+1024×768, 92442 bytes,
+`fff425c5ce4efffb1901eca6b0486a5daf2a65eddd220e2ac4ef31c2b77a6a49`.
+Source/JVM run `40016179211` succeeded. Projections passed22 tests, but the
+full suite remained failed:181 tests/6failures/0errors/0skipped.
+
+Actual examination against Figma85:3 and85:942 exposed structural differences:
+extra command/header rows, absent compact rail/central Raw dock, compact inspector
+near half-screen, and repeated inner inspector chrome. Those observed gaps
+motivated a coherent product layout correction
+[`994dd94a`](https://github.com/11576865/ASS-Workbench-Android/commit/994dd94ac25f376d3f84b878c9739c865869ed52),
+documented in `docs/FIXED-V11-NATIVE-VISUAL-AUDIT-2026-10-24.md`.
+The new correction is Pending Android/native validation.
+
+This is the first confirmed complete dual-size native recovery and actual
+design comparison for this branch, not pixel parity or real-media acceptance.
+The fixture has two Events and renderer disabled. No cross-project generalization,
+separate duplicate Candidate or Canonical promotion; append to the existing
+capture/evidence Bug lineage.
