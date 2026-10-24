@@ -109,3 +109,11 @@ Source-level repair is therefore **MERGED / AUTOMATION-VERIFIED** for the same-l
 Tests exercise changed original source, changed CSV, diverted project source, missing attestation, legacy candidate rejection, after-build manifest mismatch, and offline ZIP-to-manifest rendering of two distinct chapter WAV/LAB identities with original outputs untouched.
 
 **Acceptance boundary:** HSR PR #212 exact-head CI still pending on 2026-10-24. New proof verifies the originally scanned **bytes and member identities**, not acoustic language or translation correctness. No real archive downloaded/modified, and no automatic Canonical update. Keep this Bug `validation-pending`, distinct from the previously fixed wrong-locale HF download and separately recurrent Termux basename flattener.
+
+### Exact-head verification / merge closure for source attestation (2026-10-24)
+
+HSR [PR #212](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/212), exact pre-merge head `1080c624812b4011b8cef129decd3501acb0f0e7`, passed **all six GitHub Actions workflows**: Python 3.11/3.12/3.13, Termux Lite, real-libass unit evidence, Chromium UI, seven ASS requirements, Windows writer safety, legacy interop/process-exit recovery and sustained concurrent journal tests. Squash merge to `main` was confirmed at `f295acefa8a64deb66fd16e747630744e288f854`.
+
+An explicit `recovery_source_attestation_required` project field prevents deletion of the candidate's receipt from bypassing verification. Old un-attested recovery sibling directories fail closed. The offline full Quick CSV → original ZIP of valid PCM + two identical `same.wav` basenames in different chapters + distinct Japanese LAB → actual `build_project_v02` → source/member-validated Manifest test passed in the CI matrix. Browser displays a separate “source-members verified, still requires listening” status rather than claiming true spoken Japanese.
+
+**Lifecycle remains `validation-pending`:** source-byte and generated-member provenance are automation-verified, but no actual user archive, voice playback or linguistic Japanese verification was performed. No Canonical promotion.
