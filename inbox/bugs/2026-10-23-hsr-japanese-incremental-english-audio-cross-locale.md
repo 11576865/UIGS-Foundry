@@ -143,3 +143,11 @@ A stale pack is rejected from the active candidate if its source archive, build 
 **No inference of actual human action:** source code and tests cannot verify that a person actually listened, so the receipt is explicitly marked `user-reported` rather than an independent acoustic proof. A pass applies to checked samples only, not whole-archive coverage, source-language detection or user data. No real game audio was provided. Exact-head CI pending at intake. Lifecycle remains `validation-pending`; no Canonical promotion.
 
 **Dedup:** added to existing HSR 2026-10-23 Japanese contamination/recovery Bug after Foundry lookup, not a parallel Candidate; evidence-loop pattern may inform future cases but requires independent corroboration.
+
+### Actual media gate and merged main — 2026-10-24
+
+HSR PR #214 final head `08f071f4ca34cb55714e34d7828b00c6da8a1558` passed all six exact-head workflow gates and was squash-merged to `main@47971a518d203673b7e968393aa65f27a78311de`. Import/history endpoints, browser import action, evidence-bound manual records and immutable submit-history are now on main.
+
+**Separate CI correctness observation:** an initial six-green run was insufficient: the Python 3.11 unit log explicitly showed `test_manual_review_round_trip_is_bound_to_pack_and_append_only` and other original/final media tests `skipped 'requires FFmpeg'`. Existing `real-libass-ink-evidence` runner had FFmpeg installed but only executed `tests.test_libass_ink_layout`. PR #214 added `python -m unittest tests.test_japanese_listening_pack -v` to that actual media runner. Final run 40073866087 confirmed all **9 tests executed and passed** with no media-test skip, including actual local FFmpeg source/final clipping and review import. Reusable lesson: a green CI job cannot substantiate claims for a dependency-skipped test; use an explicit hardware/runtime-capable test gate and inspect individual test logs.
+
+The fixtures used synthetic tonal PCM WAVs with Japanese **text**, not real Japanese *spoken speech*. CI proves tool mechanics and evidence linkage; the user's true Japanese archive is still not available or heard and user-authored review records were not provided. Keep `Lifecycle: validation-pending`; no Canonical modification.
