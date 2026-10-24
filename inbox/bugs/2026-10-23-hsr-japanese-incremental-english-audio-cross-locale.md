@@ -93,3 +93,9 @@ The original wrong-language Bug #209 is now **merged** to HSR `main@63cfc2e4e510
 ### 2026-10-24 Product UI evidence follow-up
 
 HSR PR #210 head `7f3f731c80ddfcb806523bb8408760a91a8ebe5e` adds read-only `POST /api/update/probe-japanese-rows` on both FastAPI and Termux; the Update workspace shows an explicit probe action, metadata parity count and success/failure. It uses a previously cached large `result.json` file and queries Hugging Face row metadata only; missing cache fails explicitly instead of silently downloading WAVs. The `locale-probe` background job fails if sampling is incomplete or any row identity changes, rather than reporting generic task success. The same work improves isolated recovery UI reporting to show the candidate path or failure. Full exact-head CI, live HF metadata checks and actual Japanese listening remain Pending. No Canonical promotion.
+
+## 2026-10-24 CI closure — HSR PR #210 merged
+
+HSR [PR #210](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/210) merged to main as `a0ee60a58a05793701377c4a26095c5e4f10fa3d`, exact proposed head `4922d5503aebbf4e6b41d2e0c0d5bff16a6cb8ec`. The six exact-head GitHub Actions workflows completed `success`: tests (Python 3.11/3.12/3.13, Termux Lite, real-libass ink), subtitle browser evidence (Chromium + libass artifact), Seven ASS requirements, Windows writer and journal safety, sustained concurrency, and pinned legacy interop/process-exit recovery. Source inspection of `main` confirmed `app/hf_locale_probe.py` and strict `identity_unverified` filtering.
+
+Source-level repair is therefore **MERGED / AUTOMATION-VERIFIED** for the same-locale row identity regression. The original end-user Japanese archive was not accessed, so actual WAV spoken language, Japanese remote network parity and archive reconstruction remain **FIELD-PENDING**; keep Lifecycle `validation-pending` and do not modify Canonical.

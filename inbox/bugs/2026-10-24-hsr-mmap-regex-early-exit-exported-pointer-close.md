@@ -1,7 +1,7 @@
 # Bug — HSR Japanese HF metadata probe early exit retains mmap regex exported pointers
 
 Date: 2026-10-24
-Lifecycle: validation-pending
+Lifecycle: regression-verified
 Project: `11576865/HSR-Voice-Archive-Builder`
 Scope: Python resource lifetime / read-only dataset metadata scanning
 Repair PR: https://github.com/11576865/HSR-Voice-Archive-Builder/pull/210
@@ -28,3 +28,7 @@ HSR commit `4922d5503aebbf4e6b41d2e0c0d5bff16a6cb8ec` adds a `try/finally` insid
 Foundry search for `BufferError cannot close exported pointers exist mmap`, `regex iterator memory map close early exit`, and `mmap finditer iterator release before close` found no existing duplicate. This bug differs from the HSR cross-locale audio provenance Bug: it concerns Python iterator/mmap object lifetimes when *short-circuiting* a read-only scan.
 
 Reusable engineering rule candidate (not Canonical): Python mmap scanners that stop early must release all `re.Match`/iterator references before closing the map, or convert to non-exporting buffer slices after bounded copy. CI should include an early-break test, not only full-file exhaustion.
+
+## Final exact-head CI / merge evidence — 2026-10-24
+
+The `try/finally` correction at exact HSR PR #210 head `4922d5503aebbf4e6b41d2e0c0d5bff16a6cb8ec` passed the entire Python 3.11, 3.12 and 3.13 matrix, Termux Lite, and other six workflow gates (including native browser/libass). The previously reproducible `BufferError` in the first-samples early exit did not recur in those tests. PR #210 was merged as `a0ee60a58a05793701377c4a26095c5e4f10fa3d`. This is automated regression verification, not proof of real HF row parity on the user's device. Lifecycle may be considered `regression-verified` for the mmap bug only; no Canonical change.
