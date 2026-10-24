@@ -23,3 +23,13 @@ This is a specific observation/candidate test pattern, **not an established Univ
 ## Foundry dedup
 
 Searched `Compose LazyColumn semantics virtualized scroll search keyboard`, `LazyColumn virtualized search scrollToNode`, `IME stale WindowInsets detached root` and similar terms. No exact matching record found; adjacent canvas/camera and draft-ownership records address different behavior. This record does not change Canonical specifications.
+
+## 2026-10-25 continuation — Event navigator row detaches across responsive host recreation
+
+A distinct exact-head failure was observed at ASS branch `184403cbc649c19926348d623477bd121fc0969a`, [Android emulator run 40105502278](https://github.com/11576865/ASS-Workbench-Android/actions/runs/40105502278). Source/JVM [40105502131](https://github.com/11576865/ASS-Workbench-Android/actions/runs/40105502131) succeeded, while the emulator editor-regression suite emitted an XML receipt with **28 tests / 2 failures / 0 errors / 0 skips** before job failure. The two native tablet screenshot evidence jobs passed separately; no full-suite success or visual parity can be inferred.
+
+The rotation scenario changed window size/density to tablet and back, re-entered the subtitle navigator, waited for `event-row-1` to exist, then called `performScrollTo()` on that row. The logged failure was **"The node is no longer in the tree"** for precisely that tagged row at `EditorRegressionInstrumentedTest.kt:926`; the last-known semantics still contained the expected Event #1 and text. Existence before an action did not guarantee that the target remained a stable scroll authority across responsive host recreation.
+
+Product-side proposed correction [5037c4dd](https://github.com/11576865/ASS-Workbench-Android/commit/5037c4dddb924dda9d53df84ced96341bace24a6) tags the owning Event `LazyColumn` as `event-results-list`; instrumented repair [db4bd189](https://github.com/11576865/ASS-Workbench-Android/commit/db4bd189a8d641ad1762c678f31ee7583bff5882) uses `performScrollToNode(hasTestTag("event-row-1"))` on the list, then still demands that the actual Event row be visible and clickable and that the correct editor draft survives. This does not skip the navigation or relax document-preservation assertions.
+
+The second failed case (`batchKaraokeRevealControlsStayPreviewOnlyUntilCommit`) was listed with an empty failure detail in the compact receipt and is **not diagnosed or marked repaired**. The current row-navigation change remains a candidate until exact-head Android emulator evidence is available. Related prior observation on the tool-directory lazy list and IME stale roots is close enough to extend this record rather than create a duplicate. Canonical remains unchanged.
