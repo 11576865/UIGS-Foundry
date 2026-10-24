@@ -3,8 +3,8 @@
 Date: 2026-10-24
 Project: `11576865/HSR-Voice-Archive-Builder`
 Evidence: user-reported Android/Termux build failure; [HSR PR #216](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/216)
-Status: **Bug / Candidate — source-level diagnosis, fix submitted; CI and device rebuild pending**
-Maturity: observed failure + isolated deterministic reproduction; **not Canonical**
+Status: **Bug / Candidate — code merged and PR CI passed; physical Termux rebuild pending**
+Maturity: observed failure + isolated deterministic reproduction + passing PR CI + merged implementation; **not Canonical**
 
 ## Symptom
 
@@ -36,7 +36,7 @@ Applicable to NLP tokenizers, parsers, vendor SDKs and other iterable object ada
 - User screenshot: reported failure and abbreviated upper traceback.
 - Repository inspection: actual `_cut_words` and orphan guard mismatch.
 - Deterministic reproduction: isolated tuple-indexing behavior.
-- Product patch: submitted, **not yet merged**.
-- Full CI and Termux physical build: **Pending External Validation**.
+- Product patch: **merged as PR #216** into HSR main at merge commit `19145b4ec7cba4c96da0a818c7ee35944cd0dd9e`.
+- Exact PR-head CI: **5 workflows passed** (`tests`, HSR seven ASS requirements, sustained concurrent job journal regression, Windows writer and journal safety, pinned legacy interop and process-exit recovery). New main/merge-head CI not assessed here. Termux `evanescia` physical rebuild: **Pending External Validation**.
 - Dedup check: searched Foundry for `jieba` and `subscriptable`. The adjacent [2026-10-15 HSR Termux JSON/form type-erasure bug](https://github.com/11576865/UIGS-Foundry/blob/main/inbox/bugs/2026-10-15-hsr-termux-background-json-form-type-erasure.md) concerns another adapter type-contract failure, not a duplicate; preserve as a separate bug case.
 - No Canonical promotion from this single incident.
