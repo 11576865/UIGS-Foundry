@@ -17,7 +17,7 @@
   ],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/QHE/QHE.WINDOWS_NATIVE.RUNTIME_DESKTOP_DARK.png",
   "source_repository": "11576865/Quick-Automatic-Hardsub-Encoder",
-  "source_revision": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+  "source_revision": "aa466c92ace7aad40209a3f49a77779ec4d18627",
   "sha256": "cef23421e1ed97780327de54989a23ae70a29b226780e732c3e4fc1ec9bf4321",
   "image": {
     "width": 1365,
@@ -51,13 +51,13 @@
     {
       "source_type": "repository",
       "source": "11576865/Quick-Automatic-Hardsub-Encoder",
-      "revision": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "revision": "aa466c92ace7aad40209a3f49a77779ec4d18627",
       "evidence_level": "runtime-backed"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/Quick-Automatic-Hardsub-Encoder:ui-visual-capture.json",
-      "revision": "c31f2ee6b61bb76341dba9b1527befc4420916fb",
+      "revision": "aa466c92ace7aad40209a3f49a77779ec4d18627",
       "evidence_level": "source-owned capture declaration"
     }
   ]
