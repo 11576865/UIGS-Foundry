@@ -117,3 +117,19 @@ HSR [PR #212](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/212), e
 An explicit `recovery_source_attestation_required` project field prevents deletion of the candidate's receipt from bypassing verification. Old un-attested recovery sibling directories fail closed. The offline full Quick CSV → original ZIP of valid PCM + two identical `same.wav` basenames in different chapters + distinct Japanese LAB → actual `build_project_v02` → source/member-validated Manifest test passed in the CI matrix. Browser displays a separate “source-members verified, still requires listening” status rather than claiming true spoken Japanese.
 
 **Lifecycle remains `validation-pending`:** source-byte and generated-member provenance are automation-verified, but no actual user archive, voice playback or linguistic Japanese verification was performed. No Canonical promotion.
+
+## 2026-10-24 — human listening acceptance pack (field evidence preparation)
+
+After exact-source recovery and membership verification were merged in HSR PR #212, a remaining acceptance gap is that a correct manifest and source fingerprint **do not prove the content sounds Japanese or that the final encoded audio maps correctly to the transcript/time offsets**. Existing archive_audit.py is structural/byte-only and cannot satisfy the missing human voice-language check.
+
+HSR [PR #213](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/213) implements a specific field-evidence instrument: export a finite sample of *paired* original Japanese WAV clips and the corresponding time-positioned **finished FLAC/MKV** clips, requiring an attested isolated candidate and current original/source-member proof. Prioritize chapter-local same-basename collisions, then chapter coverage and distributed manifest samples. An offline HTML review page asks the actual human listener for language identity, spoken-source-text correspondence and source-vs-final sound correspondence, and exports a review JSON. Each evidence row includes member ID, subtitle text, audio timing and short-clip digests. Old/stale packs become invalid if the original source, manifest, or finished media changes. This is not automatic speech recognition, and a sampling PASS must not be elevated to a proof about all archive lines.
+
+**Status at intake:** PR #213 exact-head Python 3.11–3.13, Termux Lite and media unit tests passed (synthetic Japanese-text WAV tone samples; tones do not establish spoken Japanese). Full six-workflow CI and merge still pending. No user source archive or actual Japanese listening review available, so Lifecycle stays validation-pending. No Canonical changes.
+
+**Dedup:** attached to existing HSR Japanese contamination/recovery Bug rather than creating a separate source-audio Bug. Reusable pattern: field-level claims need side-by-side input/output playable evidence and explicit human sign-off, separate from cryptographic structural validity. Treat as observation only until independently applied in another project.
+
+### 2026-10-24 exact-head CI closure and merge — Japanese listening pack
+
+HSR PR #213 final head `bdd3c151095f8b3cc888e94c5372d13370c521d4` passed **all six** exact-head CI workflows, including Python 3.11/3.12/3.13, Termux Lite, actual FFmpeg source/final audio pairing test, non-silent decoded final PCM, browser/libass, Windows safety, Seven ASS, pinned legacy and concurrent journal tests. Merged into HSR `main@b81818331122cadc179dde7c71490a275b1b9c77`.
+
+A stale pack is rejected from the active candidate if its source archive, build Manifest or final media changes. A completed human review checklist remains separate from this automated proof: **NO real user's Japanese WAV was heard, NO human listening decision was collected, and no acoustic Japanese-language acceptance can be asserted**. Keep lifecycle `validation-pending`; no Canonical updates.
