@@ -41,3 +41,34 @@ Related Cases:
 - `inbox/cases/2026-10-14-mkv-batch-recipe-v2-explicit-review-to-frozen-per-output-job-plan.md` — external batch plan trust boundary, not unified single-task owner.
 
 Distinct new narrow principle: **cross-owner drift refusal and one shared semantic revision while existing adapters coexist**. Not enough evidence to modify Canonical standards.
+
+## 2026-10-25 S09 extension: cross-domain checkpoint replay must compile before publishing (Pending exact-head CI)
+
+Product [PR #203](https://github.com/11576865/MKV-Fast-Muxer/pull/203) upgrades the prior single JSON carrier to a **bounded one-revision recovery transaction**. Before any user-facing executor row changes, the implementation requires the current source Full SHA-256 verdict, an independently hashed external File/sidecar checkpoint, consistent exact in-session File references, original read-only source intent conflict analysis and a still-current shared `ContainerProject` generation. It performs the source replay on shallow in-memory executor shadows, compiles source track/attachment and external metadata changes into a fresh immutable project, checks mutation eligibility before publication, and exposes a **separate real confirmation** action.
+
+The resulting single synchronous commit publishes the new project to both bounded source/external sessions alongside the actual executor rows; a scoped inverse requires that exact accepted project and external File/current-source bound references, refusing later edits. The browser workflow retains legacy single-domain recovery as a fallback and tests combined review/apply/inverse across a real reload, while keeping the actual MKV native ffprobe independent acceptance canary.
+
+The first exact-head CI for product head `af1b83e185ce497723ddc059a2758889e3732bf3` was **red** (6 of 740 Node tests failed before media), caused by an added external witness comparison against a non-existent `ref.row` property. Existing `prepareExternalMetadataRecovery` intentionally returns *File/sidecar/format/identity* witnesses without granting a mutable row reference; the one live external domain adapter separately verifies bound executor row identity. Product head `3b0fd6113a2c37834f3ae7b8e80b3a91fc0dbbe0` removes this invalid duplicate row comparison while preserving all real identity/byte checks. **Exact-head Node, full Chromium and S12 CI are pending** at this intake. Do not carry over the earlier failing/partial status as success.
+
+**Knowledge and scope:** This is a concrete extension of the existing cross-owner precommit guard Candidate, not a new canonical law. One-revision semantic state does not grant Writer or filesystem authority, prove physical durability, restore browser File handles after refresh, cover arbitrary Chapters/Tags/Font editing, or guarantee all possible JS runtime throws cannot occur after publication. Do not promote to Canonical on a single project instance.
+
+### 2026-10-25 external PR review hardening (latest product head `57ab1ca1ccc6f24e91393d913daaef41395ab9e5`)
+
+Review found two additional boundary counterexamples and required explicit tests rather than assuming the happy path:
+1. **Finite semantic history vs immediate inverse:** A combined transaction could consume the 100-history-entry `ContainerProject` edit budget, leaving no capacity to undo even without intervening edits. The product now compacts semantic edit history before extending both forward and inverse edits (with existing live adapter policy semantics); a Node regression starts near this limit, verifies accepted two-domain changes and immediate whole-transaction inverse. Compaction is not audit-log durability or proof that earlier edits occurred.
+2. **Late preservation-mode flip:** Preparing source edit replay in selective mode and then enabling MKV 'preserve all' can make restored source fields non-executable although external fields still take effect. Final atomic confirmation now denies `appendMode=true` in the domain API and front-end; Node regression verifies no half-commit after this mode flip.
+
+First red CI also revealed two copies of the same mistaken assumption that external checkpoint witnesses carry mutable `row` references; the existing standalone checkpoint only serializes `File`, `sidecar`, `format` and `identity`. The new atomic recovery uses live domain verification and the actual current contextual editor row for semantic comparisons, rather than promoting a nonexistent `ref.row`.
+
+These are **Candidate-level scoped findings** until exact-head full Node/Chromium/S12 green. Product PR #203 remains open. No Canonical alteration.
+
+### Final product acceptance evidence (2026-10-25)
+
+Product [PR #203](https://github.com/11576865/MKV-Fast-Muxer/pull/203) completed **exact-head** verification at `57ab1ca1ccc6f24e91393d913daaef41395ab9e5`; all three independent CI workflows succeeded:
+- [Node tests, Vite build and Pages workflow](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40191731512).
+- [Complete real Chromium browser-mux E2E](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40191731493), including current modern source/FLAC cross-refresh, two independent SHA proof paths, combined explicit apply, combined undo, retained legacy separate restore, actual final MKV `ffprobe` assertions, and full S10 batch suite.
+- [Scoped S12 actual large-media CI](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40191731498).
+
+Only after confirming the exact PR SHA and all three green results was PR #203 squash-merged to main as `c615f75c2bb975c58830a625fa15f35168da8e97`. The new bounded source/attachment plus external-track recovery is accepted **within these evidence limits**; this Foundry Candidate is not an approval of arbitrary cross-domain rollback or fully persistent project restore.
+
+**Separate knowledge system status:** Foundry PR #56 remains Pending while its repository-wide `Validate Foundry` action fails from unrelated legacy Bug records' missing/invalid `Lifecycle` keys. The Candidate content is committed to a review branch, but not merged into Foundry main; no Canonical change is made.
