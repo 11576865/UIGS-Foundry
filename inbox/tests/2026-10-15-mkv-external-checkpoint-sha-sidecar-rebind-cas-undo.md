@@ -56,3 +56,16 @@ Product CI head `3c9338d9e6b8b43fb97630f59b2b7ae3970215e3` added a real Playwrig
 Product follow-up head `207d088817aaf4ffc7de9bde36aa4513478f60c4` corrects the full browser scenario to **open the user-visible recovery disclosure before clicking**; the modern UI also relocates bundle status inside the disclosure and automatically opens it after a combined file is selected, with copy explicitly preserving separate recovery authority. The early-return state feedback and disabled readiness checks remain useful safeguards but must not be mislabeled the sole proven root cause. **Exact-head full Chromium result is pending**, so the regression remains Test/Pending, not accepted.
 
 Transferable test oracle: for current production UIs that rehost controls inside progressive disclosures, asserting a DOM ID exists or `isDisabled() === false` is insufficient evidence that the control is reachable by an actual user interaction; the test must navigate the visible disclosure first, then verify `isVisible()` and execution effects.
+
+## 2026-10-25 final scoped acceptance: combined S09 carrier merged
+
+Product [PR #202](https://github.com/11576865/MKV-Fast-Muxer/pull/202) squash-merged to main as `e44e47608650b1289e0d32b02601f986a477f2bf` after exact PR-head `e8e29f274eb99313c3a24dcb24652d9646f9244c` passed:
+- [Complete Chromium browser mux E2E, including real source/ASS/font combined-bundle export, inert re-import and invalid nested external checkpoint rejection](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40177174060).
+- [S12 scoped real large-media acceptance](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40177174031).
+- [Pages Node/build workflow](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40177174034).
+
+Observed browser test corrections were concrete: (1) the real progressive disclosure `#sf14Recovery` must be opened before expecting its export button to receive pointer/click events; (2) its outer `> summary` must be selected, not every nested `summary` in source-intent/conflict sections. The accepted user-facing UI retains the default-collapsed recovery disclosure, rehosts the bundle feedback inside it, automatically opens after file selection, and preserves independently checked source/external permissions. Node contracts enforce strict nested parsers and no automatic authorizations.
+
+**Evidence boundary:** accepted for the tested browser-local bundled *metadata carrier and inert import*. This is **not** evidence for an atomic combined source+external replay, retained user-granted File handles after refresh, unsupported font/extra media persistence, arbitrary MKV writer eligibility or physical-device cross-browser compatibility. Keep this entry a Test, not Canonical.
+
+**Foundry merge state:** the present Foundry PR #55 remains Pending because its repository validation fails on existing unrelated historical Bug documents lacking valid `Lifecycle` fields. Do not suppress validation or mark the Foundry PR itself merged without a green merge receipt.
