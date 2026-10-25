@@ -32,3 +32,15 @@ At exact head `54874081d2f5f9eb4d5f11ff10668b1d0a206864`, [WU02 Windows run 4019
 - **Evidenced:** real Windows available-space measurement; output-volume rather than input-volume authority; simulated insufficient-space branch in production logic; actual read-only + directory CreateFiles ACL denial; same-stage retry; full Chromium/Native double-source delivery.
 - **NOT evidenced:** real disk exhaustion mid-copy, cross-physical-volume or network/USB test media, 4 GiB+ actual encoding and transfer, concurrent external disk consumption, user-operated Save dialog on a physical device.
 - **No Canonical modification** from this first independent case. As of log entry the full PR's separate Windows VVC runtime CI remains in progress and PR is **not merged**.
+
+## Final exact-head CI and merge closure
+
+At QHE PR #145 exact HEAD `54874081d2f5f9eb4d5f11ff10668b1d0a206864`, **all 10 applicable GitHub Actions workflows completed SUCCESS**, including [real Windows WU02 run 40191481288](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/actions/runs/40191481288), Windows Local Smoke, required VVC runtime and Windows codec/stream plan checks. PR [#145](https://github.com/11576865/Quick-Automatic-Hardsub-Encoder/pull/145) was **squash-merged** into `main@15d97b4f64441c4f0c135541d81346f99b9d7c6b`.
+
+The exact production `main` source was re-read after merge, confirming one `Assert-NativeOutputVolumeSpace`, Win32 `GetDiskFreeSpaceEx`, PowerShell `[UInt64]` numeric capacities, a reject-on-readonly output guard and **two actual calls** to the volume space authority (full Native Job + sample exports), along with the checked-in independent Windows storage test.
+
+**WU18 bounded confirmed behavior**: actual destination-volume free-space preflight; deterministic low-capacity refusal without touching old bytes, stage, or other queued jobs; 64-bit six-billion-byte numeric safe path; Windows read-only target refusal; genuine Windows NTFS **directory CreateFiles deny** actually blocked temporary output copying; restoring directory ACL and same staged bytes succeeded without re-encode. Shipping V3 Chromium Native batch completed two separate FFmpeg jobs and two saved artifacts through an injected space-insufficiency failure and Save-only retry (four save attempts). WU13–WU17 regressions also passed.
+
+**Explicit NOT VERIFIED:** actually exhausting an output disk while copying, cross-physical-volume or removable/SMB/cloud destinations, multi-gigabyte genuine exports, selected OS dialog on physical user workstation, arbitrary third-party file lock behavior and cross-process adversarial races. A capacity check does not reserve bytes. No Canonical promotion; the standalone Test is kept distinct from WU15–WU17 output-identity Bug.
+
+**UIGS Intake**: found no existing corresponding QHE WU18 test in Foundry prior to initial write; kept one dedicated Test rather than duplicating the original-source-protection Bug. Status now `EXACT_HEAD_CI_VERIFIED_AND_MAIN_MERGED`; not Pending.
