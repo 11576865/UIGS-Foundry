@@ -13,7 +13,7 @@
   "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
   "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-  "sha256": "a8d2a3727bb6a6a89eea69fbd8f94f61bd19f5c325755a53e654caca32c5ba27",
+  "sha256": "d5a6d0276aeb8c72053097afac9bfa790ad99085e0c112a2b7b1a6fe50e3c24b",
   "image": {
     "width": 1600,
     "height": 1000
@@ -64,7 +64,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "05f1ca370e7ec216f3e94aeccd2ea84cb1f29ef1d0f00816d311beb4fe6b2b2c",
+  "previous_sha256": "a8d2a3727bb6a6a89eea69fbd8f94f61bd19f5c325755a53e654caca32c5ba27",
   "limitations": [
     "This initial state captures the full running APK but does not load a video or ASS fixture.",
     "Renderer-backed subtitle/video states require a later fixture-backed capture."

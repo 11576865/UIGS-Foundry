@@ -69,8 +69,8 @@
       "settle_ms": 250
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "3b347834a6ecb022d1c2ea204d5c9f17e10f962316e97071b099028ce056f867",
+  "change_status": "unchanged",
+  "previous_sha256": "e4133bf6610718f919782ddd00099b68200081c4808cb62ad9eecdfd07d0bd41",
   "limitations": [
     "Uses the debug-only regression host to inject deterministic app state while rendering the production ModernEditorScreen and EditorViewModel.",
     "Renderer/video runtime pixels are not active in this fixed-tool state.",

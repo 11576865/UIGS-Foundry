@@ -19,7 +19,7 @@
   "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
   "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-  "sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
+  "sha256": "853b7c689c7cc9bb0578b0b81e1440698071679ebe75a3a87d398871b27e8f85",
   "image": {
     "width": 1600,
     "height": 1000
@@ -76,7 +76,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "dda6f769d62521440d26287be175a60e3f7ff5d5c37ffac41eab16cb6299cc70",
+  "previous_sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
   "limitations": [
     "Uses the debug-only regression host to inject deterministic app state, while rendering the production ModernEditorScreen and EditorViewModel.",
     "Renderer is disabled in this state; video/libass runtime pixels require a separate renderer-backed capture.",
