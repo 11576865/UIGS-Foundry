@@ -19,3 +19,9 @@ Acceptance evidence required: Node negative tests for malformed nested JSON, mis
 Failure/counterexample boundaries: browser private mode and storage eviction can erase the shelf; an IndexedDB quota denial must not fabricate 'saved'; local storage does not confer user-owned portable backups. The existing downloadable combined JSON remains the durable manual alternative. Fully editable Chapter/Tag graphs, font File reauthorization and media re-import do not become supported merely because a checkpoint is locally stored.
 
 **State at intake:** Product PR #204 initially red due to a Node negative-case fixture constructing an invalid `createContainerProject` source rather than tampering a valid JSON; corrected at head `5be73092a0692441698a7db141b9836bc411e400`. Exact-head full Node, Chromium and S12 workflow verdicts are **Pending**. This Test does not modify any Canonical rule.
+
+## 2026-10-26 actual production-disclosure accessibility regression (Pending exact-head CI)
+
+Product PR #204 Code Review identified that on page refresh the production UI deliberately recreates `#sf14Recovery` as a **closed** progressive disclosure. The new Chromium storage test initially attempted to operate a present but hidden IndexedDB shelf after reload. Corrected product head `a8f89a3b611c30b579b5a516456dd405dd2a63c1` explicitly opens `#sf14Recovery > summary`, verifies that it is expanded, then uses visible save-list-load/delete actions. This is a test navigation defect, not evidence of failed IndexedDB persistence. It is already related to Foundry PR #55's recovery-disclosure observation, so **no second Candidate** was created.
+
+Precise corrected product head's full Chromium and S12 CI remained in progress at this update; do not promote this Test to accepted, nor infer stable user storage or tablet acceptance merely from Node green.
