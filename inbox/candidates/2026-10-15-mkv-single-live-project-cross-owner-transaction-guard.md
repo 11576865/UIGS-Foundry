@@ -61,3 +61,14 @@ Review found two additional boundary counterexamples and required explicit tests
 First red CI also revealed two copies of the same mistaken assumption that external checkpoint witnesses carry mutable `row` references; the existing standalone checkpoint only serializes `File`, `sidecar`, `format` and `identity`. The new atomic recovery uses live domain verification and the actual current contextual editor row for semantic comparisons, rather than promoting a nonexistent `ref.row`.
 
 These are **Candidate-level scoped findings** until exact-head full Node/Chromium/S12 green. Product PR #203 remains open. No Canonical alteration.
+
+### Final product acceptance evidence (2026-10-25)
+
+Product [PR #203](https://github.com/11576865/MKV-Fast-Muxer/pull/203) completed **exact-head** verification at `57ab1ca1ccc6f24e91393d913daaef41395ab9e5`; all three independent CI workflows succeeded:
+- [Node tests, Vite build and Pages workflow](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40191731512).
+- [Complete real Chromium browser-mux E2E](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40191731493), including current modern source/FLAC cross-refresh, two independent SHA proof paths, combined explicit apply, combined undo, retained legacy separate restore, actual final MKV `ffprobe` assertions, and full S10 batch suite.
+- [Scoped S12 actual large-media CI](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40191731498).
+
+Only after confirming the exact PR SHA and all three green results was PR #203 squash-merged to main as `c615f75c2bb975c58830a625fa15f35168da8e97`. The new bounded source/attachment plus external-track recovery is accepted **within these evidence limits**; this Foundry Candidate is not an approval of arbitrary cross-domain rollback or fully persistent project restore.
+
+**Separate knowledge system status:** Foundry PR #56 remains Pending while its repository-wide `Validate Foundry` action fails from unrelated legacy Bug records' missing/invalid `Lifecycle` keys. The Candidate content is committed to a review branch, but not merged into Foundry main; no Canonical change is made.
