@@ -43,3 +43,16 @@ This entry connects their concerns at **major product-version specification clar
 ## Evidence limitation
 
 This is based on one user evaluation and a proposed product-contract change. It has not been tested whether writing S01—S14 improves actual delivery speed or reduces acceptance disputes, and no runtime 1 GB pass was observed. Retain as Observation; do not promote Canonical from a single occurrence.
+
+## 2026-10-27 implementation-backed continuation: executable release-evidence gate (pending exact CI)
+
+Product [PR #205](https://github.com/11576865/MKV-Fast-Muxer/pull/205), baseline `main@36f71dc9ae80a4e0b463de51d2f3aa2edae64c02`, candidate head `5dba60e3ad0f2c57730d3a0be806bd514ad5c5be`, turns the previously **proposed** S01–S14 release-contract distinction into a real fail-closed pre-release CLI and GitHub manual workflow:
+
+- [`docs/softmux-1.0-release-evidence.json`](https://github.com/11576865/MKV-Fast-Muxer/blob/feat/softmux-s14-evidence-gated-release-20261027/docs/softmux-1.0-release-evidence.json) retains 14 MUST IDs and 57 exact historical R/T/B/S/U acceptance IDs, including the original `partial/unassessed` states. Historical Node/Chromium green does NOT automatically change a release result to PASS.
+- [`docs/softmux-1.0-legacy-capability-ledger.json`](https://github.com/11576865/MKV-Fast-Muxer/blob/feat/softmux-s14-evidence-gated-release-20261027/docs/softmux-1.0-legacy-capability-ledger.json) records all original L-001–L-044 items from the 2026-10-12 owner decision, with migration disposition proposals and initially UNASSESSED independent results. It is a migration proof denominator, not an assertion of 44 missing functions.
+- `npm run release:audit` validates full denominator shape and reports release blockers without preventing development builds. `npm run release:gate` separately checks a frozen exact 1.0.0 SHA, row-level independent receipts, actual target device evidence for S12/S13, deployed site and tested rollback evidence, and live GitHub Actions successful runs with the same commit. The manually dispatched workflow checks out the user-specified exact commit.
+- New Node negative tests check deletion or duplication of legacy IDs, forged receipts or SHA, wrong CI commit, fake tablet evidence, unapproved retirement and improper history promotion. Passing static gate checks is **not** equivalent to authenticating manually entered URLs or actually running an OS-level device/roll-back test.
+
+**Epistemic state at this intake:** product PR #205 exact-head Node/Pages CI has completed successfully; full real Chromium E2E and S12 specialized large-media workflows were **running**, so do not claim release-gate merge or acceptance yet. Even if all three pass, product 1.0 remains **BLOCKED** while contract S01–S14 and physical-device evidence are unresolved. This updates this existing Observation rather than creating a duplicate Candidate and does NOT modify Canonical.
+
+**Foundry validation and lifecycle:** This Foundry PR is Pending unless its own current validator passes and merge is actually observed. Previous Foundry global validation had failed on pre-existing Bug intake files' missing `Lifecycle` fields; do not silently assign another project's defect to this Observation.
