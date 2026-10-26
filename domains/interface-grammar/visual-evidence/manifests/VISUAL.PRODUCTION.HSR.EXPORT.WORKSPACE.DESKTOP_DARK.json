@@ -12,7 +12,7 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.EXPORT.WORKSPACE.DESKTOP_DARK.png",
   "source_repository": "11576865/HSR-Voice-Archive-Builder",
-  "source_revision": "c4e67fed174a37989669b1b98dcdc8321bd13f63",
+  "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
   "sha256": "1fec6b837c2f414d4af8cecddef63598adff1dfd5b319bbefee1f43ffc1f328a",
   "image": {
     "width": 1169,
@@ -71,13 +71,13 @@
     {
       "source_type": "repository",
       "source": "11576865/HSR-Voice-Archive-Builder",
-      "revision": "c4e67fed174a37989669b1b98dcdc8321bd13f63",
+      "revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/HSR-Voice-Archive-Builder:ui-visual-capture.json",
-      "revision": "c4e67fed174a37989669b1b98dcdc8321bd13f63",
+      "revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
       "evidence_level": "source-owned capture declaration"
     }
   ]

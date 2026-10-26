@@ -15,8 +15,8 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
   "source_repository": "11576865/HSR-Voice-Archive-Builder",
-  "source_revision": "c4e67fed174a37989669b1b98dcdc8321bd13f63",
-  "sha256": "6217628711ef54d1c483ed3579c8a2a777a1e5481f89a90c7cdb9432592bf629",
+  "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
+  "sha256": "44d8f409f74048c9c0d1f7793b10e1fdc9e53c022c6ee6a32da85f40d4afaa5e",
   "image": {
     "width": 1169,
     "height": 1021
@@ -68,7 +68,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "7dd4a2dce677b9ce7aef03ab038f406900310cc1c55834b0552af40aac9ba245",
+  "previous_sha256": "6217628711ef54d1c483ed3579c8a2a777a1e5481f89a90c7cdb9432592bf629",
   "limitations": [
     "Deterministic no-active-project review state.",
     "The capture harness reveals the real production panel when it is normally gated by active-project state; it does not fabricate project data."
@@ -77,13 +77,13 @@
     {
       "source_type": "repository",
       "source": "11576865/HSR-Voice-Archive-Builder",
-      "revision": "c4e67fed174a37989669b1b98dcdc8321bd13f63",
+      "revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/HSR-Voice-Archive-Builder:ui-visual-capture.json",
-      "revision": "c4e67fed174a37989669b1b98dcdc8321bd13f63",
+      "revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
       "evidence_level": "source-owned capture declaration"
     }
   ]
