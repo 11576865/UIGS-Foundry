@@ -41,3 +41,11 @@ Product PR #204 head `31ea53d6b3506c4a6ee4d7adcc1343d075f95324`: [Node test + Vi
 The [S12 large media workflow](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40222525124) has shown green **128MiB attachment** and **~1GB PCM** jobs; its **512MiB PCM** runner remains in "Install runtime and build" as of this observation. This is an unfinished runner, not evidence that 512MiB failed, nor proof that 1.0's target tablet/device has passed. Product PR #204 remains **open, not merged** under exact-head full CI gate.
 
 The Foundry PR #57 own `Validate Foundry` action remains **red** from dozens of unrelated preexisting historical `inbox/bugs/*.md` files with missing `Lifecycle`; graph checks passed, no failure here identified this Test. Keep Foundry entry **Pending** and do not promote Canonical.
+
+## 2026-10-27 final scoped 0.1032 acceptance and merge receipt
+
+**All three exact-head product workflows passed** at `31ea53d6b3506c4a6ee4d7adcc1343d075f95324`: [Node/Pages #40222525114](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40222525114), [full actual Chromium #40222525161](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40222525161), and [S12 scoped genuine 128MiB attachment + 512MiB PCM + 1000MiB PCM #40222525124](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/40222525124). The exact PR #204 head was verified before squash merge; product main commit is `36f71dc9ae80a4e0b463de51d2f3aa2edae64c02` and version `0.1032.0`.
+
+The test is **accepted within its stated narrow domain**: browser-local only, exact JSON metadata, user-initiated storage/recovery/delete, the missing-source recovery entry visible, no revived media/File authority, and explicit current-source SHA+consent before actual plan mutation, plus real native-audited output. This does NOT prove physically durable browser storage after OS crashes, arbitrary quota eviction protection, full S09 durable executable project state, physical tablet behavior or overall 1.0 release readiness.
+
+**Foundry PR #57 remains Pending**: its repo-wide validator is red on unrelated existing `Lifecycle` omissions; although product PR #204 is merged, the Foundry Test has not been accepted to main. No Canonical update.
