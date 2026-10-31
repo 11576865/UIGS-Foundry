@@ -114,3 +114,22 @@ Correction to the interpretation (**assistant hypothesis; owner has not yet conf
 - This is substantially covered by `inbox/candidates/2026-10-12-orthogonal-product-dimensions-not-navigation-destinations.md` (specialized ASS recipe on one composition domain) and `inbox/candidates/2026-10-12-legacy-capability-migration-and-document-plan-batch-queue.md` (behavioral inheritance and batch job identity). No new Candidate or Canonical promoted.
 
 Status: **Observation of owner dissatisfaction and assistant framing failure**, deduplicated as a continuation of this identity Observation. The exact intended question is not proven until corroborated; do not silently claim owner endorsement of this interpretation.
+
+
+## Owner's minimal interaction contract clarified (2026-11-01)
+
+After rejecting the prior assistant's legacy feature inventory and separated three-mode recommendation, the owner explicitly specified a much smaller product interaction invariant: **“用户必须拖入某些文件，而最终的输出仍然一定是mkv，当然，用户也可能只是想看看mkv的内容，因此不一定有输出。”**
+
+Source-faithful interpretation:
+- Entry is resource-first: user supplies some file(s), not a prior choice of application mode or mandatory primary video.
+- If the user elects to export, the output format is **Matroska**; export is **optional**, not a prerequisite to inspection.
+- A user may import an existing MKV just to inspect its contents, with no mutation and no produced artifact.
+- Subtitle/font specializations, attachments, existing-container viewing and editing, and batch output are contextual operations on imported content rather than independent product identities. An input video is not required for a non-playback attachment-only Matroska creation where a verified writer exists.
+- Do **not** silently conflate “imported” with “modified”, “viewed” with “approved for writing”, or “valid Matroska attachment” with “playable media stream”. Do not auto-generate outputs just for viewing.
+- For a single export task, no output or a Matroska artifact; batch may result in multiple Matroska artifacts.
+
+This is a simpler *user-level grammar* than project architecture, and must be kept separate from implementation detail. The owner did **not** authorize replacing the entire UI, removing legacy functions, adopting a particular writer, or modifying the 1.0 Canonical acceptance document.
+
+Deduplication: `inbox/candidates/2026-10-12-orthogonal-product-dimensions-not-navigation-destinations.md` and `inbox/candidates/2026-10-10-mkv-content-first-intake-metadata-role-separation.md` already cover content-first and one composition authority; the **optional-export invariant** and the owner's direct correction are appended here as dated Observation, not a duplicate general UX Candidate.
+
+Status: owner-confirmed user behavior statement; proposed implementation implications **Pending validation**, no Canonical promotion.
