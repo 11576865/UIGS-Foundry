@@ -167,3 +167,18 @@ Falsifiable tests:
 Dedup: existing Oct 12 legacy batch Candidate covers preservation and the historical queue; earlier sections of this Nov 1 Candidate cover interaction complexity. This addition captures the owner's **tactical willingness to accept repeat work** as a way to prevent premature cross-feature integration, rather than proposing duplicate batch architecture.
 
 Status: Candidate, pending owner decision on *which* batch feature changes are authorized; current MKV-Fast-Muxer source and Canonical scope unchanged. No real usability cost measurement yet.
+
+## 2026-11-01 decision convergence: stop expanding the question inventory
+
+Owner said the original aim was to clarify Softmux but repeated discussion made its identity more obscure, and asked which remaining decisions actually require owner tradeoffs.
+
+Stabilized owner-rooted product description for review: file-import-first Matroska inspection and bounded composition; inspect-only has no export; optional output is always Matroska; source-MKV and new non-video container are both valid entry contexts; existing professional ASS/font actions are contextual, not separate app identities; mature batch behavior can remain but owner permits tactical manual repetition and does not require generalizing every new action into batch. These are user-expressed purposes; they do not constitute full acceptance of a new UI or an unbounded writer.
+
+Avoid posing all technically possible edge cases as owner questions. The remaining *high-leverage* choices requiring explicit owner adjudication are:
+(1) multi-source operation scope in first usable generic version: view multiple MKVs and individually edit with external loose files vs also transferring selected embedded tracks/attachments from MKV A into B, which substantially changes writer/identity/verification scope;
+(2) modification envelope for source MKV: existing supported track/attachment edits + bounded proven writer; complex Chapters/Tags and unknown structure as inspect/read-only or fail-closed vs a mandate to support broader arbitrary structural modifications before first release.
+The proposed low-risk default for input handling is one MKV auto-opened, multiple MKVs remain separately selectable, zero MKVs show prospective unsaved Matroska; external files are recognized, inspectable and not silently included in an existing source output. For a new target, recognizable input files may be presented as a proposed default membership with explicit inclusion status. This default should be tested, not assumed approved.
+
+Only after these choices, run real legacy subtitle/preview/font and multi-input UX regression; do not require owner to choose layouts, internal model classes, batch queue mechanisms or speculative media concat/move tasks before seeing evidence. Distinguish product intent, testable UX hypothesis, actual implemented main state, and future scope. No Canonical/product contract update or code change authorized here.
+
+Status: Candidate refinement; the owner-facing selection and real UI/engine tests are PENDING.
