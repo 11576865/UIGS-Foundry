@@ -45,3 +45,36 @@ These are preexisting **research Candidates**, not approved UI. Product `src/out
 Paper/prototype test against all eight scenarios, particularly the four distinct remove/exclude operations and subtitle source/plan preview identity. Then implement a bounded vertical task using current handlers and real Chromium artifacts, measuring mistaken auto-inclusion, accidental source reassignment, navigation/focus loss, and operator understanding. Do not replace existing user-approved scopes or automatically modify Canonical from an untested proposal.
 
 **Pending:** owner selection of view/role semantics; UI implementation, real-device proof and runtime acceptance.
+
+
+## 2026-11-01 follow-up: resolve "主件 + 资源库" combinatorial complexity through virtual per-target references
+
+New owner design scenario: all imported inputs go into “资源库”, an MKV may be the open main document or—if no MKV—an automatic proposed output; when A/B/C/D.mkv are present, user may copy selected nested objects of A into the intended outputs based on B, C and D. Owner explicitly questioned where A’s object should live, whether to pre-extract it, whether move should erase A, whether B’s edited copy is another resource, and how to avoid combinatorial interaction complexity. The owner rejects video concatenation as an invented task outside intended scope.
+
+### Refined candidate (owner has not approved)
+
+**UI:** one active document surface with a source/library browser and context inspector. “主件” is reframed as **current open document / virtual output composition**, not a privileged physical original. Model C’s provenance, object membership and optional output underpin model A’s simple UI; they need not appear as three separate pages.
+
+**Data semantics:**
+- Keep exactly one imported source identity per original File and its scanned nested items. Do not implicitly extract or reify a Matroska member as a separate uploaded file merely to make it selectable.
+- A nested member is referenced by a stable tuple of **source File identity + source container object/track identity + any necessary byte/time/format constraints**. A target draft can hold a *reference intent* to this object, not a duplicated payload. The same source object can be selected for several target documents independently; output bytes are written only at explicit execution.
+- Opening B without modifications shows *actual source* B. Editing it produces an in-memory B* plan, displaying inherited B objects plus any selected external sources; the original B File remains unchanged. B* is not a new imported file; after explicit export it creates a distinct MKV artifact (unless a separately approved replacement operation is designed). The exported result does not silently become an input source; importing or using it again requires explicit user action.
+- Multiple possible targets can retain separate per-target unsaved plans. One target is active at a time. Selecting/viewing A's member should not silently change B* output membership or create a target plan.
+- **No “move” required initially**. Moving bytes/objects between real MKV sources would imply writing two files; present addition to one target and exclusion from another as distinct non-destructive operations, and preserve original file(s).
+- **No MKV input**: show an unsaved virtual new Matroska with proposed recognizable contents, each inclusion editable before output; preview is of recognized input or planned composition, not generated final container. No export remains normal.
+- **One MKV**: auto-open it for inspection, no output unless changes/export. **Multiple MKVs**: library selection determines which source is opened; importing does not auto-merge. For a cross-source add operation, default destination is currently active B* where unambiguous, otherwise ask to choose explicit target *at the action*.
+- Wrongly imported file: removing it from session should not delete disk data; if referenced in any drafts, show dependent target(s) and require a safe decision. Removing a member from B* only edits the plan.
+- Subtitle preview: select any standalone or embedded subtitle from source browser and preview independently of inclusion; preview selection never silently toggles output membership.
+- Support restriction: referencing an A media track in B* does not prove a legal/common-timebase writer path; unsupported cross-container stream operations must be blocked or labeled unavailable. Attachments-only export remains a separately bounded writer capability.
+
+### Acceptance thought experiments
+
+1. A/B/C/D imported. Open B → no outputs. Choose A nested attachment → Add to current B* → inspect source A unchanged, source B unchanged, B* displays only a *pending* addition, no duplicate extracted A file.
+2. Use the same A attachment in C* and D* without spawning duplicated source rows; independently export B*, C*, D* to distinct physical artifacts.
+3. Deselect A object from B*, leave it in C*: only B* plan updates; A original and C* untouched.
+4. Wrong-file removal with 2 active draft references produces a dependency-aware action (cancel/remove dependent intents); no implicit disk deletion.
+5. Switch B* → inspect A → return B*: preserve B* drafts and selection; no automatic inclusion from preview click.
+6. Without input MKV, show a provisional draft container from PNG/PDF and only create actual Matroska on explicit export.
+7. Cross-container video concat is excluded from these tests: owner explicitly says it is not an expected function.
+
+Deduped against this Candidate's earlier optional-output + per-target membership model, and `inbox/candidates/2026-10-11-mkv-composition-as-primary-ui-object.md`. This is a refinement, not a second product identity or a Canonical rule. No implementation/UI tests performed; owner-facing interaction and technical cross-container writer envelope remain **Pending validation**.
