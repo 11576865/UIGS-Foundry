@@ -66,3 +66,18 @@ Specific supporting local cases already in Foundry (do not duplicate them):
 Candidate improvement to test, not a new Canonical rule: require a **claim → expected invariants → independent oracle → mutation/failure counterexample → limits/notChecked** record for any high-risk operation. The developer/agent is responsible for proactive error discovery, independent finished-artifact examination and unverified-claim labeling. Owner's role is product-purpose and subjective usability judgment, not serving as the only acceptance oracle. Build an explanatory map from format semantics to operations and observable claims, as an enduring companion to runnable tests. Evaluate success by both independent defect-detection power and owner comprehension, not PR count or whether a demo appears to work.
 
 This extends the **same current Observation**, avoiding a duplicate Candidate or premature Canonical promotion. It is a hypothesis about better product governance; no test of the proposed workflow has yet been executed.
+
+
+## 2026-11-01 owner direction: prioritize an actual usable product, defer hard non-core capabilities
+
+After the previous discussion about the ideal operator workflow and its implementation difficulty, the owner stated: “困难的可以先搁置，重要的是我们需要做一个实际的”. The sentence is incomplete, but in context it expresses a **priority preference for a concrete, usable delivery rather than treating advanced Matroska generality as a prerequisite**. It is not yet a fully approved replacement of Plan B / S01–S14, nor an instruction to weaken safety or erase prior capabilities.
+
+Proposed bounded first usable path (assistant inference, NOT product Canonical):
+- one normal user journey: import supported real video/MKV, subtitles and fonts → inspect intended output tracks/attachments → apply supported attributes → preflight & execute real stream-copy mux → independently inspect actual output → download or safely save;
+- then reuse the same authority and actual-artifact verification in batch matching/queue/retry;
+- defer arbitrary EBML editing, broad unknown-structure retention and repair, universal attachment-only writing, and unconditional multi-GB/device guarantees;
+- keep bounded fail-closed preflight, exact source/output identity, observed-artifact verification and explicit unchecked claims as nonnegotiable guardrails. “Defer advanced correctness” is NOT permission for silent loss.
+
+Next validation: map existing main implementation and user-visible entry paths to this specific task, collect actual real-file/browser evidence and negative controls without making the owner the sole bug oracle; separately get owner approval for any change to the 1.0 release contract. No code, PR or Canonical scope change is authorized by this note.
+
+Intake status: updates this existing Observation rather than creating a duplicate Candidate. **Release scope approval / runnable slice definition: Pending owner review.**
