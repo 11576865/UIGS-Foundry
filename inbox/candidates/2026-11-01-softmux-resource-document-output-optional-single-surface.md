@@ -211,3 +211,26 @@ Minimal statement: **open inputs → present their actual contents where support
 Action: corrected product research PR #206 document on `research/softmux-user-flow-integration-audit-20261101` at commit `651fdf0c2653e720032ce04276f49cceff429940`: changed “J2 只查看” to a **normal opening/switching regression condition**, corrected scope tables, and explicitly ruled out specialized inspect-only mode. Existing product main remains unmodified, and this is not a final UI endorsement.
 
 Dedup: append to existing Nov 1 Candidate rather than new Canonical, Bug, or another independent Candidate. Link to broader possible-to-required drift previously recorded in this same document. Evidence level: owner correction + direct text artifact rectification; no real-user product runtime evidence.
+
+## 2026-11-01 owner complaint: consequential assumptions were silently ratified; owner asked to confirm mostly ordinary matters
+
+Owner explicit correction: “说到底是你默认确认了很多很多东西，而且交给我确认的东西相对来说很普通。”
+
+Mechanism to investigate: **decision-authority inversion / asymmetric confirmation**. The assistant tacitly selected high-impact product semantics (the main file/draft/library ontology, automatic import membership policy, model A/C, whether a unified surface is preferable, non-destructive editing semantics, batch isolation and deferral priorities), embedded these as “reasonable defaults” in subsequent architecture and PR acceptance narratives, but asked the owner to approve lower-level binary scope alternatives (e.g., whether to implement arbitrary cross-MKV transfer now, whether complex EBML structures should be read-only first). This is not simply excess options or over-engineering: it shifts ownership of value-sensitive decisions to the assistant and burden of confirmation to the owner.
+
+Important distinction:
+- **Domain facts**: what Matroska permits, what current FFmpeg/native writer can do, actual legacy behavior; investigate and report with evidence.
+- **Unavoidable technical constraints and reversible engineering tactics**: agent may decide with explicit impact/rollback.
+- **Contested product semantics**: what “importing” means to user, desired automation vs manual control, expected behavior when files overlap, whether selection implies inclusion, relationships between old and new capabilities, intended priority of capabilities; cannot be inferred as user approval from mere theoretical elegance.
+- **UX hypotheses**: UI structure, library vs current document, draft projections, direct operations; prototype as competing options and show tradeoffs rather than asserting one as the chosen framework.
+- **Optional edge cases**: AI-generated examples must never silently become requirements.
+
+New falsifiable process candidate: a **consequential-decision audit** before final architecture claims, asking “Which choices most change the user's product experience if wrong, and who authorized them?” Record origin, alternatives, effect on existing functions, reversibility, evidence and approval status for ONLY the high-impact choices. Do not ask owner to decide implementation trivia that engineering/testing can settle, and do not convert this into another gigantic decision ledger or questionnaire. Seek owner input through a few whole-task, lived behavior examples *before* committing a conceptual model. Treat assistant preferences as unapproved hypotheses. Prefer showing two real interactive variants/contradictions with accessible tradeoffs over asking owner to endorse broad or artificial scope dichotomies.
+
+Concrete retrospective from prior turns:
+- The assistant reified *absence of mandatory output* into a new “inspect-only functionality / mode” and PR #206 J2, later corrected after owner game-main-menu counterexample.
+- The assistant interpreted source/target separation as a mandate for an explicit add operation, silently imposing friction on the original one-click video+ASS+font flow.
+- The assistant proposed a final one-screen A/C hybrid while remaining uncertain how existing font preview and batch interact; approval sought on comparatively obvious deferral questions.
+- Owner's tactical willingness to repeat some tasks does not retroactively approve deleting batch or hiding a user function.
+
+No product code changed for this observation. Existing product PR #206 is a Draft **research artifact** and is not evidence that the owner approved its underlying choices. This is an extension to the same candidate, no new Canonical rule. Status: candidate, method and actual UX results PENDING.
