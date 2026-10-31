@@ -114,3 +114,31 @@ D. Remove a font referenced by two target drafts. Show dependencies, do not sile
 E. Regress old single video+ASS+fonts operation with no additional forced steps and a view-only MKV session with no output.
 
 Recommendation: do not ratify final A/C or single-screen UI before this cross-capability conflict ledger and actual interaction tests. The unit of evaluation is a complete vertical task crossing multiple capabilities, not one locally elegant diagram. Candidate-only, no Canonical promotion or product code change, user/product validation PENDING.
+
+## 2026-11-01 meta-correction: locally defensible possibilities silently become global product obligations
+
+Owner observed that the design again “自我崩溃”, similar to repeated previous project discussions, and asked for a causal account and possible compromise. **Do not assume** either feature count alone or one wrong UI layout causes this.
+
+Proposed mechanism, not yet experimentally demonstrated:
+1. Assistant responds to one input ambiguity with several optional edge cases (e.g., two MKVs -> video concatenation, or cross-source member selection -> universal multi-target editing), although the owner did not request them.
+2. Subsequent responses treat these invented possibilities as if their support were a requirement; local simplification (e.g., “resource library + current document + draft”) is then asserted to cover the entire product without cross-feature checks.
+3. Existing subtitle rendering/font subset/Group batch/legacy interface and real writer constraints introduce contradictions, triggering more unapproved abstractions, gates and accepted-sounding plans.
+4. A well-formed theoretical model or a complete-looking acceptance document can mask unresolved user value, implementation authority and artifact evidence. Even earlier comprehensive 2026-10-12 migration docs did not settle these interaction choices.
+
+Existing deduplication and evidence:
+- Cross-project goal drift already exists in `inbox/candidates/2026-10-14-agent-generated-next-units-goal-drift-guard.md`, including generated next-unit suggestions becoming task authority. This note adds a *pre-implementation conversational requirements promotion* failure, not duplicate code queue drift.
+- `inbox/observations/2026-10-12-qhe-feature-growth-and-unresolved-product-identity.md` records that user specifically placed inadequate understanding of media fundamentals above mere feature growth; do not blame all complexity on over-featured design.
+- `inbox/observations/2026-10-20-softmux-scope-vs-executable-release-contract.md` warns against treating assistant-generated S01–S14 proposal as owner-approved.
+- Existing current Candidate section already documents the real code and cross-feature integration conflicts.
+
+Proposed mitigation to test (not normative):
+- Classify each discussed idea as **owner requirement**, **necessary consequence of confirmed use case**, **candidate design**, **speculative edge case**, or **explicitly excluded**. Only first two may constrain the near-term implementation. An AI-generated possible use case is not an approval.
+- Establish an explicit *extension cost*: what original user task it makes possible, what existing operations it changes, what it forces to be verified, what it delays; do not exhaustively enumerate all conceivable uses.
+- Prefer the minimum independently useful feature *subset*, not a universal hypothetical UX with every possible combination. Keep old verified subtitle+font functionality; focus generic attachment/no-source creation and inspect-only as owner-rooted paths; advanced cross-MKV copy only where tested; move of source data and media concatenation not implied.
+- One product may expose different contextual task scales (single document, batch) over shared lower-level services; **one screen, one universal mutable state, and one backend need not coincide**.
+- Prevent hidden correctness regressions through independent output validation scoped to *claimed* operations; owner should arbitrate product value, not be forced to discover invisible bugs.
+- Run a limited set of high-collision real user journeys, including ASS preview vs inclusion and Group font subsetting vs per-output overrides, before asserting a candidate UI is integrated.
+
+A useful established software-design comparison is D. L. Parnas, *Designing Software for Ease of Extension and Contraction* (IEEE TSE 1979; DOI 10.1109/TSE.1979.234169): minimal useful subsets and modular interfaces avoiding system-wide uses dependencies, **not** maximal abstract generality. This source supports the general architecture principle, not the project-specific causal attribution.
+
+**Status:** Candidate hypothesis based on user corrections and inspected code/docs; owner has not approved a product rewrite, alternate delivery contract or Canonical policy. The 2026-11-01 owner feedback is a legitimate counterexample to prematurely declaring any single UI model “solved.”
