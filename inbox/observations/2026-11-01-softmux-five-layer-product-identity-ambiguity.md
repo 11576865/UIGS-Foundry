@@ -50,3 +50,19 @@ This Observation preserves a **new dated owner report in the MKV product** and t
 ## State
 
 Recorded as Observation. Product strategy, prioritized user jobs, any reduction in scope, and first-release acceptance remain **Pending owner validation**, not automatically changed.
+
+
+## 2026-11-01 owner follow-up: user acceptance is not an invisible-defect oracle
+
+Owner correction: treating **“make it immediately usable”** as the next optimization may produce fast apparent progress but little explanatory understanding, repeat the HSR project’s owner-as-tester burden, and worst of all assume the owner can detect errors whose existence is not visible. This does **not** authorize pausing all usability work or choosing research over delivery in perpetuity.
+
+Sharper distinction: user task acceptance verifies discoverability, interaction suitability, and observable outcome; it cannot by itself verify hidden state, omitted container objects, media timestamps, preservation relations, stale artifacts or deep semantic equivalence. A green implementation test or self-authored output report may share assumptions with the code under test. The general **test oracle problem** is documented by Barr et al. (IEEE TSE 2015, doi:10.1109/TSE.2014.2372785); independent reference readers, negative controls, property-based / metamorphic relations and real artifact readback reduce but do not eliminate this blind spot.
+
+Specific supporting local cases already in Foundry (do not duplicate them):
+- `inbox/cases/2026-10-12-mkv-no-edit-preservation-scoped-independent-oracle.md`: playable no-edit remux may silently lose attachments/chapters/relationships;
+- `inbox/bugs/2026-10-13-mkv-ffmpeg-wasm-ass-mux-timestamp-shift.md`: real browser mux passed existing track/attachment checks, while added independent ASS-event comparison revealed +2 centisecond offset;
+- `inbox/bugs/2026-10-11-hsr-incremental-same-basename-and-stale-download-merge.md`: source identity/session errors can carry wrong audio into archive without immediate visible warning.
+
+Candidate improvement to test, not a new Canonical rule: require a **claim → expected invariants → independent oracle → mutation/failure counterexample → limits/notChecked** record for any high-risk operation. The developer/agent is responsible for proactive error discovery, independent finished-artifact examination and unverified-claim labeling. Owner's role is product-purpose and subjective usability judgment, not serving as the only acceptance oracle. Build an explanatory map from format semantics to operations and observable claims, as an enduring companion to runnable tests. Evaluate success by both independent defect-detection power and owner comprehension, not PR count or whether a demo appears to work.
+
+This extends the **same current Observation**, avoiding a duplicate Candidate or premature Canonical promotion. It is a hypothesis about better product governance; no test of the proposed workflow has yet been executed.
