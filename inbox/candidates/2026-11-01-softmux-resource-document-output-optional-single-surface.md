@@ -234,3 +234,11 @@ Concrete retrospective from prior turns:
 - Owner's tactical willingness to repeat some tasks does not retroactively approve deleting batch or hiding a user function.
 
 No product code changed for this observation. Existing product PR #206 is a Draft **research artifact** and is not evidence that the owner approved its underlying choices. This is an extension to the same candidate, no new Canonical rule. Status: candidate, method and actual UX results PENDING.
+
+## 2026-11-01 owner correction: imported candidate content is already provisional; needless pre-inclusion approval
+
+The assistant posed a question: when the user has an MKV open and drops alternative.ass, should it be immediately included in the *proposed output* or forced into a library pending an explicit Add? The owner replied: “既然都是拟输出，还有问的必要吗”.
+
+Interpretation limited to the presented single-target examples: once the workspace is editing a *provisional output composition*, putting newly imported suitable content into that provisional composition is not an irreversible source modification, so a separate mandatory confirm-to-add gate may be gratuitous friction. The user may inspect, alter, exclude or remove prospective members before any explicit export. Existing source bytes remain unchanged. The assistant's earlier forced dichotomy between **auto-inclusion in an editable proposal** and **passive inventory pending approval** treated draft membership as if it required the same authorization as physical output.
+
+Do not overgeneralize this correction into automatic merger of multiple source MKVs, automatic inclusion of unsupported assets, or silent creation of outputs. Provisional/undoable inclusion and actual writer support/output approval remain distinct, but a per-file Add click is not automatically justified by those facts. Revisit all prior model C and PR #206 assumptions about default exclusion and multiple ASS candidates. This is a user-facing design correction, not an implemented or Canonical rule; any production change still needs regression evidence for existing video+ASS+font flow.
