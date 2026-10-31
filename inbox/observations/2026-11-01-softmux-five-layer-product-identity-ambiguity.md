@@ -81,3 +81,22 @@ Proposed bounded first usable path (assistant inference, NOT product Canonical):
 Next validation: map existing main implementation and user-visible entry paths to this specific task, collect actual real-file/browser evidence and negative controls without making the owner the sole bug oracle; separately get owner approval for any change to the 1.0 release contract. No code, PR or Canonical scope change is authorized by this note.
 
 Intake status: updates this existing Observation rather than creating a duplicate Candidate. **Release scope approval / runnable slice definition: Pending owner review.**
+
+
+## 2026-11-01 owner clarified original product intent and cause of drift
+
+Owner’s own initial requirement restatement (paraphrased, not a new approval): the original subtitle muxer accepted video + subtitles + fonts, made one MKV, and did not expose other concerns. The intended “generic upgrade” would instead accept arbitrary resources *where Matroska supports them*, including image attachments; start a new Matroska with just loose files and **no video** when appropriate; inspect existing MKV contents; subsequently allow editing the observed content. The owner asks why such an apparently direct product expansion produced today's large, difficult project.
+
+Important exact semantic clarification: “generic inputs” are not all playable tracks; an image can be a generic Matroska attachment (FileData) without being converted to video. Under RFC 9559 §6.1, Info alone is top-level REQUIRED; Tracks + Cluster are needed for *playable* Matroska, not every Matroska document. This original project requirement was already in Foundry `inbox/observations/2026-10-12-mkv-tool-scope-correction-and-ecosystem-baseline.md`; do not mislabel it as a newly invented user request.
+
+Verified repository-specific divergence:
+- Issue #68 content-first intake retained “one user-selected main source that has a usable video stream for the current engine” as a compatibility adapter; this was an implementation restriction, not the user's generic product semantics.
+- Current `src/mux-command.js` `buildMuxCommand({mainInputPath,...})` begins with `-i mainInputPath` and `-map 0:v?`, preserving a video-rooted executor. `src/output-composition.js` itself declares composition a view projection over legacy state, not a new generalized writer.
+- Independent P0 issue #77 reproduced nested ChapterAtom and ChapterUID-targeted Tag loss under real browser FFmpeg remux, which correctly requires honest scope or fail-closed behavior; it does *not* entail writing an arbitrary full EBML editor before delivering generic attachments.
+- In contrast, RFC and existing MKVToolNix attachment editor semantics support bounded generic attachment operations. Different write lanes (track remux vs no-track Matroska creation vs property edit) should be separated, not treated as one ever-expanding FFmpeg code path.
+
+Tentative root cause hypothesis: the team continued extending video-rooted execution and then compensated with richer domain projection, safety instrumentation, deep structure research, release tracking and fragmented follow-up tasks instead of first delivering an end-to-end minimal generic container writer and inspector. Some research is genuine and valuable (issue #77); the *ordering and elevation to product acceptance* are questionable, not the existence of safeguards. Do not attribute all elapsed work or all errors to this mechanism absent a dated end-to-end issue/PR audit.
+
+Suggested falsifiable corrective test (not an authorized scope change): four independent working product paths (new video+ASS+fonts; add JPEG/PNG as attachment to MKV; create valid no-track attachments-only Matroska from PNG/document with native independent readback; open existing MKV, enumerate/extract attachment and perform one supported modification into a separate valid output). Compare their code paths to legacy engine gating and actual UI entry points; if not supported, report precise missing adapter/writer rather than expanding a universal editing contract. Keep exact-original preservation risks explicit. No direct product repository mutation or Canonical promotion here.
+
+This is appended to **the same** dated Observation to dedupe the existing Oct 12 original-intent entry; new explicit owner restatement strengthens source rationale while final architectural recommendation remains proposed and **Pending owner validation**.
