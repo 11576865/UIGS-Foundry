@@ -182,3 +182,22 @@ The proposed low-risk default for input handling is one MKV auto-opened, multipl
 Only after these choices, run real legacy subtitle/preview/font and multi-input UX regression; do not require owner to choose layouts, internal model classes, batch queue mechanisms or speculative media concat/move tasks before seeing evidence. Distinguish product intent, testable UX hypothesis, actual implemented main state, and future scope. No Canonical/product contract update or code change authorized here.
 
 Status: Candidate refinement; the owner-facing selection and real UI/engine tests are PENDING.
+
+## 2026-11-01 concrete repository crosswalk and limited Chromium interaction pilot
+
+Product evidence was inspected and captured as **draft research PR #206**, branch `research/softmux-user-flow-integration-audit-20261101`, commit `eefc39eba0bd459de4e6a592b468e93cb2612712`, document `docs/research/softmux-user-flow-integration-audit-20261101.md`. No product source, release contract or Canonical changed.
+
+Verified connector source observations from product default branch:
+- `src/asset-intake.js:resolveImportedRoles`: one container becomes selected primary, multiple containers require primary choice. This is execution role, not free source viewing.
+- `src/asset-intake.js:classifyAssetBytes`: unknown file type -> UNSUPPORTED, not automatically a Matroska attachment; ordinary PNG/PDF generic attachment intake is missing.
+- `src/output-composition.js:buildOutputComposition`: all already selected external subtitle/audio tracks and chosen fonts have `included: true` in plan projection, making independent candidate preview vs target membership a genuine seam.
+- `src/main.js:refreshSubtitlePreview`: requires `videoInput.files[0]`, uses `selectedSubtitleTracks()` and global `selectedFonts()/fontMode`. Existing ASS preview is real and valuable, but *standalone unselected subtitles without video* are not currently independently previewable.
+- `src/container-target-draft.js:resolveLegacyTargetCapability`: non-video target projection yields `LEGACY_VIDEO_ROOT_REQUIRED`.
+- `src/batch-runner.js`, `src/batch-mux-context.js`: frozen DOM-free queue already exists; preserve it without generalized batch expansion.
+- Reviewed owner-approved 2026-10-12 historical L-001–L-044 migration decisions and new Nov 1 tactical concession for manual repetition.
+
+A **separate, nonproduction single-HTML interaction prototype** `softmux-interaction-study-20261101.html` was created in this conversation. It uses **explicit mock MKV members**, no actual EBML/ffprobe parsing, no real libass/HarfBuzz, no output writer; local user file selection is *extension-based demonstration only*. Chromium Playwright `set_content` interaction exercised: multiple MKV initial no-current document; open B; create B draft; choose alternate ASS without automatic inclusion; explicit add/exclude; PNG/PDF-only new target; inspect-only output disabled; no JS errors. This is **behavior-prototype evidence only**, not product integration or a successful real MKV task. Direct file:// page load was blocked by the test environment; test used browser set_content instead.
+
+New falsifiable distinction: a content-first importer may coexist with still role-bound preview and automatically included external subtitles. Therefore adding a generic resource list alone does not make preview/inclusion independent, and adding a no-video target representation does not enable output. The four integrated user jobs J1 old ASS/font, J2 view-only source and multiple MKVs, J3 PNG/PDF attachment-only actual output, J4 multiple ASS candidate preview vs chosen inclusion are specified in PR #206.
+
+Status: **candidate-level evidence extension**; production runtime and real media verification for the new behavior remain PENDING. Do not raise this to a Canonical rule or claim the user selected a final UI.
