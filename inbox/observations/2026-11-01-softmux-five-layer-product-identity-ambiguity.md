@@ -100,3 +100,17 @@ Tentative root cause hypothesis: the team continued extending video-rooted execu
 Suggested falsifiable corrective test (not an authorized scope change): four independent working product paths (new video+ASS+fonts; add JPEG/PNG as attachment to MKV; create valid no-track attachments-only Matroska from PNG/document with native independent readback; open existing MKV, enumerate/extract attachment and perform one supported modification into a separate valid output). Compare their code paths to legacy engine gating and actual UI entry points; if not supported, report precise missing adapter/writer rather than expanding a universal editing contract. Keep exact-original preservation risks explicit. No direct product repository mutation or Canonical promotion here.
 
 This is appended to **the same** dated Observation to dedupe the existing Oct 12 original-intent entry; new explicit owner restatement strengthens source rationale while final architectural recommendation remains proposed and **Pending owner validation**.
+
+
+## Owner rejected superficial legacy-feature inventory answer (2026-11-01)
+
+When asked "原始版本已经有的功能怎么处理", the assistant replied by enumerating 44 `L-001–L-044` historical features and proposing three separate entry modes (“快速封装 / 通用容器工作台 / 批量封装”). The owner explicitly rejected the answer: “完全没说到点上。”
+
+Correction to the interpretation (**assistant hypothesis; owner has not yet confirmed this new reading**):
+- `L-001–L-044` is a mixed migration ledger containing later enhancements, old UI/pipeline descriptions and original behaviors. It is not an inventory of the *original* video+subtitle+font tool alone; using it to answer the conceptual question confuses provenance and scope.
+- The primary design question may instead be **how the original tool's specialized, content-aware actions fit naturally into the same generic Matroska composer**, with one authoritative document, not whether to run three segregated application modes. Eg a single content-based import of video, ASS, TTF and PNG should yield media/subtitle tracks and font/image attachments, retaining triggered font identification, ASS matching, font subsetting, subtitle preview, and supported track options. With only attachments, a no-track container path should exist (once verified); no video placeholder.
+- Task-specific presets or batch job matrices can be convenient projections over the same composition authority; do not elevate them to separate product identities, data models or non-interoperating editors.
+- Preserve proved **behavioral invariants**, distinguish legacy input widgets and implementation detail from user-value capabilities, and individually test specialized operations without letting old video-root restrictions define the generic domain.
+- This is substantially covered by `inbox/candidates/2026-10-12-orthogonal-product-dimensions-not-navigation-destinations.md` (specialized ASS recipe on one composition domain) and `inbox/candidates/2026-10-12-legacy-capability-migration-and-document-plan-batch-queue.md` (behavioral inheritance and batch job identity). No new Candidate or Canonical promoted.
+
+Status: **Observation of owner dissatisfaction and assistant framing failure**, deduplicated as a continuation of this identity Observation. The exact intended question is not proven until corroborated; do not silently claim owner endorsement of this interpretation.
