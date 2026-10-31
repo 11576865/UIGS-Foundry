@@ -78,3 +78,39 @@ New owner design scenario: all imported inputs go into “资源库”, an MKV m
 7. Cross-container video concat is excluded from these tests: owner explicitly says it is not an expected function.
 
 Deduped against this Candidate's earlier optional-output + per-target membership model, and `inbox/candidates/2026-10-11-mkv-composition-as-primary-ui-object.md`. This is a refinement, not a second product identity or a Canonical rule. No implementation/UI tests performed; owner-facing interaction and technical cross-container writer envelope remain **Pending validation**.
+
+## 2026-11-01 owner correction: a local file relation model cannot integrate inherited capabilities
+
+Owner explicitly rejects the idea that resource library + current document + plan refs solves the real product. Rendering, fonts, batch, identity, recovery and validation may each work in isolation while creating conflicting UI, state ownership and cross-cutting workflows. Integration and migration decisions (reuse, refactor, contextual hide, retire) are the missing tested design contract.
+
+### Verified source evidence
+
+The uploaded 2026-10-12 软封工程_未来规划总决议 already provides L-001–L-044 migration decisions (§4), A/B/C/D interactions (§5), document identity (§6), batch rules and Group font subsetting (§7), and object-based UI (§9). Thus the project does NOT lack conceptual plans; their actual integrated execution and UX evidence is insufficient.
+- Current main src/container-document.js: explicitly read-only projection over legacy inputs, not full write authority.
+- Current main src/container-target-draft.js: describes a no-video target but reports LEGACY_VIDEO_ROOT_REQUIRED for actual old writer.
+- Current main src/live-container-workspace-authority.js: an existing shared immutable ContainerProject for bounded source/external changes; do not falsely assert no state integration.
+- Current main src/batch-runner.js, src/batch-job-plan.js and src/batch-mux-context.js: an already real DOM-free frozen queue and explicit batch execution context. Do NOT repeat historical claim that batch still runs by simulating a click. The batch nevertheless requires video + subtitles in the job policy, and has separately scoped font plans.
+- Current index.html: subtitle preview selector, font mode selector and batch group font scope are present; their existence does not prove that source vs target vs actual-output preview and shared fonts interact correctly.
+
+### Candidate integration-contract audit
+
+For each inherited behavior record its triggering context, resource/target/job ownership, dependencies, actual inputs, output effects, scope defaults and overrides, render or writer capability, reversibility, UI location, and exact real artifact acceptance. Avoid reducing the original-version question to a 44-item tally; that ledger also includes later features and historical UI internals.
+
+Specific contracts to test:
+1. Reuse ASS/SSA libass and timeline preview, but refactor its binding to explicit source subtitle/target subtitle/finished output identities. Previewing any candidate does not include it in the output; effective font sources (embedded, uploaded, target-selected) are visible and constrained.
+2. Reuse font sniffing, alias matching, glyph coverage, HarfBuzz subsetting and hashing; refactor their input scope to target/job and subtitle binding. A shared cache for Group subset calculations does not mean every target carries identical font bytes. Keep original font policy visible only in applicable subtitle contexts.
+3. Preserve low-friction video+ASS+font one-output use; do not force a special app mode. Reuse stream copy, compatibility gates, report and save mechanisms.
+4. Preserve batch pairing, ambiguity guard, reviewed recipes, frozen queue, per-result audit/save semantics. Reconcile per-job overrides with single-job object inspection; changing focused source or globally selected preview cannot mutate running frozen jobs.
+5. Contextually show technical chapter/tag checks, preview, group font subsetting, batch status; retire redundant 01/02/03 workflow gates, duplicate editable track views and already replaced hidden-DOM execution paths *only after equivalence evidence*. No user-facing capability removal without explicit owner approval.
+6. Cross-source selection or copying an internal object into another target is a requested composition intent, not automatic extraction nor proof of writer support. Preview, plan, final artifact and saved file are distinct evidence.
+7. True move across source MKVs, video concatenation, and arbitrary format edits are not implied by importing several MKVs.
+
+### Minimum conflict demonstrations
+
+A. Import 12 episode MKVs, 12 ASS, 30 fonts, one Group font scope; preview alternative EP07 ASS without auto-inclusion, change only EP07 font/subset override, run queue, ensure EP01 and other jobs remain unchanged. Inspect independent final MKV font attachments.
+B. Import MKV A and B; preview A embedded subtitle with A attachments; inspect B target with different effective font set; inspect generated B artifact separately. No accidental silent font fallback.
+C. Change imported resources while one target has unsaved edits and the batch has frozen/running jobs; assert stable source bindings, no inherited global font policy, no corrupt existing results.
+D. Remove a font referenced by two target drafts. Show dependencies, do not silently remove or replace; deletion from session is distinct from output exclusion.
+E. Regress old single video+ASS+fonts operation with no additional forced steps and a view-only MKV session with no output.
+
+Recommendation: do not ratify final A/C or single-screen UI before this cross-capability conflict ledger and actual interaction tests. The unit of evaluation is a complete vertical task crossing multiple capabilities, not one locally elegant diagram. Candidate-only, no Canonical promotion or product code change, user/product validation PENDING.
