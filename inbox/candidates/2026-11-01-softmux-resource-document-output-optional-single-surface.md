@@ -201,3 +201,13 @@ A **separate, nonproduction single-HTML interaction prototype** `softmux-interac
 New falsifiable distinction: a content-first importer may coexist with still role-bound preview and automatically included external subtitles. Therefore adding a generic resource list alone does not make preview/inclusion independent, and adding a no-video target representation does not enable output. The four integrated user jobs J1 old ASS/font, J2 view-only source and multiple MKVs, J3 PNG/PDF attachment-only actual output, J4 multiple ASS candidate preview vs chosen inclusion are specified in PR #206.
 
 Status: **candidate-level evidence extension**; production runtime and real media verification for the new behavior remain PENDING. Do not raise this to a Canonical rule or claim the user selected a final UI.
+
+## 2026-11-01 correction: non-mandatory output is not a separate “inspect-only feature”
+
+Owner explicitly rejected the assistant's PR #206 framing: “只查看不是一个功能。你打开游戏，看了看主菜单，然后关闭了游戏，这个游戏有查看主菜单功能吗？” This is a sharp counterexample to *feature reification*: an ordinary consequence of opening a document and not invoking output was promoted into a separate J2 use case and “inspect-only” task/mode, generating unnecessary architecture, testing and feature-management obligations. Do not make the mirror-image mistake of removing valuable **content inspection capabilities** such as viewing actual tracks and attachments: those are data presentation operations, but closing a document without generating output is not a specialized product feature.
+
+Minimal statement: **open inputs → present their actual contents where supported → allow contextual operations → only write MKV when requested**. “No output” is an absent command, not a new mode. Allow no-write regression assertions as safety checks without presenting a distinct viewing workflow. Do not prescribe dedicated inspection interface or additional task state solely to implement that absence.
+
+Action: corrected product research PR #206 document on `research/softmux-user-flow-integration-audit-20261101` at commit `651fdf0c2653e720032ce04276f49cceff429940`: changed “J2 只查看” to a **normal opening/switching regression condition**, corrected scope tables, and explicitly ruled out specialized inspect-only mode. Existing product main remains unmodified, and this is not a final UI endorsement.
+
+Dedup: append to existing Nov 1 Candidate rather than new Canonical, Bug, or another independent Candidate. Link to broader possible-to-required drift previously recorded in this same document. Evidence level: owner correction + direct text artifact rectification; no real-user product runtime evidence.
