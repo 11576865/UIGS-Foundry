@@ -142,3 +142,28 @@ Proposed mitigation to test (not normative):
 A useful established software-design comparison is D. L. Parnas, *Designing Software for Ease of Extension and Contraction* (IEEE TSE 1979; DOI 10.1109/TSE.1979.234169): minimal useful subsets and modular interfaces avoiding system-wide uses dependencies, **not** maximal abstract generality. This source supports the general architecture principle, not the project-specific causal attribution.
 
 **Status:** Candidate hypothesis based on user corrections and inspected code/docs; owner has not approved a product rewrite, alternate delivery contract or Canonical policy. The 2026-11-01 owner feedback is a legitimate counterexample to prematurely declaring any single UI model “solved.”
+
+## 2026-11-01 owner tactical scope concession: manual repetition may substitute for integrated batch
+
+User explicitly reevaluated the batch feature: for a personally used tool, manual repetition may be sufficient; batch primarily removes repeated actions, and tactical inconvenience is acceptable if this makes the project tractable. This is a **proposed prioritization tradeoff**, not a confirmed authorization to delete previously delivered batch behavior, historical feature requirements, or all tests.
+
+Key distinction: **feature retention / UI salience / generalized cross-feature integration / first-release acceptance priority** are separate decisions. Present code already has a DOM-free frozen queue, job planner, batch font policy and actual-output checks; discarding this completed work is not equivalent to declining to generalize it. A bounded legacy batch can remain available and tested as a secondary, scope-limited convenience while general Matroska composition and inspect-only work are built and verified primarily through single-target flows.
+
+Proposed smallest viable integration scope (Candidate):
+- Develop generic resource observation and optional Matroska output for **one active target at a time**. For separate B, C, D outputs, user may deliberately repeat open/add/inspect/export, without first designing simultaneous multi-target drafts, batch cross-source object distribution, multi-job preview/font overrides or automatic repair.
+- Reuse the existing individual stream-copy mux, ASS renderer, font identity/subset functions and artifact verification. Keep single-target operations short and continuous; reuse previously chosen files/settings only where exact resource identity and explicit choices remain valid. Avoid creating a new 'lightweight batch' abstraction that recreates the same ownership problem.
+- Keep existing batch code and user-visible legacy capability insulated from generic workflow rewrites, with regression and safety checks, but temporarily **do not promote every new general container operation to batch support**. An unsupported operation in batch must be explicitly unavailable, not silently omitted.
+- A feature may be **contextually hidden** from general work without being removed; no unannounced retirement of existing user promises. If formal S10 / L-032–L-037 release commitments need altering, obtain owner approval and modify the actual product contract separately; archived candidate planning is not automatically authoritative.
+
+Decision rule to test: compare the *real repetitive user cost* of an individual task against the *additional integrated development, feature-interaction testing and maintenance cost* of batching it. Include the owner's actual frequency and tolerance; do not use one universal efficiency slogan. Functional necessity and automatic repetition savings are not equivalent priorities.
+
+Falsifiable tests:
+1. Import A.mkv + external subtitle + font, preview and export, repeat for B.mkv; draft/preview/source identity must not silently bleed between outputs, and steps should remain comprehensible.
+2. Existing supported batch recipe still generates two independently verifiable results with correct font and subtitle assignment, even if newly generalized operations are explicitly unsupported.
+3. Mixed unknown and multiple-MKV input can be viewed without mandatory creation of batch jobs.
+4. Batch-specific Group font setting and queue lifecycle do not become global single-target state.
+5. Inspect-only input, including multiple MKVs, never silently creates output jobs.
+
+Dedup: existing Oct 12 legacy batch Candidate covers preservation and the historical queue; earlier sections of this Nov 1 Candidate cover interaction complexity. This addition captures the owner's **tactical willingness to accept repeat work** as a way to prevent premature cross-feature integration, rather than proposing duplicate batch architecture.
+
+Status: Candidate, pending owner decision on *which* batch feature changes are authorized; current MKV-Fast-Muxer source and Canonical scope unchanged. No real usability cost measurement yet.
