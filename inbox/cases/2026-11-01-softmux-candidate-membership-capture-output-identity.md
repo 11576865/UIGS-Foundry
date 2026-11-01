@@ -23,3 +23,12 @@ Initial 747 Node tests; final 757/757 Node and build pass. A real Chromium 153.0
 Tests: tests/e2e/candidate-membership-scenario.mjs; tests/live-external-asset-authority.test.mjs; tests/portable-external-project-recovery.test.mjs; tests/portable-workspace-atomic-recovery.test.mjs; tests/container-workbench-evidence.test.mjs.
 
 Product remains implementation authority. Single case, no automatic Canonical change.
+
+
+## Follow-up: attachment-only route and mixed-mode currency (2026-11-01)
+
+Product PR: https://github.com/11576865/MKV-Fast-Muxer/pull/208; implementation head d29d17c1eddba333d99f9ffa7a799c9179d3b14b. Previous PR #207 exact-head browser/S12/build passed and was merged at b8f4c957ee49e3ece5bd2506cdd8a030f6ecc0c9.
+
+The next bounded unit integrates PNG/PDF into the existing normal import/Start/artifact-save workflow with the existing bounded new-container writer, including single attachments. Two independently reviewed defects extend this case's authority-boundary lesson: (1) a generic-only visible inventory did not imply actual legacy media File inputs were empty, so routing must consult both; (2) newly included generic attachments changed output intent while the unsupported media display plan lacked a generic writer entry, requiring generic membership in historical media-output currency too. Both now have direct browser negative regressions. Resource identity and route readiness are runtime facts, not inferred from one UI projection.
+
+Local evidence: 764 Node tests/build; actual built Chromium single/two-attachment MKVs with complete payload SHA readback; real media candidate scenario with native FFprobe regression; 1440/1024/768 clickable dock and readable artifact links. Rehosting original result controls revealed inherited 38px icon-link sizing; geometry assertions prevent vertical text/overflow. New full browser CI requires native mkvmerge/mkvextract against actual downloads; this independent native proof remains Pending (not installed locally). Physical-device proof remains absent. No Canonical promotion.
