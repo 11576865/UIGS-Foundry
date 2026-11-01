@@ -60,7 +60,7 @@
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.CAPABILITIES_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
       "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-      "sha256": "747446981c183d889de209c1a298f930af8a320aee00283e24ac8b07f35fa623",
+      "sha256": "ba455547624712f5df911991b1d1c293bbcda4bba7fd712ae96e651a9cf782f1",
       "image": {
         "width": 1600,
         "height": 1000
@@ -100,7 +100,7 @@
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.DIAGNOSTICS_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
       "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-      "sha256": "b6b5c161b04b97d865092e5f6cc8f0fa05138fc095a52f71f8ca78eadf1c62cf",
+      "sha256": "9b254f6328e8b413ac7721fa893f8caf224eb0169c6721822817318ec6fb3c40",
       "image": {
         "width": 1600,
         "height": 1000
@@ -120,7 +120,7 @@
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
       "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-      "sha256": "d5a6d0276aeb8c72053097afac9bfa790ad99085e0c112a2b7b1a6fe50e3c24b",
+      "sha256": "a8d2a3727bb6a6a89eea69fbd8f94f61bd19f5c325755a53e654caca32c5ba27",
       "image": {
         "width": 1600,
         "height": 1000
@@ -360,7 +360,7 @@
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
       "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-      "sha256": "853b7c689c7cc9bb0578b0b81e1440698071679ebe75a3a87d398871b27e8f85",
+      "sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
       "image": {
         "width": 1600,
         "height": 1000
@@ -981,7 +981,7 @@
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.CAPABILITIES_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
         "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-        "sha256": "747446981c183d889de209c1a298f930af8a320aee00283e24ac8b07f35fa623",
+        "sha256": "ba455547624712f5df911991b1d1c293bbcda4bba7fd712ae96e651a9cf782f1",
         "image": {
           "width": 1600,
           "height": 1000
@@ -1025,7 +1025,7 @@
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.DIAGNOSTICS_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
         "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-        "sha256": "b6b5c161b04b97d865092e5f6cc8f0fa05138fc095a52f71f8ca78eadf1c62cf",
+        "sha256": "9b254f6328e8b413ac7721fa893f8caf224eb0169c6721822817318ec6fb3c40",
         "image": {
           "width": 1600,
           "height": 1000
@@ -1262,7 +1262,7 @@
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
         "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-        "sha256": "853b7c689c7cc9bb0578b0b81e1440698071679ebe75a3a87d398871b27e8f85",
+        "sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
         "image": {
           "width": 1600,
           "height": 1000
@@ -1290,7 +1290,7 @@
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
         "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-        "sha256": "853b7c689c7cc9bb0578b0b81e1440698071679ebe75a3a87d398871b27e8f85",
+        "sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
         "image": {
           "width": 1600,
           "height": 1000
@@ -1383,7 +1383,7 @@
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.EDITOR_SHELL.EMULATOR_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
         "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-        "sha256": "d5a6d0276aeb8c72053097afac9bfa790ad99085e0c112a2b7b1a6fe50e3c24b",
+        "sha256": "a8d2a3727bb6a6a89eea69fbd8f94f61bd19f5c325755a53e654caca32c5ba27",
         "image": {
           "width": 1600,
           "height": 1000
@@ -1409,7 +1409,7 @@
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
         "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-        "sha256": "853b7c689c7cc9bb0578b0b81e1440698071679ebe75a3a87d398871b27e8f85",
+        "sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
         "image": {
           "width": 1600,
           "height": 1000
@@ -1437,7 +1437,7 @@
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
         "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-        "sha256": "853b7c689c7cc9bb0578b0b81e1440698071679ebe75a3a87d398871b27e8f85",
+        "sha256": "19b2207ae946f3b492e8b1163b6dd1550eb720465ef2c15d5ef77c0dd6596e9c",
         "image": {
           "width": 1600,
           "height": 1000
