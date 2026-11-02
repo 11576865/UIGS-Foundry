@@ -41,3 +41,14 @@ PR #33 was merged to `main` at `54854594a7232fd86317e21b85abca20bfa19b4c`. Front
 - status rationale: reusable architectural lesson with one implemented product case; not yet cross-project canonical
 
 This is a Candidate only. It is not Canonical.
+
+
+## Follow-up observation — a container source need not contain video (2026-11-02)
+
+Softmux PR #223 (https://github.com/11576865/MKV-Fast-Muxer/pull/223) applies the legacy-assumption refinement to source eligibility rather than the output-container axis. The prior single-workbench remux path required a video stream although its Matroska mapper and audit could represent audio-only output. The feature separates observed primary-media eligibility from the narrower video-only batch/preview contract; optional video mapping does not authorize an empty output.
+
+Reusable observation: when removing a historical mandatory object, change the ingest/runtime gate, composition projection, compatibility decision and output oracle together. Require actual retained/output media, rather than mistaking a recognized container header for an executable stream set. Keep narrower consumers' contracts explicit instead of changing a shared video predicate globally. Specific intentional refusal causes must take precedence over incidental successful probe text in recent logs.
+
+Local evidence on the submitted 0.1045 implementation: five actual Chromium zero-video outputs cover AAC/FLAC MKA retained/edited/external-only replacement, AAC M4A and Opus WebM. Independent packet payload/count checks, retained Matroska PTS/private data, ASS/font extraction and source/output SHA checks passed. Empty-audio and actual subtitle-only MKS sources refuse and external-audio selection recovers. Existing three-output video history regression passed;832 Node tests/build passed. Exact-head hosted CI pending. Named short fixtures do not establish general playback, long-media/device or complete EBML preservation.
+
+This is an observation attached to the existing Candidate after de-duplication. It does not change Canonical.
