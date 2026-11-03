@@ -30,3 +30,9 @@ Two planned payload changes: exact same byte length and 61-byte growth. Both tar
 Existing Foundry cases describe *individual* native Matroska attachment replacement writers and validation fixtures; Candidate `2026-10-15-mkv-multiple-bounded-writers-one-router-with-output-oracle.md` describes aggregation and a broad common readback. This Test specifically makes a **same-source/same-intent dual-executor comparison** against mature `mkvpropedit` on a nested-chapter/UID-tag source, with explicit PASS/BLOCKED/FAIL statuses.
 
 New Canonical changes: none. Wait for workflow run and audit artifact before reporting test outcome or deciding whether to replace the underlying writer.
+
+## Follow-up 2026-11-04: Unknown preparation failures may not count as capability gaps
+
+Product PR #236 follow-up commit `2d14c078a3d4de96adefb0764b923b09f0d17ea7` tightened the new differential script. The initial script caught every exception thrown **before** a backend route was selected and reclassified it as `BLOCKED_OR_UNSUPPORTED`; this could turn unexpected parser/index errors into an apparent measured capability gap, hiding a potential regression. The script now allows `BLOCKED_BY_KNOWN_CAPABILITY_LIMIT` only for explicitly enumerated `P2_ROUTE_*` nonapplicability/guard codes. All unexpected preparation errors and all errors after route selection result in a failed comparison job. This does not establish actual product format coverage until the exact-head test completes.
+
+Corresponding browser workflow: `41701427270` (queued at last observation; status to be checked). An earlier run `41700416056` passed the comparison step prior to this tightened classifier, so it **must not** be promoted to a final comparison acceptance for the new code revision. New Canoncial claims: none.
