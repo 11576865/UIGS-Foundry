@@ -148,7 +148,7 @@
           "path": "index.html",
           "expected_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2",
           "verified": true,
-          "current_blob_sha": "7649d5d60478a965d238eb63c3e9851f485ecaca",
+          "current_blob_sha": "c198cc7b2cde1b75e4a2a9c5c27a7204f9837d39",
           "current": false,
           "actual_blob_sha": "2609a50fff6a2393dfc145e9869cf7fc316a4de2"
         },
@@ -180,7 +180,7 @@
         }
       ],
       "source_verified": true,
-      "current_head": "a86a26c837bf5134c8aa471cb498a8dd8f439c78",
+      "current_head": "6a09a0abdb8e84c09073839f54eeb1add83af9f6",
       "head_matches_revision": false,
       "source_content_current": false,
       "validation_content_current": false
