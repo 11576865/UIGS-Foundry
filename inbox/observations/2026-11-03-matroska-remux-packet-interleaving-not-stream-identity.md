@@ -21,3 +21,9 @@ This method does not automatically prove preservation under track reordering, sa
 Changed actual test `tests/e2e/cross-source-attachment-reuse-scenario.mjs` to group ffprobe packet rows by stream_index before comparing per-stream ordered `data_hash` arrays and PTS/DTS differences (<= 0.0011 seconds in the named short fixture). Product corrected commit `3b610eb91b0af609048ef1651fdbb3394ff5e81c`. **Full browser CI [41664141973](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41664141973) pending** at observation time. Do not assert a verified PASS until the exact new run completes.
 
 No production writer modification was required to address this particular test-oracle problem; not a Canonical change. If corrected CI reports per-stream mismatches, investigate as possible production bug, not further normalize away.
+
+## Accepted outcome — exact corrected head (2026-11-03)
+
+The corrected stream-scoped per-track payload and PTS/DTS audit passed the **entire** [Browser CI 41664141973](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41664141973) for product [PR #231](https://github.com/11576865/MKV-Fast-Muxer/pull/231) exact head `3b610eb91b0af609048ef1651fdbb3394ff5e81c`, including real A.mkv→B.mkv attached-file output native evidence upload; S12 large-media scoped and Pages build also succeeded. Merged to `main@ef786241eb1dbde00793049631eb0c3d96eeb70a`.
+
+The earlier global `ffprobe -show_packets` order false-positive is confirmed: the real browser output preserved each B stream's compressed packet SHA sequence and PTS/DTS within the named ≤1.1 ms tolerance while changing interleaving order between streams. This is a bounded real-world positive validation of per-stream comparison, not a general guarantee for other codecs, track reorder, or timestamp remapping. Keep as Observation; no single-case Canonical rule change.
