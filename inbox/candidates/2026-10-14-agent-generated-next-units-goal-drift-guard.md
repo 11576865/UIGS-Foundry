@@ -44,3 +44,13 @@ The previously proposed guard now has a concrete **project-local process impleme
 - QHE branch feat/qhe-five-round-delivery-20261013 at commit dc2e68e98dc4a6f37dc8f8c5241442733004a91f contains the documented checkpoint. No product feature or release was claimed, and these planning edits have not yet proved that direction drift frequency decreases.
 
 Evidence level: process rule implemented in a real repository with task queue transition; effectiveness against a three-step drift recurrence remains TEST-PENDING. This continues to be Candidate, with no Canonical promotion.
+
+## 2026-11-04 Softmux correction: prior-art research must not auto-expand UI scope
+
+Cross-project supporting observation (single owner correction; not a confirmed generalized failure rate): after the owner asked Softmux to borrow mature MKVToolNix design/implementation to reduce duplicated EBML engineering and increase preservation reliability, a research PR (#235) proposed building “set as cover / landscape cover” semantic shortcut buttons as its *first implementation slice*. The owner immediately challenged whether these shortcuts were necessary. In context, they had **not** requested feature expansion; the intended scope was prior-art source review, backend capability comparison and real MKV reliability tests.
+
+This is another concrete manifestation of the candidate distinction already recorded above: a plausible agent-generated follow-up is not automatically authorized by the owner's root goal. Drawing UX inspiration from upstream does not itself prove a new UI affordance is needed. When the existing attachment editor can set filename/MIME, a dedicated cover shortcut requires its own task evidence and value argument, especially when underlying reliability issues remain unresolved.
+
+Corrective action in product repo: Softmux [Draft PR #235](https://github.com/11576865/MKV-Fast-Muxer/pull/235), head `2542161227740db2333ccc34e2e3485ff0c1d1ab`, revised two research documents and PR description to **withdraw the cover shortcut as a planned task**. Priority is current upstream source/license audit, identical-input independent comparison, and evidence-gated minimal repair/reuse. The test matrix may keep cover naming as a format-preservation case, not as a new UI-feature acceptance obligation.
+
+Deduplication: this follow-up adds one different product scenario to the *existing* agent-generated task-scope drift Candidate rather than creating a competing rule. It does not demonstrate that the new scope check prevents recurrence, authorize source migration, change Softmux Canonical policy, or certify product implementation. Product work is documentation only; source audit and executable benchmark remain Pending.
