@@ -1,7 +1,7 @@
 # Bug: Foundation C/WASM adapter falsely admitted nonterminal unknown-size Cluster sibling as Cluster child
 
 Date: 2026-11-04
-Status: **Reproduced; fix implemented; latest exact-head CI pending**
+Status: **Verified fixed in scoped Chromium / C-WASM CI; wider release still pending**
 Layer: Bug / implementation-specific, not Canonical
 Product: 11576865/MKV-Fast-Muxer, [Draft PR #240](https://github.com/11576865/MKV-Fast-Muxer/pull/240), Issue #238
 
@@ -26,3 +26,15 @@ The earlier positive [#41836661083](https://github.com/11576865/MKV-Fast-Muxer/a
 At writing, exact patched product commit `e3b32199b7ecc9e4a75b3a2c8b4da2ee892236af` and its scoped + full product CI had not yet completed. Until those exact-head results are checked, status is **Pending verification** and no general retirement of the legacy path is allowed. When verified, update this Bug and the existing 2026-11-04 Matroska Foundation Case; do not modify Canonical.
 
 **Dedup check:** searched the Foundry for unknown-size Cluster sibling/Tags misparenting and related Foundation C/WASM parent scope; no prior Bug with this concrete failure and exact native Chromium counterexample. The existing Foundation Case and older CRC Cases remain separate and are cross-referenced rather than duplicated.
+
+## Exact-head closure evidence (read-only scope)
+
+Verified on product commit `e3b32199b7ecc9e4a75b3a2c8b4da2ee892236af`, dedicated [Foundation C/WASM + Chromium run #41838632473](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41838632473) **SUCCESS**. Downloaded actual Artifact ID `13327083379` and read `.e2e/output/foundation-ebml-edge-chromium.json`, which records `FOUNDATION_EBML_EDGE_CHROMIUM_PASS` across eight test files:
+
+- Native-recognized **terminal** unknown-size Cluster: Foundation-primary `inspected`, legacy `unverified`; both attachment payload hashes matched independent `mkvextract`, and official Foundation node reported `finite:false`.
+- Native-recognized **nonterminal** unknown-size Cluster followed by top-level Tags: Foundation-primary `unverified`, no attachments, `FOUNDATION_WORKER_REJECTED_INPUT_FOUNDATION_ABI_PROBE_FAILED_15`.
+- Native-recognized ambiguous **Void following unknown-size Cluster**: Foundation-primary `unverified`, no attachments, identical bounded native failure code; conservative exclusion is intentional, because Void is legal under either parent and EOF-bound parent reconstruction alone cannot assign it with certainty.
+- Correct outer-and-inner Attachments/AttachedFile CRCs: `checked:2`, independent attachment bytes match native extractor. Corrupt **inner** CRC despite recalculated correct outer CRC: `unverified` with `FOUNDATION_CRC32_MISMATCH`, no attachment extraction.
+- The older six-layout, seven-attachment, four damaged-file positive/negative matrix also passed in the same scoped run. Browser errors 0, original source unchanged. S12 scoped run `41838632441` and Pages `41838632479` completed successfully on the same exact head. Full product Browser E2E `41838632534` still in progress at this verification.
+
+**Disposition:** implementation-specific Bug **fixed for the tested supported subset**, while production activation and complete container-format support remain Pending. This does not justify a Canonical schema policy, a claim that all unknown-sized Clusters are safely interpreted, or retirement of the legacy read path. Preserve both native-positive and native-negative fixtures as permanent regression tests.
