@@ -53,3 +53,17 @@ CI evidence: `.github/workflows/browser-e2e.yml`, artifact `s08-current-workbenc
 - PR [#166](https://github.com/11576865/MKV-Fast-Muxer/pull/166) was merged (squash) to `main@fdf87a9710247db35adb041640facad5fa5d6380`.
 - Source head `d17d923bfd7f2b785c9dfec22ddd2265761e5585`; GitHub Actions [#39468296942](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39468296942) **completed success on second attempt**. On first attempt this same SHA failed a previously known R2 source-title regression **after S08 itself passed**, so S08's targeted acceptance is verified within the reported fixture and run, but no broad nonflaky assurance is asserted.
 - This Observation remains an evidence record, not a new canonical safety rule. The separate intermittent R2 problem is tracked in `inbox/bugs/2026-10-20-softmux-r2-source-title-plan-intermittent-integration.md`.
+
+
+## 2026-11-05 follow-up: independent native source proof in 1.0 convergence
+
+**Deduplication:** This is the existing S08 acceptance Observation, not a new general Matroska preservation rule. Existing [PR #166](https://github.com/11576865/MKV-Fast-Muxer/pull/166) + [successful workflow attempt #39468296942](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/39468296942) already established the bounded UI fail-closed and safe-source actual MKV output scenario; do **not** relabel that past S08 pass as a new untested defect or pretend it is 1.0 exact-candidate acceptance.
+
+**Current product work:** [Draft PR #241](https://github.com/11576865/MKV-Fast-Muxer/pull/241), exact commit `73b2d0f6979b2cd313c3657265ce3ad1ecded062`, carries two code/CI changes `4ca102f871a9d1448592dac8811e93befbbd2faf` and `73b2d0f6979b2cd313c3657265ce3ad1ecded062`:
+- Upgrade the **existing live Chromium S08 user task** to run native `mkvextract` over the actual dangerous source immediately before selecting it. Require original chapter XML contains parent `ChapterUID=510010` and nested `510011`, and original tags XML references the same nested `510011` with `P0_NESTED_CHAPTER_KEEP`. Preserve independent extracted XML with SHA-256 in test receipt.
+- After actual forced-runtime refusal, selected safe source is remuxed/downloaded in Chromium. Compare `ffprobe` video/audio **codec identity** between safe source and finished MKV, in addition to existing stream-count and unchanged source hashes. This verifies a narrower post-rejection stream-copy invariant, not full packet/PTS preservation.
+- Upload original `s08-risk-source-chapters.xml` and `s08-risk-source-tags.xml` next to the S08 receipt and finished MKV through the already-existing `s08-current-workbench-complex-mkv-safety` artifact.
+
+**Execution boundary:** GitHub PR commits and registered CI workflow changes are verified. At last query the new head **had no listed completed/active PR-triggered workflow runs**, so the new native-proof enhancement is **Pending CI**, not PASS. Historical S08 first-hand pass remains separately true only at its previous exact SHA. 1.0 `release-evidence.json` S08 stays `UNASSESSED` until frozen candidate/output/approval evidence is collected; no auto-promotion, no product runtime change, no Canonical modification.
+
+**Operational gap:** a test enhancement with no exact-HEAD run cannot close a release gate. Pending status must be explicit; if runner scheduling prevents jobs, repair the execution surface before inferring test success.
