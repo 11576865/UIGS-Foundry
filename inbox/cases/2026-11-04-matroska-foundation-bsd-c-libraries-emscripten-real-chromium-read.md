@@ -278,3 +278,20 @@ Real Chromium then calls the actual optional `createMatroskaAttachmentReader(fil
 - `c07b3e4008c38375ae03b720ba2953a7e4f9a48e` — real Chromium existing `inspectionBackend:'foundation-primary'` must accept the 7000-Void control with two independently extracted native SHA-256 attachment matches, and fail closed on the 8300-Void source with no extractable attachments and `FOUNDATION_WORKER_REJECTED_INPUT_FOUNDATION_ABI_PROBE_FAILED_15`, exercising the existing C adapter `NODE_LIMIT=8192`. The names encode inserted Void counts, **not measured total node counts**. This tests the configured supported envelope, not Matroska format invalidity.
 
 **Evidence status:** newly submitted HEAD `c07b3e4008c38375ae03b720ba2953a7e4f9a48e`, CI queued / **Pending CI**, no test claim yet. No production reader default switch, no Writer, no UI changes, no license staging change, no 300GB/mobile acceptance, and no Canonical promotion.
+
+
+## 2026-11-05: Latest-head Void-node/metadata/CRC real CI closure (PASS)
+
+**Intake/dedup:** Close *this existing* Foundation C/WASM read-only Case's pending CI from `2026-11-05` and the prior `2026-11-04` metadata/CRC cases. No new duplicate Candidate/Test/Canonical record is needed. Product PR [#240](https://github.com/11576865/MKV-Fast-Muxer/pull/240) remains a **Draft** research lane, separate from the product-release [PR #241](https://github.com/11576865/MKV-Fast-Muxer/pull/241).
+
+**Exact immutable evidence head:** `c07b3e4008c38375ae03b720ba2953a7e4f9a48e`. GitHub workflow conclusions are **all SUCCESS**:
+- Foundation C/WASM [#41878188269](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41878188269), job `126743368018`: SUCCESS; log `FOUNDATION_EBML_EDGE_CHROMIUM_PASS` with `passed:15,expected:15,error:null`; independent matrix `FOUNDATION_PRIMARY_INDEPENDENT_MATRIX_PASS` with `passed:6,expected:6,error:null`. The runner exercised actual pinned upstream C/WASM, native `mkvmerge -J` recognition, independent `mkvextract` attachment SHA-256, real Chromium/WASM WorkerFS, and license-staged Vite distribution. Upload artifact `foundation-matroska2-wasm-actual-build-and-read`, ID `13347317982` (metadata confirms present).
+- Browser E2E [#41878188309](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41878188309): SUCCESS.
+- S12 scoped real media [#41878188483](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41878188483): SUCCESS.
+- Pages [#41878188265](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41878188265): SUCCESS.
+
+The new 7000-`Void` finite Segment positive and 8300-`Void` legal but over-budget negative are therefore **verified within the test contract**, along with the 4096/4097 metadata boundary and valid/invalid nested/large CRC scenarios. **Status change: prior exact-head CI Pending -> PASS (scoped read-only engineering test).** This does **not** mean all S01–S14, physical 300GB/device performance, arbitrary MKV, or production default-reader migration are accepted.
+
+**Product-implementation boundary checked:** Explicit `inspectionBackend:'foundation-primary'` exists and fails closed without legacy fallback. `src/foundation-runtime-worker-factory.js` is an opt-in Worker factory; `scripts/stage-foundation-wasm-runtime.mjs` creates a license + manifest + compiled ABI bundle only by explicit staging. The normal product build neither bundles that binary automatically nor makes Foundation the default. Further work should determine the precise *approved* product adoption/wiring plan, not generate indefinite EBML edge corpus. No UI/Writer/default-reader changes, no old-reader retirement, no Canonical promotion.
+
+**Unresolved status:** Product adoption / optional distribution decision = **Pending authorization and further practical integration/real-device evidence**; keep distinct from now-closed CI Pending. PR #240 remains Draft/unmerged.
