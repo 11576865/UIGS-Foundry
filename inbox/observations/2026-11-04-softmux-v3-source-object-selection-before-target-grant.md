@@ -30,3 +30,16 @@ A source *focus* or *selected object* is neither (a) permission to edit an input
 - [Single-source contextual help candidate](../candidates/2026-10-12-single-source-contextual-help-and-settings-scopes.md) covers explanatory topic ownership; this record does not establish a unified HelpTopic system.
 
 **Not proven:** exact Figma pixel match, complete ASS/font closure, independent source Preview/Extract, physical device accessibility, final exact-head CI or production release. No Canonical change authorized.
+
+
+## 2026-11-04 — Native ASS preview follow-up (PR #239, pending exact-head CI)
+
+**Product commit:** [`ada99f76`](https://github.com/11576865/MKV-Fast-Muxer/commit/ada99f76cbe969d644cd3ed9946a8740c88fabe7), still on Draft PR #239; V3-only and unmerged.
+
+New bounded integration: a user selects a *real, primary, scanned ASS/SSA source track* within V3-05 before any target document exists. The new `softmux:v3-preview-source` intent is accepted by the existing source/preview owner only if the imported resource key, exact File reference, active source, scanned source and native embedded-preview stream index all match. A forged same-metadata File cannot inherit permission.
+
+The actual existing `#sf14PreviewDrawer`, preview select/time/image/status controls and FFmpeg/libass renderer are **moved rather than copied** into the V3 source object inspector. Closing the inspector or changing the source restores the original DOM. Preview does not grant output membership, create a plan, or claim a mux result. Unsupported ASS+font cross-source **addition** remains gated separately.
+
+A new isolated Chromium scenario generates a real ASS-bearing MKV and asserts native image rendering, exact original preview singleton, forged-File refusal, unchanged source SHA-256, and absence of target/mux authority. At the time of this entry CI was **in progress**: [V3 #41809258342](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41809258342), [Browser E2E #41809258174](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41809258174), [S12 #41809258307](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41809258307). No new pass claimed.
+
+**Knowledge decision:** This continues the same source-selection-before-authority Observation and already-known single-authority DOM rehosting patterns (see `inbox/cases/2026-10-15-softmux-figma-semantic-ownership-and-entry-contract-gap.md`). Keep this as follow-up evidence rather than a new Candidate or Canonical modification. The fixture has no embedded fonts and does not prove complete preview font closure, ASS extraction UI, complex target transfer, pixel fidelity or touch accessibility.
