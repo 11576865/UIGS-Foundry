@@ -41,3 +41,8 @@ Do not promote this new Candidate to Canonical from one source observation or gr
 - The preexisting external native S06 `mkvpropedit` same-input/ref-UID comparisons and S07 full XML/UID oracle remain separate tests, not falsely described as the result of these user actions.
 
 **Status:** exact-head Browser E2E run [#42015997951](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/42015997951) was **in progress** at intake (syntax, units, build green), Pages [#42015998033](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/42015998033) SUCCESS. **Pending CI and direct downloaded-archive inspection**. No product release `S06/S07 PASS` or frozen 1.0 candidate until exact scope verified; do not revise the owner approval state or promote Canonical. Evidence gaps should be distinguished from absent capability; never replace the independent oracle with a writer's own success report.
+
+
+## 2026-11-05: S06/S07 exact 64-bit UID evidence correction
+
+The initial PR #248 `0455d0cb` test retained an inherited `JSON.parse` call for `mkvmerge -J`, which can round `TrackUID/FileUID` values above `2^53−1`. A later test-only correction **`c421a9bb8f16261b7131c6380f38eadea5aefbad`** reuses the already-tested `parseMkvmergeJsonWithExactUids` helper to preserve UID decimal literals as strings before comparison and before receipt creation. Current **exact-head Browser E2E #42016372295 Pending** as of intake, Pages #42016372113 SUCCESS. Superseded #42015997951 is not sufficient to accept the updated UID assertions even if it later passes. This is a test-oracle precision issue; no production code or inferred previous binary corruption. Pending CI/actual ZIP review remains open, no Canonical change.
