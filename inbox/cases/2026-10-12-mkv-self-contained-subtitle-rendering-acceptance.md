@@ -1,7 +1,7 @@
 # Case: Render an existing MKV's ASS subtitle using only retained in-container resources
 
 Date: 2026-10-12
-Status: Case / proposed acceptance contract / not implemented in MKV-Fast-Muxer
+Status: Case / partially implemented and scoped real-output evidence verified; broader proposed matrix remains incomplete
 Product: `11576865/MKV-Fast-Muxer`
 Evidence base: main merge commit `7781a4f410a9c6edb9a1f3d056091e6ace333cc4`
 Related UIGS records:
@@ -33,3 +33,20 @@ A self-contained render check must close its dependency set over the *proposed o
 ## Evidence level and limits
 
 Source inspection of exact main code, and a proposed test case. No isolated actual MKV acceptance run was performed for this case. Do not claim runtime reproduction or mark implemented. No Canonical promotion.
+
+
+## 2026-11-05: S03 bounded real Chromium/native render evidence — earlier implementation gap narrowed
+
+**Intake/dedup:** Update this existing Case because its original `not implemented` scope is now stale. Do not reinterpret the original proposed seven-part full contract as automatically approved or fully satisfied. Related font subset grapheme/cmap defect is already tracked and closed separately in `inbox/bugs/2026-11-03-font-subset-prunes-canonical-composition-cmap.md`; no duplicate Bug or Canonical record created.
+
+**Exact actual evidence:** [Softmux full Browser E2E #41973241938](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41973241938), source code head `a38696a61822f67a55f2a0ebf7cce1cc77f6b9d7`, completed **SUCCESS**. Its dedicated S03 collection/CFF native-shaping job, units/build, and actual Chromium browser suite succeeded and uploaded six independently inspected archives:
+- `13391185006`: four actual MKV outputs with two-face TTC/OTC (byte-preserved, no unauthorized collection subsetting) and CFF OTF single/batch subsets. Deterministic original and subset render PNG pixel equality with independent native libass reference; changed-font negative PNGs are distinct. Native font-face and HarfBuzz shaping vectors (including Arabic, ligature and multistage combining accents) were checked. **Source archive itself marks `previewFaceIdentityVerified:false`**: it does NOT prove exactly which face the browser preview used.
+- `13390504606`: real `preserve` / `subset` / `force` font strategies and an intentional missing-dependency warning case. Native outputs and extracted font SHA-256 match receipts. Positive PNG pixel equivalence holds; negative case records two warnings and `pixelEquivalenceVerified:false` rather than suppressing a failure.
+- `13390459389` and `13390952838`: independent libass actual final ASS+font one-frame proof and four distinct fractional-time dynamic ASS samples. Source vs demuxed-final exact-pixel checks pass; direct-MKV frames are high but not exact-SSIM matches. Altered/blank image controls distinguish false positives.
+- `13391310491` and `13391365035`: true input MKV embedded ASS+font inspection/preview and another MKV using selected source ASS+font, with actual output source-byte identity/provenance in tested run and independently inspected final frame + attachment evidence.
+
+**Independent reviewer work:** Downloaded all 6 ZIPs, locally recalculated SHA-256 for every included mode's final MKV, delivered standalone font where packaged, and documented PNGs; `ffprobe` opened each supplied actual MKV and identified expected video/audio/ASS/attachment types. Positive image comparisons were pixel-exact; negative images differ. No original source fonts/video for every mode were included to permit a second external input rehash. Reinspection receipt SHA-256: `3dac8e39130502fdae74d85e70ec3ec1c33fcf1227a44b5b3ae282037b4d3368`.
+
+**Release ledger:** Docs-only [PR #247](https://github.com/11576865/MKV-Fast-Muxer/pull/247) merged to `main@74d2cbdda77f77aa127a3b7ac50ca58fc109bc2e`, records this S03 `SCOPED_PASS_NOT_1_0_ACCEPTANCE`, artifact IDs, exact tested code head and **unresolved preview font-face provenance** in existing `docs/softmux-1.0-release-evidence.json`. Formal `status:UNASSESSED`, release candidate null, contract owner approval pending. No product feature code was modified by the documentation reconciliation.
+
+**Unmet/unknown relative to the original Case:** There is no independent browser preview exact-face proof for each TTC/OTC face; the original matrix's every `\\fn`, `\\r`, `\\t`, source track removal/fallback, arbitrary glyph/style/font, real physical devices and cross-player requirement have not been certified as a whole. These are *bounded evidence/scope gaps*, not observed new product defects. Continue to distinguish independent native result rendering, browser preview, and actual target player behavior; do not promote Case to Canonical.
