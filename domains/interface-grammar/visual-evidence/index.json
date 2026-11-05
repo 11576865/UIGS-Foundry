@@ -471,7 +471,7 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.EFFECTS.WORKBENCH.DESKTOP_DARK.png",
       "source_repository": "11576865/HSR-Voice-Archive-Builder",
-      "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
+      "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
       "sha256": "97499340f3c918f6ed2eecf758ff16bd58aa938f733d5e6294fd13f9d022458b",
       "image": {
         "width": 1169,
@@ -491,7 +491,7 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.EXPORT.WORKSPACE.DESKTOP_DARK.png",
       "source_repository": "11576865/HSR-Voice-Archive-Builder",
-      "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
+      "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
       "sha256": "1fec6b837c2f414d4af8cecddef63598adff1dfd5b319bbefee1f43ffc1f328a",
       "image": {
         "width": 1169,
@@ -517,13 +517,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
       "source_repository": "11576865/HSR-Voice-Archive-Builder",
-      "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-      "sha256": "5441b2353d5124a70aed0f87e96dd50e0bbd083bd028bd56db7fee6ab7d7912c",
+      "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+      "sha256": "807c6b8b789dfc65dfed60fcc4b45ef730ffacc00991366b755dd662a3981dfb",
       "image": {
         "width": 1169,
         "height": 1121
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.json"
     },
     {
@@ -543,7 +543,7 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.MOBILE_DARK.png",
       "source_repository": "11576865/HSR-Voice-Archive-Builder",
-      "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
+      "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
       "sha256": "134735a7d4d970ee73c4a5235d88edb9480a833ccf64d72bbd44e6cbd4529a16",
       "image": {
         "width": 390,
@@ -569,13 +569,13 @@
       ],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.TABLET_DARK.png",
       "source_repository": "11576865/HSR-Voice-Archive-Builder",
-      "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-      "sha256": "8c3cccb774d8bda7d566aba65d9b2be387d1c4b3fb16c85b44e67abf540e9c88",
+      "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+      "sha256": "21941c32e2412ec991b6d0e3d109a6e9489f9a8c3d93100c14c9831b44a8c310",
       "image": {
         "width": 1024,
         "height": 900
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.TABLET_DARK.json"
     },
     {
@@ -589,13 +589,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.PROJECT.WORKSPACE.DESKTOP_DARK.png",
       "source_repository": "11576865/HSR-Voice-Archive-Builder",
-      "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-      "sha256": "a9c7afcb07e34d725d8fc3cf4bad877f2518a9425a33a06f0f7d9a444b134e92",
+      "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+      "sha256": "fdb9173fb847a012218d60d9a7b26d2d0365b06660f369f30a63b196b671fda0",
       "image": {
         "width": 1365,
         "height": 900
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.PROJECT.WORKSPACE.DESKTOP_DARK.json"
     },
     {
@@ -612,13 +612,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
       "source_repository": "11576865/HSR-Voice-Archive-Builder",
-      "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-      "sha256": "44d8f409f74048c9c0d1f7793b10e1fdc9e53c022c6ee6a32da85f40d4afaa5e",
+      "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+      "sha256": "3c8ce5e393e4b0fe8a108e593ed96f4c09de6231dc21195f77017efa447f32b8",
       "image": {
         "width": 1169,
         "height": 1021
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK.json"
     },
     {
@@ -632,13 +632,13 @@
       "patterns": [],
       "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.UPDATE.WORKSPACE.DESKTOP_DARK.png",
       "source_repository": "11576865/HSR-Voice-Archive-Builder",
-      "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-      "sha256": "6bb9063b72dd1f4e70f458ec06fe1e62d498a2b4aee7097684384737409e0331",
+      "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+      "sha256": "3337d3e7220f96b54bfec2f69ff2b43cc70ab73d06513f0cab8328302e1b2357",
       "image": {
         "width": 1169,
         "height": 1023
       },
-      "change_status": "unchanged",
+      "change_status": "changed",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.UPDATE.WORKSPACE.DESKTOP_DARK.json"
     },
     {
@@ -1563,13 +1563,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "5441b2353d5124a70aed0f87e96dd50e0bbd083bd028bd56db7fee6ab7d7912c",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "807c6b8b789dfc65dfed60fcc4b45ef730ffacc00991366b755dd662a3981dfb",
         "image": {
           "width": 1169,
           "height": 1121
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.json"
       },
       {
@@ -1589,7 +1589,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.MOBILE_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
         "sha256": "134735a7d4d970ee73c4a5235d88edb9480a833ccf64d72bbd44e6cbd4529a16",
         "image": {
           "width": 390,
@@ -1615,13 +1615,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.TABLET_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "8c3cccb774d8bda7d566aba65d9b2be387d1c4b3fb16c85b44e67abf540e9c88",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "21941c32e2412ec991b6d0e3d109a6e9489f9a8c3d93100c14c9831b44a8c310",
         "image": {
           "width": 1024,
           "height": 900
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.TABLET_DARK.json"
       }
     ],
@@ -1643,13 +1643,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "5441b2353d5124a70aed0f87e96dd50e0bbd083bd028bd56db7fee6ab7d7912c",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "807c6b8b789dfc65dfed60fcc4b45ef730ffacc00991366b755dd662a3981dfb",
         "image": {
           "width": 1169,
           "height": 1121
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.json"
       },
       {
@@ -1669,7 +1669,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.MOBILE_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
         "sha256": "134735a7d4d970ee73c4a5235d88edb9480a833ccf64d72bbd44e6cbd4529a16",
         "image": {
           "width": 390,
@@ -1695,13 +1695,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.TABLET_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "8c3cccb774d8bda7d566aba65d9b2be387d1c4b3fb16c85b44e67abf540e9c88",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "21941c32e2412ec991b6d0e3d109a6e9489f9a8c3d93100c14c9831b44a8c310",
         "image": {
           "width": 1024,
           "height": 900
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.TABLET_DARK.json"
       }
     ],
@@ -1723,13 +1723,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "5441b2353d5124a70aed0f87e96dd50e0bbd083bd028bd56db7fee6ab7d7912c",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "807c6b8b789dfc65dfed60fcc4b45ef730ffacc00991366b755dd662a3981dfb",
         "image": {
           "width": 1169,
           "height": 1121
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.json"
       },
       {
@@ -1749,7 +1749,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.MOBILE_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
         "sha256": "134735a7d4d970ee73c4a5235d88edb9480a833ccf64d72bbd44e6cbd4529a16",
         "image": {
           "width": 390,
@@ -1775,13 +1775,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.TABLET_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "8c3cccb774d8bda7d566aba65d9b2be387d1c4b3fb16c85b44e67abf540e9c88",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "21941c32e2412ec991b6d0e3d109a6e9489f9a8c3d93100c14c9831b44a8c310",
         "image": {
           "width": 1024,
           "height": 900
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.TABLET_DARK.json"
       }
     ],
@@ -1800,13 +1800,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "44d8f409f74048c9c0d1f7793b10e1fdc9e53c022c6ee6a32da85f40d4afaa5e",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "3c8ce5e393e4b0fe8a108e593ed96f4c09de6231dc21195f77017efa447f32b8",
         "image": {
           "width": 1169,
           "height": 1021
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK.json"
       }
     ],
@@ -1825,13 +1825,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "44d8f409f74048c9c0d1f7793b10e1fdc9e53c022c6ee6a32da85f40d4afaa5e",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "3c8ce5e393e4b0fe8a108e593ed96f4c09de6231dc21195f77017efa447f32b8",
         "image": {
           "width": 1169,
           "height": 1021
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK.json"
       }
     ],
@@ -1850,13 +1850,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "44d8f409f74048c9c0d1f7793b10e1fdc9e53c022c6ee6a32da85f40d4afaa5e",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "3c8ce5e393e4b0fe8a108e593ed96f4c09de6231dc21195f77017efa447f32b8",
         "image": {
           "width": 1169,
           "height": 1021
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK.json"
       }
     ],
@@ -1875,7 +1875,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.EFFECTS.WORKBENCH.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
         "sha256": "97499340f3c918f6ed2eecf758ff16bd58aa938f733d5e6294fd13f9d022458b",
         "image": {
           "width": 1169,
@@ -1897,7 +1897,7 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.EXPORT.WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
         "sha256": "1fec6b837c2f414d4af8cecddef63598adff1dfd5b319bbefee1f43ffc1f328a",
         "image": {
           "width": 1169,
@@ -1925,13 +1925,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "5441b2353d5124a70aed0f87e96dd50e0bbd083bd028bd56db7fee6ab7d7912c",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "807c6b8b789dfc65dfed60fcc4b45ef730ffacc00991366b755dd662a3981dfb",
         "image": {
           "width": 1169,
           "height": 1121
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.DESKTOP_DARK.json"
       },
       {
@@ -1951,7 +1951,7 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.MOBILE_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
         "sha256": "134735a7d4d970ee73c4a5235d88edb9480a833ccf64d72bbd44e6cbd4529a16",
         "image": {
           "width": 390,
@@ -1977,13 +1977,13 @@
         ],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.LAYOUT.WORKBENCH.TABLET_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "8c3cccb774d8bda7d566aba65d9b2be387d1c4b3fb16c85b44e67abf540e9c88",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "21941c32e2412ec991b6d0e3d109a6e9489f9a8c3d93100c14c9831b44a8c310",
         "image": {
           "width": 1024,
           "height": 900
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.LAYOUT.WORKBENCH.TABLET_DARK.json"
       }
     ],
@@ -1999,13 +1999,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.PROJECT.WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "a9c7afcb07e34d725d8fc3cf4bad877f2518a9425a33a06f0f7d9a444b134e92",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "fdb9173fb847a012218d60d9a7b26d2d0365b06660f369f30a63b196b671fda0",
         "image": {
           "width": 1365,
           "height": 900
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.PROJECT.WORKSPACE.DESKTOP_DARK.json"
       }
     ],
@@ -2024,13 +2024,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.REVIEW.WORKBENCH.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "44d8f409f74048c9c0d1f7793b10e1fdc9e53c022c6ee6a32da85f40d4afaa5e",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "3c8ce5e393e4b0fe8a108e593ed96f4c09de6231dc21195f77017efa447f32b8",
         "image": {
           "width": 1169,
           "height": 1021
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.REVIEW.WORKBENCH.DESKTOP_DARK.json"
       }
     ],
@@ -2046,13 +2046,13 @@
         "patterns": [],
         "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.UPDATE.WORKSPACE.DESKTOP_DARK.png",
         "source_repository": "11576865/HSR-Voice-Archive-Builder",
-        "source_revision": "200e8f64457753b29f329134d8bd9e3a38ed6860",
-        "sha256": "6bb9063b72dd1f4e70f458ec06fe1e62d498a2b4aee7097684384737409e0331",
+        "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+        "sha256": "3337d3e7220f96b54bfec2f69ff2b43cc70ab73d06513f0cab8328302e1b2357",
         "image": {
           "width": 1169,
           "height": 1023
         },
-        "change_status": "unchanged",
+        "change_status": "changed",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.HSR.UPDATE.WORKSPACE.DESKTOP_DARK.json"
       }
     ],
