@@ -19,3 +19,10 @@ The original V3 E2E `tests/e2e/v3-source-ass-preview.e2e.mjs` checked `img.compl
 ## Reuse / disposition
 
 Extend the existing visual-evidence body of knowledge but register this **concrete screenshot-backed product bug** separately for tracking. A generated image file, valid dimensions, and exit-code success are not evidence of correct raster content. For deterministic fixtures, acceptance requires a content-sensitive oracle tied to known text/color/time (or a reliable independent renderer), with font identity, locale and runtime distinctions recorded. No Canonical change and no automatic default V3 merge.
+
+
+## Exact-head red result — confirmed 2026-11-05
+
+On product commit `351dc3d892caee502e664f2637928f7bf06b2f80`, [V3 pilot #41973336353](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41973336353) completed **FAILURE** at the actual Chrome `v3-source-ass-preview.e2e.mjs` pixel assertion, while its previously exercised real single-source Stream Copy extraction, exact-File identity and authorization checks continued through the test. Downloaded [artifact 13390508216](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/41973336353/artifacts/13390508216) contains `ui-v3-ass-source/evidence.json` with the measured **source preview PNG 640×360, brightPixels=0**, `passed:false`, the precise content-pixel assertion, and an intact standalone `real-source-extraction.ass` verified by hash. This rules out an earlier screenshot-only dark-theme optical illusion: the actual browser-generated image content is blank for this specific white-text fixture.
+
+Status updated: **REPRODUCED / OPEN / exact-head V3 CI RED**. Root cause still unresolved. This does not invalidate prior successful native mux and S12 results on their own scoped heads; do not merge Draft PR #239 until the font/render/time issue and controlled content test are resolved. No Canonical change.
