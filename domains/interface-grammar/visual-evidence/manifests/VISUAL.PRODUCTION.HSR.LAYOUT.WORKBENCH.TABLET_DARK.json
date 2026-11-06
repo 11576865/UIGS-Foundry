@@ -37,7 +37,7 @@
     "evidence_level": "production-rendered",
     "browser": {
       "name": "chromium",
-      "version": "156.0.8078.4"
+      "version": "158.0.8127.18"
     },
     "target_url": "http://127.0.0.1:8765/",
     "viewport": {
@@ -70,8 +70,8 @@
       "settle_ms": 900
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "8c3cccb774d8bda7d566aba65d9b2be387d1c4b3fb16c85b44e67abf540e9c88",
+  "change_status": "unchanged",
+  "previous_sha256": "21941c32e2412ec991b6d0e3d109a6e9489f9a8c3d93100c14c9831b44a8c310",
   "limitations": [
     "Tablet layout and editable control hierarchy only.",
     "Not runtime-backed libass verification; no active project data is fabricated."

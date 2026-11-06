@@ -28,7 +28,7 @@
     "evidence_level": "production-rendered",
     "browser": {
       "name": "chromium",
-      "version": "156.0.8078.4"
+      "version": "158.0.8127.18"
     },
     "target_url": "http://127.0.0.1:8765/",
     "viewport": {
@@ -61,8 +61,8 @@
       "settle_ms": 900
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "a9c7afcb07e34d725d8fc3cf4bad877f2518a9425a33a06f0f7d9a444b134e92",
+  "change_status": "unchanged",
+  "previous_sha256": "fdb9173fb847a012218d60d9a7b26d2d0365b06660f369f30a63b196b671fda0",
   "limitations": [
     "No user game assets are loaded."
   ],
