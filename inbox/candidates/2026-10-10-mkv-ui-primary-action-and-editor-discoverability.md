@@ -73,3 +73,21 @@ Evidence: [Softmux single-surface Figma design, cross-source interaction state](
 **Refinement to existing Candidate:** Primary task affordances can be geometrically invisible *inside contextual inspectors* as well as in global toolbars. “An action exists in the panel” and “the action is visible or reachable without unexpected scrolling” are separate claims. Evaluate bounded panel height, persistent footer overlap, scroll/keyboard reachability and touch target size on portrait/landscape viewports; avoid solving overflow by duplicating an editable state. Source members shown for selection are not second authoritative copies of a target track.
 
 **Evidence limit:** One prototype composition failure and its correction. No real-browser runtime, user testing, saved-file behavior or cross-device geometry is established. This augments the existing discoverability Candidate; do not promote to Canonical.
+
+
+## 2026-11-07 V3.5 real Chromium counterpart: OPEN does not imply an in-viewport control
+
+This is the real browser counterpart to the **2026-11-04 static Figma clipping observation above**, not a separate Canonical principle.
+
+[Softmux Draft PR #267](https://github.com/11576865/MKV-Fast-Muxer/pull/267) added ten opt-in task entries via native existing source/target/Bulk/inspector/editor/tool DOM. The first Chromium E2E passed source identity, target authorization and `<details>.open` checks, but **visual review of the actual captured 1440×900 subtitle/font screens** showed the native `#newSubtitleList`/font settings below the bounded inspector's visible region because a previously expanded `#sf14Recovery`, an unneeded empty preview drawer and a selected unrelated video card consumed the context. This is a specific **visibility failure despite reachability and DOM existence**.
+
+A correction intentionally did **not** duplicate or recreate editor state:
+- entering subtitle/font collapses unrelated recovery/empty preview, uses the same `#sf14OptionsDrawer`, same `[data-editor-filter]`, native `#newSubtitleList`/`#fontMode`, and temporarily projects away the unrelated video inspector context only for the selected specialist category;
+- the E2E imports a **real standalone SRT**, explicitly authorizes an MKV target, asserts the live `data-new-sub-field="title"` exists and is actually within the inspector viewport, then checks the real font controls;
+- subsequent real screenshots revealed `scrollIntoView()` could **scroll the entire page and clip the fixed workbench header**, even when the field became visible. Replaced with a `revealWithin(field, originalOwnerScrollPane)` helper that changes only the appropriate native pane's `scrollTop`; E2E now asserts the global header remains in viewport when navigating to project/subtitle/font.
+
+**Verification:** exact [PR HEAD `56a26df3d234043a8a50c98174ab0b23f2b5f457`](https://github.com/11576865/MKV-Fast-Muxer/commit/56a26df3d234043a8a50c98174ab0b23f2b5f457) passed [V3 Pilot run #42372513201](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/42372513201), including Node tests, Vite build and real Chromium ten-route/focus test; independent new-MKV [#42372513241](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/42372513241) also passed. CJK screenshots and JSON evidence [artifact #13574686515](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/42372513201/artifacts/13574686515) were manually inspected for subtitle and font fields with the top header fully visible. The 620px screenshot confirms all ten category labels displayed in two rows.
+
+**Reusable acceptance refinement (Candidate only):** In a dense app, **route click / expanded disclosure / DOM element count** are different from **current-task visual accessibility**. Test the selected real control's viewport geometry *and* the surrounding stable shell/focus/scroll owner, using real task fixtures that populate fields rather than empty lists. Distinguish task view projection from second mutable editor ownership.
+
+**Limits:** one product, one targeted native Chrome desktop/compact fixture, not design approval, physical tablet, arbitrary real media, 55-state parity or user discoverability study. Full Browser E2E is a separate release gate. No Canonical promotion.
