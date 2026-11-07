@@ -38,3 +38,17 @@ Sources:
 - https://github.com/11576865/MKV-Fast-Muxer/blob/main/docs/ui-v3/V3_11_STATE_VISUAL_AUDIT_2026-11-07.md
 - https://github.com/11576865/MKV-Fast-Muxer/issues/256
 - https://github.com/11576865/MKV-Fast-Muxer/pull/265
+
+
+## 2026-11-07 same-task implementation evidence (design only)
+
+Owner said “做” to execute the proposed full-state redesign. In the existing Figma file `5iZSy48FV1sJnGdmUf1uQc`, a separate **V3.5 Draft page** was created without modifying the approved V3 page:
+- Page: https://www.figma.com/design/5iZSy48FV1sJnGdmUf1uQc?node-id=60-2
+- 55 unique editable Frames after 44-capability coverage review: A6/B9/C9/D8/E8/F5/G4/H6, with 1440 desktop, 1180 landscape, 820 portrait and 620 compact samples.
+- Important source/context/target/validation boundaries are represented; specialist pages include ASS preview **illustration**, ChapterUID/Tag relation, batch matrix, queue, output audit, empty-state drop target and 1GB nonblocking warning. The sample data and static preview are not real media evidence.
+- Reusable navigation component `V3.5 / Nav Entry` is used as 495 linked Figma instances across all 55 screens. One inspected visual bug (white auto-layout gap leakage) was corrected.
+- A draft **docs-only** review PR [#266](https://github.com/11576865/MKV-Fast-Muxer/pull/266) adds the mapping of original L-001—L-044 to proposed design entries and an index of 55 direct frame links.
+
+**Evidence boundary:** Figma structural/editable-layer checks and selected screenshot spot-checks support a real design artifact, but they do not prove 55 uniquely implemented production actions, pixel parity, usability, full-device accessibility, executable Figma prototype navigation, or product release readiness. Original 11-state Figma source authority drift remains unresolved; Batch first-class navigation is a candidate scope change requiring approval. No `Canonical` rule was changed and this existing Observation remains the appropriate classification.
+
+**Revised interpretation of the earlier planning count:** the initial “~50” was a nonbinding discovery estimate. The four added states B09/C09/D08/E08 explicitly close uncovered legacy capability *design representation* (L-013/L-024/L-018/L-034), showing why **requirement-driven coverage** is more appropriate than predeclared frame count.
