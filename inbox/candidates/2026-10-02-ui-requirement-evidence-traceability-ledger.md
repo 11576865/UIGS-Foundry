@@ -66,3 +66,21 @@ The additional observation here is the **requirement-level traceability boundary
 - evidence level: planning/traceability implementation plus repository-state audit
 
 This is a Candidate only. It does not modify Canonical guidance.
+
+
+## 2026-11-08 Softmux UI evidence catalog exposure versus actual capability coverage
+
+A follow-up user objection was "还是太少了" after a design expansion to 55 editable Figma Frames, 11 opt-in native task entries and a prior answer exposing only two real Chromium screenshots. An exact-HEAD V3 pilot [Actions #42380220742](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/42380220742), artifact [#13577496640](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/42380220742/artifacts/13577496640), already contained **70 distinct screenshot files**, but they were scattered across nine evidence directories and not presented as a browseable visual atlas. Counting produced assets was not equivalent to actually surfacing them for the user to inspect.
+
+A noncanonical **dark, filterable, local offline gallery** and 12 contact-sheet posters were produced in the conversation from those exact image bytes. The atlas explicitly distinguishes **60 actual Chromium captures** from **10 Figma-vs-Chromium comparison images**, and distinguishes multiple viewport renders from distinct functional states. A 44-row legacy-feature visual-evidence audit maps each L-ID to at most one supporting screenshot and preserves evidence caveats. Based **only** on this bounded screenshot corpus (not all code or backend tests), **10 of 44 rows lack directly mapped image evidence**, and another lacks its own dedicated scenario; therefore "70 images exist" still cannot mean "44/44 legacy capabilities have full UI and outcome evidence."
+
+**Reusable candidate refinement**: Evidence deliverability has a separate dimension from evidence existence. For a UI experiment registry, explicitly distinguish:
+1. authoritative design state;
+2. real production/task state;
+3. execution and independence of output evidence;
+4. viewport/physical device;
+5. **user-visible access to actual evidence** (index, labels, full-resolution view, scenario filters, reproducible artifact references).
+
+One large screenshot count must not be treated as a substitute for coverage of distinct user tasks; conversely, a CI system can have substantial artifact evidence whose absence from the user-facing report creates a false appearance of no progress. Use both counts and a **requirement × task × evidence** matrix. Do not allow narrative or synthetic screenshots to fill missing capability evidence.
+
+**Limits**: The gallery repackages existing CI proof; it does not newly implement hidden UI, establish 55-state Figma parity, fill all 44 L-ID execution paths, or authorize release. This is a single-project refinement to the existing Candidate, not promotion to Canonical.
