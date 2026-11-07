@@ -61,8 +61,8 @@
       "settle_ms": 900
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "3337d3e7220f96b54bfec2f69ff2b43cc70ab73d06513f0cab8328302e1b2357",
+  "change_status": "unchanged",
+  "previous_sha256": "d0444970bfcd480d0c467ea178b7e3dd51543c1f0b13a7d1241bcae2b0ebb250",
   "limitations": [
     "No remote project data.",
     "The capture harness reveals the real production panel when it is normally gated by active-project state; it does not fabricate project data."
