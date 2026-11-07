@@ -65,3 +65,10 @@ Exact-head new CI runs are in progress, so no pass is claimed. Two earlier red t
 2. `#batchUnifiedInput` is intentionally cleared immediately after `change` in `src/main.js`, while the actual `batchImportEntries` and `#batchAssetInventory` own identified imported objects. A new test incorrectly asserted input.files still held selections and was changed to inspect actual inventory rows. Reusable testing note: **do not equate native picker input.files lifecycle with transferred domain-owned source identity**.
 
 Related existing entries: `inbox/candidates/2026-10-10-mkv-ui-primary-action-and-editor-discoverability.md`, `inbox/observations/2026-10-15-softmux-global-add-active-task-context.md`, and `inbox/cases/2026-10-15-softmux-ai-concept-images-feature-catalog-vs-operable-ui.md`. This is a deduplicated follow-up to the current Observation. No Canonical modification; device/browser visual acceptance and full feature-coverage audit remain Pending.
+
+
+### Exact-head confirmation for the opt-in native-entry slice
+
+Commit `6e2a8b0e471d3917f50a044f5fe6b30475b1e591` of Softmux [Draft PR #267](https://github.com/11576865/MKV-Fast-Muxer/pull/267) passed [V3 Pilot Actions #42368921969](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/42368921969): Node tests, build, the new actual Chromium native Batch/Tools entry test, and pre-existing V3 browser scenarios. Independent new-MKV [#42368921943](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/42368921943) passed. V3 screenshot/JSON artifact [#13572408502](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/42368921969/artifacts/13572408502) was uploaded.
+
+**Evidence limit:** full Browser E2E [#42368921977](https://github.com/11576865/MKV-Fast-Muxer/actions/runs/42368921977) was still in progress when checked; neither production default switch, physical tablet operation nor 55-state design/implementation parity is proven. The earlier CI-red test fixture and cleared-file-picker assumptions were corrected without altering the canonical batch importer. Keep Observation classification, no Canonical promotion.
