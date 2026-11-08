@@ -15,7 +15,7 @@
   "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.VECTOR_CLIP_TOOL.FIXTURE_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
   "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-  "sha256": "da982050ad9f9e8eb8fd171eea8e0be5a9cd4ec9614bb70c1b15455c7d0fec16",
+  "sha256": "1ad1011a77692aa664c25d39f502bcd0b61e7bf2654f1092a8e4af7c34db288e",
   "image": {
     "width": 1600,
     "height": 1000
@@ -71,7 +71,7 @@
       "settle_ms": 250
     }
   },
-  "change_status": "unchanged",
+  "change_status": "changed",
   "previous_sha256": "da982050ad9f9e8eb8fd171eea8e0be5a9cd4ec9614bb70c1b15455c7d0fec16",
   "limitations": [
     "Uses the debug-only regression host to inject deterministic app state while rendering the production ModernEditorScreen and EditorViewModel.",

@@ -63,8 +63,8 @@
       "settle_ms": 3500
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "d5a6d0276aeb8c72053097afac9bfa790ad99085e0c112a2b7b1a6fe50e3c24b",
+  "change_status": "unchanged",
+  "previous_sha256": "a8d2a3727bb6a6a89eea69fbd8f94f61bd19f5c325755a53e654caca32c5ba27",
   "limitations": [
     "This initial state captures the full running APK but does not load a video or ASS fixture.",
     "Renderer-backed subtitle/video states require a later fixture-backed capture."

@@ -15,7 +15,7 @@
   "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.KARAOKE_TOOL.FIXTURE_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
   "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-  "sha256": "9e3c6198726e080f180abe23fd1df8fc6473827bcc6c64d291c1d4a5ebebdd37",
+  "sha256": "d934de953bb1aa173b4f0f3cf1820d472de754e4f26e8b3ae95e0796f3d2de62",
   "image": {
     "width": 1600,
     "height": 1000
@@ -71,7 +71,7 @@
       "settle_ms": 250
     }
   },
-  "change_status": "unchanged",
+  "change_status": "changed",
   "previous_sha256": "9e3c6198726e080f180abe23fd1df8fc6473827bcc6c64d291c1d4a5ebebdd37",
   "limitations": [
     "Uses the debug-only regression host to inject deterministic app state while rendering the production ModernEditorScreen and EditorViewModel.",

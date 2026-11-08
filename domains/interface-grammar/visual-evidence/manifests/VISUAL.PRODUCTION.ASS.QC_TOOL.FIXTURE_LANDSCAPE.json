@@ -13,7 +13,7 @@
   "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.QC_TOOL.FIXTURE_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
   "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-  "sha256": "e4133bf6610718f919782ddd00099b68200081c4808cb62ad9eecdfd07d0bd41",
+  "sha256": "2fcbce61723ac4c92f88923d10b1e6fb52abac917ccc6cd15915a8e9b09c1f57",
   "image": {
     "width": 1600,
     "height": 1000
@@ -69,7 +69,7 @@
       "settle_ms": 250
     }
   },
-  "change_status": "unchanged",
+  "change_status": "changed",
   "previous_sha256": "e4133bf6610718f919782ddd00099b68200081c4808cb62ad9eecdfd07d0bd41",
   "limitations": [
     "Uses the debug-only regression host to inject deterministic app state while rendering the production ModernEditorScreen and EditorViewModel.",
