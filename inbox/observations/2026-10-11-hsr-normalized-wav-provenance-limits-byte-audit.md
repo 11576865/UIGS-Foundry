@@ -27,3 +27,13 @@ This distinction is conservative: an aggregate normalization count cannot identi
 ## Intake
 
 Observation only. Do not promote to Canonical from one project's source-level evidence.
+
+## 2026-11-10 continuation — resumed metadata versus original extracted PCM
+
+**New user field observation:** Termux build failed at `archive_mar7th_20.wav` with actual `(48000, 1, 16, 277363)` versus cached Entry/manifest `(44100, 1, 16, 254828)`. This is a screenshot-observed failed gate; original PCM content and manifest provenance were not supplied.
+
+**Code-derived explanation:** `build_entries()` transforms minority-format WAVs in the extraction working tree and records post-normalization Entry fields, while `pipeline.build_project_v02()` can reuse that metadata stage and re-extract untransformed members to create FLAC. For 48 kHz / 277363 samples, real local FFmpeg resampling produces exactly 44.1 kHz / 254828 samples; frame durations are within a rounding quantum. This is consistent with the user's report but does not alone prove that their actual source content is unchanged. The pre-/post-normalization relation in the October observation is the relevant provenance boundary.
+
+**Narrow mitigation submitted:** [HSR PR #222](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/222), latest branch commit `c989770abcb9061df3f8ed493b43115365c5bf2a`. When a resumed member differs from the saved Entry PCM tuple, it normalizes **only an isolated temporary streaming copy** to the recorded format and checks both exact PCM tuple and the manifest's **post-normalization SHA-256** before streaming. Already-matching members are also checked against their saved content hash. Discrepancies fail closed without replacing the previously published FLAC. New real-FFmpeg regression reproduces the exact 277363-to-254828 conversion and an equally long altered-audio rejection.
+
+**Status:** Product change submitted on PR, exact-head CI and target Android field success **Pending External Validation**. This fixes the resumed-stream boundary, not the broader original-directory in-place normalization policy or durable per-member pre-transform provenance. Do not promote Canonical from this observation.
