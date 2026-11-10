@@ -67,3 +67,11 @@ A new user-facing report disclosed a distinct *publication-chain* failure: after
 **Bounded correction submitted:** HSR [PR #223](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/223), head 6e7cfa5ef5b7f86bc77b8aa5dd32f9d05608a499, replaces ASS-text demux verification with native FFprobe ASS packet + codec-private style inspection: exact rational PTS/duration centiseconds, exact text/override/style/actor/effect semantics, preserved event multiplicity and ReadOrder guard. Existing refusal to publish corrupt replacements remains. Real 9990-event >10h mux/test and tamper tests included.
 
 **Status:** Local reproduction and product patch done; first read of six PR workflows showed them in progress. CI final and physical Termux field acceptance **Pending External Validation**. No Canonical promotion and no claim that device failure is fixed.
+
+## PR #223 merge and verification update — 2026-11-10
+
+GitHub PR [#223](https://github.com/11576865/HSR-Voice-Archive-Builder/pull/223) completed all six PR-head GitHub Actions workflows successfully, including the seven ASS requirements suite and real media test. Squash-merged to HSR main at `8b5d5aa6a1dad5e49f486c634c8940d539559379`.
+
+Independent post-merge readback verifies production `app/archive_bundle_exporter.py` calls `assert_native_ass_matches(self.ffprobe, mkv, expected)` instead of exporting the embedded ASS stream through the lossy textual `-f ass` path. The native packet verifier and the 9990-event >10h regression test also exist on main. The checks still compare native timing, style, event payload, effects and multiplicity; they do not relax the reject-before-publish guard.
+
+Evidence tier: merged production code + all six PR-head CI workflows passed. **Device acceptance Pending**: the user has not yet provided a successful updated Termux rebuild of the original 9990-event project, so the exact reported field failure cannot be marked closed. No Canonical promotion.
