@@ -12,8 +12,8 @@
   "patterns": [],
   "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.PROJECT.WORKSPACE.DESKTOP_DARK.png",
   "source_repository": "11576865/HSR-Voice-Archive-Builder",
-  "source_revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
-  "sha256": "64e4839cd7bef58190ca235ea895be9057a3c2727a853206e6c11292c92ea257",
+  "source_revision": "8b5d5aa6a1dad5e49f486c634c8940d539559379",
+  "sha256": "b506b3d5a43010a90db74464dd5715c43280b7f51cbb0ab863bf49c4c2b9c545",
   "image": {
     "width": 1365,
     "height": 900
@@ -61,7 +61,7 @@
       "settle_ms": 900
     }
   },
-  "change_status": "unchanged",
+  "change_status": "changed",
   "previous_sha256": "64e4839cd7bef58190ca235ea895be9057a3c2727a853206e6c11292c92ea257",
   "limitations": [
     "No user game assets are loaded."
@@ -70,13 +70,13 @@
     {
       "source_type": "repository",
       "source": "11576865/HSR-Voice-Archive-Builder",
-      "revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+      "revision": "8b5d5aa6a1dad5e49f486c634c8940d539559379",
       "evidence_level": "production-rendered"
     },
     {
       "source_type": "capture-contract",
       "source": "11576865/HSR-Voice-Archive-Builder:ui-visual-capture.json",
-      "revision": "e6e3f92983692984f71d1dce42b9ea8ce663d574",
+      "revision": "8b5d5aa6a1dad5e49f486c634c8940d539559379",
       "evidence_level": "source-owned capture declaration"
     }
   ]
