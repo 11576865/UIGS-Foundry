@@ -47,3 +47,11 @@ The user explicitly clarified that the source voice archive **had successfully c
 An inspected HSR `app/pipeline.py` build route calls `ensure_dir_or_extract(wav_source, work, "wavs")` when its metadata stage cannot be reused, while documented `docs/reliability.md` recovery records stage identity and validated artifact hashes. A repeated extraction may be legitimate due to changed source identity/configuration/stage version. Do not equate a formerly completed build with byte identity now; do not recommend deleting `.state`, `.generated`, manifest, existing FLAC or validated outputs.
 
 **Discriminating field test:** Run `7z t "<exact configured source .7z>"` (or `7zz t`) and retain full result. If test fails, compare source SHA-256/size with prior recorded fingerprint or trusted original and review split volumes. If test succeeds, check whether the path matches what the build used, storage free space, and reason for stage invalidation/re-extraction. Previous success is owner testimony only; no previous source hash or actual current file verification has been provided.
+
+## Second follow-up: integrity test reportedly passes
+
+The user reports that the requested `7z t` check has **no error**. This is user testimony, not captured console output; the exact archive path, binary and exit code remain unverified.
+
+Current HSR `app/builder.py` `_extract_7z_cli` chooses `shutil.which("7zz") or shutil.which("7z")`: a manual `7z t` might not be testing with the exact executable used by HSR. It also writes to a destination directory, unlike a read-only `t` test. Current `app/pipeline.py` constructs `TemporaryDirectory(prefix=".hsr-work-", dir=out_dir.parent)`, so archive testing alone cannot certify write space or storage reliability on the project output filesystem.
+
+**Revised discriminating checks:** Resolve the project's actual `wav_source` from `.hsr-voice-project.json` and compare with the file tested; determine whether `7zz` is installed, test using the exact HSR-selected 7z executable, then check `df -h` for the filesystem hosting the project output parent. If all pass, capture full 7z extraction stdout/stderr and source hashes before inferring a code regression or transient read failure. The earlier damage-first hypothesis has lower priority. Do not promote to Canonical or claim fixed.
