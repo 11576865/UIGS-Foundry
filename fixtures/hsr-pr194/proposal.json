@@ -1,0 +1,28 @@
+{
+  "schema":"uigs-owner-atlas-semantic-proposal/1",
+  "authority":"ai-proposed-not-approved",
+  "repository":"11576865/HSR-Voice-Archive-Builder",
+  "base_sha":"01ad440bf77ea6cfec4ba24c494bd38cd8205053",
+  "head_sha":"dea5411312ed3e819864f1915f4f2008f938cba3",
+  "theory_approved":false,
+  "owner_accepted":false,
+  "tests_verified":false,
+  "runtime_verified":false,
+  "semantic_verified":false,
+  "authorized_to_edit":false,
+  "claims":[{
+    "id":"HSR.PR194.CAND.ASS.PREFLIGHT",
+    "capability_id":"ass-in",
+    "goal_ids":["HSR.DOC.05"],
+    "relationship":"add",
+    "before":"旧前端在内部 ASS 模式下直接向导出接口提交 POST，不具有新增的前端来源诊断请求。",
+    "after":"新前端仅在内部 ASS 模式下先查询项目音频完整性，并在不可信时拒绝发起导出任务。",
+    "user_effect":"用户可能先收到来源不可验证的说明及恢复动作，而不再反复尝试无效的内部 ASS 任务。",
+    "rationale":"本条仅对比同一函数旧版的导出调用及新版新增的 audio-integrity 查询，需要运行测试确认副作用和保护范围。",
+    "open_questions":["是否真正阻止旧成品或字幕回执发生任何写入？", "Termux Lite 是否有等价诊断与失败处理？"],
+    "before_evidence":[{"path":"app/static/index.html", "start":5804,"end":5804,
+      "quote":"const job=await api(external?'/api/output/ass/external':'/api/output/ass'"}],
+    "after_evidence":[{"path":"app/static/index.html", "start":5807,"end":5807,
+      "quote":"const integrity=await api('/api/project/active/audio-integrity');"}]
+  }]
+}

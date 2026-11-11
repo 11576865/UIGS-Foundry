@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "project": {
+    "id": "hsr", "repository": "11576865/HSR-Voice-Archive-Builder",
+    "pinned_sha": "01ad440bf77ea6cfec4ba24c494bd38cd8205053",
+    "source_role": "HSR Git objects authoritative; not an approved theory"
+  },
+  "capabilities": [
+    {"id":"ass-in", "name":"内部 ASS 生成", "evidence":[
+      {"path":"app/static/index.html", "start":5804, "end":5804, "label":"旧版提交内部 ASS 的调用路径"}
+    ]}
+  ],
+  "goal_ledger":{"goals":[
+    {"id":"HSR.DOC.05", "title":"可信语音来源与成品保护（仓库文档候选）",
+     "status":"documented-not-owner-approved", "source":[], "implementation_evidence":[]}
+  ]}
+}
