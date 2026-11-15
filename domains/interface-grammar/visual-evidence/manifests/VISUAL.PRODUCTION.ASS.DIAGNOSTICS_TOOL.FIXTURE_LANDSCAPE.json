@@ -13,7 +13,7 @@
   "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.DIAGNOSTICS_TOOL.FIXTURE_LANDSCAPE.png",
   "source_repository": "11576865/ASS-Workbench-Android",
   "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-  "sha256": "cfab6a84ba5b207dd3bb10a382ae049b2173896da939075c882514486240de7a",
+  "sha256": "60d0b78358039d928cfd9d5ee9d4fb95586e2288cef981514e0da1b57ee489ed",
   "image": {
     "width": 1600,
     "height": 1000
@@ -70,7 +70,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "9b254f6328e8b413ac7721fa893f8caf224eb0169c6721822817318ec6fb3c40",
+  "previous_sha256": "cfab6a84ba5b207dd3bb10a382ae049b2173896da939075c882514486240de7a",
   "limitations": [
     "Uses the debug-only regression host to inject deterministic app state while rendering the production ModernEditorScreen and EditorViewModel.",
     "Renderer/video runtime pixels are not active in this fixed-tool state.",
