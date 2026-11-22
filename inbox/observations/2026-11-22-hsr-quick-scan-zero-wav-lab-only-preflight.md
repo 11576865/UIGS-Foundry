@@ -25,3 +25,13 @@ Separate *primary-input corpus absent* from *index coverage failure for a nonemp
 ## Evidence / status
 
 Source review plus one user-visible observation only. No code edits or tests executed, and root cause of the user's selected source remains unverified. Candidate diagnostic improvement only; **not Canonical**. De-dup search found no prior Foundry record about this exact zero-WAV plus redundant index-blocker case.
+
+## Follow-up user evidence: nested directory contains WAV (2026-11-22)
+
+User explicitly confirms that the extra layer inside the selected-looking package is an ordinary **folder** and that the folder **does contain WAV files**. This rules out an inner compressed archive as their description; it does not independently authenticate the source path passed by the form or provide a member listing.
+
+Source check: `source_inventory()` uses `Path.rglob("*")` on directory inputs, `ZipFile.infolist()` on ZIP and 7z `l -slt` member parsing on 7z. All filter by case-insensitive `.wav` suffix regardless of folder depth. A local nested ZIP path `root/voice/actor.wav` is discovered normally by the same selection logic. Thus the explanation "one extra ordinary folder caused WAV 0" is contradicted by the implemented path logic.
+
+**Next decisive evidence:** the exact primary-audio path returned/sent by the Quick Scan form and the actual member names from the same file (native `7zz l -slt` for 7z, `unzip -Z1` for ZIP, or `find` for directory). Compare that with `source_inventory(path)["wav_members"]`. If raw listing includes WAV while inventory does not, file parser bug; if different paths or names, source selection / stale UI state. Avoid speculative parser modification or bypass of the zero-audio gate without this evidence.
+
+Status **Pending field source identity**. No production change, no Canonical promotion.
