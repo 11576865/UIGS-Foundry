@@ -21,7 +21,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.BATCH_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -60,7 +60,7 @@
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.CAPABILITIES_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
       "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-      "sha256": "ba455547624712f5df911991b1d1c293bbcda4bba7fd712ae96e651a9cf782f1",
+      "sha256": "747446981c183d889de209c1a298f930af8a320aee00283e24ac8b07f35fa623",
       "image": {
         "width": 1600,
         "height": 1000
@@ -85,7 +85,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.COMPATIBILITY_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -100,7 +100,7 @@
       "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.DIAGNOSTICS_TOOL.FIXTURE_LANDSCAPE.png",
       "source_repository": "11576865/ASS-Workbench-Android",
       "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-      "sha256": "60d0b78358039d928cfd9d5ee9d4fb95586e2288cef981514e0da1b57ee489ed",
+      "sha256": "868b8e2ef01403064291b52de0886fe35c3a69b0ba1baf4ac63d79e62e979582",
       "image": {
         "width": 1600,
         "height": 1000
@@ -147,7 +147,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EFFECTS_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -170,7 +170,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EVENT_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -190,7 +190,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONTS_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -210,7 +210,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -230,7 +230,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FRAMES_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -252,7 +252,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.KARAOKE_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -276,7 +276,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.POSITION_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -296,7 +296,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.PROJECT_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -316,7 +316,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.QC_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -365,7 +365,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -388,7 +388,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.TEXT_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -408,7 +408,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.TIMELINE_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -454,7 +454,7 @@
         "width": 1600,
         "height": 1000
       },
-      "change_status": "changed",
+      "change_status": "unchanged",
       "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.VECTOR_CLIP_TOOL.FIXTURE_LANDSCAPE.json"
     },
     {
@@ -962,7 +962,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.BATCH_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -981,7 +981,7 @@
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.CAPABILITIES_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
         "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-        "sha256": "ba455547624712f5df911991b1d1c293bbcda4bba7fd712ae96e651a9cf782f1",
+        "sha256": "747446981c183d889de209c1a298f930af8a320aee00283e24ac8b07f35fa623",
         "image": {
           "width": 1600,
           "height": 1000
@@ -1008,7 +1008,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.COMPATIBILITY_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1025,7 +1025,7 @@
         "entrypoint": "domains/interface-grammar/visual-evidence/images/ASS/ASS.DIAGNOSTICS_TOOL.FIXTURE_LANDSCAPE.png",
         "source_repository": "11576865/ASS-Workbench-Android",
         "source_revision": "918c577e7b6f483dae97cdd4e1937295cfe03d6e",
-        "sha256": "60d0b78358039d928cfd9d5ee9d4fb95586e2288cef981514e0da1b57ee489ed",
+        "sha256": "868b8e2ef01403064291b52de0886fe35c3a69b0ba1baf4ac63d79e62e979582",
         "image": {
           "width": 1600,
           "height": 1000
@@ -1054,7 +1054,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EFFECTS_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1079,7 +1079,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.EVENT_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1101,7 +1101,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONTS_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1123,7 +1123,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FONT_REQUIREMENTS_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1145,7 +1145,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.FRAMES_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1169,7 +1169,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.KARAOKE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1195,7 +1195,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.POSITION_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1217,7 +1217,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.PROJECT_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1239,7 +1239,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.QC_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1267,7 +1267,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1295,7 +1295,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1320,7 +1320,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.TEXT_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1342,7 +1342,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.TIMELINE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1366,7 +1366,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.VECTOR_CLIP_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1414,7 +1414,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
@@ -1442,7 +1442,7 @@
           "width": 1600,
           "height": 1000
         },
-        "change_status": "changed",
+        "change_status": "unchanged",
         "path": "domains/interface-grammar/visual-evidence/manifests/VISUAL.PRODUCTION.ASS.STYLE_TOOL.FIXTURE_LANDSCAPE.json"
       }
     ],
