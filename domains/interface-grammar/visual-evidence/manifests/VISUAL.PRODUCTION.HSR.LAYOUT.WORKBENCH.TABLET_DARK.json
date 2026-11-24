@@ -70,8 +70,8 @@
       "settle_ms": 900
     }
   },
-  "change_status": "changed",
-  "previous_sha256": "3b9d3d184cae869015dfb06dc55525d7288f6c72a16172b0f6d46855321d2b57",
+  "change_status": "unchanged",
+  "previous_sha256": "7af43514dde03f3f71d5530c59f38369366a47f95972fa4ae56bd9f9a79cd0e9",
   "limitations": [
     "Tablet layout and editable control hierarchy only.",
     "Not runtime-backed libass verification; no active project data is fabricated."
