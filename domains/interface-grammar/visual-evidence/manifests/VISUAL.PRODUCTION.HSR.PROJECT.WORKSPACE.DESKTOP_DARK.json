@@ -13,7 +13,7 @@
   "entrypoint": "domains/interface-grammar/visual-evidence/images/HSR/HSR.PROJECT.WORKSPACE.DESKTOP_DARK.png",
   "source_repository": "11576865/HSR-Voice-Archive-Builder",
   "source_revision": "ebefbf284f7039e1baf83c710d96e18d54c51fb8",
-  "sha256": "08e0fa27bcc3c78370d8f7071d61ad5bf9aa84b9b6f435b3eb78fe8e78abbe7e",
+  "sha256": "6d8a1e544f051ca0dca1e8f93eef39e9648c5e7335ca5ef5a95f0f105b7e4b7f",
   "image": {
     "width": 1365,
     "height": 900
@@ -62,7 +62,7 @@
     }
   },
   "change_status": "changed",
-  "previous_sha256": "d4ee1eb9265bce736b9b52a5e0452436c28aed6ef9d2eb320740e1e6a3580539",
+  "previous_sha256": "08e0fa27bcc3c78370d8f7071d61ad5bf9aa84b9b6f435b3eb78fe8e78abbe7e",
   "limitations": [
     "No user game assets are loaded."
   ],
